@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import {
   Alert,
+  Linking,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -384,6 +385,15 @@ function TodayScreen({
     onToggleTask(activeTask.id);
   }
 
+  async function openStudyResource() {
+    const canOpen = await Linking.canOpenURL(day.resourceUrl);
+    if (!canOpen) {
+      Alert.alert("打不开链接", "这个设备暂时无法打开该资源链接。");
+      return;
+    }
+    await Linking.openURL(day.resourceUrl);
+  }
+
   async function copyDailyReview() {
     const text = [
       `我完成了 English1000 Day ${day.day}。`,
@@ -443,6 +453,12 @@ function TodayScreen({
             <Text style={styles.flowTitle}>{activeTask.title}</Text>
             <Text style={styles.flowText}>{activeTask.detail}</Text>
             {!!activeTask.action && <Text style={styles.flowAction}>{activeTask.action}</Text>}
+            {activeTask.kind === "input" && (
+              <Pressable style={styles.resourceButton} onPress={openStudyResource}>
+                <Text style={styles.resourceButtonText}>打开学习资源</Text>
+                <Text style={styles.resourceButtonSubtext}>外部平台播放，App只记录学习任务</Text>
+              </Pressable>
+            )}
             {support && (
               <View style={styles.supportBox}>
                 <Text style={styles.supportTitle}>{support.title}</Text>
@@ -1268,6 +1284,22 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     marginTop: 10,
     lineHeight: 22
+  },
+  resourceButton: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 8,
+    padding: 12,
+    marginTop: 14
+  },
+  resourceButtonText: {
+    color: theme.primaryDark,
+    fontWeight: "800",
+    fontSize: 16
+  },
+  resourceButtonSubtext: {
+    color: theme.muted,
+    marginTop: 4,
+    lineHeight: 19
   },
   supportBox: {
     backgroundColor: "rgba(255,255,255,0.1)",

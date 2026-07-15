@@ -23,6 +23,7 @@ export type CourseDay = {
   level: string;
   phase: string;
   focus: string;
+  resourceUrl: string;
   isReview: boolean;
   checkpoint?: string;
   tasks: DailyTask[];
@@ -151,6 +152,28 @@ function resourceLabel(phase: Phase, day: number): string {
   return `Modern Family 精选第 ${((day - 276) % 24) + 1} 集`;
 }
 
+function resourceUrl(phase: Phase, day: number): string {
+  const query = encodeURIComponent(resourceLabel(phase, day));
+
+  if (phase.phase === "Dreaming English Beginner" || phase.phase === "Dreaming English Intermediate") {
+    return `https://www.youtube.com/results?search_query=${query}`;
+  }
+
+  if (phase.phase === "Bluey Season 1") {
+    return `https://www.disneyplus.com/search?q=${encodeURIComponent("Bluey")}`;
+  }
+
+  if (phase.phase === "Peppa Pig") {
+    return `https://www.youtube.com/results?search_query=${query}`;
+  }
+
+  if (phase.phase === "TED-Ed") {
+    return "https://ed.ted.com/lessons";
+  }
+
+  return `https://www.hulu.com/search?q=${encodeURIComponent("Modern Family")}`;
+}
+
 export function buildCourseDay(day: number): CourseDay {
   const phase = getPhase(day);
   const isReview = day % 7 === 0;
@@ -160,6 +183,7 @@ export function buildCourseDay(day: number): CourseDay {
   const output = rotate(phase.output, day);
   const wordTopic = rotate(lifeWordTopics, day);
   const resource = resourceLabel(phase, day);
+  const url = resourceUrl(phase, day);
 
   const tasks: DailyTask[] = isReview
     ? [
@@ -261,6 +285,7 @@ export function buildCourseDay(day: number): CourseDay {
     level: phase.level,
     phase: phase.phase,
     focus: `${phase.primary}：${phase.secondary}`,
+    resourceUrl: url,
     isReview,
     checkpoint,
     tasks,

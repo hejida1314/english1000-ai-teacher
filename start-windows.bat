@@ -11,5 +11,5 @@ if not exist node_modules\expo (
   pause
   exit /b 1
 )
-npx expo start
+npx expo start --tunnel --clear
 pause

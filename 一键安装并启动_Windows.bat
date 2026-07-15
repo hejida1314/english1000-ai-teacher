@@ -59,13 +59,13 @@ if not exist node_modules\expo (
 )
 
 echo.
-echo [3/3] Starting Expo...
+echo [3/3] Starting Expo Tunnel...
 echo.
 echo Phone steps:
 echo 1. Install Expo Go
-echo 2. Use the same Wi-Fi on phone and computer
-echo 3. Scan the QR code
+echo 2. Scan the QR code
+echo 3. The address should contain exp.direct
 echo.
-call npx expo start
+call npx expo start --tunnel --clear
 
 pause

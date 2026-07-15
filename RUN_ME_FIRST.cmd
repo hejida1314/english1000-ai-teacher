@@ -107,10 +107,11 @@ if not exist node_modules\expo (
 )
 
 echo.
-echo Starting Expo. When QR code appears, scan it with Expo Go.
+echo Starting Expo Tunnel. When QR code appears, scan it with Expo Go.
+echo The address should contain exp.direct. If it shows 10.0.0.x, stop and tell Codex.
 echo Starting Expo... >> "%LOG%"
 echo.
-call npx expo start
+call npx expo start --tunnel --clear
 
 echo.
 echo Expo stopped.

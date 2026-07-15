@@ -71,6 +71,13 @@ const translations = {
     snapshotMood: "状态",
     snapshotWorkoutValue: "{done}/5",
     snapshotMoodEmpty: "未记",
+    nextActionTitle: "下一步",
+    nextActionEnglish: "先完成今天英语主线。",
+    nextActionWords: "今天有到期单词，先复习一下。",
+    nextActionWorkout: "英语完成后，做最小力量训练。",
+    nextActionJournal: "睡前写两句，明天更清楚。",
+    nextActionDone: "今天核心任务都稳了，可以收工。",
+    openNextAction: "直接去做",
     lifeSystemTitle: "生活操作台",
     lifeSystemBody: "一个首页管今天，四个模块管长期。不要每天找 App。",
     moduleStudyTitle: "学习",
@@ -300,6 +307,13 @@ const translations = {
     snapshotMood: "Mood",
     snapshotWorkoutValue: "{done}/5",
     snapshotMoodEmpty: "None",
+    nextActionTitle: "Next Action",
+    nextActionEnglish: "Finish today's English main path first.",
+    nextActionWords: "Some words are due. Review them first.",
+    nextActionWorkout: "After English, do the smallest strength session.",
+    nextActionJournal: "Write two lines before bed. Tomorrow gets clearer.",
+    nextActionDone: "Core tasks are steady today. You can stop.",
+    openNextAction: "Do this now",
     lifeSystemTitle: "Life Dashboard",
     lifeSystemBody: "One home screen for today, four modules for the long run. Stop hunting for apps.",
     moduleStudyTitle: "Study",
@@ -742,12 +756,23 @@ function HomeScreen({
   const weekPercent = Math.round((completedThisWeek / weekDays.length) * 100);
   const todayLog = lifeLogs.find((item) => item.date === todayKey());
   const spentToday = todayLog?.expenses.reduce((sum, item) => sum + item.amount, 0) ?? 0;
+  const workoutDoneToday = (todayLog?.workoutCompletedIds.length ?? 0) > 0;
+  const journalDoneToday = (todayLog?.journal.trim().length ?? 0) > 0;
   const moodLabels: Record<string, string> = {
     good: t("moodGood"),
     okay: t("moodOkay"),
     tired: t("moodTired"),
     bad: t("moodBad")
   };
+  const nextAction = todayPercent < 100
+    ? { title: t("moduleStudyTitle"), body: t("nextActionEnglish"), onPress: onContinue, icon: <BookOpen size={20} color={theme.primaryDark} /> }
+    : dueWords > 0
+      ? { title: t("navWords"), body: t("nextActionWords"), onPress: onOpenWords, icon: <BookOpen size={20} color={theme.primaryDark} /> }
+      : !workoutDoneToday
+        ? { title: t("moduleHealthTitle"), body: t("nextActionWorkout"), onPress: onOpenLife, icon: <Dumbbell size={20} color={theme.primaryDark} /> }
+        : !journalDoneToday
+          ? { title: t("moduleJournalTitle"), body: t("nextActionJournal"), onPress: onOpenLife, icon: <NotebookPen size={20} color={theme.primaryDark} /> }
+          : { title: t("todayDoneBadge"), body: t("nextActionDone"), onPress: onOpenRoadmap, icon: <CheckCircle2 size={20} color={theme.primaryDark} /> };
 
   return (
     <View>
@@ -795,6 +820,18 @@ function HomeScreen({
           <SnapshotItem label={t("snapshotMood")} value={todayLog?.mood ? moodLabels[todayLog.mood] || todayLog.mood : t("snapshotMoodEmpty")} />
         </View>
       </View>
+
+      <Pressable style={styles.nextActionCard} onPress={nextAction.onPress}>
+        <View style={styles.nextActionIcon}>{nextAction.icon}</View>
+        <View style={styles.nextActionCopy}>
+          <Text style={styles.nextActionLabel}>{t("nextActionTitle")}</Text>
+          <Text style={styles.nextActionTitle}>{nextAction.title}</Text>
+          <Text style={styles.nextActionBody}>{nextAction.body}</Text>
+        </View>
+        <View style={styles.nextActionButton}>
+          <Text style={styles.nextActionButtonText}>{t("openNextAction")}</Text>
+        </View>
+      </Pressable>
 
       <View style={styles.grid}>
         <Metric label={t("streak")} value={t("daysUnit", { count: streak })} />
@@ -2328,6 +2365,56 @@ const styles = StyleSheet.create({
     color: theme.muted,
     marginTop: 4,
     fontWeight: "700"
+  },
+  nextActionCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    backgroundColor: "#EAF3EF",
+    borderRadius: 8,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: "#C9DDD4",
+    marginTop: 12
+  },
+  nextActionIcon: {
+    width: 42,
+    height: 42,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#DDECE6"
+  },
+  nextActionCopy: {
+    flex: 1,
+    minWidth: 0
+  },
+  nextActionLabel: {
+    color: theme.primaryDark,
+    fontWeight: "900",
+    fontSize: 12,
+    marginBottom: 2
+  },
+  nextActionTitle: {
+    color: theme.ink,
+    fontSize: 17,
+    fontWeight: "900"
+  },
+  nextActionBody: {
+    color: theme.muted,
+    lineHeight: 19,
+    marginTop: 2
+  },
+  nextActionButton: {
+    borderRadius: 8,
+    backgroundColor: theme.primary,
+    paddingHorizontal: 10,
+    paddingVertical: 8
+  },
+  nextActionButtonText: {
+    color: "#fff",
+    fontWeight: "900",
+    fontSize: 12
   },
   moduleSection: {
     marginTop: 18

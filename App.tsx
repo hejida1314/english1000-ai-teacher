@@ -1397,11 +1397,11 @@ function TodayScreen({
                 {done ? <CheckCircle2 size={22} color={theme.primary} /> : <Clock3 size={22} color={theme.warm} />}
               </View>
               <View style={styles.taskMain}>
-                <Text style={styles.taskTitle}>{task.title}</Text>
+                <Text style={[styles.taskTitle, done && styles.taskTitleDone]}>{task.title}</Text>
                 <Text style={styles.taskDetail}>{task.detail}</Text>
                 {!!task.action && <Text style={styles.taskAction}>{task.action}</Text>}
               </View>
-              <Text style={styles.minutes}>{task.minutes}m</Text>
+              <Text style={[styles.minutes, done && styles.minutesDone]}>{task.minutes}m</Text>
             </View>
           </Pressable>
         );
@@ -2989,6 +2989,9 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     marginBottom: 6
   },
+  taskTitleDone: {
+    color: theme.primaryDark
+  },
   taskDetail: {
     color: theme.muted,
     lineHeight: 21
@@ -3002,6 +3005,9 @@ const styles = StyleSheet.create({
   minutes: {
     color: theme.warm,
     fontWeight: "800"
+  },
+  minutesDone: {
+    color: theme.primaryDark
   },
   row: {
     flexDirection: "row",

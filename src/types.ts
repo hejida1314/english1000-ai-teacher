@@ -2,6 +2,7 @@ export type ProgressState = {
   currentDay: number;
   completedTaskIds: string[];
   completedDays: number[];
+  taskUnderstanding: Record<string, number>;
   reminderHour: number;
   reminderMinute: number;
   notificationsEnabled: boolean;

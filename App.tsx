@@ -96,6 +96,16 @@ export default function App() {
     await updateProgress({ ...progress, completedTaskIds, completedDays });
   }
 
+  async function rateTaskUnderstanding(taskId: string, percent: number) {
+    await updateProgress({
+      ...progress,
+      taskUnderstanding: {
+        ...(progress.taskUnderstanding || {}),
+        [taskId]: percent
+      }
+    });
+  }
+
   async function goNextDay() {
     if (progress.currentDay >= COURSE_DAYS.length) {
       Alert.alert("已经完成", "你已经走完334天计划。");
@@ -161,7 +171,9 @@ export default function App() {
               day={day}
               words={words}
               completedTaskIds={progress.completedTaskIds}
+              taskUnderstanding={progress.taskUnderstanding || {}}
               onToggleTask={toggleTask}
+              onRateTaskUnderstanding={rateTaskUnderstanding}
               onUpdateWords={updateWords}
               onNextDay={goNextDay}
               onPreviousDay={goPreviousDay}
@@ -271,7 +283,9 @@ function TodayScreen({
   day,
   words,
   completedTaskIds,
+  taskUnderstanding,
   onToggleTask,
+  onRateTaskUnderstanding,
   onUpdateWords,
   onNextDay,
   onPreviousDay,
@@ -282,7 +296,9 @@ function TodayScreen({
   day: ReturnType<typeof buildCourseDay>;
   words: WordCard[];
   completedTaskIds: string[];
+  taskUnderstanding: Record<string, number>;
   onToggleTask: (taskId: string) => void;
+  onRateTaskUnderstanding: (taskId: string, percent: number) => Promise<void>;
   onUpdateWords: (words: WordCard[]) => Promise<void>;
   onNextDay: () => void;
   onPreviousDay: () => void;
@@ -296,6 +312,7 @@ function TodayScreen({
   const allDone = !activeTask;
   const support = activeTask ? getTaskSupport(day.day, activeTask.kind) : undefined;
   const supportWords = activeTask?.kind === "vocabulary" && support ? support.items : [];
+  const activeUnderstanding = activeTask ? taskUnderstanding[activeTask.id] : undefined;
   const [timerTaskId, setTimerTaskId] = useState<string | undefined>();
   const [remainingSeconds, setRemainingSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
@@ -444,6 +461,15 @@ function TodayScreen({
             <View style={styles.flowMetaRow}>
               <Text style={styles.flowMeta}>预计 {activeTask.minutes} 分钟</Text>
               <Text style={styles.flowMeta}>已完成 {completedCount}/{day.tasks.length}</Text>
+            </View>
+            <View style={styles.ratingPanel}>
+              <Text style={styles.ratingTitle}>理解度：{activeUnderstanding ? `${activeUnderstanding}%` : "未记录"}</Text>
+              <Text style={styles.ratingHint}>大概估一下就行，用来判断材料难不难。</Text>
+              <View style={styles.rowWrap}>
+                {[40, 60, 80].map((percent) => (
+                  <Pill key={percent} label={`${percent}%`} onPress={() => onRateTaskUnderstanding(activeTask.id, percent)} />
+                ))}
+              </View>
             </View>
             <View style={styles.timerPanel}>
               <Text style={styles.timerText}>{timerActive ? formatDuration(remainingSeconds) : `${activeTask.minutes}:00`}</Text>
@@ -1122,6 +1148,23 @@ const styles = StyleSheet.create({
   flowSecondaryButtonText: {
     color: "#fff",
     fontWeight: "800"
+  },
+  ratingPanel: {
+    backgroundColor: "rgba(255,255,255,0.08)",
+    borderColor: "rgba(255,255,255,0.18)",
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 12,
+    marginTop: 14
+  },
+  ratingTitle: {
+    color: "#fff",
+    fontWeight: "800",
+    marginBottom: 4
+  },
+  ratingHint: {
+    color: "#DCEDE8",
+    lineHeight: 20
   },
   timerPanel: {
     backgroundColor: "rgba(255,255,255,0.1)",

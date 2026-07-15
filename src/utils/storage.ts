@@ -8,6 +8,7 @@ export const DEFAULT_PROGRESS: ProgressState = {
   currentDay: 1,
   completedTaskIds: [],
   completedDays: [],
+  taskUnderstanding: {},
   reminderHour: 20,
   reminderMinute: 0,
   notificationsEnabled: false

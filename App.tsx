@@ -79,6 +79,17 @@ const translations = {
     nextActionJournal: "睡前写两句，明天更清楚。",
     nextActionDone: "今天核心任务都稳了，可以收工。",
     openNextAction: "直接去做",
+    quickCaptureTitle: "万能速记",
+    quickCaptureBody: "看到单词、花了钱、想到事情，先丢这里。你点类型，App 负责保存。",
+    quickCapturePlaceholder: "例如：appointment, maintenance / $12 lunch / 今天练了深蹲",
+    saveAsWords: "存生词",
+    saveAsExpense: "记账",
+    saveAsJournal: "写日记",
+    quickCaptureSavedTitle: "已记录",
+    quickCaptureWordsSaved: "新增 {count} 个生词，跳过 {skipped} 个重复。",
+    quickCaptureExpenseSaved: "已记账：${amount}",
+    quickCaptureJournalSaved: "已追加到今天日记。",
+    quickCaptureNeedAmount: "记账需要一个金额，例如 $12 lunch。",
     lifeSystemTitle: "生活操作台",
     lifeSystemBody: "一个首页管今天，四个模块管长期。不要每天找 App。",
     moduleStudyTitle: "学习",
@@ -315,6 +326,17 @@ const translations = {
     nextActionJournal: "Write two lines before bed. Tomorrow gets clearer.",
     nextActionDone: "Core tasks are steady today. You can stop.",
     openNextAction: "Do this now",
+    quickCaptureTitle: "Quick Capture",
+    quickCaptureBody: "Words, spending, and notes all start here. You choose the type; the app saves it.",
+    quickCapturePlaceholder: "Example: appointment, maintenance / $12 lunch / squats done today",
+    saveAsWords: "Save words",
+    saveAsExpense: "Expense",
+    saveAsJournal: "Journal",
+    quickCaptureSavedTitle: "Saved",
+    quickCaptureWordsSaved: "Added {count} words. Skipped {skipped} duplicates.",
+    quickCaptureExpenseSaved: "Expense saved: ${amount}",
+    quickCaptureJournalSaved: "Added to today's journal.",
+    quickCaptureNeedAmount: "Expense needs an amount, e.g. $12 lunch.",
     lifeSystemTitle: "Life Dashboard",
     lifeSystemBody: "One home screen for today, four modules for the long run. Stop hunting for apps.",
     moduleStudyTitle: "Study",
@@ -676,7 +698,10 @@ export default function App() {
               remainingCourseHours={remainingCourseHours}
               dueWords={dueWords.length}
               completedTaskIds={progress.completedTaskIds}
+              words={words}
               lifeLogs={lifeLogs}
+              onUpdateWords={updateWords}
+              onUpdateLifeLogs={updateLifeLogs}
               onContinue={() => setTab("today")}
               onOpenSettings={() => setTab("settings")}
               onOpenRoadmap={() => setTab("roadmap")}
@@ -731,7 +756,10 @@ function HomeScreen({
   remainingCourseHours,
   dueWords,
   completedTaskIds,
+  words,
   lifeLogs,
+  onUpdateWords,
+  onUpdateLifeLogs,
   onContinue,
   onOpenSettings,
   onOpenRoadmap,
@@ -746,7 +774,10 @@ function HomeScreen({
   remainingCourseHours: number;
   dueWords: number;
   completedTaskIds: string[];
+  words: WordCard[];
   lifeLogs: LifeLog[];
+  onUpdateWords: (words: WordCard[]) => Promise<void>;
+  onUpdateLifeLogs: (logs: LifeLog[]) => Promise<void>;
   onContinue: () => void;
   onOpenSettings: () => void;
   onOpenRoadmap: () => void;
@@ -754,6 +785,7 @@ function HomeScreen({
   onOpenWords: () => void;
   t: TFunc;
 }) {
+  const [quickCapture, setQuickCapture] = useState("");
   const remainingTasks = day.tasks.length - Math.round((todayPercent / 100) * day.tasks.length);
   const firstUnfinished = day.tasks.find((task) => !completedTaskIds.includes(task.id)) ?? day.tasks[0];
   const streak = calculateCourseStreak(progress.completedDays, day.day);
@@ -780,6 +812,83 @@ function HomeScreen({
         : !journalDoneToday
           ? { title: t("moduleJournalTitle"), body: t("nextActionJournal"), onPress: () => onOpenLife("journal"), icon: <NotebookPen size={20} color={theme.primaryDark} /> }
           : { title: t("todayDoneBadge"), body: t("nextActionDone"), onPress: onOpenRoadmap, icon: <CheckCircle2 size={20} color={theme.primaryDark} /> };
+
+  async function pasteQuickCapture() {
+    const text = await Clipboard.getStringAsync();
+    if (!text.trim()) {
+      Alert.alert(t("clipboardEmptyTitle"), t("clipboardEmptyBody"));
+      return;
+    }
+    setQuickCapture(text);
+  }
+
+  async function saveQuickWords() {
+    const candidates = extractImportWords(quickCapture);
+    if (!candidates.length) {
+      Alert.alert(t("bulkImportEmptyTitle"), t("bulkImportEmptyBody"));
+      return;
+    }
+    const existing = new Set(words.map((item) => item.word.trim().toLowerCase()));
+    const freshWords: WordCard[] = [];
+    let skipped = 0;
+    candidates.forEach((candidate) => {
+      const normalized = candidate.toLowerCase();
+      if (existing.has(normalized)) {
+        skipped += 1;
+        return;
+      }
+      existing.add(normalized);
+      const hint = getWordHint(candidate);
+      freshWords.push(createWordCard(candidate, hint?.meaning || t("pendingMeaning"), hint?.sentence || t("fromTodayCourse")));
+    });
+    if (freshWords.length) {
+      await onUpdateWords([...freshWords, ...words]);
+    }
+    setQuickCapture("");
+    Alert.alert(t("quickCaptureSavedTitle"), t("quickCaptureWordsSaved", { count: freshWords.length, skipped }));
+  }
+
+  async function saveQuickExpense() {
+    const parsed = quickCapture.match(/(?:\$|usd\s*)?\s*(\d+(?:\.\d{1,2})?)/i);
+    if (!parsed) {
+      Alert.alert(t("invalidExpenseTitle"), t("quickCaptureNeedAmount"));
+      return;
+    }
+    const amount = Math.round(Number(parsed[1]) * 100) / 100;
+    if (!Number.isFinite(amount) || amount <= 0) {
+      Alert.alert(t("invalidExpenseTitle"), t("quickCaptureNeedAmount"));
+      return;
+    }
+    const today = todayKey();
+    const currentLog = lifeLogs.find((item) => item.date === today) ?? createEmptyLifeLog(today);
+    const note = quickCapture.replace(parsed[0], "").trim();
+    const expense = {
+      id: `${Date.now()}`,
+      amount,
+      category: detectExpenseCategory(note),
+      note,
+      createdAt: new Date().toISOString()
+    };
+    const nextLog = { ...currentLog, expenses: [expense, ...currentLog.expenses], updatedAt: new Date().toISOString() };
+    await onUpdateLifeLogs(upsertLifeLog(lifeLogs, nextLog));
+    setQuickCapture("");
+    Alert.alert(t("quickCaptureSavedTitle"), t("quickCaptureExpenseSaved", { amount: amount.toFixed(2) }));
+  }
+
+  async function saveQuickJournal() {
+    const text = quickCapture.trim();
+    if (!text) {
+      return;
+    }
+    const today = todayKey();
+    const currentLog = lifeLogs.find((item) => item.date === today) ?? createEmptyLifeLog(today);
+    const journal = currentLog.journal.trim()
+      ? `${currentLog.journal.trim()}\n${text}`
+      : text;
+    await onUpdateLifeLogs(upsertLifeLog(lifeLogs, { ...currentLog, journal, updatedAt: new Date().toISOString() }));
+    setQuickCapture("");
+    Alert.alert(t("quickCaptureSavedTitle"), t("quickCaptureJournalSaved"));
+  }
 
   return (
     <View>
@@ -839,6 +948,32 @@ function HomeScreen({
           <Text style={styles.nextActionButtonText}>{t("openNextAction")}</Text>
         </View>
       </Pressable>
+
+      <View style={styles.quickCaptureCard}>
+        <Text style={styles.sectionTitle}>{t("quickCaptureTitle")}</Text>
+        <Text style={styles.body}>{t("quickCaptureBody")}</Text>
+        <TextInput
+          style={[styles.input, styles.quickCaptureInput]}
+          value={quickCapture}
+          onChangeText={setQuickCapture}
+          placeholder={t("quickCapturePlaceholder")}
+          multiline
+        />
+        <View style={styles.quickCaptureActions}>
+          <Pressable style={styles.captureButton} onPress={pasteQuickCapture}>
+            <Text style={styles.captureButtonText}>{t("pasteClipboard")}</Text>
+          </Pressable>
+          <Pressable style={styles.captureButton} onPress={saveQuickWords}>
+            <Text style={styles.captureButtonText}>{t("saveAsWords")}</Text>
+          </Pressable>
+          <Pressable style={styles.captureButton} onPress={saveQuickExpense}>
+            <Text style={styles.captureButtonText}>{t("saveAsExpense")}</Text>
+          </Pressable>
+          <Pressable style={styles.captureButtonPrimary} onPress={saveQuickJournal}>
+            <Text style={styles.captureButtonPrimaryText}>{t("saveAsJournal")}</Text>
+          </Pressable>
+        </View>
+      </View>
 
       <View style={styles.grid}>
         <Metric label={t("streak")} value={t("daysUnit", { count: streak })} />
@@ -2038,6 +2173,32 @@ function createEmptyLifeLog(date: string): LifeLog {
   };
 }
 
+function upsertLifeLog(logs: LifeLog[], nextLog: LifeLog) {
+  return logs.some((item) => item.date === nextLog.date)
+    ? logs.map((item) => item.date === nextLog.date ? nextLog : item)
+    : [nextLog, ...logs];
+}
+
+function detectExpenseCategory(note: string) {
+  const text = note.toLowerCase();
+  if (/gas|fuel|car|uber|lyft|parking|oil|maintenance/.test(text)) {
+    return "car";
+  }
+  if (/food|lunch|dinner|breakfast|restaurant|coffee|meal|吃|饭|餐/.test(text)) {
+    return "food";
+  }
+  if (/grocery|walmart|costco|market|超市/.test(text)) {
+    return "grocery";
+  }
+  if (/doctor|clinic|medicine|dental|health|医院|药|牙/.test(text)) {
+    return "health";
+  }
+  if (/rent|bill|utility|electric|water|phone|房租|账单/.test(text)) {
+    return "bill";
+  }
+  return "other";
+}
+
 function calculateCourseStreak(completedDays: number[], currentDay: number) {
   const completed = new Set(completedDays);
   let cursor = completed.has(currentDay) ? currentDay : currentDay - 1;
@@ -2426,6 +2587,46 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "900",
     fontSize: 12
+  },
+  quickCaptureCard: {
+    backgroundColor: theme.surface,
+    borderRadius: 8,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#D8E2DC",
+    marginTop: 12
+  },
+  quickCaptureInput: {
+    minHeight: 86,
+    paddingTop: 12,
+    textAlignVertical: "top"
+  },
+  quickCaptureActions: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8
+  },
+  captureButton: {
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: theme.line,
+    backgroundColor: theme.soft,
+    paddingHorizontal: 12,
+    paddingVertical: 10
+  },
+  captureButtonText: {
+    color: theme.primaryDark,
+    fontWeight: "900"
+  },
+  captureButtonPrimary: {
+    borderRadius: 8,
+    backgroundColor: theme.primary,
+    paddingHorizontal: 12,
+    paddingVertical: 10
+  },
+  captureButtonPrimaryText: {
+    color: "#fff",
+    fontWeight: "900"
   },
   moduleSection: {
     marginTop: 18

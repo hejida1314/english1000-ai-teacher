@@ -1,8 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { ProgressState, WordCard } from "../types";
+import { LifeLog, ProgressState, WordCard } from "../types";
 
 const PROGRESS_KEY = "english1000.progress.v1";
 const WORDS_KEY = "english1000.words.v1";
+const LIFE_LOGS_KEY = "english1000.lifeLogs.v1";
 
 export const DEFAULT_PROGRESS: ProgressState = {
   currentDay: 1,
@@ -39,15 +40,25 @@ export async function saveWords(words: WordCard[]): Promise<void> {
   await AsyncStorage.setItem(WORDS_KEY, JSON.stringify(words));
 }
 
+export async function loadLifeLogs(): Promise<LifeLog[]> {
+  const raw = await AsyncStorage.getItem(LIFE_LOGS_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+export async function saveLifeLogs(logs: LifeLog[]): Promise<void> {
+  await AsyncStorage.setItem(LIFE_LOGS_KEY, JSON.stringify(logs));
+}
+
 export async function exportBackup(): Promise<string> {
-  const [progress, words] = await Promise.all([loadProgress(), loadWords()]);
+  const [progress, words, lifeLogs] = await Promise.all([loadProgress(), loadWords(), loadLifeLogs()]);
   return JSON.stringify(
     {
       app: "English1000 AI Teacher",
-      version: 1,
+      version: 2,
       exportedAt: new Date().toISOString(),
       progress,
-      words
+      words,
+      lifeLogs
     },
     null,
     2
@@ -61,4 +72,7 @@ export async function importBackup(backupJson: string): Promise<void> {
   }
   await saveProgress({ ...DEFAULT_PROGRESS, ...backup.progress });
   await saveWords(backup.words);
+  if (Array.isArray(backup.lifeLogs)) {
+    await saveLifeLogs(backup.lifeLogs);
+  }
 }

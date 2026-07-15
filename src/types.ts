@@ -21,3 +21,19 @@ export type WordCard = {
   dueAt: string;
   createdAt: string;
 };
+
+export type ExpenseEntry = {
+  id: string;
+  amount: number;
+  category: string;
+  note: string;
+  createdAt: string;
+};
+
+export type LifeLog = {
+  date: string;
+  workoutCompletedIds: string[];
+  expenses: ExpenseEntry[];
+  journal: string;
+  updatedAt: string;
+};

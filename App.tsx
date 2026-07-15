@@ -19,25 +19,28 @@ import {
   Brain,
   CheckCircle2,
   Clock3,
+  Dumbbell,
   Headphones,
   Home,
   ListChecks,
+  NotebookPen,
   Play,
   RotateCcw,
   Settings,
-  Volume2
+  Volume2,
+  WalletCards
 } from "lucide-react-native";
 
 import { COURSE_DAYS, ROADMAP, buildCourseDay } from "./src/data/course";
 import { getTaskSupport } from "./src/data/dayDetails";
 import { getSentencesForDay } from "./src/data/sampleSentences";
 import { getWordHint } from "./src/data/wordHints";
-import { InterfaceLanguage, ProgressState, WordCard } from "./src/types";
-import { DEFAULT_PROGRESS, exportBackup, importBackup, loadProgress, loadWords, saveProgress, saveWords } from "./src/utils/storage";
+import { InterfaceLanguage, LifeLog, ProgressState, WordCard } from "./src/types";
+import { DEFAULT_PROGRESS, exportBackup, importBackup, loadLifeLogs, loadProgress, loadWords, saveLifeLogs, saveProgress, saveWords } from "./src/utils/storage";
 import { requestNotificationPermission, scheduleDailyStudyReminder, scheduleTestNotification } from "./src/utils/notifications";
 import { createWordCard, isDue, reviewWord } from "./src/utils/words";
 
-type Tab = "home" | "today" | "player" | "words" | "ai" | "roadmap" | "settings";
+type Tab = "home" | "today" | "player" | "words" | "ai" | "life" | "roadmap" | "settings";
 type TFunc = (key: TranslationKey, values?: Record<string, string | number>) => string;
 
 const theme = {
@@ -174,6 +177,26 @@ const translations = {
     aiTitle: "今天这样测试",
     copyAiPrompt: "复制AI提示词",
     aiPromptCopiedBody: "把提示词发给ChatGPT，就能开始今天的AI老师测试。",
+    lifeKicker: "生活管理",
+    lifeTitle: "今天别散掉",
+    lifeBody: "英语、力量、花钱、日记放在一页。目标不是完美，是每天不失控。",
+    workoutTitle: "力量训练",
+    workoutBody: "先做最小可执行量。休息日也可以只完成深蹲和拉伸。",
+    expenseTitle: "记账",
+    expenseBody: "只记今天真实花出去的钱，先别追求复杂分类。",
+    expenseAmountPlaceholder: "金额，例如 12.5",
+    expenseCategoryPlaceholder: "分类，例如 food / gas",
+    expenseNotePlaceholder: "备注，例如 lunch",
+    addExpense: "添加花费",
+    todayExpense: "今日花费：${amount}",
+    journalTitle: "日记",
+    journalBody: "写几句就行：今天做了什么、花了什么、身体状态、英语完成没有。",
+    journalPlaceholder: "今天记录...",
+    saveJournal: "保存日记",
+    lifeSavedTitle: "已保存",
+    lifeSavedBody: "今天的生活记录已经保存在本地。",
+    invalidExpenseTitle: "金额不对",
+    invalidExpenseBody: "请输入数字，例如 8、12.5、30。",
     roadmapKicker: "1000小时路线",
     roadmapTitle: "只走一条主线",
     openStageResource: "打开阶段资源",
@@ -213,6 +236,7 @@ const translations = {
     navToday: "今日",
     navPlayer: "精听",
     navWords: "单词",
+    navLife: "生活",
     navAi: "AI",
     completedPlanTitle: "已经完成",
     completedPlanBody: "你已经走完334天计划。"
@@ -337,6 +361,26 @@ const translations = {
     aiTitle: "Test yourself today",
     copyAiPrompt: "Copy AI prompt",
     aiPromptCopiedBody: "Send the prompt to ChatGPT to start today's AI Teacher test.",
+    lifeKicker: "Life Manager",
+    lifeTitle: "Keep Today Together",
+    lifeBody: "English, strength, spending, and journal in one place. The goal is not perfection; it is staying in control.",
+    workoutTitle: "Strength Training",
+    workoutBody: "Start with the smallest useful amount. On tired days, just do squats and stretching.",
+    expenseTitle: "Spending",
+    expenseBody: "Record real money spent today. Keep categories simple first.",
+    expenseAmountPlaceholder: "Amount, e.g. 12.5",
+    expenseCategoryPlaceholder: "Category, e.g. food / gas",
+    expenseNotePlaceholder: "Note, e.g. lunch",
+    addExpense: "Add expense",
+    todayExpense: "Spent today: ${amount}",
+    journalTitle: "Journal",
+    journalBody: "Write a few lines: what you did, what you spent, body status, and whether English was done.",
+    journalPlaceholder: "Today's note...",
+    saveJournal: "Save journal",
+    lifeSavedTitle: "Saved",
+    lifeSavedBody: "Today's life log has been saved locally.",
+    invalidExpenseTitle: "Invalid amount",
+    invalidExpenseBody: "Enter a number, e.g. 8, 12.5, 30.",
     roadmapKicker: "1000-Hour Roadmap",
     roadmapTitle: "One main path only",
     openStageResource: "Open stage resource",
@@ -376,6 +420,7 @@ const translations = {
     navToday: "Today",
     navPlayer: "Listen",
     navWords: "Words",
+    navLife: "Life",
     navAi: "AI",
     completedPlanTitle: "Plan complete",
     completedPlanBody: "You have finished the 334-day plan."
@@ -398,15 +443,17 @@ function createTranslator(language: InterfaceLanguage): TFunc {
 export default function App() {
   const [progress, setProgress] = useState<ProgressState>(DEFAULT_PROGRESS);
   const [words, setWords] = useState<WordCard[]>([]);
+  const [lifeLogs, setLifeLogs] = useState<LifeLog[]>([]);
   const [tab, setTab] = useState<Tab>("home");
   const [ready, setReady] = useState(false);
   const language = progress.interfaceLanguage || "zh";
   const t = useMemo(() => createTranslator(language), [language]);
 
   useEffect(() => {
-    Promise.all([loadProgress(), loadWords()]).then(([storedProgress, storedWords]) => {
+    Promise.all([loadProgress(), loadWords(), loadLifeLogs()]).then(([storedProgress, storedWords, storedLifeLogs]) => {
       setProgress(storedProgress);
       setWords(storedWords);
+      setLifeLogs(storedLifeLogs);
       setReady(true);
     });
   }, []);
@@ -432,6 +479,11 @@ export default function App() {
   async function updateWords(next: WordCard[]) {
     setWords(next);
     await saveWords(next);
+  }
+
+  async function updateLifeLogs(next: LifeLog[]) {
+    setLifeLogs(next);
+    await saveLifeLogs(next);
   }
 
   async function toggleTask(taskId: string) {
@@ -481,9 +533,10 @@ export default function App() {
 
   async function restoreFromBackup(backupJson: string) {
     await importBackup(backupJson);
-    const [restoredProgress, restoredWords] = await Promise.all([loadProgress(), loadWords()]);
+    const [restoredProgress, restoredWords, restoredLifeLogs] = await Promise.all([loadProgress(), loadWords(), loadLifeLogs()]);
     setProgress(restoredProgress);
     setWords(restoredWords);
+    setLifeLogs(restoredLifeLogs);
     setTab("home");
   }
 
@@ -538,6 +591,7 @@ export default function App() {
           {tab === "player" && <PlayerScreen dayNumber={day.day} phase={day.phase} words={words} onUpdateWords={updateWords} t={t} />}
           {tab === "words" && <WordsScreen words={words} onUpdate={updateWords} t={t} />}
           {tab === "ai" && <AiScreen prompt={day.aiPrompt} t={t} />}
+          {tab === "life" && <LifeScreen logs={lifeLogs} onUpdate={updateLifeLogs} language={language} t={t} />}
           {tab === "roadmap" && <RoadmapScreen t={t} />}
           {tab === "settings" && (
             <SettingsScreen
@@ -1223,6 +1277,143 @@ function AiScreen({ prompt, t }: { prompt: string; t: TFunc }) {
   );
 }
 
+const workoutItems = [
+  { id: "squat", zh: "\u6df1\u8e72 3\u7ec4", en: "Squats 3 sets" },
+  { id: "push", zh: "\u63a8\uff1a\u4fef\u5367\u6491/\u5367\u63a8 3\u7ec4", en: "Push: push-ups/press 3 sets" },
+  { id: "pull", zh: "\u62c9\uff1a\u5212\u8239/\u4e0b\u62c9 3\u7ec4", en: "Pull: rows/pulldown 3 sets" },
+  { id: "core", zh: "\u6838\u5fc3\uff1a\u5e73\u677f\u652f\u6491", en: "Core: plank" },
+  { id: "walk", zh: "\u8d70\u8def/\u62c9\u4f38 10\u5206\u949f", en: "Walk/stretch 10 min" }
+];
+
+function LifeScreen({
+  logs,
+  onUpdate,
+  language,
+  t
+}: {
+  logs: LifeLog[];
+  onUpdate: (logs: LifeLog[]) => Promise<void>;
+  language: InterfaceLanguage;
+  t: TFunc;
+}) {
+  const today = todayKey();
+  const log = logs.find((item) => item.date === today) ?? createEmptyLifeLog(today);
+  const [amount, setAmount] = useState("");
+  const [category, setCategory] = useState("");
+  const [expenseNote, setExpenseNote] = useState("");
+  const [journal, setJournal] = useState(log.journal);
+  const spentToday = log.expenses.reduce((sum, item) => sum + item.amount, 0);
+
+  useEffect(() => {
+    setJournal(log.journal);
+  }, [log.date, log.journal]);
+
+  async function saveLog(nextLog: LifeLog) {
+    const exists = logs.some((item) => item.date === nextLog.date);
+    const nextLogs = exists
+      ? logs.map((item) => item.date === nextLog.date ? nextLog : item)
+      : [nextLog, ...logs];
+    await onUpdate(nextLogs);
+  }
+
+  async function toggleWorkout(id: string) {
+    const completed = log.workoutCompletedIds.includes(id);
+    const workoutCompletedIds = completed
+      ? log.workoutCompletedIds.filter((item) => item !== id)
+      : [...log.workoutCompletedIds, id];
+    await saveLog({ ...log, workoutCompletedIds, updatedAt: new Date().toISOString() });
+  }
+
+  async function addExpense() {
+    const parsed = Number(amount);
+    if (!Number.isFinite(parsed) || parsed <= 0) {
+      Alert.alert(t("invalidExpenseTitle"), t("invalidExpenseBody"));
+      return;
+    }
+    const expense = {
+      id: `${Date.now()}`,
+      amount: Math.round(parsed * 100) / 100,
+      category: category.trim() || "general",
+      note: expenseNote.trim(),
+      createdAt: new Date().toISOString()
+    };
+    await saveLog({ ...log, expenses: [expense, ...log.expenses], updatedAt: new Date().toISOString() });
+    setAmount("");
+    setCategory("");
+    setExpenseNote("");
+  }
+
+  async function saveJournal() {
+    await saveLog({ ...log, journal, updatedAt: new Date().toISOString() });
+    Alert.alert(t("lifeSavedTitle"), t("lifeSavedBody"));
+  }
+
+  return (
+    <View>
+      <Text style={styles.kicker}>{t("lifeKicker")}</Text>
+      <Text style={styles.title}>{t("lifeTitle")}</Text>
+      <Text style={styles.body}>{t("lifeBody")}</Text>
+
+      <View style={styles.card}>
+        <View style={styles.cardTitleRow}>
+          <Dumbbell size={20} color={theme.primaryDark} />
+          <Text style={styles.taskTitle}>{t("workoutTitle")}</Text>
+        </View>
+        <Text style={styles.body}>{t("workoutBody")}</Text>
+        {workoutItems.map((item) => {
+          const done = log.workoutCompletedIds.includes(item.id);
+          return (
+            <Pressable key={item.id} style={[styles.lifeChecklistItem, done && styles.lifeChecklistItemDone]} onPress={() => toggleWorkout(item.id)}>
+              <CheckCircle2 size={20} color={done ? theme.primary : theme.muted} />
+              <Text style={styles.lifeChecklistText}>{language === "zh" ? item.zh : item.en}</Text>
+            </Pressable>
+          );
+        })}
+      </View>
+
+      <View style={styles.card}>
+        <View style={styles.cardTitleRow}>
+          <WalletCards size={20} color={theme.primaryDark} />
+          <Text style={styles.taskTitle}>{t("expenseTitle")}</Text>
+        </View>
+        <Text style={styles.body}>{t("expenseBody")}</Text>
+        <Text style={styles.note}>{t("todayExpense", { amount: spentToday.toFixed(2) })}</Text>
+        <View style={styles.inlineForm}>
+          <TextInput style={[styles.input, styles.amountInput]} value={amount} onChangeText={setAmount} placeholder={t("expenseAmountPlaceholder")} keyboardType="decimal-pad" />
+          <TextInput style={[styles.input, styles.categoryInput]} value={category} onChangeText={setCategory} placeholder={t("expenseCategoryPlaceholder")} autoCapitalize="none" />
+        </View>
+        <TextInput style={styles.input} value={expenseNote} onChangeText={setExpenseNote} placeholder={t("expenseNotePlaceholder")} />
+        <Pressable style={styles.primaryButtonSmall} onPress={addExpense}>
+          <Text style={styles.primaryButtonText}>{t("addExpense")}</Text>
+        </Pressable>
+        {log.expenses.slice(0, 4).map((item) => (
+          <Text key={item.id} style={styles.expenseLine}>
+            ${item.amount.toFixed(2)} · {item.category}{item.note ? ` · ${item.note}` : ""}
+          </Text>
+        ))}
+      </View>
+
+      <View style={styles.card}>
+        <View style={styles.cardTitleRow}>
+          <NotebookPen size={20} color={theme.primaryDark} />
+          <Text style={styles.taskTitle}>{t("journalTitle")}</Text>
+        </View>
+        <Text style={styles.body}>{t("journalBody")}</Text>
+        <TextInput
+          style={[styles.input, styles.journalInput]}
+          value={journal}
+          onChangeText={setJournal}
+          placeholder={t("journalPlaceholder")}
+          multiline
+        />
+        <Pressable style={styles.secondaryWideButton} onPress={saveJournal}>
+          <Text style={styles.secondaryButtonText}>{t("saveJournal")}</Text>
+        </Pressable>
+      </View>
+    </View>
+  );
+}
+
 function RoadmapScreen({ t }: { t: TFunc }) {
   async function openRoadmapResource(url: string) {
     await Linking.openURL(url);
@@ -1384,6 +1575,7 @@ function BottomNav({ tab, onChange, t }: { tab: Tab; onChange: (tab: Tab) => voi
     { tab: "today", label: t("navToday"), icon: <ListChecks size={20} color={tab === "today" ? theme.primary : theme.muted} /> },
     { tab: "player", label: t("navPlayer"), icon: <Headphones size={20} color={tab === "player" ? theme.primary : theme.muted} /> },
     { tab: "words", label: t("navWords"), icon: <BookOpen size={20} color={tab === "words" ? theme.primary : theme.muted} /> },
+    { tab: "life", label: t("navLife"), icon: <Dumbbell size={20} color={tab === "life" ? theme.primary : theme.muted} /> },
     { tab: "ai", label: t("navAi"), icon: <Brain size={20} color={tab === "ai" ? theme.primary : theme.muted} /> }
   ];
 
@@ -1425,6 +1617,20 @@ function formatDuration(totalSeconds: number) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
   return `${minutes}:${pad(seconds)}`;
+}
+
+function todayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function createEmptyLifeLog(date: string): LifeLog {
+  return {
+    date,
+    workoutCompletedIds: [],
+    expenses: [],
+    journal: "",
+    updatedAt: new Date().toISOString()
+  };
 }
 
 function calculateCourseStreak(completedDays: number[], currentDay: number) {
@@ -1954,6 +2160,34 @@ const styles = StyleSheet.create({
     borderColor: theme.line,
     marginBottom: 12
   },
+  cardTitleRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginBottom: 8
+  },
+  lifeChecklistItem: {
+    minHeight: 48,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: theme.line,
+    backgroundColor: "#fff",
+    paddingHorizontal: 12,
+    marginTop: 8,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10
+  },
+  lifeChecklistItemDone: {
+    backgroundColor: "#EEF6F3",
+    borderColor: "#BBD8D0"
+  },
+  lifeChecklistText: {
+    flex: 1,
+    color: theme.ink,
+    fontWeight: "800",
+    lineHeight: 20
+  },
   portableCard: {
     backgroundColor: "#FFF8ED",
     borderRadius: 8,
@@ -1997,6 +2231,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
     marginTop: 4
+  },
+  amountInput: {
+    flex: 0.8,
+    marginBottom: 10
+  },
+  categoryInput: {
+    flex: 1.2,
+    marginBottom: 10
+  },
+  expenseLine: {
+    color: theme.muted,
+    lineHeight: 21,
+    marginTop: 4
+  },
+  journalInput: {
+    minHeight: 130,
+    paddingTop: 12,
+    textAlignVertical: "top"
   },
   dayInput: {
     width: 100,
@@ -2047,7 +2299,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 4,
-    width: "20%"
+    width: "16.66%"
   },
   navLabel: {
     color: theme.muted,

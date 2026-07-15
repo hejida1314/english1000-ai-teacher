@@ -431,6 +431,11 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
       Alert.alert("先输入单词", "单词不能为空。");
       return;
     }
+    const normalized = word.trim().toLowerCase();
+    if (words.some((item) => item.word.trim().toLowerCase() === normalized)) {
+      Alert.alert("已经在生词本里", "这个词已经保存过了，直接去复习就行。");
+      return;
+    }
     const nextHint = getWordHint(word);
     await onUpdate([
       createWordCard(

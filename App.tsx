@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Alert,
+  AppState,
   Linking,
   Pressable,
   ScrollView,
@@ -1115,6 +1116,34 @@ function TodayScreen({
     }
   }, [activeTask?.id, onUpdateTimerState, timerState?.remainingSeconds, timerState?.running, timerState?.taskId, timerState?.updatedAt]);
 
+  useEffect(() => {
+    const subscription = AppState.addEventListener("change", (state) => {
+      if (state !== "active" || !activeTask || timerState?.taskId !== activeTask.id) {
+        return;
+      }
+
+      const elapsedSeconds = timerState.running
+        ? Math.max(0, Math.floor((Date.now() - new Date(timerState.updatedAt).getTime()) / 1000))
+        : 0;
+      const nextSeconds = Math.max(0, timerState.remainingSeconds - elapsedSeconds);
+      const nextRunning = timerState.running && nextSeconds > 0;
+      setTimerTaskId(activeTask.id);
+      setRemainingSeconds(nextSeconds);
+      setTimerRunning(nextRunning);
+
+      if (timerState.running) {
+        void onUpdateTimerState({
+          taskId: activeTask.id,
+          remainingSeconds: nextSeconds,
+          running: nextRunning,
+          updatedAt: new Date().toISOString()
+        });
+      }
+    });
+
+    return () => subscription.remove();
+  }, [activeTask?.id, onUpdateTimerState, timerState?.remainingSeconds, timerState?.running, timerState?.taskId, timerState?.updatedAt]);
+
   async function startTimer() {
     if (!activeTask) {
       return;
@@ -1190,6 +1219,9 @@ function TodayScreen({
     if (!canOpen) {
       Alert.alert(t("linkErrorTitle"), t("linkErrorBody"));
       return;
+    }
+    if (activeTask) {
+      await resumeTimer();
     }
     await Linking.openURL(day.resourceUrl);
   }

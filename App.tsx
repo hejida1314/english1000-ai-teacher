@@ -150,6 +150,7 @@ export default function App() {
               todayPercent={todayPercent}
               totalCompletedMinutes={totalCompletedMinutes}
               dueWords={dueWords.length}
+              completedTaskIds={progress.completedTaskIds}
               onContinue={() => setTab("today")}
               onOpenSettings={() => setTab("settings")}
               onOpenRoadmap={() => setTab("roadmap")}
@@ -192,6 +193,7 @@ function HomeScreen({
   todayPercent,
   totalCompletedMinutes,
   dueWords,
+  completedTaskIds,
   onContinue,
   onOpenSettings,
   onOpenRoadmap
@@ -201,12 +203,13 @@ function HomeScreen({
   todayPercent: number;
   totalCompletedMinutes: number;
   dueWords: number;
+  completedTaskIds: string[];
   onContinue: () => void;
   onOpenSettings: () => void;
   onOpenRoadmap: () => void;
 }) {
   const remainingTasks = day.tasks.length - Math.round((todayPercent / 100) * day.tasks.length);
-  const firstUnfinished = day.tasks.find((task) => true);
+  const firstUnfinished = day.tasks.find((task) => !completedTaskIds.includes(task.id)) ?? day.tasks[0];
 
   return (
     <View>

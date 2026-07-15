@@ -64,6 +64,16 @@ const translations = {
     todayProgress: "今日完成 {percent}% · 还剩 {count} 项",
     continueToday: "一键继续今天学习",
     roadmapCta: "查看全年路线",
+    lifeSystemTitle: "生活操作台",
+    lifeSystemBody: "一个首页管今天，四个模块管长期。不要每天找 App。",
+    moduleStudyTitle: "学习",
+    moduleStudyBody: "英语主线、精听、生词、AI测试。",
+    moduleHealthTitle: "健康",
+    moduleHealthBody: "深蹲、推拉、核心、走路拉伸。",
+    moduleMoneyTitle: "记账",
+    moduleMoneyBody: "只记真实花费，先把钱看见。",
+    moduleJournalTitle: "记事",
+    moduleJournalBody: "今天做了什么、身体状态、明天提醒。",
     streak: "连续完成",
     weekPercent: "本周完成率",
     completedDays: "已完成天数",
@@ -259,6 +269,16 @@ const translations = {
     todayProgress: "{percent}% done today · {count} tasks left",
     continueToday: "Continue today's study",
     roadmapCta: "View full roadmap",
+    lifeSystemTitle: "Life Dashboard",
+    lifeSystemBody: "One home screen for today, four modules for the long run. Stop hunting for apps.",
+    moduleStudyTitle: "Study",
+    moduleStudyBody: "English roadmap, listening, words, AI test.",
+    moduleHealthTitle: "Health",
+    moduleHealthBody: "Squats, push/pull, core, walking and stretching.",
+    moduleMoneyTitle: "Money",
+    moduleMoneyBody: "Record real spending first. Make money visible.",
+    moduleJournalTitle: "Notes",
+    moduleJournalBody: "What happened, body status, and tomorrow reminders.",
     streak: "Streak",
     weekPercent: "Week progress",
     completedDays: "Days done",
@@ -590,6 +610,8 @@ export default function App() {
               onContinue={() => setTab("today")}
               onOpenSettings={() => setTab("settings")}
               onOpenRoadmap={() => setTab("roadmap")}
+              onOpenLife={() => setTab("life")}
+              onOpenWords={() => setTab("words")}
               t={t}
             />
           )}
@@ -642,6 +664,8 @@ function HomeScreen({
   onContinue,
   onOpenSettings,
   onOpenRoadmap,
+  onOpenLife,
+  onOpenWords,
   t
 }: {
   day: ReturnType<typeof buildCourseDay>;
@@ -654,6 +678,8 @@ function HomeScreen({
   onContinue: () => void;
   onOpenSettings: () => void;
   onOpenRoadmap: () => void;
+  onOpenLife: () => void;
+  onOpenWords: () => void;
   t: TFunc;
 }) {
   const remainingTasks = day.tasks.length - Math.round((todayPercent / 100) * day.tasks.length);
@@ -709,6 +735,20 @@ function HomeScreen({
         <Metric label={t("remainingHours")} value={`${remainingCourseHours}`} />
         <Metric label={t("dueWords")} value={`${dueWords}`} />
         <Metric label={t("reminderTime")} value={`${pad(progress.reminderHour)}:${pad(progress.reminderMinute)}`} />
+      </View>
+
+      <View style={styles.moduleSection}>
+        <Text style={styles.sectionTitle}>{t("lifeSystemTitle")}</Text>
+        <Text style={styles.body}>{t("lifeSystemBody")}</Text>
+        <View style={styles.moduleGrid}>
+          <ModuleCard icon={<BookOpen size={22} color={theme.primaryDark} />} title={t("moduleStudyTitle")} body={t("moduleStudyBody")} onPress={onContinue} />
+          <ModuleCard icon={<Dumbbell size={22} color={theme.primaryDark} />} title={t("moduleHealthTitle")} body={t("moduleHealthBody")} onPress={onOpenLife} />
+          <ModuleCard icon={<WalletCards size={22} color={theme.primaryDark} />} title={t("moduleMoneyTitle")} body={t("moduleMoneyBody")} onPress={onOpenLife} />
+          <ModuleCard icon={<NotebookPen size={22} color={theme.primaryDark} />} title={t("moduleJournalTitle")} body={t("moduleJournalBody")} onPress={onOpenLife} />
+        </View>
+        <Pressable style={styles.secondaryWideButton} onPress={onOpenWords}>
+          <Text style={styles.secondaryButtonText}>{t("navWords")}</Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -1695,6 +1735,16 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
+function ModuleCard({ icon, title, body, onPress }: { icon: React.ReactNode; title: string; body: string; onPress: () => void }) {
+  return (
+    <Pressable style={styles.moduleCard} onPress={onPress}>
+      <View style={styles.moduleIcon}>{icon}</View>
+      <Text style={styles.moduleTitle}>{title}</Text>
+      <Text style={styles.moduleBody}>{body}</Text>
+    </Pressable>
+  );
+}
+
 function Pill({ label, onPress, icon }: { label: string; onPress: () => void; icon?: React.ReactNode }) {
   return (
     <Pressable style={styles.pill} onPress={onPress}>
@@ -2033,6 +2083,43 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 10,
     marginTop: 12
+  },
+  moduleSection: {
+    marginTop: 18
+  },
+  moduleGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 10
+  },
+  moduleCard: {
+    width: "48%",
+    minHeight: 142,
+    borderRadius: 8,
+    backgroundColor: theme.surface,
+    borderWidth: 1,
+    borderColor: theme.line,
+    padding: 14
+  },
+  moduleIcon: {
+    width: 38,
+    height: 38,
+    borderRadius: 8,
+    backgroundColor: theme.soft,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12
+  },
+  moduleTitle: {
+    color: theme.ink,
+    fontSize: 17,
+    fontWeight: "800",
+    marginBottom: 6
+  },
+  moduleBody: {
+    color: theme.muted,
+    lineHeight: 20,
+    fontSize: 13
   },
   metric: {
     width: "48%",

@@ -68,7 +68,45 @@ const hints: Record<string, WordHint> = {
   boss: { meaning: "老板", sentence: "My boss called me." },
   customer: { meaning: "顾客", sentence: "I helped a customer." },
   break: { meaning: "休息", sentence: "I took a short break." },
-  later: { meaning: "稍后；以后", sentence: "I will study later." }
+  later: { meaning: "稍后；以后", sentence: "I will study later." },
+
+  doctor: { meaning: "医生", sentence: "I need to see a doctor." },
+  available: { meaning: "有空的；可用的", sentence: "Do you have anything available this week?" },
+  week: { meaning: "星期；一周", sentence: "I need to go this week." },
+  pain: { meaning: "疼痛", sentence: "I have pain in my tooth." },
+  insurance: { meaning: "保险", sentence: "I need to bring my insurance card." },
+  clinic: { meaning: "诊所", sentence: "I need to call the clinic." },
+
+  bank: { meaning: "银行", sentence: "I need to go to the bank." },
+  account: { meaning: "账户", sentence: "I'd like to open an account." },
+  deposit: { meaning: "存入；存款", sentence: "Can I deposit cash?" },
+  transfer: { meaning: "转账；转移", sentence: "Can I transfer money?" },
+  money: { meaning: "钱", sentence: "Can I transfer money?" },
+  fee: { meaning: "费用", sentence: "Is there a fee?" },
+  balance: { meaning: "余额", sentence: "Can I check my balance?" },
+
+  dmv: { meaning: "车管所", sentence: "I have an appointment at the DMV." },
+  license: { meaning: "驾照；许可证", sentence: "I'm here for my driver's license." },
+  document: { meaning: "文件；材料", sentence: "What documents do I need?" },
+  registration: { meaning: "登记；车辆注册", sentence: "I'm here for my registration." },
+  wait: { meaning: "等待", sentence: "Where should I wait?" },
+  line: { meaning: "队伍；排队", sentence: "Is this the right line?" },
+  number: { meaning: "号码", sentence: "What is my number?" },
+  form: { meaning: "表格", sentence: "What form do I need?" },
+  next: { meaning: "下一个；接下来", sentence: "What is the next step?" },
+
+  phone: { meaning: "电话；手机", sentence: "I am on the phone." },
+  repeat: { meaning: "重复", sentence: "Could you repeat that?" },
+  slowly: { meaning: "慢慢地", sentence: "Could you speak a little more slowly?" },
+  confirm: { meaning: "确认", sentence: "Let me confirm the time." },
+  hold: { meaning: "等待；别挂电话", sentence: "Can you hold for a moment?" },
+  again: { meaning: "再一次", sentence: "Could you say that again?" },
+
+  problem: { meaning: "问题", sentence: "There is a problem." },
+  fix: { meaning: "修理；解决", sentence: "Can you fix it?" },
+  wrong: { meaning: "错误的；有问题的", sentence: "There is something wrong." },
+  try: { meaning: "尝试", sentence: "I will try again." },
+  should: { meaning: "应该", sentence: "What should I do?" }
 };
 
 export function getWordHint(word: string): WordHint | undefined {

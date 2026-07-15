@@ -479,7 +479,20 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
   const [sentence, setSentence] = useState("");
   const dueWords = words.filter(isDue);
   const hint = getWordHint(word);
-  const quickWords = ["appointment", "maintenance", "oil", "tire", "beef", "potato", "aisle", "receipt", "boss", "customer"];
+  const quickWords = [
+    "appointment",
+    "maintenance",
+    "insurance",
+    "clinic",
+    "account",
+    "deposit",
+    "license",
+    "document",
+    "repeat",
+    "confirm",
+    "problem",
+    "customer"
+  ];
 
   function updateWord(nextWord: string) {
     setWord(nextWord);
@@ -535,7 +548,7 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
         <Pressable style={styles.primaryButtonSmall} onPress={addWord}>
           <Text style={styles.primaryButtonText}>加入生词本</Text>
         </Pressable>
-        <Text style={styles.quickLabel}>第一周快捷词</Text>
+        <Text style={styles.quickLabel}>生活高频快捷词</Text>
         <View style={styles.rowWrap}>
           {quickWords.map((item) => (
             <Pill key={item} label={item} onPress={() => updateWord(item)} />

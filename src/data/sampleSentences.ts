@@ -1,0 +1,28 @@
+export type StudySentence = {
+  id: string;
+  english: string;
+  chinese: string;
+};
+
+export const SAMPLE_SENTENCES: StudySentence[] = [
+  {
+    id: "s1",
+    english: "I'd like to schedule a maintenance appointment.",
+    chinese: "我想预约一次车辆保养。"
+  },
+  {
+    id: "s2",
+    english: "Could you say that again a little more slowly?",
+    chinese: "你可以再慢一点说一遍吗？"
+  },
+  {
+    id: "s3",
+    english: "I watched today's lesson and understood the main idea.",
+    chinese: "我看了今天的课程，听懂了大概意思。"
+  },
+  {
+    id: "s4",
+    english: "I don't need perfect English. I need useful English.",
+    chinese: "我不需要完美英语，我需要有用的英语。"
+  }
+];

@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "English1000 AI Teacher",
+    "slug": "english1000-ai-teacher",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#F7F2EA"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.english1000.aiteacher"
+    },
+    "android": {
+      "package": "com.english1000.aiteacher"
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "color": "#256D63"
+        }
+      ]
+    ]
+  }
+}

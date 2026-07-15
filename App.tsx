@@ -805,6 +805,14 @@ function TodayScreen({
     setTimerRunning(false);
   }
 
+  function resumeTimer() {
+    if (timerActive) {
+      setTimerRunning(true);
+    } else {
+      startTimer();
+    }
+  }
+
   function finishActiveTask() {
     if (!activeTask) {
       return;
@@ -967,7 +975,7 @@ function TodayScreen({
                 {timerRunning ? t("timerRunning") : remainingSeconds === 0 && timerTaskId === activeTask.id ? t("timerDone") : t("timerIdle")}
               </Text>
               <View style={styles.rowWrap}>
-                <Pill label={timerRunning ? t("pauseTimer") : timerActive ? t("resumeTimer") : t("startTimer")} onPress={timerRunning ? pauseTimer : startTimer} />
+                <Pill label={timerRunning ? t("pauseTimer") : timerActive ? t("resumeTimer") : t("startTimer")} onPress={timerRunning ? pauseTimer : resumeTimer} />
                 <Pill label={t("rescueTimer")} onPress={startRescueTimer} />
                 {timerActive && <Pill label={t("reset")} onPress={startTimer} />}
               </View>

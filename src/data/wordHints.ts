@@ -1,4 +1,5 @@
 import { basicWordHints } from "./basicWordHints";
+import { curatedWordHints } from "./curatedWordHints";
 
 export type WordHint = {
   meaning: string;
@@ -220,7 +221,7 @@ const hints: Record<string, WordHint> = {
 
 export function getWordHint(word: string): WordHint | undefined {
   const normalized = word.trim().toLowerCase();
-  const direct = hints[normalized] || basicWordHints[normalized];
+  const direct = hints[normalized] || curatedWordHints[normalized] || basicWordHints[normalized];
   if (direct) {
     return direct;
   }
@@ -232,5 +233,23 @@ export function getWordHint(word: string): WordHint | undefined {
         : normalized.endsWith("s")
           ? normalized.slice(0, -1)
           : normalized;
-  return hints[base] || basicWordHints[base];
+  const candidates = new Set([
+    base,
+    normalized.endsWith("ies") ? `${normalized.slice(0, -3)}y` : "",
+    normalized.endsWith("ied") ? `${normalized.slice(0, -3)}y` : "",
+    normalized.endsWith("ing") ? normalized.slice(0, -3) : "",
+    normalized.endsWith("ing") ? `${normalized.slice(0, -3)}e` : "",
+    normalized.endsWith("ed") ? normalized.slice(0, -2) : "",
+    normalized.endsWith("ed") ? `${normalized.slice(0, -1)}` : "",
+    normalized.endsWith("s") ? normalized.slice(0, -1) : ""
+  ].filter(Boolean));
+
+  for (const candidate of candidates) {
+    const hint = hints[candidate] || curatedWordHints[candidate] || basicWordHints[candidate];
+    if (hint) {
+      return hint;
+    }
+  }
+
+  return undefined;
 }

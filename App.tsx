@@ -818,6 +818,10 @@ function AiScreen({ prompt }: { prompt: string }) {
 }
 
 function RoadmapScreen() {
+  async function openRoadmapResource(url: string) {
+    await Linking.openURL(url);
+  }
+
   return (
     <View>
       <Text style={styles.kicker}>1000小时路线</Text>
@@ -828,6 +832,9 @@ function RoadmapScreen() {
           <Text style={styles.taskTitle}>{item.title}</Text>
           <Text style={styles.body}>{item.focus}</Text>
           <Text style={styles.note}>{item.exit}</Text>
+          <Pressable style={styles.secondaryWideButton} onPress={() => openRoadmapResource(item.resourceUrl)}>
+            <Text style={styles.secondaryButtonText}>打开阶段资源</Text>
+          </Pressable>
         </View>
       ))}
     </View>

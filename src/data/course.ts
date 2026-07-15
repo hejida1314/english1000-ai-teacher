@@ -306,5 +306,6 @@ export const ROADMAP = phases.map((phase) => ({
   days: `${phase.start}-${phase.end}`,
   title: phase.phase,
   focus: `${phase.primary} + ${phase.secondary}`,
+  resourceUrl: resourceUrl(phase, phase.start),
   exit: phase.end < 276 ? "不用中文字幕能理解60%到70%，再进入下一阶段。" : "用真实英语内容完成复盘，开始录自己的英文表达。"
 }));

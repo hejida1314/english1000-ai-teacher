@@ -5,6 +5,12 @@ export type ProgressState = {
   completedTaskIds: string[];
   completedDays: number[];
   taskUnderstanding: Record<string, number>;
+  timerState?: {
+    taskId: string;
+    remainingSeconds: number;
+    running: boolean;
+    updatedAt: string;
+  };
   reminderHour: number;
   reminderMinute: number;
   notificationsEnabled: boolean;

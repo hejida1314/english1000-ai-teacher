@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Alert,
   Linking,
@@ -623,7 +623,7 @@ export default function App() {
     const completedDays = allDone && !progress.completedDays.includes(day.day)
       ? [...progress.completedDays, day.day]
       : progress.completedDays;
-    await updateProgress({ ...progress, completedTaskIds, completedDays });
+    await updateProgress({ ...progress, completedTaskIds, completedDays, timerState: undefined });
   }
 
   async function rateTaskUnderstanding(taskId: string, percent: number) {
@@ -636,12 +636,16 @@ export default function App() {
     });
   }
 
+  const updateTimerState = useCallback(async (timerState: ProgressState["timerState"]) => {
+    await updateProgress({ ...progress, timerState });
+  }, [progress]);
+
   async function goNextDay() {
     if (progress.currentDay >= COURSE_DAYS.length) {
       Alert.alert(t("completedPlanTitle"), t("completedPlanBody"));
       return;
     }
-    await updateProgress({ ...progress, currentDay: progress.currentDay + 1, completedTaskIds: [] });
+    await updateProgress({ ...progress, currentDay: progress.currentDay + 1, completedTaskIds: [], timerState: undefined });
     setTab("today");
   }
 
@@ -649,13 +653,13 @@ export default function App() {
     if (progress.currentDay <= 1) {
       return;
     }
-    await updateProgress({ ...progress, currentDay: progress.currentDay - 1, completedTaskIds: [] });
+    await updateProgress({ ...progress, currentDay: progress.currentDay - 1, completedTaskIds: [], timerState: undefined });
     setTab("today");
   }
 
   async function jumpToDay(dayNumber: number) {
     const nextDay = Math.min(COURSE_DAYS.length, Math.max(1, dayNumber));
-    await updateProgress({ ...progress, currentDay: nextDay, completedTaskIds: [] });
+    await updateProgress({ ...progress, currentDay: nextDay, completedTaskIds: [], timerState: undefined });
     setTab("today");
   }
 
@@ -716,8 +720,10 @@ export default function App() {
               words={words}
               completedTaskIds={progress.completedTaskIds}
               taskUnderstanding={progress.taskUnderstanding || {}}
+              timerState={progress.timerState}
               onToggleTask={toggleTask}
               onRateTaskUnderstanding={rateTaskUnderstanding}
+              onUpdateTimerState={updateTimerState}
               onUpdateWords={updateWords}
               onNextDay={goNextDay}
               onPreviousDay={goPreviousDay}
@@ -1007,8 +1013,10 @@ function TodayScreen({
   words,
   completedTaskIds,
   taskUnderstanding,
+  timerState,
   onToggleTask,
   onRateTaskUnderstanding,
+  onUpdateTimerState,
   onUpdateWords,
   onNextDay,
   onPreviousDay,
@@ -1021,8 +1029,10 @@ function TodayScreen({
   words: WordCard[];
   completedTaskIds: string[];
   taskUnderstanding: Record<string, number>;
+  timerState?: ProgressState["timerState"];
   onToggleTask: (taskId: string) => void;
   onRateTaskUnderstanding: (taskId: string, percent: number) => Promise<void>;
+  onUpdateTimerState: (timerState: ProgressState["timerState"]) => Promise<void>;
   onUpdateWords: (words: WordCard[]) => Promise<void>;
   onNextDay: () => void;
   onPreviousDay: () => void;
@@ -1063,51 +1073,109 @@ function TodayScreen({
         if (value <= 1) {
           clearInterval(timer);
           setTimerRunning(false);
+          if (timerTaskId) {
+            void onUpdateTimerState({
+              taskId: timerTaskId,
+              remainingSeconds: 0,
+              running: false,
+              updatedAt: new Date().toISOString()
+            });
+          }
           return 0;
         }
         return value - 1;
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [timerRunning, remainingSeconds]);
+  }, [onUpdateTimerState, remainingSeconds, timerRunning, timerTaskId]);
 
   useEffect(() => {
-    setTimerRunning(false);
-    setRemainingSeconds(0);
-    setTimerTaskId(undefined);
-  }, [activeTask?.id]);
+    if (!activeTask || timerState?.taskId !== activeTask.id) {
+      setTimerRunning(false);
+      setRemainingSeconds(0);
+      setTimerTaskId(undefined);
+      return;
+    }
 
-  function startTimer() {
+    const elapsedSeconds = timerState.running
+      ? Math.max(0, Math.floor((Date.now() - new Date(timerState.updatedAt).getTime()) / 1000))
+      : 0;
+    const restoredSeconds = Math.max(0, timerState.remainingSeconds - elapsedSeconds);
+    setTimerTaskId(activeTask.id);
+    setRemainingSeconds(restoredSeconds);
+    setTimerRunning(timerState.running && restoredSeconds > 0);
+
+    if (timerState.running && restoredSeconds <= 0) {
+      void onUpdateTimerState({
+        taskId: activeTask.id,
+        remainingSeconds: 0,
+        running: false,
+        updatedAt: new Date().toISOString()
+      });
+    }
+  }, [activeTask?.id, onUpdateTimerState, timerState?.remainingSeconds, timerState?.running, timerState?.taskId, timerState?.updatedAt]);
+
+  async function startTimer() {
     if (!activeTask) {
       return;
     }
+    const nextTimer = {
+      taskId: activeTask.id,
+      remainingSeconds: activeTask.minutes * 60,
+      running: true,
+      updatedAt: new Date().toISOString()
+    };
     setTimerTaskId(activeTask.id);
-    setRemainingSeconds(activeTask.minutes * 60);
+    setRemainingSeconds(nextTimer.remainingSeconds);
     setTimerRunning(true);
+    await onUpdateTimerState(nextTimer);
   }
 
-  function startRescueTimer() {
+  async function startRescueTimer() {
     if (!activeTask) {
       return;
     }
+    const nextTimer = {
+      taskId: activeTask.id,
+      remainingSeconds: 10 * 60,
+      running: true,
+      updatedAt: new Date().toISOString()
+    };
     setTimerTaskId(activeTask.id);
-    setRemainingSeconds(10 * 60);
+    setRemainingSeconds(nextTimer.remainingSeconds);
     setTimerRunning(true);
+    await onUpdateTimerState(nextTimer);
   }
 
-  function pauseTimer() {
+  async function pauseTimer() {
     setTimerRunning(false);
+    if (timerTaskId) {
+      await onUpdateTimerState({
+        taskId: timerTaskId,
+        remainingSeconds,
+        running: false,
+        updatedAt: new Date().toISOString()
+      });
+    }
   }
 
-  function resumeTimer() {
+  async function resumeTimer() {
     if (timerActive) {
       setTimerRunning(true);
+      if (timerTaskId) {
+        await onUpdateTimerState({
+          taskId: timerTaskId,
+          remainingSeconds,
+          running: true,
+          updatedAt: new Date().toISOString()
+        });
+      }
     } else {
-      startTimer();
+      await startTimer();
     }
   }
 
-  function finishActiveTask() {
+  async function finishActiveTask() {
     if (!activeTask) {
       return;
     }

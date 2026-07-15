@@ -212,6 +212,11 @@ function HomeScreen({
 }) {
   const remainingTasks = day.tasks.length - Math.round((todayPercent / 100) * day.tasks.length);
   const firstUnfinished = day.tasks.find((task) => !completedTaskIds.includes(task.id)) ?? day.tasks[0];
+  const streak = calculateCourseStreak(progress.completedDays, day.day);
+  const weekStart = Math.floor((day.day - 1) / 7) * 7 + 1;
+  const weekDays = Array.from({ length: 7 }, (_, index) => weekStart + index).filter((value) => value <= COURSE_DAYS.length);
+  const completedThisWeek = weekDays.filter((value) => progress.completedDays.includes(value)).length;
+  const weekPercent = Math.round((completedThisWeek / weekDays.length) * 100);
 
   return (
     <View>
@@ -251,6 +256,8 @@ function HomeScreen({
       </View>
 
       <View style={styles.grid}>
+        <Metric label="连续完成" value={`${streak}天`} />
+        <Metric label="本周完成率" value={`${weekPercent}%`} />
         <Metric label="已完成天数" value={`${progress.completedDays.length}`} />
         <Metric label="累计分钟" value={`${totalCompletedMinutes}`} />
         <Metric label="待复习单词" value={`${dueWords}`} />
@@ -334,6 +341,15 @@ function TodayScreen({
     }
     setTimerTaskId(activeTask.id);
     setRemainingSeconds(activeTask.minutes * 60);
+    setTimerRunning(true);
+  }
+
+  function startRescueTimer() {
+    if (!activeTask) {
+      return;
+    }
+    setTimerTaskId(activeTask.id);
+    setRemainingSeconds(10 * 60);
     setTimerRunning(true);
   }
 
@@ -436,6 +452,7 @@ function TodayScreen({
               </Text>
               <View style={styles.rowWrap}>
                 <Pill label={timerRunning ? "暂停计时" : timerActive ? "继续计时" : "开始计时"} onPress={timerRunning ? pauseTimer : startTimer} />
+                <Pill label="10分钟保底" onPress={startRescueTimer} />
                 {timerActive && <Pill label="重置" onPress={startTimer} />}
               </View>
             </View>
@@ -824,6 +841,19 @@ function formatDuration(totalSeconds: number) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
   return `${minutes}:${pad(seconds)}`;
+}
+
+function calculateCourseStreak(completedDays: number[], currentDay: number) {
+  const completed = new Set(completedDays);
+  let cursor = completed.has(currentDay) ? currentDay : currentDay - 1;
+  let streak = 0;
+
+  while (cursor >= 1 && completed.has(cursor)) {
+    streak += 1;
+    cursor -= 1;
+  }
+
+  return streak;
 }
 
 const styles = StyleSheet.create({

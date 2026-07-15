@@ -564,6 +564,16 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
     await onUpdate(words.map((item) => item.id === card.id ? reviewWord(item, score) : item));
   }
 
+  function speakWord(card: WordCard) {
+    Speech.stop();
+    Speech.speak(card.word, { language: "en-US", rate: 0.85 });
+  }
+
+  function speakSentence(card: WordCard) {
+    Speech.stop();
+    Speech.speak(card.sentence || card.word, { language: "en-US", rate: 0.85 });
+  }
+
   return (
     <View>
       <Text style={styles.kicker}>生词本</Text>
@@ -595,6 +605,8 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
           <Text style={styles.body}>{card.meaning}</Text>
           <Text style={styles.note}>{card.sentence}</Text>
           <View style={styles.rowWrap}>
+            <Pill label="读单词" onPress={() => speakWord(card)} />
+            <Pill label="读例句" onPress={() => speakSentence(card)} />
             <Pill label="忘了" onPress={() => grade(card, "forgot")} />
             <Pill label="困难" onPress={() => grade(card, "hard")} />
             <Pill label="会了" onPress={() => grade(card, "know")} />

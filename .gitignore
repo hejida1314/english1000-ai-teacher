@@ -8,3 +8,7 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 *.local
+*-log.txt
+english1000-start-log.txt
+sdk54-upgrade-log.txt
+clean-sdk54-install-log.txt

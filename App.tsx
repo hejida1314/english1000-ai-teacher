@@ -351,6 +351,17 @@ function TodayScreen({
     onToggleTask(activeTask.id);
   }
 
+  async function copyDailyReview() {
+    const text = [
+      `我完成了 English1000 Day ${day.day}。`,
+      `阶段：${day.level} / ${day.phase}`,
+      `今天完成任务：${day.tasks.map((task) => task.title).join("、")}`,
+      "请用简单英语问我5个问题，测试我今天学到的内容，并告诉我明天最该改进什么。"
+    ].join("\n");
+    await Clipboard.setStringAsync(text);
+    Alert.alert("复盘提示词已复制", "发给AI老师，就能做今天的收尾测试。");
+  }
+
   async function addTodayWords() {
     if (!supportWords.length) {
       return;
@@ -386,6 +397,9 @@ function TodayScreen({
             <Text style={styles.stepBadge}>今天完成</Text>
             <Text style={styles.flowTitle}>今天的任务都做完了</Text>
             <Text style={styles.flowText}>可以结束学习，也可以进入下一天提前看看明天内容。</Text>
+            <Pressable style={styles.flowSecondaryButton} onPress={copyDailyReview}>
+              <Text style={styles.flowSecondaryButtonText}>复制今日复盘给AI老师</Text>
+            </Pressable>
             <Pressable style={styles.primaryButton} onPress={onNextDay}>
               <Text style={styles.primaryButtonText}>进入下一天</Text>
             </Pressable>

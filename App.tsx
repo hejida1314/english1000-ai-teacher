@@ -30,6 +30,7 @@ import {
 import { COURSE_DAYS, ROADMAP, buildCourseDay } from "./src/data/course";
 import { getTaskSupport } from "./src/data/dayDetails";
 import { SAMPLE_SENTENCES } from "./src/data/sampleSentences";
+import { getWordHint } from "./src/data/wordHints";
 import { ProgressState, WordCard } from "./src/types";
 import { DEFAULT_PROGRESS, exportBackup, loadProgress, loadWords, saveProgress, saveWords } from "./src/utils/storage";
 import { requestNotificationPermission, scheduleDailyStudyReminder, scheduleTestNotification } from "./src/utils/notifications";
@@ -401,13 +402,32 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
   const [meaning, setMeaning] = useState("");
   const [sentence, setSentence] = useState("");
   const dueWords = words.filter(isDue);
+  const hint = getWordHint(word);
+  const quickWords = ["appointment", "maintenance", "oil", "tire", "beef", "potato", "aisle", "receipt", "boss", "customer"];
+
+  function updateWord(nextWord: string) {
+    setWord(nextWord);
+    const nextHint = getWordHint(nextWord);
+    if (nextHint) {
+      setMeaning(nextHint.meaning);
+      setSentence(nextHint.sentence);
+    }
+  }
 
   async function addWord() {
     if (!word.trim()) {
       Alert.alert("先输入单词", "单词不能为空。");
       return;
     }
-    await onUpdate([createWordCard(word, meaning || "待补充", sentence || "来自今天课程"), ...words]);
+    const nextHint = getWordHint(word);
+    await onUpdate([
+      createWordCard(
+        word,
+        meaning || nextHint?.meaning || "待补充",
+        sentence || nextHint?.sentence || "来自今天课程"
+      ),
+      ...words
+    ]);
     setWord("");
     setMeaning("");
     setSentence("");
@@ -422,12 +442,24 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
       <Text style={styles.kicker}>生词本</Text>
       <Text style={styles.title}>只记真会用的词</Text>
       <View style={styles.card}>
-        <TextInput style={styles.input} value={word} onChangeText={setWord} placeholder="英文单词" />
-        <TextInput style={styles.input} value={meaning} onChangeText={setMeaning} placeholder="中文意思" />
-        <TextInput style={styles.input} value={sentence} onChangeText={setSentence} placeholder="来自哪一句" />
+        <TextInput style={styles.input} value={word} onChangeText={updateWord} placeholder="只输入英文，例如 appointment" autoCapitalize="none" />
+        <TextInput style={styles.input} value={meaning} onChangeText={setMeaning} placeholder="中文意思会自动补，可以修改" />
+        <TextInput style={styles.input} value={sentence} onChangeText={setSentence} placeholder="例句会自动补，可以修改" />
+        {hint && (
+          <Text style={styles.note}>已自动匹配：{hint.meaning} / {hint.sentence}</Text>
+        )}
+        {!hint && !!word.trim() && (
+          <Text style={styles.note}>词库暂时没有这个词，也可以直接保存，之后再补中文。</Text>
+        )}
         <Pressable style={styles.primaryButtonSmall} onPress={addWord}>
           <Text style={styles.primaryButtonText}>加入生词本</Text>
         </Pressable>
+        <Text style={styles.quickLabel}>第一周快捷词</Text>
+        <View style={styles.rowWrap}>
+          {quickWords.map((item) => (
+            <Pill key={item} label={item} onPress={() => updateWord(item)} />
+          ))}
+        </View>
       </View>
       <Text style={styles.sectionTitle}>今天要复习：{dueWords.length}</Text>
       {(dueWords.length ? dueWords : words.slice(0, 6)).map((card) => (
@@ -938,6 +970,12 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     lineHeight: 21,
     marginBottom: 8
+  },
+  quickLabel: {
+    color: theme.ink,
+    fontWeight: "800",
+    marginTop: 14,
+    marginBottom: 2
   },
   bigSentence: {
     color: theme.ink,

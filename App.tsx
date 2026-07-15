@@ -182,7 +182,7 @@ export default function App() {
               onOpenAi={() => setTab("ai")}
             />
           )}
-          {tab === "player" && <PlayerScreen dayNumber={day.day} phase={day.phase} />}
+          {tab === "player" && <PlayerScreen dayNumber={day.day} phase={day.phase} words={words} onUpdateWords={updateWords} />}
           {tab === "words" && <WordsScreen words={words} onUpdate={updateWords} />}
           {tab === "ai" && <AiScreen prompt={day.aiPrompt} />}
           {tab === "roadmap" && <RoadmapScreen />}
@@ -527,16 +527,32 @@ function TodayScreen({
   );
 }
 
-function PlayerScreen({ dayNumber, phase }: { dayNumber: number; phase: string }) {
+function PlayerScreen({
+  dayNumber,
+  phase,
+  words,
+  onUpdateWords
+}: {
+  dayNumber: number;
+  phase: string;
+  words: WordCard[];
+  onUpdateWords: (words: WordCard[]) => Promise<void>;
+}) {
   const [index, setIndex] = useState(0);
   const [hideEnglish, setHideEnglish] = useState(false);
   const [hideChinese, setHideChinese] = useState(false);
   const [rate, setRate] = useState(0.85);
+  const [dictation, setDictation] = useState("");
+  const [dictationChecked, setDictationChecked] = useState(false);
   const sentences = useMemo(() => getSentencesForDay(dayNumber), [dayNumber]);
   const sentence = sentences[index] ?? sentences[0];
+  const sentenceWords = useMemo(() => extractUsefulWords(sentence.english), [sentence.english]);
+  const dictationScore = scoreDictation(dictation, sentence.english);
 
   useEffect(() => {
     setIndex(0);
+    setDictation("");
+    setDictationChecked(false);
   }, [dayNumber]);
 
   function speak() {
@@ -565,6 +581,26 @@ function PlayerScreen({ dayNumber, phase }: { dayNumber: number; phase: string }
     Alert.alert("已复制", "发给AI老师，让它解释这句并给你替换练习。");
   }
 
+  async function addSentenceWord(word: string) {
+    const normalized = word.trim().toLowerCase();
+    if (words.some((item) => item.word.trim().toLowerCase() === normalized)) {
+      Alert.alert("已经在生词本里", `${word} 已经保存过了。`);
+      return;
+    }
+    const hint = getWordHint(word);
+    await onUpdateWords([
+      createWordCard(word, hint?.meaning || "待补充", hint?.sentence || sentence.english),
+      ...words
+    ]);
+    Alert.alert("已加入生词本", word);
+  }
+
+  function goToSentence(nextIndex: number) {
+    setIndex(nextIndex);
+    setDictation("");
+    setDictationChecked(false);
+  }
+
   return (
     <View>
       <Text style={styles.kicker}>精听播放器</Text>
@@ -580,11 +616,51 @@ function PlayerScreen({ dayNumber, phase }: { dayNumber: number; phase: string }
         <View style={styles.rowWrap}>
           <Pill label="读3遍" onPress={speakThreeTimes} />
           <Pill label="AI解释这句" onPress={copySentenceCoachPrompt} />
-          <Pill label="上一句" onPress={() => setIndex((index + sentences.length - 1) % sentences.length)} />
-          <Pill label="下一句" onPress={() => setIndex((index + 1) % sentences.length)} />
+          <Pill label="上一句" onPress={() => goToSentence((index + sentences.length - 1) % sentences.length)} />
+          <Pill label="下一句" onPress={() => goToSentence((index + 1) % sentences.length)} />
           <Pill label={hideEnglish ? "显示英文" : "隐藏英文"} onPress={() => setHideEnglish(!hideEnglish)} />
           <Pill label={hideChinese ? "显示中文" : "隐藏中文"} onPress={() => setHideChinese(!hideChinese)} />
           <Pill label={`速度 ${rate.toFixed(2)}`} onPress={() => setRate(rate >= 1 ? 0.7 : Number((rate + 0.15).toFixed(2)))} />
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <Text style={styles.taskTitle}>轻量听写</Text>
+        <Text style={styles.body}>先点“播放原句”，再凭记忆写下来。不要求满分，只看有没有抓住主干。</Text>
+        <TextInput
+          style={[styles.input, styles.dictationInput]}
+          value={dictation}
+          onChangeText={(value) => {
+            setDictation(value);
+            setDictationChecked(false);
+          }}
+          placeholder="听到什么就写什么"
+          autoCapitalize="none"
+          multiline
+        />
+        <View style={styles.rowWrap}>
+          <Pill label="检查听写" onPress={() => setDictationChecked(true)} />
+          <Pill label="清空" onPress={() => {
+            setDictation("");
+            setDictationChecked(false);
+          }} />
+        </View>
+        {dictationChecked && (
+          <View style={styles.feedbackBox}>
+            <Text style={styles.feedbackTitle}>相似度：{dictationScore}%</Text>
+            <Text style={styles.feedbackText}>原句：{sentence.english}</Text>
+            <Text style={styles.feedbackText}>你写的：{dictation || "还没输入"}</Text>
+          </View>
+        )}
+      </View>
+
+      <View style={styles.card}>
+        <Text style={styles.taskTitle}>当前句关键词</Text>
+        <Text style={styles.body}>点一下就加入生词本，已存在的词会提醒你。</Text>
+        <View style={styles.rowWrap}>
+          {sentenceWords.map((word) => (
+            <Pill key={word} label={`加词 ${word}`} onPress={() => addSentenceWord(word)} />
+          ))}
         </View>
       </View>
     </View>
@@ -908,6 +984,59 @@ function calculateCourseStreak(completedDays: number[], currentDay: number) {
   }
 
   return streak;
+}
+
+function normalizeEnglish(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function scoreDictation(input: string, target: string) {
+  const inputWords = normalizeEnglish(input).split(" ").filter(Boolean);
+  const targetWords = normalizeEnglish(target).split(" ").filter(Boolean);
+  if (!targetWords.length) {
+    return 0;
+  }
+  const matched = targetWords.filter((word, index) => inputWords[index] === word).length;
+  const looseMatched = targetWords.filter((word) => inputWords.includes(word)).length;
+  return Math.round(((matched + looseMatched) / 2 / targetWords.length) * 100);
+}
+
+function extractUsefulWords(sentence: string) {
+  const stopWords = new Set([
+    "the",
+    "a",
+    "an",
+    "to",
+    "for",
+    "my",
+    "is",
+    "it",
+    "i",
+    "you",
+    "that",
+    "this",
+    "and",
+    "or",
+    "do",
+    "can",
+    "could",
+    "would",
+    "like",
+    "have",
+    "am",
+    "are",
+    "in",
+    "on",
+    "of"
+  ]);
+  const words = normalizeEnglish(sentence)
+    .split(" ")
+    .filter((word) => word.length > 2 && !stopWords.has(word));
+  return Array.from(new Set(words)).slice(0, 8);
 }
 
 const styles = StyleSheet.create({
@@ -1326,6 +1455,28 @@ const styles = StyleSheet.create({
     minHeight: 110,
     textAlignVertical: "top",
     marginTop: 8
+  },
+  dictationInput: {
+    minHeight: 86,
+    textAlignVertical: "top"
+  },
+  feedbackBox: {
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#D5C8B7",
+    backgroundColor: theme.soft,
+    padding: 12,
+    marginTop: 12
+  },
+  feedbackTitle: {
+    color: theme.ink,
+    fontWeight: "800",
+    marginBottom: 6
+  },
+  feedbackText: {
+    color: theme.muted,
+    lineHeight: 21,
+    marginBottom: 4
   },
   nav: {
     position: "absolute",

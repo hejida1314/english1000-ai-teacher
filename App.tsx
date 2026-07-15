@@ -41,6 +41,7 @@ import { requestNotificationPermission, scheduleDailyStudyReminder, scheduleTest
 import { createWordCard, isDue, reviewWord } from "./src/utils/words";
 
 type Tab = "home" | "today" | "player" | "words" | "ai" | "life" | "roadmap" | "settings";
+type LifeMode = "health" | "money" | "journal";
 type TFunc = (key: TranslationKey, values?: Record<string, string | number>) => string;
 
 const theme = {
@@ -549,6 +550,7 @@ export default function App() {
   const [words, setWords] = useState<WordCard[]>([]);
   const [lifeLogs, setLifeLogs] = useState<LifeLog[]>([]);
   const [tab, setTab] = useState<Tab>("home");
+  const [lifeMode, setLifeMode] = useState<LifeMode>("health");
   const [ready, setReady] = useState(false);
   const language = progress.interfaceLanguage || "zh";
   const t = useMemo(() => createTranslator(language), [language]);
@@ -644,6 +646,11 @@ export default function App() {
     setTab("home");
   }
 
+  function openLife(mode: LifeMode = "health") {
+    setLifeMode(mode);
+    setTab("life");
+  }
+
   if (!ready) {
     return (
       <SafeAreaProvider>
@@ -673,7 +680,7 @@ export default function App() {
               onContinue={() => setTab("today")}
               onOpenSettings={() => setTab("settings")}
               onOpenRoadmap={() => setTab("roadmap")}
-              onOpenLife={() => setTab("life")}
+              onOpenLife={openLife}
               onOpenWords={() => setTab("words")}
               t={t}
             />
@@ -698,7 +705,7 @@ export default function App() {
           {tab === "player" && <PlayerScreen dayNumber={day.day} phase={day.phase} words={words} onUpdateWords={updateWords} t={t} />}
           {tab === "words" && <WordsScreen words={words} onUpdate={updateWords} t={t} />}
           {tab === "ai" && <AiScreen prompt={day.aiPrompt} t={t} />}
-          {tab === "life" && <LifeScreen logs={lifeLogs} onUpdate={updateLifeLogs} language={language} t={t} />}
+          {tab === "life" && <LifeScreen logs={lifeLogs} onUpdate={updateLifeLogs} language={language} initialMode={lifeMode} t={t} />}
           {tab === "roadmap" && <RoadmapScreen t={t} />}
           {tab === "settings" && (
             <SettingsScreen
@@ -743,7 +750,7 @@ function HomeScreen({
   onContinue: () => void;
   onOpenSettings: () => void;
   onOpenRoadmap: () => void;
-  onOpenLife: () => void;
+  onOpenLife: (mode?: LifeMode) => void;
   onOpenWords: () => void;
   t: TFunc;
 }) {
@@ -769,9 +776,9 @@ function HomeScreen({
     : dueWords > 0
       ? { title: t("navWords"), body: t("nextActionWords"), onPress: onOpenWords, icon: <BookOpen size={20} color={theme.primaryDark} /> }
       : !workoutDoneToday
-        ? { title: t("moduleHealthTitle"), body: t("nextActionWorkout"), onPress: onOpenLife, icon: <Dumbbell size={20} color={theme.primaryDark} /> }
+        ? { title: t("moduleHealthTitle"), body: t("nextActionWorkout"), onPress: () => onOpenLife("health"), icon: <Dumbbell size={20} color={theme.primaryDark} /> }
         : !journalDoneToday
-          ? { title: t("moduleJournalTitle"), body: t("nextActionJournal"), onPress: onOpenLife, icon: <NotebookPen size={20} color={theme.primaryDark} /> }
+          ? { title: t("moduleJournalTitle"), body: t("nextActionJournal"), onPress: () => onOpenLife("journal"), icon: <NotebookPen size={20} color={theme.primaryDark} /> }
           : { title: t("todayDoneBadge"), body: t("nextActionDone"), onPress: onOpenRoadmap, icon: <CheckCircle2 size={20} color={theme.primaryDark} /> };
 
   return (
@@ -848,9 +855,9 @@ function HomeScreen({
         <Text style={styles.body}>{t("lifeSystemBody")}</Text>
         <View style={styles.moduleGrid}>
           <ModuleCard icon={<BookOpen size={22} color={theme.primaryDark} />} title={t("moduleStudyTitle")} body={t("moduleStudyBody")} onPress={onContinue} />
-          <ModuleCard icon={<Dumbbell size={22} color={theme.primaryDark} />} title={t("moduleHealthTitle")} body={t("moduleHealthBody")} onPress={onOpenLife} />
-          <ModuleCard icon={<WalletCards size={22} color={theme.primaryDark} />} title={t("moduleMoneyTitle")} body={t("moduleMoneyBody")} onPress={onOpenLife} />
-          <ModuleCard icon={<NotebookPen size={22} color={theme.primaryDark} />} title={t("moduleJournalTitle")} body={t("moduleJournalBody")} onPress={onOpenLife} />
+          <ModuleCard icon={<Dumbbell size={22} color={theme.primaryDark} />} title={t("moduleHealthTitle")} body={t("moduleHealthBody")} onPress={() => onOpenLife("health")} />
+          <ModuleCard icon={<WalletCards size={22} color={theme.primaryDark} />} title={t("moduleMoneyTitle")} body={t("moduleMoneyBody")} onPress={() => onOpenLife("money")} />
+          <ModuleCard icon={<NotebookPen size={22} color={theme.primaryDark} />} title={t("moduleJournalTitle")} body={t("moduleJournalBody")} onPress={() => onOpenLife("journal")} />
         </View>
         <Pressable style={styles.secondaryWideButton} onPress={onOpenWords}>
           <Text style={styles.secondaryButtonText}>{t("navWords")}</Text>
@@ -1526,17 +1533,17 @@ const workoutItems = [
   { id: "walk", zh: "\u8d70\u8def/\u62c9\u4f38 10\u5206\u949f", en: "Walk/stretch 10 min" }
 ];
 
-type LifeMode = "health" | "money" | "journal";
-
 function LifeScreen({
   logs,
   onUpdate,
   language,
+  initialMode,
   t
 }: {
   logs: LifeLog[];
   onUpdate: (logs: LifeLog[]) => Promise<void>;
   language: InterfaceLanguage;
+  initialMode: LifeMode;
   t: TFunc;
 }) {
   const today = todayKey();
@@ -1581,6 +1588,10 @@ function LifeScreen({
   useEffect(() => {
     setJournal(log.journal);
   }, [log.date, log.journal]);
+
+  useEffect(() => {
+    setMode(initialMode);
+  }, [initialMode]);
 
   async function saveLog(nextLog: LifeLog) {
     const exists = logs.some((item) => item.date === nextLog.date);

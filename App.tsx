@@ -75,6 +75,11 @@ const translations = {
     todayDoneBadge: "今天完成",
     allDoneTitle: "今天的任务都做完了",
     allDoneText: "可以结束学习，也可以进入下一天提前看看明天内容。",
+    earlyFinishTitle: "提前完成建议",
+    earlyFinishBody: "默认选择：轻复习10到20分钟，然后收工。只有精神很好时，才预习下一天。",
+    reviewPlayerCta: "复听今天句子",
+    reviewWordsCta: "复习到期单词",
+    previewNextDayCta: "状态很好，预习下一天",
     copyDailyReview: "复制今日复盘给AI老师",
     nextDay: "进入下一天",
     stepCount: "第 {current} 步 / 共 {total} 步",
@@ -228,6 +233,11 @@ const translations = {
     todayDoneBadge: "Done today",
     allDoneTitle: "All tasks are done",
     allDoneText: "You can stop here or move to the next day.",
+    earlyFinishTitle: "Early Finish Advice",
+    earlyFinishBody: "Default choice: do 10 to 20 minutes of light review, then stop. Preview the next day only if you still feel fresh.",
+    reviewPlayerCta: "Review today's sentences",
+    reviewWordsCta: "Review due words",
+    previewNextDayCta: "I feel fresh, preview next day",
     copyDailyReview: "Copy review prompt for AI Teacher",
     nextDay: "Go to next day",
     stepCount: "Step {current} of {total}",
@@ -780,11 +790,19 @@ function TodayScreen({
             <Text style={styles.stepBadge}>{t("todayDoneBadge")}</Text>
             <Text style={styles.flowTitle}>{t("allDoneTitle")}</Text>
             <Text style={styles.flowText}>{t("allDoneText")}</Text>
+            <View style={styles.earlyFinishBox}>
+              <Text style={styles.earlyFinishTitle}>{t("earlyFinishTitle")}</Text>
+              <Text style={styles.earlyFinishText}>{t("earlyFinishBody")}</Text>
+              <View style={styles.rowWrap}>
+                <Pill label={t("reviewPlayerCta")} onPress={onOpenPlayer} />
+                <Pill label={t("reviewWordsCta")} onPress={onOpenWords} />
+              </View>
+            </View>
             <Pressable style={styles.flowSecondaryButton} onPress={copyDailyReview}>
               <Text style={styles.flowSecondaryButtonText}>{t("copyDailyReview")}</Text>
             </Pressable>
             <Pressable style={styles.primaryButton} onPress={onNextDay}>
-              <Text style={styles.primaryButtonText}>{t("nextDay")}</Text>
+              <Text style={styles.primaryButtonText}>{t("previewNextDayCta")}</Text>
             </Pressable>
           </>
         ) : (
@@ -1670,6 +1688,23 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     marginTop: 10,
     lineHeight: 22
+  },
+  earlyFinishBox: {
+    backgroundColor: "rgba(255,255,255,0.1)",
+    borderColor: "rgba(255,255,255,0.22)",
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 12,
+    marginTop: 14
+  },
+  earlyFinishTitle: {
+    color: "#fff",
+    fontWeight: "800",
+    marginBottom: 6
+  },
+  earlyFinishText: {
+    color: "#DCEDE8",
+    lineHeight: 21
   },
   resourceButton: {
     backgroundColor: "#FFFFFF",

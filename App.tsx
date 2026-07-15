@@ -161,11 +161,14 @@ const translations = {
     bulkImportTitle: "批量导入",
     bulkImportBody: "看视频时，把字幕、评论、笔记里的重要英文词粘到这里。逗号、空格、换行都可以。",
     bulkImportPlaceholder: "例如：listen, understand, repeat\n或者直接粘贴一段英文字幕",
+    pasteClipboard: "粘贴剪贴板",
     importWords: "一键导入生词",
     bulkImportSuccessTitle: "已导入",
     bulkImportSuccessBody: "新增 {count} 个生词，跳过 {skipped} 个重复词。",
     bulkImportEmptyTitle: "没有找到英文词",
     bulkImportEmptyBody: "请粘贴英文单词或英文字幕。",
+    clipboardEmptyTitle: "剪贴板是空的",
+    clipboardEmptyBody: "先从截图、字幕或网页里复制英文，再回到这里粘贴。",
     quickWords: "生活高频快捷词",
     dueReview: "今天要复习：{count}",
     speakWord: "读单词",
@@ -353,11 +356,14 @@ const translations = {
     bulkImportTitle: "Bulk Import",
     bulkImportBody: "While watching videos, paste useful words, notes, comments, or subtitles here. Commas, spaces, and new lines all work.",
     bulkImportPlaceholder: "Example: listen, understand, repeat\nOr paste a short English subtitle line",
+    pasteClipboard: "Paste clipboard",
     importWords: "Import words",
     bulkImportSuccessTitle: "Imported",
     bulkImportSuccessBody: "Added {count} words. Skipped {skipped} duplicates.",
     bulkImportEmptyTitle: "No English words found",
     bulkImportEmptyBody: "Paste English words or English subtitles first.",
+    clipboardEmptyTitle: "Clipboard is empty",
+    clipboardEmptyBody: "Copy English from a screenshot, subtitle, or webpage first, then paste it here.",
     quickWords: "Common life words",
     dueReview: "Due today: {count}",
     speakWord: "Read word",
@@ -1260,6 +1266,15 @@ function WordsScreen({ words, onUpdate, t }: { words: WordCard[]; onUpdate: (wor
     Alert.alert(t("bulkImportSuccessTitle"), t("bulkImportSuccessBody", { count: freshWords.length, skipped }));
   }
 
+  async function pasteBulkFromClipboard() {
+    const text = await Clipboard.getStringAsync();
+    if (!text.trim()) {
+      Alert.alert(t("clipboardEmptyTitle"), t("clipboardEmptyBody"));
+      return;
+    }
+    setBulkText(text);
+  }
+
   async function grade(card: WordCard, score: "forgot" | "hard" | "know" | "easy") {
     await onUpdate(words.map((item) => item.id === card.id ? reviewWord(item, score) : item));
   }
@@ -1309,7 +1324,10 @@ function WordsScreen({ words, onUpdate, t }: { words: WordCard[]; onUpdate: (wor
           autoCapitalize="none"
           multiline
         />
-        <Pressable style={styles.primaryButtonSmall} onPress={importBulkWords}>
+        <Pressable style={styles.secondaryWideButton} onPress={pasteBulkFromClipboard}>
+          <Text style={styles.secondaryButtonText}>{t("pasteClipboard")}</Text>
+        </Pressable>
+        <Pressable style={[styles.primaryButtonSmall, styles.stackedButton]} onPress={importBulkWords}>
           <Text style={styles.primaryButtonText}>{t("importWords")}</Text>
         </Pressable>
       </View>
@@ -1996,6 +2014,9 @@ const styles = StyleSheet.create({
     color: theme.primaryDark,
     fontSize: 16,
     fontWeight: "800"
+  },
+  stackedButton: {
+    marginTop: 10
   },
   iconButton: {
     width: 44,

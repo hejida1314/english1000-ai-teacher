@@ -158,6 +158,14 @@ const translations = {
     hintMatched: "已自动匹配：{meaning} / {sentence}",
     noHint: "词库暂时没有这个词，也可以直接保存，之后再补中文。",
     addWord: "加入生词本",
+    bulkImportTitle: "批量导入",
+    bulkImportBody: "看视频时，把字幕、评论、笔记里的重要英文词粘到这里。逗号、空格、换行都可以。",
+    bulkImportPlaceholder: "例如：listen, understand, repeat\n或者直接粘贴一段英文字幕",
+    importWords: "一键导入生词",
+    bulkImportSuccessTitle: "已导入",
+    bulkImportSuccessBody: "新增 {count} 个生词，跳过 {skipped} 个重复词。",
+    bulkImportEmptyTitle: "没有找到英文词",
+    bulkImportEmptyBody: "请粘贴英文单词或英文字幕。",
     quickWords: "生活高频快捷词",
     dueReview: "今天要复习：{count}",
     speakWord: "读单词",
@@ -342,6 +350,14 @@ const translations = {
     hintMatched: "Auto matched: {meaning} / {sentence}",
     noHint: "This word is not in the hint bank yet. You can still save it and add meaning later.",
     addWord: "Add to wordbook",
+    bulkImportTitle: "Bulk Import",
+    bulkImportBody: "While watching videos, paste useful words, notes, comments, or subtitles here. Commas, spaces, and new lines all work.",
+    bulkImportPlaceholder: "Example: listen, understand, repeat\nOr paste a short English subtitle line",
+    importWords: "Import words",
+    bulkImportSuccessTitle: "Imported",
+    bulkImportSuccessBody: "Added {count} words. Skipped {skipped} duplicates.",
+    bulkImportEmptyTitle: "No English words found",
+    bulkImportEmptyBody: "Paste English words or English subtitles first.",
     quickWords: "Common life words",
     dueReview: "Due today: {count}",
     speakWord: "Read word",
@@ -1148,6 +1164,7 @@ function WordsScreen({ words, onUpdate, t }: { words: WordCard[]; onUpdate: (wor
   const [word, setWord] = useState("");
   const [meaning, setMeaning] = useState("");
   const [sentence, setSentence] = useState("");
+  const [bulkText, setBulkText] = useState("");
   const dueWords = words.filter(isDue);
   const hint = getWordHint(word);
   const quickWords = [
@@ -1198,6 +1215,43 @@ function WordsScreen({ words, onUpdate, t }: { words: WordCard[]; onUpdate: (wor
     setSentence("");
   }
 
+  async function importBulkWords() {
+    const candidates = extractImportWords(bulkText);
+    if (!candidates.length) {
+      Alert.alert(t("bulkImportEmptyTitle"), t("bulkImportEmptyBody"));
+      return;
+    }
+
+    const existing = new Set(words.map((item) => item.word.trim().toLowerCase()));
+    const freshWords: WordCard[] = [];
+    let skipped = 0;
+
+    candidates.forEach((candidate) => {
+      const normalized = candidate.toLowerCase();
+      if (existing.has(normalized)) {
+        skipped += 1;
+        return;
+      }
+      existing.add(normalized);
+      const nextHint = getWordHint(candidate);
+      freshWords.push(createWordCard(
+        candidate,
+        nextHint?.meaning || t("pendingMeaning"),
+        nextHint?.sentence || t("fromTodayCourse")
+      ));
+    });
+
+    if (!freshWords.length) {
+      Alert.alert(t("bulkImportSuccessTitle"), t("bulkImportSuccessBody", { count: 0, skipped }));
+      setBulkText("");
+      return;
+    }
+
+    await onUpdate([...freshWords, ...words]);
+    setBulkText("");
+    Alert.alert(t("bulkImportSuccessTitle"), t("bulkImportSuccessBody", { count: freshWords.length, skipped }));
+  }
+
   async function grade(card: WordCard, score: "forgot" | "hard" | "know" | "easy") {
     await onUpdate(words.map((item) => item.id === card.id ? reviewWord(item, score) : item));
   }
@@ -1235,6 +1289,21 @@ function WordsScreen({ words, onUpdate, t }: { words: WordCard[]; onUpdate: (wor
             <Pill key={item} label={item} onPress={() => updateWord(item)} />
           ))}
         </View>
+      </View>
+      <View style={styles.card}>
+        <Text style={styles.taskTitle}>{t("bulkImportTitle")}</Text>
+        <Text style={styles.body}>{t("bulkImportBody")}</Text>
+        <TextInput
+          style={[styles.input, styles.bulkInput]}
+          value={bulkText}
+          onChangeText={setBulkText}
+          placeholder={t("bulkImportPlaceholder")}
+          autoCapitalize="none"
+          multiline
+        />
+        <Pressable style={styles.primaryButtonSmall} onPress={importBulkWords}>
+          <Text style={styles.primaryButtonText}>{t("importWords")}</Text>
+        </Pressable>
       </View>
       <Text style={styles.sectionTitle}>{t("dueReview", { count: dueWords.length })}</Text>
       {(dueWords.length ? dueWords : words.slice(0, 6)).map((card) => (
@@ -1652,6 +1721,63 @@ function normalizeEnglish(value: string) {
     .replace(/[^a-z0-9\s]/g, "")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+const IMPORT_STOP_WORDS = new Set([
+  "the",
+  "a",
+  "an",
+  "to",
+  "for",
+  "my",
+  "your",
+  "is",
+  "it",
+  "i",
+  "you",
+  "he",
+  "she",
+  "we",
+  "they",
+  "me",
+  "him",
+  "her",
+  "them",
+  "that",
+  "this",
+  "and",
+  "or",
+  "but",
+  "so",
+  "as",
+  "at",
+  "by",
+  "from",
+  "with",
+  "in",
+  "on",
+  "of",
+  "be",
+  "are",
+  "was",
+  "were"
+]);
+
+function extractImportWords(input: string) {
+  const matches = input.toLowerCase().match(/[a-z][a-z'-]{1,}/g) ?? [];
+  const seen = new Set<string>();
+  const words: string[] = [];
+
+  matches.forEach((match) => {
+    const cleaned = match.replace(/^'+|'+$/g, "");
+    if (cleaned.length < 3 || IMPORT_STOP_WORDS.has(cleaned) || seen.has(cleaned)) {
+      return;
+    }
+    seen.add(cleaned);
+    words.push(cleaned);
+  });
+
+  return words.slice(0, 50);
 }
 
 function scoreDictation(input: string, target: string) {
@@ -2258,6 +2384,11 @@ const styles = StyleSheet.create({
     minHeight: 110,
     textAlignVertical: "top",
     marginTop: 8
+  },
+  bulkInput: {
+    minHeight: 110,
+    paddingTop: 12,
+    textAlignVertical: "top"
   },
   dictationInput: {
     minHeight: 86,

@@ -33,8 +33,8 @@ export async function scheduleDailyStudyReminder(hour: number, minute: number): 
   await Notifications.cancelAllScheduledNotificationsAsync();
   await Notifications.scheduleNotificationAsync({
     content: {
-      title: "English1000: today's lesson is ready",
-      body: "Tap once and continue the first unfinished task.",
+      title: "English1000：今天该学英语了",
+      body: "点一下，直接继续第一个没完成的任务。",
       data: { route: "today" }
     },
     trigger: {
@@ -49,8 +49,8 @@ export async function scheduleDailyStudyReminder(hour: number, minute: number): 
 export async function scheduleTestNotification(): Promise<void> {
   await Notifications.scheduleNotificationAsync({
     content: {
-      title: "English1000 test reminder",
-      body: "This is what your daily reminder will look like.",
+      title: "English1000 测试提醒",
+      body: "以后每天就这样提醒你，不用自己想学什么。",
       data: { route: "today" }
     },
     trigger: { seconds: 3, channelId: "daily-study" }

@@ -44,47 +44,47 @@ const phases: Phase[] = [
   {
     start: 1,
     end: 34,
-    level: "第1阶段 / A1",
+    level: "第一阶段 / A1",
     phase: "Dreaming English Beginner",
     primary: "Dreaming English Beginner",
-    secondary: "80集按顺序，看懂大意，不查词",
+    secondary: "80集按顺序，先建立英语耳朵，不查词、不硬背",
     grammar: ["be动词：I am / You are / He is", "一般现在时：I work / I study", "一般疑问句：Are you...? / Do you...?", "人称代词：I / you / he / she / we"],
     output: ["30秒自我介绍", "描述今天做了什么", "介绍家人", "说说你的工作"]
   },
   {
     start: 35,
     end: 84,
-    level: "第2阶段 / A1+",
+    level: "第二阶段 / A1+",
     phase: "Dreaming English Intermediate",
     primary: "Dreaming English Intermediate",
-    secondary: "中级可理解输入，继续建立英语耳朵",
+    secondary: "中级可理解输入，继续建立听力，不急着看美剧",
     grammar: ["there is / there are", "can / can't", "want to", "一般过去时基础"],
     output: ["描述昨天发生什么", "问一个简单问题", "购物英语", "天气和时间"]
   },
   {
     start: 85,
     end: 150,
-    level: "第3阶段 / A2",
+    level: "第三阶段 / A2",
     phase: "Bluey Season 1",
     primary: "Bluey Season 1 in order",
-    secondary: "家庭生活英语，英文字幕为主",
+    secondary: "家庭生活英语，英文字幕为主，逐步减少依赖字幕",
     grammar: ["一般过去时", "现在进行时", "going to 将来时", "because 说明原因"],
     output: ["餐馆点餐", "超市询问", "预约医生", "预约汽车保养"]
   },
   {
     start: 151,
     end: 205,
-    level: "第4阶段 / A2+",
+    level: "第四阶段 / A2+",
     phase: "Peppa Pig",
     primary: "Peppa Pig in order",
-    secondary: "生活词汇和简单剧情，补场景表达",
+    secondary: "补生活词汇和简单剧情表达，不长期停留在儿童内容",
     grammar: ["比较级", "should / have to", "现在完成时入门", "if 条件句"],
     output: ["解释一个问题", "预约时间", "日常寒暄", "打电话"]
   },
   {
     start: 206,
     end: 275,
-    level: "第5阶段 / B1",
+    level: "第五阶段 / B1",
     phase: "TED-Ed",
     primary: "TED-Ed easy topics",
     secondary: "选择你感兴趣的话题：科技、历史、AI、NBA、美股",
@@ -94,10 +94,10 @@ const phases: Phase[] = [
   {
     start: 276,
     end: 334,
-    level: "第6阶段 / B1+",
+    level: "第六阶段 / B1+",
     phase: "Modern Family",
     primary: "Modern Family selected episodes",
-    secondary: "真实语速和自然表达，开始接近美剧",
+    secondary: "真实语速和自然表达，开始接近美剧和真实YouTube",
     grammar: ["常见短语动词", "条件句", "委婉表达", "讲故事结构"],
     output: ["录一段YouTube草稿", "讨论新闻", "工作对话", "长一点的观点表达"]
   }
@@ -155,7 +155,7 @@ export function buildCourseDay(day: number): CourseDay {
   const phase = getPhase(day);
   const isReview = day % 7 === 0;
   const totalHours = day * 3;
-  const checkpoint = totalHours % 99 === 0 ? `${Math.round(totalHours / 100) * 100}-hour self-check` : undefined;
+  const checkpoint = totalHours % 99 === 0 ? `${Math.round(totalHours / 100) * 100}小时自测` : undefined;
   const grammar = rotate(phase.grammar, day);
   const output = rotate(phase.output, day);
   const wordTopic = rotate(lifeWordTopics, day);
@@ -268,9 +268,7 @@ export function buildCourseDay(day: number): CourseDay {
       `我完成了 English1000 第 ${day} 天。`,
       `阶段：${phase.level}。课程：${phase.phase}。`,
       `今天内容：${resource}。语法：${grammar}。输出：${output}。`,
-      day === 1
-        ? "Day 1 重点：10词 I/you/he/she/go/come/want/like/good/today；语法 be动词；口语模板 Hello. My name is Jacob. I live in the United States. Today I studied English."
-        : "",
+      day <= 7 ? "这是第一周训练，请优先测试：自我介绍、车子保养、点餐、超市问路、描述一天。" : "",
       "请用简单英语测试我，温和纠正我的中式英语，并告诉我明天怎么调整。"
     ].filter(Boolean).join("\n")
   };
@@ -283,5 +281,5 @@ export const ROADMAP = phases.map((phase) => ({
   days: `${phase.start}-${phase.end}`,
   title: phase.phase,
   focus: `${phase.primary} + ${phase.secondary}`,
-  exit: phase.end < 286 ? "不用中文字幕能理解70%到80%，再进入下一阶段。" : "用真实英语内容完成复盘，开始录自己的英文表达。"
+  exit: phase.end < 276 ? "不用中文字幕能理解60%到70%，再进入下一阶段。" : "用真实英语内容完成复盘，开始录自己的英文表达。"
 }));

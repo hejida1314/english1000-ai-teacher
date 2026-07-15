@@ -32,7 +32,7 @@ import { getTaskSupport } from "./src/data/dayDetails";
 import { SAMPLE_SENTENCES } from "./src/data/sampleSentences";
 import { getWordHint } from "./src/data/wordHints";
 import { ProgressState, WordCard } from "./src/types";
-import { DEFAULT_PROGRESS, exportBackup, loadProgress, loadWords, saveProgress, saveWords } from "./src/utils/storage";
+import { DEFAULT_PROGRESS, exportBackup, importBackup, loadProgress, loadWords, saveProgress, saveWords } from "./src/utils/storage";
 import { requestNotificationPermission, scheduleDailyStudyReminder, scheduleTestNotification } from "./src/utils/notifications";
 import { createWordCard, isDue, reviewWord } from "./src/utils/words";
 
@@ -119,6 +119,14 @@ export default function App() {
     setTab("today");
   }
 
+  async function restoreFromBackup(backupJson: string) {
+    await importBackup(backupJson);
+    const [restoredProgress, restoredWords] = await Promise.all([loadProgress(), loadWords()]);
+    setProgress(restoredProgress);
+    setWords(restoredWords);
+    setTab("home");
+  }
+
   if (!ready) {
     return (
       <SafeAreaProvider>
@@ -168,6 +176,7 @@ export default function App() {
               progress={progress}
               onUpdate={updateProgress}
               onJumpToDay={jumpToDay}
+              onRestoreBackup={restoreFromBackup}
             />
           )}
         </ScrollView>
@@ -520,13 +529,16 @@ function RoadmapScreen() {
 function SettingsScreen({
   progress,
   onUpdate,
-  onJumpToDay
+  onJumpToDay,
+  onRestoreBackup
 }: {
   progress: ProgressState;
   onUpdate: (progress: ProgressState) => void;
   onJumpToDay: (day: number) => void;
+  onRestoreBackup: (backupJson: string) => Promise<void>;
 }) {
   const [dayText, setDayText] = useState(String(progress.currentDay));
+  const [backupText, setBackupText] = useState("");
 
   async function enableNotifications(hour: number, minute: number) {
     const ok = await requestNotificationPermission();
@@ -543,6 +555,20 @@ function SettingsScreen({
     const backup = await exportBackup();
     await Clipboard.setStringAsync(backup);
     Alert.alert("备份已复制", "把这段文字保存到安全的地方，以后可以恢复进度。");
+  }
+
+  async function restoreBackup() {
+    if (!backupText.trim()) {
+      Alert.alert("先粘贴备份", "把之前复制的备份文字粘贴进来。");
+      return;
+    }
+    try {
+      await onRestoreBackup(backupText);
+      setBackupText("");
+      Alert.alert("恢复成功", "进度和生词本已经恢复。");
+    } catch {
+      Alert.alert("恢复失败", "备份文字格式不对。请确认复制的是完整备份。");
+    }
   }
 
   function jump() {
@@ -590,6 +616,17 @@ function SettingsScreen({
         <Text style={styles.body}>把本地进度和生词复制成文字。以后换手机或换版本，也能保住你的数据。</Text>
         <Pressable style={styles.primaryButtonSmall} onPress={copyBackup}>
           <Text style={styles.primaryButtonText}>复制备份</Text>
+        </Pressable>
+        <Text style={styles.quickLabel}>恢复备份</Text>
+        <TextInput
+          style={[styles.input, styles.backupInput]}
+          value={backupText}
+          onChangeText={setBackupText}
+          placeholder="把备份文字粘贴到这里"
+          multiline
+        />
+        <Pressable style={styles.secondaryWideButton} onPress={restoreBackup}>
+          <Text style={styles.secondaryButtonText}>从备份恢复</Text>
         </Pressable>
       </View>
     </View>
@@ -1003,6 +1040,11 @@ const styles = StyleSheet.create({
   dayInput: {
     width: 100,
     marginBottom: 0
+  },
+  backupInput: {
+    minHeight: 110,
+    textAlignVertical: "top",
+    marginTop: 8
   },
   nav: {
     position: "absolute",

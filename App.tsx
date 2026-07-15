@@ -159,8 +159,10 @@ export default function App() {
           {tab === "today" && (
             <TodayScreen
               day={day}
+              words={words}
               completedTaskIds={progress.completedTaskIds}
               onToggleTask={toggleTask}
+              onUpdateWords={updateWords}
               onNextDay={goNextDay}
               onPreviousDay={goPreviousDay}
               onOpenPlayer={() => setTab("player")}
@@ -260,8 +262,10 @@ function HomeScreen({
 
 function TodayScreen({
   day,
+  words,
   completedTaskIds,
   onToggleTask,
+  onUpdateWords,
   onNextDay,
   onPreviousDay,
   onOpenPlayer,
@@ -269,8 +273,10 @@ function TodayScreen({
   onOpenAi
 }: {
   day: ReturnType<typeof buildCourseDay>;
+  words: WordCard[];
   completedTaskIds: string[];
   onToggleTask: (taskId: string) => void;
+  onUpdateWords: (words: WordCard[]) => Promise<void>;
   onNextDay: () => void;
   onPreviousDay: () => void;
   onOpenPlayer: () => void;
@@ -282,6 +288,7 @@ function TodayScreen({
   const activeTask = activeIndex >= 0 ? day.tasks[activeIndex] : undefined;
   const allDone = !activeTask;
   const support = activeTask ? getTaskSupport(day.day, activeTask.kind) : undefined;
+  const supportWords = activeTask?.kind === "vocabulary" && support ? support.items : [];
   const [timerTaskId, setTimerTaskId] = useState<string | undefined>();
   const [remainingSeconds, setRemainingSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
@@ -344,6 +351,27 @@ function TodayScreen({
     onToggleTask(activeTask.id);
   }
 
+  async function addTodayWords() {
+    if (!supportWords.length) {
+      return;
+    }
+    const existing = new Set(words.map((item) => item.word.trim().toLowerCase()));
+    const newCards = supportWords
+      .filter((item) => !existing.has(item.trim().toLowerCase()))
+      .map((item) => {
+        const hint = getWordHint(item);
+        return createWordCard(item, hint?.meaning || "待补充", hint?.sentence || "来自今日10词");
+      });
+
+    if (!newCards.length) {
+      Alert.alert("已经加入过了", "今天这些词已经在生词本里。");
+      return;
+    }
+
+    await onUpdateWords([...newCards, ...words]);
+    Alert.alert("已加入生词本", `新增 ${newCards.length} 个词，重复的自动跳过。`);
+  }
+
   return (
     <View>
       <Text style={styles.kicker}>今日任务</Text>
@@ -376,6 +404,11 @@ function TodayScreen({
                     {index + 1}. {item}
                   </Text>
                 ))}
+                {activeTask.kind === "vocabulary" && (
+                  <Pressable style={styles.supportButton} onPress={addTodayWords}>
+                    <Text style={styles.supportButtonText}>一键加入今日10词</Text>
+                  </Pressable>
+                )}
               </View>
             )}
             <View style={styles.flowMetaRow}>
@@ -1000,6 +1033,18 @@ const styles = StyleSheet.create({
     color: "#EDF7F4",
     lineHeight: 23,
     marginBottom: 4
+  },
+  supportButton: {
+    minHeight: 42,
+    borderRadius: 8,
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10
+  },
+  supportButtonText: {
+    color: theme.primaryDark,
+    fontWeight: "800"
   },
   flowMetaRow: {
     flexDirection: "row",

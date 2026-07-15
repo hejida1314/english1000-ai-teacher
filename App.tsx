@@ -233,6 +233,13 @@ const translations = {
     saveJournal: "保存日记",
     lifeSavedTitle: "已保存",
     lifeSavedBody: "今天的生活记录已经保存在本地。",
+    weeklyWorkoutTitle: "7天训练",
+    weeklyWorkoutBody: "有点就算赢，不追求每天完美。",
+    monthlySpendingTitle: "本月花费",
+    monthlySpendingBody: "先看钱花到哪里，再决定要不要控制。",
+    recentJournalTitle: "最近记录",
+    recentJournalEmpty: "还没有日记，今天写两句就够。",
+    noExpenseYet: "本月还没有记账。",
     invalidExpenseTitle: "金额不对",
     invalidExpenseBody: "请输入数字，例如 8、12.5、30。",
     roadmapKicker: "1000小时路线",
@@ -455,6 +462,13 @@ const translations = {
     saveJournal: "Save journal",
     lifeSavedTitle: "Saved",
     lifeSavedBody: "Today's life log has been saved locally.",
+    weeklyWorkoutTitle: "7-day workout",
+    weeklyWorkoutBody: "Any effort counts. Do not chase perfect days.",
+    monthlySpendingTitle: "This month",
+    monthlySpendingBody: "See where money went first, then decide what to control.",
+    recentJournalTitle: "Recent notes",
+    recentJournalEmpty: "No journal yet. Two lines today is enough.",
+    noExpenseYet: "No spending recorded this month.",
     invalidExpenseTitle: "Invalid amount",
     invalidExpenseBody: "Enter a number, e.g. 8, 12.5, 30.",
     roadmapKicker: "1000-Hour Roadmap",
@@ -1503,6 +1517,29 @@ function LifeScreen({
     { id: "tired", label: t("moodTired") },
     { id: "bad", label: t("moodBad") }
   ];
+  const logsByDate = new Map(logs.map((item) => [item.date, item]));
+  const workoutTrend = recentDateKeys(7).map((item) => ({
+    ...item,
+    done: (logsByDate.get(item.key)?.workoutCompletedIds.length ?? 0) > 0
+  }));
+  const workoutDaysThisWeek = workoutTrend.filter((item) => item.done).length;
+  const currentMonth = today.slice(0, 7);
+  const monthLogs = logs.filter((item) => item.date.startsWith(currentMonth));
+  const monthlySpending = monthLogs.reduce((sum, item) => (
+    sum + item.expenses.reduce((expenseSum, expense) => expenseSum + expense.amount, 0)
+  ), 0);
+  const categoryTotals = Array.from(monthLogs
+    .flatMap((item) => item.expenses)
+    .reduce((map, expense) => {
+      const key = expense.category || "general";
+      map.set(key, (map.get(key) ?? 0) + expense.amount);
+      return map;
+    }, new Map<string, number>()))
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5);
+  const recentJournalLogs = logs
+    .filter((item) => item.journal.trim().length > 0)
+    .slice(0, 3);
 
   useEffect(() => {
     setJournal(log.journal);
@@ -1580,6 +1617,21 @@ function LifeScreen({
           <Text style={styles.taskTitle}>{t("workoutTitle")}</Text>
         </View>
         <Text style={styles.body}>{t("workoutBody")}</Text>
+        <View style={styles.summaryBox}>
+          <View style={styles.summaryHeaderRow}>
+            <Text style={styles.summaryTitle}>{t("weeklyWorkoutTitle")}</Text>
+            <Text style={styles.summaryValue}>{workoutDaysThisWeek}/7</Text>
+          </View>
+          <Text style={styles.summaryBody}>{t("weeklyWorkoutBody")}</Text>
+          <View style={styles.trendRow}>
+            {workoutTrend.map((item) => (
+              <View key={item.key} style={styles.trendItem}>
+                <View style={[styles.trendDot, item.done && styles.trendDotDone]} />
+                <Text style={styles.trendLabel}>{item.label}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
         {workoutItems.map((item) => {
           const done = log.workoutCompletedIds.includes(item.id);
           return (
@@ -1598,6 +1650,21 @@ function LifeScreen({
         </View>
         <Text style={styles.body}>{t("expenseBody")}</Text>
         <Text style={styles.note}>{t("todayExpense", { amount: spentToday.toFixed(2) })}</Text>
+        <View style={styles.summaryBox}>
+          <View style={styles.summaryHeaderRow}>
+            <Text style={styles.summaryTitle}>{t("monthlySpendingTitle")}</Text>
+            <Text style={styles.summaryValue}>${monthlySpending.toFixed(2)}</Text>
+          </View>
+          <Text style={styles.summaryBody}>{t("monthlySpendingBody")}</Text>
+          {categoryTotals.length > 0 ? categoryTotals.map(([name, total]) => (
+            <View key={name} style={styles.categoryRow}>
+              <Text style={styles.categoryName}>{name}</Text>
+              <Text style={styles.categoryAmount}>${total.toFixed(2)}</Text>
+            </View>
+          )) : (
+            <Text style={styles.emptyText}>{t("noExpenseYet")}</Text>
+          )}
+        </View>
         <View style={styles.inlineForm}>
           <TextInput style={[styles.input, styles.amountInput]} value={amount} onChangeText={setAmount} placeholder={t("expenseAmountPlaceholder")} keyboardType="decimal-pad" />
           <TextInput style={[styles.input, styles.categoryInput]} value={category} onChangeText={setCategory} placeholder={t("expenseCategoryPlaceholder")} autoCapitalize="none" />
@@ -1648,6 +1715,17 @@ function LifeScreen({
         <Pressable style={styles.secondaryWideButton} onPress={saveJournal}>
           <Text style={styles.secondaryButtonText}>{t("saveJournal")}</Text>
         </Pressable>
+        <View style={styles.summaryBox}>
+          <Text style={styles.summaryTitle}>{t("recentJournalTitle")}</Text>
+          {recentJournalLogs.length > 0 ? recentJournalLogs.map((item) => (
+            <View key={item.date} style={styles.journalPreview}>
+              <Text style={styles.journalPreviewDate}>{item.date}</Text>
+              <Text style={styles.journalPreviewText} numberOfLines={2}>{item.journal}</Text>
+            </View>
+          )) : (
+            <Text style={styles.emptyText}>{t("recentJournalEmpty")}</Text>
+          )}
+        </View>
       </View>
     </View>
   );
@@ -1877,8 +1955,29 @@ function formatDuration(totalSeconds: number) {
   return `${minutes}:${pad(seconds)}`;
 }
 
+function dateKey(date = new Date()) {
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
 function todayKey() {
-  return new Date().toISOString().slice(0, 10);
+  return dateKey();
+}
+
+function addDays(date: Date, offset: number) {
+  const next = new Date(date);
+  next.setDate(next.getDate() + offset);
+  return next;
+}
+
+function recentDateKeys(count: number) {
+  const today = new Date();
+  return Array.from({ length: count }, (_, index) => {
+    const date = addDays(today, index - count + 1);
+    return {
+      key: dateKey(date),
+      label: `${date.getMonth() + 1}/${date.getDate()}`
+    };
+  });
 }
 
 function createEmptyLifeLog(date: string): LifeLog {
@@ -2599,6 +2698,101 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     marginTop: 14,
     marginBottom: 2
+  },
+  summaryBox: {
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#E2D8C8",
+    backgroundColor: "#FBF7EF",
+    padding: 12,
+    marginTop: 10,
+    marginBottom: 12
+  },
+  summaryHeaderRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12
+  },
+  summaryTitle: {
+    color: theme.ink,
+    fontWeight: "900",
+    fontSize: 15
+  },
+  summaryValue: {
+    color: theme.primaryDark,
+    fontWeight: "900"
+  },
+  summaryBody: {
+    color: theme.muted,
+    lineHeight: 20,
+    marginTop: 4
+  },
+  trendRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: 6,
+    marginTop: 12
+  },
+  trendItem: {
+    alignItems: "center",
+    flex: 1,
+    minWidth: 0
+  },
+  trendDot: {
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#CFC4B4",
+    backgroundColor: theme.surface,
+    marginBottom: 4
+  },
+  trendDotDone: {
+    borderColor: theme.primary,
+    backgroundColor: theme.primary
+  },
+  trendLabel: {
+    color: theme.muted,
+    fontSize: 10,
+    fontWeight: "700"
+  },
+  categoryRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderTopWidth: 1,
+    borderTopColor: "#E7DED0",
+    paddingTop: 8,
+    marginTop: 8
+  },
+  categoryName: {
+    color: theme.ink,
+    fontWeight: "800"
+  },
+  categoryAmount: {
+    color: theme.primaryDark,
+    fontWeight: "900"
+  },
+  emptyText: {
+    color: theme.muted,
+    lineHeight: 20,
+    marginTop: 8
+  },
+  journalPreview: {
+    borderTopWidth: 1,
+    borderTopColor: "#E7DED0",
+    paddingTop: 8,
+    marginTop: 8
+  },
+  journalPreviewDate: {
+    color: theme.warm,
+    fontWeight: "900",
+    marginBottom: 2
+  },
+  journalPreviewText: {
+    color: theme.muted,
+    lineHeight: 20
   },
   bigSentence: {
     color: theme.ink,

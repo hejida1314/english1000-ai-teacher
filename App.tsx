@@ -148,6 +148,9 @@ export default function App() {
               onToggleTask={toggleTask}
               onNextDay={goNextDay}
               onPreviousDay={goPreviousDay}
+              onOpenPlayer={() => setTab("player")}
+              onOpenWords={() => setTab("words")}
+              onOpenAi={() => setTab("ai")}
             />
           )}
           {tab === "player" && <PlayerScreen />}
@@ -238,14 +241,33 @@ function TodayScreen({
   completedTaskIds,
   onToggleTask,
   onNextDay,
-  onPreviousDay
+  onPreviousDay,
+  onOpenPlayer,
+  onOpenWords,
+  onOpenAi
 }: {
   day: ReturnType<typeof buildCourseDay>;
   completedTaskIds: string[];
   onToggleTask: (taskId: string) => void;
   onNextDay: () => void;
   onPreviousDay: () => void;
+  onOpenPlayer: () => void;
+  onOpenWords: () => void;
+  onOpenAi: () => void;
 }) {
+  const completedCount = day.tasks.filter((task) => completedTaskIds.includes(task.id)).length;
+  const activeIndex = day.tasks.findIndex((task) => !completedTaskIds.includes(task.id));
+  const activeTask = activeIndex >= 0 ? day.tasks[activeIndex] : undefined;
+  const allDone = !activeTask;
+  const helper =
+    activeTask?.kind === "intensive" || activeTask?.kind === "shadowing"
+      ? { label: "打开精听", onPress: onOpenPlayer }
+      : activeTask?.kind === "vocabulary"
+        ? { label: "打开单词本", onPress: onOpenWords }
+        : activeTask?.kind === "checkpoint"
+          ? { label: "打开AI老师", onPress: onOpenAi }
+          : undefined;
+
   return (
     <View>
       <Text style={styles.kicker}>今日任务</Text>
@@ -253,6 +275,40 @@ function TodayScreen({
       <Text style={styles.body}>{day.isReview ? "复习日：今天不学新材料，只巩固。" : day.focus}</Text>
       {day.checkpoint && <Text style={styles.warning}>{day.checkpoint}</Text>}
 
+      <View style={styles.flowCard}>
+        {allDone ? (
+          <>
+            <Text style={styles.stepBadge}>今天完成</Text>
+            <Text style={styles.flowTitle}>今天的任务都做完了</Text>
+            <Text style={styles.flowText}>可以结束学习，也可以点下一天提前看明天内容。</Text>
+            <Pressable style={styles.primaryButton} onPress={onNextDay}>
+              <Text style={styles.primaryButtonText}>进入下一天</Text>
+            </Pressable>
+          </>
+        ) : (
+          <>
+            <Text style={styles.stepBadge}>第 {activeIndex + 1} 步 / 共 {day.tasks.length} 步</Text>
+            <Text style={styles.flowTitle}>{activeTask.title}</Text>
+            <Text style={styles.flowText}>{activeTask.detail}</Text>
+            {!!activeTask.action && <Text style={styles.flowAction}>{activeTask.action}</Text>}
+            <View style={styles.flowMetaRow}>
+              <Text style={styles.flowMeta}>预计 {activeTask.minutes} 分钟</Text>
+              <Text style={styles.flowMeta}>已完成 {completedCount}/{day.tasks.length}</Text>
+            </View>
+            <Pressable style={styles.primaryButton} onPress={() => onToggleTask(activeTask.id)}>
+              <CheckCircle2 size={20} color="#fff" />
+              <Text style={styles.primaryButtonText}>完成这一步</Text>
+            </Pressable>
+            {helper && (
+              <Pressable style={styles.flowSecondaryButton} onPress={helper.onPress}>
+                <Text style={styles.flowSecondaryButtonText}>{helper.label}</Text>
+              </Pressable>
+            )}
+          </>
+        )}
+      </View>
+
+      <Text style={styles.sectionTitle}>完整清单</Text>
       {day.tasks.map((task) => {
         const done = completedTaskIds.includes(task.id);
         return (
@@ -695,6 +751,67 @@ const styles = StyleSheet.create({
     color: theme.warm,
     fontWeight: "800",
     marginBottom: 12
+  },
+  flowCard: {
+    backgroundColor: theme.primaryDark,
+    borderRadius: 8,
+    padding: 18,
+    marginBottom: 16
+  },
+  stepBadge: {
+    color: "#CFE6DE",
+    fontSize: 13,
+    fontWeight: "800",
+    marginBottom: 8
+  },
+  flowTitle: {
+    color: "#FFFFFF",
+    fontSize: 24,
+    fontWeight: "800",
+    lineHeight: 31,
+    marginBottom: 10
+  },
+  flowText: {
+    color: "#E5F2EE",
+    fontSize: 16,
+    lineHeight: 24
+  },
+  flowAction: {
+    color: "#FFFFFF",
+    fontWeight: "800",
+    lineHeight: 22,
+    marginTop: 10
+  },
+  flowMetaRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: 10,
+    marginTop: 14
+  },
+  flowMeta: {
+    color: "#CFE6DE",
+    fontWeight: "700"
+  },
+  flowSecondaryButton: {
+    marginTop: 10,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#CFE6DE",
+    minHeight: 48,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  flowSecondaryButtonText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "800"
+  },
+  sectionTitle: {
+    color: theme.ink,
+    fontSize: 18,
+    fontWeight: "800",
+    marginBottom: 10,
+    marginTop: 2
   },
   taskCard: {
     backgroundColor: theme.surface,

@@ -106,9 +106,129 @@ const hints: Record<string, WordHint> = {
   fix: { meaning: "修理；解决", sentence: "Can you fix it?" },
   wrong: { meaning: "错误的；有问题的", sentence: "There is something wrong." },
   try: { meaning: "尝试", sentence: "I will try again." },
-  should: { meaning: "应该", sentence: "What should I do?" }
+  should: { meaning: "应该", sentence: "What should I do?" },
+
+  learn: { meaning: "学习", sentence: "I learn English by listening." },
+  listening: { meaning: "听；听力", sentence: "Listening is important for English." },
+  understand: { meaning: "理解；听懂", sentence: "I can understand the main idea." },
+  beginner: { meaning: "初学者；初级的", sentence: "This video is for beginners." },
+  intermediate: { meaning: "中级的", sentence: "This is an intermediate lesson." },
+  english: { meaning: "英语；英文", sentence: "I study English every day." },
+  language: { meaning: "语言", sentence: "English is a useful language." },
+  video: { meaning: "视频", sentence: "I watched an English video." },
+  subtitle: { meaning: "字幕", sentence: "I used English subtitles today." },
+  lesson: { meaning: "课程；一课", sentence: "This lesson is useful." },
+  part: { meaning: "部分；第几部分", sentence: "This is part one." },
+  way: { meaning: "方法；道路", sentence: "This is a good way to learn." },
+  best: { meaning: "最好的", sentence: "This is the best way for me." },
+  idea: { meaning: "想法；主意", sentence: "I understand the main idea." },
+  main: { meaning: "主要的", sentence: "I understand the main idea." },
+  important: { meaning: "重要的", sentence: "This word is important." },
+  useful: { meaning: "有用的", sentence: "This sentence is useful." },
+  remember: { meaning: "记得；记住", sentence: "I remember this word." },
+  forget: { meaning: "忘记", sentence: "I forget this word sometimes." },
+  practice: { meaning: "练习", sentence: "I practice English every day." },
+  speak: { meaning: "说；讲话", sentence: "I want to speak English." },
+  hear: { meaning: "听见", sentence: "I can hear the sentence." },
+  listen: { meaning: "听", sentence: "I listen to English every day." },
+  read: { meaning: "读；阅读", sentence: "I read a short sentence." },
+  write: { meaning: "写", sentence: "I write a short journal." },
+  watch: { meaning: "观看", sentence: "I watch one video today." },
+  see: { meaning: "看见；明白", sentence: "I see the picture." },
+  look: { meaning: "看；看起来", sentence: "Look at the picture." },
+  say: { meaning: "说", sentence: "Could you say that again?" },
+  tell: { meaning: "告诉", sentence: "Please tell me the answer." },
+  ask: { meaning: "问；请求", sentence: "I ask a question." },
+  answer: { meaning: "回答；答案", sentence: "I know the answer." },
+  question: { meaning: "问题", sentence: "I have a question." },
+  think: { meaning: "想；认为", sentence: "I think this is useful." },
+  know: { meaning: "知道；认识", sentence: "I know this word." },
+  feel: { meaning: "感觉", sentence: "I feel good today." },
+  keep: { meaning: "保持；继续", sentence: "Keep going." },
+  continue: { meaning: "继续", sentence: "I will continue tomorrow." },
+  use: { meaning: "使用；用", sentence: "I use English at work." },
+  make: { meaning: "做；制作；使得", sentence: "I make time to study." },
+  take: { meaning: "拿；花费；乘坐", sentence: "Take a short break." },
+  get: { meaning: "得到；变得；到达", sentence: "I get better every day." },
+  give: { meaning: "给", sentence: "Please give me a minute." },
+  help: { meaning: "帮助", sentence: "Can you help me?" },
+  need: { meaning: "需要", sentence: "I need more practice." },
+
+  nation: { meaning: "国家；民族", sentence: "Every nation has a history." },
+  national: { meaning: "国家的；全国的", sentence: "This is a national park." },
+  natural: { meaning: "自然的；天然的", sentence: "Natural English takes time." },
+  nature: { meaning: "自然；大自然", sentence: "Nature is beautiful." },
+  country: { meaning: "国家；乡村", sentence: "I live in this country." },
+  state: { meaning: "州；状态", sentence: "I live in this state." },
+  city: { meaning: "城市", sentence: "This city is busy." },
+  world: { meaning: "世界", sentence: "English opens the world." },
+  place: { meaning: "地方", sentence: "This is a good place." },
+  people: { meaning: "人们", sentence: "Many people learn English." },
+  person: { meaning: "人；个人", sentence: "He is a nice person." },
+  family: { meaning: "家庭；家人", sentence: "My family is important to me." },
+  friend: { meaning: "朋友", sentence: "My friend speaks English." },
+  child: { meaning: "孩子", sentence: "The child is learning." },
+  children: { meaning: "孩子们", sentence: "Children learn by listening." },
+  teacher: { meaning: "老师", sentence: "The teacher speaks slowly." },
+  student: { meaning: "学生", sentence: "I am an English student." },
+  school: { meaning: "学校", sentence: "The child goes to school." },
+
+  time: { meaning: "时间；次数", sentence: "I need more time." },
+  day: { meaning: "一天；白天", sentence: "Today is a good day." },
+  year: { meaning: "年", sentence: "I will study for one year." },
+  first: { meaning: "第一；首先", sentence: "This is my first lesson." },
+  last: { meaning: "最后的；上一个", sentence: "Last week was busy." },
+  before: { meaning: "在……之前", sentence: "I study before work." },
+  after: { meaning: "在……之后", sentence: "I study after work." },
+  during: { meaning: "在……期间", sentence: "I listen during my break." },
+  always: { meaning: "总是", sentence: "I always review." },
+  usually: { meaning: "通常", sentence: "I usually study at night." },
+  sometimes: { meaning: "有时候", sentence: "Sometimes I feel tired." },
+  never: { meaning: "从不", sentence: "Never give up." },
+  maybe: { meaning: "也许；可能", sentence: "Maybe I can try again." },
+  really: { meaning: "真的；非常", sentence: "This is really useful." },
+
+  new: { meaning: "新的", sentence: "This is a new word." },
+  old: { meaning: "旧的；年老的", sentence: "This is an old video." },
+  big: { meaning: "大的", sentence: "This is a big step." },
+  small: { meaning: "小的", sentence: "Start with a small task." },
+  little: { meaning: "小的；一点", sentence: "I understand a little." },
+  long: { meaning: "长的；长时间", sentence: "This video is long." },
+  short: { meaning: "短的", sentence: "Write a short sentence." },
+  easy: { meaning: "容易的", sentence: "This lesson is easy." },
+  hard: { meaning: "困难的；努力的", sentence: "English is hard, but I continue." },
+  different: { meaning: "不同的", sentence: "This word is different." },
+  same: { meaning: "相同的", sentence: "It is the same word." },
+  right: { meaning: "正确的；右边", sentence: "That is the right answer." },
+  left: { meaning: "左边；离开", sentence: "Turn left here." },
+  inside: { meaning: "在里面", sentence: "The word is inside the sentence." },
+  outside: { meaning: "在外面", sentence: "I walked outside today." },
+
+  food: { meaning: "食物", sentence: "I bought food today." },
+  meal: { meaning: "一餐；饭", sentence: "This meal is healthy." },
+  breakfast: { meaning: "早餐", sentence: "I ate breakfast." },
+  lunch: { meaning: "午餐", sentence: "I had lunch at work." },
+  dinner: { meaning: "晚餐", sentence: "I cooked dinner." },
+  buy: { meaning: "买", sentence: "I need to buy food." },
+  sell: { meaning: "卖", sentence: "They sell vegetables here." },
+  pay: { meaning: "付款；支付", sentence: "Can I pay by card?" },
+  spend: { meaning: "花费；度过", sentence: "I spent ten dollars." },
+  cost: { meaning: "花费；价格", sentence: "How much does it cost?" }
 };
 
 export function getWordHint(word: string): WordHint | undefined {
-  return hints[word.trim().toLowerCase()];
+  const normalized = word.trim().toLowerCase();
+  const direct = hints[normalized];
+  if (direct) {
+    return direct;
+  }
+  const base =
+    normalized.endsWith("ing")
+      ? normalized.slice(0, -3)
+      : normalized.endsWith("ed")
+        ? normalized.slice(0, -2)
+        : normalized.endsWith("s")
+          ? normalized.slice(0, -1)
+          : normalized;
+  return hints[base];
 }

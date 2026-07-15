@@ -201,6 +201,9 @@ const translations = {
     lifeKicker: "生活管理",
     lifeTitle: "今天别散掉",
     lifeBody: "英语、力量、花钱、日记放在一页。目标不是完美，是每天不失控。",
+    lifeModeHealth: "健康",
+    lifeModeMoney: "记账",
+    lifeModeJournal: "记事",
     workoutTitle: "力量训练",
     workoutBody: "先做最小可执行量。休息日也可以只完成深蹲和拉伸。",
     expenseTitle: "记账",
@@ -208,10 +211,17 @@ const translations = {
     expenseAmountPlaceholder: "金额，例如 12.5",
     expenseCategoryPlaceholder: "分类，例如 food / gas",
     expenseNotePlaceholder: "备注，例如 lunch",
+    expenseQuickAmount: "快捷金额",
+    expenseQuickCategory: "快捷分类",
     addExpense: "添加花费",
     todayExpense: "今日花费：${amount}",
     journalTitle: "日记",
     journalBody: "写几句就行：今天做了什么、花了什么、身体状态、英语完成没有。",
+    moodTitle: "今天状态",
+    moodGood: "好",
+    moodOkay: "一般",
+    moodTired: "累",
+    moodBad: "差",
     journalPlaceholder: "今天记录...",
     saveJournal: "保存日记",
     lifeSavedTitle: "已保存",
@@ -406,6 +416,9 @@ const translations = {
     lifeKicker: "Life Manager",
     lifeTitle: "Keep Today Together",
     lifeBody: "English, strength, spending, and journal in one place. The goal is not perfection; it is staying in control.",
+    lifeModeHealth: "Health",
+    lifeModeMoney: "Money",
+    lifeModeJournal: "Notes",
     workoutTitle: "Strength Training",
     workoutBody: "Start with the smallest useful amount. On tired days, just do squats and stretching.",
     expenseTitle: "Spending",
@@ -413,10 +426,17 @@ const translations = {
     expenseAmountPlaceholder: "Amount, e.g. 12.5",
     expenseCategoryPlaceholder: "Category, e.g. food / gas",
     expenseNotePlaceholder: "Note, e.g. lunch",
+    expenseQuickAmount: "Quick amount",
+    expenseQuickCategory: "Quick category",
     addExpense: "Add expense",
     todayExpense: "Spent today: ${amount}",
     journalTitle: "Journal",
     journalBody: "Write a few lines: what you did, what you spent, body status, and whether English was done.",
+    moodTitle: "Mood",
+    moodGood: "Good",
+    moodOkay: "Okay",
+    moodTired: "Tired",
+    moodBad: "Bad",
     journalPlaceholder: "Today's note...",
     saveJournal: "Save journal",
     lifeSavedTitle: "Saved",
@@ -1420,6 +1440,8 @@ const workoutItems = [
   { id: "walk", zh: "\u8d70\u8def/\u62c9\u4f38 10\u5206\u949f", en: "Walk/stretch 10 min" }
 ];
 
+type LifeMode = "health" | "money" | "journal";
+
 function LifeScreen({
   logs,
   onUpdate,
@@ -1437,7 +1459,15 @@ function LifeScreen({
   const [category, setCategory] = useState("");
   const [expenseNote, setExpenseNote] = useState("");
   const [journal, setJournal] = useState(log.journal);
+  const [mode, setMode] = useState<LifeMode>("health");
   const spentToday = log.expenses.reduce((sum, item) => sum + item.amount, 0);
+  const expenseCategories = ["food", "gas", "grocery", "car", "health", "other"];
+  const moodOptions = [
+    { id: "good", label: t("moodGood") },
+    { id: "okay", label: t("moodOkay") },
+    { id: "tired", label: t("moodTired") },
+    { id: "bad", label: t("moodBad") }
+  ];
 
   useEffect(() => {
     setJournal(log.journal);
@@ -1483,13 +1513,33 @@ function LifeScreen({
     Alert.alert(t("lifeSavedTitle"), t("lifeSavedBody"));
   }
 
+  async function setMood(mood: string) {
+    await saveLog({ ...log, mood, updatedAt: new Date().toISOString() });
+  }
+
   return (
     <View>
       <Text style={styles.kicker}>{t("lifeKicker")}</Text>
       <Text style={styles.title}>{t("lifeTitle")}</Text>
       <Text style={styles.body}>{t("lifeBody")}</Text>
 
-      <View style={styles.card}>
+      <View style={styles.segmentedControl}>
+        {([
+          ["health", t("lifeModeHealth")],
+          ["money", t("lifeModeMoney")],
+          ["journal", t("lifeModeJournal")]
+        ] as Array<[LifeMode, string]>).map(([nextMode, label]) => (
+          <Pressable
+            key={nextMode}
+            style={[styles.segmentButton, mode === nextMode && styles.segmentButtonActive]}
+            onPress={() => setMode(nextMode)}
+          >
+            <Text style={[styles.segmentText, mode === nextMode && styles.segmentTextActive]}>{label}</Text>
+          </Pressable>
+        ))}
+      </View>
+
+      <View style={[styles.card, mode !== "health" && styles.hidden]}>
         <View style={styles.cardTitleRow}>
           <Dumbbell size={20} color={theme.primaryDark} />
           <Text style={styles.taskTitle}>{t("workoutTitle")}</Text>
@@ -1506,7 +1556,7 @@ function LifeScreen({
         })}
       </View>
 
-      <View style={styles.card}>
+      <View style={[styles.card, mode !== "money" && styles.hidden]}>
         <View style={styles.cardTitleRow}>
           <WalletCards size={20} color={theme.primaryDark} />
           <Text style={styles.taskTitle}>{t("expenseTitle")}</Text>
@@ -1517,8 +1567,20 @@ function LifeScreen({
           <TextInput style={[styles.input, styles.amountInput]} value={amount} onChangeText={setAmount} placeholder={t("expenseAmountPlaceholder")} keyboardType="decimal-pad" />
           <TextInput style={[styles.input, styles.categoryInput]} value={category} onChangeText={setCategory} placeholder={t("expenseCategoryPlaceholder")} autoCapitalize="none" />
         </View>
+        <Text style={styles.quickLabel}>{t("expenseQuickAmount")}</Text>
+        <View style={styles.rowWrap}>
+          {["5", "10", "20", "50"].map((item) => (
+            <Pill key={item} label={`$${item}`} onPress={() => setAmount(item)} />
+          ))}
+        </View>
+        <Text style={styles.quickLabel}>{t("expenseQuickCategory")}</Text>
+        <View style={styles.rowWrap}>
+          {expenseCategories.map((item) => (
+            <Pill key={item} label={item} onPress={() => setCategory(item)} />
+          ))}
+        </View>
         <TextInput style={styles.input} value={expenseNote} onChangeText={setExpenseNote} placeholder={t("expenseNotePlaceholder")} />
-        <Pressable style={styles.primaryButtonSmall} onPress={addExpense}>
+        <Pressable style={[styles.primaryButtonSmall, styles.stackedButton]} onPress={addExpense}>
           <Text style={styles.primaryButtonText}>{t("addExpense")}</Text>
         </Pressable>
         {log.expenses.slice(0, 4).map((item) => (
@@ -1528,12 +1590,19 @@ function LifeScreen({
         ))}
       </View>
 
-      <View style={styles.card}>
+      <View style={[styles.card, mode !== "journal" && styles.hidden]}>
         <View style={styles.cardTitleRow}>
           <NotebookPen size={20} color={theme.primaryDark} />
           <Text style={styles.taskTitle}>{t("journalTitle")}</Text>
         </View>
         <Text style={styles.body}>{t("journalBody")}</Text>
+        <Text style={styles.quickLabel}>{t("moodTitle")}</Text>
+        <View style={styles.rowWrap}>
+          {moodOptions.map((item) => (
+            <Pill key={item.id} label={item.label} onPress={() => setMood(item.id)} />
+          ))}
+        </View>
+        {!!log.mood && <Text style={styles.note}>{t("moodTitle")}: {moodOptions.find((item) => item.id === log.mood)?.label || log.mood}</Text>}
         <TextInput
           style={[styles.input, styles.journalInput]}
           value={journal}
@@ -2147,6 +2216,9 @@ const styles = StyleSheet.create({
     color: theme.muted,
     lineHeight: 22,
     marginBottom: 12
+  },
+  hidden: {
+    display: "none"
   },
   warning: {
     color: theme.danger,

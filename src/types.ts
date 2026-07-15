@@ -35,5 +35,6 @@ export type LifeLog = {
   workoutCompletedIds: string[];
   expenses: ExpenseEntry[];
   journal: string;
+  mood?: string;
   updatedAt: string;
 };

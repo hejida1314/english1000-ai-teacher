@@ -648,6 +648,7 @@ function PlayerScreen({
         {dictationChecked && (
           <View style={styles.feedbackBox}>
             <Text style={styles.feedbackTitle}>相似度：{dictationScore}%</Text>
+            <Text style={styles.feedbackText}>{dictationFeedback(dictationScore)}</Text>
             <Text style={styles.feedbackText}>原句：{sentence.english}</Text>
             <Text style={styles.feedbackText}>你写的：{dictation || "还没输入"}</Text>
           </View>
@@ -1003,6 +1004,19 @@ function scoreDictation(input: string, target: string) {
   const matched = targetWords.filter((word, index) => inputWords[index] === word).length;
   const looseMatched = targetWords.filter((word) => inputWords.includes(word)).length;
   return Math.round(((matched + looseMatched) / 2 / targetWords.length) * 100);
+}
+
+function dictationFeedback(score: number) {
+  if (score >= 80) {
+    return "不错，可以进入下一句。";
+  }
+  if (score >= 60) {
+    return "抓住主干了，再读3遍会更稳。";
+  }
+  if (score > 0) {
+    return "别急，先隐藏中文，只听关键词。";
+  }
+  return "先播放原句，再写你听到的几个词。";
 }
 
 function extractUsefulWords(sentence: string) {

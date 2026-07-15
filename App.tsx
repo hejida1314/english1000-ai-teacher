@@ -553,6 +553,18 @@ function PlayerScreen({ dayNumber, phase }: { dayNumber: number; phase: string }
     });
   }
 
+  async function copySentenceCoachPrompt() {
+    const prompt = [
+      "请做我的英语精听老师。",
+      `今天是 English1000 Day ${dayNumber}。`,
+      `句子：${sentence.english}`,
+      `中文意思：${sentence.chinese}`,
+      "请用简单中文解释这句话怎么用，再给我3个替换练习句。"
+    ].join("\n");
+    await Clipboard.setStringAsync(prompt);
+    Alert.alert("已复制", "发给AI老师，让它解释这句并给你替换练习。");
+  }
+
   return (
     <View>
       <Text style={styles.kicker}>精听播放器</Text>
@@ -567,6 +579,7 @@ function PlayerScreen({ dayNumber, phase }: { dayNumber: number; phase: string }
         </Pressable>
         <View style={styles.rowWrap}>
           <Pill label="读3遍" onPress={speakThreeTimes} />
+          <Pill label="AI解释这句" onPress={copySentenceCoachPrompt} />
           <Pill label="上一句" onPress={() => setIndex((index + sentences.length - 1) % sentences.length)} />
           <Pill label="下一句" onPress={() => setIndex((index + 1) % sentences.length)} />
           <Pill label={hideEnglish ? "显示英文" : "隐藏英文"} onPress={() => setHideEnglish(!hideEnglish)} />

@@ -29,7 +29,7 @@ import {
 
 import { COURSE_DAYS, ROADMAP, buildCourseDay } from "./src/data/course";
 import { getTaskSupport } from "./src/data/dayDetails";
-import { SAMPLE_SENTENCES } from "./src/data/sampleSentences";
+import { getSentencesForDay } from "./src/data/sampleSentences";
 import { getWordHint } from "./src/data/wordHints";
 import { ProgressState, WordCard } from "./src/types";
 import { DEFAULT_PROGRESS, exportBackup, importBackup, loadProgress, loadWords, saveProgress, saveWords } from "./src/utils/storage";
@@ -182,7 +182,7 @@ export default function App() {
               onOpenAi={() => setTab("ai")}
             />
           )}
-          {tab === "player" && <PlayerScreen />}
+          {tab === "player" && <PlayerScreen dayNumber={day.day} phase={day.phase} />}
           {tab === "words" && <WordsScreen words={words} onUpdate={updateWords} />}
           {tab === "ai" && <AiScreen prompt={day.aiPrompt} />}
           {tab === "roadmap" && <RoadmapScreen />}
@@ -527,24 +527,38 @@ function TodayScreen({
   );
 }
 
-function PlayerScreen() {
+function PlayerScreen({ dayNumber, phase }: { dayNumber: number; phase: string }) {
   const [index, setIndex] = useState(0);
   const [hideEnglish, setHideEnglish] = useState(false);
   const [hideChinese, setHideChinese] = useState(false);
   const [rate, setRate] = useState(0.85);
-  const sentence = SAMPLE_SENTENCES[index];
+  const sentences = useMemo(() => getSentencesForDay(dayNumber), [dayNumber]);
+  const sentence = sentences[index] ?? sentences[0];
+
+  useEffect(() => {
+    setIndex(0);
+  }, [dayNumber]);
 
   function speak() {
     Speech.stop();
     Speech.speak(sentence.english, { language: "en-US", rate });
   }
 
+  function speakThreeTimes() {
+    Speech.stop();
+    [0, 1, 2].forEach((_, repeatIndex) => {
+      setTimeout(() => {
+        Speech.speak(sentence.english, { language: "en-US", rate });
+      }, repeatIndex * 1800);
+    });
+  }
+
   return (
     <View>
       <Text style={styles.kicker}>精听播放器</Text>
-      <Text style={styles.title}>一句一句练</Text>
+      <Text style={styles.title}>Day {dayNumber} 句子精听</Text>
       <View style={styles.card}>
-        <Text style={styles.note}>当前句 {index + 1} / {SAMPLE_SENTENCES.length}</Text>
+        <Text style={styles.note}>{phase} · 当前句 {index + 1} / {sentences.length}</Text>
         {!hideEnglish && <Text style={styles.bigSentence}>{sentence.english}</Text>}
         {!hideChinese && <Text style={styles.body}>{sentence.chinese}</Text>}
         <Pressable style={styles.primaryButton} onPress={speak}>
@@ -552,8 +566,9 @@ function PlayerScreen() {
           <Text style={styles.primaryButtonText}>播放原句</Text>
         </Pressable>
         <View style={styles.rowWrap}>
-          <Pill label="上一句" onPress={() => setIndex((index + SAMPLE_SENTENCES.length - 1) % SAMPLE_SENTENCES.length)} />
-          <Pill label="下一句" onPress={() => setIndex((index + 1) % SAMPLE_SENTENCES.length)} />
+          <Pill label="读3遍" onPress={speakThreeTimes} />
+          <Pill label="上一句" onPress={() => setIndex((index + sentences.length - 1) % sentences.length)} />
+          <Pill label="下一句" onPress={() => setIndex((index + 1) % sentences.length)} />
           <Pill label={hideEnglish ? "显示英文" : "隐藏英文"} onPress={() => setHideEnglish(!hideEnglish)} />
           <Pill label={hideChinese ? "显示中文" : "隐藏中文"} onPress={() => setHideChinese(!hideChinese)} />
           <Pill label={`速度 ${rate.toFixed(2)}`} onPress={() => setRate(rate >= 1 ? 0.7 : Number((rate + 0.15).toFixed(2)))} />

@@ -4,6 +4,8 @@ import { Platform } from "react-native";
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
+    shouldShowBanner: true,
+    shouldShowList: true,
     shouldPlaySound: true,
     shouldSetBadge: false
   })
@@ -11,10 +13,10 @@ Notifications.setNotificationHandler({
 
 export async function requestNotificationPermission(): Promise<boolean> {
   const current = await Notifications.getPermissionsAsync();
-  let status = current.status;
-  if (status !== "granted") {
+  let granted = (current as { granted?: boolean }).granted === true;
+  if (!granted) {
     const requested = await Notifications.requestPermissionsAsync();
-    status = requested.status;
+    granted = (requested as { granted?: boolean }).granted === true;
   }
 
   if (Platform.OS === "android") {
@@ -24,7 +26,7 @@ export async function requestNotificationPermission(): Promise<boolean> {
     });
   }
 
-  return status === "granted";
+  return granted;
 }
 
 export async function scheduleDailyStudyReminder(hour: number, minute: number): Promise<void> {

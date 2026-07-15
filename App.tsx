@@ -94,7 +94,7 @@ export default function App() {
 
   async function goNextDay() {
     if (progress.currentDay >= COURSE_DAYS.length) {
-      Alert.alert("Done", "You finished the 334-day plan.");
+      Alert.alert("完成", "你已经完成334天计划。");
       return;
     }
     await updateProgress({ ...progress, currentDay: progress.currentDay + 1, completedTaskIds: [] });
@@ -118,7 +118,7 @@ export default function App() {
       <SafeAreaProvider>
         <SafeAreaView style={styles.center}>
           <Text style={styles.title}>English1000</Text>
-          <Text style={styles.muted}>Loading your local progress...</Text>
+          <Text style={styles.muted}>正在读取本地进度...</Text>
         </SafeAreaView>
       </SafeAreaProvider>
     );
@@ -186,12 +186,15 @@ function HomeScreen({
   onOpenSettings: () => void;
   onOpenRoadmap: () => void;
 }) {
+  const remainingTasks = day.tasks.length - Math.round((todayPercent / 100) * day.tasks.length);
+  const firstTask = day.tasks[0];
+
   return (
     <View>
       <View style={styles.headerRow}>
         <View>
-          <Text style={styles.kicker}>English1000 AI Teacher</Text>
-          <Text style={styles.title}>Day {day.day}</Text>
+          <Text style={styles.kicker}>English1000 AI老师</Text>
+          <Text style={styles.title}>第 {day.day} 天</Text>
         </View>
         <Pressable style={styles.iconButton} onPress={onOpenSettings}>
           <Settings size={22} color={theme.primaryDark} />
@@ -202,24 +205,29 @@ function HomeScreen({
         <Text style={styles.heroLabel}>{day.level}</Text>
         <Text style={styles.heroTitle}>{day.phase}</Text>
         <Text style={styles.heroText}>{day.focus}</Text>
+        <View style={styles.todayBox}>
+          <Text style={styles.todayBoxLabel}>今天先做</Text>
+          <Text style={styles.todayBoxTitle}>{firstTask.title}</Text>
+          <Text style={styles.todayBoxText}>{firstTask.detail}</Text>
+        </View>
         <View style={styles.progressTrack}>
           <View style={[styles.progressFill, { width: `${todayPercent}%` }]} />
         </View>
-        <Text style={styles.muted}>{todayPercent}% done today</Text>
+        <Text style={styles.muted}>今日完成 {todayPercent}% · 还剩 {remainingTasks} 项</Text>
         <Pressable style={styles.primaryButton} onPress={onContinue}>
           <Play size={20} color="#fff" />
-          <Text style={styles.primaryButtonText}>One-tap continue</Text>
+          <Text style={styles.primaryButtonText}>开始今天学习</Text>
         </Pressable>
         <Pressable style={styles.secondaryWideButton} onPress={onOpenRoadmap}>
-          <Text style={styles.secondaryButtonText}>View full sequence</Text>
+          <Text style={styles.secondaryButtonText}>查看全年路线</Text>
         </Pressable>
       </View>
 
       <View style={styles.grid}>
-        <Metric label="Finished days" value={`${progress.completedDays.length}`} />
-        <Metric label="Study minutes" value={`${totalCompletedMinutes}`} />
-        <Metric label="Due words" value={`${dueWords}`} />
-        <Metric label="Reminder" value={`${pad(progress.reminderHour)}:${pad(progress.reminderMinute)}`} />
+        <Metric label="已完成天数" value={`${progress.completedDays.length}`} />
+        <Metric label="累计分钟" value={`${totalCompletedMinutes}`} />
+        <Metric label="待复习单词" value={`${dueWords}`} />
+        <Metric label="提醒时间" value={`${pad(progress.reminderHour)}:${pad(progress.reminderMinute)}`} />
       </View>
     </View>
   );
@@ -240,9 +248,9 @@ function TodayScreen({
 }) {
   return (
     <View>
-      <Text style={styles.kicker}>Today's plan</Text>
-      <Text style={styles.title}>Day {day.day}: {day.phase}</Text>
-      <Text style={styles.body}>{day.isReview ? "Review day. No new material." : day.focus}</Text>
+      <Text style={styles.kicker}>今日任务</Text>
+      <Text style={styles.title}>第 {day.day} 天</Text>
+      <Text style={styles.body}>{day.isReview ? "复习日：今天不学新材料，只巩固。" : day.focus}</Text>
       {day.checkpoint && <Text style={styles.warning}>{day.checkpoint}</Text>}
 
       {day.tasks.map((task) => {
@@ -256,6 +264,7 @@ function TodayScreen({
               <View style={styles.taskMain}>
                 <Text style={styles.taskTitle}>{task.title}</Text>
                 <Text style={styles.taskDetail}>{task.detail}</Text>
+                {!!task.action && <Text style={styles.taskAction}>{task.action}</Text>}
               </View>
               <Text style={styles.minutes}>{task.minutes}m</Text>
             </View>
@@ -265,10 +274,10 @@ function TodayScreen({
 
       <View style={styles.row}>
         <Pressable style={styles.secondaryButton} onPress={onPreviousDay}>
-          <Text style={styles.secondaryButtonText}>Previous</Text>
+          <Text style={styles.secondaryButtonText}>前一天</Text>
         </Pressable>
         <Pressable style={styles.primaryButtonSmall} onPress={onNextDay}>
-          <Text style={styles.primaryButtonText}>Next day</Text>
+          <Text style={styles.primaryButtonText}>下一天</Text>
         </Pressable>
       </View>
     </View>
@@ -296,29 +305,29 @@ function PlayerScreen() {
 
   return (
     <View>
-      <Text style={styles.kicker}>Intensive listener</Text>
-      <Text style={styles.title}>Sentence loop</Text>
+      <Text style={styles.kicker}>精听播放器</Text>
+      <Text style={styles.title}>单句循环</Text>
       <View style={styles.playerCard}>
         {!hideEnglish && <Text style={styles.sentence}>{sentence.english}</Text>}
         {!hideChinese && <Text style={styles.translation}>{sentence.chinese}</Text>}
       </View>
       <View style={styles.rowWrap}>
-        <Pill label="Speak" onPress={speak} icon={<Volume2 size={18} color={theme.primaryDark} />} />
-        <Pill label="Loop 3x" onPress={() => loop(3)} icon={<RotateCcw size={18} color={theme.primaryDark} />} />
-        <Pill label="Loop 5x" onPress={() => loop(5)} icon={<RotateCcw size={18} color={theme.primaryDark} />} />
-        <Pill label={hideEnglish ? "Show EN" : "Hide EN"} onPress={() => setHideEnglish(!hideEnglish)} />
-        <Pill label={hideChinese ? "Show CN" : "Hide CN"} onPress={() => setHideChinese(!hideChinese)} />
+        <Pill label="朗读" onPress={speak} icon={<Volume2 size={18} color={theme.primaryDark} />} />
+        <Pill label="循环3遍" onPress={() => loop(3)} icon={<RotateCcw size={18} color={theme.primaryDark} />} />
+        <Pill label="循环5遍" onPress={() => loop(5)} icon={<RotateCcw size={18} color={theme.primaryDark} />} />
+        <Pill label={hideEnglish ? "显示英文" : "隐藏英文"} onPress={() => setHideEnglish(!hideEnglish)} />
+        <Pill label={hideChinese ? "显示中文" : "隐藏中文"} onPress={() => setHideChinese(!hideChinese)} />
         <Pill label={rate === 0.7 ? "0.85x" : rate === 0.85 ? "1.0x" : "0.7x"} onPress={() => setRate(rate === 0.7 ? 0.85 : rate === 0.85 ? 1 : 0.7)} />
       </View>
       <View style={styles.row}>
         <Pressable style={styles.secondaryButton} onPress={() => setIndex(Math.max(0, index - 1))}>
-          <Text style={styles.secondaryButtonText}>Previous</Text>
+          <Text style={styles.secondaryButtonText}>上一句</Text>
         </Pressable>
         <Pressable style={styles.primaryButtonSmall} onPress={() => setIndex((index + 1) % SAMPLE_SENTENCES.length)}>
-          <Text style={styles.primaryButtonText}>Next</Text>
+          <Text style={styles.primaryButtonText}>下一句</Text>
         </Pressable>
       </View>
-      <Text style={styles.note}>Later we can import real subtitles. This first version proves the lazy listening workflow.</Text>
+      <Text style={styles.note}>下一版会支持导入真实字幕。现在先用它练单句循环、隐藏字幕和跟读节奏。</Text>
     </View>
   );
 }
@@ -331,7 +340,7 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
 
   function addWord() {
     if (!word.trim() || !meaning.trim()) {
-      Alert.alert("Missing info", "Add a word and a Chinese meaning.");
+      Alert.alert("信息不完整", "请至少填写英文单词和中文意思。");
       return;
     }
     onUpdate([createWordCard(word, meaning, sentence), ...words]);
@@ -346,14 +355,14 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
 
   return (
     <View>
-      <Text style={styles.kicker}>Words</Text>
-      <Text style={styles.title}>{due.length} due today</Text>
+      <Text style={styles.kicker}>生词本</Text>
+      <Text style={styles.title}>今天复习 {due.length} 个</Text>
       <View style={styles.card}>
-        <TextInput style={styles.input} value={word} onChangeText={setWord} placeholder="word" />
-        <TextInput style={styles.input} value={meaning} onChangeText={setMeaning} placeholder="Chinese meaning" />
-        <TextInput style={styles.input} value={sentence} onChangeText={setSentence} placeholder="source sentence" />
+        <TextInput style={styles.input} value={word} onChangeText={setWord} placeholder="英文单词" />
+        <TextInput style={styles.input} value={meaning} onChangeText={setMeaning} placeholder="中文意思" />
+        <TextInput style={styles.input} value={sentence} onChangeText={setSentence} placeholder="来自哪一句" />
         <Pressable style={styles.primaryButtonSmall} onPress={addWord}>
-          <Text style={styles.primaryButtonText}>Add word</Text>
+          <Text style={styles.primaryButtonText}>加入生词本</Text>
         </Pressable>
       </View>
       {due.map((card) => (
@@ -362,10 +371,10 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
           <Text style={styles.body}>{card.meaning}</Text>
           {!!card.sentence && <Text style={styles.note}>{card.sentence}</Text>}
           <View style={styles.rowWrap}>
-            <Pill label="Forgot" onPress={() => grade(card, "forgot")} />
-            <Pill label="Hard" onPress={() => grade(card, "hard")} />
-            <Pill label="Know" onPress={() => grade(card, "know")} />
-            <Pill label="Easy" onPress={() => grade(card, "easy")} />
+            <Pill label="忘了" onPress={() => grade(card, "forgot")} />
+            <Pill label="困难" onPress={() => grade(card, "hard")} />
+            <Pill label="会了" onPress={() => grade(card, "know")} />
+            <Pill label="很熟" onPress={() => grade(card, "easy")} />
           </View>
         </View>
       ))}
@@ -376,21 +385,21 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
 function AiScreen({ prompt }: { prompt: string }) {
   function copyPrompt() {
     Clipboard.setStringAsync(prompt);
-    Alert.alert("Copied", "Paste this into ChatGPT or your AI teacher.");
+    Alert.alert("已复制", "把它发给ChatGPT，就能开始今天的小测。");
   }
 
   return (
     <View>
-      <Text style={styles.kicker}>AI Teacher</Text>
-      <Text style={styles.title}>Daily test prompt</Text>
+      <Text style={styles.kicker}>AI老师</Text>
+      <Text style={styles.title}>今日小测提示词</Text>
       <View style={styles.card}>
         <Text style={styles.prompt}>{prompt}</Text>
       </View>
       <Pressable style={styles.primaryButton} onPress={copyPrompt}>
         <Brain size={20} color="#fff" />
-        <Text style={styles.primaryButtonText}>Copy prompt</Text>
+        <Text style={styles.primaryButtonText}>复制提示词</Text>
       </Pressable>
-      <Text style={styles.note}>The app stays useful offline. AI is an optional coach layered on top.</Text>
+      <Text style={styles.note}>核心计划离线可用。AI老师负责测试、纠错和调整节奏。</Text>
     </View>
   );
 }
@@ -398,8 +407,8 @@ function AiScreen({ prompt }: { prompt: string }) {
 function RoadmapScreen() {
   return (
     <View>
-      <Text style={styles.kicker}>Roadmap</Text>
-      <Text style={styles.title}>1000-hour route</Text>
+      <Text style={styles.kicker}>全年路线</Text>
+      <Text style={styles.title}>1000小时路线</Text>
       {ROADMAP.map((item) => (
         <View key={item.days} style={styles.card}>
           <Text style={styles.kicker}>{item.label} / Day {item.days}</Text>
@@ -416,40 +425,40 @@ function SettingsScreen({ progress, onUpdate }: { progress: ProgressState; onUpd
   async function enableNotifications(hour: number, minute: number) {
     const ok = await requestNotificationPermission();
     if (!ok) {
-      Alert.alert("Permission needed", "Notifications are not enabled.");
+      Alert.alert("需要权限", "通知没有开启。");
       return;
     }
     await scheduleDailyStudyReminder(hour, minute);
     await onUpdate({ ...progress, reminderHour: hour, reminderMinute: minute, notificationsEnabled: true });
-    Alert.alert("Reminder set", `Daily reminder: ${pad(hour)}:${pad(minute)}`);
+    Alert.alert("提醒已设置", `每天 ${pad(hour)}:${pad(minute)} 提醒学习。`);
   }
 
   async function copyBackup() {
     const backup = await exportBackup();
     Clipboard.setStringAsync(backup);
-    Alert.alert("Backup copied", "Save this text somewhere safe.");
+    Alert.alert("备份已复制", "把这段文字保存到安全的地方。");
   }
 
   return (
     <View>
-      <Text style={styles.kicker}>Settings</Text>
-      <Text style={styles.title}>Lazy mode controls</Text>
+      <Text style={styles.kicker}>设置</Text>
+      <Text style={styles.title}>懒人模式</Text>
       <View style={styles.card}>
-        <Text style={styles.taskTitle}>Daily reminder</Text>
-        <Text style={styles.body}>Pick one. Do not overthink it.</Text>
+        <Text style={styles.taskTitle}>每日提醒</Text>
+        <Text style={styles.body}>选一个固定时间。不要每天重新决定。</Text>
         <View style={styles.rowWrap}>
           <Pill label="8:00" onPress={() => enableNotifications(8, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
           <Pill label="15:00" onPress={() => enableNotifications(15, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
           <Pill label="20:00" onPress={() => enableNotifications(20, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
           <Pill label="22:00" onPress={() => enableNotifications(22, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
-          <Pill label="Test 3s" onPress={scheduleTestNotification} />
+          <Pill label="3秒测试" onPress={scheduleTestNotification} />
         </View>
       </View>
       <View style={styles.card}>
-        <Text style={styles.taskTitle}>Backup</Text>
-        <Text style={styles.body}>Copy all local progress and words as text. This protects you if the app changes later.</Text>
+        <Text style={styles.taskTitle}>本地备份</Text>
+        <Text style={styles.body}>把本地进度和生词复制成文字。以后换手机或版本也能恢复。</Text>
         <Pressable style={styles.primaryButtonSmall} onPress={copyBackup}>
-          <Text style={styles.primaryButtonText}>Copy backup</Text>
+          <Text style={styles.primaryButtonText}>复制备份</Text>
         </Pressable>
       </View>
     </View>
@@ -458,10 +467,10 @@ function SettingsScreen({ progress, onUpdate }: { progress: ProgressState; onUpd
 
 function BottomNav({ tab, onChange }: { tab: Tab; onChange: (tab: Tab) => void }) {
   const items: Array<{ tab: Tab; label: string; icon: React.ReactNode }> = [
-    { tab: "home", label: "Home", icon: <Home size={20} color={tab === "home" ? theme.primary : theme.muted} /> },
-    { tab: "today", label: "Today", icon: <ListChecks size={20} color={tab === "today" ? theme.primary : theme.muted} /> },
-    { tab: "player", label: "Listen", icon: <Headphones size={20} color={tab === "player" ? theme.primary : theme.muted} /> },
-    { tab: "words", label: "Words", icon: <BookOpen size={20} color={tab === "words" ? theme.primary : theme.muted} /> },
+    { tab: "home", label: "首页", icon: <Home size={20} color={tab === "home" ? theme.primary : theme.muted} /> },
+    { tab: "today", label: "今日", icon: <ListChecks size={20} color={tab === "today" ? theme.primary : theme.muted} /> },
+    { tab: "player", label: "精听", icon: <Headphones size={20} color={tab === "player" ? theme.primary : theme.muted} /> },
+    { tab: "words", label: "单词", icon: <BookOpen size={20} color={tab === "words" ? theme.primary : theme.muted} /> },
     { tab: "ai", label: "AI", icon: <Brain size={20} color={tab === "ai" ? theme.primary : theme.muted} /> }
   ];
 
@@ -555,6 +564,30 @@ const styles = StyleSheet.create({
     color: theme.muted,
     lineHeight: 21,
     marginBottom: 16
+  },
+  todayBox: {
+    backgroundColor: "#F3EFE5",
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#E4D8C7",
+    padding: 14,
+    marginBottom: 16
+  },
+  todayBoxLabel: {
+    color: theme.warm,
+    fontSize: 13,
+    fontWeight: "800",
+    marginBottom: 6
+  },
+  todayBoxTitle: {
+    color: theme.ink,
+    fontSize: 18,
+    fontWeight: "800",
+    marginBottom: 6
+  },
+  todayBoxText: {
+    color: theme.muted,
+    lineHeight: 21
   },
   progressTrack: {
     height: 10,
@@ -697,6 +730,12 @@ const styles = StyleSheet.create({
   taskDetail: {
     color: theme.muted,
     lineHeight: 20
+  },
+  taskAction: {
+    color: theme.primaryDark,
+    fontWeight: "700",
+    lineHeight: 20,
+    marginTop: 8
   },
   minutes: {
     color: theme.primaryDark,

@@ -14,6 +14,7 @@ export type DailyTask = {
   title: string;
   minutes: number;
   detail: string;
+  action?: string;
 };
 
 export type CourseDay = {
@@ -43,84 +44,84 @@ const phases: Phase[] = [
   {
     start: 1,
     end: 34,
-    level: "Level 1 / A1",
+    level: "第1阶段 / A1",
     phase: "Dreaming English Beginner",
     primary: "Dreaming English Beginner",
-    secondary: "80 episodes in order, with replay",
-    grammar: ["be verbs", "simple present", "yes/no questions", "basic pronouns"],
-    output: ["self introduction", "today's routine", "family", "work"]
+    secondary: "80集按顺序，看懂大意，不查词",
+    grammar: ["be动词：I am / You are / He is", "一般现在时：I work / I study", "一般疑问句：Are you...? / Do you...?", "人称代词：I / you / he / she / we"],
+    output: ["30秒自我介绍", "描述今天做了什么", "介绍家人", "说说你的工作"]
   },
   {
     start: 35,
     end: 84,
-    level: "Level 1+ / A1",
+    level: "第2阶段 / A1+",
     phase: "Dreaming English Intermediate",
     primary: "Dreaming English Intermediate",
-    secondary: "intermediate comprehensible input",
-    grammar: ["there is / there are", "can / can't", "want to", "basic past tense"],
-    output: ["describe yesterday", "ask simple questions", "shopping", "weather"]
+    secondary: "中级可理解输入，继续建立英语耳朵",
+    grammar: ["there is / there are", "can / can't", "want to", "一般过去时基础"],
+    output: ["描述昨天发生什么", "问一个简单问题", "购物英语", "天气和时间"]
   },
   {
     start: 85,
     end: 150,
-    level: "Level 2 / A2",
+    level: "第3阶段 / A2",
     phase: "Bluey Season 1",
     primary: "Bluey Season 1 in order",
-    secondary: "family life English",
-    grammar: ["past tense", "present continuous", "future with going to", "because"],
-    output: ["restaurant", "grocery store", "doctor appointment", "car maintenance"]
+    secondary: "家庭生活英语，英文字幕为主",
+    grammar: ["一般过去时", "现在进行时", "going to 将来时", "because 说明原因"],
+    output: ["餐馆点餐", "超市询问", "预约医生", "预约汽车保养"]
   },
   {
     start: 151,
     end: 205,
-    level: "Level 2+ / A2",
+    level: "第4阶段 / A2+",
     phase: "Peppa Pig",
     primary: "Peppa Pig in order",
-    secondary: "daily-life vocabulary and simple plots",
-    grammar: ["comparatives", "should / have to", "present perfect basics", "if clauses"],
-    output: ["explain a problem", "make an appointment", "small talk", "phone call"]
+    secondary: "生活词汇和简单剧情，补场景表达",
+    grammar: ["比较级", "should / have to", "现在完成时入门", "if 条件句"],
+    output: ["解释一个问题", "预约时间", "日常寒暄", "打电话"]
   },
   {
     start: 206,
     end: 275,
-    level: "Level 3 / B1",
+    level: "第5阶段 / B1",
     phase: "TED-Ed",
     primary: "TED-Ed easy topics",
-    secondary: "topics you actually care about",
-    grammar: ["relative clauses", "passive voice", "reported speech", "topic transitions"],
-    output: ["summarize a video", "give an opinion", "retell a movie scene", "compare choices"]
+    secondary: "选择你感兴趣的话题：科技、历史、AI、NBA、美股",
+    grammar: ["定语从句", "被动语态", "转述别人说的话", "观点衔接"],
+    output: ["总结一个视频", "表达观点", "复述一个片段", "比较两个选择"]
   },
   {
     start: 276,
     end: 334,
-    level: "Level 4 / B1+",
+    level: "第6阶段 / B1+",
     phase: "Modern Family",
     primary: "Modern Family selected episodes",
-    secondary: "real sitcom speed and natural expressions",
-    grammar: ["natural phrasal verbs", "conditionals", "softening phrases", "storytelling"],
-    output: ["record a YouTube draft", "discuss news", "work conversation", "long-form opinion"]
+    secondary: "真实语速和自然表达，开始接近美剧",
+    grammar: ["常见短语动词", "条件句", "委婉表达", "讲故事结构"],
+    output: ["录一段YouTube草稿", "讨论新闻", "工作对话", "长一点的观点表达"]
   }
 ];
 
 const lifeWordTopics = [
-  "home and family",
-  "work",
-  "food",
-  "shopping",
-  "car maintenance",
-  "doctor visit",
-  "bank",
+  "家庭和日常",
+  "工作",
+  "食物",
+  "购物",
+  "汽车保养",
+  "看医生",
+  "银行",
   "DMV",
-  "weather",
-  "time and schedule",
-  "feelings",
-  "phone calls",
-  "restaurants",
-  "directions",
-  "technology",
-  "money",
-  "sports",
-  "travel"
+  "天气",
+  "时间和预约",
+  "情绪",
+  "电话",
+  "餐馆",
+  "问路",
+  "科技",
+  "金钱",
+  "体育",
+  "旅行"
 ];
 
 function getPhase(day: number): Phase {
@@ -133,21 +134,21 @@ function rotate<T>(items: T[], index: number): T {
 
 function resourceLabel(phase: Phase, day: number): string {
   if (phase.phase === "Dreaming English Beginner") {
-    return `Dreaming English Beginner #${((day - 1) % 80) + 1}`;
+    return `Dreaming English Beginner 第 ${((day - 1) % 80) + 1} 集`;
   }
   if (phase.phase === "Dreaming English Intermediate") {
-    return `Dreaming English Intermediate #${((day - 35) % 80) + 1}`;
+    return `Dreaming English Intermediate 第 ${((day - 35) % 80) + 1} 集`;
   }
   if (phase.phase === "Bluey Season 1") {
-    return `Bluey Season 1 Episode ${((day - 85) % 52) + 1}`;
+    return `Bluey 第一季第 ${((day - 85) % 52) + 1} 集`;
   }
   if (phase.phase === "Peppa Pig") {
-    return `Peppa Pig Episode ${((day - 151) % 52) + 1}`;
+    return `Peppa Pig 第 ${((day - 151) % 52) + 1} 集`;
   }
   if (phase.phase === "TED-Ed") {
-    return `TED-Ed topic #${((day - 206) % 70) + 1}`;
+    return `TED-Ed 兴趣话题第 ${((day - 206) % 70) + 1} 个`;
   }
-  return `Modern Family selected episode #${((day - 276) % 24) + 1}`;
+  return `Modern Family 精选第 ${((day - 276) % 24) + 1} 集`;
 }
 
 export function buildCourseDay(day: number): CourseDay {
@@ -165,37 +166,42 @@ export function buildCourseDay(day: number): CourseDay {
         {
           id: `d${day}-review-input`,
           kind: "review",
-          title: "Review this week's input",
+          title: "复习本周输入",
           minutes: 50,
-          detail: "Replay the easiest and hardest clips from this week. No new material."
+          detail: "重看本周最简单和最难的片段。今天不学新内容。",
+          action: "只复习，不加新材料。"
         },
         {
           id: `d${day}-review-words`,
           kind: "vocabulary",
-          title: "Review saved words",
+          title: "复习生词本",
           minutes: 30,
-          detail: "Use the word review buttons: forgot, hard, know, easy."
+          detail: "用“忘了 / 困难 / 会了 / 很熟”给单词打分。",
+          action: "优先复习到期单词。"
         },
         {
           id: `d${day}-review-speaking`,
           kind: "output",
-          title: "Weekly speaking recap",
+          title: "本周口语复盘",
           minutes: 35,
-          detail: "Record a 2-minute recap in simple English. Mistakes are allowed."
+          detail: "用简单英语录2分钟，说说这周学了什么。说错没关系。",
+          action: "录音，不要只在脑子里想。"
         },
         {
           id: `d${day}-review-writing`,
           kind: "review",
-          title: "Weekly journal",
+          title: "本周英文日记",
           minutes: 25,
-          detail: "Write 5-10 sentences about this week."
+          detail: "写5到10句，记录本周生活和学习。",
+          action: "短句即可，别追求高级。"
         },
         {
           id: `d${day}-review-ai`,
           kind: "checkpoint",
-          title: "Ask AI Teacher",
+          title: "AI老师小测",
           minutes: 40,
-          detail: "Use the AI prompt for a light test and next-week adjustment."
+          detail: "复制今天的AI提示词，让AI测试你并调整下周任务。",
+          action: "复制提示词，发给AI。"
         }
       ]
     : [
@@ -204,42 +210,48 @@ export function buildCourseDay(day: number): CourseDay {
           kind: "input",
           title: resource,
           minutes: 45,
-          detail: "Watch once without pausing. Focus on meaning, not translation."
+          detail: "第一遍不暂停、不查词，靠画面理解大意。",
+          action: "完成后估计理解度：40%、60%还是80%。"
         },
         {
           id: `d${day}-intensive`,
           kind: "intensive",
-          title: "Intensive listening",
+          title: "第二遍精听",
           minutes: 35,
-          detail: "Replay a short segment. Use slower speed and sentence loop for hard parts."
+          detail: "开英文字幕重看，挑一小段反复听。不要开中文字幕。",
+          action: "只处理最常出现的词，生僻词放过。"
         },
         {
           id: `d${day}-shadowing`,
           kind: "shadowing",
-          title: "Shadowing",
+          title: "跟读模仿",
           minutes: 20,
-          detail: "Pick 3-5 useful sentences. Copy rhythm first, pronunciation second."
+          detail: "挑3到5句有用句子，模仿节奏和语气。",
+          action: "不用背，像演员一样模仿。"
         },
         {
           id: `d${day}-vocab`,
           kind: "vocabulary",
-          title: `Words: ${wordTopic}`,
+          title: `今日10词：${wordTopic}`,
           minutes: 20,
-          detail: "Save 10 useful words from today's input or life topic. Avoid rare words."
+          detail: "只记今天视频里反复出现、生活里真会用的词。",
+          action: "最多10个，不许贪多。"
         },
         {
           id: `d${day}-grammar`,
           kind: "grammar",
-          title: `Grammar: ${grammar}`,
+          title: `语法15分钟：${grammar}`,
           minutes: 20,
-          detail: "Learn one pattern only. Find it in today's input."
+          detail: "今天只学一个语法点，并在视频里找例子。",
+          action: "会认出来就行，不刷题。"
         },
         {
           id: `d${day}-output`,
           kind: "output",
-          title: `Output: ${output}`,
+          title: `输出练习：${output}`,
           minutes: 40,
-          detail: "Speak first, then write 5-10 sentences. Clarity beats perfection."
+          detail: "先开口说，再写5到10句。清楚比完美重要。",
+          action: "录30秒到2分钟，保留给以后对比。"
         }
       ];
 
@@ -248,15 +260,15 @@ export function buildCourseDay(day: number): CourseDay {
     totalHours,
     level: phase.level,
     phase: phase.phase,
-    focus: `${phase.primary} + ${phase.secondary}`,
+    focus: `${phase.primary}：${phase.secondary}`,
     isReview,
     checkpoint,
     tasks,
     aiPrompt: [
-      `I completed Day ${day} of English1000 AI Teacher.`,
-      `Level: ${phase.level}. Phase: ${phase.phase}.`,
-      `Today's focus: ${resource}. Grammar: ${grammar}. Output: ${output}.`,
-      "Please test me in simple English, correct my Chinese-English mistakes gently, and give me tomorrow's adjustment."
+      `我完成了 English1000 第 ${day} 天。`,
+      `阶段：${phase.level}。课程：${phase.phase}。`,
+      `今天内容：${resource}。语法：${grammar}。输出：${output}。`,
+      "请用简单英语测试我，温和纠正我的中式英语，并告诉我明天怎么调整。"
     ].join("\n")
   };
 }
@@ -268,5 +280,5 @@ export const ROADMAP = phases.map((phase) => ({
   days: `${phase.start}-${phase.end}`,
   title: phase.phase,
   focus: `${phase.primary} + ${phase.secondary}`,
-  exit: phase.end < 286 ? "Move forward when you understand about 70-80% without Chinese subtitles." : "Finish with real English input and weekly spoken summaries."
+  exit: phase.end < 286 ? "不用中文字幕能理解70%到80%，再进入下一阶段。" : "用真实英语内容完成复盘，开始录自己的英文表达。"
 }));

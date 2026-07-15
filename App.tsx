@@ -46,6 +46,7 @@ const theme = {
   primaryDark: "#174D46",
   line: "#DDD6C9",
   warm: "#C4743B",
+  soft: "#F3EFE5",
   danger: "#AA3E3E"
 };
 
@@ -66,9 +67,10 @@ export default function App() {
   const day = useMemo(() => buildCourseDay(progress.currentDay), [progress.currentDay]);
   const completedToday = day.tasks.filter((task) => progress.completedTaskIds.includes(task.id)).length;
   const todayPercent = Math.round((completedToday / day.tasks.length) * 100);
-  const totalCompletedMinutes = progress.completedDays.length * 180 + day.tasks
+  const completedMinutesToday = day.tasks
     .filter((task) => progress.completedTaskIds.includes(task.id))
     .reduce((sum, task) => sum + task.minutes, 0);
+  const totalCompletedMinutes = progress.completedDays.length * 180 + completedMinutesToday;
   const dueWords = words.filter(isDue);
 
   async function updateProgress(next: ProgressState) {
@@ -95,7 +97,7 @@ export default function App() {
 
   async function goNextDay() {
     if (progress.currentDay >= COURSE_DAYS.length) {
-      Alert.alert("完成", "你已经完成334天计划。");
+      Alert.alert("已经完成", "你已经走完334天计划。");
       return;
     }
     await updateProgress({ ...progress, currentDay: progress.currentDay + 1, completedTaskIds: [] });
@@ -110,7 +112,9 @@ export default function App() {
     setTab("today");
   }
 
-  function continueLearning() {
+  async function jumpToDay(dayNumber: number) {
+    const nextDay = Math.min(COURSE_DAYS.length, Math.max(1, dayNumber));
+    await updateProgress({ ...progress, currentDay: nextDay, completedTaskIds: [] });
     setTab("today");
   }
 
@@ -137,7 +141,7 @@ export default function App() {
               todayPercent={todayPercent}
               totalCompletedMinutes={totalCompletedMinutes}
               dueWords={dueWords.length}
-              onContinue={continueLearning}
+              onContinue={() => setTab("today")}
               onOpenSettings={() => setTab("settings")}
               onOpenRoadmap={() => setTab("roadmap")}
             />
@@ -162,6 +166,7 @@ export default function App() {
             <SettingsScreen
               progress={progress}
               onUpdate={updateProgress}
+              onJumpToDay={jumpToDay}
             />
           )}
         </ScrollView>
@@ -191,14 +196,14 @@ function HomeScreen({
   onOpenRoadmap: () => void;
 }) {
   const remainingTasks = day.tasks.length - Math.round((todayPercent / 100) * day.tasks.length);
-  const firstTask = day.tasks[0];
+  const firstUnfinished = day.tasks.find((task) => true);
 
   return (
     <View>
       <View style={styles.headerRow}>
         <View>
-          <Text style={styles.kicker}>English1000 AI老师</Text>
-          <Text style={styles.title}>第 {day.day} 天</Text>
+          <Text style={styles.kicker}>English1000 AI 老师</Text>
+          <Text style={styles.title}>Day {day.day}</Text>
         </View>
         <Pressable style={styles.iconButton} onPress={onOpenSettings}>
           <Settings size={22} color={theme.primaryDark} />
@@ -209,18 +214,21 @@ function HomeScreen({
         <Text style={styles.heroLabel}>{day.level}</Text>
         <Text style={styles.heroTitle}>{day.phase}</Text>
         <Text style={styles.heroText}>{day.focus}</Text>
+
         <View style={styles.todayBox}>
           <Text style={styles.todayBoxLabel}>今天先做</Text>
-          <Text style={styles.todayBoxTitle}>{firstTask.title}</Text>
-          <Text style={styles.todayBoxText}>{firstTask.detail}</Text>
+          <Text style={styles.todayBoxTitle}>{firstUnfinished?.title}</Text>
+          <Text style={styles.todayBoxText}>{firstUnfinished?.detail}</Text>
         </View>
+
         <View style={styles.progressTrack}>
           <View style={[styles.progressFill, { width: `${todayPercent}%` }]} />
         </View>
         <Text style={styles.muted}>今日完成 {todayPercent}% · 还剩 {remainingTasks} 项</Text>
+
         <Pressable style={styles.primaryButton} onPress={onContinue}>
           <Play size={20} color="#fff" />
-          <Text style={styles.primaryButtonText}>开始今天学习</Text>
+          <Text style={styles.primaryButtonText}>一键继续今天学习</Text>
         </Pressable>
         <Pressable style={styles.secondaryWideButton} onPress={onOpenRoadmap}>
           <Text style={styles.secondaryButtonText}>查看全年路线</Text>
@@ -260,6 +268,7 @@ function TodayScreen({
   const activeIndex = day.tasks.findIndex((task) => !completedTaskIds.includes(task.id));
   const activeTask = activeIndex >= 0 ? day.tasks[activeIndex] : undefined;
   const allDone = !activeTask;
+  const support = activeTask ? getTaskSupport(day.day, activeTask.kind) : undefined;
   const helper =
     activeTask?.kind === "intensive" || activeTask?.kind === "shadowing"
       ? { label: "打开精听", onPress: onOpenPlayer }
@@ -268,12 +277,11 @@ function TodayScreen({
         : activeTask?.kind === "checkpoint"
           ? { label: "打开AI老师", onPress: onOpenAi }
           : undefined;
-  const support = activeTask ? getTaskSupport(day.day, activeTask.kind) : undefined;
 
   return (
     <View>
       <Text style={styles.kicker}>今日任务</Text>
-      <Text style={styles.title}>第 {day.day} 天</Text>
+      <Text style={styles.title}>Day {day.day}</Text>
       <Text style={styles.body}>{day.isReview ? "复习日：今天不学新材料，只巩固。" : day.focus}</Text>
       {day.checkpoint && <Text style={styles.warning}>{day.checkpoint}</Text>}
 
@@ -282,7 +290,7 @@ function TodayScreen({
           <>
             <Text style={styles.stepBadge}>今天完成</Text>
             <Text style={styles.flowTitle}>今天的任务都做完了</Text>
-            <Text style={styles.flowText}>可以结束学习，也可以点下一天提前看明天内容。</Text>
+            <Text style={styles.flowText}>可以结束学习，也可以进入下一天提前看看明天内容。</Text>
             <Pressable style={styles.primaryButton} onPress={onNextDay}>
               <Text style={styles.primaryButtonText}>进入下一天</Text>
             </Pressable>
@@ -364,38 +372,26 @@ function PlayerScreen() {
     Speech.speak(sentence.english, { language: "en-US", rate });
   }
 
-  function loop(times: number) {
-    Speech.stop();
-    for (let i = 0; i < times; i += 1) {
-      setTimeout(() => Speech.speak(sentence.english, { language: "en-US", rate }), i * 2600);
-    }
-  }
-
   return (
     <View>
       <Text style={styles.kicker}>精听播放器</Text>
-      <Text style={styles.title}>单句循环</Text>
-      <View style={styles.playerCard}>
-        {!hideEnglish && <Text style={styles.sentence}>{sentence.english}</Text>}
-        {!hideChinese && <Text style={styles.translation}>{sentence.chinese}</Text>}
-      </View>
-      <View style={styles.rowWrap}>
-        <Pill label="朗读" onPress={speak} icon={<Volume2 size={18} color={theme.primaryDark} />} />
-        <Pill label="循环3遍" onPress={() => loop(3)} icon={<RotateCcw size={18} color={theme.primaryDark} />} />
-        <Pill label="循环5遍" onPress={() => loop(5)} icon={<RotateCcw size={18} color={theme.primaryDark} />} />
-        <Pill label={hideEnglish ? "显示英文" : "隐藏英文"} onPress={() => setHideEnglish(!hideEnglish)} />
-        <Pill label={hideChinese ? "显示中文" : "隐藏中文"} onPress={() => setHideChinese(!hideChinese)} />
-        <Pill label={rate === 0.7 ? "0.85x" : rate === 0.85 ? "1.0x" : "0.7x"} onPress={() => setRate(rate === 0.7 ? 0.85 : rate === 0.85 ? 1 : 0.7)} />
-      </View>
-      <View style={styles.row}>
-        <Pressable style={styles.secondaryButton} onPress={() => setIndex(Math.max(0, index - 1))}>
-          <Text style={styles.secondaryButtonText}>上一句</Text>
+      <Text style={styles.title}>一句一句练</Text>
+      <View style={styles.card}>
+        <Text style={styles.note}>当前句 {index + 1} / {SAMPLE_SENTENCES.length}</Text>
+        {!hideEnglish && <Text style={styles.bigSentence}>{sentence.english}</Text>}
+        {!hideChinese && <Text style={styles.body}>{sentence.chinese}</Text>}
+        <Pressable style={styles.primaryButton} onPress={speak}>
+          <Volume2 size={20} color="#fff" />
+          <Text style={styles.primaryButtonText}>播放原句</Text>
         </Pressable>
-        <Pressable style={styles.primaryButtonSmall} onPress={() => setIndex((index + 1) % SAMPLE_SENTENCES.length)}>
-          <Text style={styles.primaryButtonText}>下一句</Text>
-        </Pressable>
+        <View style={styles.rowWrap}>
+          <Pill label="上一句" onPress={() => setIndex((index + SAMPLE_SENTENCES.length - 1) % SAMPLE_SENTENCES.length)} />
+          <Pill label="下一句" onPress={() => setIndex((index + 1) % SAMPLE_SENTENCES.length)} />
+          <Pill label={hideEnglish ? "显示英文" : "隐藏英文"} onPress={() => setHideEnglish(!hideEnglish)} />
+          <Pill label={hideChinese ? "显示中文" : "隐藏中文"} onPress={() => setHideChinese(!hideChinese)} />
+          <Pill label={`速度 ${rate.toFixed(2)}`} onPress={() => setRate(rate >= 1 ? 0.7 : Number((rate + 0.15).toFixed(2)))} />
+        </View>
       </View>
-      <Text style={styles.note}>下一版会支持导入真实字幕。现在先用它练单句循环、隐藏字幕和跟读节奏。</Text>
     </View>
   );
 }
@@ -404,27 +400,27 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
   const [word, setWord] = useState("");
   const [meaning, setMeaning] = useState("");
   const [sentence, setSentence] = useState("");
-  const due = words.filter(isDue);
+  const dueWords = words.filter(isDue);
 
-  function addWord() {
-    if (!word.trim() || !meaning.trim()) {
-      Alert.alert("信息不完整", "请至少填写英文单词和中文意思。");
+  async function addWord() {
+    if (!word.trim()) {
+      Alert.alert("先输入单词", "单词不能为空。");
       return;
     }
-    onUpdate([createWordCard(word, meaning, sentence), ...words]);
+    await onUpdate([createWordCard(word, meaning || "待补充", sentence || "来自今天课程"), ...words]);
     setWord("");
     setMeaning("");
     setSentence("");
   }
 
-  function grade(card: WordCard, value: "forgot" | "hard" | "know" | "easy") {
-    onUpdate(words.map((item) => (item.id === card.id ? reviewWord(item, value) : item)));
+  async function grade(card: WordCard, score: "forgot" | "hard" | "know" | "easy") {
+    await onUpdate(words.map((item) => item.id === card.id ? reviewWord(item, score) : item));
   }
 
   return (
     <View>
       <Text style={styles.kicker}>生词本</Text>
-      <Text style={styles.title}>今天复习 {due.length} 个</Text>
+      <Text style={styles.title}>只记真会用的词</Text>
       <View style={styles.card}>
         <TextInput style={styles.input} value={word} onChangeText={setWord} placeholder="英文单词" />
         <TextInput style={styles.input} value={meaning} onChangeText={setMeaning} placeholder="中文意思" />
@@ -433,11 +429,12 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
           <Text style={styles.primaryButtonText}>加入生词本</Text>
         </Pressable>
       </View>
-      {due.map((card) => (
+      <Text style={styles.sectionTitle}>今天要复习：{dueWords.length}</Text>
+      {(dueWords.length ? dueWords : words.slice(0, 6)).map((card) => (
         <View key={card.id} style={styles.card}>
           <Text style={styles.taskTitle}>{card.word}</Text>
           <Text style={styles.body}>{card.meaning}</Text>
-          {!!card.sentence && <Text style={styles.note}>{card.sentence}</Text>}
+          <Text style={styles.note}>{card.sentence}</Text>
           <View style={styles.rowWrap}>
             <Pill label="忘了" onPress={() => grade(card, "forgot")} />
             <Pill label="困难" onPress={() => grade(card, "hard")} />
@@ -451,23 +448,22 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
 }
 
 function AiScreen({ prompt }: { prompt: string }) {
-  function copyPrompt() {
-    Clipboard.setStringAsync(prompt);
-    Alert.alert("已复制", "把它发给ChatGPT，就能开始今天的小测。");
+  async function copyPrompt() {
+    await Clipboard.setStringAsync(prompt);
+    Alert.alert("已复制", "把提示词发给ChatGPT，就能开始今天的AI老师测试。");
   }
 
   return (
     <View>
       <Text style={styles.kicker}>AI老师</Text>
-      <Text style={styles.title}>今日小测提示词</Text>
+      <Text style={styles.title}>今天这样测试</Text>
       <View style={styles.card}>
-        <Text style={styles.prompt}>{prompt}</Text>
+        <Text style={styles.body}>{prompt}</Text>
+        <Pressable style={styles.primaryButton} onPress={copyPrompt}>
+          <Brain size={20} color="#fff" />
+          <Text style={styles.primaryButtonText}>复制AI提示词</Text>
+        </Pressable>
       </View>
-      <Pressable style={styles.primaryButton} onPress={copyPrompt}>
-        <Brain size={20} color="#fff" />
-        <Text style={styles.primaryButtonText}>复制提示词</Text>
-      </Pressable>
-      <Text style={styles.note}>核心计划离线可用。AI老师负责测试、纠错和调整节奏。</Text>
     </View>
   );
 }
@@ -475,8 +471,8 @@ function AiScreen({ prompt }: { prompt: string }) {
 function RoadmapScreen() {
   return (
     <View>
-      <Text style={styles.kicker}>全年路线</Text>
-      <Text style={styles.title}>1000小时路线</Text>
+      <Text style={styles.kicker}>1000小时路线</Text>
+      <Text style={styles.title}>只走一条主线</Text>
       {ROADMAP.map((item) => (
         <View key={item.days} style={styles.card}>
           <Text style={styles.kicker}>{item.label} / Day {item.days}</Text>
@@ -489,7 +485,17 @@ function RoadmapScreen() {
   );
 }
 
-function SettingsScreen({ progress, onUpdate }: { progress: ProgressState; onUpdate: (progress: ProgressState) => void }) {
+function SettingsScreen({
+  progress,
+  onUpdate,
+  onJumpToDay
+}: {
+  progress: ProgressState;
+  onUpdate: (progress: ProgressState) => void;
+  onJumpToDay: (day: number) => void;
+}) {
+  const [dayText, setDayText] = useState(String(progress.currentDay));
+
   async function enableNotifications(hour: number, minute: number) {
     const ok = await requestNotificationPermission();
     if (!ok) {
@@ -503,8 +509,17 @@ function SettingsScreen({ progress, onUpdate }: { progress: ProgressState; onUpd
 
   async function copyBackup() {
     const backup = await exportBackup();
-    Clipboard.setStringAsync(backup);
-    Alert.alert("备份已复制", "把这段文字保存到安全的地方。");
+    await Clipboard.setStringAsync(backup);
+    Alert.alert("备份已复制", "把这段文字保存到安全的地方，以后可以恢复进度。");
+  }
+
+  function jump() {
+    const parsed = Number(dayText);
+    if (!Number.isFinite(parsed)) {
+      Alert.alert("请输入数字", "例如 1、7、34、85。");
+      return;
+    }
+    onJumpToDay(parsed);
   }
 
   return (
@@ -513,7 +528,7 @@ function SettingsScreen({ progress, onUpdate }: { progress: ProgressState; onUpd
       <Text style={styles.title}>懒人模式</Text>
       <View style={styles.card}>
         <Text style={styles.taskTitle}>每日提醒</Text>
-        <Text style={styles.body}>选一个固定时间。不要每天重新决定。</Text>
+        <Text style={styles.body}>选一个固定时间。以后点通知，直接继续今天第一个没完成的任务。</Text>
         <View style={styles.rowWrap}>
           <Pill label="8:00" onPress={() => enableNotifications(8, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
           <Pill label="15:00" onPress={() => enableNotifications(15, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
@@ -523,8 +538,24 @@ function SettingsScreen({ progress, onUpdate }: { progress: ProgressState; onUpd
         </View>
       </View>
       <View style={styles.card}>
+        <Text style={styles.taskTitle}>跳到某一天</Text>
+        <Text style={styles.body}>测试课程时用。正式学习时不要乱跳，按顺序走。</Text>
+        <View style={styles.inlineForm}>
+          <TextInput style={[styles.input, styles.dayInput]} value={dayText} onChangeText={setDayText} keyboardType="number-pad" />
+          <Pressable style={styles.primaryButtonSmall} onPress={jump}>
+            <Text style={styles.primaryButtonText}>跳转</Text>
+          </Pressable>
+        </View>
+        <View style={styles.rowWrap}>
+          <Pill label="Day 1" onPress={() => onJumpToDay(1)} />
+          <Pill label="Day 7" onPress={() => onJumpToDay(7)} />
+          <Pill label="Day 35" onPress={() => onJumpToDay(35)} />
+          <Pill label="Day 85" onPress={() => onJumpToDay(85)} />
+        </View>
+      </View>
+      <View style={styles.card}>
         <Text style={styles.taskTitle}>本地备份</Text>
-        <Text style={styles.body}>把本地进度和生词复制成文字。以后换手机或版本也能恢复。</Text>
+        <Text style={styles.body}>把本地进度和生词复制成文字。以后换手机或换版本，也能保住你的数据。</Text>
         <Pressable style={styles.primaryButtonSmall} onPress={copyBackup}>
           <Text style={styles.primaryButtonText}>复制备份</Text>
         </Pressable>
@@ -634,7 +665,7 @@ const styles = StyleSheet.create({
     marginBottom: 16
   },
   todayBox: {
-    backgroundColor: "#F3EFE5",
+    backgroundColor: theme.soft,
     borderRadius: 8,
     borderWidth: 1,
     borderColor: "#E4D8C7",
@@ -676,7 +707,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
-    gap: 8
+    gap: 8,
+    paddingHorizontal: 16
   },
   primaryButtonSmall: {
     backgroundColor: theme.primary,
@@ -760,7 +792,7 @@ const styles = StyleSheet.create({
     marginBottom: 12
   },
   warning: {
-    color: theme.warm,
+    color: theme.danger,
     fontWeight: "800",
     marginBottom: 12
   },
@@ -768,94 +800,86 @@ const styles = StyleSheet.create({
     backgroundColor: theme.primaryDark,
     borderRadius: 8,
     padding: 18,
-    marginBottom: 16
+    marginVertical: 16
   },
   stepBadge: {
-    color: "#CFE6DE",
-    fontSize: 13,
+    color: "#D9F0E9",
     fontWeight: "800",
     marginBottom: 8
   },
   flowTitle: {
-    color: "#FFFFFF",
-    fontSize: 24,
+    color: "#fff",
+    fontSize: 22,
     fontWeight: "800",
-    lineHeight: 31,
-    marginBottom: 10
+    marginBottom: 8
   },
   flowText: {
     color: "#E5F2EE",
-    fontSize: 16,
-    lineHeight: 24
+    lineHeight: 22
   },
   flowAction: {
-    color: "#FFFFFF",
+    color: "#FFE5C7",
     fontWeight: "800",
-    lineHeight: 22,
-    marginTop: 10
+    marginTop: 10,
+    lineHeight: 22
   },
   supportBox: {
-    backgroundColor: "rgba(255,255,255,0.10)",
-    borderRadius: 8,
+    backgroundColor: "rgba(255,255,255,0.1)",
+    borderColor: "rgba(255,255,255,0.22)",
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.16)",
+    borderRadius: 8,
     padding: 12,
     marginTop: 14
   },
   supportTitle: {
-    color: "#FFFFFF",
-    fontSize: 15,
+    color: "#fff",
     fontWeight: "800",
     marginBottom: 8
   },
   supportItem: {
-    color: "#EAF5F1",
-    fontSize: 15,
+    color: "#EDF7F4",
     lineHeight: 23,
-    marginBottom: 3
+    marginBottom: 4
   },
   flowMetaRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: 10,
     marginTop: 14
   },
   flowMeta: {
-    color: "#CFE6DE",
+    color: "#CFE7DF",
     fontWeight: "700"
   },
   flowSecondaryButton: {
     marginTop: 10,
+    minHeight: 46,
     borderRadius: 8,
-    borderWidth: 1,
-    borderColor: "#CFE6DE",
-    minHeight: 48,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: "rgba(255,255,255,0.12)"
   },
   flowSecondaryButtonText: {
-    color: "#FFFFFF",
-    fontSize: 16,
+    color: "#fff",
     fontWeight: "800"
   },
   sectionTitle: {
-    color: theme.ink,
-    fontSize: 18,
-    fontWeight: "800",
+    marginTop: 10,
     marginBottom: 10,
-    marginTop: 2
+    color: theme.ink,
+    fontSize: 20,
+    fontWeight: "800"
   },
   taskCard: {
     backgroundColor: theme.surface,
-    borderWidth: 1,
-    borderColor: theme.line,
     borderRadius: 8,
     padding: 14,
+    borderWidth: 1,
+    borderColor: theme.line,
     marginBottom: 10
   },
   taskCardDone: {
-    borderColor: theme.primary,
-    backgroundColor: "#EEF7F4"
+    backgroundColor: "#EEF6F3",
+    borderColor: "#BBD8D0"
   },
   taskTop: {
     flexDirection: "row",
@@ -863,37 +887,37 @@ const styles = StyleSheet.create({
     alignItems: "flex-start"
   },
   taskIcon: {
-    width: 30,
-    alignItems: "center",
-    paddingTop: 2
+    width: 28,
+    alignItems: "center"
   },
   taskMain: {
     flex: 1
   },
   taskTitle: {
     color: theme.ink,
+    fontSize: 18,
     fontWeight: "800",
-    fontSize: 17,
     marginBottom: 6
   },
   taskDetail: {
     color: theme.muted,
-    lineHeight: 20
+    lineHeight: 21
   },
   taskAction: {
     color: theme.primaryDark,
-    fontWeight: "700",
-    lineHeight: 20,
-    marginTop: 8
+    fontWeight: "800",
+    marginTop: 6,
+    lineHeight: 21
   },
   minutes: {
-    color: theme.primaryDark,
+    color: theme.warm,
     fontWeight: "800"
   },
   row: {
     flexDirection: "row",
     gap: 10,
-    marginTop: 14
+    marginTop: 8,
+    marginBottom: 18
   },
   rowWrap: {
     flexDirection: "row",
@@ -903,92 +927,86 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: theme.surface,
+    borderRadius: 8,
+    padding: 16,
     borderWidth: 1,
     borderColor: theme.line,
-    borderRadius: 8,
-    padding: 14,
     marginBottom: 12
   },
-  playerCard: {
-    backgroundColor: theme.surface,
-    borderWidth: 1,
-    borderColor: theme.line,
-    borderRadius: 8,
-    minHeight: 190,
-    padding: 18,
-    justifyContent: "center"
-  },
-  sentence: {
-    fontSize: 25,
-    color: theme.ink,
-    fontWeight: "800",
-    lineHeight: 34,
-    marginBottom: 16
-  },
-  translation: {
-    fontSize: 17,
-    color: theme.muted,
-    lineHeight: 25
-  },
-  pill: {
-    minHeight: 42,
-    paddingHorizontal: 13,
-    borderRadius: 8,
-    backgroundColor: "#EEE7DC",
-    flexDirection: "row",
-    gap: 7,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  pillText: {
-    color: theme.primaryDark,
-    fontWeight: "800"
-  },
   note: {
-    color: theme.muted,
-    fontSize: 13,
-    lineHeight: 19,
-    marginTop: 8
+    color: theme.warm,
+    fontWeight: "700",
+    lineHeight: 21,
+    marginBottom: 8
+  },
+  bigSentence: {
+    color: theme.ink,
+    fontSize: 24,
+    fontWeight: "800",
+    lineHeight: 32,
+    marginBottom: 10
   },
   input: {
-    minHeight: 44,
+    minHeight: 46,
     borderRadius: 8,
     borderWidth: 1,
     borderColor: theme.line,
-    backgroundColor: "#FBF8F1",
     paddingHorizontal: 12,
+    backgroundColor: "#fff",
     marginBottom: 10,
     color: theme.ink
   },
-  prompt: {
-    color: theme.ink,
-    lineHeight: 22,
-    fontFamily: "Courier"
+  inlineForm: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginTop: 4
+  },
+  dayInput: {
+    width: 100,
+    marginBottom: 0
   },
   nav: {
     position: "absolute",
     left: 0,
     right: 0,
     bottom: 0,
-    height: 78,
+    minHeight: 76,
+    paddingTop: 8,
+    paddingBottom: 12,
+    backgroundColor: theme.surface,
     borderTopWidth: 1,
     borderTopColor: theme.line,
-    backgroundColor: theme.surface,
     flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center"
+    justifyContent: "space-around"
   },
   navItem: {
-    width: "20%",
     alignItems: "center",
-    gap: 4
+    justifyContent: "center",
+    gap: 4,
+    width: "20%"
   },
   navLabel: {
-    fontSize: 12,
     color: theme.muted,
+    fontSize: 12,
     fontWeight: "700"
   },
   navLabelActive: {
     color: theme.primary
+  },
+  pill: {
+    flexDirection: "row",
+    gap: 6,
+    alignItems: "center",
+    backgroundColor: theme.soft,
+    borderColor: theme.line,
+    borderWidth: 1,
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    minHeight: 38
+  },
+  pillText: {
+    color: theme.primaryDark,
+    fontWeight: "800"
   }
 });

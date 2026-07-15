@@ -282,6 +282,13 @@ function TodayScreen({
   const activeTask = activeIndex >= 0 ? day.tasks[activeIndex] : undefined;
   const allDone = !activeTask;
   const support = activeTask ? getTaskSupport(day.day, activeTask.kind) : undefined;
+  const [timerTaskId, setTimerTaskId] = useState<string | undefined>();
+  const [remainingSeconds, setRemainingSeconds] = useState(0);
+  const [timerRunning, setTimerRunning] = useState(false);
+  const timerActive = !!activeTask && timerTaskId === activeTask.id && remainingSeconds > 0;
+  const remainingMinutes = day.tasks
+    .filter((task) => !completedTaskIds.includes(task.id))
+    .reduce((sum, task) => sum + task.minutes, 0);
   const helper =
     activeTask?.kind === "intensive" || activeTask?.kind === "shadowing"
       ? { label: "打开精听", onPress: onOpenPlayer }
@@ -291,11 +298,58 @@ function TodayScreen({
           ? { label: "打开AI老师", onPress: onOpenAi }
           : undefined;
 
+  useEffect(() => {
+    if (!timerRunning || remainingSeconds <= 0) {
+      return;
+    }
+    const timer = setInterval(() => {
+      setRemainingSeconds((value) => {
+        if (value <= 1) {
+          clearInterval(timer);
+          setTimerRunning(false);
+          return 0;
+        }
+        return value - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [timerRunning, remainingSeconds]);
+
+  useEffect(() => {
+    setTimerRunning(false);
+    setRemainingSeconds(0);
+    setTimerTaskId(undefined);
+  }, [activeTask?.id]);
+
+  function startTimer() {
+    if (!activeTask) {
+      return;
+    }
+    setTimerTaskId(activeTask.id);
+    setRemainingSeconds(activeTask.minutes * 60);
+    setTimerRunning(true);
+  }
+
+  function pauseTimer() {
+    setTimerRunning(false);
+  }
+
+  function finishActiveTask() {
+    if (!activeTask) {
+      return;
+    }
+    setTimerRunning(false);
+    setRemainingSeconds(0);
+    setTimerTaskId(undefined);
+    onToggleTask(activeTask.id);
+  }
+
   return (
     <View>
       <Text style={styles.kicker}>今日任务</Text>
       <Text style={styles.title}>Day {day.day}</Text>
       <Text style={styles.body}>{day.isReview ? "复习日：今天不学新材料，只巩固。" : day.focus}</Text>
+      <Text style={styles.note}>今天还剩大约 {remainingMinutes} 分钟</Text>
       {day.checkpoint && <Text style={styles.warning}>{day.checkpoint}</Text>}
 
       <View style={styles.flowCard}>
@@ -328,9 +382,19 @@ function TodayScreen({
               <Text style={styles.flowMeta}>预计 {activeTask.minutes} 分钟</Text>
               <Text style={styles.flowMeta}>已完成 {completedCount}/{day.tasks.length}</Text>
             </View>
-            <Pressable style={styles.primaryButton} onPress={() => onToggleTask(activeTask.id)}>
+            <View style={styles.timerPanel}>
+              <Text style={styles.timerText}>{timerActive ? formatDuration(remainingSeconds) : `${activeTask.minutes}:00`}</Text>
+              <Text style={styles.timerHint}>
+                {timerRunning ? "正在计时，专心做这一项。" : remainingSeconds === 0 && timerTaskId === activeTask.id ? "时间到了，可以完成这一步。" : "点开始，不用再看钟。"}
+              </Text>
+              <View style={styles.rowWrap}>
+                <Pill label={timerRunning ? "暂停计时" : timerActive ? "继续计时" : "开始计时"} onPress={timerRunning ? pauseTimer : startTimer} />
+                {timerActive && <Pill label="重置" onPress={startTimer} />}
+              </View>
+            </View>
+            <Pressable style={styles.primaryButton} onPress={finishActiveTask}>
               <CheckCircle2 size={20} color="#fff" />
-              <Text style={styles.primaryButtonText}>完成这一步</Text>
+              <Text style={styles.primaryButtonText}>完成这一步，自动到下一步</Text>
             </Pressable>
             {helper && (
               <Pressable style={styles.flowSecondaryButton} onPress={helper.onPress}>
@@ -684,6 +748,12 @@ function pad(value: number) {
   return value.toString().padStart(2, "0");
 }
 
+function formatDuration(totalSeconds: number) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${pad(seconds)}`;
+}
+
 const styles = StyleSheet.create({
   app: {
     flex: 1,
@@ -938,6 +1008,24 @@ const styles = StyleSheet.create({
   flowSecondaryButtonText: {
     color: "#fff",
     fontWeight: "800"
+  },
+  timerPanel: {
+    backgroundColor: "rgba(255,255,255,0.1)",
+    borderColor: "rgba(255,255,255,0.2)",
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 12,
+    marginTop: 14
+  },
+  timerText: {
+    color: "#fff",
+    fontSize: 32,
+    fontWeight: "800"
+  },
+  timerHint: {
+    color: "#DCEDE8",
+    lineHeight: 20,
+    marginTop: 4
   },
   sectionTitle: {
     marginTop: 10,

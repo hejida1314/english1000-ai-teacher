@@ -64,6 +64,13 @@ const translations = {
     todayProgress: "今日完成 {percent}% · 还剩 {count} 项",
     continueToday: "一键继续今天学习",
     roadmapCta: "查看全年路线",
+    todaySnapshotTitle: "今日总览",
+    snapshotEnglish: "英语",
+    snapshotWorkout: "训练",
+    snapshotSpending: "花费",
+    snapshotMood: "状态",
+    snapshotWorkoutValue: "{done}/5",
+    snapshotMoodEmpty: "未记",
     lifeSystemTitle: "生活操作台",
     lifeSystemBody: "一个首页管今天，四个模块管长期。不要每天找 App。",
     moduleStudyTitle: "学习",
@@ -279,6 +286,13 @@ const translations = {
     todayProgress: "{percent}% done today · {count} tasks left",
     continueToday: "Continue today's study",
     roadmapCta: "View full roadmap",
+    todaySnapshotTitle: "Today Snapshot",
+    snapshotEnglish: "English",
+    snapshotWorkout: "Workout",
+    snapshotSpending: "Spent",
+    snapshotMood: "Mood",
+    snapshotWorkoutValue: "{done}/5",
+    snapshotMoodEmpty: "None",
     lifeSystemTitle: "Life Dashboard",
     lifeSystemBody: "One home screen for today, four modules for the long run. Stop hunting for apps.",
     moduleStudyTitle: "Study",
@@ -627,6 +641,7 @@ export default function App() {
               remainingCourseHours={remainingCourseHours}
               dueWords={dueWords.length}
               completedTaskIds={progress.completedTaskIds}
+              lifeLogs={lifeLogs}
               onContinue={() => setTab("today")}
               onOpenSettings={() => setTab("settings")}
               onOpenRoadmap={() => setTab("roadmap")}
@@ -681,6 +696,7 @@ function HomeScreen({
   remainingCourseHours,
   dueWords,
   completedTaskIds,
+  lifeLogs,
   onContinue,
   onOpenSettings,
   onOpenRoadmap,
@@ -695,6 +711,7 @@ function HomeScreen({
   remainingCourseHours: number;
   dueWords: number;
   completedTaskIds: string[];
+  lifeLogs: LifeLog[];
   onContinue: () => void;
   onOpenSettings: () => void;
   onOpenRoadmap: () => void;
@@ -709,6 +726,14 @@ function HomeScreen({
   const weekDays = Array.from({ length: 7 }, (_, index) => weekStart + index).filter((value) => value <= COURSE_DAYS.length);
   const completedThisWeek = weekDays.filter((value) => progress.completedDays.includes(value)).length;
   const weekPercent = Math.round((completedThisWeek / weekDays.length) * 100);
+  const todayLog = lifeLogs.find((item) => item.date === todayKey());
+  const spentToday = todayLog?.expenses.reduce((sum, item) => sum + item.amount, 0) ?? 0;
+  const moodLabels: Record<string, string> = {
+    good: t("moodGood"),
+    okay: t("moodOkay"),
+    tired: t("moodTired"),
+    bad: t("moodBad")
+  };
 
   return (
     <View>
@@ -745,6 +770,16 @@ function HomeScreen({
         <Pressable style={styles.secondaryWideButton} onPress={onOpenRoadmap}>
           <Text style={styles.secondaryButtonText}>{t("roadmapCta")}</Text>
         </Pressable>
+      </View>
+
+      <View style={styles.snapshotCard}>
+        <Text style={styles.sectionTitle}>{t("todaySnapshotTitle")}</Text>
+        <View style={styles.snapshotGrid}>
+          <SnapshotItem label={t("snapshotEnglish")} value={`${todayPercent}%`} />
+          <SnapshotItem label={t("snapshotWorkout")} value={t("snapshotWorkoutValue", { done: todayLog?.workoutCompletedIds.length ?? 0 })} />
+          <SnapshotItem label={t("snapshotSpending")} value={`$${spentToday.toFixed(2)}`} />
+          <SnapshotItem label={t("snapshotMood")} value={todayLog?.mood ? moodLabels[todayLog.mood] || todayLog.mood : t("snapshotMoodEmpty")} />
+        </View>
       </View>
 
       <View style={styles.grid}>
@@ -1804,6 +1839,15 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
+function SnapshotItem({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.snapshotItem}>
+      <Text style={styles.snapshotValue}>{value}</Text>
+      <Text style={styles.snapshotLabel}>{label}</Text>
+    </View>
+  );
+}
+
 function ModuleCard({ icon, title, body, onPress }: { icon: React.ReactNode; title: string; body: string; onPress: () => void }) {
   return (
     <Pressable style={styles.moduleCard} onPress={onPress}>
@@ -2152,6 +2196,39 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 10,
     marginTop: 12
+  },
+  snapshotCard: {
+    backgroundColor: theme.surface,
+    borderRadius: 8,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: theme.line,
+    marginTop: 14
+  },
+  snapshotGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 10
+  },
+  snapshotItem: {
+    width: "48%",
+    minHeight: 72,
+    borderRadius: 8,
+    backgroundColor: theme.soft,
+    borderWidth: 1,
+    borderColor: theme.line,
+    padding: 12,
+    justifyContent: "center"
+  },
+  snapshotValue: {
+    color: theme.ink,
+    fontSize: 22,
+    fontWeight: "800"
+  },
+  snapshotLabel: {
+    color: theme.muted,
+    marginTop: 4,
+    fontWeight: "700"
   },
   moduleSection: {
     marginTop: 18

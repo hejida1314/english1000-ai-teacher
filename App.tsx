@@ -72,6 +72,11 @@ const translations = {
     todayTasks: "今日任务",
     reviewDayBody: "复习日：今天不学新材料，只巩固。",
     remainingMinutes: "今天还剩大约 {minutes} 分钟",
+    portableCardTitle: "上班随身卡",
+    portableCardBody: "一键复制今天任务、句子、单词和AI提示词。路上或上班时，即使 Expo Go 不稳定，也能照着学。",
+    copyPortableCard: "复制今天随身卡",
+    portableCardCopiedTitle: "随身卡已复制",
+    portableCardCopiedBody: "可以粘到微信、备忘录或短信里，上班也能照着学。",
     todayDoneBadge: "今天完成",
     allDoneTitle: "今天的任务都做完了",
     allDoneText: "可以结束学习，也可以进入下一天提前看看明天内容。",
@@ -230,6 +235,11 @@ const translations = {
     todayTasks: "Today's Tasks",
     reviewDayBody: "Review day: no new material, only reinforcement.",
     remainingMinutes: "About {minutes} minutes left today",
+    portableCardTitle: "Workday Pocket Card",
+    portableCardBody: "Copy today's tasks, sentences, words, and AI prompt. If Expo Go is unstable away from your computer, you can still study from Notes or WeChat.",
+    copyPortableCard: "Copy today's pocket card",
+    portableCardCopiedTitle: "Pocket card copied",
+    portableCardCopiedBody: "Paste it into Notes, WeChat, or Messages and study at work.",
     todayDoneBadge: "Done today",
     allDoneTitle: "All tasks are done",
     allDoneText: "You can stop here or move to the next day.",
@@ -755,6 +765,31 @@ function TodayScreen({
     Alert.alert(t("reviewCopiedTitle"), t("reviewCopiedBody"));
   }
 
+  async function copyPortableCard() {
+    const sentences = getSentencesForDay(day.day).slice(0, 5);
+    const vocabularySupport = day.tasks
+      .map((task) => getTaskSupport(day.day, task.kind))
+      .find((item) => item?.items?.length);
+    const portableText = [
+      `English1000 Day ${day.day}`,
+      `${day.level} / ${day.phase}`,
+      "",
+      "TODAY'S TASKS",
+      ...day.tasks.map((task, index) => `${index + 1}. ${task.title} (${task.minutes}m) - ${task.detail}`),
+      "",
+      "LISTENING SENTENCES",
+      ...sentences.map((sentence, index) => `${index + 1}. ${sentence.english} / ${sentence.chinese}`),
+      "",
+      "WORDS / PHRASES",
+      ...(vocabularySupport?.items || []).slice(0, 10).map((item, index) => `${index + 1}. ${item}`),
+      "",
+      "AI TEACHER PROMPT",
+      day.aiPrompt
+    ].join("\n");
+    await Clipboard.setStringAsync(portableText);
+    Alert.alert(t("portableCardCopiedTitle"), t("portableCardCopiedBody"));
+  }
+
   async function addTodayWords() {
     if (!supportWords.length) {
       return;
@@ -783,6 +818,14 @@ function TodayScreen({
       <Text style={styles.body}>{day.isReview ? t("reviewDayBody") : day.focus}</Text>
       <Text style={styles.note}>{t("remainingMinutes", { minutes: remainingMinutes })}</Text>
       {day.checkpoint && <Text style={styles.warning}>{day.checkpoint}</Text>}
+
+      <View style={styles.portableCard}>
+        <Text style={styles.taskTitle}>{t("portableCardTitle")}</Text>
+        <Text style={styles.body}>{t("portableCardBody")}</Text>
+        <Pressable style={styles.primaryButtonSmall} onPress={copyPortableCard}>
+          <Text style={styles.primaryButtonText}>{t("copyPortableCard")}</Text>
+        </Pressable>
+      </View>
 
       <View style={styles.flowCard}>
         {allDone ? (
@@ -1910,6 +1953,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.line,
     marginBottom: 12
+  },
+  portableCard: {
+    backgroundColor: "#FFF8ED",
+    borderRadius: 8,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#E6C69A",
+    marginTop: 12,
+    marginBottom: 4
   },
   note: {
     color: theme.warm,

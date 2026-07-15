@@ -64,7 +64,8 @@ const translations = {
     streak: "连续完成",
     weekPercent: "本周完成率",
     completedDays: "已完成天数",
-    completedMinutes: "累计分钟",
+    completedHours: "累计小时",
+    remainingHours: "剩余小时",
     dueWords: "待复习单词",
     reminderTime: "提醒时间",
     daysUnit: "{count}天",
@@ -85,6 +86,9 @@ const translations = {
     understanding: "理解度：{value}",
     notRecorded: "未记录",
     understandingHint: "大概估一下就行，用来判断材料难不难。",
+    understandingAdviceLow: "结论：材料太难。不要硬冲，重听同一段10分钟，明天还用这个难度。",
+    understandingAdviceMid: "结论：难度刚好。继续下一步，今天不用追求每句都懂。",
+    understandingAdviceHigh: "结论：可以升级。下一次少看字幕，更多靠耳朵和画面理解。",
     timerRunning: "正在计时，专心做这一项。",
     timerDone: "时间到了，可以完成这一步。",
     timerIdle: "点开始，不用再看钟。",
@@ -213,7 +217,8 @@ const translations = {
     streak: "Streak",
     weekPercent: "Week progress",
     completedDays: "Days done",
-    completedMinutes: "Minutes done",
+    completedHours: "Hours done",
+    remainingHours: "Hours left",
     dueWords: "Words due",
     reminderTime: "Reminder",
     daysUnit: "{count} days",
@@ -234,6 +239,9 @@ const translations = {
     understanding: "Understanding: {value}",
     notRecorded: "Not recorded",
     understandingHint: "A rough estimate is enough. It helps judge difficulty.",
+    understandingAdviceLow: "Decision: too hard. Do not force it. Replay the same clip for 10 minutes and keep this level tomorrow.",
+    understandingAdviceMid: "Decision: good difficulty. Continue to the next step. You do not need every sentence today.",
+    understandingAdviceHigh: "Decision: ready to level up. Next time, use fewer subtitles and rely more on listening and visuals.",
     timerRunning: "Timer running. Focus on this task.",
     timerDone: "Time is up. You can finish this step.",
     timerIdle: "Press start. No need to watch the clock.",
@@ -389,7 +397,11 @@ export default function App() {
   const completedMinutesToday = day.tasks
     .filter((task) => progress.completedTaskIds.includes(task.id))
     .reduce((sum, task) => sum + task.minutes, 0);
-  const totalCompletedMinutes = progress.completedDays.length * 180 + completedMinutesToday;
+  const currentDayCompleted = progress.completedDays.includes(day.day);
+  const completedFullDays = progress.completedDays.filter((completedDay) => completedDay !== day.day).length;
+  const totalCompletedMinutes = completedFullDays * 180 + (currentDayCompleted ? 180 : completedMinutesToday);
+  const totalCompletedHours = Math.floor(totalCompletedMinutes / 60);
+  const remainingCourseHours = Math.max(0, COURSE_DAYS.length * 3 - totalCompletedHours);
   const dueWords = words.filter(isDue);
 
   async function updateProgress(next: ProgressState) {
@@ -476,7 +488,8 @@ export default function App() {
               day={day}
               progress={progress}
               todayPercent={todayPercent}
-              totalCompletedMinutes={totalCompletedMinutes}
+              totalCompletedHours={totalCompletedHours}
+              remainingCourseHours={remainingCourseHours}
               dueWords={dueWords.length}
               completedTaskIds={progress.completedTaskIds}
               onContinue={() => setTab("today")}
@@ -526,7 +539,8 @@ function HomeScreen({
   day,
   progress,
   todayPercent,
-  totalCompletedMinutes,
+  totalCompletedHours,
+  remainingCourseHours,
   dueWords,
   completedTaskIds,
   onContinue,
@@ -537,7 +551,8 @@ function HomeScreen({
   day: ReturnType<typeof buildCourseDay>;
   progress: ProgressState;
   todayPercent: number;
-  totalCompletedMinutes: number;
+  totalCompletedHours: number;
+  remainingCourseHours: number;
   dueWords: number;
   completedTaskIds: string[];
   onContinue: () => void;
@@ -594,7 +609,8 @@ function HomeScreen({
         <Metric label={t("streak")} value={t("daysUnit", { count: streak })} />
         <Metric label={t("weekPercent")} value={`${weekPercent}%`} />
         <Metric label={t("completedDays")} value={`${progress.completedDays.length}`} />
-        <Metric label={t("completedMinutes")} value={`${totalCompletedMinutes}`} />
+        <Metric label={t("completedHours")} value={`${totalCompletedHours}`} />
+        <Metric label={t("remainingHours")} value={`${remainingCourseHours}`} />
         <Metric label={t("dueWords")} value={`${dueWords}`} />
         <Metric label={t("reminderTime")} value={`${pad(progress.reminderHour)}:${pad(progress.reminderMinute)}`} />
       </View>
@@ -805,6 +821,9 @@ function TodayScreen({
             <View style={styles.ratingPanel}>
               <Text style={styles.ratingTitle}>{t("understanding", { value: activeUnderstanding ? `${activeUnderstanding}%` : t("notRecorded") })}</Text>
               <Text style={styles.ratingHint}>{t("understandingHint")}</Text>
+              {!!activeUnderstanding && (
+                <Text style={styles.ratingAdvice}>{understandingAdvice(activeUnderstanding, t)}</Text>
+              )}
               <View style={styles.rowWrap}>
                 {[40, 60, 80].map((percent) => (
                   <Pill key={percent} label={`${percent}%`} onPress={() => onRateTaskUnderstanding(activeTask.id, percent)} />
@@ -1392,6 +1411,16 @@ function dictationFeedback(score: number) {
   return "先播放原句，再写你听到的几个词。";
 }
 
+function understandingAdvice(percent: number, t: TFunc) {
+  if (percent >= 80) {
+    return t("understandingAdviceHigh");
+  }
+  if (percent >= 60) {
+    return t("understandingAdviceMid");
+  }
+  return t("understandingAdviceLow");
+}
+
 function extractUsefulWords(sentence: string) {
   const stopWords = new Set([
     "the",
@@ -1725,6 +1754,12 @@ const styles = StyleSheet.create({
   ratingHint: {
     color: "#DCEDE8",
     lineHeight: 20
+  },
+  ratingAdvice: {
+    color: "#FFE5C7",
+    lineHeight: 21,
+    fontWeight: "800",
+    marginTop: 8
   },
   timerPanel: {
     backgroundColor: "rgba(255,255,255,0.1)",

@@ -11,7 +11,8 @@ export const DEFAULT_PROGRESS: ProgressState = {
   taskUnderstanding: {},
   reminderHour: 20,
   reminderMinute: 0,
-  notificationsEnabled: false
+  notificationsEnabled: false,
+  interfaceLanguage: "zh"
 };
 
 export async function loadProgress(): Promise<ProgressState> {

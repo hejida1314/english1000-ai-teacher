@@ -32,12 +32,13 @@ import { COURSE_DAYS, ROADMAP, buildCourseDay } from "./src/data/course";
 import { getTaskSupport } from "./src/data/dayDetails";
 import { getSentencesForDay } from "./src/data/sampleSentences";
 import { getWordHint } from "./src/data/wordHints";
-import { ProgressState, WordCard } from "./src/types";
+import { InterfaceLanguage, ProgressState, WordCard } from "./src/types";
 import { DEFAULT_PROGRESS, exportBackup, importBackup, loadProgress, loadWords, saveProgress, saveWords } from "./src/utils/storage";
 import { requestNotificationPermission, scheduleDailyStudyReminder, scheduleTestNotification } from "./src/utils/notifications";
 import { createWordCard, isDue, reviewWord } from "./src/utils/words";
 
 type Tab = "home" | "today" | "player" | "words" | "ai" | "roadmap" | "settings";
+type TFunc = (key: TranslationKey, values?: Record<string, string | number>) => string;
 
 const theme = {
   bg: "#F7F2EA",
@@ -52,11 +53,327 @@ const theme = {
   danger: "#AA3E3E"
 };
 
+const translations = {
+  zh: {
+    loading: "正在读取本地进度...",
+    appName: "English1000 AI 老师",
+    todayFirst: "今天先做",
+    todayProgress: "今日完成 {percent}% · 还剩 {count} 项",
+    continueToday: "一键继续今天学习",
+    roadmapCta: "查看全年路线",
+    streak: "连续完成",
+    weekPercent: "本周完成率",
+    completedDays: "已完成天数",
+    completedMinutes: "累计分钟",
+    dueWords: "待复习单词",
+    reminderTime: "提醒时间",
+    daysUnit: "{count}天",
+    todayTasks: "今日任务",
+    reviewDayBody: "复习日：今天不学新材料，只巩固。",
+    remainingMinutes: "今天还剩大约 {minutes} 分钟",
+    todayDoneBadge: "今天完成",
+    allDoneTitle: "今天的任务都做完了",
+    allDoneText: "可以结束学习，也可以进入下一天提前看看明天内容。",
+    copyDailyReview: "复制今日复盘给AI老师",
+    nextDay: "进入下一天",
+    stepCount: "第 {current} 步 / 共 {total} 步",
+    openResource: "打开学习资源",
+    resourceNote: "外部平台播放，App只记录学习任务",
+    addTodayWords: "一键加入今日10词",
+    estimatedMinutes: "预计 {minutes} 分钟",
+    completedCount: "已完成 {done}/{total}",
+    understanding: "理解度：{value}",
+    notRecorded: "未记录",
+    understandingHint: "大概估一下就行，用来判断材料难不难。",
+    timerRunning: "正在计时，专心做这一项。",
+    timerDone: "时间到了，可以完成这一步。",
+    timerIdle: "点开始，不用再看钟。",
+    pauseTimer: "暂停计时",
+    resumeTimer: "继续计时",
+    startTimer: "开始计时",
+    rescueTimer: "10分钟保底",
+    reset: "重置",
+    finishStep: "完成这一步，自动到下一步",
+    fullChecklist: "完整清单",
+    previousDay: "前一天",
+    nextDayShort: "下一天",
+    openPlayer: "打开精听",
+    openWords: "打开单词本",
+    openAi: "打开AI老师",
+    linkErrorTitle: "打不开链接",
+    linkErrorBody: "这个设备暂时无法打开该资源链接。",
+    reviewCopiedTitle: "复盘提示词已复制",
+    reviewCopiedBody: "发给AI老师，就能做今天的收尾测试。",
+    wordsAlreadyAddedTitle: "已经加入过了",
+    wordsAlreadyAddedBody: "今天这些词已经在生词本里。",
+    wordsAddedTitle: "已加入生词本",
+    wordsAddedBody: "新增 {count} 个词，重复的自动跳过。",
+    playerKicker: "精听播放器",
+    playerTitle: "Day {day} 句子精听",
+    currentSentence: "{phase} · 当前句 {current} / {total}",
+    playSentence: "播放原句",
+    playThree: "读3遍",
+    aiExplainSentence: "AI解释这句",
+    previousSentence: "上一句",
+    nextSentence: "下一句",
+    showEnglish: "显示英文",
+    hideEnglish: "隐藏英文",
+    showChinese: "显示中文",
+    hideChinese: "隐藏中文",
+    speed: "速度 {rate}",
+    dictationTitle: "轻量听写",
+    dictationBody: "先点“播放原句”，再凭记忆写下来。不要求满分，只看有没有抓住主干。",
+    dictationPlaceholder: "听到什么就写什么",
+    checkDictation: "检查听写",
+    clear: "清空",
+    similarity: "相似度：{score}%",
+    originalSentence: "原句：{sentence}",
+    yourAnswer: "你写的：{answer}",
+    keywordsTitle: "这句值得存的词",
+    keywordsBody: "点一下就加入生词本，已存在的词会提醒你。",
+    sentencePromptCopiedTitle: "已复制",
+    sentencePromptCopiedBody: "发给AI老师，让它解释这句并给你替换练习。",
+    wordbookKicker: "生词本",
+    wordbookTitle: "只记真会用的词",
+    wordPlaceholder: "只输入英文，例如 appointment",
+    meaningPlaceholder: "中文意思会自动补，可以修改",
+    sentencePlaceholder: "例句会自动补，可以修改",
+    hintMatched: "已自动匹配：{meaning} / {sentence}",
+    noHint: "词库暂时没有这个词，也可以直接保存，之后再补中文。",
+    addWord: "加入生词本",
+    quickWords: "生活高频快捷词",
+    dueReview: "今天要复习：{count}",
+    speakWord: "读单词",
+    speakSentence: "读例句",
+    forgot: "忘了",
+    hard: "困难",
+    know: "会了",
+    easy: "很熟",
+    enterWordTitle: "先输入单词",
+    enterWordBody: "单词不能为空。",
+    duplicateWordTitle: "已经在生词本里",
+    duplicateWordBody: "这个词已经保存过了，直接去复习就行。",
+    duplicateSentenceWordBody: "{word} 已经保存过了。",
+    pendingMeaning: "待补充",
+    fromTodayCourse: "来自今天课程",
+    aiKicker: "AI老师",
+    aiTitle: "今天这样测试",
+    copyAiPrompt: "复制AI提示词",
+    aiPromptCopiedBody: "把提示词发给ChatGPT，就能开始今天的AI老师测试。",
+    roadmapKicker: "1000小时路线",
+    roadmapTitle: "只走一条主线",
+    openStageResource: "打开阶段资源",
+    settingsKicker: "设置",
+    settingsTitle: "懒人模式",
+    languageTitle: "界面语言",
+    languageBody: "中文适合现在执行，English 适合后期沉浸。切换后会自动保存。",
+    chinese: "中文",
+    english: "English",
+    dailyReminder: "每日提醒",
+    reminderBody: "选一个固定时间。以后点通知，直接继续今天第一个没完成的任务。",
+    test3Seconds: "3秒测试",
+    jumpTitle: "跳到某一天",
+    jumpBody: "测试课程时用。正式学习时不要乱跳，按顺序走。",
+    jump: "跳转",
+    localBackup: "本地备份",
+    backupBody: "把本地进度和生词复制成文字。以后换手机或换版本，也能保住你的数据。",
+    copyBackup: "复制备份",
+    restoreBackupTitle: "恢复备份",
+    backupPlaceholder: "把备份文字粘贴到这里",
+    restoreFromBackup: "从备份恢复",
+    permissionTitle: "需要权限",
+    permissionBody: "通知没有开启。",
+    reminderSetTitle: "提醒已设置",
+    reminderSetBody: "每天 {time} 提醒学习。",
+    backupCopiedTitle: "备份已复制",
+    backupCopiedBody: "把这段文字保存到安全的地方，以后可以恢复进度。",
+    pasteBackupTitle: "先粘贴备份",
+    pasteBackupBody: "把之前复制的备份文字粘贴进来。",
+    restoreSuccessTitle: "恢复成功",
+    restoreSuccessBody: "进度和生词本已经恢复。",
+    restoreFailTitle: "恢复失败",
+    restoreFailBody: "备份文字格式不对。请确认复制的是完整备份。",
+    enterNumberTitle: "请输入数字",
+    enterNumberBody: "例如 1、7、34、85。",
+    navHome: "首页",
+    navToday: "今日",
+    navPlayer: "精听",
+    navWords: "单词",
+    navAi: "AI",
+    completedPlanTitle: "已经完成",
+    completedPlanBody: "你已经走完334天计划。"
+  },
+  en: {
+    loading: "Loading local progress...",
+    appName: "English1000 AI Teacher",
+    todayFirst: "Start here",
+    todayProgress: "{percent}% done today · {count} tasks left",
+    continueToday: "Continue today's study",
+    roadmapCta: "View full roadmap",
+    streak: "Streak",
+    weekPercent: "Week progress",
+    completedDays: "Days done",
+    completedMinutes: "Minutes done",
+    dueWords: "Words due",
+    reminderTime: "Reminder",
+    daysUnit: "{count} days",
+    todayTasks: "Today's Tasks",
+    reviewDayBody: "Review day: no new material, only reinforcement.",
+    remainingMinutes: "About {minutes} minutes left today",
+    todayDoneBadge: "Done today",
+    allDoneTitle: "All tasks are done",
+    allDoneText: "You can stop here or move to the next day.",
+    copyDailyReview: "Copy review prompt for AI Teacher",
+    nextDay: "Go to next day",
+    stepCount: "Step {current} of {total}",
+    openResource: "Open study resource",
+    resourceNote: "Played on an external platform. The app only tracks your task.",
+    addTodayWords: "Add today's 10 words",
+    estimatedMinutes: "About {minutes} min",
+    completedCount: "{done}/{total} done",
+    understanding: "Understanding: {value}",
+    notRecorded: "Not recorded",
+    understandingHint: "A rough estimate is enough. It helps judge difficulty.",
+    timerRunning: "Timer running. Focus on this task.",
+    timerDone: "Time is up. You can finish this step.",
+    timerIdle: "Press start. No need to watch the clock.",
+    pauseTimer: "Pause timer",
+    resumeTimer: "Resume timer",
+    startTimer: "Start timer",
+    rescueTimer: "10-min minimum",
+    reset: "Reset",
+    finishStep: "Finish this step and continue",
+    fullChecklist: "Full Checklist",
+    previousDay: "Previous day",
+    nextDayShort: "Next day",
+    openPlayer: "Open player",
+    openWords: "Open wordbook",
+    openAi: "Open AI Teacher",
+    linkErrorTitle: "Cannot open link",
+    linkErrorBody: "This device cannot open the resource link right now.",
+    reviewCopiedTitle: "Review prompt copied",
+    reviewCopiedBody: "Send it to AI Teacher for today's final check.",
+    wordsAlreadyAddedTitle: "Already added",
+    wordsAlreadyAddedBody: "Today's words are already in your wordbook.",
+    wordsAddedTitle: "Added to wordbook",
+    wordsAddedBody: "Added {count} new words. Duplicates were skipped.",
+    playerKicker: "Listening Player",
+    playerTitle: "Day {day} Sentence Listening",
+    currentSentence: "{phase} · Sentence {current} / {total}",
+    playSentence: "Play sentence",
+    playThree: "Play 3 times",
+    aiExplainSentence: "AI explain this sentence",
+    previousSentence: "Previous",
+    nextSentence: "Next",
+    showEnglish: "Show English",
+    hideEnglish: "Hide English",
+    showChinese: "Show Chinese",
+    hideChinese: "Hide Chinese",
+    speed: "Speed {rate}",
+    dictationTitle: "Light Dictation",
+    dictationBody: "Play the sentence, then write from memory. You only need the main structure.",
+    dictationPlaceholder: "Write what you hear",
+    checkDictation: "Check dictation",
+    clear: "Clear",
+    similarity: "Similarity: {score}%",
+    originalSentence: "Original: {sentence}",
+    yourAnswer: "Yours: {answer}",
+    keywordsTitle: "Useful words from this sentence",
+    keywordsBody: "Tap a word to add it to your wordbook. Existing words will be detected.",
+    sentencePromptCopiedTitle: "Copied",
+    sentencePromptCopiedBody: "Send it to AI Teacher for explanation and substitution practice.",
+    wordbookKicker: "Wordbook",
+    wordbookTitle: "Only save words you can use",
+    wordPlaceholder: "Type English only, e.g. appointment",
+    meaningPlaceholder: "Chinese meaning auto-fills. You can edit it.",
+    sentencePlaceholder: "Example sentence auto-fills. You can edit it.",
+    hintMatched: "Auto matched: {meaning} / {sentence}",
+    noHint: "This word is not in the hint bank yet. You can still save it and add meaning later.",
+    addWord: "Add to wordbook",
+    quickWords: "Common life words",
+    dueReview: "Due today: {count}",
+    speakWord: "Read word",
+    speakSentence: "Read sentence",
+    forgot: "Forgot",
+    hard: "Hard",
+    know: "Know",
+    easy: "Easy",
+    enterWordTitle: "Enter a word first",
+    enterWordBody: "The word cannot be empty.",
+    duplicateWordTitle: "Already in wordbook",
+    duplicateWordBody: "This word is already saved. Go review it.",
+    duplicateSentenceWordBody: "{word} is already saved.",
+    pendingMeaning: "To fill in",
+    fromTodayCourse: "From today's course",
+    aiKicker: "AI Teacher",
+    aiTitle: "Test yourself today",
+    copyAiPrompt: "Copy AI prompt",
+    aiPromptCopiedBody: "Send the prompt to ChatGPT to start today's AI Teacher test.",
+    roadmapKicker: "1000-Hour Roadmap",
+    roadmapTitle: "One main path only",
+    openStageResource: "Open stage resource",
+    settingsKicker: "Settings",
+    settingsTitle: "Lazy Mode",
+    languageTitle: "Interface Language",
+    languageBody: "Chinese is easier for execution now. English is better for immersion later. The choice is saved automatically.",
+    chinese: "中文",
+    english: "English",
+    dailyReminder: "Daily reminder",
+    reminderBody: "Pick a fixed time. Tap the notification to continue the first unfinished task.",
+    test3Seconds: "3-sec test",
+    jumpTitle: "Jump to a day",
+    jumpBody: "Use this for testing. For real study, follow the order.",
+    jump: "Jump",
+    localBackup: "Local backup",
+    backupBody: "Copy your local progress and wordbook as text, so you can restore later.",
+    copyBackup: "Copy backup",
+    restoreBackupTitle: "Restore backup",
+    backupPlaceholder: "Paste backup text here",
+    restoreFromBackup: "Restore from backup",
+    permissionTitle: "Permission needed",
+    permissionBody: "Notifications are not enabled.",
+    reminderSetTitle: "Reminder set",
+    reminderSetBody: "Study reminder set for {time} every day.",
+    backupCopiedTitle: "Backup copied",
+    backupCopiedBody: "Save this text somewhere safe. You can restore progress later.",
+    pasteBackupTitle: "Paste backup first",
+    pasteBackupBody: "Paste the backup text you copied before.",
+    restoreSuccessTitle: "Restore complete",
+    restoreSuccessBody: "Progress and wordbook have been restored.",
+    restoreFailTitle: "Restore failed",
+    restoreFailBody: "Backup format is wrong. Make sure the full backup was copied.",
+    enterNumberTitle: "Enter a number",
+    enterNumberBody: "For example: 1, 7, 34, 85.",
+    navHome: "Home",
+    navToday: "Today",
+    navPlayer: "Listen",
+    navWords: "Words",
+    navAi: "AI",
+    completedPlanTitle: "Plan complete",
+    completedPlanBody: "You have finished the 334-day plan."
+  }
+} as const;
+
+type TranslationKey = keyof typeof translations.zh;
+
+function createTranslator(language: InterfaceLanguage): TFunc {
+  return (key, values = {}) => {
+    const template = translations[language][key] || translations.zh[key];
+    let text = String(template);
+    Object.entries(values).forEach(([name, value]) => {
+      text = text.replace(new RegExp(`\\{${name}\\}`, "g"), String(value));
+    });
+    return text;
+  };
+}
+
 export default function App() {
   const [progress, setProgress] = useState<ProgressState>(DEFAULT_PROGRESS);
   const [words, setWords] = useState<WordCard[]>([]);
   const [tab, setTab] = useState<Tab>("home");
   const [ready, setReady] = useState(false);
+  const language = progress.interfaceLanguage || "zh";
+  const t = useMemo(() => createTranslator(language), [language]);
 
   useEffect(() => {
     Promise.all([loadProgress(), loadWords()]).then(([storedProgress, storedWords]) => {
@@ -109,7 +426,7 @@ export default function App() {
 
   async function goNextDay() {
     if (progress.currentDay >= COURSE_DAYS.length) {
-      Alert.alert("已经完成", "你已经走完334天计划。");
+      Alert.alert(t("completedPlanTitle"), t("completedPlanBody"));
       return;
     }
     await updateProgress({ ...progress, currentDay: progress.currentDay + 1, completedTaskIds: [] });
@@ -143,7 +460,7 @@ export default function App() {
       <SafeAreaProvider>
         <SafeAreaView style={styles.center}>
           <Text style={styles.title}>English1000</Text>
-          <Text style={styles.muted}>正在读取本地进度...</Text>
+          <Text style={styles.muted}>{t("loading")}</Text>
         </SafeAreaView>
       </SafeAreaProvider>
     );
@@ -165,6 +482,7 @@ export default function App() {
               onContinue={() => setTab("today")}
               onOpenSettings={() => setTab("settings")}
               onOpenRoadmap={() => setTab("roadmap")}
+              t={t}
             />
           )}
           {tab === "today" && (
@@ -181,22 +499,24 @@ export default function App() {
               onOpenPlayer={() => setTab("player")}
               onOpenWords={() => setTab("words")}
               onOpenAi={() => setTab("ai")}
+              t={t}
             />
           )}
-          {tab === "player" && <PlayerScreen dayNumber={day.day} phase={day.phase} words={words} onUpdateWords={updateWords} />}
-          {tab === "words" && <WordsScreen words={words} onUpdate={updateWords} />}
-          {tab === "ai" && <AiScreen prompt={day.aiPrompt} />}
-          {tab === "roadmap" && <RoadmapScreen />}
+          {tab === "player" && <PlayerScreen dayNumber={day.day} phase={day.phase} words={words} onUpdateWords={updateWords} t={t} />}
+          {tab === "words" && <WordsScreen words={words} onUpdate={updateWords} t={t} />}
+          {tab === "ai" && <AiScreen prompt={day.aiPrompt} t={t} />}
+          {tab === "roadmap" && <RoadmapScreen t={t} />}
           {tab === "settings" && (
             <SettingsScreen
               progress={progress}
               onUpdate={updateProgress}
               onJumpToDay={jumpToDay}
               onRestoreBackup={restoreFromBackup}
+              t={t}
             />
           )}
         </ScrollView>
-        <BottomNav tab={tab} onChange={setTab} />
+        <BottomNav tab={tab} onChange={setTab} t={t} />
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -211,7 +531,8 @@ function HomeScreen({
   completedTaskIds,
   onContinue,
   onOpenSettings,
-  onOpenRoadmap
+  onOpenRoadmap,
+  t
 }: {
   day: ReturnType<typeof buildCourseDay>;
   progress: ProgressState;
@@ -222,6 +543,7 @@ function HomeScreen({
   onContinue: () => void;
   onOpenSettings: () => void;
   onOpenRoadmap: () => void;
+  t: TFunc;
 }) {
   const remainingTasks = day.tasks.length - Math.round((todayPercent / 100) * day.tasks.length);
   const firstUnfinished = day.tasks.find((task) => !completedTaskIds.includes(task.id)) ?? day.tasks[0];
@@ -235,7 +557,7 @@ function HomeScreen({
     <View>
       <View style={styles.headerRow}>
         <View>
-          <Text style={styles.kicker}>English1000 AI 老师</Text>
+          <Text style={styles.kicker}>{t("appName")}</Text>
           <Text style={styles.title}>Day {day.day}</Text>
         </View>
         <Pressable style={styles.iconButton} onPress={onOpenSettings}>
@@ -249,7 +571,7 @@ function HomeScreen({
         <Text style={styles.heroText}>{day.focus}</Text>
 
         <View style={styles.todayBox}>
-          <Text style={styles.todayBoxLabel}>今天先做</Text>
+          <Text style={styles.todayBoxLabel}>{t("todayFirst")}</Text>
           <Text style={styles.todayBoxTitle}>{firstUnfinished?.title}</Text>
           <Text style={styles.todayBoxText}>{firstUnfinished?.detail}</Text>
         </View>
@@ -257,24 +579,24 @@ function HomeScreen({
         <View style={styles.progressTrack}>
           <View style={[styles.progressFill, { width: `${todayPercent}%` }]} />
         </View>
-        <Text style={styles.muted}>今日完成 {todayPercent}% · 还剩 {remainingTasks} 项</Text>
+        <Text style={styles.muted}>{t("todayProgress", { percent: todayPercent, count: remainingTasks })}</Text>
 
         <Pressable style={styles.primaryButton} onPress={onContinue}>
           <Play size={20} color="#fff" />
-          <Text style={styles.primaryButtonText}>一键继续今天学习</Text>
+          <Text style={styles.primaryButtonText}>{t("continueToday")}</Text>
         </Pressable>
         <Pressable style={styles.secondaryWideButton} onPress={onOpenRoadmap}>
-          <Text style={styles.secondaryButtonText}>查看全年路线</Text>
+          <Text style={styles.secondaryButtonText}>{t("roadmapCta")}</Text>
         </Pressable>
       </View>
 
       <View style={styles.grid}>
-        <Metric label="连续完成" value={`${streak}天`} />
-        <Metric label="本周完成率" value={`${weekPercent}%`} />
-        <Metric label="已完成天数" value={`${progress.completedDays.length}`} />
-        <Metric label="累计分钟" value={`${totalCompletedMinutes}`} />
-        <Metric label="待复习单词" value={`${dueWords}`} />
-        <Metric label="提醒时间" value={`${pad(progress.reminderHour)}:${pad(progress.reminderMinute)}`} />
+        <Metric label={t("streak")} value={t("daysUnit", { count: streak })} />
+        <Metric label={t("weekPercent")} value={`${weekPercent}%`} />
+        <Metric label={t("completedDays")} value={`${progress.completedDays.length}`} />
+        <Metric label={t("completedMinutes")} value={`${totalCompletedMinutes}`} />
+        <Metric label={t("dueWords")} value={`${dueWords}`} />
+        <Metric label={t("reminderTime")} value={`${pad(progress.reminderHour)}:${pad(progress.reminderMinute)}`} />
       </View>
     </View>
   );
@@ -292,7 +614,8 @@ function TodayScreen({
   onPreviousDay,
   onOpenPlayer,
   onOpenWords,
-  onOpenAi
+  onOpenAi,
+  t
 }: {
   day: ReturnType<typeof buildCourseDay>;
   words: WordCard[];
@@ -306,6 +629,7 @@ function TodayScreen({
   onOpenPlayer: () => void;
   onOpenWords: () => void;
   onOpenAi: () => void;
+  t: TFunc;
 }) {
   const completedCount = day.tasks.filter((task) => completedTaskIds.includes(task.id)).length;
   const activeIndex = day.tasks.findIndex((task) => !completedTaskIds.includes(task.id));
@@ -323,11 +647,11 @@ function TodayScreen({
     .reduce((sum, task) => sum + task.minutes, 0);
   const helper =
     activeTask?.kind === "intensive" || activeTask?.kind === "shadowing"
-      ? { label: "打开精听", onPress: onOpenPlayer }
+      ? { label: t("openPlayer"), onPress: onOpenPlayer }
       : activeTask?.kind === "vocabulary"
-        ? { label: "打开单词本", onPress: onOpenWords }
+        ? { label: t("openWords"), onPress: onOpenWords }
         : activeTask?.kind === "checkpoint"
-          ? { label: "打开AI老师", onPress: onOpenAi }
+          ? { label: t("openAi"), onPress: onOpenAi }
           : undefined;
 
   useEffect(() => {
@@ -388,7 +712,7 @@ function TodayScreen({
   async function openStudyResource() {
     const canOpen = await Linking.canOpenURL(day.resourceUrl);
     if (!canOpen) {
-      Alert.alert("打不开链接", "这个设备暂时无法打开该资源链接。");
+      Alert.alert(t("linkErrorTitle"), t("linkErrorBody"));
       return;
     }
     await Linking.openURL(day.resourceUrl);
@@ -402,7 +726,7 @@ function TodayScreen({
       "请用简单英语问我5个问题，测试我今天学到的内容，并告诉我明天最该改进什么。"
     ].join("\n");
     await Clipboard.setStringAsync(text);
-    Alert.alert("复盘提示词已复制", "发给AI老师，就能做今天的收尾测试。");
+    Alert.alert(t("reviewCopiedTitle"), t("reviewCopiedBody"));
   }
 
   async function addTodayWords() {
@@ -418,45 +742,45 @@ function TodayScreen({
       });
 
     if (!newCards.length) {
-      Alert.alert("已经加入过了", "今天这些词已经在生词本里。");
+      Alert.alert(t("wordsAlreadyAddedTitle"), t("wordsAlreadyAddedBody"));
       return;
     }
 
     await onUpdateWords([...newCards, ...words]);
-    Alert.alert("已加入生词本", `新增 ${newCards.length} 个词，重复的自动跳过。`);
+    Alert.alert(t("wordsAddedTitle"), t("wordsAddedBody", { count: newCards.length }));
   }
 
   return (
     <View>
-      <Text style={styles.kicker}>今日任务</Text>
+      <Text style={styles.kicker}>{t("todayTasks")}</Text>
       <Text style={styles.title}>Day {day.day}</Text>
-      <Text style={styles.body}>{day.isReview ? "复习日：今天不学新材料，只巩固。" : day.focus}</Text>
-      <Text style={styles.note}>今天还剩大约 {remainingMinutes} 分钟</Text>
+      <Text style={styles.body}>{day.isReview ? t("reviewDayBody") : day.focus}</Text>
+      <Text style={styles.note}>{t("remainingMinutes", { minutes: remainingMinutes })}</Text>
       {day.checkpoint && <Text style={styles.warning}>{day.checkpoint}</Text>}
 
       <View style={styles.flowCard}>
         {allDone ? (
           <>
-            <Text style={styles.stepBadge}>今天完成</Text>
-            <Text style={styles.flowTitle}>今天的任务都做完了</Text>
-            <Text style={styles.flowText}>可以结束学习，也可以进入下一天提前看看明天内容。</Text>
+            <Text style={styles.stepBadge}>{t("todayDoneBadge")}</Text>
+            <Text style={styles.flowTitle}>{t("allDoneTitle")}</Text>
+            <Text style={styles.flowText}>{t("allDoneText")}</Text>
             <Pressable style={styles.flowSecondaryButton} onPress={copyDailyReview}>
-              <Text style={styles.flowSecondaryButtonText}>复制今日复盘给AI老师</Text>
+              <Text style={styles.flowSecondaryButtonText}>{t("copyDailyReview")}</Text>
             </Pressable>
             <Pressable style={styles.primaryButton} onPress={onNextDay}>
-              <Text style={styles.primaryButtonText}>进入下一天</Text>
+              <Text style={styles.primaryButtonText}>{t("nextDay")}</Text>
             </Pressable>
           </>
         ) : (
           <>
-            <Text style={styles.stepBadge}>第 {activeIndex + 1} 步 / 共 {day.tasks.length} 步</Text>
+            <Text style={styles.stepBadge}>{t("stepCount", { current: activeIndex + 1, total: day.tasks.length })}</Text>
             <Text style={styles.flowTitle}>{activeTask.title}</Text>
             <Text style={styles.flowText}>{activeTask.detail}</Text>
             {!!activeTask.action && <Text style={styles.flowAction}>{activeTask.action}</Text>}
             {activeTask.kind === "input" && (
               <Pressable style={styles.resourceButton} onPress={openStudyResource}>
-                <Text style={styles.resourceButtonText}>打开学习资源</Text>
-                <Text style={styles.resourceButtonSubtext}>外部平台播放，App只记录学习任务</Text>
+                <Text style={styles.resourceButtonText}>{t("openResource")}</Text>
+                <Text style={styles.resourceButtonSubtext}>{t("resourceNote")}</Text>
               </Pressable>
             )}
             {support && (
@@ -469,18 +793,18 @@ function TodayScreen({
                 ))}
                 {activeTask.kind === "vocabulary" && (
                   <Pressable style={styles.supportButton} onPress={addTodayWords}>
-                    <Text style={styles.supportButtonText}>一键加入今日10词</Text>
+                    <Text style={styles.supportButtonText}>{t("addTodayWords")}</Text>
                   </Pressable>
                 )}
               </View>
             )}
             <View style={styles.flowMetaRow}>
-              <Text style={styles.flowMeta}>预计 {activeTask.minutes} 分钟</Text>
-              <Text style={styles.flowMeta}>已完成 {completedCount}/{day.tasks.length}</Text>
+              <Text style={styles.flowMeta}>{t("estimatedMinutes", { minutes: activeTask.minutes })}</Text>
+              <Text style={styles.flowMeta}>{t("completedCount", { done: completedCount, total: day.tasks.length })}</Text>
             </View>
             <View style={styles.ratingPanel}>
-              <Text style={styles.ratingTitle}>理解度：{activeUnderstanding ? `${activeUnderstanding}%` : "未记录"}</Text>
-              <Text style={styles.ratingHint}>大概估一下就行，用来判断材料难不难。</Text>
+              <Text style={styles.ratingTitle}>{t("understanding", { value: activeUnderstanding ? `${activeUnderstanding}%` : t("notRecorded") })}</Text>
+              <Text style={styles.ratingHint}>{t("understandingHint")}</Text>
               <View style={styles.rowWrap}>
                 {[40, 60, 80].map((percent) => (
                   <Pill key={percent} label={`${percent}%`} onPress={() => onRateTaskUnderstanding(activeTask.id, percent)} />
@@ -490,17 +814,17 @@ function TodayScreen({
             <View style={styles.timerPanel}>
               <Text style={styles.timerText}>{timerActive ? formatDuration(remainingSeconds) : `${activeTask.minutes}:00`}</Text>
               <Text style={styles.timerHint}>
-                {timerRunning ? "正在计时，专心做这一项。" : remainingSeconds === 0 && timerTaskId === activeTask.id ? "时间到了，可以完成这一步。" : "点开始，不用再看钟。"}
+                {timerRunning ? t("timerRunning") : remainingSeconds === 0 && timerTaskId === activeTask.id ? t("timerDone") : t("timerIdle")}
               </Text>
               <View style={styles.rowWrap}>
-                <Pill label={timerRunning ? "暂停计时" : timerActive ? "继续计时" : "开始计时"} onPress={timerRunning ? pauseTimer : startTimer} />
-                <Pill label="10分钟保底" onPress={startRescueTimer} />
-                {timerActive && <Pill label="重置" onPress={startTimer} />}
+                <Pill label={timerRunning ? t("pauseTimer") : timerActive ? t("resumeTimer") : t("startTimer")} onPress={timerRunning ? pauseTimer : startTimer} />
+                <Pill label={t("rescueTimer")} onPress={startRescueTimer} />
+                {timerActive && <Pill label={t("reset")} onPress={startTimer} />}
               </View>
             </View>
             <Pressable style={styles.primaryButton} onPress={finishActiveTask}>
               <CheckCircle2 size={20} color="#fff" />
-              <Text style={styles.primaryButtonText}>完成这一步，自动到下一步</Text>
+              <Text style={styles.primaryButtonText}>{t("finishStep")}</Text>
             </Pressable>
             {helper && (
               <Pressable style={styles.flowSecondaryButton} onPress={helper.onPress}>
@@ -511,7 +835,7 @@ function TodayScreen({
         )}
       </View>
 
-      <Text style={styles.sectionTitle}>完整清单</Text>
+      <Text style={styles.sectionTitle}>{t("fullChecklist")}</Text>
       {day.tasks.map((task) => {
         const done = completedTaskIds.includes(task.id);
         return (
@@ -533,10 +857,10 @@ function TodayScreen({
 
       <View style={styles.row}>
         <Pressable style={styles.secondaryButton} onPress={onPreviousDay}>
-          <Text style={styles.secondaryButtonText}>前一天</Text>
+          <Text style={styles.secondaryButtonText}>{t("previousDay")}</Text>
         </Pressable>
         <Pressable style={styles.primaryButtonSmall} onPress={onNextDay}>
-          <Text style={styles.primaryButtonText}>下一天</Text>
+          <Text style={styles.primaryButtonText}>{t("nextDayShort")}</Text>
         </Pressable>
       </View>
     </View>
@@ -547,12 +871,14 @@ function PlayerScreen({
   dayNumber,
   phase,
   words,
-  onUpdateWords
+  onUpdateWords,
+  t
 }: {
   dayNumber: number;
   phase: string;
   words: WordCard[];
   onUpdateWords: (words: WordCard[]) => Promise<void>;
+  t: TFunc;
 }) {
   const [index, setIndex] = useState(0);
   const [hideEnglish, setHideEnglish] = useState(false);
@@ -594,21 +920,21 @@ function PlayerScreen({
       "请用简单中文解释这句话怎么用，再给我3个替换练习句。"
     ].join("\n");
     await Clipboard.setStringAsync(prompt);
-    Alert.alert("已复制", "发给AI老师，让它解释这句并给你替换练习。");
+    Alert.alert(t("sentencePromptCopiedTitle"), t("sentencePromptCopiedBody"));
   }
 
   async function addSentenceWord(word: string) {
     const normalized = word.trim().toLowerCase();
     if (words.some((item) => item.word.trim().toLowerCase() === normalized)) {
-      Alert.alert("已经在生词本里", `${word} 已经保存过了。`);
+      Alert.alert(t("duplicateWordTitle"), t("duplicateSentenceWordBody", { word }));
       return;
     }
     const hint = getWordHint(word);
     await onUpdateWords([
-      createWordCard(word, hint?.meaning || "待补充", hint?.sentence || sentence.english),
+      createWordCard(word, hint?.meaning || t("pendingMeaning"), hint?.sentence || sentence.english),
       ...words
     ]);
-    Alert.alert("已加入生词本", word);
+    Alert.alert(t("wordsAddedTitle"), word);
   }
 
   function goToSentence(nextIndex: number) {
@@ -619,30 +945,30 @@ function PlayerScreen({
 
   return (
     <View>
-      <Text style={styles.kicker}>精听播放器</Text>
-      <Text style={styles.title}>Day {dayNumber} 句子精听</Text>
+      <Text style={styles.kicker}>{t("playerKicker")}</Text>
+      <Text style={styles.title}>{t("playerTitle", { day: dayNumber })}</Text>
       <View style={styles.card}>
-        <Text style={styles.note}>{phase} · 当前句 {index + 1} / {sentences.length}</Text>
+        <Text style={styles.note}>{t("currentSentence", { phase, current: index + 1, total: sentences.length })}</Text>
         {!hideEnglish && <Text style={styles.bigSentence}>{sentence.english}</Text>}
         {!hideChinese && <Text style={styles.body}>{sentence.chinese}</Text>}
         <Pressable style={styles.primaryButton} onPress={speak}>
           <Volume2 size={20} color="#fff" />
-          <Text style={styles.primaryButtonText}>播放原句</Text>
+          <Text style={styles.primaryButtonText}>{t("playSentence")}</Text>
         </Pressable>
         <View style={styles.rowWrap}>
-          <Pill label="读3遍" onPress={speakThreeTimes} />
-          <Pill label="AI解释这句" onPress={copySentenceCoachPrompt} />
-          <Pill label="上一句" onPress={() => goToSentence((index + sentences.length - 1) % sentences.length)} />
-          <Pill label="下一句" onPress={() => goToSentence((index + 1) % sentences.length)} />
-          <Pill label={hideEnglish ? "显示英文" : "隐藏英文"} onPress={() => setHideEnglish(!hideEnglish)} />
-          <Pill label={hideChinese ? "显示中文" : "隐藏中文"} onPress={() => setHideChinese(!hideChinese)} />
-          <Pill label={`速度 ${rate.toFixed(2)}`} onPress={() => setRate(rate >= 1 ? 0.7 : Number((rate + 0.15).toFixed(2)))} />
+          <Pill label={t("playThree")} onPress={speakThreeTimes} />
+          <Pill label={t("aiExplainSentence")} onPress={copySentenceCoachPrompt} />
+          <Pill label={t("previousSentence")} onPress={() => goToSentence((index + sentences.length - 1) % sentences.length)} />
+          <Pill label={t("nextSentence")} onPress={() => goToSentence((index + 1) % sentences.length)} />
+          <Pill label={hideEnglish ? t("showEnglish") : t("hideEnglish")} onPress={() => setHideEnglish(!hideEnglish)} />
+          <Pill label={hideChinese ? t("showChinese") : t("hideChinese")} onPress={() => setHideChinese(!hideChinese)} />
+          <Pill label={t("speed", { rate: rate.toFixed(2) })} onPress={() => setRate(rate >= 1 ? 0.7 : Number((rate + 0.15).toFixed(2)))} />
         </View>
       </View>
 
       <View style={styles.card}>
-        <Text style={styles.taskTitle}>轻量听写</Text>
-        <Text style={styles.body}>先点“播放原句”，再凭记忆写下来。不要求满分，只看有没有抓住主干。</Text>
+        <Text style={styles.taskTitle}>{t("dictationTitle")}</Text>
+        <Text style={styles.body}>{t("dictationBody")}</Text>
         <TextInput
           style={[styles.input, styles.dictationInput]}
           value={dictation}
@@ -650,33 +976,33 @@ function PlayerScreen({
             setDictation(value);
             setDictationChecked(false);
           }}
-          placeholder="听到什么就写什么"
+          placeholder={t("dictationPlaceholder")}
           autoCapitalize="none"
           multiline
         />
         <View style={styles.rowWrap}>
-          <Pill label="检查听写" onPress={() => setDictationChecked(true)} />
-          <Pill label="清空" onPress={() => {
+          <Pill label={t("checkDictation")} onPress={() => setDictationChecked(true)} />
+          <Pill label={t("clear")} onPress={() => {
             setDictation("");
             setDictationChecked(false);
           }} />
         </View>
         {dictationChecked && (
           <View style={styles.feedbackBox}>
-            <Text style={styles.feedbackTitle}>相似度：{dictationScore}%</Text>
+            <Text style={styles.feedbackTitle}>{t("similarity", { score: dictationScore })}</Text>
             <Text style={styles.feedbackText}>{dictationFeedback(dictationScore)}</Text>
-            <Text style={styles.feedbackText}>原句：{sentence.english}</Text>
-            <Text style={styles.feedbackText}>你写的：{dictation || "还没输入"}</Text>
+            <Text style={styles.feedbackText}>{t("originalSentence", { sentence: sentence.english })}</Text>
+            <Text style={styles.feedbackText}>{t("yourAnswer", { answer: dictation || "还没输入" })}</Text>
           </View>
         )}
       </View>
 
       <View style={styles.card}>
-        <Text style={styles.taskTitle}>当前句关键词</Text>
-        <Text style={styles.body}>点一下就加入生词本，已存在的词会提醒你。</Text>
+        <Text style={styles.taskTitle}>{t("keywordsTitle")}</Text>
+        <Text style={styles.body}>{t("keywordsBody")}</Text>
         <View style={styles.rowWrap}>
           {sentenceWords.map((word) => (
-            <Pill key={word} label={`加词 ${word}`} onPress={() => addSentenceWord(word)} />
+            <Pill key={word} label={`+ ${word}`} onPress={() => addSentenceWord(word)} />
           ))}
         </View>
       </View>
@@ -684,7 +1010,7 @@ function PlayerScreen({
   );
 }
 
-function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words: WordCard[]) => void }) {
+function WordsScreen({ words, onUpdate, t }: { words: WordCard[]; onUpdate: (words: WordCard[]) => void; t: TFunc }) {
   const [word, setWord] = useState("");
   const [meaning, setMeaning] = useState("");
   const [sentence, setSentence] = useState("");
@@ -716,20 +1042,20 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
 
   async function addWord() {
     if (!word.trim()) {
-      Alert.alert("先输入单词", "单词不能为空。");
+      Alert.alert(t("enterWordTitle"), t("enterWordBody"));
       return;
     }
     const normalized = word.trim().toLowerCase();
     if (words.some((item) => item.word.trim().toLowerCase() === normalized)) {
-      Alert.alert("已经在生词本里", "这个词已经保存过了，直接去复习就行。");
+      Alert.alert(t("duplicateWordTitle"), t("duplicateWordBody"));
       return;
     }
     const nextHint = getWordHint(word);
     await onUpdate([
       createWordCard(
         word,
-        meaning || nextHint?.meaning || "待补充",
-        sentence || nextHint?.sentence || "来自今天课程"
+        meaning || nextHint?.meaning || t("pendingMeaning"),
+        sentence || nextHint?.sentence || t("fromTodayCourse")
       ),
       ...words
     ]);
@@ -754,41 +1080,41 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
 
   return (
     <View>
-      <Text style={styles.kicker}>生词本</Text>
-      <Text style={styles.title}>只记真会用的词</Text>
+      <Text style={styles.kicker}>{t("wordbookKicker")}</Text>
+      <Text style={styles.title}>{t("wordbookTitle")}</Text>
       <View style={styles.card}>
-        <TextInput style={styles.input} value={word} onChangeText={updateWord} placeholder="只输入英文，例如 appointment" autoCapitalize="none" />
-        <TextInput style={styles.input} value={meaning} onChangeText={setMeaning} placeholder="中文意思会自动补，可以修改" />
-        <TextInput style={styles.input} value={sentence} onChangeText={setSentence} placeholder="例句会自动补，可以修改" />
+        <TextInput style={styles.input} value={word} onChangeText={updateWord} placeholder={t("wordPlaceholder")} autoCapitalize="none" />
+        <TextInput style={styles.input} value={meaning} onChangeText={setMeaning} placeholder={t("meaningPlaceholder")} />
+        <TextInput style={styles.input} value={sentence} onChangeText={setSentence} placeholder={t("sentencePlaceholder")} />
         {hint && (
-          <Text style={styles.note}>已自动匹配：{hint.meaning} / {hint.sentence}</Text>
+          <Text style={styles.note}>{t("hintMatched", { meaning: hint.meaning, sentence: hint.sentence })}</Text>
         )}
         {!hint && !!word.trim() && (
-          <Text style={styles.note}>词库暂时没有这个词，也可以直接保存，之后再补中文。</Text>
+          <Text style={styles.note}>{t("noHint")}</Text>
         )}
         <Pressable style={styles.primaryButtonSmall} onPress={addWord}>
-          <Text style={styles.primaryButtonText}>加入生词本</Text>
+          <Text style={styles.primaryButtonText}>{t("addWord")}</Text>
         </Pressable>
-        <Text style={styles.quickLabel}>生活高频快捷词</Text>
+        <Text style={styles.quickLabel}>{t("quickWords")}</Text>
         <View style={styles.rowWrap}>
           {quickWords.map((item) => (
             <Pill key={item} label={item} onPress={() => updateWord(item)} />
           ))}
         </View>
       </View>
-      <Text style={styles.sectionTitle}>今天要复习：{dueWords.length}</Text>
+      <Text style={styles.sectionTitle}>{t("dueReview", { count: dueWords.length })}</Text>
       {(dueWords.length ? dueWords : words.slice(0, 6)).map((card) => (
         <View key={card.id} style={styles.card}>
           <Text style={styles.taskTitle}>{card.word}</Text>
           <Text style={styles.body}>{card.meaning}</Text>
           <Text style={styles.note}>{card.sentence}</Text>
           <View style={styles.rowWrap}>
-            <Pill label="读单词" onPress={() => speakWord(card)} />
-            <Pill label="读例句" onPress={() => speakSentence(card)} />
-            <Pill label="忘了" onPress={() => grade(card, "forgot")} />
-            <Pill label="困难" onPress={() => grade(card, "hard")} />
-            <Pill label="会了" onPress={() => grade(card, "know")} />
-            <Pill label="很熟" onPress={() => grade(card, "easy")} />
+            <Pill label={t("speakWord")} onPress={() => speakWord(card)} />
+            <Pill label={t("speakSentence")} onPress={() => speakSentence(card)} />
+            <Pill label={t("forgot")} onPress={() => grade(card, "forgot")} />
+            <Pill label={t("hard")} onPress={() => grade(card, "hard")} />
+            <Pill label={t("know")} onPress={() => grade(card, "know")} />
+            <Pill label={t("easy")} onPress={() => grade(card, "easy")} />
           </View>
         </View>
       ))}
@@ -796,36 +1122,36 @@ function WordsScreen({ words, onUpdate }: { words: WordCard[]; onUpdate: (words:
   );
 }
 
-function AiScreen({ prompt }: { prompt: string }) {
+function AiScreen({ prompt, t }: { prompt: string; t: TFunc }) {
   async function copyPrompt() {
     await Clipboard.setStringAsync(prompt);
-    Alert.alert("已复制", "把提示词发给ChatGPT，就能开始今天的AI老师测试。");
+    Alert.alert(t("sentencePromptCopiedTitle"), t("aiPromptCopiedBody"));
   }
 
   return (
     <View>
-      <Text style={styles.kicker}>AI老师</Text>
-      <Text style={styles.title}>今天这样测试</Text>
+      <Text style={styles.kicker}>{t("aiKicker")}</Text>
+      <Text style={styles.title}>{t("aiTitle")}</Text>
       <View style={styles.card}>
         <Text style={styles.body}>{prompt}</Text>
         <Pressable style={styles.primaryButton} onPress={copyPrompt}>
           <Brain size={20} color="#fff" />
-          <Text style={styles.primaryButtonText}>复制AI提示词</Text>
+          <Text style={styles.primaryButtonText}>{t("copyAiPrompt")}</Text>
         </Pressable>
       </View>
     </View>
   );
 }
 
-function RoadmapScreen() {
+function RoadmapScreen({ t }: { t: TFunc }) {
   async function openRoadmapResource(url: string) {
     await Linking.openURL(url);
   }
 
   return (
     <View>
-      <Text style={styles.kicker}>1000小时路线</Text>
-      <Text style={styles.title}>只走一条主线</Text>
+      <Text style={styles.kicker}>{t("roadmapKicker")}</Text>
+      <Text style={styles.title}>{t("roadmapTitle")}</Text>
       {ROADMAP.map((item) => (
         <View key={item.days} style={styles.card}>
           <Text style={styles.kicker}>{item.label} / Day {item.days}</Text>
@@ -833,7 +1159,7 @@ function RoadmapScreen() {
           <Text style={styles.body}>{item.focus}</Text>
           <Text style={styles.note}>{item.exit}</Text>
           <Pressable style={styles.secondaryWideButton} onPress={() => openRoadmapResource(item.resourceUrl)}>
-            <Text style={styles.secondaryButtonText}>打开阶段资源</Text>
+            <Text style={styles.secondaryButtonText}>{t("openStageResource")}</Text>
           </Pressable>
         </View>
       ))}
@@ -845,12 +1171,14 @@ function SettingsScreen({
   progress,
   onUpdate,
   onJumpToDay,
-  onRestoreBackup
+  onRestoreBackup,
+  t
 }: {
   progress: ProgressState;
   onUpdate: (progress: ProgressState) => void;
   onJumpToDay: (day: number) => void;
   onRestoreBackup: (backupJson: string) => Promise<void>;
+  t: TFunc;
 }) {
   const [dayText, setDayText] = useState(String(progress.currentDay));
   const [backupText, setBackupText] = useState("");
@@ -858,38 +1186,42 @@ function SettingsScreen({
   async function enableNotifications(hour: number, minute: number) {
     const ok = await requestNotificationPermission();
     if (!ok) {
-      Alert.alert("需要权限", "通知没有开启。");
+      Alert.alert(t("permissionTitle"), t("permissionBody"));
       return;
     }
     await scheduleDailyStudyReminder(hour, minute);
     await onUpdate({ ...progress, reminderHour: hour, reminderMinute: minute, notificationsEnabled: true });
-    Alert.alert("提醒已设置", `每天 ${pad(hour)}:${pad(minute)} 提醒学习。`);
+    Alert.alert(t("reminderSetTitle"), t("reminderSetBody", { time: `${pad(hour)}:${pad(minute)}` }));
+  }
+
+  async function setInterfaceLanguage(interfaceLanguage: InterfaceLanguage) {
+    await onUpdate({ ...progress, interfaceLanguage });
   }
 
   async function copyBackup() {
     const backup = await exportBackup();
     await Clipboard.setStringAsync(backup);
-    Alert.alert("备份已复制", "把这段文字保存到安全的地方，以后可以恢复进度。");
+    Alert.alert(t("backupCopiedTitle"), t("backupCopiedBody"));
   }
 
   async function restoreBackup() {
     if (!backupText.trim()) {
-      Alert.alert("先粘贴备份", "把之前复制的备份文字粘贴进来。");
+      Alert.alert(t("pasteBackupTitle"), t("pasteBackupBody"));
       return;
     }
     try {
       await onRestoreBackup(backupText);
       setBackupText("");
-      Alert.alert("恢复成功", "进度和生词本已经恢复。");
+      Alert.alert(t("restoreSuccessTitle"), t("restoreSuccessBody"));
     } catch {
-      Alert.alert("恢复失败", "备份文字格式不对。请确认复制的是完整备份。");
+      Alert.alert(t("restoreFailTitle"), t("restoreFailBody"));
     }
   }
 
   function jump() {
     const parsed = Number(dayText);
     if (!Number.isFinite(parsed)) {
-      Alert.alert("请输入数字", "例如 1、7、34、85。");
+      Alert.alert(t("enterNumberTitle"), t("enterNumberBody"));
       return;
     }
     onJumpToDay(parsed);
@@ -897,26 +1229,44 @@ function SettingsScreen({
 
   return (
     <View>
-      <Text style={styles.kicker}>设置</Text>
-      <Text style={styles.title}>懒人模式</Text>
+      <Text style={styles.kicker}>{t("settingsKicker")}</Text>
+      <Text style={styles.title}>{t("settingsTitle")}</Text>
       <View style={styles.card}>
-        <Text style={styles.taskTitle}>每日提醒</Text>
-        <Text style={styles.body}>选一个固定时间。以后点通知，直接继续今天第一个没完成的任务。</Text>
+        <Text style={styles.taskTitle}>{t("languageTitle")}</Text>
+        <Text style={styles.body}>{t("languageBody")}</Text>
+        <View style={styles.segmentedControl}>
+          <Pressable
+            style={[styles.segmentButton, (progress.interfaceLanguage || "zh") === "zh" && styles.segmentButtonActive]}
+            onPress={() => setInterfaceLanguage("zh")}
+          >
+            <Text style={[styles.segmentText, (progress.interfaceLanguage || "zh") === "zh" && styles.segmentTextActive]}>{t("chinese")}</Text>
+          </Pressable>
+          <Pressable
+            style={[styles.segmentButton, progress.interfaceLanguage === "en" && styles.segmentButtonActive]}
+            onPress={() => setInterfaceLanguage("en")}
+          >
+            <Text style={[styles.segmentText, progress.interfaceLanguage === "en" && styles.segmentTextActive]}>{t("english")}</Text>
+          </Pressable>
+        </View>
+      </View>
+      <View style={styles.card}>
+        <Text style={styles.taskTitle}>{t("dailyReminder")}</Text>
+        <Text style={styles.body}>{t("reminderBody")}</Text>
         <View style={styles.rowWrap}>
           <Pill label="8:00" onPress={() => enableNotifications(8, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
           <Pill label="15:00" onPress={() => enableNotifications(15, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
           <Pill label="20:00" onPress={() => enableNotifications(20, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
           <Pill label="22:00" onPress={() => enableNotifications(22, 0)} icon={<Bell size={18} color={theme.primaryDark} />} />
-          <Pill label="3秒测试" onPress={scheduleTestNotification} />
+          <Pill label={t("test3Seconds")} onPress={scheduleTestNotification} />
         </View>
       </View>
       <View style={styles.card}>
-        <Text style={styles.taskTitle}>跳到某一天</Text>
-        <Text style={styles.body}>测试课程时用。正式学习时不要乱跳，按顺序走。</Text>
+        <Text style={styles.taskTitle}>{t("jumpTitle")}</Text>
+        <Text style={styles.body}>{t("jumpBody")}</Text>
         <View style={styles.inlineForm}>
           <TextInput style={[styles.input, styles.dayInput]} value={dayText} onChangeText={setDayText} keyboardType="number-pad" />
           <Pressable style={styles.primaryButtonSmall} onPress={jump}>
-            <Text style={styles.primaryButtonText}>跳转</Text>
+            <Text style={styles.primaryButtonText}>{t("jump")}</Text>
           </Pressable>
         </View>
         <View style={styles.rowWrap}>
@@ -927,34 +1277,34 @@ function SettingsScreen({
         </View>
       </View>
       <View style={styles.card}>
-        <Text style={styles.taskTitle}>本地备份</Text>
-        <Text style={styles.body}>把本地进度和生词复制成文字。以后换手机或换版本，也能保住你的数据。</Text>
+        <Text style={styles.taskTitle}>{t("localBackup")}</Text>
+        <Text style={styles.body}>{t("backupBody")}</Text>
         <Pressable style={styles.primaryButtonSmall} onPress={copyBackup}>
-          <Text style={styles.primaryButtonText}>复制备份</Text>
+          <Text style={styles.primaryButtonText}>{t("copyBackup")}</Text>
         </Pressable>
-        <Text style={styles.quickLabel}>恢复备份</Text>
+        <Text style={styles.quickLabel}>{t("restoreBackupTitle")}</Text>
         <TextInput
           style={[styles.input, styles.backupInput]}
           value={backupText}
           onChangeText={setBackupText}
-          placeholder="把备份文字粘贴到这里"
+          placeholder={t("backupPlaceholder")}
           multiline
         />
         <Pressable style={styles.secondaryWideButton} onPress={restoreBackup}>
-          <Text style={styles.secondaryButtonText}>从备份恢复</Text>
+          <Text style={styles.secondaryButtonText}>{t("restoreFromBackup")}</Text>
         </Pressable>
       </View>
     </View>
   );
 }
 
-function BottomNav({ tab, onChange }: { tab: Tab; onChange: (tab: Tab) => void }) {
+function BottomNav({ tab, onChange, t }: { tab: Tab; onChange: (tab: Tab) => void; t: TFunc }) {
   const items: Array<{ tab: Tab; label: string; icon: React.ReactNode }> = [
-    { tab: "home", label: "首页", icon: <Home size={20} color={tab === "home" ? theme.primary : theme.muted} /> },
-    { tab: "today", label: "今日", icon: <ListChecks size={20} color={tab === "today" ? theme.primary : theme.muted} /> },
-    { tab: "player", label: "精听", icon: <Headphones size={20} color={tab === "player" ? theme.primary : theme.muted} /> },
-    { tab: "words", label: "单词", icon: <BookOpen size={20} color={tab === "words" ? theme.primary : theme.muted} /> },
-    { tab: "ai", label: "AI", icon: <Brain size={20} color={tab === "ai" ? theme.primary : theme.muted} /> }
+    { tab: "home", label: t("navHome"), icon: <Home size={20} color={tab === "home" ? theme.primary : theme.muted} /> },
+    { tab: "today", label: t("navToday"), icon: <ListChecks size={20} color={tab === "today" ? theme.primary : theme.muted} /> },
+    { tab: "player", label: t("navPlayer"), icon: <Headphones size={20} color={tab === "player" ? theme.primary : theme.muted} /> },
+    { tab: "words", label: t("navWords"), icon: <BookOpen size={20} color={tab === "words" ? theme.primary : theme.muted} /> },
+    { tab: "ai", label: t("navAi"), icon: <Brain size={20} color={tab === "ai" ? theme.primary : theme.muted} /> }
   ];
 
   return (
@@ -1456,6 +1806,32 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 8,
     marginTop: 10
+  },
+  segmentedControl: {
+    flexDirection: "row",
+    gap: 8,
+    backgroundColor: theme.soft,
+    borderRadius: 8,
+    padding: 6,
+    borderWidth: 1,
+    borderColor: theme.line
+  },
+  segmentButton: {
+    flex: 1,
+    minHeight: 42,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  segmentButtonActive: {
+    backgroundColor: theme.primary
+  },
+  segmentText: {
+    color: theme.muted,
+    fontWeight: "800"
+  },
+  segmentTextActive: {
+    color: "#fff"
   },
   card: {
     backgroundColor: theme.surface,

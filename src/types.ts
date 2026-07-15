@@ -1,3 +1,5 @@
+export type InterfaceLanguage = "zh" | "en";
+
 export type ProgressState = {
   currentDay: number;
   completedTaskIds: string[];
@@ -6,6 +8,7 @@ export type ProgressState = {
   reminderHour: number;
   reminderMinute: number;
   notificationsEnabled: boolean;
+  interfaceLanguage: InterfaceLanguage;
   lastOpenedAt?: string;
 };
 

@@ -1,3 +1,5 @@
+import { basicWordHints } from "./basicWordHints";
+
 export type WordHint = {
   meaning: string;
   sentence: string;
@@ -218,7 +220,7 @@ const hints: Record<string, WordHint> = {
 
 export function getWordHint(word: string): WordHint | undefined {
   const normalized = word.trim().toLowerCase();
-  const direct = hints[normalized];
+  const direct = hints[normalized] || basicWordHints[normalized];
   if (direct) {
     return direct;
   }
@@ -230,5 +232,5 @@ export function getWordHint(word: string): WordHint | undefined {
         : normalized.endsWith("s")
           ? normalized.slice(0, -1)
           : normalized;
-  return hints[base];
+  return hints[base] || basicWordHints[base];
 }

@@ -268,8 +268,11 @@ export function buildCourseDay(day: number): CourseDay {
       `我完成了 English1000 第 ${day} 天。`,
       `阶段：${phase.level}。课程：${phase.phase}。`,
       `今天内容：${resource}。语法：${grammar}。输出：${output}。`,
+      day === 1
+        ? "Day 1 重点：10词 I/you/he/she/go/come/want/like/good/today；语法 be动词；口语模板 Hello. My name is Jacob. I live in the United States. Today I studied English."
+        : "",
       "请用简单英语测试我，温和纠正我的中式英语，并告诉我明天怎么调整。"
-    ].join("\n")
+    ].filter(Boolean).join("\n")
   };
 }
 

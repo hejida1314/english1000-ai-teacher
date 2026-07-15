@@ -28,6 +28,7 @@ import {
 } from "lucide-react-native";
 
 import { COURSE_DAYS, ROADMAP, buildCourseDay } from "./src/data/course";
+import { getTaskSupport } from "./src/data/dayDetails";
 import { SAMPLE_SENTENCES } from "./src/data/sampleSentences";
 import { ProgressState, WordCard } from "./src/types";
 import { DEFAULT_PROGRESS, exportBackup, loadProgress, loadWords, saveProgress, saveWords } from "./src/utils/storage";
@@ -267,6 +268,7 @@ function TodayScreen({
         : activeTask?.kind === "checkpoint"
           ? { label: "打开AI老师", onPress: onOpenAi }
           : undefined;
+  const support = activeTask ? getTaskSupport(day.day, activeTask.kind) : undefined;
 
   return (
     <View>
@@ -291,6 +293,16 @@ function TodayScreen({
             <Text style={styles.flowTitle}>{activeTask.title}</Text>
             <Text style={styles.flowText}>{activeTask.detail}</Text>
             {!!activeTask.action && <Text style={styles.flowAction}>{activeTask.action}</Text>}
+            {support && (
+              <View style={styles.supportBox}>
+                <Text style={styles.supportTitle}>{support.title}</Text>
+                {support.items.map((item, index) => (
+                  <Text key={`${activeTask.id}-${index}`} style={styles.supportItem}>
+                    {index + 1}. {item}
+                  </Text>
+                ))}
+              </View>
+            )}
             <View style={styles.flowMetaRow}>
               <Text style={styles.flowMeta}>预计 {activeTask.minutes} 分钟</Text>
               <Text style={styles.flowMeta}>已完成 {completedCount}/{day.tasks.length}</Text>
@@ -781,6 +793,26 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     lineHeight: 22,
     marginTop: 10
+  },
+  supportBox: {
+    backgroundColor: "rgba(255,255,255,0.10)",
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.16)",
+    padding: 12,
+    marginTop: 14
+  },
+  supportTitle: {
+    color: "#FFFFFF",
+    fontSize: 15,
+    fontWeight: "800",
+    marginBottom: 8
+  },
+  supportItem: {
+    color: "#EAF5F1",
+    fontSize: 15,
+    lineHeight: 23,
+    marginBottom: 3
   },
   flowMetaRow: {
     flexDirection: "row",

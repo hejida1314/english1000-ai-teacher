@@ -10,6 +10,7 @@ export const DEFAULT_PROGRESS: ProgressState = {
   completedTaskIds: [],
   completedDays: [],
   taskUnderstanding: {},
+  studySecondsByDate: {},
   reminderHour: 20,
   reminderMinute: 0,
   notificationsEnabled: false,
@@ -37,6 +38,18 @@ function asNumberArray(value: unknown): number[] {
     : [];
 }
 
+function asNumberRecord(value: unknown): Record<string, number> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+  return Object.entries(value).reduce<Record<string, number>>((record, [key, item]) => {
+    if (typeof item === "number" && Number.isFinite(item) && item >= 0) {
+      record[key] = Math.floor(item);
+    }
+    return record;
+  }, {});
+}
+
 function normalizeProgress(value: Partial<ProgressState> | null | undefined): ProgressState {
   const progress = value ?? {};
   const timer = progress.timerState;
@@ -62,6 +75,7 @@ function normalizeProgress(value: Partial<ProgressState> | null | undefined): Pr
     completedTaskIds: asStringArray(progress.completedTaskIds),
     completedDays: asNumberArray(progress.completedDays),
     taskUnderstanding: progress.taskUnderstanding && typeof progress.taskUnderstanding === "object" ? progress.taskUnderstanding : {},
+    studySecondsByDate: asNumberRecord(progress.studySecondsByDate),
     reminderHour: Number.isFinite(progress.reminderHour) ? Math.max(0, Math.min(23, Math.floor(progress.reminderHour || 0))) : DEFAULT_PROGRESS.reminderHour,
     reminderMinute: Number.isFinite(progress.reminderMinute) ? Math.max(0, Math.min(59, Math.floor(progress.reminderMinute || 0))) : DEFAULT_PROGRESS.reminderMinute,
     notificationsEnabled: typeof progress.notificationsEnabled === "boolean" ? progress.notificationsEnabled : DEFAULT_PROGRESS.notificationsEnabled,

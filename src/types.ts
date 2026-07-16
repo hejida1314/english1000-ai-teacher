@@ -5,6 +5,7 @@ export type ProgressState = {
   completedTaskIds: string[];
   completedDays: number[];
   taskUnderstanding: Record<string, number>;
+  studySecondsByDate?: Record<string, number>;
   timerState?: {
     taskId: string;
     remainingSeconds: number;

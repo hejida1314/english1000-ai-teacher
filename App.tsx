@@ -68,6 +68,7 @@ const translations = {
     roadmapCta: "查看全年路线",
     todaySnapshotTitle: "今日总览",
     snapshotEnglish: "英语",
+    snapshotEnglishMinutes: "{done}/180m",
     snapshotWorkout: "训练",
     snapshotSpending: "花费",
     snapshotMood: "状态",
@@ -112,6 +113,7 @@ const translations = {
     todayTasks: "今日任务",
     reviewDayBody: "复习日：今天不学新材料，只巩固。",
     remainingMinutes: "今天还剩大约 {minutes} 分钟",
+    actualStudyToday: "今天已学 {done} 分钟，还差 {left} 分钟",
     portableCardTitle: "上班随身卡",
     portableCardBody: "一键复制今天任务、句子、单词和AI提示词。路上或上班时，即使 Expo Go 不稳定，也能照着学。",
     copyPortableCard: "复制今天随身卡",
@@ -315,6 +317,7 @@ const translations = {
     roadmapCta: "View full roadmap",
     todaySnapshotTitle: "Today Snapshot",
     snapshotEnglish: "English",
+    snapshotEnglishMinutes: "{done}/180m",
     snapshotWorkout: "Workout",
     snapshotSpending: "Spent",
     snapshotMood: "Mood",
@@ -359,6 +362,7 @@ const translations = {
     todayTasks: "Today's Tasks",
     reviewDayBody: "Review day: no new material, only reinforcement.",
     remainingMinutes: "About {minutes} minutes left today",
+    actualStudyToday: "Studied {done} min today. {left} min left.",
     portableCardTitle: "Workday Pocket Card",
     portableCardBody: "Copy today's tasks, sentences, words, and AI prompt. If Expo Go is unstable away from your computer, you can still study from Notes or WeChat.",
     copyPortableCard: "Copy today's pocket card",
@@ -598,6 +602,9 @@ export default function App() {
   const totalCompletedMinutes = completedFullDays * 180 + (currentDayCompleted ? 180 : completedMinutesToday);
   const totalCompletedHours = Math.floor(totalCompletedMinutes / 60);
   const remainingCourseHours = Math.max(0, COURSE_DAYS.length * 3 - totalCompletedHours);
+  const todayStudySeconds = Math.floor(progress.studySecondsByDate?.[todayKey()] ?? 0);
+  const todayStudyMinutes = Math.floor(todayStudySeconds / 60);
+  const todayStudyLeftMinutes = Math.max(0, 180 - todayStudyMinutes);
   const dueWords = words.filter(isDue);
 
   async function updateProgress(next: ProgressState) {
@@ -639,6 +646,21 @@ export default function App() {
 
   const updateTimerState = useCallback(async (timerState: ProgressState["timerState"]) => {
     await updateProgress({ ...progress, timerState });
+  }, [progress]);
+
+  const commitStudyTime = useCallback(async (seconds: number, timerState: ProgressState["timerState"]) => {
+    const safeSeconds = Math.max(0, Math.floor(seconds));
+    const date = todayKey();
+    const currentSeconds = progress.studySecondsByDate?.[date] ?? 0;
+    const nextSeconds = Math.min(12 * 60 * 60, currentSeconds + safeSeconds);
+    await updateProgress({
+      ...progress,
+      timerState,
+      studySecondsByDate: {
+        ...(progress.studySecondsByDate || {}),
+        [date]: nextSeconds
+      }
+    });
   }, [progress]);
 
   async function goNextDay() {
@@ -701,6 +723,7 @@ export default function App() {
               todayPercent={todayPercent}
               totalCompletedHours={totalCompletedHours}
               remainingCourseHours={remainingCourseHours}
+              todayStudyMinutes={todayStudyMinutes}
               dueWords={dueWords.length}
               completedTaskIds={progress.completedTaskIds}
               words={words}
@@ -722,9 +745,12 @@ export default function App() {
               completedTaskIds={progress.completedTaskIds}
               taskUnderstanding={progress.taskUnderstanding || {}}
               timerState={progress.timerState}
+              todayStudyMinutes={todayStudyMinutes}
+              todayStudyLeftMinutes={todayStudyLeftMinutes}
               onToggleTask={toggleTask}
               onRateTaskUnderstanding={rateTaskUnderstanding}
               onUpdateTimerState={updateTimerState}
+              onCommitStudyTime={commitStudyTime}
               onUpdateWords={updateWords}
               onNextDay={goNextDay}
               onPreviousDay={goPreviousDay}
@@ -761,6 +787,7 @@ function HomeScreen({
   todayPercent,
   totalCompletedHours,
   remainingCourseHours,
+  todayStudyMinutes,
   dueWords,
   completedTaskIds,
   words,
@@ -779,6 +806,7 @@ function HomeScreen({
   todayPercent: number;
   totalCompletedHours: number;
   remainingCourseHours: number;
+  todayStudyMinutes: number;
   dueWords: number;
   completedTaskIds: string[];
   words: WordCard[];
@@ -937,7 +965,7 @@ function HomeScreen({
       <View style={styles.snapshotCard}>
         <Text style={styles.sectionTitle}>{t("todaySnapshotTitle")}</Text>
         <View style={styles.snapshotGrid}>
-          <SnapshotItem label={t("snapshotEnglish")} value={`${todayPercent}%`} />
+          <SnapshotItem label={t("snapshotEnglish")} value={t("snapshotEnglishMinutes", { done: todayStudyMinutes })} />
           <SnapshotItem label={t("snapshotWorkout")} value={t("snapshotWorkoutValue", { done: todayLog?.workoutCompletedIds.length ?? 0 })} />
           <SnapshotItem label={t("snapshotSpending")} value={`$${spentToday.toFixed(2)}`} />
           <SnapshotItem label={t("snapshotMood")} value={todayLog?.mood ? moodLabels[todayLog.mood] || todayLog.mood : t("snapshotMoodEmpty")} />
@@ -1015,9 +1043,12 @@ function TodayScreen({
   completedTaskIds,
   taskUnderstanding,
   timerState,
+  todayStudyMinutes,
+  todayStudyLeftMinutes,
   onToggleTask,
   onRateTaskUnderstanding,
   onUpdateTimerState,
+  onCommitStudyTime,
   onUpdateWords,
   onNextDay,
   onPreviousDay,
@@ -1031,9 +1062,12 @@ function TodayScreen({
   completedTaskIds: string[];
   taskUnderstanding: Record<string, number>;
   timerState?: ProgressState["timerState"];
+  todayStudyMinutes: number;
+  todayStudyLeftMinutes: number;
   onToggleTask: (taskId: string) => void;
   onRateTaskUnderstanding: (taskId: string, percent: number) => Promise<void>;
   onUpdateTimerState: (timerState: ProgressState["timerState"]) => Promise<void>;
+  onCommitStudyTime: (seconds: number, timerState: ProgressState["timerState"]) => Promise<void>;
   onUpdateWords: (words: WordCard[]) => Promise<void>;
   onNextDay: () => void;
   onPreviousDay: () => void;
@@ -1065,6 +1099,24 @@ function TodayScreen({
           ? { label: t("openAi"), onPress: onOpenAi }
           : undefined;
 
+  function calculateTimerSettlement() {
+    if (!activeTask || timerState?.taskId !== activeTask.id) {
+      return { elapsedSeconds: 0, nextSeconds: 0, nextRunning: false };
+    }
+    const elapsedSeconds = timerState.running
+      ? Math.min(
+          timerState.remainingSeconds,
+          Math.max(0, Math.floor((Date.now() - new Date(timerState.updatedAt).getTime()) / 1000))
+        )
+      : 0;
+    const nextSeconds = Math.max(0, timerState.remainingSeconds - elapsedSeconds);
+    return {
+      elapsedSeconds,
+      nextSeconds,
+      nextRunning: timerState.running && nextSeconds > 0
+    };
+  }
+
   useEffect(() => {
     if (!timerRunning || remainingSeconds <= 0) {
       return;
@@ -1075,7 +1127,8 @@ function TodayScreen({
           clearInterval(timer);
           setTimerRunning(false);
           if (timerTaskId) {
-            void onUpdateTimerState({
+            const { elapsedSeconds } = calculateTimerSettlement();
+            void onCommitStudyTime(elapsedSeconds, {
               taskId: timerTaskId,
               remainingSeconds: 0,
               running: false,
@@ -1088,7 +1141,7 @@ function TodayScreen({
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [onUpdateTimerState, remainingSeconds, timerRunning, timerTaskId]);
+  }, [onCommitStudyTime, remainingSeconds, timerRunning, timerTaskId]);
 
   useEffect(() => {
     if (!activeTask || timerState?.taskId !== activeTask.id) {
@@ -1098,23 +1151,20 @@ function TodayScreen({
       return;
     }
 
-    const elapsedSeconds = timerState.running
-      ? Math.max(0, Math.floor((Date.now() - new Date(timerState.updatedAt).getTime()) / 1000))
-      : 0;
-    const restoredSeconds = Math.max(0, timerState.remainingSeconds - elapsedSeconds);
+    const { nextSeconds: restoredSeconds, nextRunning } = calculateTimerSettlement();
     setTimerTaskId(activeTask.id);
     setRemainingSeconds(restoredSeconds);
-    setTimerRunning(timerState.running && restoredSeconds > 0);
+    setTimerRunning(nextRunning);
 
     if (timerState.running && restoredSeconds <= 0) {
-      void onUpdateTimerState({
+      void onCommitStudyTime(timerState.remainingSeconds, {
         taskId: activeTask.id,
         remainingSeconds: 0,
         running: false,
         updatedAt: new Date().toISOString()
       });
     }
-  }, [activeTask?.id, onUpdateTimerState, timerState?.remainingSeconds, timerState?.running, timerState?.taskId, timerState?.updatedAt]);
+  }, [activeTask?.id, onCommitStudyTime, timerState?.remainingSeconds, timerState?.running, timerState?.taskId, timerState?.updatedAt]);
 
   useEffect(() => {
     const subscription = AppState.addEventListener("change", (state) => {
@@ -1122,17 +1172,13 @@ function TodayScreen({
         return;
       }
 
-      const elapsedSeconds = timerState.running
-        ? Math.max(0, Math.floor((Date.now() - new Date(timerState.updatedAt).getTime()) / 1000))
-        : 0;
-      const nextSeconds = Math.max(0, timerState.remainingSeconds - elapsedSeconds);
-      const nextRunning = timerState.running && nextSeconds > 0;
+      const { elapsedSeconds, nextSeconds, nextRunning } = calculateTimerSettlement();
       setTimerTaskId(activeTask.id);
       setRemainingSeconds(nextSeconds);
       setTimerRunning(nextRunning);
 
       if (timerState.running) {
-        void onUpdateTimerState({
+        void onCommitStudyTime(elapsedSeconds, {
           taskId: activeTask.id,
           remainingSeconds: nextSeconds,
           running: nextRunning,
@@ -1142,7 +1188,7 @@ function TodayScreen({
     });
 
     return () => subscription.remove();
-  }, [activeTask?.id, onUpdateTimerState, timerState?.remainingSeconds, timerState?.running, timerState?.taskId, timerState?.updatedAt]);
+  }, [activeTask?.id, onCommitStudyTime, timerState?.remainingSeconds, timerState?.running, timerState?.taskId, timerState?.updatedAt]);
 
   async function startTimer() {
     if (!activeTask) {
@@ -1178,10 +1224,12 @@ function TodayScreen({
 
   async function pauseTimer() {
     setTimerRunning(false);
-    if (timerTaskId) {
-      await onUpdateTimerState({
-        taskId: timerTaskId,
-        remainingSeconds,
+    if (activeTask && timerState?.taskId === activeTask.id) {
+      const { elapsedSeconds, nextSeconds } = calculateTimerSettlement();
+      setRemainingSeconds(nextSeconds);
+      await onCommitStudyTime(elapsedSeconds, {
+        taskId: activeTask.id,
+        remainingSeconds: nextSeconds,
         running: false,
         updatedAt: new Date().toISOString()
       });
@@ -1211,6 +1259,10 @@ function TodayScreen({
     setTimerRunning(false);
     setRemainingSeconds(0);
     setTimerTaskId(undefined);
+    if (timerState?.taskId === activeTask.id) {
+      const { elapsedSeconds } = calculateTimerSettlement();
+      await onCommitStudyTime(elapsedSeconds, undefined);
+    }
     onToggleTask(activeTask.id);
   }
 
@@ -1288,6 +1340,7 @@ function TodayScreen({
       <Text style={styles.kicker}>{t("todayTasks")}</Text>
       <Text style={styles.title}>Day {day.day}</Text>
       <Text style={styles.body}>{day.isReview ? t("reviewDayBody") : day.focus}</Text>
+      <Text style={styles.studyTimeNote}>{t("actualStudyToday", { done: todayStudyMinutes, left: todayStudyLeftMinutes })}</Text>
       <Text style={styles.note}>{t("remainingMinutes", { minutes: remainingMinutes })}</Text>
       {day.checkpoint && <Text style={styles.warning}>{day.checkpoint}</Text>}
 
@@ -2799,6 +2852,16 @@ const styles = StyleSheet.create({
     color: theme.danger,
     fontWeight: "800",
     marginBottom: 12
+  },
+  studyTimeNote: {
+    color: theme.primaryDark,
+    fontWeight: "900",
+    backgroundColor: "#EAF3EF",
+    borderWidth: 1,
+    borderColor: "#C9DDD4",
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 8
   },
   flowCard: {
     backgroundColor: theme.primaryDark,

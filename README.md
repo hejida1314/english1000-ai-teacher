@@ -24,6 +24,12 @@ Windows shortcut:
 START_WEB_LITE.cmd
 ```
 
+Phone setup guide:
+
+```text
+PHONE_WEB_USE.md
+```
+
 The web version stores data in browser local storage. Use Settings -> Copy backup before clearing browser data or changing phones.
 
 The native Expo app and the web-lite PWA share the same product direction, but they do not automatically sync data yet. Use backup text to move data between versions.

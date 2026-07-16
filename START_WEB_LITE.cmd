@@ -10,8 +10,10 @@ echo.
 echo Open this address on this computer:
 echo http://localhost:4173
 echo.
-echo For iPhone on the same Wi-Fi, use your computer IP address:
-echo http://YOUR-COMPUTER-IP:4173
+echo Possible iPhone addresses on the same Wi-Fi:
+for /f "tokens=2 delims=:" %%A in ('ipconfig ^| findstr /R /C:"IPv4"') do (
+  for /f "tokens=* delims= " %%B in ("%%A") do echo http://%%B:4173
+)
 echo.
 echo Keep this window open while testing locally.
 echo For real phone use without computer, publish web-lite to GitHub Pages.

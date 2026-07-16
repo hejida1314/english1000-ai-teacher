@@ -269,6 +269,9 @@ const translations = {
     expenseNotePlaceholder: "备注，例如 lunch",
     expenseQuickAmount: "快捷金额",
     expenseQuickCategory: "快捷分类",
+    expensePresetsTitle: "一键常用消费",
+    expensePresetsBody: "常见消费直接点，不用每次输入。",
+    recentExpenses: "今天最近几笔",
     addExpense: "添加花费",
     todayExpense: "今日花费：${amount}",
     journalTitle: "日记",
@@ -545,6 +548,9 @@ const translations = {
     expenseNotePlaceholder: "Note, e.g. lunch",
     expenseQuickAmount: "Quick amount",
     expenseQuickCategory: "Quick category",
+    expensePresetsTitle: "One-tap spending",
+    expensePresetsBody: "Tap common expenses instead of typing every time.",
+    recentExpenses: "Recent today",
     addExpense: "Add expense",
     todayExpense: "Spent today: ${amount}",
     journalTitle: "Journal",
@@ -1963,6 +1969,15 @@ const workoutPlans: WorkoutPlan[] = [
   }
 ];
 
+const expensePresets = [
+  { amount: 12, category: "food", note: "lunch" },
+  { amount: 5, category: "food", note: "coffee" },
+  { amount: 40, category: "gas", note: "gas" },
+  { amount: 35, category: "grocery", note: "grocery" },
+  { amount: 8, category: "car", note: "parking" },
+  { amount: 15, category: "car", note: "car wash" }
+];
+
 function LifeScreen({
   logs,
   onUpdate,
@@ -2065,6 +2080,17 @@ function LifeScreen({
     setExpenseNote("");
   }
 
+  async function addExpensePreset(preset: typeof expensePresets[number]) {
+    const expense = {
+      id: `${Date.now()}`,
+      amount: preset.amount,
+      category: preset.category,
+      note: preset.note,
+      createdAt: new Date().toISOString()
+    };
+    await saveLog({ ...log, expenses: [expense, ...log.expenses], updatedAt: new Date().toISOString() });
+  }
+
   async function saveJournal() {
     await saveLog({ ...log, journal, updatedAt: new Date().toISOString() });
     Alert.alert(t("lifeSavedTitle"), t("lifeSavedBody"));
@@ -2159,6 +2185,22 @@ function LifeScreen({
         </View>
         <Text style={styles.body}>{t("expenseBody")}</Text>
         <Text style={styles.note}>{t("todayExpense", { amount: spentToday.toFixed(2) })}</Text>
+        <View style={styles.expensePresetBox}>
+          <Text style={styles.summaryTitle}>{t("expensePresetsTitle")}</Text>
+          <Text style={styles.summaryBody}>{t("expensePresetsBody")}</Text>
+          <View style={styles.expensePresetGrid}>
+            {expensePresets.map((preset) => (
+              <Pressable
+                key={`${preset.category}-${preset.note}-${preset.amount}`}
+                style={styles.expensePresetButton}
+                onPress={() => addExpensePreset(preset)}
+              >
+                <Text style={styles.expensePresetAmount}>${preset.amount}</Text>
+                <Text style={styles.expensePresetLabel}>{preset.note}</Text>
+              </Pressable>
+            ))}
+          </View>
+        </View>
         <View style={styles.summaryBox}>
           <View style={styles.summaryHeaderRow}>
             <Text style={styles.summaryTitle}>{t("monthlySpendingTitle")}</Text>
@@ -2194,6 +2236,7 @@ function LifeScreen({
         <Pressable style={[styles.primaryButtonSmall, styles.stackedButton]} onPress={addExpense}>
           <Text style={styles.primaryButtonText}>{t("addExpense")}</Text>
         </Pressable>
+        <Text style={styles.quickLabel}>{t("recentExpenses")}</Text>
         {log.expenses.slice(0, 4).map((item) => (
           <Text key={item.id} style={styles.expenseLine}>
             ${item.amount.toFixed(2)} · {item.category}{item.note ? ` · ${item.note}` : ""}
@@ -3530,6 +3573,42 @@ const styles = StyleSheet.create({
   categoryAmount: {
     color: theme.primaryDark,
     fontWeight: "900"
+  },
+  expensePresetBox: {
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#E2D8C8",
+    backgroundColor: "#FFF8ED",
+    padding: 12,
+    marginTop: 10,
+    marginBottom: 12
+  },
+  expensePresetGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+    marginTop: 10
+  },
+  expensePresetButton: {
+    width: "48%",
+    minHeight: 58,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#E5C9A8",
+    backgroundColor: "#FFFFFF",
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    justifyContent: "center"
+  },
+  expensePresetAmount: {
+    color: theme.ink,
+    fontSize: 18,
+    fontWeight: "900"
+  },
+  expensePresetLabel: {
+    color: theme.muted,
+    fontWeight: "800",
+    marginTop: 2
   },
   emptyText: {
     color: theme.muted,

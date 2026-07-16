@@ -82,8 +82,11 @@ const translations = {
     nextActionDone: "今天核心任务都稳了，可以收工。",
     openNextAction: "直接去做",
     quickCaptureTitle: "万能速记",
-    quickCaptureBody: "看到单词、花了钱、想到事情，先丢这里。你点类型，App 负责保存。",
+    quickCaptureBody: "看到单词、花了钱、想到事情，先丢这里。点智能保存，App 先帮你判断。",
     quickCapturePlaceholder: "例如：appointment, maintenance / $12 lunch / 今天练了深蹲",
+    smartSave: "智能保存",
+    smartSaveEmptyTitle: "先输入内容",
+    smartSaveEmptyBody: "粘贴单词、金额或一句日记，再点智能保存。",
     saveAsWords: "存生词",
     saveAsExpense: "记账",
     saveAsJournal: "写日记",
@@ -372,8 +375,11 @@ const translations = {
     nextActionDone: "Core tasks are steady today. You can stop.",
     openNextAction: "Do this now",
     quickCaptureTitle: "Quick Capture",
-    quickCaptureBody: "Words, spending, and notes all start here. You choose the type; the app saves it.",
+    quickCaptureBody: "Words, spending, and notes all start here. Tap Smart Save and the app will guess first.",
     quickCapturePlaceholder: "Example: appointment, maintenance / $12 lunch / squats done today",
+    smartSave: "Smart save",
+    smartSaveEmptyTitle: "Add something first",
+    smartSaveEmptyBody: "Paste words, an amount, or a journal line, then tap Smart Save.",
     saveAsWords: "Save words",
     saveAsExpense: "Expense",
     saveAsJournal: "Journal",
@@ -1031,6 +1037,25 @@ function HomeScreen({
     Alert.alert(t("quickCaptureSavedTitle"), t("quickCaptureJournalSaved"));
   }
 
+  async function smartSaveQuickCapture() {
+    const text = quickCapture.trim();
+    if (!text) {
+      Alert.alert(t("smartSaveEmptyTitle"), t("smartSaveEmptyBody"));
+      return;
+    }
+    if (/(?:\$|usd\s*)?\s*\d+(?:\.\d{1,2})?/i.test(text)) {
+      await saveQuickExpense();
+      return;
+    }
+    const wordsFound = extractImportWords(text);
+    const hasChinese = /[\u3400-\u9fff]/.test(text);
+    if (!hasChinese && wordsFound.length > 0) {
+      await saveQuickWords();
+      return;
+    }
+    await saveQuickJournal();
+  }
+
   async function copyPortableCard() {
     await Clipboard.setStringAsync(buildPortableCardText(day));
     Alert.alert(t("portableCardCopiedTitle"), t("portableCardCopiedBody"));
@@ -1133,6 +1158,9 @@ function HomeScreen({
           multiline
         />
         <View style={styles.quickCaptureActions}>
+          <Pressable style={styles.captureButtonPrimary} onPress={smartSaveQuickCapture}>
+            <Text style={styles.captureButtonPrimaryText}>{t("smartSave")}</Text>
+          </Pressable>
           <Pressable style={styles.captureButton} onPress={pasteQuickCapture}>
             <Text style={styles.captureButtonText}>{t("pasteClipboard")}</Text>
           </Pressable>
@@ -1142,8 +1170,8 @@ function HomeScreen({
           <Pressable style={styles.captureButton} onPress={saveQuickExpense}>
             <Text style={styles.captureButtonText}>{t("saveAsExpense")}</Text>
           </Pressable>
-          <Pressable style={styles.captureButtonPrimary} onPress={saveQuickJournal}>
-            <Text style={styles.captureButtonPrimaryText}>{t("saveAsJournal")}</Text>
+          <Pressable style={styles.captureButton} onPress={saveQuickJournal}>
+            <Text style={styles.captureButtonText}>{t("saveAsJournal")}</Text>
           </Pressable>
         </View>
       </View>

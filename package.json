@@ -8,6 +8,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "eas:login": "eas login",
+    "eas:devices": "eas device:create",
+    "build:android:preview": "eas build --platform android --profile preview",
+    "build:ios:preview": "eas build --platform ios --profile preview",
+    "build:all:preview": "eas build --platform all --profile preview",
     "typecheck": "tsc --noEmit",
     "verify:course": "node scripts/verify-course.js"
   },

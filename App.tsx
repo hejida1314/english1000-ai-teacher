@@ -572,6 +572,30 @@ function createTranslator(language: InterfaceLanguage): TFunc {
   };
 }
 
+function buildPortableCardText(day: ReturnType<typeof buildCourseDay>) {
+  const sentences = getSentencesForDay(day.day).slice(0, 5);
+  const vocabularySupport = day.tasks
+    .map((task) => getTaskSupport(day.day, task.kind))
+    .find((item) => item?.items?.length);
+
+  return [
+    `English1000 Day ${day.day}`,
+    `${day.level} / ${day.phase}`,
+    "",
+    "TODAY'S TASKS",
+    ...day.tasks.map((task, index) => `${index + 1}. ${task.title} (${task.minutes}m) - ${task.detail}`),
+    "",
+    "LISTENING SENTENCES",
+    ...sentences.map((sentence, index) => `${index + 1}. ${sentence.english} / ${sentence.chinese}`),
+    "",
+    "WORDS / PHRASES",
+    ...(vocabularySupport?.items || []).slice(0, 10).map((item, index) => `${index + 1}. ${item}`),
+    "",
+    "AI TEACHER PROMPT",
+    day.aiPrompt
+  ].join("\n");
+}
+
 export default function App() {
   const [progress, setProgress] = useState<ProgressState>(DEFAULT_PROGRESS);
   const [words, setWords] = useState<WordCard[]>([]);
@@ -925,6 +949,11 @@ function HomeScreen({
     Alert.alert(t("quickCaptureSavedTitle"), t("quickCaptureJournalSaved"));
   }
 
+  async function copyPortableCard() {
+    await Clipboard.setStringAsync(buildPortableCardText(day));
+    Alert.alert(t("portableCardCopiedTitle"), t("portableCardCopiedBody"));
+  }
+
   return (
     <View>
       <View style={styles.headerRow}>
@@ -959,6 +988,14 @@ function HomeScreen({
         </Pressable>
         <Pressable style={styles.secondaryWideButton} onPress={onOpenRoadmap}>
           <Text style={styles.secondaryButtonText}>{t("roadmapCta")}</Text>
+        </Pressable>
+      </View>
+
+      <View style={styles.portableCard}>
+        <Text style={styles.taskTitle}>{t("portableCardTitle")}</Text>
+        <Text style={styles.body}>{t("portableCardBody")}</Text>
+        <Pressable style={styles.primaryButtonSmall} onPress={copyPortableCard}>
+          <Text style={styles.primaryButtonText}>{t("copyPortableCard")}</Text>
         </Pressable>
       </View>
 
@@ -1290,27 +1327,7 @@ function TodayScreen({
   }
 
   async function copyPortableCard() {
-    const sentences = getSentencesForDay(day.day).slice(0, 5);
-    const vocabularySupport = day.tasks
-      .map((task) => getTaskSupport(day.day, task.kind))
-      .find((item) => item?.items?.length);
-    const portableText = [
-      `English1000 Day ${day.day}`,
-      `${day.level} / ${day.phase}`,
-      "",
-      "TODAY'S TASKS",
-      ...day.tasks.map((task, index) => `${index + 1}. ${task.title} (${task.minutes}m) - ${task.detail}`),
-      "",
-      "LISTENING SENTENCES",
-      ...sentences.map((sentence, index) => `${index + 1}. ${sentence.english} / ${sentence.chinese}`),
-      "",
-      "WORDS / PHRASES",
-      ...(vocabularySupport?.items || []).slice(0, 10).map((item, index) => `${index + 1}. ${item}`),
-      "",
-      "AI TEACHER PROMPT",
-      day.aiPrompt
-    ].join("\n");
-    await Clipboard.setStringAsync(portableText);
+    await Clipboard.setStringAsync(buildPortableCardText(day));
     Alert.alert(t("portableCardCopiedTitle"), t("portableCardCopiedBody"));
   }
 

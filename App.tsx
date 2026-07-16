@@ -248,6 +248,20 @@ const translations = {
     lifeModeJournal: "记事",
     workoutTitle: "力量训练",
     workoutBody: "先做最小可执行量。休息日也可以只完成深蹲和拉伸。",
+    workoutPlanTitle: "今日推荐",
+    workoutPlanBody: "不用每天想练什么。按今天计划做；很累就点保底。",
+    workoutPlanDone: "完成今日推荐",
+    workoutRescue: "10分钟保底",
+    workoutRescueBody: "状态差也不归零：深蹲一组 + 走路/拉伸10分钟。",
+    workoutRecommended: "推荐",
+    workoutPlanLower: "下肢 + 核心",
+    workoutPlanUpper: "推拉 + 核心",
+    workoutPlanRecovery: "恢复日",
+    workoutPlanFull: "全身轻量",
+    workoutPlanLowerBody: "深蹲为主，核心收尾。适合不去健身房也能做。",
+    workoutPlanUpperBody: "推和拉各一点，避免只练一个方向。",
+    workoutPlanRecoveryBody: "走路、拉伸、核心轻量。目标是不断线。",
+    workoutPlanFullBody: "全身都碰一下，不追求练爆，追求完成。",
     expenseTitle: "记账",
     expenseBody: "只记今天真实花出去的钱，先别追求复杂分类。",
     expenseAmountPlaceholder: "金额，例如 12.5",
@@ -510,6 +524,20 @@ const translations = {
     lifeModeJournal: "Notes",
     workoutTitle: "Strength Training",
     workoutBody: "Start with the smallest useful amount. On tired days, just do squats and stretching.",
+    workoutPlanTitle: "Today's recommendation",
+    workoutPlanBody: "Do not decide from scratch every day. Follow the plan, or use rescue mode when tired.",
+    workoutPlanDone: "Complete today's plan",
+    workoutRescue: "10-minute rescue",
+    workoutRescueBody: "Bad days still count: one squat set plus 10 minutes of walking/stretching.",
+    workoutRecommended: "Recommended",
+    workoutPlanLower: "Lower body + core",
+    workoutPlanUpper: "Push/pull + core",
+    workoutPlanRecovery: "Recovery day",
+    workoutPlanFull: "Light full body",
+    workoutPlanLowerBody: "Squat first, core at the end. Works even without a gym.",
+    workoutPlanUpperBody: "A little push and a little pull, so training stays balanced.",
+    workoutPlanRecoveryBody: "Walk, stretch, and keep core light. The goal is no broken chain.",
+    workoutPlanFullBody: "Touch the whole body. Do not chase exhaustion; chase completion.",
     expenseTitle: "Spending",
     expenseBody: "Record real money spent today. Keep categories simple first.",
     expenseAmountPlaceholder: "Amount, e.g. 12.5",
@@ -1901,6 +1929,40 @@ const workoutItems = [
   { id: "walk", zh: "\u8d70\u8def/\u62c9\u4f38 10\u5206\u949f", en: "Walk/stretch 10 min" }
 ];
 
+type WorkoutPlan = {
+  id: string;
+  titleKey: TranslationKey;
+  bodyKey: TranslationKey;
+  itemIds: string[];
+};
+
+const workoutPlans: WorkoutPlan[] = [
+  {
+    id: "lower",
+    titleKey: "workoutPlanLower",
+    bodyKey: "workoutPlanLowerBody",
+    itemIds: ["squat", "core", "walk"]
+  },
+  {
+    id: "upper",
+    titleKey: "workoutPlanUpper",
+    bodyKey: "workoutPlanUpperBody",
+    itemIds: ["push", "pull", "core"]
+  },
+  {
+    id: "recovery",
+    titleKey: "workoutPlanRecovery",
+    bodyKey: "workoutPlanRecoveryBody",
+    itemIds: ["walk", "core"]
+  },
+  {
+    id: "full",
+    titleKey: "workoutPlanFull",
+    bodyKey: "workoutPlanFullBody",
+    itemIds: ["squat", "push", "pull", "walk"]
+  }
+];
+
 function LifeScreen({
   logs,
   onUpdate,
@@ -1935,6 +1997,8 @@ function LifeScreen({
     done: (logsByDate.get(item.key)?.workoutCompletedIds.length ?? 0) > 0
   }));
   const workoutDaysThisWeek = workoutTrend.filter((item) => item.done).length;
+  const workoutPlan = workoutPlans[new Date().getDay() % workoutPlans.length];
+  const workoutPlanDone = workoutPlan.itemIds.every((id) => log.workoutCompletedIds.includes(id));
   const currentMonth = today.slice(0, 7);
   const monthLogs = logs.filter((item) => item.date.startsWith(currentMonth));
   const monthlySpending = monthLogs.reduce((sum, item) => (
@@ -1975,6 +2039,11 @@ function LifeScreen({
       ? log.workoutCompletedIds.filter((item) => item !== id)
       : [...log.workoutCompletedIds, id];
     await saveLog({ ...log, workoutCompletedIds, updatedAt: new Date().toISOString() });
+  }
+
+  async function completeWorkoutPlan(itemIds = workoutPlan.itemIds) {
+    const merged = Array.from(new Set([...log.workoutCompletedIds, ...itemIds]));
+    await saveLog({ ...log, workoutCompletedIds: merged, updatedAt: new Date().toISOString() });
   }
 
   async function addExpense() {
@@ -2033,6 +2102,28 @@ function LifeScreen({
           <Text style={styles.taskTitle}>{t("workoutTitle")}</Text>
         </View>
         <Text style={styles.body}>{t("workoutBody")}</Text>
+        <View style={styles.workoutPlanCard}>
+          <View style={styles.summaryHeaderRow}>
+            <View style={styles.workoutPlanCopy}>
+              <Text style={styles.workoutPlanLabel}>{t("workoutPlanTitle")}</Text>
+              <Text style={styles.workoutPlanTitle}>{t(workoutPlan.titleKey as TranslationKey)}</Text>
+            </View>
+            <Text style={[styles.commandStatus, workoutPlanDone && styles.commandStatusDone]}>
+              {workoutPlanDone ? t("commandDone") : t("commandNotDone")}
+            </Text>
+          </View>
+          <Text style={styles.summaryBody}>{t(workoutPlan.bodyKey as TranslationKey)}</Text>
+          <Text style={styles.note}>{t("workoutPlanBody")}</Text>
+          <View style={styles.rowWrap}>
+            <Pressable style={styles.captureButtonPrimary} onPress={() => completeWorkoutPlan()}>
+              <Text style={styles.captureButtonPrimaryText}>{t("workoutPlanDone")}</Text>
+            </Pressable>
+            <Pressable style={styles.captureButton} onPress={() => completeWorkoutPlan(["squat", "walk"])}>
+              <Text style={styles.captureButtonText}>{t("workoutRescue")}</Text>
+            </Pressable>
+          </View>
+          <Text style={styles.summaryBody}>{t("workoutRescueBody")}</Text>
+        </View>
         <View style={styles.summaryBox}>
           <View style={styles.summaryHeaderRow}>
             <Text style={styles.summaryTitle}>{t("weeklyWorkoutTitle")}</Text>
@@ -2050,10 +2141,12 @@ function LifeScreen({
         </View>
         {workoutItems.map((item) => {
           const done = log.workoutCompletedIds.includes(item.id);
+          const recommended = workoutPlan.itemIds.includes(item.id);
           return (
             <Pressable key={item.id} style={[styles.lifeChecklistItem, done && styles.lifeChecklistItemDone]} onPress={() => toggleWorkout(item.id)}>
               <CheckCircle2 size={20} color={done ? theme.primary : theme.muted} />
               <Text style={styles.lifeChecklistText}>{language === "zh" ? item.zh : item.en}</Text>
+              {recommended && <Text style={styles.recommendedBadge}>{t("workoutRecommended")}</Text>}
             </Pressable>
           );
         })}
@@ -3307,6 +3400,40 @@ const styles = StyleSheet.create({
     color: theme.ink,
     fontWeight: "800",
     lineHeight: 20
+  },
+  workoutPlanCard: {
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#C9DDD4",
+    backgroundColor: "#EAF3EF",
+    padding: 12,
+    marginTop: 10,
+    marginBottom: 12
+  },
+  workoutPlanCopy: {
+    flex: 1,
+    minWidth: 0
+  },
+  workoutPlanLabel: {
+    color: theme.primaryDark,
+    fontWeight: "900",
+    fontSize: 12,
+    marginBottom: 2
+  },
+  workoutPlanTitle: {
+    color: theme.ink,
+    fontWeight: "900",
+    fontSize: 18
+  },
+  recommendedBadge: {
+    color: theme.primaryDark,
+    fontWeight: "900",
+    fontSize: 12,
+    backgroundColor: "#DDECE6",
+    borderRadius: 999,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    overflow: "hidden"
   },
   portableCard: {
     backgroundColor: "#FFF8ED",

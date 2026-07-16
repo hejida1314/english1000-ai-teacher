@@ -13,6 +13,7 @@
     "build:android:preview": "eas build --platform android --profile preview",
     "build:ios:preview": "eas build --platform ios --profile preview",
     "build:all:preview": "eas build --platform all --profile preview",
+    "web-lite": "node scripts/serve-web-lite.js",
     "typecheck": "tsc --noEmit",
     "verify:course": "node scripts/verify-course.js"
   },

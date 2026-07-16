@@ -1,0 +1,19 @@
+{
+  "name": "English1000 Life",
+  "short_name": "English1000",
+  "description": "English learning, words, health, money, and journal in one lightweight local-first web app.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F7F2EA",
+  "theme_color": "#256D63",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

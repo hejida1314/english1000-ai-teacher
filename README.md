@@ -1,5 +1,33 @@
 # English1000 AI Teacher
 
+## Web / PWA quick start
+
+This repo now includes a lightweight web version in `web-lite/`.
+
+Use it when the Expo Go test app is inconvenient or when you need a phone-friendly version that can later run from GitHub Pages.
+
+Local test:
+
+```bash
+npm run web-lite
+```
+
+Then open:
+
+```text
+http://localhost:4173
+```
+
+Windows shortcut:
+
+```text
+START_WEB_LITE.cmd
+```
+
+The web version stores data in browser local storage. Use Settings -> Copy backup before clearing browser data or changing phones.
+
+The native Expo app and the web-lite PWA share the same product direction, but they do not automatically sync data yet. Use backup text to move data between versions.
+
 给成年人用的 1000 小时英语学习 App。
 
 核心目标不是“多做几个功能”，而是让用户每天打开手机后不用再纠结：

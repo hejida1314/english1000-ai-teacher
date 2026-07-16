@@ -337,6 +337,10 @@ const translations = {
     closeoutJournal: "今日记事",
     closeoutDone: "已完成",
     closeoutTodo: "待完成",
+    runModeTitle: "运行方式",
+    runModeExpo: "当前：Expo Go 测试版",
+    runModeBody: "手机能打开，是因为电脑正在运行开发服务器。黑窗口关掉、电脑睡眠或换网络，手机就会打不开。",
+    runModeStandalone: "以后做独立安装版后，才可以像普通 App 一样离开电脑使用。",
     copyBackup: "复制备份",
     restoreBackupTitle: "恢复备份",
     backupPlaceholder: "把备份文字粘贴到这里",
@@ -642,6 +646,10 @@ const translations = {
     closeoutJournal: "Daily note",
     closeoutDone: "Done",
     closeoutTodo: "To do",
+    runModeTitle: "Run mode",
+    runModeExpo: "Current: Expo Go test build",
+    runModeBody: "Your phone opens the app because your computer is running the development server. If that window closes, the computer sleeps, or the network changes, the phone cannot open it.",
+    runModeStandalone: "After we make a standalone build, it can run like a normal app without the computer.",
     copyBackup: "Copy backup",
     restoreBackupTitle: "Restore backup",
     backupPlaceholder: "Paste backup text here",
@@ -2538,6 +2546,12 @@ function SettingsScreen({
           </Pressable>
         </View>
       </View>
+      <View style={styles.runModeCard}>
+        <Text style={styles.taskTitle}>{t("runModeTitle")}</Text>
+        <Text style={styles.kicker}>{t("runModeExpo")}</Text>
+        <Text style={styles.body}>{t("runModeBody")}</Text>
+        <Text style={styles.note}>{t("runModeStandalone")}</Text>
+      </View>
       <View style={styles.card}>
         <Text style={styles.taskTitle}>{t("dailyReminder")}</Text>
         <Text style={styles.body}>{t("reminderBody")}</Text>
@@ -3626,6 +3640,14 @@ const styles = StyleSheet.create({
     padding: 16,
     borderWidth: 1,
     borderColor: theme.line,
+    marginBottom: 12
+  },
+  runModeCard: {
+    backgroundColor: "#FFF8ED",
+    borderRadius: 8,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#E8C7A8",
     marginBottom: 12
   },
   cardTitleRow: {

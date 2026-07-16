@@ -325,6 +325,8 @@ const translations = {
     jump: "跳转",
     localBackup: "本地备份",
     backupBody: "把本地进度和生词复制成文字。以后换手机或换版本，也能保住你的数据。",
+    homeBackupTitle: "数据别丢",
+    homeBackupBody: "英语、生词、训练、记账、日记都在本地。每隔几天复制一次备份，换手机也能恢复。",
     copyBackup: "复制备份",
     restoreBackupTitle: "恢复备份",
     backupPlaceholder: "把备份文字粘贴到这里",
@@ -618,6 +620,8 @@ const translations = {
     jump: "Jump",
     localBackup: "Local backup",
     backupBody: "Copy your local progress and wordbook as text, so you can restore later.",
+    homeBackupTitle: "Do not lose your data",
+    homeBackupBody: "English, words, workouts, spending, and notes are local. Copy a backup every few days so you can restore later.",
     copyBackup: "Copy backup",
     restoreBackupTitle: "Restore backup",
     backupPlaceholder: "Paste backup text here",
@@ -1061,6 +1065,12 @@ function HomeScreen({
     Alert.alert(t("portableCardCopiedTitle"), t("portableCardCopiedBody"));
   }
 
+  async function copyHomeBackup() {
+    const backup = await exportBackup();
+    await Clipboard.setStringAsync(backup);
+    Alert.alert(t("backupCopiedTitle"), t("backupCopiedBody"));
+  }
+
   return (
     <View>
       <View style={styles.headerRow}>
@@ -1192,6 +1202,14 @@ function HomeScreen({
           <SnapshotItem label={t("snapshotSpending")} value={`$${spentToday.toFixed(2)}`} />
           <SnapshotItem label={t("snapshotMood")} value={todayLog?.mood ? moodLabels[todayLog.mood] || todayLog.mood : t("snapshotMoodEmpty")} />
         </View>
+      </View>
+
+      <View style={styles.backupReminderCard}>
+        <Text style={styles.taskTitle}>{t("homeBackupTitle")}</Text>
+        <Text style={styles.body}>{t("homeBackupBody")}</Text>
+        <Pressable style={styles.secondaryWideButton} onPress={copyHomeBackup}>
+          <Text style={styles.secondaryButtonText}>{t("copyBackup")}</Text>
+        </Pressable>
       </View>
 
       <View style={styles.grid}>
@@ -2989,6 +3007,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.line,
     marginTop: 14
+  },
+  backupReminderCard: {
+    backgroundColor: "#F7FBF8",
+    borderRadius: 8,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: "#C9DDD4",
+    marginTop: 12
   },
   snapshotGrid: {
     flexDirection: "row",

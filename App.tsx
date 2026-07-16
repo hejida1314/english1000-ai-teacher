@@ -94,6 +94,19 @@ const translations = {
     quickCaptureNeedAmount: "记账需要一个金额，例如 $12 lunch。",
     lifeSystemTitle: "生活操作台",
     lifeSystemBody: "一个首页管今天，四个模块管长期。不要每天找 App。",
+    commandCenterTitle: "今日操作台",
+    commandCenterBody: "今天只盯四件事：学英语、动一下、记一笔、写两句。少切 App，少做选择。",
+    commandEnglishTitle: "英语主线",
+    commandEnglishBody: "先完成今天第一个未完成任务。",
+    commandHealthTitle: "健康训练",
+    commandHealthBody: "最低标准也算：深蹲、核心或拉伸。",
+    commandMoneyTitle: "今日记账",
+    commandMoneyBody: "花了钱就记一笔，没花不用硬记。",
+    commandJournalTitle: "今日记事",
+    commandJournalBody: "睡前写两句，明天更清楚。",
+    commandDone: "已完成",
+    commandNotDone: "未完成",
+    commandNoSpend: "暂无花费",
     moduleStudyTitle: "学习",
     moduleStudyBody: "英语主线、精听、生词、AI测试。",
     moduleHealthTitle: "健康",
@@ -343,6 +356,19 @@ const translations = {
     quickCaptureNeedAmount: "Expense needs an amount, e.g. $12 lunch.",
     lifeSystemTitle: "Life Dashboard",
     lifeSystemBody: "One home screen for today, four modules for the long run. Stop hunting for apps.",
+    commandCenterTitle: "Today Command Center",
+    commandCenterBody: "Track only four things today: English, movement, money, and notes. Fewer apps, fewer decisions.",
+    commandEnglishTitle: "English path",
+    commandEnglishBody: "Finish the first unfinished task today.",
+    commandHealthTitle: "Health training",
+    commandHealthBody: "Minimum counts: squats, core, or stretching.",
+    commandMoneyTitle: "Money log",
+    commandMoneyBody: "Record spending when it happens. No spending is fine.",
+    commandJournalTitle: "Daily note",
+    commandJournalBody: "Write two lines before bed.",
+    commandDone: "Done",
+    commandNotDone: "Not done",
+    commandNoSpend: "No spend",
     moduleStudyTitle: "Study",
     moduleStudyBody: "English roadmap, listening, words, AI test.",
     moduleHealthTitle: "Health",
@@ -1020,6 +1046,43 @@ function HomeScreen({
           <Text style={styles.nextActionButtonText}>{t("openNextAction")}</Text>
         </View>
       </Pressable>
+
+      <View style={styles.commandCard}>
+        <Text style={styles.sectionTitle}>{t("commandCenterTitle")}</Text>
+        <Text style={styles.body}>{t("commandCenterBody")}</Text>
+        <CommandRow
+          icon={<BookOpen size={20} color={todayPercent >= 100 ? theme.primaryDark : theme.warm} />}
+          title={t("commandEnglishTitle")}
+          body={t("commandEnglishBody")}
+          value={`${todayStudyMinutes}/180m · ${todayPercent}%`}
+          done={todayPercent >= 100}
+          onPress={onContinue}
+        />
+        <CommandRow
+          icon={<Dumbbell size={20} color={workoutDoneToday ? theme.primaryDark : theme.warm} />}
+          title={t("commandHealthTitle")}
+          body={t("commandHealthBody")}
+          value={workoutDoneToday ? t("commandDone") : t("commandNotDone")}
+          done={workoutDoneToday}
+          onPress={() => onOpenLife("health")}
+        />
+        <CommandRow
+          icon={<WalletCards size={20} color={spentToday > 0 ? theme.primaryDark : theme.warm} />}
+          title={t("commandMoneyTitle")}
+          body={t("commandMoneyBody")}
+          value={spentToday > 0 ? `$${spentToday.toFixed(2)}` : t("commandNoSpend")}
+          done={spentToday > 0}
+          onPress={() => onOpenLife("money")}
+        />
+        <CommandRow
+          icon={<NotebookPen size={20} color={journalDoneToday ? theme.primaryDark : theme.warm} />}
+          title={t("commandJournalTitle")}
+          body={t("commandJournalBody")}
+          value={journalDoneToday ? t("commandDone") : t("commandNotDone")}
+          done={journalDoneToday}
+          onPress={() => onOpenLife("journal")}
+        />
+      </View>
 
       <View style={styles.quickCaptureCard}>
         <Text style={styles.sectionTitle}>{t("quickCaptureTitle")}</Text>
@@ -2279,6 +2342,33 @@ function SnapshotItem({ label, value }: { label: string; value: string }) {
   );
 }
 
+function CommandRow({
+  icon,
+  title,
+  body,
+  value,
+  done,
+  onPress
+}: {
+  icon: React.ReactNode;
+  title: string;
+  body: string;
+  value: string;
+  done: boolean;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable style={styles.commandRow} onPress={onPress}>
+      <View style={[styles.commandIcon, done && styles.commandIconDone]}>{icon}</View>
+      <View style={styles.commandCopy}>
+        <Text style={styles.commandTitle}>{title}</Text>
+        <Text style={styles.commandBody}>{body}</Text>
+      </View>
+      <Text style={[styles.commandStatus, done && styles.commandStatusDone]}>{value}</Text>
+    </Pressable>
+  );
+}
+
 function ModuleCard({ icon, title, body, onPress }: { icon: React.ReactNode; title: string; body: string; onPress: () => void }) {
   return (
     <Pressable style={styles.moduleCard} onPress={onPress}>
@@ -2707,6 +2797,61 @@ const styles = StyleSheet.create({
     color: theme.muted,
     marginTop: 4,
     fontWeight: "700"
+  },
+  commandCard: {
+    backgroundColor: theme.surface,
+    borderRadius: 8,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#D8E2DC",
+    marginTop: 12
+  },
+  commandRow: {
+    minHeight: 72,
+    borderTopWidth: 1,
+    borderTopColor: "#E8E0D4",
+    paddingVertical: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12
+  },
+  commandIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFF5E9",
+    borderWidth: 1,
+    borderColor: "#E8C7A8"
+  },
+  commandIconDone: {
+    backgroundColor: "#EAF3EF",
+    borderColor: "#C9DDD4"
+  },
+  commandCopy: {
+    flex: 1,
+    minWidth: 0
+  },
+  commandTitle: {
+    color: theme.ink,
+    fontWeight: "900",
+    fontSize: 16,
+    marginBottom: 3
+  },
+  commandBody: {
+    color: theme.muted,
+    lineHeight: 19,
+    fontSize: 13
+  },
+  commandStatus: {
+    maxWidth: 96,
+    color: theme.warm,
+    fontWeight: "900",
+    textAlign: "right"
+  },
+  commandStatusDone: {
+    color: theme.primaryDark
   },
   nextActionCard: {
     flexDirection: "row",

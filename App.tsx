@@ -282,6 +282,17 @@ const translations = {
     moodTired: "累",
     moodBad: "差",
     journalPlaceholder: "今天记录...",
+    journalTemplateTitle: "睡前30秒模板",
+    journalTemplateBody: "不想写长篇，就回答三句。重点是留下记录，不是写作文。",
+    insertJournalTemplate: "插入三问模板",
+    journalQuickLinesTitle: "快速句子",
+    journalPromptDone: "今天完成：",
+    journalPromptBody: "身体状态：",
+    journalPromptTomorrow: "明天最重要：",
+    journalQuickEnglishDone: "英语完成了。",
+    journalQuickWorkoutDone: "训练完成了。",
+    journalQuickTired: "今天很累，保底完成。",
+    journalQuickTomorrowContinue: "明天继续，不换计划。",
     saveJournal: "保存日记",
     lifeSavedTitle: "已保存",
     lifeSavedBody: "今天的生活记录已经保存在本地。",
@@ -561,6 +572,17 @@ const translations = {
     moodTired: "Tired",
     moodBad: "Bad",
     journalPlaceholder: "Today's note...",
+    journalTemplateTitle: "30-second night template",
+    journalTemplateBody: "When you do not want a long note, answer three lines. The goal is a record, not an essay.",
+    insertJournalTemplate: "Insert 3-question template",
+    journalQuickLinesTitle: "Quick lines",
+    journalPromptDone: "Done today:",
+    journalPromptBody: "Body status:",
+    journalPromptTomorrow: "Most important tomorrow:",
+    journalQuickEnglishDone: "English done.",
+    journalQuickWorkoutDone: "Workout done.",
+    journalQuickTired: "Tired today. Rescue mode still counts.",
+    journalQuickTomorrowContinue: "Continue tomorrow. Do not change the plan.",
     saveJournal: "Save journal",
     lifeSavedTitle: "Saved",
     lifeSavedBody: "Today's life log has been saved locally.",
@@ -2096,6 +2118,19 @@ function LifeScreen({
     Alert.alert(t("lifeSavedTitle"), t("lifeSavedBody"));
   }
 
+  function appendJournalLine(line: string) {
+    setJournal((current) => current.trim() ? `${current.trim()}\n${line}` : line);
+  }
+
+  function insertJournalTemplate() {
+    const template = [
+      `${t("journalPromptDone")} `,
+      `${t("journalPromptBody")} `,
+      `${t("journalPromptTomorrow")} `
+    ].join("\n");
+    setJournal((current) => current.trim() ? `${current.trim()}\n${template}` : template);
+  }
+
   async function setMood(mood: string) {
     await saveLog({ ...log, mood, updatedAt: new Date().toISOString() });
   }
@@ -2257,6 +2292,13 @@ function LifeScreen({
           ))}
         </View>
         {!!log.mood && <Text style={styles.note}>{t("moodTitle")}: {moodOptions.find((item) => item.id === log.mood)?.label || log.mood}</Text>}
+        <View style={styles.journalTemplateBox}>
+          <Text style={styles.summaryTitle}>{t("journalTemplateTitle")}</Text>
+          <Text style={styles.summaryBody}>{t("journalTemplateBody")}</Text>
+          <Pressable style={[styles.captureButtonPrimary, styles.stackedButton]} onPress={insertJournalTemplate}>
+            <Text style={styles.captureButtonPrimaryText}>{t("insertJournalTemplate")}</Text>
+          </Pressable>
+        </View>
         <TextInput
           style={[styles.input, styles.journalInput]}
           value={journal}
@@ -2264,6 +2306,17 @@ function LifeScreen({
           placeholder={t("journalPlaceholder")}
           multiline
         />
+        <Text style={styles.quickLabel}>{t("journalQuickLinesTitle")}</Text>
+        <View style={styles.rowWrap}>
+          {[
+            t("journalQuickEnglishDone"),
+            t("journalQuickWorkoutDone"),
+            t("journalQuickTired"),
+            t("journalQuickTomorrowContinue")
+          ].map((line) => (
+            <Pill key={line} label={line} onPress={() => appendJournalLine(line)} />
+          ))}
+        </View>
         <Pressable style={styles.secondaryWideButton} onPress={saveJournal}>
           <Text style={styles.secondaryButtonText}>{t("saveJournal")}</Text>
         </Pressable>
@@ -3620,6 +3673,15 @@ const styles = StyleSheet.create({
     borderTopColor: "#E7DED0",
     paddingTop: 8,
     marginTop: 8
+  },
+  journalTemplateBox: {
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#D8E2DC",
+    backgroundColor: "#EAF3EF",
+    padding: 12,
+    marginTop: 10,
+    marginBottom: 12
   },
   journalPreviewDate: {
     color: theme.warm,

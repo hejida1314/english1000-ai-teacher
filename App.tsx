@@ -327,6 +327,16 @@ const translations = {
     backupBody: "把本地进度和生词复制成文字。以后换手机或换版本，也能保住你的数据。",
     homeBackupTitle: "数据别丢",
     homeBackupBody: "英语、生词、训练、记账、日记都在本地。每隔几天复制一次备份，换手机也能恢复。",
+    closeoutTitle: "今日收工判断",
+    closeoutBody: "别靠感觉。下面都变绿，今天就算稳了。",
+    closeoutReady: "可以收工",
+    closeoutNeedWork: "还差一点",
+    closeoutEnglish: "英语主线",
+    closeoutWords: "到期单词",
+    closeoutHealth: "健康训练",
+    closeoutJournal: "今日记事",
+    closeoutDone: "已完成",
+    closeoutTodo: "待完成",
     copyBackup: "复制备份",
     restoreBackupTitle: "恢复备份",
     backupPlaceholder: "把备份文字粘贴到这里",
@@ -622,6 +632,16 @@ const translations = {
     backupBody: "Copy your local progress and wordbook as text, so you can restore later.",
     homeBackupTitle: "Do not lose your data",
     homeBackupBody: "English, words, workouts, spending, and notes are local. Copy a backup every few days so you can restore later.",
+    closeoutTitle: "Daily closeout",
+    closeoutBody: "Do not rely on feeling. When these are green, today is solid.",
+    closeoutReady: "Ready to stop",
+    closeoutNeedWork: "Still needs work",
+    closeoutEnglish: "English route",
+    closeoutWords: "Due words",
+    closeoutHealth: "Health training",
+    closeoutJournal: "Daily note",
+    closeoutDone: "Done",
+    closeoutTodo: "To do",
     copyBackup: "Copy backup",
     restoreBackupTitle: "Restore backup",
     backupPlaceholder: "Paste backup text here",
@@ -963,6 +983,13 @@ function HomeScreen({
         : !journalDoneToday
           ? { title: t("moduleJournalTitle"), body: t("nextActionJournal"), onPress: () => onOpenLife("journal"), icon: <NotebookPen size={20} color={theme.primaryDark} /> }
           : { title: t("todayDoneBadge"), body: t("nextActionDone"), onPress: onOpenRoadmap, icon: <CheckCircle2 size={20} color={theme.primaryDark} /> };
+  const closeoutRows = [
+    { label: t("closeoutEnglish"), done: todayPercent >= 100, onPress: onContinue },
+    { label: t("closeoutWords"), done: dueWords === 0, onPress: onOpenWords },
+    { label: t("closeoutHealth"), done: workoutDoneToday, onPress: () => onOpenLife("health") },
+    { label: t("closeoutJournal"), done: journalDoneToday, onPress: () => onOpenLife("journal") }
+  ];
+  const closeoutReady = closeoutRows.every((item) => item.done);
 
   async function pasteQuickCapture() {
     const text = await Clipboard.getStringAsync();
@@ -1155,6 +1182,29 @@ function HomeScreen({
           done={journalDoneToday}
           onPress={() => onOpenLife("journal")}
         />
+      </View>
+
+      <View style={styles.closeoutCard}>
+        <View style={styles.closeoutHeader}>
+          <View>
+            <Text style={styles.sectionTitle}>{t("closeoutTitle")}</Text>
+            <Text style={styles.body}>{t("closeoutBody")}</Text>
+          </View>
+          <View style={[styles.closeoutBadge, closeoutReady && styles.closeoutBadgeDone]}>
+            <Text style={[styles.closeoutBadgeText, closeoutReady && styles.closeoutBadgeTextDone]}>
+              {closeoutReady ? t("closeoutReady") : t("closeoutNeedWork")}
+            </Text>
+          </View>
+        </View>
+        {closeoutRows.map((item) => (
+          <Pressable key={item.label} style={styles.closeoutRow} onPress={item.onPress}>
+            {item.done ? <CheckCircle2 size={20} color={theme.primaryDark} /> : <Clock3 size={20} color={theme.warm} />}
+            <Text style={styles.closeoutRowText}>{item.label}</Text>
+            <Text style={[styles.closeoutRowStatus, item.done && styles.closeoutRowStatusDone]}>
+              {item.done ? t("closeoutDone") : t("closeoutTodo")}
+            </Text>
+          </Pressable>
+        ))}
       </View>
 
       <View style={styles.quickCaptureCard}>
@@ -3094,6 +3144,61 @@ const styles = StyleSheet.create({
     textAlign: "right"
   },
   commandStatusDone: {
+    color: theme.primaryDark
+  },
+  closeoutCard: {
+    backgroundColor: theme.surface,
+    borderRadius: 8,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#D8E2DC",
+    marginTop: 12
+  },
+  closeoutHeader: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: 12,
+    marginBottom: 8
+  },
+  closeoutBadge: {
+    marginLeft: "auto",
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    backgroundColor: "#FFF5E9",
+    borderWidth: 1,
+    borderColor: "#E8C7A8"
+  },
+  closeoutBadgeDone: {
+    backgroundColor: "#EAF3EF",
+    borderColor: "#C9DDD4"
+  },
+  closeoutBadgeText: {
+    color: theme.warm,
+    fontSize: 12,
+    fontWeight: "900"
+  },
+  closeoutBadgeTextDone: {
+    color: theme.primaryDark
+  },
+  closeoutRow: {
+    minHeight: 48,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    borderTopWidth: 1,
+    borderTopColor: "#E8E0D4"
+  },
+  closeoutRowText: {
+    flex: 1,
+    color: theme.ink,
+    fontWeight: "900"
+  },
+  closeoutRowStatus: {
+    color: theme.warm,
+    fontWeight: "900"
+  },
+  closeoutRowStatusDone: {
     color: theme.primaryDark
   },
   nextActionCard: {

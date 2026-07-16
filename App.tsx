@@ -1073,24 +1073,6 @@ function HomeScreen({
         </Pressable>
       </View>
 
-      <View style={styles.portableCard}>
-        <Text style={styles.taskTitle}>{t("portableCardTitle")}</Text>
-        <Text style={styles.body}>{t("portableCardBody")}</Text>
-        <Pressable style={styles.primaryButtonSmall} onPress={copyPortableCard}>
-          <Text style={styles.primaryButtonText}>{t("copyPortableCard")}</Text>
-        </Pressable>
-      </View>
-
-      <View style={styles.snapshotCard}>
-        <Text style={styles.sectionTitle}>{t("todaySnapshotTitle")}</Text>
-        <View style={styles.snapshotGrid}>
-          <SnapshotItem label={t("snapshotEnglish")} value={t("snapshotEnglishMinutes", { done: todayStudyMinutes })} />
-          <SnapshotItem label={t("snapshotWorkout")} value={t("snapshotWorkoutValue", { done: todayLog?.workoutCompletedIds.length ?? 0 })} />
-          <SnapshotItem label={t("snapshotSpending")} value={`$${spentToday.toFixed(2)}`} />
-          <SnapshotItem label={t("snapshotMood")} value={todayLog?.mood ? moodLabels[todayLog.mood] || todayLog.mood : t("snapshotMoodEmpty")} />
-        </View>
-      </View>
-
       <Pressable style={styles.nextActionCard} onPress={nextAction.onPress}>
         <View style={styles.nextActionIcon}>{nextAction.icon}</View>
         <View style={styles.nextActionCopy}>
@@ -1163,6 +1145,24 @@ function HomeScreen({
           <Pressable style={styles.captureButtonPrimary} onPress={saveQuickJournal}>
             <Text style={styles.captureButtonPrimaryText}>{t("saveAsJournal")}</Text>
           </Pressable>
+        </View>
+      </View>
+
+      <View style={styles.portableCard}>
+        <Text style={styles.taskTitle}>{t("portableCardTitle")}</Text>
+        <Text style={styles.body}>{t("portableCardBody")}</Text>
+        <Pressable style={styles.primaryButtonSmall} onPress={copyPortableCard}>
+          <Text style={styles.primaryButtonText}>{t("copyPortableCard")}</Text>
+        </Pressable>
+      </View>
+
+      <View style={styles.snapshotCard}>
+        <Text style={styles.sectionTitle}>{t("todaySnapshotTitle")}</Text>
+        <View style={styles.snapshotGrid}>
+          <SnapshotItem label={t("snapshotEnglish")} value={t("snapshotEnglishMinutes", { done: todayStudyMinutes })} />
+          <SnapshotItem label={t("snapshotWorkout")} value={t("snapshotWorkoutValue", { done: todayLog?.workoutCompletedIds.length ?? 0 })} />
+          <SnapshotItem label={t("snapshotSpending")} value={`$${spentToday.toFixed(2)}`} />
+          <SnapshotItem label={t("snapshotMood")} value={todayLog?.mood ? moodLabels[todayLog.mood] || todayLog.mood : t("snapshotMoodEmpty")} />
         </View>
       </View>
 
@@ -3532,11 +3532,11 @@ const styles = StyleSheet.create({
     overflow: "hidden"
   },
   portableCard: {
-    backgroundColor: "#FFF8ED",
+    backgroundColor: theme.surface,
     borderRadius: 8,
-    padding: 16,
+    padding: 14,
     borderWidth: 1,
-    borderColor: "#E6C69A",
+    borderColor: "#D8E2DC",
     marginTop: 12,
     marginBottom: 4
   },

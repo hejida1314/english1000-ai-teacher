@@ -341,6 +341,11 @@ const translations = {
     runModeExpo: "当前：Expo Go 测试版",
     runModeBody: "手机能打开，是因为电脑正在运行开发服务器。黑窗口关掉、电脑睡眠或换网络，手机就会打不开。",
     runModeStandalone: "以后做独立安装版后，才可以像普通 App 一样离开电脑使用。",
+    diagnosticsTitle: "给 Codex 的诊断信息",
+    diagnosticsBody: "遇到问题时点一下复制，比拍照更准确。",
+    copyDiagnostics: "复制诊断信息",
+    diagnosticsCopiedTitle: "诊断信息已复制",
+    diagnosticsCopiedBody: "直接发给 Codex，我就能更快判断问题。",
     copyBackup: "复制备份",
     restoreBackupTitle: "恢复备份",
     backupPlaceholder: "把备份文字粘贴到这里",
@@ -650,6 +655,11 @@ const translations = {
     runModeExpo: "Current: Expo Go test build",
     runModeBody: "Your phone opens the app because your computer is running the development server. If that window closes, the computer sleeps, or the network changes, the phone cannot open it.",
     runModeStandalone: "After we make a standalone build, it can run like a normal app without the computer.",
+    diagnosticsTitle: "Diagnostics for Codex",
+    diagnosticsBody: "When something breaks, copy this. It is more accurate than a photo.",
+    copyDiagnostics: "Copy diagnostics",
+    diagnosticsCopiedTitle: "Diagnostics copied",
+    diagnosticsCopiedBody: "Send it to Codex so I can debug faster.",
     copyBackup: "Copy backup",
     restoreBackupTitle: "Restore backup",
     backupPlaceholder: "Paste backup text here",
@@ -2501,6 +2511,23 @@ function SettingsScreen({
     Alert.alert(t("backupCopiedTitle"), t("backupCopiedBody"));
   }
 
+  async function copyDiagnostics() {
+    const text = [
+      "English1000 diagnostics",
+      `date=${new Date().toISOString()}`,
+      `currentDay=${progress.currentDay}`,
+      `completedDays=${progress.completedDays.length}`,
+      `completedTaskIds=${progress.completedTaskIds.length}`,
+      `notificationsEnabled=${progress.notificationsEnabled ? "yes" : "no"}`,
+      `reminder=${pad(progress.reminderHour)}:${pad(progress.reminderMinute)}`,
+      `language=${progress.interfaceLanguage || "zh"}`,
+      "runMode=Expo Go development server",
+      "sdk=54"
+    ].join("\n");
+    await Clipboard.setStringAsync(text);
+    Alert.alert(t("diagnosticsCopiedTitle"), t("diagnosticsCopiedBody"));
+  }
+
   async function restoreBackup() {
     if (!backupText.trim()) {
       Alert.alert(t("pasteBackupTitle"), t("pasteBackupBody"));
@@ -2551,6 +2578,13 @@ function SettingsScreen({
         <Text style={styles.kicker}>{t("runModeExpo")}</Text>
         <Text style={styles.body}>{t("runModeBody")}</Text>
         <Text style={styles.note}>{t("runModeStandalone")}</Text>
+      </View>
+      <View style={styles.card}>
+        <Text style={styles.taskTitle}>{t("diagnosticsTitle")}</Text>
+        <Text style={styles.body}>{t("diagnosticsBody")}</Text>
+        <Pressable style={styles.secondaryWideButton} onPress={copyDiagnostics}>
+          <Text style={styles.secondaryButtonText}>{t("copyDiagnostics")}</Text>
+        </Pressable>
       </View>
       <View style={styles.card}>
         <Text style={styles.taskTitle}>{t("dailyReminder")}</Text>

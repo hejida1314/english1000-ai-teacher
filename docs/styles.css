@@ -216,10 +216,27 @@ h3 {
   gap: 10px;
   border-top: 1px solid #e8e0d4;
   padding: 12px 0;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: inherit;
 }
 
 .row:first-of-type {
   border-top: 0;
+}
+
+button.row {
+  min-height: 58px;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+button.row:active {
+  background: rgba(37, 109, 99, 0.08);
 }
 
 .row-main {
@@ -231,6 +248,7 @@ h3 {
   font-weight: 900;
   color: var(--warm);
   white-space: nowrap;
+  margin-left: auto;
 }
 
 .status.done {

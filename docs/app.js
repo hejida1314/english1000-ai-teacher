@@ -1,6 +1,6 @@
 ﻿const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-lazy-flow-1";
+const APP_VERSION = "2026.07.19-progress-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -492,6 +492,32 @@ function totalStudySecondsToday() {
   return Math.max(fromSeconds, fromOldMinutes) + activeTimerSeconds();
 }
 
+function totalStudySecondsAll() {
+  const secondsMap = state.studySeconds || {};
+  const minuteMap = state.studyMinutes || {};
+  const keys = new Set([...Object.keys(secondsMap), ...Object.keys(minuteMap)]);
+  return Array.from(keys).reduce((sum, key) => {
+    const seconds = Number(secondsMap[key] || 0);
+    const oldSeconds = Number(minuteMap[key] || 0) * 60;
+    return sum + Math.max(seconds, oldSeconds);
+  }, 0) + activeTimerSeconds();
+}
+
+function studyStreakDays() {
+  const secondsMap = state.studySeconds || {};
+  const minuteMap = state.studyMinutes || {};
+  let streak = 0;
+  const cursor = new Date();
+  for (let i = 0; i < 366; i += 1) {
+    const key = cursor.toISOString().slice(0, 10);
+    const seconds = Math.max(Number(secondsMap[key] || 0), Number(minuteMap[key] || 0) * 60);
+    if (seconds < 60) break;
+    streak += 1;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+  return streak;
+}
+
 function understandingKey(day = state.currentDay) {
   return `d${day}`;
 }
@@ -668,7 +694,7 @@ function renderWordImportPreview(text) {
       ${words.map((word) => {
         const hint = lookupWordHint(word);
         const known = hint[0] !== "待补中文";
-        return `<span class="preview-chip ${known ? "" : "unknown"}"><strong>${word}</strong><em>${hint[0]}</em></span>`;
+        return `<span class="preview-chip ${known ? "" : "unknown"}"><strong>${escapeHtml(word)}</strong><em>${escapeHtml(hint[0])}</em></span>`;
       }).join("")}
     </div>
   `;
@@ -1090,6 +1116,11 @@ function renderHome() {
   const workoutDone = log.workout.length > 0;
   const journalDone = !!log.journal.trim();
   const [actionTitle, actionDetail, actionTab] = nextBestAction(course, log);
+  const totalHours = Math.floor(totalStudySecondsAll() / 3600);
+  const remainingHours = Math.max(0, 1000 - totalHours);
+  const streak = studyStreakDays();
+  const todayMinutes = totalStudyToday();
+  const remainingToday = Math.max(0, 180 - todayMinutes);
   const closeout = [
     ["英语主线", percent >= 100, "today"],
     ["到期单词", wordsDue === 0, "words"],
@@ -1103,7 +1134,7 @@ function renderHome() {
       <p class="body">${course.phase.level} / ${course.phase.phase}</p>
       <h3>${course.mainTitle}</h3>
       <div class="progress-track"><div class="progress-fill" style="width:${percent}%"></div></div>
-      <p class="small">今日完成 ${percent}% / 已学 ${totalStudyToday()} 分钟 / 到期词 ${wordsDue}</p>
+      <p class="small">今日完成 ${percent}% / 已学 ${todayMinutes} 分钟 / 还差 ${remainingToday} 分钟 / 到期词 ${wordsDue}</p>
       <div class="button-row">
         <button class="primary" data-tab="today">一键继续今天</button>
         <button class="secondary" data-open="${course.phase.url}">打开学习资源</button>
@@ -1129,6 +1160,11 @@ function renderHome() {
       <h2>万能速记</h2>
       <p class="body">单词、花费、日记都先扔这里，点智能保存。</p>
       <textarea id="quick" placeholder="appointment, maintenance / 45分钟英语 / $12 lunch / 今天练了深蹲">${escapeHtml(state.quick || "")}</textarea>
+      <div class="pill-row">
+        ${["45分钟英语", "$12 lunch", "深蹲20个", "今天状态不错，继续坚持。", "appointment maintenance insurance"].map((text) => `
+          <button class="pill" data-quick-template="${escapeHtml(text)}">${escapeHtml(text)}</button>
+        `).join("")}
+      </div>
       <div class="button-row">
         <button class="primary" id="smartSave">智能保存</button>
         <button class="secondary" id="pasteQuick">粘贴</button>
@@ -1144,10 +1180,12 @@ function renderHome() {
       </div>
     </section>
     <section class="grid">
-      <div class="metric"><div class="metric-value">${totalStudyToday()}</div><div class="metric-label">今日分钟</div></div>
+      <div class="metric"><div class="metric-value">${todayMinutes}</div><div class="metric-label">今日分钟</div></div>
+      <div class="metric"><div class="metric-value">${totalHours}</div><div class="metric-label">累计小时</div></div>
+      <div class="metric"><div class="metric-value">${streak}</div><div class="metric-label">连续天数</div></div>
+      <div class="metric"><div class="metric-value">${remainingHours}</div><div class="metric-label">剩余小时</div></div>
       <div class="metric"><div class="metric-value">${state.words.length}</div><div class="metric-label">生词</div></div>
       <div class="metric"><div class="metric-value">$${log.expenses.reduce((sum, item) => sum + item.amount, 0).toFixed(0)}</div><div class="metric-label">今日花费</div></div>
-      <div class="metric"><div class="metric-value">${log.workout.length}</div><div class="metric-label">训练项</div></div>
     </section>
   `;
 }
@@ -1707,6 +1745,11 @@ function bindEvents() {
 
   const quick = document.querySelector("#quick");
   if (quick) quick.addEventListener("input", () => { state.quick = quick.value; saveState(); });
+  document.querySelectorAll("[data-quick-template]").forEach((el) => el.addEventListener("click", () => {
+    state.quick = el.dataset.quickTemplate || "";
+    saveState();
+    render();
+  }));
   const smart = document.querySelector("#smartSave");
   if (smart) smart.addEventListener("click", () => {
     const result = smartSave(document.querySelector("#quick").value);
@@ -2025,6 +2068,12 @@ if ("serviceWorker" in navigator) {
 if (state.vocabAuditVersion !== "2026.07.19-vocab-audit-1") {
   repairLocalData();
   state.vocabAuditVersion = "2026.07.19-vocab-audit-1";
+  saveState({ autoSync: false });
+}
+
+if (state.reviewSpreadVersion !== "2026.07.19-review-spread-1") {
+  if (state.words.length > 100 && dueWords().length > 60) spreadWordReviews();
+  state.reviewSpreadVersion = "2026.07.19-review-spread-1";
   saveState({ autoSync: false });
 }
 

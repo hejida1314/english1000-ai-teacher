@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-resource-links-1";
+const APP_VERSION = "2026.07.19-review-ui-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1128,6 +1128,7 @@ function nextBestAction(course, log) {
   const percent = dayPercent(course);
   const minutes = totalStudyToday();
   const wordsDue = dueWords().length;
+  const wordsDueToday = Math.min(wordsDue, 20);
   if (percent < 100) return ["继续英语主线", "先把今日任务做完，别去乱找新材料。", "today"];
   if (wordsDue > 0) return ["复习20个到期词", "词很多没关系，今天最多20个。", "words"];
   if (!log.workout.length) return ["做10分钟保底训练", "深蹲、俯卧撑、拉伸，完成就算赢。", "life"];
@@ -1162,7 +1163,7 @@ function renderHome() {
       <p class="body">${course.phase.level} / ${course.phase.phase}</p>
       <h3>${course.mainTitle}</h3>
       <div class="progress-track"><div class="progress-fill" style="width:${percent}%"></div></div>
-      <p class="small">今日完成 ${percent}% / 已学 ${todayMinutes} 分钟 / 还差 ${remainingToday} 分钟 / 到期词 ${wordsDue}</p>
+      <p class="small">今日完成 ${percent}% / 已学 ${todayMinutes} 分钟 / 还差 ${remainingToday} 分钟 / 今日先复习 ${wordsDueToday} 词</p>
       <div class="button-row">
         <button class="primary" data-tab="today">一键继续今天</button>
         <button class="secondary" data-open="${escapeHtml(getResourceUrl(course))}">打开学习资源</button>
@@ -1363,7 +1364,7 @@ function renderWords() {
       </div>
     </section>
     <section class="card">
-      <h2>${query ? "搜索结果" : "今天要复习"}：${query ? filtered.length : due.length}</h2>
+      <h2>${query ? "搜索结果" : "今天先复习"}：${query ? filtered.length : `${reviewList.length}/${due.length}`}</h2>
       <div class="word-list">
         ${(reviewList.length ? reviewList : state.words.slice(0, 20)).map((word) => `
           <div class="word-card">

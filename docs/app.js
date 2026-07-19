@@ -383,6 +383,22 @@ function addDailyWords() {
   return addWordsFromText(getDailyWords().join(" "));
 }
 
+function renderWordImportPreview(text) {
+  const words = extractWords(text).slice(0, 24);
+  if (!words.length) {
+    return `<p class="install-tip">输入英文后，这里会先显示中文预览。</p>`;
+  }
+  return `
+    <div class="preview-grid">
+      ${words.map((word) => {
+        const hint = lookupWordHint(word);
+        const known = hint[0] !== "待补中文";
+        return `<span class="preview-chip ${known ? "" : "unknown"}"><strong>${word}</strong><em>${hint[0]}</em></span>`;
+      }).join("")}
+    </div>
+  `;
+}
+
 function smartSave(text) {
   const trimmed = text.trim();
   if (!trimmed) return "先输入内容。";
@@ -800,6 +816,7 @@ function renderWords() {
       <h1>生词本</h1>
       <p class="body">不是只背单词。每天先看高频词，再听常用句，最后复习到期生词。</p>
       <textarea id="wordImport" placeholder="listen, understand, repeat 或粘贴一段英文字幕"></textarea>
+      <div id="wordPreview">${renderWordImportPreview("")}</div>
       <div class="button-row">
         <button class="primary" id="importWords">一键导入生词</button>
         <button class="secondary" id="seedWords">加入3500基础词</button>
@@ -1041,6 +1058,11 @@ function bindEvents() {
     render();
   });
   const importWords = document.querySelector("#importWords");
+  const wordImportBox = document.querySelector("#wordImport");
+  if (wordImportBox) wordImportBox.addEventListener("input", () => {
+    const preview = document.querySelector("#wordPreview");
+    if (preview) preview.innerHTML = renderWordImportPreview(wordImportBox.value);
+  });
   if (importWords) importWords.addEventListener("click", () => {
     const count = addWordsFromText(document.querySelector("#wordImport").value);
     alert(`已加入 ${count} 个生词`);

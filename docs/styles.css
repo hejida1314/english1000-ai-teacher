@@ -497,6 +497,39 @@ textarea {
   min-width: 88px;
 }
 
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.preview-chip {
+  display: grid;
+  gap: 2px;
+  border: 1px solid #c9ddd4;
+  background: #f7fbf9;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.preview-chip strong {
+  color: var(--primary-dark);
+  font-size: 15px;
+}
+
+.preview-chip em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.preview-chip.unknown {
+  border-color: #e8c7a8;
+  background: #fff8ed;
+}
+
 .money-list,
 .journal-list {
   display: grid;
@@ -541,5 +574,9 @@ textarea {
   .phrase-card {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .preview-grid {
+    grid-template-columns: 1fr;
   }
 }

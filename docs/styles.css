@@ -181,6 +181,25 @@ h3 {
   flex-basis: 100%;
 }
 
+.score-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.clean-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--primary-dark);
+  line-height: 1.6;
+  font-weight: 750;
+}
+
+.clean-list li + li {
+  margin-top: 6px;
+}
+
 .timer-box {
   margin-top: 14px;
   padding: 14px;

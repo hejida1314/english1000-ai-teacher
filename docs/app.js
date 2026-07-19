@@ -157,6 +157,7 @@ const defaultState = {
   completedTasks: {},
   studyMinutes: {},
   studySeconds: {},
+  understanding: {},
   timer: { running: false, startedAt: "", taskId: "", taskTitle: "", bankedSeconds: 0 },
   words: [],
   lifeLogs: {},
@@ -296,6 +297,46 @@ function totalStudySecondsToday() {
   return Math.max(fromSeconds, fromOldMinutes) + activeTimerSeconds();
 }
 
+function understandingKey(day = state.currentDay) {
+  return `d${day}`;
+}
+
+function getUnderstanding(day = state.currentDay) {
+  if (!state.understanding) state.understanding = {};
+  return Number(state.understanding[understandingKey(day)] || 0);
+}
+
+function setUnderstanding(value) {
+  if (!state.understanding) state.understanding = {};
+  state.understanding[understandingKey()] = Number(value);
+  saveState();
+  render();
+}
+
+function understandingAdvice(value) {
+  if (value >= 80) return "可以升级：下次少看字幕，更多靠耳朵和画面理解。";
+  if (value >= 60) return "正合适：继续当前难度，不急着换美剧。";
+  if (value >= 40) return "能继续：先保留画面理解，不要停下来查太多词。";
+  return "还没评分：看完第一遍后，按真实感觉选 40%、60% 或 80%。";
+}
+
+function getDailySupport(course) {
+  const dailyPhrases = getDailyPhrases(course.day);
+  const words = getDailyWords(course.day);
+  const subtitleRule = course.day < 85
+    ? "第一遍不看字幕，第二遍英文字幕。不要开中文字幕。"
+    : course.day < 206
+      ? "英文字幕为主，听懂的片段关字幕复听。"
+      : "先英文字幕，再挑 5 分钟无字幕复听。";
+  return {
+    subtitleRule,
+    earlyFinish: "今天提前完成，不直接冲下一天。先复习到期词、跟读今日句子、补一段英文日记。连续性比贪多重要。",
+    words,
+    phrases: dailyPhrases.items,
+    aiPrompt: `我是 Jacob，正在执行 English1000 Life。今天是 Day ${course.day}，阶段是 ${course.phase.phase}，材料是 ${course.mainTitle}。请用简单英语测试我：1）问我今天视频大意；2）抽查这10个词：${words.join(", ")}；3）让我跟读这几句：${dailyPhrases.items.join(" / ")}；4）最后用中文告诉我明天是否该升级、保持、还是降难度。`
+  };
+}
+
 function formatDuration(seconds) {
   const safe = Math.max(0, Math.floor(seconds));
   const mm = String(Math.floor(safe / 60)).padStart(2, "0");
@@ -393,6 +434,21 @@ function addStudySeconds(seconds) {
   state.studyMinutes[key] = Math.floor(state.studySeconds[key] / 60);
   saveState();
   render();
+}
+
+async function copyText(text, message = "已复制") {
+  try {
+    await navigator.clipboard.writeText(text);
+    alert(message);
+  } catch {
+    const box = document.createElement("textarea");
+    box.value = text;
+    document.body.appendChild(box);
+    box.select();
+    document.execCommand("copy");
+    box.remove();
+    alert(message);
+  }
 }
 
 function startTimer(task) {
@@ -671,6 +727,8 @@ function renderToday() {
   const timer = state.timer || {};
   const running = Boolean(timer.running);
   const timerTask = timer.taskTitle || activeTask.title;
+  const support = getDailySupport(course);
+  const understanding = getUnderstanding(course.day);
   return `
     <section class="card">
       <p class="kicker">${course.phase.level}</p>
@@ -679,7 +737,16 @@ function renderToday() {
       <div class="button-row">
         <button class="secondary" id="prevDay">前一天</button>
         <button class="secondary" id="nextDay">下一天</button>
+        <button class="primary" data-open="${course.phase.url}">打开学习资源</button>
       </div>
+    </section>
+    <section class="card success">
+      <h2>今天怎么学</h2>
+      <ul class="clean-list">
+        <li>${support.subtitleRule}</li>
+        <li>第一遍只判断大意，第二遍才精听。不要一边看一边查词。</li>
+        <li>提前完成：${support.earlyFinish}</li>
+      </ul>
     </section>
     <section class="card">
       <h2>今日任务</h2>
@@ -706,6 +773,20 @@ function renderToday() {
         <button class="secondary" data-minutes="25">记录 25 分钟</button>
         <button class="secondary" data-minutes="45">记录 45 分钟</button>
       </div>
+    </section>
+    <section class="card">
+      <h2>理解度判断</h2>
+      <p class="body">看完第一遍就估一下，用来判断材料难不难。</p>
+      <div class="score-row">
+        ${[40, 60, 80].map((value) => `<button class="${understanding === value ? "primary" : "secondary"}" data-understanding="${value}">${value}%</button>`).join("")}
+      </div>
+      <p class="install-tip"><strong>结论：</strong>${understandingAdvice(understanding)}</p>
+    </section>
+    <section class="card">
+      <h2>今日AI老师</h2>
+      <p class="body">学完后复制这段给 ChatGPT，它就按今天内容测你。</p>
+      <textarea readonly>${support.aiPrompt}</textarea>
+      <button class="primary full" id="copyAiPrompt">复制AI测试提示</button>
     </section>
   `;
 }
@@ -933,6 +1014,7 @@ function bindEvents() {
   document.querySelectorAll("[data-open]").forEach((el) => el.addEventListener("click", () => window.open(el.dataset.open, "_blank", "noopener")));
   document.querySelectorAll("[data-task]").forEach((el) => el.addEventListener("click", () => toggleTask(el.dataset.task)));
   document.querySelectorAll("[data-minutes]").forEach((el) => el.addEventListener("click", () => addStudyMinutes(Number(el.dataset.minutes))));
+  document.querySelectorAll("[data-understanding]").forEach((el) => el.addEventListener("click", () => setUnderstanding(Number(el.dataset.understanding))));
   document.querySelectorAll("[data-review]").forEach((el) => el.addEventListener("click", () => reviewWord(el.dataset.review, el.dataset.level)));
   document.querySelectorAll("[data-say]").forEach((el) => el.addEventListener("click", (event) => {
     event.preventDefault();
@@ -989,6 +1071,8 @@ function bindEvents() {
   if (timerReset) timerReset.addEventListener("click", resetTimer);
   const timerFinish = document.querySelector("#timerFinish");
   if (timerFinish) timerFinish.addEventListener("click", finishTimer);
+  const copyAiPrompt = document.querySelector("#copyAiPrompt");
+  if (copyAiPrompt) copyAiPrompt.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
   document.querySelectorAll("[data-workout]").forEach((el) => el.addEventListener("click", () => {
     const log = getTodayLog();
     log.workout.includes(el.dataset.workout)

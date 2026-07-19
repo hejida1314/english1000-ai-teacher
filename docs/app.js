@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-word-status-1";
+const APP_VERSION = "2026.07.19-white-screen-fix-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1261,6 +1261,7 @@ function renderHome() {
   const log = getTodayLog();
   const percent = dayPercent(course);
   const wordsDue = dueWords().length;
+  const wordsDueToday = Math.min(wordsDue, 20);
   const workoutDone = log.workout.length > 0;
   const journalDone = !!log.journal.trim();
   const [actionTitle, actionDetail, actionTab] = nextBestAction(course, log);
@@ -1298,7 +1299,7 @@ function renderHome() {
       <p class="body">下面都变绿，今天就算稳了。</p>
       ${closeout.map(([label, done, tab]) => `
         <button class="row" data-tab="${tab}">
-          <span class="check ${done ? "done" : ""}">${done ? "?" : ""}</span>
+          <span class="check ${done ? "done" : ""}">${done ? "&#10003;" : ""}</span>
           <span class="row-main"><strong>${label}</strong></span>
           <span class="status ${done ? "done" : ""}">${done ? "已完成" : "待完成"}</span>
         </button>
@@ -1379,7 +1380,7 @@ function renderToday() {
       <h2>今日任务</h2>
       ${course.tasks.map((task) => `
         <button class="row" data-task="${task.id}">
-          <span class="check ${ids.has(task.id) ? "done" : ""}">${ids.has(task.id) ? "?" : ""}</span>
+          <span class="check ${ids.has(task.id) ? "done" : ""}">${ids.has(task.id) ? "&#10003;" : ""}</span>
           <span class="row-main"><strong>${task.title}</strong><br><span class="small">${task.detail}</span></span>
           <span class="status ${ids.has(task.id) ? "done" : ""}">${task.minutes}m</span>
         </button>

@@ -195,6 +195,8 @@ const defaultState = {
   understanding: {},
   timer: { running: false, startedAt: "", taskId: "", taskTitle: "", bankedSeconds: 0 },
   player: { index: 0, hideEnglish: false, hideChinese: false, rate: 0.82, dictation: "" },
+  customSentences: {},
+  language: "zh",
   words: [],
   lifeLogs: {},
   quick: "",
@@ -469,8 +471,34 @@ function playerState() {
   return state.player;
 }
 
+function isEnglishUi() {
+  return state.language === "en";
+}
+
+function ui(zh, en) {
+  return isEnglishUi() ? en : zh;
+}
+
+function customSentenceKey(day = state.currentDay) {
+  return `d${day}`;
+}
+
+function parseSentences(text) {
+  return String(text || "")
+    .replace(/\s+/g, " ")
+    .split(/(?<=[.!?])\s+|\n+/)
+    .map((item) => item.trim())
+    .filter((item) => /[a-zA-Z]/.test(item) && item.length >= 6)
+    .slice(0, 80);
+}
+
+function getPlayerSentences(day = state.currentDay) {
+  const custom = state.customSentences?.[customSentenceKey(day)];
+  return custom?.length ? custom : getDailyPhrases(day).items;
+}
+
 function getPlayerSentence() {
-  const phrases = getDailyPhrases().items;
+  const phrases = getPlayerSentences();
   const player = playerState();
   const index = Math.max(0, Math.min(phrases.length - 1, Number(player.index || 0)));
   player.index = index;
@@ -754,6 +782,8 @@ async function autoSyncOnStart() {
     } else if (localAt && localAt > (sync.lastCloudUpdatedAt || "")) {
       await uploadCloudSync();
       updateSyncBadge("已自动上传本机最新数据");
+    } else {
+      updateSyncBadge("本机和云端已经一致");
     }
   } catch {
     updateSyncBadge("自动同步暂时失败");
@@ -975,6 +1005,8 @@ function renderPlayer() {
   const sentence = getPlayerSentence();
   const dictationScore = player.dictation ? sentenceSimilarity(sentence.english, player.dictation) : 0;
   const keyWords = extractWords(sentence.english).slice(0, 6);
+  const customCount = getPlayerSentences().length;
+  const usingCustom = Boolean(state.customSentences?.[customSentenceKey()]?.length);
   return `
     <section class="card">
       <p class="kicker">精听播放器</p>
@@ -1002,6 +1034,16 @@ function renderPlayer() {
         <button class="ghost" id="toggleChinese">${player.hideChinese ? "显示中文" : "隐藏中文"}</button>
         <button class="ghost" id="cycleRate">语速 ${player.rate.toFixed(2)}x</button>
       </div>
+    </section>
+    <section class="card">
+      <h2>导入视频字幕</h2>
+      <p class="body">从 YouTube 复制字幕、标题、评论或笔记，粘贴进来。App 会切成句子，直接用于精听。</p>
+      <textarea id="sentenceImport" placeholder="Paste English subtitles here. Example: I want to learn English. This is useful."></textarea>
+      <div class="button-row">
+        <button class="primary" id="importSentences">导入到精听</button>
+        <button class="secondary" id="clearSentences">恢复今日默认句</button>
+      </div>
+      <p class="install-tip">${usingCustom ? `当前使用你导入的 ${customCount} 句。` : `当前使用系统今日 ${customCount} 句。`}</p>
     </section>
     <section class="card">
       <h2>听写检查</h2>
@@ -1154,10 +1196,18 @@ function renderLife() {
 function renderSettings() {
   const sync = getSyncState();
   return `
+    <section class="card">
+      <h1>${ui("界面语言", "Interface Language")}</h1>
+      <p class="body">${ui("先做中英切换基础。后面每个模块会继续补完整英文文案。", "This is the foundation. More screens will get full English text over time.")}</p>
+      <div class="button-row">
+        <button class="${state.language === "zh" ? "primary" : "secondary"}" data-lang="zh">中文</button>
+        <button class="${state.language === "en" ? "primary" : "secondary"}" data-lang="en">English</button>
+      </div>
+    </section>
     <section class="card notice">
-      <h1>网页/PWA 版本</h1>
-      <p class="body">这个版本的数据保存在本机浏览器。发布到 GitHub Pages 后，手机打开一次，就可以添加到主屏幕。离线能力需要浏览器首次缓存成功。</p>
-      <p class="small">iPhone：Safari 打开网址，点分享，选择“添加到主屏幕”。</p>
+      <h1>${ui("网页/PWA 版本", "Web / PWA Version")}</h1>
+      <p class="body">${ui("这个版本的数据保存在本机浏览器。发布到 GitHub Pages 后，手机打开一次，就可以添加到主屏幕。离线能力需要浏览器首次缓存成功。", "Your data is saved in this browser. After opening it once from GitHub Pages, you can add it to your Home Screen. Offline mode works after the browser caches it once.")}</p>
+      <p class="small">${ui("iPhone：Safari 打开网址，点分享，选择“添加到主屏幕”。", "iPhone: open the site in Safari, tap Share, then Add to Home Screen.")}</p>
     </section>
     <section class="card">
       <h2>云同步</h2>
@@ -1211,6 +1261,15 @@ function renderSettings() {
 
 function render() {
   const app = document.querySelector("#app");
+  const navItems = [
+    ["home", ui("首页", "Home")],
+    ["today", ui("今日", "Today")],
+    ["player", ui("精听", "Listen")],
+    ["words", ui("单词", "Words")],
+    ["life", ui("生活", "Life")],
+    ["ai", "AI"],
+    ["roadmap", ui("路线", "Plan")]
+  ];
   app.innerHTML = `
     <main class="app">
       <div class="topbar">
@@ -1218,20 +1277,12 @@ function render() {
           <p class="kicker">Local-first PWA</p>
           <strong>English1000 Life</strong>
         </div>
-        <button class="secondary" data-tab="settings">设置</button>
+        <button class="secondary" data-tab="settings">${ui("设置", "Settings")}</button>
       </div>
       ${state.tab === "today" ? renderToday() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "roadmap" ? renderRoadmap() : state.tab === "settings" ? renderSettings() : renderHome()}
     </main>
     <nav class="tabs">
-      ${[
-        ["home", "首页"],
-        ["today", "今日"],
-        ["player", "精听"],
-        ["words", "单词"],
-        ["life", "生活"],
-        ["ai", "AI"],
-        ["roadmap", "路线"]
-      ].map(([tab, label]) => `<button class="tab ${state.tab === tab ? "active" : ""}" data-tab="${tab}">${label}</button>`).join("")}
+      ${navItems.map(([tab, label]) => `<button class="tab ${state.tab === tab ? "active" : ""}" data-tab="${tab}">${label}</button>`).join("")}
     </nav>
   `;
   bindEvents();
@@ -1274,6 +1325,11 @@ function speakEnglish(text, rate = 0.82) {
 
 function bindEvents() {
   document.querySelectorAll("[data-tab]").forEach((el) => el.addEventListener("click", () => setTab(el.dataset.tab)));
+  document.querySelectorAll("[data-lang]").forEach((el) => el.addEventListener("click", () => {
+    state.language = el.dataset.lang === "en" ? "en" : "zh";
+    saveState();
+    render();
+  }));
   document.querySelectorAll("[data-open]").forEach((el) => el.addEventListener("click", () => window.open(el.dataset.open, "_blank", "noopener")));
   document.querySelectorAll("[data-task]").forEach((el) => el.addEventListener("click", () => toggleTask(el.dataset.task)));
   document.querySelectorAll("[data-minutes]").forEach((el) => el.addEventListener("click", () => addStudyMinutes(Number(el.dataset.minutes))));
@@ -1419,6 +1475,33 @@ function bindEvents() {
   if (copySentenceAi) copySentenceAi.addEventListener("click", () => {
     const sentence = getPlayerSentence();
     copyText(`请用简单中文解释这句英文，告诉我什么时候用，并给3个美国生活例句：\n${sentence.english}`, "这句AI解释提示已复制");
+  });
+  const importSentences = document.querySelector("#importSentences");
+  if (importSentences) importSentences.addEventListener("click", () => {
+    const text = document.querySelector("#sentenceImport").value;
+    const sentences = parseSentences(text);
+    if (!sentences.length) {
+      alert("没有识别到英文句子。复制字幕或英文段落再试。");
+      return;
+    }
+    if (!state.customSentences) state.customSentences = {};
+    state.customSentences[customSentenceKey()] = sentences;
+    const player = playerState();
+    player.index = 0;
+    player.dictation = "";
+    addWordsFromText(sentences.join(" "));
+    saveState();
+    alert(`已导入 ${sentences.length} 句，并自动提取关键词进生词本。`);
+    render();
+  });
+  const clearSentences = document.querySelector("#clearSentences");
+  if (clearSentences) clearSentences.addEventListener("click", () => {
+    if (state.customSentences) delete state.customSentences[customSentenceKey()];
+    const player = playerState();
+    player.index = 0;
+    player.dictation = "";
+    saveState();
+    render();
   });
   document.querySelectorAll("[data-workout]").forEach((el) => el.addEventListener("click", () => {
     const log = getTodayLog();

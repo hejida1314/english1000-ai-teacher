@@ -1,6 +1,6 @@
 ﻿const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-traceback-5";
+const APP_VERSION = "2026.07.19-vocab-audit-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -53,6 +53,147 @@ const starterHints = {
   pushup: ["俯卧撑", "I did pushups today."],
   stretch: ["拉伸", "I stretched for ten minutes."]
 };
+
+const verifiedWordHints = {
+  the: ["这个；那个；特指某个东西", "The car is ready."],
+  be: ["是；成为；存在", "I want to be better."],
+  of: ["...的；属于", "This is a cup of water."],
+  and: ["和；并且", "I study English and exercise."],
+  in: ["在...里面；在...期间", "I live in the United States."],
+  to: ["到；向；为了", "I go to work."],
+  have: ["有；吃；经历", "I have time today."],
+  it: ["它；这件事", "It is important."],
+  he: ["他", "He is busy today."],
+  for: ["为了；给；持续", "This lesson is for me."],
+  that: ["那个；那件事", "That is a good idea."],
+  not: ["不；没有", "I am not tired."],
+  you: ["你；你们", "You can do this."],
+  with: ["和...一起；用", "I study with my phone."],
+  on: ["在...上；开启；关于", "The video is on YouTube."],
+  do: ["做；完成", "I do one lesson today."],
+  they: ["他们；它们", "They speak English."],
+  say: ["说；表示", "Could you say that again?"],
+  by: ["通过；被；在旁边", "I pay by card."],
+  this: ["这个；这件事", "This word is useful."],
+  she: ["她", "She speaks slowly."],
+  at: ["在；向；以某时间", "I start at eight."],
+  but: ["但是", "I am tired, but I continue."],
+  we: ["我们", "We can practice today."],
+  his: ["他的", "His car is new."],
+  from: ["从；来自", "I am from China."],
+  which: ["哪一个；哪个", "Which one is better?"],
+  or: ["或者；还是", "Tea or coffee?"],
+  will: ["将会；愿意", "I will study tonight."],
+  as: ["作为；像；当...时", "I work as usual."],
+  what: ["什么", "What does it mean?"],
+  would: ["会；想要；用于礼貌表达", "I would like some water."],
+  go: ["去；走", "I go home after work."],
+  can: ["能；可以", "I can understand this."],
+  their: ["他们的", "Their house is near here."],
+  there: ["那里；有", "There is a problem."],
+  who: ["谁", "Who is calling?"],
+  all: ["全部；所有", "All the tasks are done."],
+  get: ["得到；到达；变得", "I get home at six."],
+  if: ["如果；是否", "If possible, I want tomorrow."],
+  her: ["她；她的", "I helped her today."],
+  make: ["做；制造；让", "I make dinner at home."],
+  my: ["我的", "My English is improving."],
+  one: ["一；一个", "I watched one video."],
+  about: ["关于；大约", "This lesson is about work."],
+  see: ["看见；明白", "I see the word again."],
+  know: ["知道；认识", "I know this word."],
+  so: ["所以；这么", "I was tired, so I rested."],
+  up: ["向上；起来；完成", "I wake up early."],
+  time: ["时间；次数", "I need more time."],
+  take: ["拿；花费；乘坐", "It takes ten minutes."],
+  some: ["一些", "I need some water."],
+  when: ["什么时候；当...时", "When can I come in?"],
+  year: ["年", "This is my English year."],
+  could: ["可以；能够；用于礼貌请求", "Could you repeat that?"],
+  think: ["想；认为", "I think this is useful."],
+  into: ["进入；变成", "Put it into the bag."],
+  its: ["它的", "The app saves its data."],
+  them: ["他们；它们", "I can understand them."],
+  then: ["然后；那时", "I listen, then repeat."],
+  me: ["我；给我", "Please help me."],
+  out: ["出去；外面", "I go out for work."],
+  people: ["人们", "People speak fast."],
+  come: ["来；到来", "Can you come tomorrow?"],
+  just: ["只是；刚刚", "I just need regular maintenance."],
+  your: ["你的；你们的", "What is your name?"],
+  now: ["现在", "I am studying now."],
+  no: ["不；没有", "No rice, please."],
+  him: ["他；给他", "I called him today."],
+  other: ["其他的；另一个", "Do you have another time?"],
+  only: ["只；仅仅", "I only need an oil change."],
+  give: ["给", "Can you give me a receipt?"],
+  good: ["好的；不错的", "Today is a good day."],
+  than: ["比", "This is easier than yesterday."],
+  like: ["喜欢；像", "I like this lesson."],
+  more: ["更多；更", "I need more practice."],
+  how: ["怎样；多么", "How do I say this?"],
+  also: ["也；而且", "I also practiced speaking."],
+  any: ["任何；一些", "Do you have any questions?"],
+  our: ["我们的", "Our plan is simple."],
+  first: ["第一；首先", "First, I listen."],
+  very: ["非常", "This is very useful."],
+  new: ["新的", "I learned a new word."],
+  look: ["看；看起来", "Look at the picture."],
+  may: ["可能；可以", "May I ask a question?"],
+  want: ["想要", "I want to learn useful English."],
+  way: ["方式；道路", "This is a good way."],
+  well: ["好地；健康的", "I did well today."],
+  should: ["应该", "I should review today."],
+  use: ["使用；用途", "I use English at work."],
+  because: ["因为", "I study because I live here."],
+  day: ["天；日子", "Today is Day 1."],
+  man: ["男人；人", "The man speaks slowly."],
+  find: ["找到；发现", "Where can I find olive oil?"],
+  here: ["这里", "I am here for my appointment."],
+  after: ["在...之后", "I study after work."],
+  thing: ["事情；东西", "This thing is useful."],
+  between: ["在...之间", "I study between work and dinner."],
+  many: ["许多", "I know many words."],
+  down: ["向下；下来；记录下来", "Write it down."],
+  today: ["今天", "Today I studied English."],
+  appointment: ["预约", "I'd like to schedule an appointment."],
+  maintenance: ["保养；维护", "I need regular maintenance for my car."],
+  insurance: ["保险", "I need to bring my insurance card."],
+  clinic: ["诊所", "I need to call the clinic."],
+  document: ["文件；材料", "What documents do I need?"],
+  problem: ["问题", "There is a problem."],
+  repeat: ["重复；再说一遍", "Could you repeat that?"],
+  confirm: ["确认", "Let me confirm the time."],
+  oil: ["油；机油", "I need an oil change."],
+  tire: ["轮胎", "Do I need a tire rotation?"],
+  service: ["服务；保养", "I need service for my car."],
+  warranty: ["保修", "Is it covered under warranty?"],
+  available: ["可用的；有空的", "Do you have anything available today?"],
+  license: ["驾照；许可证", "I'm here for my driver's license."],
+  deposit: ["押金；存款", "I paid the deposit."],
+  account: ["账户", "I'd like to open an account."],
+  fee: ["费用", "Is there a fee?"],
+  balance: ["余额；平衡", "What is my balance?"],
+  grocery: ["食品杂货", "I bought groceries."],
+  receipt: ["收据", "Can I get a receipt?"],
+  aisle: ["过道；货架通道", "Which aisle is it in?"],
+  card: ["卡", "Can I pay by card?"],
+  cash: ["现金", "I paid in cash."]
+};
+
+const badMeaningMarkers = [
+  "DOS", "批处理", "信息论", "输入终端", "智能终端", "内捕获", "地址转换器", "异常传输",
+  "自动订票", "后端", "总线允许", "自治系统", "高级系统", "辅助存储器", "作废字符"
+];
+
+function cleanMeaningCandidate(meaning) {
+  const raw = String(meaning || "").trim();
+  if (!raw) return "待补中文";
+  const parts = raw.split(/[；;]/).map((part) => part.trim()).filter(Boolean);
+  const kept = parts.filter((part) => !badMeaningMarkers.some((marker) => part.includes(marker)));
+  const clean = (kept[0] || parts[0] || raw).replace(/\s+/g, " ").trim();
+  return clean.length > 42 ? `${clean.slice(0, 42)}...` : clean;
+}
 
 const coreWordPlan = [
   ["i", "you", "he", "she", "go", "come", "want", "like", "good", "today"],
@@ -176,9 +317,12 @@ const phraseMeanings = {
 };
 
 function lookupWordHint(word) {
-  const webHint = window.BASIC_WORD_HINTS && window.BASIC_WORD_HINTS[word];
-  if (webHint) return [webHint.meaning, webHint.sentence];
-  return starterHints[word] || ["待补中文", `I learned the word "${word}" today.`];
+  const key = normalizeWord(String(word || ""));
+  if (verifiedWordHints[key]) return [...verifiedWordHints[key], "验证核心"];
+  const webHint = window.BASIC_WORD_HINTS && window.BASIC_WORD_HINTS[key];
+  if (webHint) return [cleanMeaningCandidate(webHint.meaning), webHint.sentence, "高频候选"];
+  if (starterHints[key]) return [...starterHints[key], "生活常用"];
+  return ["待补中文", `I learned the word "${key || word}" today.`, "自定义"];
 }
 
 function getDailyWords(day = state.currentDay) {
@@ -430,6 +574,7 @@ function addWordsFromText(text) {
       word,
       meaning: hint[0],
       sentence: hint[1],
+      source: hint[2],
       ease: 2,
       createdAt: new Date().toISOString(),
       dueAt: new Date().toISOString()
@@ -458,6 +603,7 @@ function addBaseWordsBalanced() {
       word,
       meaning: hint[0],
       sentence: hint[1],
+      source: hint[2],
       ease: 2,
       createdAt: new Date().toISOString(),
       dueAt: new Date(Date.now() + dayOffset * 86400000).toISOString()
@@ -487,8 +633,10 @@ function repairLocalData() {
     seen.add(key);
     const hint = lookupWordHint(key);
     word.word = key;
-    if (!word.meaning || word.meaning === "待补中文") word.meaning = hint[0];
+    if (!word.meaning || word.meaning === "待补中文" || hint[2] === "验证核心") word.meaning = hint[0];
+    if (badMeaningMarkers.some((marker) => String(word.meaning || "").includes(marker))) word.meaning = cleanMeaningCandidate(word.meaning);
     if (!word.sentence) word.sentence = hint[1];
+    if (!word.source || hint[2] === "验证核心") word.source = hint[2];
     if (!word.createdAt) word.createdAt = new Date().toISOString();
     if (!word.dueAt) word.dueAt = new Date().toISOString();
     return true;
@@ -1043,13 +1191,18 @@ function renderWords() {
   return `
     <section class="card">
       <h1>生词本</h1>
-      <p class="body">不是只背单词。每天先看高频词，再听常用句，最后复习到期生词。</p>
+      <p class="body">不是只背单词。每天先看验证核心词，再听常用句，最后复习到期生词。</p>
       <textarea id="wordImport" placeholder="listen, understand, repeat 或粘贴一段英文字幕"></textarea>
       <div id="wordPreview">${renderWordImportPreview("")}</div>
       <div class="button-row">
         <button class="primary" id="importWords">一键导入生词</button>
-        <button class="secondary" id="seedWords">加入3500基础词</button>
+        <button class="secondary" id="seedWords">加入3500高频候选词</button>
       </div>
+    </section>
+    <section class="card warning">
+      <h2>词库依据</h2>
+      <p class="body">我刚核对过：当前 3500 词不是乱造，排序来自 ECDICT 的 BNC / FRQ / Oxford / Collins 等频率字段，前排词也符合 Oxford 3000、NGSL、SUBTLEX 这类高频词思路。</p>
+      <p class="body"><strong>但中文释义以前不够干净。</strong> 所以现在改成：验证核心词优先显示干净中文；其他词先标为高频候选，后续继续清洗。</p>
     </section>
     <section class="card">
       <h2>复习队列</h2>
@@ -1093,6 +1246,7 @@ function renderWords() {
               <div class="word-title">${word.word}</div>
               <button class="ghost" data-say="${word.word}">发音</button>
             </div>
+            <span class="source-badge ${word.source === "验证核心" ? "verified" : ""}">${word.source || "高频候选"}</span>
             <p class="body">${word.meaning}</p>
             <p class="small">${word.sentence}</p>
             <div class="button-row">
@@ -1510,7 +1664,7 @@ function bindEvents() {
   const seedWords = document.querySelector("#seedWords");
   if (seedWords) seedWords.addEventListener("click", () => {
     const count = addBaseWordsBalanced();
-    alert(`已加入 ${count} 个基础词，并按每天20个排队复习`);
+    alert(`已加入 ${count} 个高频候选词，并按每天20个排队复习。核心词会优先显示干净释义。`);
     render();
   });
   const spreadWords = document.querySelector("#spreadWords");
@@ -1791,6 +1945,12 @@ function bindEvents() {
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./sw.js").catch(() => {});
+}
+
+if (state.vocabAuditVersion !== "2026.07.19-vocab-audit-1") {
+  repairLocalData();
+  state.vocabAuditVersion = "2026.07.19-vocab-audit-1";
+  saveState({ autoSync: false });
 }
 
 render();

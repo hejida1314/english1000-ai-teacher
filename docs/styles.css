@@ -454,6 +454,11 @@ textarea {
   border-color: #c9ddd4;
 }
 
+.warning {
+  background: #fff8ed;
+  border-color: #e8c7a8;
+}
+
 .hidden {
   display: none !important;
 }
@@ -480,6 +485,25 @@ textarea {
 .word-title {
   font-size: 18px;
   font-weight: 900;
+}
+
+.source-badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 8px;
+  border: 1px solid #e8c7a8;
+  background: #fff8ed;
+  color: var(--warm);
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.source-badge.verified {
+  border-color: #c9ddd4;
+  background: var(--green-soft);
+  color: var(--primary-dark);
 }
 
 .word-grid {

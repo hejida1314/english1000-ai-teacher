@@ -63,12 +63,16 @@ const defaultState = {
     token: "",
     gistId: "",
     lastSyncAt: "",
-    lastSyncDevice: ""
+    lastSyncDevice: "",
+    lastCloudUpdatedAt: "",
+    auto: true
   },
   tab: "home"
 };
 
 let state = loadState();
+let syncTimer = null;
+let syncBusy = false;
 
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
@@ -82,12 +86,25 @@ function loadState() {
   }
 }
 
-function saveState() {
-  localStorage.setItem(KEY, JSON.stringify({ ...state, savedAt: new Date().toISOString() }));
+function saveState(options = {}) {
+  const { markDirty = true, autoSync = true } = options;
+  const now = new Date().toISOString();
+  if (markDirty) state.localUpdatedAt = now;
+  localStorage.setItem(KEY, JSON.stringify({ ...state, savedAt: now }));
+  if (markDirty && autoSync) scheduleAutoUpload();
 }
 
 function getSyncState() {
-  if (!state.sync) state.sync = { token: "", gistId: "", lastSyncAt: "", lastSyncDevice: "" };
+  if (!state.sync) state.sync = {};
+  state.sync = {
+    token: "",
+    gistId: "",
+    lastSyncAt: "",
+    lastSyncDevice: "",
+    lastCloudUpdatedAt: "",
+    auto: true,
+    ...state.sync
+  };
   return state.sync;
 }
 
@@ -104,7 +121,7 @@ function mergeSyncedState(remoteState) {
     sync: localSync,
     tab: state.tab || "home"
   };
-  saveState();
+  saveState({ markDirty: false, autoSync: false });
 }
 
 function getPhase(day) {
@@ -265,7 +282,7 @@ function importBackup(text) {
   const data = JSON.parse(text);
   if (!data.state) throw new Error("bad backup");
   state = { ...defaultState, ...data.state };
-  saveState();
+  saveState({ autoSync: false });
 }
 
 async function githubRequest(path, options = {}) {
@@ -293,7 +310,7 @@ function syncPayload() {
     app: "English1000 Life",
     version: 1,
     device: navigator.userAgent,
-    updatedAt: new Date().toISOString(),
+    updatedAt: state.localUpdatedAt || new Date().toISOString(),
     state: publicStateForSync()
   }, null, 2);
 }
@@ -315,7 +332,8 @@ async function createCloudSync() {
   sync.gistId = gist.id;
   sync.lastSyncAt = new Date().toISOString();
   sync.lastSyncDevice = "uploaded";
-  saveState();
+  sync.lastCloudUpdatedAt = state.localUpdatedAt || sync.lastSyncAt;
+  saveState({ markDirty: false, autoSync: false });
   return gist.id;
 }
 
@@ -334,7 +352,8 @@ async function uploadCloudSync() {
   });
   sync.lastSyncAt = new Date().toISOString();
   sync.lastSyncDevice = "uploaded";
-  saveState();
+  sync.lastCloudUpdatedAt = state.localUpdatedAt || sync.lastSyncAt;
+  saveState({ markDirty: false, autoSync: false });
   return sync.gistId;
 }
 
@@ -349,7 +368,65 @@ async function downloadCloudSync() {
   mergeSyncedState(data.state);
   getSyncState().lastSyncAt = new Date().toISOString();
   getSyncState().lastSyncDevice = "downloaded";
-  saveState();
+  getSyncState().lastCloudUpdatedAt = data.updatedAt || getSyncState().lastSyncAt;
+  saveState({ markDirty: false, autoSync: false });
+}
+
+function canCloudSync() {
+  const sync = getSyncState();
+  return !!(sync.auto && sync.token.trim() && sync.gistId.trim() && navigator.onLine);
+}
+
+function scheduleAutoUpload() {
+  if (!canCloudSync() || syncBusy) return;
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(async () => {
+    if (!canCloudSync() || syncBusy) return;
+    try {
+      syncBusy = true;
+      await uploadCloudSync();
+      updateSyncBadge("已自动同步");
+    } catch (error) {
+      updateSyncBadge("自动同步失败，稍后再试");
+    } finally {
+      syncBusy = false;
+    }
+  }, 3000);
+}
+
+async function autoSyncOnStart() {
+  if (!canCloudSync() || syncBusy) return;
+  try {
+    syncBusy = true;
+    const sync = getSyncState();
+    const gist = await githubRequest(`/gists/${sync.gistId.trim()}`);
+    const file = gist.files && gist.files["english1000-life.json"];
+    if (!file) return;
+    const data = JSON.parse(file.content);
+    const remoteAt = data.updatedAt || "";
+    const localAt = state.localUpdatedAt || "";
+    if (remoteAt && (!localAt || remoteAt > localAt)) {
+      mergeSyncedState(data.state);
+      getSyncState().lastSyncAt = new Date().toISOString();
+      getSyncState().lastSyncDevice = "auto downloaded";
+      getSyncState().lastCloudUpdatedAt = remoteAt;
+      saveState({ markDirty: false, autoSync: false });
+      render();
+      updateSyncBadge("已自动下载云端最新数据");
+    } else if (localAt && localAt > (sync.lastCloudUpdatedAt || "")) {
+      await uploadCloudSync();
+      updateSyncBadge("已自动上传本机最新数据");
+    }
+  } catch {
+    updateSyncBadge("自动同步暂时失败");
+  } finally {
+    syncBusy = false;
+  }
+}
+
+function updateSyncBadge(text) {
+  const target = document.querySelector("#syncBadge") || document.querySelector("#syncStatus");
+  if (target) target.textContent = text;
 }
 
 function dayPercent(course) {
@@ -533,6 +610,10 @@ function renderSettings() {
       <input id="githubToken" type="password" value="${sync.token || ""}" placeholder="只保存到本机，不会提交到 GitHub 仓库" />
       <label class="field-label" for="gistId">Gist ID</label>
       <input id="gistId" value="${sync.gistId || ""}" placeholder="第一次可留空，点创建云同步后自动生成" />
+      <label class="toggle-row">
+        <input id="autoSync" type="checkbox" ${sync.auto ? "checked" : ""} />
+        <span>自动同步：打开时自动下载，修改后自动上传</span>
+      </label>
       <div class="button-row">
         <button class="primary" id="createSync">创建云同步</button>
         <button class="secondary" id="uploadSync">上传本机数据</button>
@@ -685,14 +766,19 @@ function bindEvents() {
   const githubToken = document.querySelector("#githubToken");
   if (githubToken) githubToken.addEventListener("input", () => {
     getSyncState().token = githubToken.value.trim();
-    saveState();
+    saveState({ markDirty: false, autoSync: false });
   });
   const gistId = document.querySelector("#gistId");
   if (gistId) gistId.addEventListener("input", () => {
     getSyncState().gistId = gistId.value.trim();
-    saveState();
+    saveState({ markDirty: false, autoSync: false });
   });
-  const syncStatus = document.querySelector("#syncStatus");
+  const autoSync = document.querySelector("#autoSync");
+  if (autoSync) autoSync.addEventListener("change", () => {
+    getSyncState().auto = autoSync.checked;
+    saveState({ markDirty: false, autoSync: false });
+    if (autoSync.checked) autoSyncOnStart();
+  });
   const setSyncStatus = (text) => {
     const target = document.querySelector("#syncStatus");
     if (target) target.textContent = text;
@@ -738,3 +824,4 @@ if ("serviceWorker" in navigator) {
 }
 
 render();
+setTimeout(autoSyncOnStart, 800);

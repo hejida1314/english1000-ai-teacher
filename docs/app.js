@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-sync-1";
+const APP_VERSION = "2026.07.19-resource-links-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -342,6 +342,7 @@ const defaultState = {
   timer: { running: false, startedAt: "", taskId: "", taskTitle: "", bankedSeconds: 0 },
   player: { index: 0, hideEnglish: false, hideChinese: false, rate: 0.82, dictation: "" },
   customSentences: {},
+  resourceLinks: {},
   language: "zh",
   wordQuery: "",
   words: [],
@@ -698,6 +699,7 @@ function repairLocalData() {
   if (!state.completedTasks || typeof state.completedTasks !== "object") state.completedTasks = {};
   if (!state.lifeLogs || typeof state.lifeLogs !== "object") state.lifeLogs = {};
   if (!state.studySeconds || typeof state.studySeconds !== "object") state.studySeconds = {};
+  if (!state.resourceLinks || typeof state.resourceLinks !== "object") state.resourceLinks = {};
   saveState();
   return state.words.length;
 }
@@ -741,6 +743,14 @@ function ui(zh, en) {
 
 function customSentenceKey(day = state.currentDay) {
   return `d${day}`;
+}
+
+function resourceKey(day = state.currentDay) {
+  return `d${day}`;
+}
+
+function getResourceUrl(course = getCourseDay(state.currentDay)) {
+  return state.resourceLinks?.[resourceKey(course.day)] || course.phase.url;
 }
 
 function parseSentences(text) {
@@ -1155,7 +1165,7 @@ function renderHome() {
       <p class="small">今日完成 ${percent}% / 已学 ${todayMinutes} 分钟 / 还差 ${remainingToday} 分钟 / 到期词 ${wordsDue}</p>
       <div class="button-row">
         <button class="primary" data-tab="today">一键继续今天</button>
-        <button class="secondary" data-open="${course.phase.url}">打开学习资源</button>
+        <button class="secondary" data-open="${escapeHtml(getResourceUrl(course))}">打开学习资源</button>
       </div>
     </section>
     <section class="card notice">
@@ -1225,7 +1235,16 @@ function renderToday() {
       <div class="button-row">
         <button class="secondary" id="prevDay">前一天</button>
         <button class="secondary" id="nextDay">下一天</button>
-        <button class="primary" data-open="${course.phase.url}">打开学习资源</button>
+        <button class="primary" data-open="${escapeHtml(getResourceUrl(course))}">打开学习资源</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>今天的视频链接</h2>
+      <p class="body">把今天真正看的 YouTube / TED / 课程链接贴这里。以后点“打开学习资源”就直达。</p>
+      <input id="resourceLink" value="${escapeHtml(state.resourceLinks?.[resourceKey(course.day)] || "")}" placeholder="https://www.youtube.com/..." />
+      <div class="button-row">
+        <button class="primary" id="saveResourceLink">保存链接</button>
+        <button class="secondary" data-open="${escapeHtml(getResourceUrl(course))}">打开当前链接</button>
       </div>
     </section>
     <section class="card success">
@@ -1763,6 +1782,21 @@ function bindEvents() {
     const minutes = Math.max(0, Math.min(300, Number(document.querySelector("#manualMinutes")?.value || 0)));
     if (!minutes) return alert("先填分钟数。");
     addStudyMinutes(minutes);
+  });
+  const saveResourceLink = document.querySelector("#saveResourceLink");
+  if (saveResourceLink) saveResourceLink.addEventListener("click", () => {
+    const input = document.querySelector("#resourceLink");
+    const value = String(input?.value || "").trim();
+    if (value && !/^https?:\/\//i.test(value)) {
+      alert("链接要以 http:// 或 https:// 开头。");
+      return;
+    }
+    if (!state.resourceLinks) state.resourceLinks = {};
+    if (value) state.resourceLinks[resourceKey()] = value;
+    else delete state.resourceLinks[resourceKey()];
+    saveState();
+    alert(value ? "今天的学习链接已保存。" : "今天的自定义链接已清空。");
+    render();
   });
   document.querySelectorAll("[data-understanding]").forEach((el) => el.addEventListener("click", () => setUnderstanding(Number(el.dataset.understanding))));
   document.querySelectorAll("[data-review]").forEach((el) => el.addEventListener("click", () => reviewWord(el.dataset.review, el.dataset.level)));

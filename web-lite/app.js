@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-review-ui-1";
+const APP_VERSION = "2026.07.19-delete-actions-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1380,6 +1380,7 @@ function renderWords() {
               <button class="secondary" data-review="${word.id}" data-level="hard">困难</button>
               <button class="primary" data-review="${word.id}" data-level="ok">会了</button>
               <button class="secondary" data-review="${word.id}" data-level="easy">很熟</button>
+              <button class="danger" data-delete-word="${word.id}">删除</button>
             </div>
           </div>
         `).join("") || `<p class="body">还没有生词。先导入基础词，或者从视频字幕粘贴。</p>`}
@@ -1574,7 +1575,13 @@ function renderLife() {
         <button class="primary" id="addExpense">记一笔</button>
       </div>
       <div class="money-list">
-        ${log.expenses.map((item) => `<div class="entry"><strong>$${Number(item.amount || 0).toFixed(2)}</strong> ${escapeHtml(item.note)}<br><span class="small">${new Date(item.createdAt).toLocaleTimeString()}</span></div>`).join("")}
+        ${log.expenses.map((item) => `
+          <div class="entry">
+            <strong>$${Number(item.amount || 0).toFixed(2)}</strong> ${escapeHtml(item.note)}
+            <button class="ghost mini-action" data-delete-expense="${escapeHtml(item.id)}">删除</button>
+            <br><span class="small">${new Date(item.createdAt).toLocaleTimeString()}</span>
+          </div>
+        `).join("")}
       </div>
     </section>
     <section class="card">
@@ -1801,6 +1808,12 @@ function bindEvents() {
   });
   document.querySelectorAll("[data-understanding]").forEach((el) => el.addEventListener("click", () => setUnderstanding(Number(el.dataset.understanding))));
   document.querySelectorAll("[data-review]").forEach((el) => el.addEventListener("click", () => reviewWord(el.dataset.review, el.dataset.level)));
+  document.querySelectorAll("[data-delete-word]").forEach((el) => el.addEventListener("click", () => {
+    if (!confirm("确定删除这个生词？")) return;
+    state.words = state.words.filter((word) => word.id !== el.dataset.deleteWord);
+    saveState();
+    render();
+  }));
   document.querySelectorAll("[data-say]").forEach((el) => el.addEventListener("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -2008,6 +2021,12 @@ function bindEvents() {
   document.querySelectorAll("[data-expense]").forEach((el) => el.addEventListener("click", () => {
     const log = getTodayLog();
     log.expenses.unshift({ id: `${Date.now()}`, amount: Number(el.dataset.expense), note: el.dataset.note, createdAt: new Date().toISOString() });
+    saveState();
+    render();
+  }));
+  document.querySelectorAll("[data-delete-expense]").forEach((el) => el.addEventListener("click", () => {
+    const log = getTodayLog();
+    log.expenses = log.expenses.filter((item) => item.id !== el.dataset.deleteExpense);
     saveState();
     render();
   }));

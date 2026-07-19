@@ -163,6 +163,13 @@ h3 {
   border-color: #e4b8b8;
 }
 
+.mini-action {
+  float: right;
+  min-height: 30px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
 .button-row,
 .pill-row {
   display: flex;

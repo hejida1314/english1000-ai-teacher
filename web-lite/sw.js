@@ -1,4 +1,4 @@
-const CACHE_NAME = "english1000-life-v1";
+const CACHE_NAME = "english1000-life-v20260719-1";
 const ASSETS = [
   "./",
   "./index.html",
@@ -25,15 +25,23 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) {
-        return cached;
-      }
-      return fetch(event.request).then((response) => {
-        const copy = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-        return response;
-      }).catch(() => caches.match("./index.html"));
+    fetch(event.request).then((response) => {
+      const copy = response.clone();
+      caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+      return response;
+    }).catch(() => {
+      return caches.match(event.request).then((cached) => {
+        if (cached) {
+          return cached;
+        }
+        return caches.match("./index.html");
+      });
     })
   );
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });

@@ -7,10 +7,10 @@ This is the simple Windows desktop version.
 Double-click:
 
 ```text
-START_WINDOWS_DESKTOP_SAFE.bat
+RUN_DESKTOP_KEEP_OPEN.bat
 ```
 
-It starts a local service and opens English1000 Life in an Edge app window.
+Keep the black window open while using the app.
 
 ## Stop
 

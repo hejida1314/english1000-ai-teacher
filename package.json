@@ -15,7 +15,8 @@
     "build:all:preview": "eas build --platform all --profile preview",
     "web-lite": "node scripts/serve-web-lite.js",
     "typecheck": "tsc --noEmit",
-    "verify:course": "node scripts/verify-course.js"
+    "verify:course": "node scripts/verify-course.js",
+    "verify:web": "node scripts/verify-web-lite.js"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.2.0",

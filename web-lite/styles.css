@@ -382,7 +382,8 @@ textarea {
   transform: translateX(-50%);
   width: min(100%, 560px);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(7, minmax(54px, 1fr));
+  overflow-x: auto;
   background: rgba(255, 255, 255, 0.96);
   border-top: 1px solid var(--line);
   padding: 7px 6px max(7px, env(safe-area-inset-bottom));
@@ -395,13 +396,52 @@ textarea {
   color: var(--muted);
   min-height: 48px;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
 }
 
 .tab.active {
   background: var(--green-soft);
   color: var(--primary-dark);
+}
+
+.player-card {
+  background: #103f39;
+  color: #fff;
+  border: 1px solid #103f39;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.player-count {
+  color: #d6e8e1;
+  font-size: 13px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.sentence-box {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px;
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.sentence-box.chinese {
+  font-size: 16px;
+  font-weight: 800;
+  color: #e8f3ef;
+}
+
+.muted-box {
+  color: #c6d8d2;
+  font-size: 16px;
+  font-weight: 800;
 }
 
 .notice {

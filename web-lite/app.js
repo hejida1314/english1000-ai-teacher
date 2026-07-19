@@ -138,6 +138,41 @@ const phrasePlan = [
   }
 ];
 
+const phraseMeanings = {
+  "My name is Jacob.": "我叫 Jacob。",
+  "I live in the United States.": "我住在美国。",
+  "I study English every day.": "我每天学英语。",
+  "I am a beginner, but I can keep going.": "我是初学者，但我能坚持下去。",
+  "Sorry, could you repeat that?": "不好意思，你可以再说一遍吗？",
+  "Could you say that again a little more slowly?": "你可以再慢一点说一遍吗？",
+  "I understand the main idea.": "我听懂了大意。",
+  "I don't know this word yet.": "我还不认识这个词。",
+  "Hi, I'd like to schedule a maintenance appointment.": "你好，我想预约一次车辆保养。",
+  "It's for my Kia Carnival.": "是我的 Kia Carnival。",
+  "Just regular maintenance.": "只是常规保养。",
+  "Is it covered under warranty?": "这个在保修范围内吗？",
+  "Can I have water, please?": "可以给我一杯水吗？",
+  "I'd like beef and vegetables.": "我想要牛肉和蔬菜。",
+  "No rice, please.": "不要米饭，谢谢。",
+  "Can I get the check?": "可以给我账单吗？",
+  "Where can I find olive oil?": "橄榄油在哪里？",
+  "Which aisle is it in?": "它在哪条过道？",
+  "Can I pay by card?": "我可以刷卡吗？",
+  "Can I get a receipt?": "可以给我收据吗？",
+  "I worked today.": "我今天工作了。",
+  "I helped a customer.": "我帮助了一位顾客。",
+  "I took a short break.": "我休息了一小会儿。",
+  "I am tired, but I will continue.": "我很累，但我会继续。",
+  "I'd like to make an appointment.": "我想预约。",
+  "Do you have anything available this week?": "这周有空位吗？",
+  "I have pain in my tooth.": "我的牙疼。",
+  "Can you confirm the time?": "你能确认一下时间吗？",
+  "I'd like to open an account.": "我想开一个账户。",
+  "Is there a fee?": "有费用吗？",
+  "I'm here for my driver's license.": "我是来办驾照的。",
+  "What documents do I need?": "我需要什么文件？"
+};
+
 function lookupWordHint(word) {
   const webHint = window.BASIC_WORD_HINTS && window.BASIC_WORD_HINTS[word];
   if (webHint) return [webHint.meaning, webHint.sentence];
@@ -159,6 +194,7 @@ const defaultState = {
   studySeconds: {},
   understanding: {},
   timer: { running: false, startedAt: "", taskId: "", taskTitle: "", bankedSeconds: 0 },
+  player: { index: 0, hideEnglish: false, hideChinese: false, rate: 0.82, dictation: "" },
   words: [],
   lifeLogs: {},
   quick: "",
@@ -397,6 +433,41 @@ function renderWordImportPreview(text) {
       }).join("")}
     </div>
   `;
+}
+
+function playerState() {
+  if (!state.player) state.player = {};
+  state.player = {
+    index: 0,
+    hideEnglish: false,
+    hideChinese: false,
+    rate: 0.82,
+    dictation: "",
+    ...state.player
+  };
+  return state.player;
+}
+
+function getPlayerSentence() {
+  const phrases = getDailyPhrases().items;
+  const player = playerState();
+  const index = Math.max(0, Math.min(phrases.length - 1, Number(player.index || 0)));
+  player.index = index;
+  const english = phrases[index] || phrases[0] || "";
+  return {
+    index,
+    total: phrases.length,
+    english,
+    chinese: phraseMeanings[english] || "先听懂大意，再用自己的中文解释。"
+  };
+}
+
+function sentenceSimilarity(a, b) {
+  const left = extractWords(a);
+  const right = new Set(extractWords(b));
+  if (!left.length) return 0;
+  const matched = left.filter((word) => right.has(word)).length;
+  return Math.round((matched / left.length) * 100);
 }
 
 function smartSave(text) {
@@ -869,6 +940,98 @@ function renderWords() {
   `;
 }
 
+function renderPlayer() {
+  const course = getCourseDay(state.currentDay);
+  const player = playerState();
+  const sentence = getPlayerSentence();
+  const dictationScore = player.dictation ? sentenceSimilarity(sentence.english, player.dictation) : 0;
+  const keyWords = extractWords(sentence.english).slice(0, 6);
+  return `
+    <section class="card">
+      <p class="kicker">精听播放器</p>
+      <h1>Day ${course.day} 句子训练</h1>
+      <p class="body">先听，再跟读，再听写。不要一边看一边查词。</p>
+    </section>
+    <section class="player-card">
+      <div class="player-count">第 ${sentence.index + 1} / ${sentence.total} 句</div>
+      <div class="sentence-box ${player.hideEnglish ? "muted-box" : ""}">
+        ${player.hideEnglish ? "英文已隐藏，先靠耳朵。" : sentence.english}
+      </div>
+      <div class="sentence-box chinese ${player.hideChinese ? "muted-box" : ""}">
+        ${player.hideChinese ? "中文已隐藏，自己想意思。" : sentence.chinese}
+      </div>
+      <div class="button-row">
+        <button class="primary" data-player-say="${sentence.english}">播放原句</button>
+        <button class="secondary" id="repeatThree">读3遍</button>
+      </div>
+      <div class="button-row">
+        <button class="secondary" data-player-move="-1">上一句</button>
+        <button class="secondary" data-player-move="1">下一句</button>
+      </div>
+      <div class="button-row">
+        <button class="ghost" id="toggleEnglish">${player.hideEnglish ? "显示英文" : "隐藏英文"}</button>
+        <button class="ghost" id="toggleChinese">${player.hideChinese ? "显示中文" : "隐藏中文"}</button>
+        <button class="ghost" id="cycleRate">语速 ${player.rate.toFixed(2)}x</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>听写检查</h2>
+      <textarea id="dictationBox" placeholder="听完后，把你听到的英文打在这里。">${player.dictation || ""}</textarea>
+      <div class="button-row">
+        <button class="primary" id="checkDictation">检查听写</button>
+        <button class="secondary" id="clearDictation">清空</button>
+      </div>
+      <p class="install-tip">${player.dictation ? `匹配度约 ${dictationScore}%。这个分数只看关键词，不追求完美。` : "先听两遍，再写。不会写完整也没事，写关键词也算训练。"}</p>
+    </section>
+    <section class="card">
+      <h2>这句值得学的词</h2>
+      <div class="pill-row">
+        ${keyWords.map((word) => {
+          const hint = lookupWordHint(word);
+          return `<button class="pill" data-add-one-word="${word}">${word} · ${hint[0]}</button>`;
+        }).join("")}
+      </div>
+      <div class="button-row">
+        <button class="primary" id="addSentenceWords">把这句关键词加入生词本</button>
+        <button class="secondary" id="copySentenceAi">复制这句给AI解释</button>
+      </div>
+    </section>
+  `;
+}
+
+function renderAiTeacher() {
+  const course = getCourseDay(state.currentDay);
+  const support = getDailySupport(course);
+  const phrases = support.phrases.map((item) => `- ${item}`).join("\n");
+  const prompt = support.aiPrompt;
+  return `
+    <section class="card">
+      <p class="kicker">AI老师</p>
+      <h1>Day ${course.day} 测试</h1>
+      <p class="body">把提示词复制给 ChatGPT，让它按今天内容测你。不要重新解释背景。</p>
+    </section>
+    <section class="card">
+      <h2>今日完整测试提示</h2>
+      <textarea readonly>${prompt}</textarea>
+      <button class="primary full" id="copyAiPromptPage">复制完整测试</button>
+    </section>
+    <section class="card">
+      <h2>快速训练</h2>
+      <div class="button-row">
+        <button class="secondary" data-copy-ai="请用简单英语问我5个关于 Day ${course.day} 视频大意的问题。每次只问一个，等我回答后再纠正。">视频大意问答</button>
+        <button class="secondary" data-copy-ai="请用这10个词给我做口语训练：${support.words.join(", ")}。每次给我一个中文场景，让我用英文回答。">10词口语训练</button>
+        <button class="secondary" data-copy-ai="请带我跟读这几句英语，先一句一句读，再纠正我的自然表达：\n${phrases}">今日句子跟读</button>
+        <button class="secondary" data-copy-ai="我会写5句英文日记，请你用中文指出错误，再给我一个更自然但简单的英文版本。">日记纠错</button>
+      </div>
+    </section>
+    <section class="card notice">
+      <h2>今天提前完成怎么办</h2>
+      <p class="body">${support.earlyFinish}</p>
+      <button class="secondary full" data-tab="player">去精听复习今天句子</button>
+    </section>
+  `;
+}
+
 function renderLife() {
   const log = getTodayLog();
   return `
@@ -976,14 +1139,16 @@ function render() {
         </div>
         <button class="secondary" data-tab="settings">设置</button>
       </div>
-      ${state.tab === "today" ? renderToday() : state.tab === "words" ? renderWords() : state.tab === "life" ? renderLife() : state.tab === "settings" ? renderSettings() : renderHome()}
+      ${state.tab === "today" ? renderToday() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "settings" ? renderSettings() : renderHome()}
     </main>
     <nav class="tabs">
       ${[
         ["home", "首页"],
         ["today", "今日"],
+        ["player", "精听"],
         ["words", "单词"],
         ["life", "生活"],
+        ["ai", "AI"],
         ["settings", "设置"]
       ].map(([tab, label]) => `<button class="tab ${state.tab === tab ? "active" : ""}" data-tab="${tab}">${label}</button>`).join("")}
     </nav>
@@ -1007,7 +1172,7 @@ function refreshTimerTicker() {
   if (state.timer?.running) timerTicker = setInterval(update, 1000);
 }
 
-function speakEnglish(text) {
+function speakEnglish(text, rate = 0.82) {
   const clean = String(text || "").trim();
   if (!clean) return;
   if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
@@ -1017,7 +1182,7 @@ function speakEnglish(text) {
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(clean);
   utterance.lang = "en-US";
-  utterance.rate = 0.82;
+  utterance.rate = rate;
   utterance.pitch = 1;
   utterance.volume = 1;
   const voices = window.speechSynthesis.getVoices();
@@ -1037,6 +1202,22 @@ function bindEvents() {
     event.preventDefault();
     event.stopPropagation();
     speakEnglish(el.dataset.say);
+  }));
+  document.querySelectorAll("[data-player-say]").forEach((el) => el.addEventListener("click", () => {
+    speakEnglish(el.dataset.playerSay, playerState().rate);
+  }));
+  document.querySelectorAll("[data-player-move]").forEach((el) => el.addEventListener("click", () => {
+    const player = playerState();
+    const total = getDailyPhrases().items.length;
+    player.index = Math.max(0, Math.min(total - 1, Number(player.index || 0) + Number(el.dataset.playerMove)));
+    player.dictation = "";
+    saveState();
+    render();
+  }));
+  document.querySelectorAll("[data-add-one-word]").forEach((el) => el.addEventListener("click", () => {
+    const count = addWordsFromText(el.dataset.addOneWord);
+    alert(count ? "已加入生词本" : "这个词已经在生词本里");
+    render();
   }));
 
   const quick = document.querySelector("#quick");
@@ -1095,6 +1276,67 @@ function bindEvents() {
   if (timerFinish) timerFinish.addEventListener("click", finishTimer);
   const copyAiPrompt = document.querySelector("#copyAiPrompt");
   if (copyAiPrompt) copyAiPrompt.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
+  const copyAiPromptPage = document.querySelector("#copyAiPromptPage");
+  if (copyAiPromptPage) copyAiPromptPage.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
+  document.querySelectorAll("[data-copy-ai]").forEach((el) => el.addEventListener("click", () => copyText(el.dataset.copyAi, "训练提示已复制")));
+  const repeatThree = document.querySelector("#repeatThree");
+  if (repeatThree) repeatThree.addEventListener("click", () => {
+    const { english } = getPlayerSentence();
+    const rate = playerState().rate;
+    [0, 1800, 3600].forEach((delay) => setTimeout(() => speakEnglish(english, rate), delay));
+  });
+  const toggleEnglish = document.querySelector("#toggleEnglish");
+  if (toggleEnglish) toggleEnglish.addEventListener("click", () => {
+    const player = playerState();
+    player.hideEnglish = !player.hideEnglish;
+    saveState();
+    render();
+  });
+  const toggleChinese = document.querySelector("#toggleChinese");
+  if (toggleChinese) toggleChinese.addEventListener("click", () => {
+    const player = playerState();
+    player.hideChinese = !player.hideChinese;
+    saveState();
+    render();
+  });
+  const cycleRate = document.querySelector("#cycleRate");
+  if (cycleRate) cycleRate.addEventListener("click", () => {
+    const player = playerState();
+    const rates = [0.7, 0.82, 1, 1.15];
+    const current = rates.findIndex((rate) => Math.abs(rate - Number(player.rate || 0.82)) < 0.01);
+    player.rate = rates[(current + 1) % rates.length];
+    saveState();
+    render();
+  });
+  const dictationBox = document.querySelector("#dictationBox");
+  if (dictationBox) dictationBox.addEventListener("input", () => {
+    playerState().dictation = dictationBox.value;
+    saveState();
+  });
+  const checkDictation = document.querySelector("#checkDictation");
+  if (checkDictation) checkDictation.addEventListener("click", () => {
+    playerState().dictation = document.querySelector("#dictationBox").value;
+    saveState();
+    render();
+  });
+  const clearDictation = document.querySelector("#clearDictation");
+  if (clearDictation) clearDictation.addEventListener("click", () => {
+    playerState().dictation = "";
+    saveState();
+    render();
+  });
+  const addSentenceWords = document.querySelector("#addSentenceWords");
+  if (addSentenceWords) addSentenceWords.addEventListener("click", () => {
+    const { english } = getPlayerSentence();
+    const count = addWordsFromText(english);
+    alert(`已加入 ${count} 个关键词`);
+    render();
+  });
+  const copySentenceAi = document.querySelector("#copySentenceAi");
+  if (copySentenceAi) copySentenceAi.addEventListener("click", () => {
+    const sentence = getPlayerSentence();
+    copyText(`请用简单中文解释这句英文，告诉我什么时候用，并给3个美国生活例句：\n${sentence.english}`, "这句AI解释提示已复制");
+  });
   document.querySelectorAll("[data-workout]").forEach((el) => el.addEventListener("click", () => {
     const log = getTodayLog();
     log.workout.includes(el.dataset.workout)

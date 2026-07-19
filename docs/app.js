@@ -62,6 +62,8 @@ const defaultState = {
   currentDay: 1,
   completedTasks: {},
   studyMinutes: {},
+  studySeconds: {},
+  timer: { running: false, startedAt: "", taskId: "", taskTitle: "", bankedSeconds: 0 },
   words: [],
   lifeLogs: {},
   quick: "",
@@ -79,6 +81,7 @@ const defaultState = {
 let state = loadState();
 let syncTimer = null;
 let syncBusy = false;
+let timerTicker = null;
 
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
@@ -183,7 +186,27 @@ function completedForDay(day) {
 }
 
 function totalStudyToday() {
-  return state.studyMinutes[todayKey()] || 0;
+  return Math.floor(totalStudySecondsToday() / 60);
+}
+
+function activeTimerSeconds() {
+  const timer = state.timer || {};
+  const banked = Number(timer.bankedSeconds || 0);
+  if (!timer.running || !timer.startedAt) return banked;
+  return banked + Math.max(0, Math.floor((Date.now() - new Date(timer.startedAt).getTime()) / 1000));
+}
+
+function totalStudySecondsToday() {
+  const fromSeconds = Number(state.studySeconds?.[todayKey()] || 0);
+  const fromOldMinutes = Number(state.studyMinutes?.[todayKey()] || 0) * 60;
+  return Math.max(fromSeconds, fromOldMinutes) + activeTimerSeconds();
+}
+
+function formatDuration(seconds) {
+  const safe = Math.max(0, Math.floor(seconds));
+  const mm = String(Math.floor(safe / 60)).padStart(2, "0");
+  const ss = String(safe % 60).padStart(2, "0");
+  return `${mm}:${ss}`;
 }
 
 function dueWords() {
@@ -262,8 +285,55 @@ function toggleTask(taskId) {
 }
 
 function addStudyMinutes(minutes) {
+  addStudySeconds(minutes * 60);
+}
+
+function addStudySeconds(seconds) {
   const key = todayKey();
-  state.studyMinutes[key] = (state.studyMinutes[key] || 0) + minutes;
+  if (!state.studySeconds) state.studySeconds = {};
+  state.studySeconds[key] = (state.studySeconds[key] || 0) + Math.max(0, Math.round(seconds));
+  state.studyMinutes[key] = Math.floor(state.studySeconds[key] / 60);
+  saveState();
+  render();
+}
+
+function startTimer(task) {
+  const current = state.timer || {};
+  state.timer = {
+    running: true,
+    startedAt: new Date().toISOString(),
+    taskId: task.id,
+    taskTitle: task.title,
+    bankedSeconds: current.taskId === task.id ? Number(current.bankedSeconds || 0) : 0
+  };
+  saveState();
+  render();
+}
+
+function pauseTimer() {
+  if (!state.timer) return;
+  state.timer = { ...state.timer, running: false, startedAt: "", bankedSeconds: activeTimerSeconds() };
+  saveState();
+  render();
+}
+
+function resetTimer() {
+  state.timer = { running: false, startedAt: "", taskId: "", taskTitle: "", bankedSeconds: 0 };
+  saveState();
+  render();
+}
+
+function finishTimer() {
+  const seconds = activeTimerSeconds();
+  const taskId = state.timer?.taskId;
+  if (seconds > 0) addStudySeconds(seconds);
+  if (taskId) {
+    const day = state.currentDay;
+    const ids = new Set(state.completedTasks[day] || []);
+    ids.add(taskId);
+    state.completedTasks[day] = Array.from(ids);
+  }
+  state.timer = { running: false, startedAt: "", taskId: "", taskTitle: "", bankedSeconds: 0 };
   saveState();
   render();
 }
@@ -499,6 +569,10 @@ function renderHome() {
 function renderToday() {
   const course = getCourseDay(state.currentDay);
   const ids = new Set(state.completedTasks[state.currentDay] || []);
+  const activeTask = course.tasks.find((task) => !ids.has(task.id)) || course.tasks[0];
+  const timer = state.timer || {};
+  const running = Boolean(timer.running);
+  const timerTask = timer.taskTitle || activeTask.title;
   return `
     <section class="card">
       <p class="kicker">${course.phase.level}</p>
@@ -518,6 +592,17 @@ function renderToday() {
           <span class="status ${ids.has(task.id) ? "done" : ""}">${task.minutes}m</span>
         </button>
       `).join("")}
+      <div class="timer-box">
+        <p class="small">当前计时：${timerTask}</p>
+        <div class="timer-time" id="timerTime">${formatDuration(activeTimerSeconds())}</div>
+        <p class="small">今天累计：<span id="timerTotal">${Math.floor(totalStudySecondsToday() / 60)}</span> 分钟。切到 YouTube 也会按开始时间继续算。</p>
+        <div class="button-row">
+          <button class="primary" id="timerStart" data-task-id="${activeTask.id}">${running ? "继续计时中" : "开始计时"}</button>
+          <button class="secondary" id="timerPause">暂停</button>
+          <button class="secondary" id="timerReset">重置</button>
+        </div>
+        <button class="primary full" id="timerFinish">完成这一项并累计时间</button>
+      </div>
       <div class="button-row">
         <button class="primary" data-minutes="10">记录 10 分钟</button>
         <button class="secondary" data-minutes="25">记录 25 分钟</button>
@@ -683,6 +768,22 @@ function render() {
     </nav>
   `;
   bindEvents();
+  refreshTimerTicker();
+}
+
+function refreshTimerTicker() {
+  if (timerTicker) {
+    clearInterval(timerTicker);
+    timerTicker = null;
+  }
+  const update = () => {
+    const time = document.querySelector("#timerTime");
+    const total = document.querySelector("#timerTotal");
+    if (time) time.textContent = formatDuration(activeTimerSeconds());
+    if (total) total.textContent = String(Math.floor(totalStudySecondsToday() / 60));
+  };
+  update();
+  if (state.timer?.running) timerTicker = setInterval(update, 1000);
 }
 
 function bindEvents() {
@@ -724,6 +825,18 @@ function bindEvents() {
     alert(`已加入 ${count} 个基础词`);
     render();
   });
+  const timerStart = document.querySelector("#timerStart");
+  if (timerStart) timerStart.addEventListener("click", () => {
+    const course = getCourseDay(state.currentDay);
+    const task = course.tasks.find((item) => item.id === timerStart.dataset.taskId) || course.tasks[0];
+    startTimer(task);
+  });
+  const timerPause = document.querySelector("#timerPause");
+  if (timerPause) timerPause.addEventListener("click", pauseTimer);
+  const timerReset = document.querySelector("#timerReset");
+  if (timerReset) timerReset.addEventListener("click", resetTimer);
+  const timerFinish = document.querySelector("#timerFinish");
+  if (timerFinish) timerFinish.addEventListener("click", finishTimer);
   document.querySelectorAll("[data-workout]").forEach((el) => el.addEventListener("click", () => {
     const log = getTodayLog();
     log.workout.includes(el.dataset.workout)

@@ -52,10 +52,104 @@ const starterHints = {
   stretch: ["拉伸", "I stretched for ten minutes."]
 };
 
+const coreWordPlan = [
+  ["i", "you", "he", "she", "go", "come", "want", "like", "good", "today"],
+  ["my", "your", "name", "live", "work", "study", "home", "tired", "happy", "now"],
+  ["car", "appointment", "maintenance", "oil", "tire", "service", "tomorrow", "morning", "afternoon", "possible"],
+  ["water", "beef", "rice", "potato", "egg", "vegetable", "order", "have", "please", "check"],
+  ["where", "find", "aisle", "milk", "bread", "price", "bag", "receipt", "card", "cash"],
+  ["start", "finish", "drive", "walk", "call", "message", "boss", "customer", "break", "later"],
+  ["doctor", "available", "week", "pain", "insurance", "clinic", "repeat", "slowly", "confirm", "hold"],
+  ["bank", "account", "deposit", "transfer", "money", "fee", "balance", "license", "document", "form"]
+];
+
+const phrasePlan = [
+  {
+    title: "自我介绍",
+    items: [
+      "My name is Jacob.",
+      "I live in the United States.",
+      "I study English every day.",
+      "I am a beginner, but I can keep going."
+    ]
+  },
+  {
+    title: "听不懂时",
+    items: [
+      "Sorry, could you repeat that?",
+      "Could you say that again a little more slowly?",
+      "I understand the main idea.",
+      "I don't know this word yet."
+    ]
+  },
+  {
+    title: "汽车保养",
+    items: [
+      "Hi, I'd like to schedule a maintenance appointment.",
+      "It's for my Kia Carnival.",
+      "Just regular maintenance.",
+      "Is it covered under warranty?"
+    ]
+  },
+  {
+    title: "餐馆点餐",
+    items: [
+      "Can I have water, please?",
+      "I'd like beef and vegetables.",
+      "No rice, please.",
+      "Can I get the check?"
+    ]
+  },
+  {
+    title: "超市购物",
+    items: [
+      "Where can I find olive oil?",
+      "Which aisle is it in?",
+      "Can I pay by card?",
+      "Can I get a receipt?"
+    ]
+  },
+  {
+    title: "工作生活",
+    items: [
+      "I worked today.",
+      "I helped a customer.",
+      "I took a short break.",
+      "I am tired, but I will continue."
+    ]
+  },
+  {
+    title: "预约看病",
+    items: [
+      "I'd like to make an appointment.",
+      "Do you have anything available this week?",
+      "I have pain in my tooth.",
+      "Can you confirm the time?"
+    ]
+  },
+  {
+    title: "银行 DMV",
+    items: [
+      "I'd like to open an account.",
+      "Is there a fee?",
+      "I'm here for my driver's license.",
+      "What documents do I need?"
+    ]
+  }
+];
+
 function lookupWordHint(word) {
   const webHint = window.BASIC_WORD_HINTS && window.BASIC_WORD_HINTS[word];
   if (webHint) return [webHint.meaning, webHint.sentence];
   return starterHints[word] || ["待补中文", `I learned the word "${word}" today.`];
+}
+
+function getDailyWords(day = state.currentDay) {
+  return coreWordPlan[(day - 1) % coreWordPlan.length];
+}
+
+function getDailyPhrases(day = state.currentDay) {
+  return phrasePlan[(day - 1) % phrasePlan.length];
 }
 
 const defaultState = {
@@ -242,6 +336,10 @@ function addWordsFromText(text) {
   state.words = [...fresh, ...state.words];
   saveState();
   return fresh.length;
+}
+
+function addDailyWords() {
+  return addWordsFromText(getDailyWords().join(" "));
 }
 
 function smartSave(text) {
@@ -614,14 +712,39 @@ function renderToday() {
 
 function renderWords() {
   const due = dueWords();
+  const dailyWords = getDailyWords();
+  const dailyPhrases = getDailyPhrases();
   return `
     <section class="card">
       <h1>生词本</h1>
-      <p class="body">看视频时复制字幕或标题，一次粘贴进来，不要一个一个手录。</p>
+      <p class="body">不是只背单词。每天先看高频词，再听常用句，最后复习到期生词。</p>
       <textarea id="wordImport" placeholder="listen, understand, repeat 或粘贴一段英文字幕"></textarea>
       <div class="button-row">
         <button class="primary" id="importWords">一键导入生词</button>
         <button class="secondary" id="seedWords">加入3500基础词</button>
+      </div>
+    </section>
+    <section class="card success">
+      <h2>今日高频词</h2>
+      <p class="body">Day ${state.currentDay} 先拿这 10 个。会用，比背多更重要。</p>
+      <div class="word-grid">
+        ${dailyWords.map((word) => {
+          const hint = lookupWordHint(word);
+          return `<button class="word-chip" data-say="${word}"><strong>${word}</strong><span>${hint[0]}</span></button>`;
+        }).join("")}
+      </div>
+      <button class="primary full" id="addDailyWords">加入今日10词到生词本</button>
+    </section>
+    <section class="card">
+      <h2>今日常用句：${dailyPhrases.title}</h2>
+      <p class="body">句子才是你以后开口用的东西。点“读句子”，跟着模仿。</p>
+      <div class="phrase-list">
+        ${dailyPhrases.items.map((item) => `
+          <div class="phrase-card">
+            <p>${item}</p>
+            <button class="ghost" data-say="${item}">读句子</button>
+          </div>
+        `).join("")}
       </div>
     </section>
     <section class="card">
@@ -846,6 +969,12 @@ function bindEvents() {
     const allWords = Object.keys(window.BASIC_WORD_HINTS || starterHints);
     const count = addWordsFromText(allWords.slice(0, 3500).join(" "));
     alert(`已加入 ${count} 个基础词`);
+    render();
+  });
+  const addDailyWordsButton = document.querySelector("#addDailyWords");
+  if (addDailyWordsButton) addDailyWordsButton.addEventListener("click", () => {
+    const count = addDailyWords();
+    alert(`已加入 ${count} 个今日高频词`);
     render();
   });
   const timerStart = document.querySelector("#timerStart");

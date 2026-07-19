@@ -423,6 +423,61 @@ textarea {
   font-weight: 900;
 }
 
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 10px 0 12px;
+}
+
+.word-chip {
+  display: grid;
+  gap: 4px;
+  min-height: 64px;
+  border: 1px solid #c9ddd4;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  color: var(--primary-dark);
+  text-align: left;
+}
+
+.word-chip strong {
+  font-size: 18px;
+}
+
+.word-chip span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.phrase-list {
+  display: grid;
+  gap: 8px;
+}
+
+.phrase-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.phrase-card p {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.phrase-card button {
+  min-width: 88px;
+}
+
 .money-list,
 .journal-list {
   display: grid;
@@ -440,4 +495,32 @@ textarea {
   font-size: 13px;
   color: var(--muted);
   margin-top: 8px;
+}
+
+@media (max-width: 430px) {
+  .app {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .row {
+    align-items: flex-start;
+  }
+
+  .row-main {
+    min-width: 0;
+  }
+
+  .status {
+    white-space: nowrap;
+  }
+
+  .word-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phrase-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
 }

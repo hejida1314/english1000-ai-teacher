@@ -217,6 +217,13 @@ h3 {
   font-variant-numeric: tabular-nums;
 }
 
+.quick-time {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  margin-top: 10px;
+}
+
 .pill {
   border: 1px solid var(--line);
   background: var(--soft);

@@ -1,6 +1,6 @@
 ﻿const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-vocab-audit-1";
+const APP_VERSION = "2026.07.19-lazy-flow-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -367,6 +367,15 @@ function todayKey() {
   return new Date().toISOString().slice(0, 10);
 }
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 function loadState() {
   try {
     return { ...defaultState, ...JSON.parse(localStorage.getItem(KEY) || "{}") };
@@ -473,7 +482,8 @@ function activeTimerSeconds() {
   const timer = state.timer || {};
   const banked = Number(timer.bankedSeconds || 0);
   if (!timer.running || !timer.startedAt) return banked;
-  return banked + Math.max(0, Math.floor((Date.now() - new Date(timer.startedAt).getTime()) / 1000));
+  const elapsed = Math.max(0, Math.floor((Date.now() - new Date(timer.startedAt).getTime()) / 1000));
+  return banked + Math.min(elapsed, 4 * 3600);
 }
 
 function totalStudySecondsToday() {
@@ -725,10 +735,45 @@ function sentenceSimilarity(a, b) {
   return Math.round((matched / left.length) * 100);
 }
 
+function parseTimeMinutes(text) {
+  const raw = String(text || "").trim();
+  const hour = raw.match(/(\d+(?:\.\d+)?)\s*(小时|个小时|hour|hours|hr|hrs|h)\b/i);
+  if (hour) return Math.round(Number(hour[1]) * 60);
+  const minute = raw.match(/(\d+(?:\.\d+)?)\s*(分钟|分|min|mins|minute|minutes|m)\b/i);
+  if (minute) return Math.round(Number(minute[1]));
+  return 0;
+}
+
+function looksLikeExpense(text) {
+  const raw = String(text || "").toLowerCase();
+  if (/(\d+)\s*(分钟|分|min|minute|hour|小时|个小时)/i.test(raw)) return false;
+  return /(\$|usd|花了|花费|消费|spent|spend|lunch|coffee|gas|grocery|parking|receipt|meal|food|beef|cost)/i.test(raw);
+}
+
+function looksLikeWorkout(text) {
+  return /(深蹲|俯卧撑|拉伸|走路|步行|训练|健身|平板|卷腹|弓步|squat|pushup|push-up|stretch|walk|plank|workout)/i.test(text);
+}
+
+function addWorkoutNote(text) {
+  const log = getTodayLog();
+  const item = String(text || "").trim();
+  if (item && !log.workout.includes(item)) log.workout.push(item);
+  saveState();
+}
+
 function smartSave(text) {
   const trimmed = text.trim();
   if (!trimmed) return "先输入内容。";
-  const amount = trimmed.match(/(?:\$|usd\s*)?\s*(\d+(?:\.\d{1,2})?)/i);
+  const minutes = parseTimeMinutes(trimmed);
+  if (minutes > 0 && !looksLikeExpense(trimmed)) {
+    addStudySeconds(minutes * 60, { renderAfter: false });
+    return `已补记学习 ${minutes} 分钟`;
+  }
+  if (looksLikeWorkout(trimmed)) {
+    addWorkoutNote(trimmed);
+    return "已记录到健康训练。";
+  }
+  const amount = looksLikeExpense(trimmed) ? trimmed.match(/(?:\$|usd\s*)?\s*(\d+(?:\.\d{1,2})?)/i) : null;
   const hasChinese = /[\u3400-\u9fff]/.test(trimmed);
   if (amount) {
     const log = getTodayLog();
@@ -769,13 +814,14 @@ function addStudyMinutes(minutes) {
   addStudySeconds(minutes * 60);
 }
 
-function addStudySeconds(seconds) {
+function addStudySeconds(seconds, options = {}) {
+  const { renderAfter = true } = options;
   const key = todayKey();
   if (!state.studySeconds) state.studySeconds = {};
   state.studySeconds[key] = (state.studySeconds[key] || 0) + Math.max(0, Math.round(seconds));
   state.studyMinutes[key] = Math.floor(state.studySeconds[key] / 60);
   saveState();
-  render();
+  if (renderAfter) render();
 }
 
 async function copyText(text, message = "已复制") {
@@ -1082,7 +1128,7 @@ function renderHome() {
     <section class="card">
       <h2>万能速记</h2>
       <p class="body">单词、花费、日记都先扔这里，点智能保存。</p>
-      <textarea id="quick" placeholder="appointment, maintenance / $12 lunch / 今天练了深蹲">${state.quick || ""}</textarea>
+      <textarea id="quick" placeholder="appointment, maintenance / 45分钟英语 / $12 lunch / 今天练了深蹲">${escapeHtml(state.quick || "")}</textarea>
       <div class="button-row">
         <button class="primary" id="smartSave">智能保存</button>
         <button class="secondary" id="pasteQuick">粘贴</button>
@@ -1146,7 +1192,7 @@ function renderToday() {
       <div class="timer-box">
         <p class="small">当前计时：${timerTask}</p>
         <div class="timer-time" id="timerTime">${formatDuration(activeTimerSeconds())}</div>
-        <p class="small">今天累计：<span id="timerTotal">${Math.floor(totalStudySecondsToday() / 60)}</span> 分钟。切到 YouTube 也会按开始时间继续算。</p>
+        <p class="small">今天累计：<span id="timerTotal">${Math.floor(totalStudySecondsToday() / 60)}</span> 分钟。切到 YouTube 会继续算；单次最多算4小时，防止忘关。</p>
         <div class="button-row">
           <button class="primary" id="timerStart" data-task-id="${activeTask.id}">${running ? "继续计时中" : "开始计时"}</button>
           <button class="secondary" id="timerPause">暂停</button>
@@ -1158,6 +1204,10 @@ function renderToday() {
         <button class="primary" data-minutes="10">记录 10 分钟</button>
         <button class="secondary" data-minutes="25">记录 25 分钟</button>
         <button class="secondary" data-minutes="45">记录 45 分钟</button>
+      </div>
+      <div class="quick-time">
+        <input id="manualMinutes" type="number" inputmode="numeric" min="1" max="300" placeholder="补记分钟，例如 18" />
+        <button class="secondary" id="manualMinutesAdd">补记时间</button>
       </div>
     </section>
     <section class="card">
@@ -1220,7 +1270,7 @@ function renderWords() {
       <div class="word-grid">
         ${dailyWords.map((word) => {
           const hint = lookupWordHint(word);
-          return `<button class="word-chip" data-say="${word}"><strong>${word}</strong><span>${hint[0]}</span></button>`;
+          return `<button class="word-chip" data-say="${escapeHtml(word)}"><strong>${escapeHtml(word)}</strong><span>${escapeHtml(hint[0])}</span></button>`;
         }).join("")}
       </div>
       <button class="primary full" id="addDailyWords">加入今日10词到生词本</button>
@@ -1243,12 +1293,12 @@ function renderWords() {
         ${(reviewList.length ? reviewList : state.words.slice(0, 20)).map((word) => `
           <div class="word-card">
             <div class="word-head">
-              <div class="word-title">${word.word}</div>
-              <button class="ghost" data-say="${word.word}">发音</button>
+              <div class="word-title">${escapeHtml(word.word)}</div>
+              <button class="ghost" data-say="${escapeHtml(word.word)}">发音</button>
             </div>
-            <span class="source-badge ${word.source === "验证核心" ? "verified" : ""}">${word.source || "高频候选"}</span>
-            <p class="body">${word.meaning}</p>
-            <p class="small">${word.sentence}</p>
+            <span class="source-badge ${word.source === "验证核心" ? "verified" : ""}">${escapeHtml(word.source || "高频候选")}</span>
+            <p class="body">${escapeHtml(word.meaning)}</p>
+            <p class="small">${escapeHtml(word.sentence)}</p>
             <div class="button-row">
               <button class="secondary" data-review="${word.id}" data-level="again">忘了</button>
               <button class="secondary" data-review="${word.id}" data-level="hard">困难</button>
@@ -1415,15 +1465,15 @@ function renderLife() {
       <p class="body">最低标准也算。今天先别追求完美。</p>
       <div class="plan-grid">
         ${workoutPlans.map(([title, detail]) => `
-          <button class="plan-card" data-workout="${title}：${detail}">
-            <strong>${log.workout.some((item) => item.startsWith(title)) ? "✓ " : ""}${title}</strong>
-            <span>${detail}</span>
+          <button class="plan-card" data-workout="${escapeHtml(`${title}：${detail}`)}">
+            <strong>${log.workout.some((item) => item.startsWith(title)) ? "✓ " : ""}${escapeHtml(title)}</strong>
+            <span>${escapeHtml(detail)}</span>
           </button>
         `).join("")}
       </div>
       <div class="pill-row">
         ${["深蹲 20 个", "俯卧撑 10 个", "平板支撑 30 秒", "拉伸 10 分钟", "走路完成"].map((item) => `
-          <button class="pill" data-workout="${item}">${log.workout.includes(item) ? "✓ " : ""}${item}</button>
+          <button class="pill" data-workout="${escapeHtml(item)}">${log.workout.includes(item) ? "✓ " : ""}${escapeHtml(item)}</button>
         `).join("")}
       </div>
     </section>
@@ -1431,7 +1481,7 @@ function renderLife() {
       <h2>记账</h2>
       <div class="pill-row">
         ${[[12, "lunch"], [5, "coffee"], [40, "gas"], [35, "grocery"], [8, "parking"], [15, "car wash"]].map(([amount, note]) => `
-          <button class="pill" data-expense="${amount}" data-note="${note}">$${amount} ${note}</button>
+          <button class="pill" data-expense="${amount}" data-note="${escapeHtml(note)}">$${amount} ${escapeHtml(note)}</button>
         `).join("")}
       </div>
       <div class="money-form">
@@ -1440,7 +1490,7 @@ function renderLife() {
         <button class="primary" id="addExpense">记一笔</button>
       </div>
       <div class="money-list">
-        ${log.expenses.map((item) => `<div class="entry"><strong>$${item.amount.toFixed(2)}</strong> ${item.note}<br><span class="small">${new Date(item.createdAt).toLocaleTimeString()}</span></div>`).join("")}
+        ${log.expenses.map((item) => `<div class="entry"><strong>$${Number(item.amount || 0).toFixed(2)}</strong> ${escapeHtml(item.note)}<br><span class="small">${new Date(item.createdAt).toLocaleTimeString()}</span></div>`).join("")}
       </div>
     </section>
     <section class="card">
@@ -1448,7 +1498,7 @@ function renderLife() {
       <div class="pill-row">
         ${journalLines.map((line) => `<button class="pill" data-journal-line="${line}">${line}</button>`).join("")}
       </div>
-      <textarea id="journal" placeholder="今天做了什么？身体怎么样？明天最重要一件事？">${log.journal || ""}</textarea>
+      <textarea id="journal" placeholder="今天做了什么？身体怎么样？明天最重要一件事？">${escapeHtml(log.journal || "")}</textarea>
       <div class="button-row">
         <button class="primary" id="saveJournal">保存日记</button>
         <button class="secondary" id="templateJournal">三问模板</button>
@@ -1608,6 +1658,12 @@ function bindEvents() {
   document.querySelectorAll("[data-open]").forEach((el) => el.addEventListener("click", () => window.open(el.dataset.open, "_blank", "noopener")));
   document.querySelectorAll("[data-task]").forEach((el) => el.addEventListener("click", () => toggleTask(el.dataset.task)));
   document.querySelectorAll("[data-minutes]").forEach((el) => el.addEventListener("click", () => addStudyMinutes(Number(el.dataset.minutes))));
+  const manualMinutesAdd = document.querySelector("#manualMinutesAdd");
+  if (manualMinutesAdd) manualMinutesAdd.addEventListener("click", () => {
+    const minutes = Math.max(0, Math.min(300, Number(document.querySelector("#manualMinutes")?.value || 0)));
+    if (!minutes) return alert("先填分钟数。");
+    addStudyMinutes(minutes);
+  });
   document.querySelectorAll("[data-understanding]").forEach((el) => el.addEventListener("click", () => setUnderstanding(Number(el.dataset.understanding))));
   document.querySelectorAll("[data-review]").forEach((el) => el.addEventListener("click", () => reviewWord(el.dataset.review, el.dataset.level)));
   document.querySelectorAll("[data-say]").forEach((el) => el.addEventListener("click", (event) => {

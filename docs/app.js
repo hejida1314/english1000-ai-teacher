@@ -373,6 +373,27 @@ function getDailySupport(course) {
   };
 }
 
+function todayPortableText() {
+  const course = getCourseDay(state.currentDay);
+  const support = getDailySupport(course);
+  return [
+    `English1000 Life Day ${course.day}`,
+    `阶段：${course.phase.level} / ${course.phase.phase}`,
+    `材料：${course.mainTitle}`,
+    "",
+    "今日任务：",
+    ...course.tasks.map((task, index) => `${index + 1}. ${task.title}（${task.minutes}分钟）- ${task.detail}`),
+    "",
+    `今日10词：${support.words.join(", ")}`,
+    "",
+    "今日句子：",
+    ...support.phrases.map((item) => `- ${item}`),
+    "",
+    "AI老师提示：",
+    support.aiPrompt
+  ].join("\n");
+}
+
 function formatDuration(seconds) {
   const safe = Math.max(0, Math.floor(seconds));
   const mm = String(Math.floor(safe / 60)).padStart(2, "0");
@@ -798,6 +819,14 @@ function renderHome() {
       </div>
       <p class="install-tip" id="quickResult"></p>
     </section>
+    <section class="card">
+      <h2>一键带走今天</h2>
+      <p class="body">把今天任务、10词、句子和AI提示一次复制。去上班、吃饭、换设备，都不用重新找。</p>
+      <div class="button-row">
+        <button class="primary" id="copyTodayPack">复制今天学习包</button>
+        <button class="secondary" data-tab="roadmap">查看1000小时路线</button>
+      </div>
+    </section>
     <section class="grid">
       <div class="metric"><div class="metric-value">${totalStudyToday()}</div><div class="metric-label">今日分钟</div></div>
       <div class="metric"><div class="metric-value">${state.words.length}</div><div class="metric-label">生词</div></div>
@@ -1032,8 +1061,44 @@ function renderAiTeacher() {
   `;
 }
 
+function renderRoadmap() {
+  const current = getPhase(state.currentDay);
+  return `
+    <section class="card">
+      <p class="kicker">1000小时路线</p>
+      <h1>只按一条主线走</h1>
+      <p class="body">不要再来回换教材。每个阶段都有进入、退出和复习标准。</p>
+    </section>
+    ${phases.map((phase, index) => {
+      const active = phase.phase === current.phase;
+      const done = state.currentDay > phase.end;
+      return `
+        <section class="card ${active ? "success" : ""}">
+          <p class="kicker">第 ${index + 1} 阶段 / Day ${phase.start}-${phase.end}</p>
+          <h2>${phase.phase}</h2>
+          <p class="body">${phase.resource}</p>
+          <ul class="clean-list">
+            <li>${index === 0 ? "建立耳朵，不查词，不急着说。" : index === 1 ? "继续可理解输入，开始增加生活句子。" : index === 2 ? "进入真实家庭生活英语，英文字幕为主。" : index === 3 ? "用儿童生活场景补词汇，不要死磕每一句。" : index === 4 ? "接触成人兴趣内容，训练说明类英语。" : "进入真人语速，为YouTube和美国生活做准备。"}</li>
+            <li>状态：${done ? "已完成" : active ? "当前阶段" : "后面再做，不提前跳。"}</li>
+          </ul>
+          <div class="button-row">
+            <button class="secondary" data-open="${phase.url}">打开资源</button>
+          </div>
+        </section>
+      `;
+    }).join("")}
+  `;
+}
+
 function renderLife() {
   const log = getTodayLog();
+  const workoutPlans = [
+    ["下肢+核心", "深蹲 3组 / 弓步 2组 / 平板 2组"],
+    ["推拉+核心", "俯卧撑 3组 / 划船动作 3组 / 卷腹 2组"],
+    ["恢复日", "走路 20分钟 / 拉伸 10分钟 / 早睡"],
+    ["10分钟保底", "深蹲 20个 / 俯卧撑 10个 / 拉伸 3分钟"]
+  ];
+  const journalLines = ["今天完成：", "身体状态：", "花钱最多的一项：", "明天最重要一件事：", "今天一句英文："];
   return `
     <section class="card">
       <h1>生活管理</h1>
@@ -1042,6 +1107,14 @@ function renderLife() {
     <section class="card">
       <h2>健康训练</h2>
       <p class="body">最低标准也算。今天先别追求完美。</p>
+      <div class="plan-grid">
+        ${workoutPlans.map(([title, detail]) => `
+          <button class="plan-card" data-workout="${title}：${detail}">
+            <strong>${log.workout.some((item) => item.startsWith(title)) ? "✓ " : ""}${title}</strong>
+            <span>${detail}</span>
+          </button>
+        `).join("")}
+      </div>
       <div class="pill-row">
         ${["深蹲 20 个", "俯卧撑 10 个", "平板支撑 30 秒", "拉伸 10 分钟", "走路完成"].map((item) => `
           <button class="pill" data-workout="${item}">${log.workout.includes(item) ? "✓ " : ""}${item}</button>
@@ -1055,12 +1128,20 @@ function renderLife() {
           <button class="pill" data-expense="${amount}" data-note="${note}">$${amount} ${note}</button>
         `).join("")}
       </div>
+      <div class="money-form">
+        <input id="expenseAmount" type="number" inputmode="decimal" placeholder="金额，例如 12.5" />
+        <input id="expenseNote" placeholder="类别/备注，例如 lunch" />
+        <button class="primary" id="addExpense">记一笔</button>
+      </div>
       <div class="money-list">
         ${log.expenses.map((item) => `<div class="entry"><strong>$${item.amount.toFixed(2)}</strong> ${item.note}<br><span class="small">${new Date(item.createdAt).toLocaleTimeString()}</span></div>`).join("")}
       </div>
     </section>
     <section class="card">
       <h2>日记</h2>
+      <div class="pill-row">
+        ${journalLines.map((line) => `<button class="pill" data-journal-line="${line}">${line}</button>`).join("")}
+      </div>
       <textarea id="journal" placeholder="今天做了什么？身体怎么样？明天最重要一件事？">${log.journal || ""}</textarea>
       <div class="button-row">
         <button class="primary" id="saveJournal">保存日记</button>
@@ -1139,7 +1220,7 @@ function render() {
         </div>
         <button class="secondary" data-tab="settings">设置</button>
       </div>
-      ${state.tab === "today" ? renderToday() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "settings" ? renderSettings() : renderHome()}
+      ${state.tab === "today" ? renderToday() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "roadmap" ? renderRoadmap() : state.tab === "settings" ? renderSettings() : renderHome()}
     </main>
     <nav class="tabs">
       ${[
@@ -1149,7 +1230,7 @@ function render() {
         ["words", "单词"],
         ["life", "生活"],
         ["ai", "AI"],
-        ["settings", "设置"]
+        ["roadmap", "路线"]
       ].map(([tab, label]) => `<button class="tab ${state.tab === tab ? "active" : ""}" data-tab="${tab}">${label}</button>`).join("")}
     </nav>
   `;
@@ -1276,6 +1357,8 @@ function bindEvents() {
   if (timerFinish) timerFinish.addEventListener("click", finishTimer);
   const copyAiPrompt = document.querySelector("#copyAiPrompt");
   if (copyAiPrompt) copyAiPrompt.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
+  const copyTodayPack = document.querySelector("#copyTodayPack");
+  if (copyTodayPack) copyTodayPack.addEventListener("click", () => copyText(todayPortableText(), "今天学习包已复制"));
   const copyAiPromptPage = document.querySelector("#copyAiPromptPage");
   if (copyAiPromptPage) copyAiPromptPage.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
   document.querySelectorAll("[data-copy-ai]").forEach((el) => el.addEventListener("click", () => copyText(el.dataset.copyAi, "训练提示已复制")));
@@ -1350,6 +1433,23 @@ function bindEvents() {
     log.expenses.unshift({ id: `${Date.now()}`, amount: Number(el.dataset.expense), note: el.dataset.note, createdAt: new Date().toISOString() });
     saveState();
     render();
+  }));
+  const addExpense = document.querySelector("#addExpense");
+  if (addExpense) addExpense.addEventListener("click", () => {
+    const amount = Number(document.querySelector("#expenseAmount").value || 0);
+    const note = document.querySelector("#expenseNote").value.trim() || "spending";
+    if (!amount) {
+      alert("先输入金额");
+      return;
+    }
+    getTodayLog().expenses.unshift({ id: `${Date.now()}`, amount, note, createdAt: new Date().toISOString() });
+    saveState();
+    render();
+  });
+  document.querySelectorAll("[data-journal-line]").forEach((el) => el.addEventListener("click", () => {
+    const box = document.querySelector("#journal");
+    box.value = `${box.value ? `${box.value}\n` : ""}${el.dataset.journalLine} `;
+    box.focus();
   }));
   const saveJournal = document.querySelector("#saveJournal");
   if (saveJournal) saveJournal.addEventListener("click", () => {

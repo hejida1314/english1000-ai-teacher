@@ -570,6 +570,42 @@ textarea {
   background: #fff8ed;
 }
 
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.plan-card {
+  display: grid;
+  gap: 5px;
+  min-height: 86px;
+  border: 1px solid #c9ddd4;
+  background: #f7fbf9;
+  color: var(--primary-dark);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: left;
+}
+
+.plan-card strong {
+  font-size: 16px;
+}
+
+.plan-card span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.money-form {
+  display: grid;
+  grid-template-columns: 0.9fr 1.2fr auto;
+  gap: 8px;
+  margin: 10px 0;
+}
+
 .money-list,
 .journal-list {
   display: grid;
@@ -617,6 +653,11 @@ textarea {
   }
 
   .preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-grid,
+  .money-form {
     grid-template-columns: 1fr;
   }
 }

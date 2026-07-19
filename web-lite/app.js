@@ -1,5 +1,7 @@
 ﻿const KEY = "english1000.life.web.v1";
 
+const APP_VERSION = "2026.07.19-traceback-4";
+
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
   { start: 35, end: 84, level: "Level 2 / A1+", phase: "Dreaming English Intermediate", resource: "Dreaming English Intermediate", url: "https://www.youtube.com/results?search_query=Dreaming+English+Intermediate" },
@@ -585,6 +587,22 @@ async function copyText(text, message = "已复制") {
     box.remove();
     alert(message);
   }
+}
+
+async function forceRefreshApp() {
+  try {
+    if ("serviceWorker" in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map((reg) => reg.update()));
+    }
+    if ("caches" in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.filter((key) => key.includes("english1000-life")).map((key) => caches.delete(key)));
+    }
+  } catch {
+    // Refresh should still continue even if a browser blocks cache access.
+  }
+  window.location.reload();
 }
 
 function startTimer(task) {
@@ -1196,6 +1214,15 @@ function renderLife() {
 function renderSettings() {
   const sync = getSyncState();
   return `
+    <section class="card success">
+      <h1>当前版本</h1>
+      <p class="body">${APP_VERSION}</p>
+      <p class="small">如果手机还是旧页面，点下面按钮清缓存并重新加载。</p>
+      <div class="button-row">
+        <button class="primary" id="forceRefresh">强制更新网页</button>
+        <button class="secondary" id="copyVersion">复制版本信息</button>
+      </div>
+    </section>
     <section class="card">
       <h1>${ui("界面语言", "Interface Language")}</h1>
       <p class="body">${ui("先做中英切换基础。后面每个模块会继续补完整英文文案。", "This is the foundation. More screens will get full English text over time.")}</p>
@@ -1415,6 +1442,10 @@ function bindEvents() {
   if (copyAiPrompt) copyAiPrompt.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
   const copyTodayPack = document.querySelector("#copyTodayPack");
   if (copyTodayPack) copyTodayPack.addEventListener("click", () => copyText(todayPortableText(), "今天学习包已复制"));
+  const forceRefresh = document.querySelector("#forceRefresh");
+  if (forceRefresh) forceRefresh.addEventListener("click", forceRefreshApp);
+  const copyVersion = document.querySelector("#copyVersion");
+  if (copyVersion) copyVersion.addEventListener("click", () => copyText(`English1000 Life ${APP_VERSION}\n${location.href}`, "版本信息已复制"));
   const copyAiPromptPage = document.querySelector("#copyAiPromptPage");
   if (copyAiPromptPage) copyAiPromptPage.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
   document.querySelectorAll("[data-copy-ai]").forEach((el) => el.addEventListener("click", () => copyText(el.dataset.copyAi, "训练提示已复制")));

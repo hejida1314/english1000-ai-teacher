@@ -1,6 +1,6 @@
 ﻿const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-traceback-4";
+const APP_VERSION = "2026.07.19-traceback-5";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -199,6 +199,7 @@ const defaultState = {
   player: { index: 0, hideEnglish: false, hideChinese: false, rate: 0.82, dictation: "" },
   customSentences: {},
   language: "zh",
+  wordQuery: "",
   words: [],
   lifeLogs: {},
   quick: "",
@@ -442,6 +443,61 @@ function addWordsFromText(text) {
 
 function addDailyWords() {
   return addWordsFromText(getDailyWords().join(" "));
+}
+
+function addBaseWordsBalanced() {
+  const source = Object.keys(window.BASIC_WORD_HINTS || starterHints).slice(0, 3500);
+  const existing = new Set(state.words.map((item) => item.word));
+  const fresh = [];
+  source.forEach((word, index) => {
+    if (existing.has(word)) return;
+    const hint = lookupWordHint(word);
+    const dayOffset = Math.floor(index / 20);
+    fresh.push({
+      id: `${Date.now()}-${word}`,
+      word,
+      meaning: hint[0],
+      sentence: hint[1],
+      ease: 2,
+      createdAt: new Date().toISOString(),
+      dueAt: new Date(Date.now() + dayOffset * 86400000).toISOString()
+    });
+    existing.add(word);
+  });
+  state.words = [...fresh, ...state.words];
+  saveState();
+  return fresh.length;
+}
+
+function spreadWordReviews() {
+  const ordered = [...state.words].sort((a, b) => (a.word || "").localeCompare(b.word || ""));
+  state.words = ordered.map((word, index) => ({
+    ...word,
+    dueAt: new Date(Date.now() + Math.floor(index / 20) * 86400000).toISOString()
+  }));
+  saveState();
+  return state.words.length;
+}
+
+function repairLocalData() {
+  const seen = new Set();
+  state.words = (state.words || []).filter((word) => {
+    const key = normalizeWord(word.word || "");
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    const hint = lookupWordHint(key);
+    word.word = key;
+    if (!word.meaning || word.meaning === "待补中文") word.meaning = hint[0];
+    if (!word.sentence) word.sentence = hint[1];
+    if (!word.createdAt) word.createdAt = new Date().toISOString();
+    if (!word.dueAt) word.dueAt = new Date().toISOString();
+    return true;
+  });
+  if (!state.completedTasks || typeof state.completedTasks !== "object") state.completedTasks = {};
+  if (!state.lifeLogs || typeof state.lifeLogs !== "object") state.lifeLogs = {};
+  if (!state.studySeconds || typeof state.studySeconds !== "object") state.studySeconds = {};
+  saveState();
+  return state.words.length;
 }
 
 function renderWordImportPreview(text) {
@@ -820,6 +876,18 @@ function dayPercent(course) {
   return Math.round((done / course.tasks.length) * 100);
 }
 
+function nextBestAction(course, log) {
+  const percent = dayPercent(course);
+  const minutes = totalStudyToday();
+  const wordsDue = dueWords().length;
+  if (percent < 100) return ["继续英语主线", "先把今日任务做完，别去乱找新材料。", "today"];
+  if (wordsDue > 0) return ["复习20个到期词", "词很多没关系，今天最多20个。", "words"];
+  if (!log.workout.length) return ["做10分钟保底训练", "深蹲、俯卧撑、拉伸，完成就算赢。", "life"];
+  if (!log.journal.trim()) return ["写5句日记", "用短句记录今天，不追求文采。", "life"];
+  if (minutes < 180) return ["补一点精听", "提前完成不冲下一天，回精听复习句子。", "player"];
+  return ["今天可以收工", "英语、单词、训练、日记都稳了。", "home"];
+}
+
 function renderHome() {
   const course = getCourseDay(state.currentDay);
   const log = getTodayLog();
@@ -827,6 +895,7 @@ function renderHome() {
   const wordsDue = dueWords().length;
   const workoutDone = log.workout.length > 0;
   const journalDone = !!log.journal.trim();
+  const [actionTitle, actionDetail, actionTab] = nextBestAction(course, log);
   const closeout = [
     ["英语主线", percent >= 100, "today"],
     ["到期单词", wordsDue === 0, "words"],
@@ -845,6 +914,11 @@ function renderHome() {
         <button class="primary" data-tab="today">一键继续今天</button>
         <button class="secondary" data-open="${course.phase.url}">打开学习资源</button>
       </div>
+    </section>
+    <section class="card notice">
+      <h2>下一步只做这个</h2>
+      <p class="body"><strong>${actionTitle}</strong><br>${actionDetail}</p>
+      <button class="primary full" data-tab="${actionTab}">去做这一项</button>
     </section>
     <section class="card success">
       <h2>今日收工判断</h2>
@@ -959,6 +1033,13 @@ function renderWords() {
   const due = dueWords();
   const dailyWords = getDailyWords();
   const dailyPhrases = getDailyPhrases();
+  const query = (state.wordQuery || "").trim().toLowerCase();
+  const filtered = state.words.filter((word) => {
+    if (!query) return true;
+    return [word.word, word.meaning, word.sentence].join(" ").toLowerCase().includes(query);
+  });
+  const reviewSource = query ? filtered : due;
+  const reviewList = reviewSource.slice(0, 20);
   return `
     <section class="card">
       <h1>生词本</h1>
@@ -969,6 +1050,16 @@ function renderWords() {
         <button class="primary" id="importWords">一键导入生词</button>
         <button class="secondary" id="seedWords">加入3500基础词</button>
       </div>
+    </section>
+    <section class="card">
+      <h2>复习队列</h2>
+      <p class="body">今天只推最多20个。词再多也分批来，不把你压死。</p>
+      <input id="wordSearch" value="${state.wordQuery || ""}" placeholder="搜索英文 / 中文 / 例句" />
+      <div class="button-row">
+        <button class="secondary" id="spreadWords">整理复习队列</button>
+        <button class="secondary" id="clearWordSearch">清空搜索</button>
+      </div>
+      <p class="install-tip">总词数 ${state.words.length} / 到期 ${due.length} / 当前显示 ${reviewList.length}${query ? ` / 搜索结果 ${filtered.length}` : ""}</p>
     </section>
     <section class="card success">
       <h2>今日高频词</h2>
@@ -994,9 +1085,9 @@ function renderWords() {
       </div>
     </section>
     <section class="card">
-      <h2>今天要复习：${due.length}</h2>
+      <h2>${query ? "搜索结果" : "今天要复习"}：${query ? filtered.length : due.length}</h2>
       <div class="word-list">
-        ${(due.length ? due : state.words.slice(0, 20)).map((word) => `
+        ${(reviewList.length ? reviewList : state.words.slice(0, 20)).map((word) => `
           <div class="word-card">
             <div class="word-head">
               <div class="word-title">${word.word}</div>
@@ -1013,6 +1104,7 @@ function renderWords() {
           </div>
         `).join("") || `<p class="body">还没有生词。先导入基础词，或者从视频字幕粘贴。</p>`}
       </div>
+      ${!query && due.length > 20 ? `<p class="install-tip">还有 ${due.length - 20} 个到期词，明天继续。别一次刷爆。</p>` : ""}
     </section>
   `;
 }
@@ -1272,8 +1364,10 @@ function renderSettings() {
       <div class="button-row">
         <button class="primary" id="copyBackup">复制备份</button>
         <button class="secondary" id="restoreBackup">恢复备份</button>
+        <button class="secondary" id="repairData">数据体检</button>
       </div>
       <textarea id="backupText" placeholder="恢复时把备份文字粘贴到这里"></textarea>
+      <p class="install-tip">体检会去重单词、补中文、补例句、修复缺失字段。</p>
     </section>
     <section class="card">
       <h2>跳转 Day</h2>
@@ -1415,9 +1509,26 @@ function bindEvents() {
   });
   const seedWords = document.querySelector("#seedWords");
   if (seedWords) seedWords.addEventListener("click", () => {
-    const allWords = Object.keys(window.BASIC_WORD_HINTS || starterHints);
-    const count = addWordsFromText(allWords.slice(0, 3500).join(" "));
-    alert(`已加入 ${count} 个基础词`);
+    const count = addBaseWordsBalanced();
+    alert(`已加入 ${count} 个基础词，并按每天20个排队复习`);
+    render();
+  });
+  const spreadWords = document.querySelector("#spreadWords");
+  if (spreadWords) spreadWords.addEventListener("click", () => {
+    const count = spreadWordReviews();
+    alert(`已整理 ${count} 个词。以后每天最多推20个。`);
+    render();
+  });
+  const wordSearch = document.querySelector("#wordSearch");
+  if (wordSearch) wordSearch.addEventListener("input", () => {
+    state.wordQuery = wordSearch.value;
+    saveState({ autoSync: false });
+    render();
+  });
+  const clearWordSearch = document.querySelector("#clearWordSearch");
+  if (clearWordSearch) clearWordSearch.addEventListener("click", () => {
+    state.wordQuery = "";
+    saveState({ autoSync: false });
     render();
   });
   const addDailyWordsButton = document.querySelector("#addDailyWords");
@@ -1592,6 +1703,12 @@ function bindEvents() {
     } catch {
       alert("恢复失败，备份文字不对。");
     }
+  });
+  const repairData = document.querySelector("#repairData");
+  if (repairData) repairData.addEventListener("click", () => {
+    const count = repairLocalData();
+    alert(`数据体检完成。当前有效单词 ${count} 个。`);
+    render();
   });
   const jumpButton = document.querySelector("#jumpButton");
   if (jumpButton) jumpButton.addEventListener("click", () => {

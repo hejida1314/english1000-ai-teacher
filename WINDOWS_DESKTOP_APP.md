@@ -7,7 +7,7 @@ This is the simple Windows desktop version.
 Double-click:
 
 ```text
-启动Windows桌面版.cmd
+START_WINDOWS_DESKTOP_SAFE.bat
 ```
 
 It starts a local service and opens English1000 Life in an Edge app window.
@@ -17,7 +17,7 @@ It starts a local service and opens English1000 Life in an Edge app window.
 Double-click:
 
 ```text
-关闭Windows桌面版后台服务.cmd
+STOP_WINDOWS_DESKTOP_SAFE.bat
 ```
 
 ## Notes

@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-delete-actions-1";
+const APP_VERSION = "2026.07.19-correction-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -343,6 +343,7 @@ const defaultState = {
   player: { index: 0, hideEnglish: false, hideChinese: false, rate: 0.82, dictation: "" },
   customSentences: {},
   resourceLinks: {},
+  aiAnswers: {},
   language: "zh",
   wordQuery: "",
   words: [],
@@ -700,6 +701,7 @@ function repairLocalData() {
   if (!state.lifeLogs || typeof state.lifeLogs !== "object") state.lifeLogs = {};
   if (!state.studySeconds || typeof state.studySeconds !== "object") state.studySeconds = {};
   if (!state.resourceLinks || typeof state.resourceLinks !== "object") state.resourceLinks = {};
+  if (!state.aiAnswers || typeof state.aiAnswers !== "object") state.aiAnswers = {};
   saveState();
   return state.words.length;
 }
@@ -781,12 +783,111 @@ function getPlayerSentence() {
   };
 }
 
+function aiAnswerKey(day = state.currentDay) {
+  return `d${day}`;
+}
+
+function getAiAnswers(day = state.currentDay) {
+  if (!state.aiAnswers) state.aiAnswers = {};
+  if (!state.aiAnswers[aiAnswerKey(day)]) state.aiAnswers[aiAnswerKey(day)] = {};
+  return state.aiAnswers[aiAnswerKey(day)];
+}
+
+function getAiQuestions(course = getCourseDay(state.currentDay), support = getDailySupport(course)) {
+  return [
+    {
+      id: "summary",
+      title: "视频大意",
+      question: `What is ${course.mainTitle} mainly about?`
+    },
+    {
+      id: "words",
+      title: "今日10词",
+      question: `Use three of these words in simple sentences: ${support.words.join(", ")}.`
+    },
+    {
+      id: "phrases",
+      title: "今日句子",
+      question: `Pick one useful sentence from today and explain when you can use it.`
+    },
+    {
+      id: "life",
+      title: "真实生活",
+      question: "What did you do today? Answer in 3 simple English sentences."
+    }
+  ];
+}
+
+function aiReviewPrompt(course = getCourseDay(state.currentDay), support = getDailySupport(course)) {
+  const answers = getAiAnswers(course.day);
+  const questions = getAiQuestions(course, support);
+  return [
+    `我是 Jacob，正在执行 English1000 Life。今天是 Day ${course.day}，阶段是 ${course.phase.phase}，材料是 ${course.mainTitle}。`,
+    "请你当我的英语老师，按下面要求纠正我：",
+    "1. 先用中文告诉我每个回答哪里不自然。",
+    "2. 再给我一个更简单、更自然的英文版本。",
+    "3. 最后问我一个追问，逼我继续用英文回答。",
+    "",
+    "今日问题和我的回答：",
+    ...questions.map((item, index) => [
+      `${index + 1}. ${item.question}`,
+      `我的回答：${answers[item.id] || "（还没写）"}`
+    ].join("\n")),
+    "",
+    `今日10词：${support.words.join(", ")}`,
+    "今日句子：",
+    ...support.phrases.map((item) => `- ${item}`)
+  ].join("\n");
+}
+
 function sentenceSimilarity(a, b) {
   const left = extractWords(a);
   const right = new Set(extractWords(b));
   if (!left.length) return 0;
   const matched = left.filter((word) => right.has(word)).length;
   return Math.round((matched / left.length) * 100);
+}
+
+function dictationAnalysis(target, answer) {
+  const targetWords = extractWords(target);
+  const answerWords = extractWords(answer);
+  const targetSet = new Set(targetWords);
+  const answerSet = new Set(answerWords);
+  const matched = targetWords.filter((word) => answerSet.has(word));
+  const missing = targetWords.filter((word) => !answerSet.has(word));
+  const extra = answerWords.filter((word) => !targetSet.has(word));
+  const score = targetWords.length ? Math.round((matched.length / targetWords.length) * 100) : 0;
+  return { targetWords, answerWords, matched, missing, extra, score };
+}
+
+function renderDictationComparison(sentence, answer) {
+  if (!String(answer || "").trim()) {
+    return `<p class="install-tip">先听两遍，再写。不会写完整也没事，写关键词也算训练。</p>`;
+  }
+  const result = dictationAnalysis(sentence, answer);
+  return `
+    <div class="compare-box">
+      <p class="install-tip"><strong>匹配度约 ${result.score}%。</strong> 先看漏词，再回去听一遍。</p>
+      <div class="compare-group">
+        <strong>听对的词</strong>
+        <div class="pill-row">${(result.matched.length ? result.matched : ["暂无"]).map((word) => `<span class="word-mini good">${escapeHtml(word)}</span>`).join("")}</div>
+      </div>
+      <div class="compare-group">
+        <strong>漏掉的词</strong>
+        <div class="pill-row">${(result.missing.length ? result.missing : ["没有明显漏词"]).map((word) => `<span class="word-mini bad">${escapeHtml(word)}</span>`).join("")}</div>
+      </div>
+      ${result.extra.length ? `
+        <div class="compare-group">
+          <strong>多写的词</strong>
+          <div class="pill-row">${result.extra.map((word) => `<span class="word-mini warn">${escapeHtml(word)}</span>`).join("")}</div>
+        </div>
+      ` : ""}
+      <details>
+        <summary>查看原句</summary>
+        <p class="body">${escapeHtml(sentence)}</p>
+      </details>
+    </div>
+  `;
 }
 
 function parseTimeMinutes(text) {
@@ -1394,7 +1495,6 @@ function renderPlayer() {
   const course = getCourseDay(state.currentDay);
   const player = playerState();
   const sentence = getPlayerSentence();
-  const dictationScore = player.dictation ? sentenceSimilarity(sentence.english, player.dictation) : 0;
   const keyWords = extractWords(sentence.english).slice(0, 6);
   const customCount = getPlayerSentences().length;
   const usingCustom = Boolean(state.customSentences?.[customSentenceKey()]?.length);
@@ -1443,7 +1543,7 @@ function renderPlayer() {
         <button class="primary" id="checkDictation">检查听写</button>
         <button class="secondary" id="clearDictation">清空</button>
       </div>
-      <p class="install-tip">${player.dictation ? `匹配度约 ${dictationScore}%。这个分数只看关键词，不追求完美。` : "先听两遍，再写。不会写完整也没事，写关键词也算训练。"}</p>
+      ${renderDictationComparison(sentence.english, player.dictation)}
     </section>
     <section class="card">
       <h2>这句值得学的词</h2>
@@ -1466,11 +1566,28 @@ function renderAiTeacher() {
   const support = getDailySupport(course);
   const phrases = support.phrases.map((item) => `- ${item}`).join("\n");
   const prompt = support.aiPrompt;
+  const answers = getAiAnswers(course.day);
+  const questions = getAiQuestions(course, support);
   return `
     <section class="card">
       <p class="kicker">AI老师</p>
       <h1>Day ${course.day} 测试</h1>
-      <p class="body">把提示词复制给 ChatGPT，让它按今天内容测你。不要重新解释背景。</p>
+      <p class="body">先在这里回答，再复制给 ChatGPT 纠正。这样 AI 老师才不是摆设。</p>
+    </section>
+    <section class="card success">
+      <h2>App 内小测</h2>
+      <p class="body">不用写复杂句。短句也可以，关键是开口和输出。</p>
+      ${questions.map((item, index) => `
+        <div class="ai-question">
+          <p class="kicker">${index + 1}. ${escapeHtml(item.title)}</p>
+          <h3>${escapeHtml(item.question)}</h3>
+          <textarea class="ai-answer" data-ai-answer="${escapeHtml(item.id)}" placeholder="用英文回答，简单句就行。">${escapeHtml(answers[item.id] || "")}</textarea>
+        </div>
+      `).join("")}
+      <div class="button-row">
+        <button class="primary" id="saveAiAnswers">保存我的回答</button>
+        <button class="secondary" id="copyAiReview">复制给AI纠正</button>
+      </div>
     </section>
     <section class="card">
       <h2>今日完整测试提示</h2>
@@ -1925,6 +2042,26 @@ function bindEvents() {
   const copyAiPromptPage = document.querySelector("#copyAiPromptPage");
   if (copyAiPromptPage) copyAiPromptPage.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
   document.querySelectorAll("[data-copy-ai]").forEach((el) => el.addEventListener("click", () => copyText(el.dataset.copyAi, "训练提示已复制")));
+  document.querySelectorAll("[data-ai-answer]").forEach((el) => el.addEventListener("input", () => {
+    getAiAnswers()[el.dataset.aiAnswer] = el.value;
+    saveState();
+  }));
+  const saveAiAnswers = document.querySelector("#saveAiAnswers");
+  if (saveAiAnswers) saveAiAnswers.addEventListener("click", () => {
+    document.querySelectorAll("[data-ai-answer]").forEach((el) => {
+      getAiAnswers()[el.dataset.aiAnswer] = el.value;
+    });
+    saveState();
+    alert("AI小测回答已保存。");
+  });
+  const copyAiReview = document.querySelector("#copyAiReview");
+  if (copyAiReview) copyAiReview.addEventListener("click", () => {
+    document.querySelectorAll("[data-ai-answer]").forEach((el) => {
+      getAiAnswers()[el.dataset.aiAnswer] = el.value;
+    });
+    saveState();
+    copyText(aiReviewPrompt(), "已复制：把它发给 ChatGPT 纠正你。");
+  });
   const repeatThree = document.querySelector("#repeatThree");
   if (repeatThree) repeatThree.addEventListener("click", () => {
     const { english } = getPlayerSentence();

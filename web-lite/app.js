@@ -610,6 +610,17 @@ function renderSettings() {
       <input id="githubToken" type="password" value="${sync.token || ""}" placeholder="只保存到本机，不会提交到 GitHub 仓库" />
       <label class="field-label" for="gistId">Gist ID</label>
       <input id="gistId" value="${sync.gistId || ""}" placeholder="第一次可留空，点创建云同步后自动生成" />
+      ${sync.gistId ? `
+        <div class="sync-id-box">
+          <div class="small">当前 Gist ID</div>
+          <strong>${sync.gistId}</strong>
+          <button class="ghost" id="copyGistId">复制 Gist ID</button>
+        </div>
+      ` : `
+        <div class="sync-id-box">
+          <div class="small">还没有 Gist ID。第一次创建时留空，然后点“创建云同步”。</div>
+        </div>
+      `}
       <label class="toggle-row">
         <input id="autoSync" type="checkbox" ${sync.auto ? "checked" : ""} />
         <span>自动同步：打开时自动下载，修改后自动上传</span>
@@ -773,6 +784,13 @@ function bindEvents() {
     getSyncState().gistId = gistId.value.trim();
     saveState({ markDirty: false, autoSync: false });
   });
+  const copyGistId = document.querySelector("#copyGistId");
+  if (copyGistId) copyGistId.addEventListener("click", async () => {
+    const id = getSyncState().gistId || "";
+    if (!id) return;
+    await navigator.clipboard?.writeText(id);
+    alert("Gist ID 已复制");
+  });
   const autoSync = document.querySelector("#autoSync");
   if (autoSync) autoSync.addEventListener("change", () => {
     getSyncState().auto = autoSync.checked;
@@ -788,8 +806,9 @@ function bindEvents() {
     try {
       setSyncStatus("正在创建云同步...");
       const id = await createCloudSync();
+      await navigator.clipboard?.writeText(id);
       render();
-      alert(`云同步已创建。Gist ID: ${id}`);
+      alert(`云同步已创建，Gist ID 已复制：${id}`);
     } catch (error) {
       setSyncStatus(`创建失败：${error.message}`);
     }

@@ -316,6 +316,23 @@ textarea {
   flex: 0 0 auto;
 }
 
+.sync-id-box {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 12px;
+  padding: 12px;
+  background: var(--green-soft);
+  border: 1px solid #c9ddd4;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.sync-id-box strong {
+  color: var(--primary-dark);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
 .tabs {
   position: fixed;
   left: 50%;

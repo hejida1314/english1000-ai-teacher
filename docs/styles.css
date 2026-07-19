@@ -650,9 +650,28 @@ textarea {
   line-height: 1.35;
 }
 
+.preview-chip small {
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.preview-chip.exists {
+  border-color: #b7d7cd;
+  background: var(--green-soft);
+}
+
+.preview-chip.exists small::before {
+  content: "✓ ";
+}
+
 .preview-chip.unknown {
   border-color: #e8c7a8;
   background: #fff8ed;
+}
+
+.preview-chip.unknown small {
+  color: #815227;
 }
 
 .plan-grid {

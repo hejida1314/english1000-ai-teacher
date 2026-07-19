@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-correction-1";
+const APP_VERSION = "2026.07.19-word-status-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -711,15 +711,33 @@ function renderWordImportPreview(text) {
   if (!words.length) {
     return `<p class="install-tip">输入英文后，这里会先显示中文预览。</p>`;
   }
+  const existing = new Set((state.words || []).map((item) => normalizeWord(item.word || "")));
   return `
     <div class="preview-grid">
       ${words.map((word) => {
         const hint = lookupWordHint(word);
         const known = hint[0] !== "待补中文";
-        return `<span class="preview-chip ${known ? "" : "unknown"}"><strong>${escapeHtml(word)}</strong><em>${escapeHtml(hint[0])}</em></span>`;
+        const already = existing.has(word);
+        const status = already ? "已在生词本" : known ? "可加入" : "词库未收录，也可先保存";
+        const klass = already ? "exists" : known ? "" : "unknown";
+        return `
+          <span class="preview-chip ${klass}">
+            <strong>${escapeHtml(word)}</strong>
+            <em>${escapeHtml(hint[0])}</em>
+            <small>${status}</small>
+          </span>
+        `;
       }).join("")}
     </div>
   `;
+}
+
+function wordImportSummary(text) {
+  const words = extractWords(text);
+  const existing = new Set((state.words || []).map((item) => normalizeWord(item.word || "")));
+  const newWords = words.filter((word) => !existing.has(word));
+  const already = words.filter((word) => existing.has(word));
+  return { total: words.length, newWords: newWords.length, already: already.length };
 }
 
 function playerState() {
@@ -1983,8 +2001,10 @@ function bindEvents() {
     if (preview) preview.innerHTML = renderWordImportPreview(wordImportBox.value);
   });
   if (importWords) importWords.addEventListener("click", () => {
-    const count = addWordsFromText(document.querySelector("#wordImport").value);
-    alert(`已加入 ${count} 个生词`);
+    const text = document.querySelector("#wordImport").value;
+    const summary = wordImportSummary(text);
+    const count = addWordsFromText(text);
+    alert(`识别 ${summary.total} 个词；新增 ${count} 个；已存在 ${summary.already} 个。`);
     render();
   });
   const seedWords = document.querySelector("#seedWords");

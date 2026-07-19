@@ -75,18 +75,28 @@ if errorlevel 1 (
   exit /b 1
 )
 
-set "EDGE=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
-if not exist "%EDGE%" set "EDGE=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
+set "CHROME=%ProgramFiles%\Google\Chrome\Application\chrome.exe"
+if not exist "%CHROME%" set "CHROME=%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe"
+if not exist "%CHROME%" set "CHROME=%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe"
+
+set "EDGE=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
+if not exist "%EDGE%" set "EDGE=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
 
 echo.
 echo Opening English1000 Life desktop window...
 echo Opening desktop window... >> "%LOG%"
-if exist "%EDGE%" (
-  start "" "%EDGE%" --app="%APP_URL%" --user-data-dir="%LOCALAPPDATA%\English1000LifeDesktop"
+if exist "%CHROME%" (
+  echo Using Chrome app window.
+  echo Using Chrome: %CHROME% >> "%LOG%"
+  start "" "%CHROME%" --app="%APP_URL%" --user-data-dir="%LOCALAPPDATA%\English1000LifeDesktopChrome"
+) else if exist "%EDGE%" (
+  echo Using Edge app window.
+  echo Using Edge: %EDGE% >> "%LOG%"
+  start "" "%EDGE%" --app="%APP_URL%" --user-data-dir="%LOCALAPPDATA%\English1000LifeDesktopEdge"
 ) else (
-  echo Edge not found. Opening default browser.
-  echo Edge not found. Opening default browser. >> "%LOG%"
-  start "" "%APP_URL%"
+  echo Chrome/Edge not found. Opening default browser.
+  echo Chrome/Edge not found. Opening default browser. >> "%LOG%"
+  powershell -NoProfile -ExecutionPolicy Bypass -Command "Start-Process '%APP_URL%'"
 )
 
 echo.

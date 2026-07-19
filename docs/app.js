@@ -59,6 +59,12 @@ const defaultState = {
   words: [],
   lifeLogs: {},
   quick: "",
+  sync: {
+    token: "",
+    gistId: "",
+    lastSyncAt: "",
+    lastSyncDevice: ""
+  },
   tab: "home"
 };
 
@@ -78,6 +84,27 @@ function loadState() {
 
 function saveState() {
   localStorage.setItem(KEY, JSON.stringify({ ...state, savedAt: new Date().toISOString() }));
+}
+
+function getSyncState() {
+  if (!state.sync) state.sync = { token: "", gistId: "", lastSyncAt: "", lastSyncDevice: "" };
+  return state.sync;
+}
+
+function publicStateForSync() {
+  const { tab, sync, ...rest } = state;
+  return rest;
+}
+
+function mergeSyncedState(remoteState) {
+  const localSync = getSyncState();
+  state = {
+    ...defaultState,
+    ...remoteState,
+    sync: localSync,
+    tab: state.tab || "home"
+  };
+  saveState();
 }
 
 function getPhase(day) {
@@ -238,6 +265,90 @@ function importBackup(text) {
   const data = JSON.parse(text);
   if (!data.state) throw new Error("bad backup");
   state = { ...defaultState, ...data.state };
+  saveState();
+}
+
+async function githubRequest(path, options = {}) {
+  const sync = getSyncState();
+  if (!sync.token.trim()) throw new Error("missing_token");
+  const response = await fetch(`https://api.github.com${path}`, {
+    ...options,
+    headers: {
+      "accept": "application/vnd.github+json",
+      "authorization": `Bearer ${sync.token.trim()}`,
+      "content-type": "application/json",
+      "x-github-api-version": "2022-11-28",
+      ...(options.headers || {})
+    }
+  });
+  if (!response.ok) {
+    const text = await response.text().catch(() => "");
+    throw new Error(`github_${response.status}_${text.slice(0, 120)}`);
+  }
+  return response.status === 204 ? null : response.json();
+}
+
+function syncPayload() {
+  return JSON.stringify({
+    app: "English1000 Life",
+    version: 1,
+    device: navigator.userAgent,
+    updatedAt: new Date().toISOString(),
+    state: publicStateForSync()
+  }, null, 2);
+}
+
+async function createCloudSync() {
+  const sync = getSyncState();
+  const gist = await githubRequest("/gists", {
+    method: "POST",
+    body: JSON.stringify({
+      description: "English1000 Life sync data",
+      public: false,
+      files: {
+        "english1000-life.json": {
+          content: syncPayload()
+        }
+      }
+    })
+  });
+  sync.gistId = gist.id;
+  sync.lastSyncAt = new Date().toISOString();
+  sync.lastSyncDevice = "uploaded";
+  saveState();
+  return gist.id;
+}
+
+async function uploadCloudSync() {
+  const sync = getSyncState();
+  if (!sync.gistId.trim()) return createCloudSync();
+  await githubRequest(`/gists/${sync.gistId.trim()}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      files: {
+        "english1000-life.json": {
+          content: syncPayload()
+        }
+      }
+    })
+  });
+  sync.lastSyncAt = new Date().toISOString();
+  sync.lastSyncDevice = "uploaded";
+  saveState();
+  return sync.gistId;
+}
+
+async function downloadCloudSync() {
+  const sync = getSyncState();
+  if (!sync.gistId.trim()) throw new Error("missing_gist");
+  const gist = await githubRequest(`/gists/${sync.gistId.trim()}`);
+  const file = gist.files && gist.files["english1000-life.json"];
+  if (!file) throw new Error("missing_file");
+  const data = JSON.parse(file.content);
+  if (!data.state) throw new Error("bad_cloud_data");
+  mergeSyncedState(data.state);
+  getSyncState().lastSyncAt = new Date().toISOString();
+  getSyncState().lastSyncDevice = "downloaded";
   saveState();
 }
 
@@ -408,11 +519,27 @@ function renderLife() {
 }
 
 function renderSettings() {
+  const sync = getSyncState();
   return `
     <section class="card notice">
       <h1>网页/PWA 版本</h1>
       <p class="body">这个版本的数据保存在本机浏览器。发布到 GitHub Pages 后，手机打开一次，就可以添加到主屏幕。离线能力需要浏览器首次缓存成功。</p>
       <p class="small">iPhone：Safari 打开网址，点分享，选择“添加到主屏幕”。</p>
+    </section>
+    <section class="card">
+      <h2>云同步</h2>
+      <p class="body">手机和 Windows 要同步，就用 GitHub Gist 存一份私人数据。第一次填 Token 后点创建；以后手机上传，电脑下载。</p>
+      <label class="field-label" for="githubToken">GitHub Token</label>
+      <input id="githubToken" type="password" value="${sync.token || ""}" placeholder="只保存到本机，不会提交到 GitHub 仓库" />
+      <label class="field-label" for="gistId">Gist ID</label>
+      <input id="gistId" value="${sync.gistId || ""}" placeholder="第一次可留空，点创建云同步后自动生成" />
+      <div class="button-row">
+        <button class="primary" id="createSync">创建云同步</button>
+        <button class="secondary" id="uploadSync">上传本机数据</button>
+        <button class="secondary" id="downloadSync">下载云端数据</button>
+      </div>
+      <p class="install-tip" id="syncStatus">${sync.lastSyncAt ? `上次同步：${new Date(sync.lastSyncAt).toLocaleString()} / ${sync.lastSyncDevice}` : "还没有同步。"}</p>
+      <p class="small">Token 权限只需要 gist。不要给我看 Token，自己填到这里就行。</p>
     </section>
     <section class="card">
       <h2>数据备份</h2>
@@ -552,6 +679,56 @@ function bindEvents() {
       localStorage.removeItem(KEY);
       state = loadState();
       render();
+    }
+  });
+
+  const githubToken = document.querySelector("#githubToken");
+  if (githubToken) githubToken.addEventListener("input", () => {
+    getSyncState().token = githubToken.value.trim();
+    saveState();
+  });
+  const gistId = document.querySelector("#gistId");
+  if (gistId) gistId.addEventListener("input", () => {
+    getSyncState().gistId = gistId.value.trim();
+    saveState();
+  });
+  const syncStatus = document.querySelector("#syncStatus");
+  const setSyncStatus = (text) => {
+    const target = document.querySelector("#syncStatus");
+    if (target) target.textContent = text;
+  };
+  const createSync = document.querySelector("#createSync");
+  if (createSync) createSync.addEventListener("click", async () => {
+    try {
+      setSyncStatus("正在创建云同步...");
+      const id = await createCloudSync();
+      render();
+      alert(`云同步已创建。Gist ID: ${id}`);
+    } catch (error) {
+      setSyncStatus(`创建失败：${error.message}`);
+    }
+  });
+  const uploadSync = document.querySelector("#uploadSync");
+  if (uploadSync) uploadSync.addEventListener("click", async () => {
+    try {
+      setSyncStatus("正在上传本机数据...");
+      const id = await uploadCloudSync();
+      render();
+      alert(`已上传到云端。Gist ID: ${id}`);
+    } catch (error) {
+      setSyncStatus(`上传失败：${error.message}`);
+    }
+  });
+  const downloadSync = document.querySelector("#downloadSync");
+  if (downloadSync) downloadSync.addEventListener("click", async () => {
+    if (!confirm("下载云端数据会覆盖本机当前数据。确定继续？")) return;
+    try {
+      setSyncStatus("正在下载云端数据...");
+      await downloadCloudSync();
+      render();
+      alert("已下载云端数据。");
+    } catch (error) {
+      setSyncStatus(`下载失败：${error.message}`);
     }
   });
 }

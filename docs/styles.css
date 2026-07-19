@@ -292,6 +292,14 @@ textarea {
   line-height: 1.45;
 }
 
+.field-label {
+  display: block;
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 900;
+  margin: 12px 0 6px;
+}
+
 .tabs {
   position: fixed;
   left: 50%;

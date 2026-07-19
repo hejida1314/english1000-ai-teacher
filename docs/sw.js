@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = "english1000-life-v20260719-14";
+﻿const CACHE_NAME = "english1000-life-v20260719-15";
 const ASSETS = [
   "./",
   "./index.html",

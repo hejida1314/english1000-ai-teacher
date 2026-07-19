@@ -1536,13 +1536,13 @@ function renderSettings() {
       <h2>云同步</h2>
       <p class="body">手机和 Windows 要同步，就用 GitHub Gist 存一份私人数据。第一次填 Token 后点创建；以后手机上传，电脑下载。</p>
       <label class="field-label" for="githubToken">GitHub Token</label>
-      <input id="githubToken" type="password" value="${sync.token || ""}" placeholder="只保存到本机，不会提交到 GitHub 仓库" />
+      <input id="githubToken" type="password" value="${escapeHtml(sync.token || "")}" placeholder="只保存到本机，不会提交到 GitHub 仓库" />
       <label class="field-label" for="gistId">Gist ID</label>
-      <input id="gistId" value="${sync.gistId || ""}" placeholder="第一次可留空，点创建云同步后自动生成" />
+      <input id="gistId" value="${escapeHtml(sync.gistId || "")}" placeholder="第一次可留空，点创建云同步后自动生成" />
       ${sync.gistId ? `
         <div class="sync-id-box">
           <div class="small">当前 Gist ID</div>
-          <strong>${sync.gistId}</strong>
+          <strong>${escapeHtml(sync.gistId)}</strong>
           <button class="ghost" id="copyGistId">复制 Gist ID</button>
         </div>
       ` : `
@@ -1561,6 +1561,11 @@ function renderSettings() {
       </div>
       <p class="install-tip" id="syncStatus">${sync.lastSyncAt ? `上次同步：${new Date(sync.lastSyncAt).toLocaleString()} / ${sync.lastSyncDevice}` : "还没有同步。"}</p>
       <p class="small">Token 权限只需要 gist。不要给我看 Token，自己填到这里就行。</p>
+    </section>
+    <section class="card">
+      <h2>声音测试</h2>
+      <p class="body">如果单词发音没声音，先点这里。手机要确认没有静音，浏览器允许播放声音。</p>
+      <button class="primary full" id="testVoice">测试发音：I can keep going.</button>
     </section>
     <section class="card">
       <h2>数据备份</h2>
@@ -1629,7 +1634,14 @@ function refreshTimerTicker() {
   if (state.timer?.running) timerTicker = setInterval(update, 1000);
 }
 
-function speakEnglish(text, rate = 0.82) {
+function pickEnglishVoice() {
+  const voices = window.speechSynthesis.getVoices();
+  return voices.find((voice) => /^en[-_]/i.test(voice.lang))
+    || voices.find((voice) => /English/i.test(voice.name))
+    || null;
+}
+
+function speakEnglish(text, rate = 0.82, retry = true) {
   const clean = String(text || "").trim();
   if (!clean) return;
   if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
@@ -1637,14 +1649,19 @@ function speakEnglish(text, rate = 0.82) {
     return;
   }
   window.speechSynthesis.cancel();
+  const voice = pickEnglishVoice();
+  if (!voice && retry) {
+    window.speechSynthesis.onvoiceschanged = () => speakEnglish(clean, rate, false);
+    setTimeout(() => speakEnglish(clean, rate, false), 250);
+    return;
+  }
   const utterance = new SpeechSynthesisUtterance(clean);
   utterance.lang = "en-US";
   utterance.rate = rate;
   utterance.pitch = 1;
   utterance.volume = 1;
-  const voices = window.speechSynthesis.getVoices();
-  const englishVoice = voices.find((voice) => /^en[-_]/i.test(voice.lang)) || voices.find((voice) => /English/i.test(voice.name));
-  if (englishVoice) utterance.voice = englishVoice;
+  if (voice) utterance.voice = voice;
+  utterance.onerror = () => updateSyncBadge("发音失败：请确认手机没有静音，或换 Safari/Chrome 打开");
   setTimeout(() => window.speechSynthesis.speak(utterance), 30);
 }
 
@@ -1676,7 +1693,7 @@ function bindEvents() {
   }));
   document.querySelectorAll("[data-player-move]").forEach((el) => el.addEventListener("click", () => {
     const player = playerState();
-    const total = getDailyPhrases().items.length;
+    const total = getPlayerSentences().length;
     player.index = Math.max(0, Math.min(total - 1, Number(player.index || 0) + Number(el.dataset.playerMove)));
     player.dictation = "";
     saveState();
@@ -1767,6 +1784,8 @@ function bindEvents() {
   if (forceRefresh) forceRefresh.addEventListener("click", forceRefreshApp);
   const copyVersion = document.querySelector("#copyVersion");
   if (copyVersion) copyVersion.addEventListener("click", () => copyText(`English1000 Life ${APP_VERSION}\n${location.href}`, "版本信息已复制"));
+  const testVoice = document.querySelector("#testVoice");
+  if (testVoice) testVoice.addEventListener("click", () => speakEnglish("I can keep going.", 0.82));
   const copyAiPromptPage = document.querySelector("#copyAiPromptPage");
   if (copyAiPromptPage) copyAiPromptPage.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
   document.querySelectorAll("[data-copy-ai]").forEach((el) => el.addEventListener("click", () => copyText(el.dataset.copyAi, "训练提示已复制")));

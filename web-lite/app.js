@@ -1,4 +1,4 @@
-const KEY = "english1000.life.web.v1";
+﻿const KEY = "english1000.life.web.v1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -51,6 +51,12 @@ const starterHints = {
   pushup: ["俯卧撑", "I did pushups today."],
   stretch: ["拉伸", "I stretched for ten minutes."]
 };
+
+function lookupWordHint(word) {
+  const webHint = window.BASIC_WORD_HINTS && window.BASIC_WORD_HINTS[word];
+  if (webHint) return [webHint.meaning, webHint.sentence];
+  return starterHints[word] || ["待补中文", `I learned the word "${word}" today.`];
+}
 
 const defaultState = {
   currentDay: 1,
@@ -198,7 +204,7 @@ function addWordsFromText(text) {
   const fresh = [];
   extractWords(text).forEach((word) => {
     if (existing.has(word)) return;
-    const hint = starterHints[word] || ["待补中文", "Add your own sentence later."];
+    const hint = lookupWordHint(word);
     fresh.push({
       id: `${Date.now()}-${word}`,
       word,
@@ -530,7 +536,7 @@ function renderWords() {
       <textarea id="wordImport" placeholder="listen, understand, repeat 或粘贴一段英文字幕"></textarea>
       <div class="button-row">
         <button class="primary" id="importWords">一键导入生词</button>
-        <button class="secondary" id="seedWords">加入基础词</button>
+        <button class="secondary" id="seedWords">加入3500基础词</button>
       </div>
     </section>
     <section class="card">
@@ -713,7 +719,8 @@ function bindEvents() {
   });
   const seedWords = document.querySelector("#seedWords");
   if (seedWords) seedWords.addEventListener("click", () => {
-    const count = addWordsFromText(Object.keys(starterHints).join(" "));
+    const allWords = Object.keys(window.BASIC_WORD_HINTS || starterHints);
+    const count = addWordsFromText(allWords.slice(0, 3500).join(" "));
     alert(`已加入 ${count} 个基础词`);
     render();
   });

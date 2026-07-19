@@ -1,8 +1,9 @@
-const CACHE_NAME = "english1000-life-v20260719-1";
+const CACHE_NAME = "english1000-life-v20260719-2";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
+  "./basic-word-hints.js",
   "./app.js",
   "./manifest.webmanifest",
   "./icons/icon.svg"

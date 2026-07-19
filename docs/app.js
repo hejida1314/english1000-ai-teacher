@@ -786,13 +786,36 @@ function refreshTimerTicker() {
   if (state.timer?.running) timerTicker = setInterval(update, 1000);
 }
 
+function speakEnglish(text) {
+  const clean = String(text || "").trim();
+  if (!clean) return;
+  if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+    alert("这个浏览器不支持发音。请用 Safari、Chrome 或 Edge 打开。");
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(clean);
+  utterance.lang = "en-US";
+  utterance.rate = 0.82;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+  const voices = window.speechSynthesis.getVoices();
+  const englishVoice = voices.find((voice) => /^en[-_]/i.test(voice.lang)) || voices.find((voice) => /English/i.test(voice.name));
+  if (englishVoice) utterance.voice = englishVoice;
+  setTimeout(() => window.speechSynthesis.speak(utterance), 30);
+}
+
 function bindEvents() {
   document.querySelectorAll("[data-tab]").forEach((el) => el.addEventListener("click", () => setTab(el.dataset.tab)));
   document.querySelectorAll("[data-open]").forEach((el) => el.addEventListener("click", () => window.open(el.dataset.open, "_blank", "noopener")));
   document.querySelectorAll("[data-task]").forEach((el) => el.addEventListener("click", () => toggleTask(el.dataset.task)));
   document.querySelectorAll("[data-minutes]").forEach((el) => el.addEventListener("click", () => addStudyMinutes(Number(el.dataset.minutes))));
   document.querySelectorAll("[data-review]").forEach((el) => el.addEventListener("click", () => reviewWord(el.dataset.review, el.dataset.level)));
-  document.querySelectorAll("[data-say]").forEach((el) => el.addEventListener("click", () => speechSynthesis.speak(new SpeechSynthesisUtterance(el.dataset.say))));
+  document.querySelectorAll("[data-say]").forEach((el) => el.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    speakEnglish(el.dataset.say);
+  }));
 
   const quick = document.querySelector("#quick");
   if (quick) quick.addEventListener("input", () => { state.quick = quick.value; saveState(); });

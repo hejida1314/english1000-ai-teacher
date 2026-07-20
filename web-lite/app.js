@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.19-white-screen-fix-1";
+const APP_VERSION = "2026.07.20-life-hub-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1270,11 +1270,17 @@ function renderHome() {
   const streak = studyStreakDays();
   const todayMinutes = totalStudyToday();
   const remainingToday = Math.max(0, 180 - todayMinutes);
+  const todaySpending = log.expenses.reduce((sum, item) => sum + Number(item.amount || 0), 0);
   const closeout = [
     ["英语主线", percent >= 100, "today"],
     ["到期单词", wordsDue === 0, "words"],
     ["健康训练", workoutDone, "life"],
     ["今日记事", journalDone, "life"]
+  ];
+  const systems = [
+    ["学习", percent >= 100 ? "已完成" : `${percent}%`, `还差 ${remainingToday} 分钟 / 今日复习 ${wordsDueToday} 词`, "today", percent >= 100],
+    ["健康", workoutDone ? "已训练" : "待训练", workoutDone ? `${log.workout.length} 项完成` : "先做10分钟保底", "life", workoutDone],
+    ["记录", journalDone ? "已记录" : "待记录", `$${todaySpending.toFixed(0)} / 日记${journalDone ? "已写" : "未写"}`, "life", journalDone]
   ];
   return `
     <section class="hero">
@@ -1293,6 +1299,19 @@ function renderHome() {
       <h2>下一步只做这个</h2>
       <p class="body"><strong>${actionTitle}</strong><br>${actionDetail}</p>
       <button class="primary full" data-tab="${actionTab}">去做这一项</button>
+    </section>
+    <section class="card">
+      <h2>三大系统</h2>
+      <p class="body">学习、健康、记录。每天只看这三个灯，不再到处找。</p>
+      <div class="system-grid">
+        ${systems.map(([label, value, detail, tab, done]) => `
+          <button class="system-card ${done ? "done" : ""}" data-tab="${tab}">
+            <span>${label}</span>
+            <strong>${value}</strong>
+            <em>${detail}</em>
+          </button>
+        `).join("")}
+      </div>
     </section>
     <section class="card success">
       <h2>今日收工判断</h2>
@@ -1663,6 +1682,12 @@ function renderLife() {
   const log = getTodayLog();
   const todaySpending = log.expenses.reduce((sum, item) => sum + Number(item.amount || 0), 0);
   const week = lifeTotals(7);
+  const lifeChecks = [
+    ["训练", log.workout.length > 0, "做了就算，不追求练爆。"],
+    ["记账", log.expenses.length > 0, "今天有消费就随手记一笔。"],
+    ["日记", !!log.journal.trim(), "5句也可以，重点是不断。"]
+  ];
+  const lifeScore = Math.round((lifeChecks.filter((item) => item[1]).length / lifeChecks.length) * 100);
   const workoutPlans = [
     ["下肢+核心", "深蹲 3组 / 弓步 2组 / 平板 2组"],
     ["推拉+核心", "俯卧撑 3组 / 划船动作 3组 / 卷腹 2组"],
@@ -1675,6 +1700,17 @@ function renderLife() {
       <h1>生活管理</h1>
       <p class="body">只管今天：训练、记账、日记。不要复杂。</p>
     </section>
+    <section class="card notice">
+      <h2>今天生活分：${lifeScore}</h2>
+      <p class="body">不用完美。三个小动作完成两个，今天就不算乱。</p>
+      ${lifeChecks.map(([label, done, detail]) => `
+        <div class="row">
+          <span class="check ${done ? "done" : ""}">${done ? "&#10003;" : ""}</span>
+          <span class="row-main"><strong>${label}</strong><br><span class="small">${detail}</span></span>
+          <span class="status ${done ? "done" : ""}">${done ? "已完成" : "待完成"}</span>
+        </div>
+      `).join("")}
+    </section>
     <section class="grid">
       <div class="metric"><div class="metric-value">$${todaySpending.toFixed(0)}</div><div class="metric-label">今日花费</div></div>
       <div class="metric"><div class="metric-value">${log.workout.length}</div><div class="metric-label">今日训练</div></div>
@@ -1682,19 +1718,41 @@ function renderLife() {
       <div class="metric"><div class="metric-value">${week.journals}/7</div><div class="metric-label">7天日记</div></div>
     </section>
     <section class="card">
+      <h2>懒人模板</h2>
+      <p class="body">忙的时候点一个模板，先把基本盘保住。</p>
+      <div class="plan-grid">
+        <button class="plan-card" data-life-template="workday">
+          <strong>上班日低配</strong>
+          <span>走路完成 / 午餐记账 / 写一句状态</span>
+        </button>
+        <button class="plan-card" data-life-template="rest">
+          <strong>休息日标准</strong>
+          <span>10分钟保底训练 / 买菜记账 / 明天计划</span>
+        </button>
+        <button class="plan-card" data-life-template="tired">
+          <strong>状态差保命</strong>
+          <span>拉伸10分钟 / 不加任务 / 早点睡</span>
+        </button>
+        <button class="plan-card" data-life-template="reset">
+          <strong>重新收拾</strong>
+          <span>补记一笔 / 写三问 / 明天只做一件事</span>
+        </button>
+      </div>
+    </section>
+    <section class="card">
       <h2>健康训练</h2>
       <p class="body">最低标准也算。今天先别追求完美。</p>
       <div class="plan-grid">
         ${workoutPlans.map(([title, detail]) => `
           <button class="plan-card" data-workout="${escapeHtml(`${title}：${detail}`)}">
-            <strong>${log.workout.some((item) => item.startsWith(title)) ? "? " : ""}${escapeHtml(title)}</strong>
+            <strong>${log.workout.some((item) => item.startsWith(title)) ? "&#10003; " : ""}${escapeHtml(title)}</strong>
             <span>${escapeHtml(detail)}</span>
           </button>
         `).join("")}
       </div>
       <div class="pill-row">
         ${["深蹲 20 个", "俯卧撑 10 个", "平板支撑 30 秒", "拉伸 10 分钟", "走路完成"].map((item) => `
-          <button class="pill" data-workout="${escapeHtml(item)}">${log.workout.includes(item) ? "? " : ""}${escapeHtml(item)}</button>
+          <button class="pill" data-workout="${escapeHtml(item)}">${log.workout.includes(item) ? "&#10003; " : ""}${escapeHtml(item)}</button>
         `).join("")}
       </div>
     </section>
@@ -2173,6 +2231,36 @@ function bindEvents() {
     log.workout.includes(el.dataset.workout)
       ? log.workout = log.workout.filter((item) => item !== el.dataset.workout)
       : log.workout.push(el.dataset.workout);
+    saveState();
+    render();
+  }));
+  document.querySelectorAll("[data-life-template]").forEach((el) => el.addEventListener("click", () => {
+    const log = getTodayLog();
+    const addWorkout = (item) => {
+      if (!log.workout.includes(item)) log.workout.push(item);
+    };
+    const addJournal = (line) => {
+      if (!String(log.journal || "").includes(line)) {
+        log.journal = log.journal ? `${log.journal}\n${line}` : line;
+      }
+    };
+    if (el.dataset.lifeTemplate === "workday") {
+      addWorkout("走路完成");
+      addJournal("今天完成：上班日低配，先保住基本盘。");
+    }
+    if (el.dataset.lifeTemplate === "rest") {
+      addWorkout("10分钟保底：深蹲 20个 / 俯卧撑 10个 / 拉伸 3分钟");
+      log.expenses.unshift({ id: `${Date.now()}`, amount: 35, note: "grocery", createdAt: new Date().toISOString() });
+      addJournal("明天最重要一件事：");
+    }
+    if (el.dataset.lifeTemplate === "tired") {
+      addWorkout("恢复日：走路 20分钟 / 拉伸 10分钟 / 早睡");
+      log.mood = "累";
+      addJournal("身体状态：累，今天降低强度，早点睡。");
+    }
+    if (el.dataset.lifeTemplate === "reset") {
+      addJournal("今天完成：\n身体状态：\n明天最重要一件事：");
+    }
     saveState();
     render();
   }));

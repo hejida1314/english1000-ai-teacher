@@ -247,6 +247,48 @@ h3 {
   gap: 10px;
 }
 
+.system-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.system-card {
+  display: grid;
+  gap: 5px;
+  min-height: 112px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: left;
+}
+
+.system-card.done {
+  border-color: #b7d7cd;
+  background: var(--green-soft);
+}
+
+.system-card span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.system-card strong {
+  color: var(--primary-dark);
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.system-card em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.35;
+}
+
 .metric {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -760,8 +802,13 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .system-grid,
   .plan-grid,
   .money-form {
     grid-template-columns: 1fr;
+  }
+
+  .system-card {
+    min-height: 86px;
   }
 }

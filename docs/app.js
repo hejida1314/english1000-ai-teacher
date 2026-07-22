@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.20-life-hub-1";
+const APP_VERSION = "2026.07.21-daily-grammar-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -9,6 +9,37 @@ const phases = [
   { start: 151, end: 205, level: "Level 4 / A2+", phase: "Peppa Pig", resource: "Peppa Pig", url: "https://www.youtube.com/results?search_query=Peppa+Pig+English" },
   { start: 206, end: 275, level: "Level 5 / B1", phase: "TED-Ed", resource: "TED-Ed easy topics", url: "https://ed.ted.com/lessons" },
   { start: 276, end: 334, level: "Level 6 / B1+", phase: "Modern Family", resource: "Modern Family selected episodes", url: "https://www.hulu.com/search?q=Modern+Family" }
+];
+
+const grammarLessons = [
+  { title: "be 动词：am / is / are", pattern: "I am / You are / He is", examples: ["I am tired.", "You are right.", "He is at work."], task: "用 I am / You are / He is 各说一句今天的事。" },
+  { title: "一般现在时：每天、经常发生", pattern: "I work / She works", examples: ["I work today.", "She watches English.", "He likes this video."], task: "说3句你平时会做的事。" },
+  { title: "一般过去时：已经发生", pattern: "I worked / I watched / I went", examples: ["I watched a video.", "I went home.", "I studied English."], task: "用过去式说昨天发生的3件事。" },
+  { title: "现在进行时：正在发生", pattern: "I am watching / She is talking", examples: ["I am watching YouTube.", "She is talking slowly.", "They are eating."], task: "描述你现在正在做什么。" },
+  { title: "一般将来：准备、将要", pattern: "I will / I am going to", examples: ["I will study tonight.", "I am going to call Kia.", "I will do squats."], task: "说3句你明天要做的事。" },
+  { title: "have / has：有、吃、经历", pattern: "I have / He has", examples: ["I have a question.", "She has time.", "I had lunch."], task: "用 have 说3句生活句。" },
+  { title: "want to：想做某事", pattern: "I want to + 动词", examples: ["I want to learn English.", "I want to sleep.", "I want to tell a story."], task: "说3句你想做的事。" },
+  { title: "need to：需要做某事", pattern: "I need to + 动词", examples: ["I need to make an appointment.", "I need to practice.", "I need to pay."], task: "说3句你今天需要做的事。" },
+  { title: "can / can't：能不能", pattern: "I can / I can't", examples: ["I can understand this.", "I can't hear it clearly.", "Can you repeat that?"], task: "说2句能做的事，1句不能做的事。" },
+  { title: "should：应该", pattern: "I should + 动词", examples: ["I should sleep earlier.", "You should repeat it.", "I should not rush."], task: "给自己3个建议。" },
+  { title: "there is / there are：有", pattern: "There is one / There are many", examples: ["There is a problem.", "There are many words.", "There is a video."], task: "描述你身边有的3样东西。" },
+  { title: "this / that / these / those：这个那个", pattern: "this is / that is / these are", examples: ["This is useful.", "That is hard.", "These words are common."], task: "指着东西说3句。" },
+  { title: "a / an / the：一个 vs 特指", pattern: "a car / an apple / the car", examples: ["I have a car.", "This is an appointment.", "The video is short."], task: "找今天视频里3个 a/an/the。" },
+  { title: "复数：一个变多个", pattern: "word / words", examples: ["I learned ten words.", "These sentences are useful.", "I have two questions."], task: "说5个复数名词。" },
+  { title: "比较级：更...", pattern: "longer / better / easier", examples: ["This is way longer.", "English is getting better.", "This lesson is easier."], task: "用 better / longer / easier 各说一句。" },
+  { title: "because：因为", pattern: "I do it because...", examples: ["I study because I need English.", "I am tired because I worked.", "I like it because it is useful."], task: "用 because 解释3件事。" },
+  { title: "and / but / so：连接句子", pattern: "A and B / A but B / A so B", examples: ["I am tired, but I study.", "I work and walk.", "I was hungry, so I ate."], task: "用 and、but、so 各造一句。" },
+  { title: "疑问句：Do you...?", pattern: "Do you want...? / Does he...?", examples: ["Do you understand?", "Do you want coffee?", "Does she speak English?"], task: "问自己3个 Do you 问题。" },
+  { title: "疑问词：what / where / when", pattern: "What is...? / Where is...?", examples: ["What does it mean?", "Where can I find it?", "When do you open?"], task: "写3个你在美国会问的问题。" },
+  { title: "how long：多久", pattern: "How long have you...?", examples: ["How long have you studied English?", "How long does it take?", "How long is the video?"], task: "用 how long 问3句。" },
+  { title: "would like：礼貌想要", pattern: "I'd like to...", examples: ["I'd like to schedule an appointment.", "I'd like some water.", "I'd like to ask a question."], task: "练3句去店里能用的话。" },
+  { title: "could you：礼貌请求", pattern: "Could you + 动词?", examples: ["Could you repeat that?", "Could you say it slowly?", "Could you help me?"], task: "练3句听不懂时能用的话。" },
+  { title: "have to：不得不、必须", pattern: "I have to + 动词", examples: ["I have to work.", "I have to pay.", "I have to leave now."], task: "说3句今天必须做的事。" },
+  { title: "before / after：之前之后", pattern: "before work / after dinner", examples: ["I study before work.", "I walk after dinner.", "I watched it before bed."], task: "用 before / after 各说两句。" },
+  { title: "in / on / at：时间地点", pattern: "in Alabama / on Monday / at 8", examples: ["I live in Alabama.", "I work on Monday.", "I start at eight."], task: "用 in、on、at 各说一句。" },
+  { title: "too / also / as well：也", pattern: "I also... / me too / as well", examples: ["I study English too.", "I also need practice.", "Hand gestures as well."], task: "用 also / too / as well 各说一句。" },
+  { title: "现在完成：have done", pattern: "I have watched / I have learned", examples: ["I have watched this video.", "I have learned ten words.", "I have done my workout."], task: "说3句今天已经完成的事。" },
+  { title: "复盘日：只找语法，不刷题", pattern: "看见就认识", examples: ["找 be 动词。", "找过去式。", "找 because。"], task: "回看今天视频，找3个你认识的语法点。" }
 ];
 
 const starterHints = {
@@ -428,9 +459,14 @@ function getPhase(day) {
   return phases.find((item) => day >= item.start && day <= item.end) || phases[phases.length - 1];
 }
 
+function getGrammarLesson(day = state.currentDay) {
+  return grammarLessons[(Math.max(1, day) - 1) % grammarLessons.length];
+}
+
 function getCourseDay(day) {
   const phase = getPhase(day);
   const isReview = day % 7 === 0;
+  const grammar = getGrammarLesson(day);
   const episode = phase.phase.includes("Beginner")
     ? ((day - 1) % 80) + 1
     : phase.phase.includes("Intermediate")
@@ -457,7 +493,7 @@ function getCourseDay(day) {
         ["intensive", "第二遍精听", 35, "开英文字幕重看，挑一小段反复听。"],
         ["shadow", "跟读模仿", 20, "挑 3 到 5 句，模仿节奏和语气。"],
         ["words", "今日 10 词", 20, "只记录高频、生活里真会用的词。"],
-        ["grammar", "语法 15 分钟", 15, "今天只看一个语法点，不刷题。"],
+        ["grammar", `语法：${grammar.title}`, 15, `${grammar.pattern}。${grammar.task}`],
         ["output", "输出和日记", 45, "口语 20 分钟，日记 5 到 10 句。"]
       ];
   return { day, phase, mainTitle, tasks: tasks.map(([id, title, minutes, detail]) => ({ id: `d${day}-${id}`, title, minutes, detail })) };
@@ -564,6 +600,7 @@ function understandingAdvice(value) {
 function getDailySupport(course) {
   const dailyPhrases = getDailyPhrases(course.day);
   const words = getDailyWords(course.day);
+  const grammar = getGrammarLesson(course.day);
   const subtitleRule = course.day < 85
     ? "第一遍不看字幕，第二遍英文字幕。不要开中文字幕。"
     : course.day < 206
@@ -572,9 +609,10 @@ function getDailySupport(course) {
   return {
     subtitleRule,
     earlyFinish: "今天提前完成，不直接冲下一天。先复习到期词、跟读今日句子、补一段英文日记。连续性比贪多重要。",
+    grammar,
     words,
     phrases: dailyPhrases.items,
-    aiPrompt: `我是 Jacob，正在执行 English1000 Life。今天是 Day ${course.day}，阶段是 ${course.phase.phase}，材料是 ${course.mainTitle}。请用简单英语测试我：1）问我今天视频大意；2）抽查这10个词：${words.join(", ")}；3）让我跟读这几句：${dailyPhrases.items.join(" / ")}；4）最后用中文告诉我明天是否该升级、保持、还是降难度。`
+    aiPrompt: `我是 Jacob，正在执行 English1000 Life。今天是 Day ${course.day}，阶段是 ${course.phase.phase}，材料是 ${course.mainTitle}。今日语法是：${grammar.title}（${grammar.pattern}）。请用简单英语测试我：1）问我今天视频大意；2）抽查这10个词：${words.join(", ")}；3）让我跟读这几句：${dailyPhrases.items.join(" / ")}；4）用今日语法让我造3句；5）最后用中文告诉我明天是否该升级、保持、还是降难度。`
   };
 }
 
@@ -590,6 +628,11 @@ function todayPortableText() {
     ...course.tasks.map((task, index) => `${index + 1}. ${task.title}（${task.minutes}分钟）- ${task.detail}`),
     "",
     `今日10词：${support.words.join(", ")}`,
+    "",
+    `今日语法：${support.grammar.title}`,
+    `结构：${support.grammar.pattern}`,
+    `例句：${support.grammar.examples.join(" / ")}`,
+    `任务：${support.grammar.task}`,
     "",
     "今日句子：",
     ...support.phrases.map((item) => `- ${item}`),
@@ -1424,6 +1467,20 @@ function renderToday() {
         <input id="manualMinutes" type="number" inputmode="numeric" min="1" max="300" placeholder="补记分钟，例如 18" />
         <button class="secondary" id="manualMinutesAdd">补记时间</button>
       </div>
+    </section>
+    <section class="card grammar-card">
+      <p class="kicker">语法 15 分钟</p>
+      <h2>${support.grammar.title}</h2>
+      <p class="body"><strong>结构：</strong>${support.grammar.pattern}</p>
+      <div class="phrase-list">
+        ${support.grammar.examples.map((example) => `
+          <div class="phrase-card">
+            <span>${escapeHtml(example)}</span>
+            <button class="secondary" data-copy="${escapeHtml(example)}">复制</button>
+          </div>
+        `).join("")}
+      </div>
+      <p class="install-tip"><strong>今天只做：</strong>${support.grammar.task}</p>
     </section>
     <section class="card">
       <h2>理解度判断</h2>

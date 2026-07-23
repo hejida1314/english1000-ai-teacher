@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-question-notebook-1";
+const APP_VERSION = "2026.07.23-voice-coach-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1120,6 +1120,34 @@ function todayPortableText() {
   ].join("\n");
 }
 
+function chatGptVoiceCoachPrompt(sentences, title = "今天英语跟读") {
+  const cleanSentences = sentences.map((item) => String(item || "").trim()).filter(Boolean);
+  return [
+    `请你当我的英语语音教练，主题：${title}。`,
+    "我会打开 ChatGPT 语音和你练。请严格按下面方式来：",
+    "1. 一次只练一句，不要一次讲太多。",
+    "2. 你先用自然美式英语读一遍。",
+    "3. 再用中文告诉我这句的意思、重音、连读或弱读。",
+    "4. 然后让我跟读。",
+    "5. 我读完后，你纠正我最明显的 1 到 2 个问题。",
+    "6. 如果我读得可以，就让我换下一句。",
+    "",
+    "今天要练的句子：",
+    ...cleanSentences.map((sentence, index) => `${index + 1}. ${sentence}`),
+    "",
+    "现在请从第1句开始。"
+  ].join("\n");
+}
+
+function todayVoiceCoachPrompt() {
+  const course = getCourseDay(state.currentDay);
+  const support = getDailySupport(course);
+  const connected = connectedSpeechForDay(course.day).flatMap((item) => [item.standard, item.spoken]);
+  const chunks = phraseChunksForDay(course.day).flatMap((item) => [item.example, item.spoken]);
+  const sentences = [...support.grammar.examples, ...support.phrases, ...connected, ...chunks].slice(0, 18);
+  return chatGptVoiceCoachPrompt(sentences, `English1000 Day ${course.day} 语音跟读`);
+}
+
 function formatDuration(seconds) {
   const safe = Math.max(0, Math.floor(seconds));
   const mm = String(Math.floor(safe / 60)).padStart(2, "0");
@@ -2007,7 +2035,10 @@ function renderToday() {
       <h2>今日AI老师</h2>
       <p class="body">学完后复制这段给 ChatGPT，它就按今天内容测你。</p>
       <textarea readonly>${support.aiPrompt}</textarea>
-      <button class="primary full" id="copyAiPrompt">复制AI测试提示</button>
+      <div class="button-row">
+        <button class="primary" id="copyAiPrompt">复制AI测试提示</button>
+        <button class="secondary" id="copyVoiceCoachToday">复制ChatGPT语音跟读</button>
+      </div>
     </section>
   `;
 }
@@ -2165,6 +2196,7 @@ function renderPlayer() {
       <div class="button-row">
         <button class="primary" id="addSentenceWords">把这句关键词加入生词本</button>
         <button class="secondary" id="copySentenceAi">复制这句给AI解释</button>
+        <button class="secondary" id="copySentenceVoiceCoach">复制语音跟读</button>
       </div>
     </section>
     <section class="card success">
@@ -2355,6 +2387,7 @@ function renderAiTeacher() {
       <h2>今日完整测试提示</h2>
       <textarea readonly>${prompt}</textarea>
       <button class="primary full" id="copyAiPromptPage">复制完整测试</button>
+      <button class="secondary full" id="copyVoiceCoachPage">复制ChatGPT语音跟读</button>
     </section>
     <section class="card">
       <h2>快速训练</h2>
@@ -2872,6 +2905,8 @@ function bindEvents() {
   if (timerFinish) timerFinish.addEventListener("click", finishTimer);
   const copyAiPrompt = document.querySelector("#copyAiPrompt");
   if (copyAiPrompt) copyAiPrompt.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
+  const copyVoiceCoachToday = document.querySelector("#copyVoiceCoachToday");
+  if (copyVoiceCoachToday) copyVoiceCoachToday.addEventListener("click", () => copyText(todayVoiceCoachPrompt(), "ChatGPT语音跟读提示已复制"));
   const copyTodayPack = document.querySelector("#copyTodayPack");
   if (copyTodayPack) copyTodayPack.addEventListener("click", () => copyText(todayPortableText(), "今天学习包已复制"));
   const forceRefresh = document.querySelector("#forceRefresh");
@@ -2882,6 +2917,8 @@ function bindEvents() {
   if (testVoice) testVoice.addEventListener("click", () => speakEnglish("I can keep going.", 0.82));
   const copyAiPromptPage = document.querySelector("#copyAiPromptPage");
   if (copyAiPromptPage) copyAiPromptPage.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
+  const copyVoiceCoachPage = document.querySelector("#copyVoiceCoachPage");
+  if (copyVoiceCoachPage) copyVoiceCoachPage.addEventListener("click", () => copyText(todayVoiceCoachPrompt(), "ChatGPT语音跟读提示已复制"));
   document.querySelectorAll("[data-copy-ai]").forEach((el) => el.addEventListener("click", () => copyText(el.dataset.copyAi, "训练提示已复制")));
   document.querySelectorAll("[data-question-reviewed]").forEach((el) => el.addEventListener("click", () => markQuestionReviewed(el.dataset.questionReviewed)));
   const saveQuestionNote = document.querySelector("#saveQuestionNote");
@@ -2971,6 +3008,11 @@ function bindEvents() {
   if (copySentenceAi) copySentenceAi.addEventListener("click", () => {
     const sentence = getPlayerSentence();
     copyText(`请用简单中文解释这句英文，告诉我什么时候用，并给3个美国生活例句：\n${sentence.english}`, "这句AI解释提示已复制");
+  });
+  const copySentenceVoiceCoach = document.querySelector("#copySentenceVoiceCoach");
+  if (copySentenceVoiceCoach) copySentenceVoiceCoach.addEventListener("click", () => {
+    const sentence = getPlayerSentence();
+    copyText(chatGptVoiceCoachPrompt([sentence.english], "单句语音跟读"), "单句语音跟读提示已复制");
   });
   const importSentences = document.querySelector("#importSentences");
   if (importSentences) importSentences.addEventListener("click", () => {

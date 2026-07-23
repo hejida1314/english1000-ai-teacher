@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.21-daily-grammar-1";
+const APP_VERSION = "2026.07.22-daily-auto-sync-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -386,6 +386,9 @@ const defaultState = {
     lastSyncAt: "",
     lastSyncDevice: "",
     lastCloudUpdatedAt: "",
+    lastDailyUploadDate: "",
+    lastAutoUploadAt: "",
+    lastAutoUploadError: "",
     auto: true
   },
   tab: "home"
@@ -398,6 +401,13 @@ let timerTicker = null;
 
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
+}
+
+function localDayKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
 
 function escapeHtml(value) {
@@ -433,6 +443,9 @@ function getSyncState() {
     lastSyncAt: "",
     lastSyncDevice: "",
     lastCloudUpdatedAt: "",
+    lastDailyUploadDate: "",
+    lastAutoUploadAt: "",
+    lastAutoUploadError: "",
     auto: true,
     ...state.sync
   };
@@ -1165,7 +1178,18 @@ function syncPayload() {
   }, null, 2);
 }
 
-async function createCloudSync() {
+function rememberUploadSuccess(label) {
+  const sync = getSyncState();
+  const now = new Date().toISOString();
+  sync.lastSyncAt = now;
+  sync.lastSyncDevice = label;
+  sync.lastCloudUpdatedAt = state.localUpdatedAt || now;
+  sync.lastAutoUploadAt = now;
+  sync.lastAutoUploadError = "";
+  if (label.includes("daily")) sync.lastDailyUploadDate = localDayKey();
+}
+
+async function createCloudSync(label = "uploaded") {
   const sync = getSyncState();
   const gist = await githubRequest("/gists", {
     method: "POST",
@@ -1180,16 +1204,14 @@ async function createCloudSync() {
     })
   });
   sync.gistId = gist.id;
-  sync.lastSyncAt = new Date().toISOString();
-  sync.lastSyncDevice = "uploaded";
-  sync.lastCloudUpdatedAt = state.localUpdatedAt || sync.lastSyncAt;
+  rememberUploadSuccess(label);
   saveState({ markDirty: false, autoSync: false });
   return gist.id;
 }
 
-async function uploadCloudSync() {
+async function uploadCloudSync(label = "uploaded") {
   const sync = getSyncState();
-  if (!sync.gistId.trim()) return createCloudSync();
+  if (!sync.gistId.trim()) return createCloudSync(label);
   await githubRequest(`/gists/${sync.gistId.trim()}`, {
     method: "PATCH",
     body: JSON.stringify({
@@ -1200,9 +1222,7 @@ async function uploadCloudSync() {
       }
     })
   });
-  sync.lastSyncAt = new Date().toISOString();
-  sync.lastSyncDevice = "uploaded";
-  sync.lastCloudUpdatedAt = state.localUpdatedAt || sync.lastSyncAt;
+  rememberUploadSuccess(label);
   saveState({ markDirty: false, autoSync: false });
   return sync.gistId;
 }
@@ -1227,21 +1247,23 @@ function canCloudSync() {
   return !!(sync.auto && sync.token.trim() && sync.gistId.trim() && navigator.onLine);
 }
 
-function scheduleAutoUpload() {
+function scheduleAutoUpload(delay = 3000, label = "auto uploaded") {
   if (!canCloudSync() || syncBusy) return;
   clearTimeout(syncTimer);
   syncTimer = setTimeout(async () => {
     if (!canCloudSync() || syncBusy) return;
     try {
       syncBusy = true;
-      await uploadCloudSync();
+      await uploadCloudSync(label);
       updateSyncBadge("已自动同步");
     } catch (error) {
+      getSyncState().lastAutoUploadError = error.message || "auto upload failed";
+      saveState({ markDirty: false, autoSync: false });
       updateSyncBadge("自动同步失败，稍后再试");
     } finally {
       syncBusy = false;
     }
-  }, 3000);
+  }, delay);
 }
 
 async function autoSyncOnStart() {
@@ -1264,12 +1286,17 @@ async function autoSyncOnStart() {
       render();
       updateSyncBadge("已自动下载云端最新数据");
     } else if (localAt && localAt > (sync.lastCloudUpdatedAt || "")) {
-      await uploadCloudSync();
+      await uploadCloudSync("auto uploaded");
       updateSyncBadge("已自动上传本机最新数据");
+    } else if (sync.lastDailyUploadDate !== localDayKey()) {
+      await uploadCloudSync("daily auto uploaded");
+      updateSyncBadge("今天已自动上传一次");
     } else {
       updateSyncBadge("本机和云端已经一致");
     }
-  } catch {
+  } catch (error) {
+    getSyncState().lastAutoUploadError = error.message || "auto sync failed";
+    saveState({ markDirty: false, autoSync: false });
     updateSyncBadge("自动同步暂时失败");
   } finally {
     syncBusy = false;
@@ -1859,6 +1886,12 @@ function renderSettings() {
   const sync = getSyncState();
   const localAt = state.localUpdatedAt || state.savedAt || "";
   const cloudAt = sync.lastCloudUpdatedAt || "";
+  const todayUploaded = sync.lastDailyUploadDate === localDayKey();
+  const dailySummary = sync.auto
+    ? todayUploaded
+      ? "今天已自动上传过一次。"
+      : "今天还没自动上传；打开、切回前台或修改数据后会自动尝试。"
+    : "自动同步已关闭。";
   const hasLocalChanges = Boolean(localAt && (!cloudAt || localAt > cloudAt));
   const syncSummary = sync.gistId
     ? hasLocalChanges
@@ -1890,11 +1923,12 @@ function renderSettings() {
     </section>
     <section class="card">
       <h2>云同步</h2>
-      <p class="body">手机和 Windows 要同步，就用 GitHub Gist 存一份私人数据。第一次填 Token 后点创建；以后手机上传，电脑下载。</p>
+      <p class="body">手机和 Windows 要同步，就用 GitHub Gist 存一份私人数据。第一次填 Token 后点创建；之后开启懒人自动同步，打开、切回前台、修改数据后都会自动同步。</p>
       <div class="sync-id-box">
         <div class="small">同步判断</div>
         <strong>${syncSummary}</strong>
-        <span class="small">自动同步：${sync.auto ? "已开启" : "已关闭"} / 本机更新：${localAt ? new Date(localAt).toLocaleString() : "暂无"} / 云端记录：${cloudAt ? new Date(cloudAt).toLocaleString() : "暂无"}</span>
+        <span class="small">自动同步：${sync.auto ? "已开启" : "已关闭"} / 每日上传：${dailySummary} / 本机更新：${localAt ? new Date(localAt).toLocaleString() : "暂无"} / 云端记录：${cloudAt ? new Date(cloudAt).toLocaleString() : "暂无"}</span>
+        ${sync.lastAutoUploadError ? `<span class="small danger-text">上次自动同步失败：${escapeHtml(sync.lastAutoUploadError)}</span>` : ""}
       </div>
       <label class="field-label" for="githubToken">GitHub Token</label>
       <input id="githubToken" type="password" value="${escapeHtml(sync.token || "")}" placeholder="只保存到本机，不会提交到 GitHub 仓库" />
@@ -1913,12 +1947,13 @@ function renderSettings() {
       `}
       <label class="toggle-row">
         <input id="autoSync" type="checkbox" ${sync.auto ? "checked" : ""} />
-        <span>自动同步：打开时自动下载，修改后自动上传</span>
+        <span>懒人自动同步：打开/切回时自动检查，修改后自动上传；每天至少自动上传一次</span>
       </label>
       <div class="button-row">
         <button class="primary" id="createSync">创建云同步</button>
         <button class="secondary" id="uploadSync">上传本机数据</button>
         <button class="secondary" id="downloadSync">下载云端数据</button>
+        <button class="secondary" id="testAutoSync">测试自动同步</button>
       </div>
       <p class="install-tip" id="syncStatus">${sync.lastSyncAt ? `上次同步：${new Date(sync.lastSyncAt).toLocaleString()} / ${sync.lastSyncDevice}` : "还没有同步。"}</p>
       <p class="small">Token 权限只需要 gist。不要给我看 Token，自己填到这里就行。</p>
@@ -2466,6 +2501,17 @@ function bindEvents() {
       setSyncStatus(`下载失败：${error.message}`);
     }
   });
+  const testAutoSync = document.querySelector("#testAutoSync");
+  if (testAutoSync) testAutoSync.addEventListener("click", async () => {
+    try {
+      setSyncStatus("正在测试自动同步...");
+      await uploadCloudSync("daily auto uploaded");
+      render();
+      alert("自动同步测试完成。以后打开、切回前台、修改数据后都会自动尝试同步。");
+    } catch (error) {
+      setSyncStatus(`自动同步测试失败：${error.message}`);
+    }
+  });
 }
 
 if ("serviceWorker" in navigator) {
@@ -2486,3 +2532,15 @@ if (state.reviewSpreadVersion !== "2026.07.19-review-spread-1") {
 
 render();
 setTimeout(autoSyncOnStart, 800);
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    autoSyncOnStart();
+  } else {
+    scheduleAutoUpload(250, "auto uploaded before background");
+  }
+});
+
+window.addEventListener("online", () => {
+  autoSyncOnStart();
+});

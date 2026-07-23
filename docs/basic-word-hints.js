@@ -735,7 +735,7 @@ window.BASIC_WORD_HINTS = {
   "enter": { meaning: "进入, 参加, 开始, 输入, 回车；进去, 参加； 输入, 回车", sentence: "I learned the word \"enter\" today." },
   "analysis": { meaning: "分析； 分析机; 分析员; 分析; 分析程序", sentence: "I learned the word \"analysis\" today." },
   "arrive": { meaning: "到达, 抵达", sentence: "I learned the word \"arrive\" today." },
-  "natural": { meaning: "白痴；自然的, 自然界的, 本能的, 天然的, 物质的, 正常的, 原始的, 自然数的", sentence: "I learned the word \"natural\" today." },
+  "natural": { meaning: "自然的, 天然的, 天生的, 正常的", sentence: "I want to learn English in a natural way." },
   "thought": { meaning: "想法, 思想, 思维, 关心, 挂念；think的过去式和过去分词", sentence: "I learned the word \"thought\" today." },
   "ensure": { meaning: "确定, 保证, 担保, 保护； 确保, 确定", sentence: "I learned the word \"ensure\" today." },
   "region": { meaning: "区域, 地带, 地区, 领域, 范围, 区； 区, 区域", sentence: "I learned the word \"region\" today." },

@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-phrase-chunks-1";
+const APP_VERSION = "2026.07.23-natural-meaning-fix-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -157,6 +157,8 @@ const verifiedWordHints = {
   left: ["左边；剩下；离开了", "Turn left here."],
   light: ["光；轻的；浅色的", "This bag is light."],
   plain: ["简单清楚的；朴素的", "Please explain it in plain English."],
+  natural: ["自然的；天然的；天生的", "I want to learn English in a natural way."],
+  naturally: ["自然地；天生地", "She speaks naturally."],
   stand: ["站；忍受", "I can't stand it."],
   catch: ["抓住；听懂；赶上；碰到", "I am glad I caught you."],
   thought: ["想法；think 的过去式", "That is what I thought."],
@@ -238,7 +240,8 @@ const verifiedWordHints = {
 
 const badMeaningMarkers = [
   "DOS", "批处理", "信息论", "输入终端", "智能终端", "内捕获", "地址转换器", "异常传输",
-  "自动订票", "后端", "总线允许", "自治系统", "高级系统", "辅助存储器", "作废字符"
+  "自动订票", "后端", "总线允许", "自治系统", "高级系统", "辅助存储器", "作废字符",
+  "白痴"
 ];
 
 function cleanMeaningCandidate(meaning) {
@@ -2933,9 +2936,9 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./sw.js").catch(() => {});
 }
 
-if (state.vocabAuditVersion !== "2026.07.22-meaning-overrides-1") {
+if (state.vocabAuditVersion !== "2026.07.23-natural-meaning-fix-1") {
   repairLocalData();
-  state.vocabAuditVersion = "2026.07.22-meaning-overrides-1";
+  state.vocabAuditVersion = "2026.07.23-natural-meaning-fix-1";
   saveState({ autoSync: false });
 }
 

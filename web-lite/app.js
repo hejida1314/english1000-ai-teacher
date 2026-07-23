@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-word-audit-1";
+const APP_VERSION = "2026.07.23-beginner-core-words-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -137,6 +137,10 @@ const verifiedWordHints = {
   up: ["向上；起来；完成", "I wake up early."],
   time: ["时间；次数", "I need more time."],
   take: ["拿；花费；乘坐", "It takes ten minutes."],
+  were: ["是；在；are 的过去式", "They were saying something important."],
+  saying: ["正在说；说法", "They were saying it again."],
+  input: ["输入；输入材料", "Comprehensible input helps me learn English."],
+  comprehensible: ["能理解的；可懂的", "I need comprehensible English input."],
   master: ["掌握；精通；大师", "I want to master English."],
   program: ["节目；程序；计划；安排", "This program helps me study."],
   present: ["现在的；出席；展示；礼物", "Please present your idea clearly."],
@@ -595,6 +599,18 @@ const phraseChunkGroups = [
       ["turn out to", "结果是", "It turned out to be useful.", "It turned out ta be useful."],
       ["be likely to", "很可能", "I am likely to forget it.", "I'm likely ta forget it."],
       ["be hard to", "很难做", "It is hard to hear.", "It's hard ta hear."]
+    ]
+  },
+  {
+    title: "过去正在说：was / were saying",
+    note: "they saying 是不完整口语片段；完整句子要说 they were saying，表示那时候他们正在说。",
+    items: [
+      ["they were saying", "他们当时正在说", "They were saying it was a natural way.", "They were saying id wuz a natural way."],
+      ["I was saying", "我当时正在说", "I was saying the same thing.", "I wuz saying the same thing."],
+      ["she was talking about", "她当时在讲关于...", "She was talking about comprehensible input.", "She wuz talking about comprehensible input."],
+      ["people were talking about", "人们当时在谈论", "People were talking about the video.", "People were talking about the video."],
+      ["what were they saying", "他们当时在说什么", "What were they saying?", "What were they saying?"],
+      ["I heard them say", "我听到他们说", "I heard them say it again.", "I heard 'em say it again."]
     ]
   },
   {

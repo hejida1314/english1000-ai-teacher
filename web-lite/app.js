@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-natural-meaning-fix-1";
+const APP_VERSION = "2026.07.23-word-audit-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -241,16 +241,39 @@ const verifiedWordHints = {
 const badMeaningMarkers = [
   "DOS", "批处理", "信息论", "输入终端", "智能终端", "内捕获", "地址转换器", "异常传输",
   "自动订票", "后端", "总线允许", "自治系统", "高级系统", "辅助存储器", "作废字符",
-  "白痴"
+  "母机", "异常数据", "乱码"
 ];
 
-function cleanMeaningCandidate(meaning) {
+const wordSpecificBadMeaningMarkers = {
+  natural: ["白痴", "傻瓜", "笨蛋"],
+  naturally: ["白痴", "傻瓜", "笨蛋"],
+  master: ["母机"],
+  program: ["纲要"],
+  present: ["赠送礼品"]
+};
+
+function markersForWord(word) {
+  return [...badMeaningMarkers, ...(wordSpecificBadMeaningMarkers[normalizeWord(String(word || ""))] || [])];
+}
+
+function cleanMeaningCandidate(meaning, word = "") {
   const raw = String(meaning || "").trim();
   if (!raw) return "待补中文";
   const parts = raw.split(/[；;]/).map((part) => part.trim()).filter(Boolean);
-  const kept = parts.filter((part) => !badMeaningMarkers.some((marker) => part.includes(marker)));
+  const markers = markersForWord(word);
+  const kept = parts.filter((part) => !markers.some((marker) => part.includes(marker)));
   const clean = (kept[0] || parts[0] || raw).replace(/\s+/g, " ").trim();
   return clean.length > 42 ? `${clean.slice(0, 42)}...` : clean;
+}
+
+function meaningLooksBad(word, meaning) {
+  const text = String(meaning || "").trim();
+  if (!text || text === "待补中文") return true;
+  return markersForWord(word).some((marker) => text.includes(marker));
+}
+
+function sentenceLooksGeneric(sentence) {
+  return /^I learned the word\s+"/i.test(String(sentence || "").trim());
 }
 
 const coreWordPlan = [
@@ -644,7 +667,7 @@ function lookupWordHint(word) {
   const key = normalizeWord(String(word || ""));
   if (verifiedWordHints[key]) return [...verifiedWordHints[key], "验证核心"];
   const webHint = window.BASIC_WORD_HINTS && window.BASIC_WORD_HINTS[key];
-  if (webHint) return [cleanMeaningCandidate(webHint.meaning), webHint.sentence, "高频候选"];
+  if (webHint) return [cleanMeaningCandidate(webHint.meaning, key), webHint.sentence, "高频候选"];
   if (starterHints[key]) return [...starterHints[key], "生活常用"];
   return ["待补中文", `I learned the word "${key || word}" today.`, "自定义"];
 }
@@ -987,6 +1010,10 @@ function addWordsFromText(text) {
     existing.add(word);
   });
   state.words = [...fresh, ...state.words];
+  const audit = repairLocalData({ silent: true });
+  if (audit.fixedMeaning || audit.fixedSentence || audit.missingMeaning) {
+    state.lastWordAudit = { ...audit, at: new Date().toISOString() };
+  }
   saveState();
   return fresh.length;
 }
@@ -1016,6 +1043,8 @@ function addBaseWordsBalanced() {
     existing.add(word);
   });
   state.words = [...fresh, ...state.words];
+  const audit = repairLocalData({ silent: true });
+  state.lastWordAudit = { ...audit, at: new Date().toISOString() };
   saveState();
   return fresh.length;
 }
@@ -1030,20 +1059,33 @@ function spreadWordReviews() {
   return state.words.length;
 }
 
-function repairLocalData() {
+function repairLocalData(options = {}) {
+  const stats = { total: 0, removed: 0, fixedMeaning: 0, fixedSentence: 0, missingMeaning: 0 };
   const seen = new Set();
   state.words = (state.words || []).filter((word) => {
     const key = normalizeWord(word.word || "");
-    if (!key || seen.has(key)) return false;
+    if (!key || seen.has(key)) {
+      stats.removed += 1;
+      return false;
+    }
     seen.add(key);
     const hint = lookupWordHint(key);
+    const oldMeaning = word.meaning;
+    const oldSentence = word.sentence;
     word.word = key;
-    if (!word.meaning || word.meaning === "待补中文" || hint[2] === "验证核心") word.meaning = hint[0];
-    if (badMeaningMarkers.some((marker) => String(word.meaning || "").includes(marker))) word.meaning = cleanMeaningCandidate(word.meaning);
-    if (!word.sentence) word.sentence = hint[1];
+    if (meaningLooksBad(key, word.meaning) || hint[2] === "验证核心") word.meaning = hint[0];
+    word.meaning = cleanMeaningCandidate(word.meaning, key);
+    if (meaningLooksBad(key, word.meaning)) {
+      word.meaning = hint[0] || "待补中文";
+    }
+    if (word.meaning === "待补中文") stats.missingMeaning += 1;
+    if (String(oldMeaning || "") !== String(word.meaning || "")) stats.fixedMeaning += 1;
+    if (!word.sentence || sentenceLooksGeneric(word.sentence)) word.sentence = hint[1];
+    if (String(oldSentence || "") !== String(word.sentence || "")) stats.fixedSentence += 1;
     if (!word.source || hint[2] === "验证核心") word.source = hint[2];
     if (!word.createdAt) word.createdAt = new Date().toISOString();
     if (!word.dueAt) word.dueAt = new Date().toISOString();
+    stats.total += 1;
     return true;
   });
   if (!state.completedTasks || typeof state.completedTasks !== "object") state.completedTasks = {};
@@ -1051,8 +1093,9 @@ function repairLocalData() {
   if (!state.studySeconds || typeof state.studySeconds !== "object") state.studySeconds = {};
   if (!state.resourceLinks || typeof state.resourceLinks !== "object") state.resourceLinks = {};
   if (!state.aiAnswers || typeof state.aiAnswers !== "object") state.aiAnswers = {};
+  if (!options.silent) state.lastWordAudit = { ...stats, at: new Date().toISOString() };
   saveState();
-  return state.words.length;
+  return stats;
 }
 
 function renderWordImportPreview(text) {
@@ -2838,8 +2881,8 @@ function bindEvents() {
   });
   const repairData = document.querySelector("#repairData");
   if (repairData) repairData.addEventListener("click", () => {
-    const count = repairLocalData();
-    alert(`数据体检完成。当前有效单词 ${count} 个。`);
+    const result = repairLocalData();
+    alert(`数据体检完成：有效单词 ${result.total} 个；去重删除 ${result.removed} 个；修正释义 ${result.fixedMeaning} 个；补例句 ${result.fixedSentence} 个；仍待补中文 ${result.missingMeaning} 个。`);
     render();
   });
   const jumpButton = document.querySelector("#jumpButton");
@@ -2936,9 +2979,9 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./sw.js").catch(() => {});
 }
 
-if (state.vocabAuditVersion !== "2026.07.23-natural-meaning-fix-1") {
+if (state.vocabAuditVersion !== APP_VERSION) {
   repairLocalData();
-  state.vocabAuditVersion = "2026.07.23-natural-meaning-fix-1";
+  state.vocabAuditVersion = APP_VERSION;
   saveState({ autoSync: false });
 }
 

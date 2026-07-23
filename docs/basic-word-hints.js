@@ -1,3504 +1,14002 @@
-﻿// Generated from ECDICT (MIT License). Keep this file local and deterministic.
-// Entries: 3500
 window.BASIC_WORD_HINTS = {
-  "the": { meaning: "那", sentence: "I learned the word \"the\" today." },
-  "be": { meaning: "是, 表示, 在； 后端, 总线允许", sentence: "I learned the word \"be\" today." },
-  "of": { meaning: "的, 属于", sentence: "I learned the word \"of\" today." },
-  "and": { meaning: "和, 与； 与", sentence: "I learned the word \"and\" today." },
-  "in": { meaning: "在...期间, 在...之内, 处于...之中, 从事于, 按照, 穿着；进入, 朝里, 在里面, 在屋里；在里面的, 在朝的；执政者, 交情", sentence: "I learned the word \"in\" today." },
-  "to": { meaning: "到, 向, 趋于；向前", sentence: "I learned the word \"to\" today." },
-  "have": { meaning: "有, 怀有, 拿, 进行；已经", sentence: "I learned the word \"have\" today." },
-  "it": { meaning: "它； 信息论, 输入终端, 智能终端, 内捕获", sentence: "I learned the word \"it\" today." },
-  "he": { meaning: "他；男孩, 男人, 雄性动物", sentence: "I learned the word \"he\" today." },
-  "for": { meaning: "为, 因为, 至于；因为； DOS批处理命令:对一组参数重复执行指定的命令", sentence: "I learned the word \"for\" today." },
-  "that": { meaning: "那, 那个；以致, 因为；那；那么, 那样", sentence: "I learned the word \"that\" today." },
-  "not": { meaning: "不, 非, 未； 非", sentence: "I learned the word \"not\" today." },
-  "you": { meaning: "你, 你们", sentence: "I learned the word \"you\" today." },
-  "with": { meaning: "和...在一起, 以, 由于", sentence: "I learned the word \"with\" today." },
-  "on": { meaning: "在...之上；...上去；正起作用的； 打开", sentence: "I learned the word \"on\" today." },
-  "do": { meaning: "做, 进行, 完成", sentence: "I learned the word \"do\" today." },
-  "they": { meaning: "他们, 它们", sentence: "I learned the word \"they\" today." },
-  "say": { meaning: "说, 讲, 念, 说明, 指明；说, 讲；意见, 发言权", sentence: "I learned the word \"say\" today." },
-  "by": { meaning: "被, 经, 由, 在...之旁；经过, 在近处", sentence: "I learned the word \"by\" today." },
-  "this": { meaning: "这, 本；这, 本；这么", sentence: "I learned the word \"this\" today." },
-  "she": { meaning: "她", sentence: "I learned the word \"she\" today." },
-  "at": { meaning: "在, 向, 对； 地址转换器, 异常传输, 自动订票", sentence: "I learned the word \"at\" today." },
-  "but": { meaning: "除了；但是；仅仅", sentence: "I learned the word \"but\" today." },
-  "we": { meaning: "我们", sentence: "I learned the word \"we\" today." },
-  "his": { meaning: "他的； 组氨酸", sentence: "I learned the word \"his\" today." },
-  "from": { meaning: "从, 来自, 根据", sentence: "I learned the word \"from\" today." },
-  "which": { meaning: "哪一个, 那一个", sentence: "I learned the word \"which\" today." },
-  "or": { meaning: "或, 或者； 或", sentence: "I learned the word \"or\" today." },
-  "will": { meaning: "意志, 决心, 意愿, 意向, 干劲, 遗嘱；用意志的力量驱使, 决意, 愿意, 立遗嘱；下决心, 愿意；将, 愿意, 必须", sentence: "I learned the word \"will\" today." },
-  "as": { meaning: "同样地, 例如；做为, 当作；当...之时, 以...的方式, 像...一样, 因为； 高级系统, 先进系统, 辅助存储器, 自治系统", sentence: "I learned the word \"as\" today." },
-  "what": { meaning: "什么；怎么, 多么；什么的；到什么程度", sentence: "I learned the word \"what\" today." },
-  "would": { meaning: "将, 愿意", sentence: "I learned the word \"would\" today." },
-  "go": { meaning: "去, 走, 达到, 运转, 查阅, 消失, 结束, 放弃, 花费, 流传, 趋于, 打算, 剩下；以...打赌, 对付, 忍受, 出产, 为被捕", sentence: "I learned the word \"go\" today." },
-  "can": { meaning: "装罐；罐头, 容器；能, 可以； 作废字符", sentence: "I learned the word \"can\" today." },
-  "their": { meaning: "他们的", sentence: "I learned the word \"their\" today." },
-  "there": { meaning: "在那里", sentence: "I learned the word \"there\" today." },
-  "who": { meaning: "谁", sentence: "I learned the word \"who\" today." },
-  "all": { meaning: "所有的, 全部的, 一切的；全部, 全然；全部；全部", sentence: "I learned the word \"all\" today." },
-  "get": { meaning: "得到, 获得, 变成, 使得, 收获, 接通, 抓住, 染上；到达, 成为, 变得；(网球等)救球, 生殖, 幼兽； 取得指令, 获取文件", sentence: "I learned the word \"get\" today." },
-  "if": { meaning: "如果, 是否, 无论何时, 假设, 即使；条件； DOS批处理命令:根据所测试的条件决定是否执行另一条命令", sentence: "I learned the word \"if\" today." },
-  "her": { meaning: "她的, 她", sentence: "I learned the word \"her\" today." },
-  "make": { meaning: "制造, 安排, 创造, 构成, 使得, 产生, 造成, 整理, 布置, 引起, 到达, 进行；开始, 前进, 增大, 被制造, 被处理；制造,", sentence: "I learned the word \"make\" today." },
-  "my": { meaning: "我的； 迈尔(热容单位)", sentence: "I learned the word \"my\" today." },
-  "one": { meaning: "一(个)；一, 任何人；一, 一个；一致的, 完整的", sentence: "I learned the word \"one\" today." },
-  "about": { meaning: "在...周围, 大约, 有关, 关于；大约, 四处, 在附近, 周围", sentence: "I learned the word \"about\" today." },
-  "see": { meaning: "看见, 查看, 参观, 游览, 理解, 知道, 同意；看, 观看, 注意, 知道, 考虑；主教的职位", sentence: "I learned the word \"see\" today." },
-  "know": { meaning: "知道, 了解, 认识, 确信", sentence: "I learned the word \"know\" today." },
-  "so": { meaning: "如此, 如是, 如...那样；所以, 因此；这样", sentence: "I learned the word \"so\" today." },
-  "up": { meaning: "向上的, 起床的, 涨的；向上, 上涨；在...上面, 向...的较高处", sentence: "I learned the word \"up\" today." },
-  "time": { meaning: "时间, 时侯, 时机, 时期, 期限, 次数, 节拍, 暂停, 规定时间；测定...的时间, 记录...的时间, 计时, 定时；时间的, 记时的", sentence: "I learned the word \"time\" today." },
-  "take": { meaning: "拿, 取, 抓, 带领, 获得, 就座, 接受, 吃, 吸引, 采取, 乘, 需要, 花费；吃掉对方棋子, 抓住, 起作用, 依法获得财产；拿,", sentence: "I learned the word \"take\" today." },
-  "some": { meaning: "一些, 一部分, 若干；大约；一些的, 少许的, 某一的", sentence: "I learned the word \"some\" today." },
-  "when": { meaning: "当...的时候；何时, 什么时候；什么时侯；时间", sentence: "I learned the word \"when\" today." },
-  "year": { meaning: "年, 年度, 年龄； 年度", sentence: "I learned the word \"year\" today." },
-  "could": { meaning: "可以, 能", sentence: "I learned the word \"could\" today." },
-  "think": { meaning: "想, 考虑, 想起, 想像, 打算, 认为；思考, 料想；想法；思想的", sentence: "I learned the word \"think\" today." },
-  "into": { meaning: "进入...之内, 朝..., 深入...之中, 成为...状况", sentence: "I learned the word \"into\" today." },
-  "its": { meaning: "它的", sentence: "I learned the word \"its\" today." },
-  "them": { meaning: "他们, 她们, 它们", sentence: "I learned the word \"them\" today." },
-  "then": { meaning: "然后, 当时；然后, 当时；那时", sentence: "I learned the word \"then\" today." },
-  "me": { meaning: "我", sentence: "I learned the word \"me\" today." },
-  "out": { meaning: "外面的, 熄灭的, 结束的；在外, 熄灭, 出现；出自, 离去, 向", sentence: "I learned the word \"out\" today." },
-  "people": { meaning: "人, 人民, 民族, 平民；使住满人, 居住于", sentence: "I learned the word \"people\" today." },
-  "come": { meaning: "过来, 来, 到达, 出现, 开始；喂", sentence: "I learned the word \"come\" today." },
-  "just": { meaning: "正直的, 合理的, 正确的, 应得的；刚刚, 正好, 仅仅", sentence: "I learned the word \"just\" today." },
-  "your": { meaning: "你的, 你们的", sentence: "I learned the word \"your\" today." },
-  "now": { meaning: "现在, 刚才, 目前；现在；现在的；由于", sentence: "I learned the word \"now\" today." },
-  "no": { meaning: "不, 拒绝, 否决票；没有, 不是, 绝非；不", sentence: "I learned the word \"no\" today." },
-  "him": { meaning: "他", sentence: "I learned the word \"him\" today." },
-  "other": { meaning: "其他的, 另外的, 从前的；其他的, 他人, 另外一个", sentence: "I learned the word \"other\" today." },
-  "only": { meaning: "唯一的, 仅有的, 最佳的；只有, 仅仅, 只能；但是, 不过", sentence: "I learned the word \"only\" today." },
-  "give": { meaning: "弹性, 适应性；给, 授予, 供给, 产生, 发表, 付出, 献出, 让出；捐赠, 支持不住, 让步", sentence: "I learned the word \"give\" today." },
-  "good": { meaning: "善行, 好处, 利益；好的, 优良的, 上等的, 愉快的, 有益的, 好心的, 慈善的, 虔诚的", sentence: "I learned the word \"good\" today." },
-  "than": { meaning: "比, 除...外；比", sentence: "I learned the word \"than\" today." },
-  "like": { meaning: "相似的, 同样的；喜欢, 愿意, 想；喜欢, 希望；爱好, 同样的人(或物)；象, 如同；可能", sentence: "I learned the word \"like\" today." },
-  "more": { meaning: "更多；多的, 程度较大的, 更大的；多, 更多, 进一步； DOS外部命令:显示满屏后自动暂停, 并显示:\"--More--\", 按任意键继续", sentence: "I learned the word \"more\" today." },
-  "how": { meaning: "如何, 怎样, 多少, 多么；方式", sentence: "I learned the word \"how\" today." },
-  "also": { meaning: "也, 并且, 同样地", sentence: "I learned the word \"also\" today." },
-  "any": { meaning: "任何的；任何", sentence: "I learned the word \"any\" today." },
-  "our": { meaning: "我们的", sentence: "I learned the word \"our\" today." },
-  "first": { meaning: "首先, 第一, 优先；第一的；第一；开始, 第一", sentence: "I learned the word \"first\" today." },
-  "very": { meaning: "真正的, 恰好的, 十足的, 特有的；非常, 完全", sentence: "I learned the word \"very\" today." },
-  "new": { meaning: "新的, 陌生的, 最近的, 不熟悉的； 新发现的, 新的, 重新开始的", sentence: "I learned the word \"new\" today." },
-  "look": { meaning: "一看, 神色, 样子, 面容；看, 注意, 朝着, 显得；打量, 看上去与...一样, 以眼色(或脸色)显示, 期待", sentence: "I learned the word \"look\" today." },
-  "may": { meaning: "五月；愿能, 可以, 愿意", sentence: "I learned the word \"may\" today." },
-  "want": { meaning: "需要的东西, 缺乏, 贫困, 需要；要, 希望, 应该, 缺少；生活困苦, 需要, 缺少", sentence: "I learned the word \"want\" today." },
-  "way": { meaning: "路, 路线, 路途, 方法, 道路, 情形, 规模, 习惯, 行业, 方面；远远地, 非常", sentence: "I learned the word \"way\" today." },
-  "well": { meaning: "井, 泉水, 源泉, 好；涌出；健康的, 良好的, 适宜的, 恰当的；很好地, 适当地, 好意地, 很, 完全；好啦", sentence: "I learned the word \"well\" today." },
-  "should": { meaning: "应该, 将要", sentence: "I learned the word \"should\" today." },
-  "use": { meaning: "使用, 习惯, 使用价值, 用法, 使用权；使用, 利用, 运用, 耗费；惯常", sentence: "I learned the word \"use\" today." },
-  "because": { meaning: "因为", sentence: "I learned the word \"because\" today." },
-  "day": { meaning: "天, 日子, 白天, 工作日； 日(一昼夜), 昼, 白天", sentence: "I learned the word \"day\" today." },
-  "man": { meaning: "男人, 人类, 人；为...配备人手, 操纵, 使振奋； 城域网, 手册", sentence: "I learned the word \"man\" today." },
-  "find": { meaning: "发现, 感到, 找到, 认为, 得到；裁决；发现； 查找; DOS外部命令:在指定的文件或从键盘输入的文本行中；寻找指定的字符串, 将符合条件的", sentence: "I learned the word \"find\" today." },
-  "here": { meaning: "在这里, 此时, 这里；这里", sentence: "I learned the word \"here\" today." },
-  "after": { meaning: "在...之后, 由于；在...之后；后来", sentence: "I learned the word \"after\" today." },
-  "thing": { meaning: "事物, 东西, 物, 用品, 事, 事件, 情况, 行为, 特征", sentence: "I learned the word \"thing\" today." },
-  "between": { meaning: "在...之间", sentence: "I learned the word \"between\" today." },
-  "many": { meaning: "多数, 多数人；许多的；许多", sentence: "I learned the word \"many\" today." },
-  "down": { meaning: "向下的；下, 下去, 降下；往下, 沿着；丘陵, 软毛, 开阔的高地； 向下, 退下命令", sentence: "I learned the word \"down\" today." },
-  "tell": { meaning: "告诉, 说, 吩咐, 断定, 知道；讲述, 泄密, 告发, 表明", sentence: "I learned the word \"tell\" today." },
-  "back": { meaning: "后面的；使后退, 支持；倒退, 背靠；向后地；背部, 后面", sentence: "I learned the word \"back\" today." },
-  "even": { meaning: "平坦的, 相等的, 连贯的, 均等的, 公平的, 偶数的, 平均的, 平衡的, 恰好的；使平坦, 使相等；变平, 成为相等；甚至, 实际上, 完", sentence: "I learned the word \"even\" today." },
-  "such": { meaning: "如此的, 这样的", sentence: "I learned the word \"such\" today." },
-  "through": { meaning: "穿越, 从头至尾, 到底, 因为；经过, 穿过；对穿的, 直达的, 完结的", sentence: "I learned the word \"through\" today." },
-  "over": { meaning: "结束, 越过, 从头到尾；在...之上, 遍于...之上, 越过；上面的；越过", sentence: "I learned the word \"over\" today." },
-  "must": { meaning: "必须, 未发酵葡萄汁, 绝对必要的事物；必须", sentence: "I learned the word \"must\" today." },
-  "woman": { meaning: "女人, 妇女, 女仆；女用的, 女性的, 妇女的；贬称...为女人, 使成女人腔", sentence: "I learned the word \"woman\" today." },
-  "still": { meaning: "蒸馏室, 寂静, 剧照；蒸馏, (使)平静, (使)静止；静止的, 不动的, 静寂的, 不起泡的, 静物摄影的；仍然, 更, 静止地；然而, 但", sentence: "I learned the word \"still\" today." },
-  "us": { meaning: "我们； 美国", sentence: "I learned the word \"us\" today." },
-  "life": { meaning: "生活, 生命, 人生, 世事, 生物, 寿命, 一生, 生命力, 灵魂, 无期徒刑； 生活, 生存, 生命, 寿命", sentence: "I learned the word \"life\" today." },
-  "child": { meaning: "孩子, 产物, 追随者； 儿童", sentence: "I learned the word \"child\" today." },
-  "too": { meaning: "也, 非常, 太", sentence: "I learned the word \"too\" today." },
-  "put": { meaning: "放, 摆, 安置, 移动, 发射, 投掷, 写上, 表达, 使从事, 使受到, 驱使, 赋予；出发, 航行, 发芽；掷, 股票出售权, 笨蛋；固", sentence: "I learned the word \"put\" today." },
-  "work": { meaning: "工作, 劳动, 职业, 行为, 功, 作品, 成果, 产品, 工程；工作, 劳动, 做, 运转, 起作用, 被加工；使工作, 使转动, 开动,", sentence: "I learned the word \"work\" today." },
-  "own": { meaning: "自己的；自己的, 嫡亲的, 同胞的；拥有, 支配, 自认, 承认, 顺从于；承认, 供认", sentence: "I learned the word \"own\" today." },
-  "last": { meaning: "最后的, 末尾的, 最近的；持续, 支持, 维持；使维持, 够...用；最后, 后来；最后, 末尾, 鞋楦头", sentence: "I learned the word \"last\" today." },
-  "oh": { meaning: "(表示惊讶、恐怖、赞叹)哦", sentence: "I learned the word \"oh\" today." },
-  "mean": { meaning: "低劣的, 卑贱的, 简陋的, 吝啬的, 惭愧的, 平均的, 中间的, 普通的；意谓, 想要, 意欲, 预定；用意, 有意义；平均数, 中间, 中", sentence: "I learned the word \"mean\" today." },
-  "call": { meaning: "呼叫, 访问, 打电话, 号召, 召集, 要求；呼叫, 召集, 打电话；叫喊, 访问, 叫牌； 调用; 呼叫; DOS内部命令:在批处理文件中调", sentence: "I learned the word \"call\" today." },
-  "become": { meaning: "变成, 变得；适合", sentence: "I learned the word \"become\" today." },
-  "world": { meaning: "世界, 地球, 宇宙, 万物, 世人, 人间, 领域, 世事, 世故, 社会生活, 大量； 世界, 地球, 世人", sentence: "I learned the word \"world\" today." },
-  "government": { meaning: "政府, 内阁； 政府, 政治, 政体", sentence: "I learned the word \"government\" today." },
-  "school": { meaning: "学校, 鱼群, 门派, 学派；教育, 训练, 培养；成群地游", sentence: "I learned the word \"school\" today." },
-  "old": { meaning: "以前, 往昔；老的, 旧的, 古老的, 年长的, 老练的", sentence: "I learned the word \"old\" today." },
-  "try": { meaning: "尝试, 试验, 审理, 审判；试, 尝试, 试验, 考验, 审问, 提炼；尝试, 试图", sentence: "I learned the word \"try\" today." },
-  "leave": { meaning: "许可, 告别, 请假, 休假；离开, 剩下, 遗忘, 委托, 丢弃；出发, 离开, 生叶", sentence: "I learned the word \"leave\" today." },
-  "great": { meaning: "大的, 非常的, 主要的, 重大的, 崇高的, 伟大的；顺利地, 得意地；全部, 大人物, 大师", sentence: "I learned the word \"great\" today." },
-  "ask": { meaning: "问, 要求；问, 要求, 邀请, 需要", sentence: "I learned the word \"ask\" today." },
-  "where": { meaning: "在哪里；哪里；地点", sentence: "I learned the word \"where\" today." },
-  "need": { meaning: "需要, 必须, 缺乏；需要, 必需；贫困, 有必要；需要", sentence: "I learned the word \"need\" today." },
-  "feel": { meaning: "感觉, 觉得, 触摸, 以为；有知觉, 摸索, 同情；感觉, 觉得, 触摸", sentence: "I learned the word \"feel\" today." },
-  "seem": { meaning: "象是, 似乎", sentence: "I learned the word \"seem\" today." },
-  "system": { meaning: "系统, 体系, 制度, 方式, 秩序, 分类原则； 系统; 体制; 体系", sentence: "I learned the word \"system\" today." },
-  "same": { meaning: "相同的, 同样的；相同的人(或事物)；同样地", sentence: "I learned the word \"same\" today." },
-  "state": { meaning: "州, 状态, 情形, 国家, 政府, 领土, 国务, 社会地位；国家的, 正式的, 礼仪用的, 州的；说明, 陈述, 规定； 状态", sentence: "I learned the word \"state\" today." },
-  "might": { meaning: "力量, 权力；可能, 也许", sentence: "I learned the word \"might\" today." },
-  "never": { meaning: "从不, 决不, 不曾； 永不, 决不, 从来没有", sentence: "I learned the word \"never\" today." },
-  "case": { meaning: "情形, 情况, 箱, 容器, 事实, 病例, 案例, 框子；装箱, 包盖", sentence: "I learned the word \"case\" today." },
-  "part": { meaning: "部分, 局部, 零件, 要素, 等分, 职责, 角色, 部位；分开, 分离, 断绝, 区别, 分配；分开, 断裂, 分手；部分的, 局部的；部分", sentence: "I learned the word \"part\" today." },
-  "high": { meaning: "高度, 高处；高的, 高级的, 主要的, 高尚的, 高原的, 高音的, 昂贵的, 傲慢的；高度地, 奢侈地", sentence: "I learned the word \"high\" today." },
-  "group": { meaning: "团体, 组, 团, 群；聚合, 成群； 创建组; 组, 用户组", sentence: "I learned the word \"group\" today." },
-  "something": { meaning: "某事, 某物", sentence: "I learned the word \"something\" today." },
-  "number": { meaning: "数, 数字, 数目, 号码；数, 计算, 共计；计算, 报数； 数字", sentence: "I learned the word \"number\" today." },
-  "really": { meaning: "实际上, 真实地, 实在", sentence: "I learned the word \"really\" today." },
-  "yes": { meaning: "是；是, 同意；同意", sentence: "I learned the word \"yes\" today." },
-  "most": { meaning: "最多, 最大；大多数的, 几乎全部的, 最多的；最, 最多, 极其", sentence: "I learned the word \"most\" today." },
-  "another": { meaning: "另外的, 再一的, 不同的；又一个, 另一个, 类似的另一个", sentence: "I learned the word \"another\" today." },
-  "however": { meaning: "然而, 无论如何, 究竟怎样；然而, 可是", sentence: "I learned the word \"however\" today." },
-  "much": { meaning: "大量, 许多, 重要的事；很多的, 重要的；多, 甚, 几乎", sentence: "I learned the word \"much\" today." },
-  "show": { meaning: "显示, 表现, 展览, 卖弄, 炫耀, 外观, 演出, 洋相；表示, 显示, 展现, 陈列, 演出, 表明, 指出, 带领；露面, 显现, 演出", sentence: "I learned the word \"show\" today." },
-  "family": { meaning: "家庭, 家人, 族；家庭的", sentence: "I learned the word \"family\" today." },
-  "house": { meaning: "房子, 住宅, 机构, 议院, 家族, 家庭；给...房子住, 收藏；住, 躲藏", sentence: "I learned the word \"house\" today." },
-  "area": { meaning: "区域, 面积, 范围, 空地； 区域", sentence: "I learned the word \"area\" today." },
-  "company": { meaning: "公司, 友伴, 交往, 连队, 朋友, 一群；陪伴；交往", sentence: "I learned the word \"company\" today." },
-  "while": { meaning: "一会儿, (一段)时间；当...的时候, 虽然；消磨", sentence: "I learned the word \"while\" today." },
-  "problem": { meaning: "问题, 难题；成问题的, 难处理的", sentence: "I learned the word \"problem\" today." },
-  "against": { meaning: "反对, 对着, 倚靠", sentence: "I learned the word \"against\" today." },
-  "keep": { meaning: "生计, 维持, 保持；保持, 保存, 遵守, 看守, 整理, 维持, 履行, 经营, 拘留, 记帐；保持, 继续不断", sentence: "I learned the word \"keep\" today." },
-  "again": { meaning: "再一次, 又, 到原处", sentence: "I learned the word \"again\" today." },
-  "student": { meaning: "学生, 研究者, 学者", sentence: "I learned the word \"student\" today." },
-  "why": { meaning: "为什么；原因, 理由", sentence: "I learned the word \"why\" today." },
-  "under": { meaning: "在...之下, 低于；下面的, 从属的；在下面", sentence: "I learned the word \"under\" today." },
-  "let": { meaning: "让, 假设, 出租, 排放, 妨碍；出租, 被承包；出租屋, 障碍", sentence: "I learned the word \"let\" today." },
-  "service": { meaning: "服务, 贡献, 雇佣, 公职, 服役, 功劳, 仪式, 送达, 行政部门；保养, 维修；武装部队的, 服务性的, 仆人的, 耐用的； 服务, 业", sentence: "I learned the word \"service\" today." },
-  "big": { meaning: "大的, 重要的；大量地", sentence: "I learned the word \"big\" today." },
-  "place": { meaning: "地方, 地点, 位置, 住所, 座位, 地位, 处境, 特权, 空间, 余地, 职务, 位；放置, 寄予, 认出, 评定, 任命；名次列前", sentence: "I learned the word \"place\" today." },
-  "hand": { meaning: "手, 爪, 指针, 掌握, 协助, 人手, 手艺, 手迹, 支配, 插手；交给, 支持, 搀扶", sentence: "I learned the word \"hand\" today." },
-  "begin": { meaning: "开始； 开始", sentence: "I learned the word \"begin\" today." },
-  "party": { meaning: "宴会, 党, 政党, 团体, 当事人, 聚会；举办聚会", sentence: "I learned the word \"party\" today." },
-  "country": { meaning: "国家, 乡村, 地区, 故乡；乡下的, 农村的； DOS外部命令:用于设定国家代码, 包括日期时间及货币格式", sentence: "I learned the word \"country\" today." },
-  "help": { meaning: "帮忙, 帮助者, 补救办法, 有益的东西；帮助, 帮忙, 接济, 治疗, 款待；有用, 救命, 招待； 帮助, 帮助程序; DOS外部命令: D", sentence: "I learned the word \"help\" today." },
-  "talk": { meaning: "谈话, 交谈, 会谈, 讲话, 演讲, 空谈, 谣言, 方言, 语言；讲话, 演讲, 说话, 谈话, 交流, 闲聊, 说闲话；讲, 说, 讨论,", sentence: "I learned the word \"talk\" today." },
-  "small": { meaning: "小的, 少的, 小型的, 低微的, 小气的, 细微的；些微地；狭小部分", sentence: "I learned the word \"small\" today." },
-  "each": { meaning: "每个, 每一；每个；每个, 个人, 各自", sentence: "I learned the word \"each\" today." },
-  "turn": { meaning: "转弯, 转动, 旋转, 翻转, 一圈, 顺次, 改动, 变化, 性格, 特色, 形状, 转折；使旋转, 转弯, 转动, 使转向, 驱赶, 阻挡,", sentence: "I learned the word \"turn\" today." },
-  "every": { meaning: "每一, 所有的", sentence: "I learned the word \"every\" today." },
-  "provide": { meaning: "提供, 供应, 规定, 预备；作准备, 抚养, 规定", sentence: "I learned the word \"provide\" today." },
-  "start": { meaning: "惊起, 出发, 开端, 起点, 吃惊, 有利条件；开始, 出发, 启动, 跳起, 吃惊, 出现, 松动, 脱落, 起价, 参赛；使惊起, 开动,", sentence: "I learned the word \"start\" today." },
-  "off": { meaning: "关着的, 不再生效的, 处于...境况的, 休假的, 空闲的；走开, ...掉, ...下, 休息, 出发, 隔断；离开, 脱落, 不在从事..", sentence: "I learned the word \"off\" today." },
-  "point": { meaning: "点, 小数点, 标点, 地点, 要点, 特点, 尖端, 分数, 得分, 穴位；弄尖, 强调, 指出, 加标点于, 瞄准；指, 指向, 表明", sentence: "I learned the word \"point\" today." },
-  "different": { meaning: "不同的； 差动, 微分的, 差速器", sentence: "I learned the word \"different\" today." },
-  "hold": { meaning: "把握, 把持力, 柄, 控制, 掌握, 监禁；保存, 握住, 拿住, 占据, 持有, 拥有；支持, 持续, 有效；保留； 保留", sentence: "I learned the word \"hold\" today." },
-  "week": { meaning: "星期, 周", sentence: "I learned the word \"week\" today." },
-  "large": { meaning: "大的, 大量的, 宽大的, 广博的；大大地, 夸大地", sentence: "I learned the word \"large\" today." },
-  "member": { meaning: "成员, 会员； │肢, 肢体", sentence: "I learned the word \"member\" today." },
-  "few": { meaning: "很少的, 不多的, 少数的；少数", sentence: "I learned the word \"few\" today." },
-  "always": { meaning: "总是, 始终", sentence: "I learned the word \"always\" today." },
-  "follow": { meaning: "跟随, 沿行, 遵循, 追求；跟随, 接着；跟随, 追随", sentence: "I learned the word \"follow\" today." },
-  "end": { meaning: "结束, 终点, 目标, 末端, 梢, 死亡, 残余；结束, 终结, 终止； 端; 结束", sentence: "I learned the word \"end\" today." },
-  "without": { meaning: "没有, 不, 在...之外；在外面, 户外；外面, 外部", sentence: "I learned the word \"without\" today." },
-  "within": { meaning: "内部, 里头；在内部, 在内心里；在...之内", sentence: "I learned the word \"within\" today." },
-  "local": { meaning: "地方性的, 当地的, 局部的, 乡土的, 本地的；当地居民, 本地新闻, 局部； 本地的; 局部", sentence: "I learned the word \"local\" today." },
-  "during": { meaning: "在...的时候", sentence: "I learned the word \"during\" today." },
-  "right": { meaning: "权利, 右边, 正义, 右派, 公正；正确的, 对的, 恰当的, 正常的, 正直的, 正面的, 右方的；正确地, 以有利结果, 一直, 直接,", sentence: "I learned the word \"right\" today." },
-  "program": { meaning: "节目, 节目单, 程序, 纲要, 大纲, 计划；规划, 拟...计划；安排节目, 编程序； 程序", sentence: "I learned the word \"program\" today." },
-  "hear": { meaning: "听到, 倾听, 听说, 审理；听见, 听", sentence: "I learned the word \"hear\" today." },
-  "bring": { meaning: "带来, 产生, 促使, 提出；生产", sentence: "I learned the word \"bring\" today." },
-  "word": { meaning: "话, 消息, 词, 诺言, 命令；用言辞表达； 字", sentence: "I learned the word \"word\" today." },
-  "although": { meaning: "虽然, 尽管", sentence: "I learned the word \"although\" today." },
-  "question": { meaning: "问题, 询问；询问, 审问, 怀疑； 询问", sentence: "I learned the word \"question\" today." },
-  "before": { meaning: "在...之前；在...之前；在前", sentence: "I learned the word \"before\" today." },
-  "next": { meaning: "下一个；下一个的, 其次的, 贴近的；然后, 下次, 次于； 近邻干扰", sentence: "I learned the word \"next\" today." },
-  "play": { meaning: "游戏, 游玩, 玩笑, 运动, 比赛, 赌博, 跳动, 表演, 剧本；玩, 游戏, 假装, 开玩笑, 比赛, 扮演, 演奏, 演戏, 传摇曳,", sentence: "I learned the word \"play\" today." },
-  "fact": { meaning: "事实, 真实性, 真相, 细节, 论据", sentence: "I learned the word \"fact\" today." },
-  "run": { meaning: "跑, 赛跑, 奔跑, 奔跑的路程, 趋向, 流出, 运转时间, 连续；跑, 奔跑, 跑步, 赛跑, 竞赛, 行驶, 运转, 进行, 蔓延；使跑,", sentence: "I learned the word \"run\" today." },
-  "social": { meaning: "社会的, 群居的, 社交的；联欢会", sentence: "I learned the word \"social\" today." },
-  "quite": { meaning: "相当, 完全, 十分", sentence: "I learned the word \"quite\" today." },
-  "move": { meaning: "移动, 迁居, 步骤；移动, 开动, 感动, 搬(家)；移动, 离开, 运行, 迁移, 摇动, 搬家, 交往, 进展, 脱手； 移动; 传送", sentence: "I learned the word \"move\" today." },
-  "head": { meaning: "头, 头脑, 领袖, 脑袋, 最前的部分；为首, 朝向, 前进, 用头顶；朝特定方向行进, (作物)结穗；头的, 在顶端的, 主要的； 磁头", sentence: "I learned the word \"head\" today." },
-  "night": { meaning: "夜, 夜晚, 晚上, 黑暗, 夜晚的工作； 夜, 黑夜, 黑暗", sentence: "I learned the word \"night\" today." },
-  "live": { meaning: "活的, 生动的, 精力充沛的, 实况转播的；活, 生存, 居住；过着, 度过, 经历；实况地", sentence: "I learned the word \"live\" today." },
-  "write": { meaning: "书写, 著述, 写, 写满, 写信给；写, 写字, 写信, 写作, 作曲； 书写器", sentence: "I learned the word \"write\" today." },
-  "side": { meaning: "旁边, 侧, 方面, 胁, 侧边, 血统；旁的, 侧的, 次要的；同意, 支持；支持, 赞助", sentence: "I learned the word \"side\" today." },
-  "believe": { meaning: "相信", sentence: "I learned the word \"believe\" today." },
-  "set": { meaning: "日落, 同伙, 组合, 集合, 装置；放, 安置, 放置, 设定, 使凝结, 点燃, 确定, 点缀, 使就位, 树立, 分配, 调整；日落, 凝", sentence: "I learned the word \"set\" today." },
-  "month": { meaning: "月； 月", sentence: "I learned the word \"month\" today." },
-  "today": { meaning: "今天, 当今, 现在；今天, 当今", sentence: "I learned the word \"today\" today." },
-  "business": { meaning: "生意, 事情, 业务, 商业, 商行, 职责； 企业, 商业, 营业", sentence: "I learned the word \"business\" today." },
-  "happen": { meaning: "发生, 发生, 恰巧", sentence: "I learned the word \"happen\" today." },
-  "long": { meaning: "长的, 长久的, 冗长的, 做多头的；渴望, 热望, 极想；长久, 始终；长时间, 长信号, 长整型； 长, 长整型", sentence: "I learned the word \"long\" today." },
-  "important": { meaning: "重要的, 有地位的, 大量的, 显要的, 自负的； 要点", sentence: "I learned the word \"important\" today." },
-  "eye": { meaning: "眼睛, 视力, 看；看, 注视", sentence: "I learned the word \"eye\" today." },
-  "home": { meaning: "家, 避难所, 故乡；家庭的, 国内的, 打中目标的；在家, 在本国, 打中目标地； 返回始位", sentence: "I learned the word \"home\" today." },
-  "information": { meaning: "消息, 知识, 通知, 情报, 信息, 问讯处, 起诉； 信息", sentence: "I learned the word \"information\" today." },
-  "power": { meaning: "力, 体力, 力量, 势力, 动力, 权力, 强国, 乘方, 强度, 幂, 功率；使...有力量, 供以动力, 激励； 乘幂; DOS外部命令:", sentence: "I learned the word \"power\" today." },
-  "water": { meaning: "水, 雨水, 海水, 水位, 水面, 流水；给...浇水, 供以水, 注入水, 使湿；流泪, 流口水, 加水；水的, 水上的, 水生的, 含水的", sentence: "I learned the word \"water\" today." },
-  "change": { meaning: "变化, 找回的零钱, 找头, 更换；改变, 更换, 兑换", sentence: "I learned the word \"change\" today." },
-  "pay": { meaning: "薪资, 付款, 补偿；支付, 付清, 补偿, 偿还, 对...有利, 为...涂防水物；付款, 付出代价, 偿还, 得到报应, 获得好处", sentence: "I learned the word \"pay\" today." },
-  "room": { meaning: "房间, 空位, 场所；住宿, 居住；留宿", sentence: "I learned the word \"room\" today." },
-  "young": { meaning: "年轻的, 无经验的, 朝气蓬勃的；青年们, 幼小动物, 崽", sentence: "I learned the word \"young\" today." },
-  "both": { meaning: "两者的；两者都；两者", sentence: "I learned the word \"both\" today." },
-  "mother": { meaning: "母亲, 修女院长；产生, 照看, 收养", sentence: "I learned the word \"mother\" today." },
-  "often": { meaning: "时常, 常常", sentence: "I learned the word \"often\" today." },
-  "interest": { meaning: "兴趣, 嗜好, 利息, 利益, 爱好, 趣味, 势力；使感兴趣, 与...有关系", sentence: "I learned the word \"interest\" today." },
-  "national": { meaning: "国家的, 国立的, 全国性的, 民族的； 全国性的, 国家的, 国民的", sentence: "I learned the word \"national\" today." },
-  "money": { meaning: "金钱, 一笔款, 财富, 货币, 金额； 货币, 金钱, 财产", sentence: "I learned the word \"money\" today." },
-  "story": { meaning: "故事, 小说, 传奇, 描述, 阅历, 经历, 层", sentence: "I learned the word \"story\" today." },
-  "development": { meaning: "发展； 展开", sentence: "I learned the word \"development\" today." },
-  "book": { meaning: "书, 书籍, 帐簿, 名册, 工作簿；登记, 预订； 工作簿", sentence: "I learned the word \"book\" today." },
-  "away": { meaning: "离去", sentence: "I learned the word \"away\" today." },
-  "form": { meaning: "形状, 形体, 类型, 方式, 表格, 形式；形成, 排列, (使)组成；表单； 表单", sentence: "I learned the word \"form\" today." },
-  "study": { meaning: "学习, 研究, 学科, 论文, 求学, 书房, 试作；学习, 读书, 研究, 考虑, 计划；学习, 思索", sentence: "I learned the word \"study\" today." },
-  "level": { meaning: "水平, 水准, 平地；同高的, 平坦的, 齐平的, 水平的；弄平, 夷平, 使同等, 瞄准, 对准；变平, 拉平； 级别", sentence: "I learned the word \"level\" today." },
-  "second": { meaning: "秒, 瞬间, 第二名, 支持者, 助手；第二的, 其次的, 次要的, 附加的, 辅助的；第二；当...助手, 支持", sentence: "I learned the word \"second\" today." },
-  "job": { meaning: "工作, 零活, 职业, 事情；做零工, 打杂, 做股票经纪, 假公济私；代客买卖, 批发, 承包, 欺骗； 作业", sentence: "I learned the word \"job\" today." },
-  "early": { meaning: "早的, 早熟的；很早, 初", sentence: "I learned the word \"early\" today." },
-  "though": { meaning: "然而, 可是；虽然, 纵然", sentence: "I learned the word \"though\" today." },
-  "include": { meaning: "包括, 把...算入, 包住； DOS内部命令:在CONFIG.SYS文件的一个配置块中包含另一配置块的内容", sentence: "I learned the word \"include\" today." },
-  "car": { meaning: "汽车, 客车； 车", sentence: "I learned the word \"car\" today." },
-  "issue": { meaning: "发行, 问题, 后果, 流出, 出口, 争端；发行, 流出, 造成...结果, 传下；使流出, 放出, 发行, 发布, 发给", sentence: "I learned the word \"issue\" today." },
-  "perhaps": { meaning: "也许, 大概", sentence: "I learned the word \"perhaps\" today." },
-  "kind": { meaning: "种类, 性质, 方式；亲切的, 仁慈的, 和蔼的", sentence: "I learned the word \"kind\" today." },
-  "policy": { meaning: "政策, 方针, 策略, 保险单； 凭单, 保险单", sentence: "I learned the word \"policy\" today." },
-  "council": { meaning: "会议, 委员会； 委员会", sentence: "I learned the word \"council\" today." },
-  "far": { meaning: "远的, 久远的, 遥远的；甚远地, 很, 到很深的程度, 到很远的距离", sentence: "I learned the word \"far\" today." },
-  "black": { meaning: "黑色, 黑颜料；黑色的", sentence: "I learned the word \"black\" today." },
-  "market": { meaning: "市场, 交易, 集市, 推销地区, 行情, 市面, 销路；在市场上交易, 使上市, 销售；在市场上买卖", sentence: "I learned the word \"market\" today." },
-  "court": { meaning: "法院, 庭院, 奉承；献殷勤, 追求, 招致；求爱", sentence: "I learned the word \"court\" today." },
-  "already": { meaning: "已经, 早已", sentence: "I learned the word \"already\" today." },
-  "little": { meaning: "一点点, 少许, 一会儿, 短时间；小的, 很少的, 幼小的, 琐碎的, 短暂的, 矮小的；很少, 稍微, 完全不", sentence: "I learned the word \"little\" today." },
-  "possible": { meaning: "可能的, 潜在的, 合适的；可能性, 可能的事物", sentence: "I learned the word \"possible\" today." },
-  "allow": { meaning: "允许, 同意给予, 承认；容许, 猜想； 允许命令", sentence: "I learned the word \"allow\" today." },
-  "nothing": { meaning: "无, 不关紧要之事, 零；毫不, 决不；什么也没有, 无", sentence: "I learned the word \"nothing\" today." },
-  "meet": { meaning: "会, 集会；适宜的, 合适的；遇见, 引见, 认识, 满足, 对付；相遇, 接触", sentence: "I learned the word \"meet\" today." },
-  "since": { meaning: "自...以后, 自...以来；自那时以后；既然, 自...以后, 自...以来", sentence: "I learned the word \"since\" today." },
-  "yet": { meaning: "还, 尚, 仍然, 已经, 然而；然而", sentence: "I learned the word \"yet\" today." },
-  "effect": { meaning: "结果, 影响, 效果, 印象；实行, 引起, 完成； 效果", sentence: "I learned the word \"effect\" today." },
-  "lead": { meaning: "铅, 铅条, 领导, 超前量, 领引, 榜样, 主角, 导线；引导, 带领, 领导, 指挥, 致使, 加铅于, 用铅包；领导, 带头, 导致,", sentence: "I learned the word \"lead\" today." },
-  "around": { meaning: "包围, 在...周围, 四处；兜着圈子, 在附近, 到处", sentence: "I learned the word \"around\" today." },
-  "result": { meaning: "结果, 成绩, 答案；产生, 结果, 致使； 结果", sentence: "I learned the word \"result\" today." },
-  "friend": { meaning: "朋友, 支持者, 赞助者； 朋友, 友人, 赞助者", sentence: "I learned the word \"friend\" today." },
-  "whether": { meaning: "是否, 不论；两个中的哪一个", sentence: "I learned the word \"whether\" today." },
-  "father": { meaning: "父亲, 祖先, 长辈, 神父, 创始者；当...的父亲, 保护, 创作, 发明, 培养", sentence: "I learned the word \"father\" today." },
-  "sit": { meaning: "坐, 就座, 坐落；使就座, 骑；坐, 衣服合身", sentence: "I learned the word \"sit\" today." },
-  "idea": { meaning: "主意, 办法, 理想, 思想, 概念, 意见； 观念, 思想", sentence: "I learned the word \"idea\" today." },
-  "until": { meaning: "直到, 在...以前；直到...时, 在...以前", sentence: "I learned the word \"until\" today." },
-  "name": { meaning: "名字, 名称, 姓名, 名义, 名誉, 文件名；命名, 称呼, 任命, 提名, 列举；姓名的, 据以取名的； 名称, 文件名, 姓名", sentence: "I learned the word \"name\" today." },
-  "hour": { meaning: "小时, 钟头, 时间, ...点钟, 课时", sentence: "I learned the word \"hour\" today." },
-  "game": { meaning: "比赛, 玩耍, 比分, 得胜, 比赛规则, 策略, 游戏, 野味；赌博；勇敢的, 有胆量的, 关于野味的, 跛的； 博弈; 对策", sentence: "I learned the word \"game\" today." },
-  "stand": { meaning: "站立, 站住, 停顿, 讲台, 看台, 立场, 法院证人席；站, 立, 坐落, 停滞, 位于, 坚持, 维持原状；忍受, 使站立, 抵挡", sentence: "I learned the word \"stand\" today." },
-  "body": { meaning: "身体, 人, 尸体, 主要部分, 团体；赋以形体； 体", sentence: "I learned the word \"body\" today." },
-  "line": { meaning: "列, 线, 绳, 电线, 线路, 路线, 航线, 作业线, 界线, 战线, 外形, 排, 家系；排成一行, 顺...排列, 划线于, 加衬里,", sentence: "I learned the word \"line\" today." },
-  "report": { meaning: "报告, 报道, 传说, 案情报告, 爆炸声, 成绩单；报告, 汇报, 转述, 报道, 揭发, 使报到；报告, 写报道, 报到； 报告", sentence: "I learned the word \"report\" today." },
-  "political": { meaning: "政治的, 政治上的, 政党的, 从事政治的； 政治的, 政治上的, 党派政治的", sentence: "I learned the word \"political\" today." },
-  "law": { meaning: "法律, 法则, 定律, 法律的制约, 法学, 司法界, 诉讼；起诉", sentence: "I learned the word \"law\" today." },
-  "among": { meaning: "在...之中", sentence: "I learned the word \"among\" today." },
-  "later": { meaning: "以后, 随后", sentence: "I learned the word \"later\" today." },
-  "ever": { meaning: "曾经, 究竟, 永远", sentence: "I learned the word \"ever\" today." },
-  "almost": { meaning: "几乎, 差不多", sentence: "I learned the word \"almost\" today." },
-  "bad": { meaning: "坏的；坏；坏地", sentence: "I learned the word \"bad\" today." },
-  "face": { meaning: "脸, 面容, 正面, 外观；面对, 朝, 正视, 面临；朝, 向； 现场可改变的控制元件", sentence: "I learned the word \"face\" today." },
-  "lose": { meaning: "遗失, 损失, 丢失, 使失去, 错过, 浪费, 迷失, 使迷路, 输去, 使沉溺于；受损失, 失败", sentence: "I learned the word \"lose\" today." },
-  "carry": { meaning: "进位, 射程, 运载；携带, 运送, 支持, 传送, 包含；被携带, 能达到； 进位; 进位数", sentence: "I learned the word \"carry\" today." },
-  "road": { meaning: "路, 道路, 公路, 途径, 方法； 公路, 道路, 行车道", sentence: "I learned the word \"road\" today." },
-  "authority": { meaning: "权力, 当权者, 当局, 权威, 专家； 代理权, 授权, 权威", sentence: "I learned the word \"authority\" today." },
-  "himself": { meaning: "他自己, 他亲自", sentence: "I learned the word \"himself\" today." },
-  "together": { meaning: "一起, 共同, 彼此", sentence: "I learned the word \"together\" today." },
-  "city": { meaning: "城市, 市； 都市, 城市, 市", sentence: "I learned the word \"city\" today." },
-  "appear": { meaning: "出现, 显得, 来到； 出庭, 到案, 出现", sentence: "I learned the word \"appear\" today." },
-  "continue": { meaning: "继续, 延续, 延长；使继续, 使延长", sentence: "I learned the word \"continue\" today." },
-  "minister": { meaning: "部长, 牧师, 公使；服侍, 救助, 主持宗教仪式", sentence: "I learned the word \"minister\" today." },
-  "able": { meaning: "能干的, 能够的", sentence: "I learned the word \"able\" today." },
-  "produce": { meaning: "生产品, 物产, 后代；产生, 生产, 提出, 出示；生产, 制造", sentence: "I learned the word \"produce\" today." },
-  "community": { meaning: "社区, 公众, 共有, 共同体； 公众, 共有, 社会", sentence: "I learned the word \"community\" today." },
-  "rate": { meaning: "比率, 率, 速度, 价格, 费用, 等级；估价, 认为, 鉴定等级, 责骂；被评价, 责骂", sentence: "I learned the word \"rate\" today." },
-  "late": { meaning: "迟的, 晚的, 已故的；很晚, 很迟, 晚", sentence: "I learned the word \"late\" today." },
-  "door": { meaning: "门", sentence: "I learned the word \"door\" today." },
-  "once": { meaning: "一次, 曾经, 一旦；一旦, 一经；一次；从前的", sentence: "I learned the word \"once\" today." },
-  "white": { meaning: "白色, 洁白, 眼白, 白种人, 蛋白；白色的, 纯洁的, 白种的, 苍白的, 空白的, 幸运的", sentence: "I learned the word \"white\" today." },
-  "general": { meaning: "一般, 将军, 大体；全面的, 大体的, 总的, 一般的, 普遍的；常规； 常规", sentence: "I learned the word \"general\" today." },
-  "least": { meaning: "最少, 最小, 最小限度；最少的, 最小的；最小, 最少", sentence: "I learned the word \"least\" today." },
-  "office": { meaning: "办公室, 部, 公职, 职责； 办公室", sentence: "I learned the word \"office\" today." },
-  "president": { meaning: "总统, 总裁, 董事长, (学院)院长, (大学)校长, 主管人, 主持人； 总经理, 董事长, 总裁", sentence: "I learned the word \"president\" today." },
-  "war": { meaning: "战争, 战争状态, 战术, 军事, 冲突, 斗争, 竞争；进行战争, 作战, 打仗, 战斗；战争的, 战时用的", sentence: "I learned the word \"war\" today." },
-  "learn": { meaning: "学习；认识到；得知", sentence: "I learned the word \"learn\" today." },
-  "real": { meaning: "真的, 真实的, 实际的, 实在的, 不动(产)的, 实数的；实数, 现实；真正地", sentence: "I learned the word \"real\" today." },
-  "team": { meaning: "队, 组；把马(牛)套在同一辆车上, 把...编成一组；驾驶卡车, 协作", sentence: "I learned the word \"team\" today." },
-  "offer": { meaning: "给予(物), 出价, 提议, 意图, 报价；提供, 出价, 奉献, 试图, 使出现, 演出；出现, 献祭, 提议, 求婚", sentence: "I learned the word \"offer\" today." },
-  "minute": { meaning: "分, 分钟, 片刻, 备忘录, 笔记；记录, 摘录, 测定时间；微小的, 详细的", sentence: "I learned the word \"minute\" today." },
-  "person": { meaning: "人, 人身, 人称； 人, 法人, 人身", sentence: "I learned the word \"person\" today." },
-  "full": { meaning: "全部, 完整；充满的, 完全的, 丰富的, 完美的, 丰满的, 详尽的；完全地, 整整, 十分；把(衣服等)缝得宽松, 漂洗； 完整", sentence: "I learned the word \"full\" today." },
-  "reason": { meaning: "理由, 原因, 理智, 道理, 前提, 理性；说服, 推论, 辩论；推论, 劝说, 思考", sentence: "I learned the word \"reason\" today." },
-  "several": { meaning: "几个的, 一些的, 各自的；几个", sentence: "I learned the word \"several\" today." },
-  "view": { meaning: "视野, 风景, 见解, 视力, 观看, 视图, 指望, 意图, 印象；看, 考虑, 视察, 查看, 估量； 视图", sentence: "I learned the word \"view\" today." },
-  "kid": { meaning: "小山羊, 小山羊肉, 小孩, 欺骗；小山羊皮制的；哄骗, 嘲弄", sentence: "I learned the word \"kid\" today." },
-  "consider": { meaning: "考虑, 思考, 认为", sentence: "I learned the word \"consider\" today." },
-  "expect": { meaning: "预期, 盼望, 期待", sentence: "I learned the word \"expect\" today." },
-  "suggest": { meaning: "提议, 建议, 促成, 暗示, 启发, 使人想起； 建议, 提出, 提议", sentence: "I learned the word \"suggest\" today." },
-  "anything": { meaning: "任何事", sentence: "I learned the word \"anything\" today." },
-  "ago": { meaning: "以前", sentence: "I learned the word \"ago\" today." },
-  "term": { meaning: "术语, 专有名词, 期限, 学期, 任期, 条件, 价钱, 关系, 地位, 项, 界石；称, 呼； 检索词; 项", sentence: "I learned the word \"term\" today." },
-  "towards": { meaning: "向, 对于, 为了", sentence: "I learned the word \"towards\" today." },
-  "low": { meaning: "低点, 低价, 低, 牛叫声；低的, 消沉的, 低等的, 浅的, 卑贱的；低下地, 谦卑地, 低；牛叫", sentence: "I learned the word \"low\" today." },
-  "public": { meaning: "公众, 民众；公众的, 公共的, 公立的, 公用的", sentence: "I learned the word \"public\" today." },
-  "understand": { meaning: "理解, 了解, 领会, 听说, 懂；懂得, 认为", sentence: "I learned the word \"understand\" today." },
-  "require": { meaning: "需要, 命令, 要求； 需要, 要求, 命令", sentence: "I learned the word \"require\" today." },
-  "read": { meaning: "读, 阅读, 理解；有学问的；读取, 阅读； 读取", sentence: "I learned the word \"read\" today." },
-  "watch": { meaning: "观察, 手表, 看守, 守护, 监视, 值班人；看, 注视, 照顾, 看守, 守护, 监视；观看, 注视, 守侯", sentence: "I learned the word \"watch\" today." },
-  "period": { meaning: "时期, 节段, 节, 句点, 学时, 周期；当时特有的, 过去某段时期的；就是这话, 就是这么回事", sentence: "I learned the word \"period\" today." },
-  "figure": { meaning: "数字, 价格, 图形, 形状；描绘, 表示, 演算, 认为；计算, 出现, 估计", sentence: "I learned the word \"figure\" today." },
-  "society": { meaning: "社会；社交界；交往；社团", sentence: "I learned the word \"society\" today." },
-  "centre": { meaning: "中心, 中心点, 中锋；中央的, 位在正中的；集中, 定中心；居中", sentence: "I learned the word \"centre\" today." },
-  "parent": { meaning: "父母, 父母亲, 根源； 父亲, 母亲, 根源", sentence: "I learned the word \"parent\" today." },
-  "police": { meaning: "警察, 警察当局, 治安；维持治安, 管辖", sentence: "I learned the word \"police\" today." },
-  "stop": { meaning: "停止, 车站, 逗留, 填塞, 障碍, (风琴的)音栓；停止, 被塞住；塞住, 堵塞, 阻止, 击落, 停止, 终止, 断绝", sentence: "I learned the word \"stop\" today." },
-  "add": { meaning: "增加, 添加, 附带说明, 计算...总和；做加法, 积累而成, 增添； 加法", sentence: "I learned the word \"add\" today." },
-  "fall": { meaning: "落下, 瀑布, 采伐量, 下降, 落差, 降低, 堕落, 秋天；倒下, 落下, 来临, 失守, 阵亡, 下跌, 减弱, 倾斜, 垮台, 轮到,", sentence: "I learned the word \"fall\" today." },
-  "create": { meaning: "创造, 建造, 引起, 任命", sentence: "I learned the word \"create\" today." },
-  "probably": { meaning: "大概, 或许", sentence: "I learned the word \"probably\" today." },
-  "available": { meaning: "可利用的, 可获得的, 有效的； 有效的, 可得的", sentence: "I learned the word \"available\" today." },
-  "speak": { meaning: "说, 说话, 演说, 发言；说, 讲, 说出", sentence: "I learned the word \"speak\" today." },
-  "price": { meaning: "价格, 代价, 价值；定...的价格", sentence: "I learned the word \"price\" today." },
-  "control": { meaning: "控制, 管理, 克制, 控制器, 操纵装置；控制, 操纵, 抑制； 控制; 控制器", sentence: "I learned the word \"control\" today." },
-  "action": { meaning: "行动, 活动, 动作, 作用, 战斗, 行为, 诉讼；对...起诉； 方式", sentence: "I learned the word \"action\" today." },
-  "cost": { meaning: "代价, 价值, 费用；花费；使失去, 值, 使花费", sentence: "I learned the word \"cost\" today." },
-  "spend": { meaning: "花费, 浪费, 度过, 消耗, 消磨；花费, 用尽", sentence: "I learned the word \"spend\" today." },
-  "process": { meaning: "程序, 进行, 过程；加工, 使...接受处理, 对...处置, 对...起诉；经加工的, 有特殊光效的； 进程", sentence: "I learned the word \"process\" today." },
-  "health": { meaning: "健康, 卫生, 蓬勃, 健康状态； 健康", sentence: "I learned the word \"health\" today." },
-  "remain": { meaning: "保持, 逗留, 剩余； 停留, 居住, 继续", sentence: "I learned the word \"remain\" today." },
-  "position": { meaning: "位置, 地位, 身分, 形势, 姿势, 立场, 职位, 状态, 阵地；安置, 决定...的位置； 位置", sentence: "I learned the word \"position\" today." },
-  "art": { meaning: "艺术, 人文科学, 技术, 巧妙, 诡计, 美术； 实际保持时间, 特许权和资源表, 平均检索时间, 平均运行时间", sentence: "I learned the word \"art\" today." },
-  "remember": { meaning: "记得, 回忆起, 记住, 铭记, 纪念；记得", sentence: "I learned the word \"remember\" today." },
-  "sure": { meaning: "确信, 必然的, 必定的；当然, 确实地, 无疑地", sentence: "I learned the word \"sure\" today." },
-  "course": { meaning: "课程, 路线, 过程, 一道菜, 道路；追, (使)跑", sentence: "I learned the word \"course\" today." },
-  "history": { meaning: "历史, 过去, 经历, 发展过程, 历史学, 过去的事, 历史记录； 历史记录", sentence: "I learned the word \"history\" today." },
-  "buy": { meaning: "买, 获得；买；购买, 买得的东西", sentence: "I learned the word \"buy\" today." },
-  "grow": { meaning: "种植, 使长满；生长, 变成, 发展", sentence: "I learned the word \"grow\" today." },
-  "education": { meaning: "教育, 训练, 教育学； 教育, 训练", sentence: "I learned the word \"education\" today." },
-  "actually": { meaning: "事实上, 竟然, 如今, 现在", sentence: "I learned the word \"actually\" today." },
-  "open": { meaning: "公开, 户外, 空旷；开着的, 开放的, 开阔的, 营业着的, 公开的, 悬而未决的；打开, 公开, 开放；展开, 开始, 展现； 打开指令", sentence: "I learned the word \"open\" today." },
-  "type": { meaning: "类型, 样式, 典型, 榜样, 标志, 符号, 型, 式；打字；作为代表, 测定类型, 用打字机打； 类型; 键入; DOS内部命令:在屏幕上显", sentence: "I learned the word \"type\" today." },
-  "morning": { meaning: "早晨, 早上, 初期", sentence: "I learned the word \"morning\" today." },
-  "research": { meaning: "研究, 调查, 考察；研究, 调查", sentence: "I learned the word \"research\" today." },
-  "walk": { meaning: "走, 散步, 步行, 行走的路程, 竞走, 散步场所；走路, 步行, 处世；走过, 遛, 使走, 护送...走", sentence: "I learned the word \"walk\" today." },
-  "subject": { meaning: "科目, 主题, 臣民, 主语, 题目, (事物的)经受者, 学科, 受治疗者, 原因, 理由；服从的, 易患...的, 隶属的, 受支配的；在.", sentence: "I learned the word \"subject\" today." },
-  "programme": { meaning: "节目, 节目单, 程序, 纲要, 大纲, 计划；规划, 拟...计划；安排节目, 编程序", sentence: "I learned the word \"programme\" today." },
-  "win": { meaning: "赢得, 打胜, 成功；获胜, 达到, 影响；胜利, 赢, 收益", sentence: "I learned the word \"win\" today." },
-  "moment": { meaning: "片刻, 瞬间, 重要, 阶段, 力矩； 片刻, 瞬间, 时机, 因素, 矩", sentence: "I learned the word \"moment\" today." },
-  "girl": { meaning: "女孩, 少女, 女佣", sentence: "I learned the word \"girl\" today." },
-  "age": { meaning: "年龄, 老年, 成年, 寿命, 时代, 时期；变老, 成熟", sentence: "I learned the word \"age\" today." },
-  "guy": { meaning: "家伙, 支索；用支索撑住, 取笑, 嘲弄；逃跑", sentence: "I learned the word \"guy\" today." },
-  "food": { meaning: "食物, 养料； 食物, 食品", sentence: "I learned the word \"food\" today." },
-  "send": { meaning: "发送, 使进入, 寄, 派遣, 发射, 使陷于；寄信, 派人, 播送；(船的)上升运动； 发送", sentence: "I learned the word \"send\" today." },
-  "value": { meaning: "价值, 价格, 购买力, 评价, 估价, 计算结果；评价, 估价, 重视； 计算结果", sentence: "I learned the word \"value\" today." },
-  "order": { meaning: "次序, 规则, 命令；命令, 定货；整理, 命令, 定购；顺序, 阶数； 顺序, 阶数", sentence: "I learned the word \"order\" today." },
-  "force": { meaning: "力量, 武力, 势力, 影响力, 军队, 力, 效力；强迫, 强夺, 推动, 提高； 人工转移; 强制", sentence: "I learned the word \"force\" today." },
-  "air": { meaning: "空气, 旋律, 态度；晾, 使通风, 夸耀", sentence: "I learned the word \"air\" today." },
-  "matter": { meaning: "事件, 物质, 原因, 素材, 实体, 重要；有关系", sentence: "I learned the word \"matter\" today." },
-  "act": { meaning: "行动, 行为, 幕, 法案；行动, 表演, 假装, 见效, 表现, 担当；扮演, 装作； 先进通信技术, 先进计算机工艺, 自动代码翻译技术", sentence: "I learned the word \"act\" today." },
-  "receive": { meaning: "收到, 接到, 得到, 接待, 迎接, 承受；收到, 会客； 接收", sentence: "I learned the word \"receive\" today." },
-  "enough": { meaning: "充足, 够, 很多；充足的, 足够；足够；够了", sentence: "I learned the word \"enough\" today." },
-  "decide": { meaning: "决定, 判决", sentence: "I learned the word \"decide\" today." },
-  "main": { meaning: "主要部分, 干线, 体力, 力量, 主群组；主要的, 重要的, 全力的； 主群组", sentence: "I learned the word \"main\" today." },
-  "across": { meaning: "越过, 穿过, 与...相交叉, 在...的对面；交叉, 到另一边, 在对面, 成十字", sentence: "I learned the word \"across\" today." },
-  "less": { meaning: "较少, 较小；少的, 小的；较少, 较小, 较差； 最低成本估算与调度法", sentence: "I learned the word \"less\" today." },
-  "foot": { meaning: "脚, 步调, 英尺, 底部, 末尾, 步兵；走在...上, 给...换底, 支付；跳舞, 步行, 总计", sentence: "I learned the word \"foot\" today." },
-  "street": { meaning: "街道, 马路, 街区；街道的", sentence: "I learned the word \"street\" today." },
-  "decision": { meaning: "决定, 决心, 决断； 判定", sentence: "I learned the word \"decision\" today." },
-  "boy": { meaning: "男孩； 男孩, 少年, 儿子", sentence: "I learned the word \"boy\" today." },
-  "maybe": { meaning: "也许, 大概；可能性", sentence: "I learned the word \"maybe\" today." },
-  "industry": { meaning: "勤劳, 工业, 企业, 产业, 有组织的劳动； 工业, 实业", sentence: "I learned the word \"industry\" today." },
-  "patient": { meaning: "病人, 承受者；忍耐的, 容忍的, 有耐性的, 坚忍的", sentence: "I learned the word \"patient\" today." },
-  "mind": { meaning: "思想, 愿望, 智力, 记忆, 心理, 情绪, 理智, 主意, 心意；介意, 注意, 留心；注意, 留意, 专心于, 照看, 介意", sentence: "I learned the word \"mind\" today." },
-  "class": { meaning: "班级, 阶级, 种类, 课；分类； 类别; 类; 种类; 类程", sentence: "I learned the word \"class\" today." },
-  "everything": { meaning: "每件事物, 所有事物", sentence: "I learned the word \"everything\" today." },
-  "love": { meaning: "爱, 恋爱, 爱情, 爱好, 性爱；爱, 爱好, 爱慕；爱", sentence: "I learned the word \"love\" today." },
-  "clear": { meaning: "清楚的, 明确的, 澄清的；清晰地；澄清, 清除障碍；放晴, 变清澈；空隙； 清除", sentence: "I learned the word \"clear\" today." },
-  "major": { meaning: "主修课, 成年人, 陆军少校；主要的, 较多的, 大部分的, 成年的, 严重的；主修； 主要, 主要刻度", sentence: "I learned the word \"major\" today." },
-  "music": { meaning: "音乐, 乐曲", sentence: "I learned the word \"music\" today." },
-  "church": { meaning: "教堂, 礼拜, 教会；使人接受宗教仪式；教堂的", sentence: "I learned the word \"church\" today." },
-  "themselves": { meaning: "他们自己, 她们自己, 它们自己", sentence: "I learned the word \"themselves\" today." },
-  "paper": { meaning: "纸, 文件, 文章, 报纸, 证券, 证件；用纸糊, 贴壁纸于, 用纸包装；贴壁纸；纸做的, 纸上的", sentence: "I learned the word \"paper\" today." },
-  "itself": { meaning: "它本身, 它自己", sentence: "I learned the word \"itself\" today." },
-  "describe": { meaning: "描述, 描绘, 画", sentence: "I learned the word \"describe\" today." },
-  "human": { meaning: "人, 人类；人类的, 似人类的, 人性的, 有同情心的", sentence: "I learned the word \"human\" today." },
-  "condition": { meaning: "情况, 条件；使健康, 以...为条件, 决定, 使适应； 条件", sentence: "I learned the word \"condition\" today." },
-  "wait": { meaning: "等待, 等候；等候, 期待, 延缓, 伺候, 推迟；等, 等候, 耽搁, 伺候用餐； 等待", sentence: "I learned the word \"wait\" today." },
-  "develop": { meaning: "发展, 使发达, 进步, 洗印, 显影；发展, 生长", sentence: "I learned the word \"develop\" today." },
-  "agree": { meaning: "同意, 赞成, 应允, 适合；承认, 认定, 同意", sentence: "I learned the word \"agree\" today." },
-  "serve": { meaning: "可作...用, 服务, 经历, 招待, 供应, 送交, 对待；服务, 服役, 侍应, 适合, 有用, 开球；发球, 轮到发球", sentence: "I learned the word \"serve\" today." },
-  "economic": { meaning: "经济上的, 实用的, 节省的； 经济的", sentence: "I learned the word \"economic\" today." },
-  "die": { meaning: "死亡, 消逝, 平息, 熄灭, 漠然, 渴望；死；骰子, 冲模", sentence: "I learned the word \"die\" today." },
-  "reach": { meaning: "伸出, 延伸, 区域, 范围, 流域, 岬；到达, 达到, 伸出, 延伸, 影响；达到, 延伸, 伸出手, 传到", sentence: "I learned the word \"reach\" today." },
-  "upon": { meaning: "在...之上, 迫近, 紧接着", sentence: "I learned the word \"upon\" today." },
-  "bank": { meaning: "银行, 堤, 岸； 库", sentence: "I learned the word \"bank\" today." },
-  "sense": { meaning: "感应, 感觉, 感官, 意识, 观念, 情理, 知觉, 理智；感觉, 觉察, 检测； 阅读; 检测", sentence: "I learned the word \"sense\" today." },
-  "century": { meaning: "世纪, 百年", sentence: "I learned the word \"century\" today." },
-  "build": { meaning: "建立, 建筑；构造, 体格", sentence: "I learned the word \"build\" today." },
-  "therefore": { meaning: "因此, 所以", sentence: "I learned the word \"therefore\" today." },
-  "stay": { meaning: "停留, 逗留, 制止, 延缓, 停止, 支柱, 支撑物, 支索；制止, 延缓, 坚持, 支持, 支撑, 用支索固定；停留, 逗留, 暂停, 坚持", sentence: "I learned the word \"stay\" today." },
-  "section": { meaning: "区段, 部分, 区域, 节, 截面, 处, 科, 区, 扇区；把...分段, 把...切片；被切成片； 扇区", sentence: "I learned the word \"section\" today." },
-  "table": { meaning: "桌子, 餐桌, 工作台, 铭文, 表格, 表, 高原, 平地层；搁置, 嵌合, 制表, 把...列入议事日程； 表格, 模拟运算表", sentence: "I learned the word \"table\" today." },
-  "nation": { meaning: "国家, 民族； 民族, 国家", sentence: "I learned the word \"nation\" today." },
-  "activity": { meaning: "活动, 行动, 活跃, 活力； 活动", sentence: "I learned the word \"activity\" today." },
-  "plan": { meaning: "计划, 方案, 策略, 方法, 进度表, 程序表, 平面图, 设计图, 轮廓, 示意图；计划, 设计, 意欲；订计划", sentence: "I learned the word \"plan\" today." },
-  "cut": { meaning: "切口, 割伤, 降低, 切, 割, 砍, 削, 伤口, 削减, 缩短, 删节, 通路；经切割的, 缩减的；切, 割, 减少, 刺痛, 开辟, 雕", sentence: "I learned the word \"cut\" today." },
-  "death": { meaning: "死亡； 死亡", sentence: "I learned the word \"death\" today." },
-  "college": { meaning: "学院, 大学, 学会", sentence: "I learned the word \"college\" today." },
-  "involve": { meaning: "包括, 使陷于, 潜心于, 包围； 累及, 牵涉, 包含", sentence: "I learned the word \"involve\" today." },
-  "building": { meaning: "建筑物, 建筑； 营造, 建筑, 建筑物", sentence: "I learned the word \"building\" today." },
-  "experience": { meaning: "经历, 经验, 体验；经历, 经验, 体验", sentence: "I learned the word \"experience\" today." },
-  "sort": { meaning: "种类, 方式, 品质, 态度, 举止；分类, 排序, 挑选；交往, 协调； 排序; DOS外部命令:从标准输入设备接收数据, 整个数据输入完后", sentence: "I learned the word \"sort\" today." },
-  "behind": { meaning: "在后地；在...背后", sentence: "I learned the word \"behind\" today." },
-  "likely": { meaning: "有可能的, 合适的, 前途有望的；或许, 可能", sentence: "I learned the word \"likely\" today." },
-  "staff": { meaning: "全体人员, 工作班子, 棍棒, 杆, 拐杖, 支柱, 权杖；职员的, 雇员的, 参谋的；为...配备人员", sentence: "I learned the word \"staff\" today." },
-  "kill": { meaning: "杀, 杀戮, 小河；杀, 破坏, 消灭, 使终止, 抵消, 否决；杀死； 删除", sentence: "I learned the word \"kill\" today." },
-  "return": { meaning: "回来, 返回, 来回票, 归还, 报答, 利润率, 报告书；返回的, 回程的, 报答的, 反向的, 重现的, 复原的；返回, 归还, 回来；归还", sentence: "I learned the word \"return\" today." },
-  "draw": { meaning: "拉, 拖, 拔剑；拖拉, 挨近, 领取, 打成平局, 引导, 抽签决定, 画, 描写, 制订, 草拟, 吸引；拉, 拖, 拔出, 抽签, 平局", sentence: "I learned the word \"draw\" today." },
-  "particular": { meaning: "一项(或条、点), 个别项目, 详细说明；特别的, 独有的, 挑剔的, 详尽的", sentence: "I learned the word \"particular\" today." },
-  "town": { meaning: "城镇, 市, 镇； 城镇, 城市, 闹市", sentence: "I learned the word \"town\" today." },
-  "raise": { meaning: "上升, 高地, 增高；升起, 举起, 唤起, 提高, 使出现, 使复活, 提出, 筹集, 饲养", sentence: "I learned the word \"raise\" today." },
-  "care": { meaning: "小心, 照料, 忧虑；关心, 介意；在意, 喜欢", sentence: "I learned the word \"care\" today." },
-  "international": { meaning: "国际的；国别设定； 国别设定", sentence: "I learned the word \"international\" today." },
-  "language": { meaning: "语言, 文字, 措辞； 语言", sentence: "I learned the word \"language\" today." },
-  "either": { meaning: "(两者之中)任一的, (两者之中)各一的；(两者之中)任一；或, 要么", sentence: "I learned the word \"either\" today." },
-  "hard": { meaning: "坚硬的, 硬的, 难的, 艰苦的, 困难的, 坚固的, 猛烈的, 艰难的, 结实的, 确实的；坚硬地, 努力地, 辛苦地, 接近地, 猛烈地,", sentence: "I learned the word \"hard\" today." },
-  "special": { meaning: "专辑, 专车, 号外, 特别的东西, 负有特别任务的人员；特别的, 专门的, 特殊的, 额外的, 附加的, 特别亲密的", sentence: "I learned the word \"special\" today." },
-  "field": { meaning: "领域, 田地, 场地, 战场, 场, 域；使...晒在场上, 使上场；田间的, 野生的, 野外的, 田赛的； 域, 字段", sentence: "I learned the word \"field\" today." },
-  "difficult": { meaning: "困难的", sentence: "I learned the word \"difficult\" today." },
-  "else": { meaning: "别的, 其他的；另外, 否则, 不然", sentence: "I learned the word \"else\" today." },
-  "certain": { meaning: "确定的, 某一个的, 必然的； 确凿的, 无疑的, 可靠的", sentence: "I learned the word \"certain\" today." },
-  "pass": { meaning: "经过, 要隘, 途径, 通行, 护照, 及格；经过, 越过, 通过, 批准, 度过, 传递, 忽略；经过, 变化, 流通, 及格, 宣判, 终止", sentence: "I learned the word \"pass\" today." },
-  "particularly": { meaning: "特别, 格外, 尤其, 详细地, 细致地", sentence: "I learned the word \"particularly\" today." },
-  "former": { meaning: "从前的, 前者的；起形成作用的人(或物), 模型, 样板", sentence: "I learned the word \"former\" today." },
-  "sell": { meaning: "卖, 背叛, 销售, 出卖；卖, 销售；卖, 推销术, 失望", sentence: "I learned the word \"sell\" today." },
-  "hope": { meaning: "希望, 信心, 期待；希望, 期望, 信赖", sentence: "I learned the word \"hope\" today." },
-  "sometimes": { meaning: "有时, 时常, 往往", sentence: "I learned the word \"sometimes\" today." },
-  "management": { meaning: "经营, 支配, 管理； 管理处", sentence: "I learned the word \"management\" today." },
-  "along": { meaning: "平行地, 向前；沿着", sentence: "I learned the word \"along\" today." },
-  "department": { meaning: "部门, 系, 机关； 部, 科", sentence: "I learned the word \"department\" today." },
-  "committee": { meaning: "委员会； 委员会", sentence: "I learned the word \"committee\" today." },
-  "role": { meaning: "角色, 职责, 任务； 作用, 功用", sentence: "I learned the word \"role\" today." },
-  "product": { meaning: "产品, 结果, 乘积； 生产物", sentence: "I learned the word \"product\" today." },
-  "whole": { meaning: "全部, 全体, 整体, 完全之体系；所有的, 完整的, 完全的, 纯粹的", sentence: "I learned the word \"whole\" today." },
-  "better": { meaning: "较好的；比较好", sentence: "I learned the word \"better\" today." },
-  "practice": { meaning: "实践, 练习, 实行, 惯例, 习惯, 开业；实践, 实行, 练习, 实习, 业务", sentence: "I learned the word \"practice\" today." },
-  "effort": { meaning: "努力, 成就", sentence: "I learned the word \"effort\" today." },
-  "letter": { meaning: "信, 字母, 证书, 字面意义, 铅字, 学问, 出租人；写字母于, 在...上刻字母, 用字母标明；写印刷体字； 字母", sentence: "I learned the word \"letter\" today." },
-  "ground": { meaning: "土地, 战场, 场地, 地面, 范围；土地的, 地面上的；放在地上, 使搁浅, 打基础, 给...以训练；搁浅, 落地, 根据, 基于；磨过的", sentence: "I learned the word \"ground\" today." },
-  "evidence": { meaning: "根据, 证据, 迹象； 证据, 凭证", sentence: "I learned the word \"evidence\" today." },
-  "meeting": { meaning: "会议, 会面； 会议, 会谈, 集会", sentence: "I learned the word \"meeting\" today." },
-  "strong": { meaning: "强壮的, 坚固的, 坚强的, 强烈的, 有力的, 优良的；强劲地, 有力地, 猛烈地", sentence: "I learned the word \"strong\" today." },
-  "heart": { meaning: "心, 心脏, 中心, 内心, 感情, 精神, 心情, 宝贝儿；鼓励", sentence: "I learned the word \"heart\" today." },
-  "rather": { meaning: "宁可, 稍微, 相当", sentence: "I learned the word \"rather\" today." },
-  "drug": { meaning: "药, 麻药, 麻醉药；吸毒；使服麻醉药, 使麻木", sentence: "I learned the word \"drug\" today." },
-  "leader": { meaning: "领导者, 社论, 指挥, 领袖, 领唱者, 前导字符； 前导字符", sentence: "I learned the word \"leader\" today." },
-  "light": { meaning: "光, 光亮, 灯, 日光, 发光体, 光源, 杰出人物, 火花, 眼光；轻的, 少量的, 轻微的, 轻快的, 轻浮的, 明亮的, 淡色的, 容易", sentence: "I learned the word \"light\" today." },
-  "voice": { meaning: "声音, 嗓音, 嗓子, 愿望, 发言权, 表达, 喉舌, 语态；表达, 吐露, 调音", sentence: "I learned the word \"voice\" today." },
-  "wife": { meaning: "妻子, 太太, 夫人； 妻子, 已婚妇女", sentence: "I learned the word \"wife\" today." },
-  "union": { meaning: "联盟, 联合, 结合, 工会； 联合; 联管节; 活接头", sentence: "I learned the word \"union\" today." },
-  "half": { meaning: "一半, 半场, 不完全；一半的, 不完全的, 部分的, 半场的；一半地, 部分地, 在某种程度上地, 几乎", sentence: "I learned the word \"half\" today." },
-  "finally": { meaning: "最后, 终于", sentence: "I learned the word \"finally\" today." },
-  "pull": { meaning: "拉, 拖, 拔, 牵, 撕开, 吸引；拉, 拖, 拔, 有吸引力；拉, 拖, 拔, 拉力, 牵引力, 划船, 吸引", sentence: "I learned the word \"pull\" today." },
-  "land": { meaning: "陆地, 地面, 地界, 地产, 国土, 土地；登陆, 登岸, 到达；使上岸, 使登陆, 使到达； 连接盘; 焊盘", sentence: "I learned the word \"land\" today." },
-  "free": { meaning: "自由的, 享受政治权力的, 允许的, 免费的, 丰富的；释放, 解放, 使自由；自由地, 免费", sentence: "I learned the word \"free\" today." },
-  "event": { meaning: "事件, 结果, 事情的进程, 竞赛项目； 事件", sentence: "I learned the word \"event\" today." },
-  "shall": { meaning: "将", sentence: "I learned the word \"shall\" today." },
-  "military": { meaning: "军队；军事的, 军人的, 适于战争的", sentence: "I learned the word \"military\" today." },
-  "cause": { meaning: "原因, 目标；引起, 使产生, 使遭受", sentence: "I learned the word \"cause\" today." },
-  "thus": { meaning: "如此, 因此, 到如此程度； 乳香", sentence: "I learned the word \"thus\" today." },
-  "explain": { meaning: "解释, 说明", sentence: "I learned the word \"explain\" today." },
-  "son": { meaning: "儿子, 女婿, 子孙； 儿子, 女婿, 养子", sentence: "I learned the word \"son\" today." },
-  "support": { meaning: "支持, 支撑, 援助, 供养, 支撑物；支援, 支撑, 帮助, 支持, 忍受, 供养, 证实； 后援; 支持", sentence: "I learned the word \"support\" today." },
-  "stage": { meaning: "阶段, 舞台, 场所, 戏剧, 站, 驿站, 级, 层, 脚手架；上演, 表演, 筹划；适于上演, 乘驿车旅行", sentence: "I learned the word \"stage\" today." },
-  "lie": { meaning: "谎言, 假象, 位置；躺着, 说谎, 位于, 展现, 存在, 停泊；谎骗", sentence: "I learned the word \"lie\" today." },
-  "range": { meaning: "排, 行, 山脉, 范围, 行列, 射程；排列, 归类于, 使并列, 放牧；平行, 延伸, 漫游； 量程; 范围; 域; 距离", sentence: "I learned the word \"range\" today." },
-  "trade": { meaning: "贸易, 商业, 交易, 生意, 职业, 顾客, 信风；进行交易, 做买卖, 经商, 对换, 购物；用...进行交换", sentence: "I learned the word \"trade\" today." },
-  "relationship": { meaning: "关系, 关联； 关系", sentence: "I learned the word \"relationship\" today." },
-  "accept": { meaning: "接受, 承认, 同意, 相信, 赞成, 承担, 承兑, 采纳, 接纳, 容忍；同意", sentence: "I learned the word \"accept\" today." },
-  "drive": { meaning: "驾车, 快车道, 推进力, 驱动, 动力, 击球, 驱动器；开车, 驱使, 推动, 驾驶；开车, 猛击, 飞跑； 驱动器", sentence: "I learned the word \"drive\" today." },
-  "arm": { meaning: "手臂, 袖子, 狭长港湾, 武器；武装, 装备；武装起来； 异步应答方式; 自动货品销路管理", sentence: "I learned the word \"arm\" today." },
-  "god": { meaning: "上帝, 神像, 偶像；使神化", sentence: "I learned the word \"god\" today." },
-  "true": { meaning: "真实的, 正确的, 忠诚的, 可靠的, 纯粹的, 正式的；真实, 准确；真实地, 准确地", sentence: "I learned the word \"true\" today." },
-  "club": { meaning: "俱乐部, 木棍, 球棒；用棍棒打, 缴纳；联合起来；俱乐部的", sentence: "I learned the word \"club\" today." },
-  "federal": { meaning: "联邦的, 联合的, 同盟的； 联邦的, 联邦制的, 联盟的", sentence: "I learned the word \"federal\" today." },
-  "break": { meaning: "休息, 中断, 破裂处, 绝交, 破晓, 突变；打破, 弄破, 弄坏, 破坏, 违反, 打断, 削弱, 放弃；破碎, 决裂, 破晓, 突变, 变", sentence: "I learned the word \"break\" today." },
-  "difference": { meaning: "不同, 差异； 差分", sentence: "I learned the word \"difference\" today." },
-  "thank": { meaning: "谢意, 感谢；谢谢, 感谢", sentence: "I learned the word \"thank\" today." },
-  "account": { meaning: "报告, 解释, 估价, 理由, 利润, 算账, 帐目；报帐, 解释, 导致, 报偿, 占, 杀死；认为； 帐户, 帐号", sentence: "I learned the word \"account\" today." },
-  "material": { meaning: "材料, 物资, 素材, 布料, 资料；物质的, 肉体的, 重要的", sentence: "I learned the word \"material\" today." },
-  "short": { meaning: "短的, 近的, 矮的, 短期的, 简短的, 少量的；简短地, 突然；扼要, 短片, 缺乏；故意少给, 使短路", sentence: "I learned the word \"short\" today." },
-  "whose": { meaning: "谁的", sentence: "I learned the word \"whose\" today." },
-  "easy": { meaning: "容易的, 缓缓的, 舒适的, 从容的, 宽容的, 流畅的, 随便的, 自在的, 疲软的；容易地, 慢慢地", sentence: "I learned the word \"easy\" today." },
-  "situation": { meaning: "情形, 境遇, 位置； 情境, 处境", sentence: "I learned the word \"situation\" today." },
-  "model": { meaning: "模型, 模范, 模特儿；模范的, 作模型用的；做模型, 做模特儿；使模仿, 塑造； 模型", sentence: "I learned the word \"model\" today." },
-  "join": { meaning: "参加, 结合, 加入；连接, 结合, 参加, 加入；连接, 结合, 接合点； 连接; 汇合指令", sentence: "I learned the word \"join\" today." },
-  "season": { meaning: "季节, 时节, 当令期, 时期；给...调味, 使成熟, 使老练, 缓和；变干燥", sentence: "I learned the word \"season\" today." },
-  "record": { meaning: "记录, 履历, 档案, 审判记录, 最高纪录, 唱片；记录, 记载, 标明, 将...录音；记录, 录音, 可被录音；创纪录的； 录制, 记录", sentence: "I learned the word \"record\" today." },
-  "manager": { meaning: "经理, 管理员, 管理器； 管理器", sentence: "I learned the word \"manager\" today." },
-  "tax": { meaning: "税, 税款, 重负, 会费；课以税, 使负重荷, 斥责", sentence: "I learned the word \"tax\" today." },
-  "project": { meaning: "计划, 设计, 事业；计划, 设计, 投掷, 发射, 使凸出, 放映；凸出", sentence: "I learned the word \"project\" today." },
-  "director": { meaning: "主管, 导演, 董事； 寻向偶极子; 指挥仪", sentence: "I learned the word \"director\" today." },
-  "example": { meaning: "例子, 样本, 实例； 实例", sentence: "I learned the word \"example\" today." },
-  "player": { meaning: "竞赛者, 上场队员, 游戏者, 演员； 交易者", sentence: "I learned the word \"player\" today." },
-  "yesterday": { meaning: "昨天；昨天", sentence: "I learned the word \"yesterday\" today." },
-  "base": { meaning: "底部, 垒, 基础, 基地；以...作基础；卑鄙的, 低劣的； 基准", sentence: "I learned the word \"base\" today." },
-  "especially": { meaning: "尤其, 特别, 格外", sentence: "I learned the word \"especially\" today." },
-  "pick": { meaning: "精选, 选择, 掘, 精华, 牙签, 鹤嘴锄；摘, 掘, 凿, 挖, 挑选； 拾取", sentence: "I learned the word \"pick\" today." },
-  "window": { meaning: "窗户, 窗子, 窗口；给...开窗； 窗口", sentence: "I learned the word \"window\" today." },
-  "wear": { meaning: "穿着, 戴, 使用, 耗损, 服装, 耐久性；穿着, 戴, 留(须、发等), 呈现, 磨损, 磨成, 耗损, 使疲乏, 消磨；磨损, 变旧, 耐", sentence: "I learned the word \"wear\" today." },
-  "space": { meaning: "位置, 空间, 距离, 太空, 空白, 间隔, (期刊等的)篇幅；隔开, 分隔；留间隔； 空白, 空格校验", sentence: "I learned the word \"space\" today." },
-  "central": { meaning: "中央的, 重要的； 中央的, 中心的, 中枢的", sentence: "I learned the word \"central\" today." },
-  "apply": { meaning: "涂, 应用；申请, 适用", sentence: "I learned the word \"apply\" today." },
-  "increase": { meaning: "增加, 增进, 利益；增加, 加大；增加, 繁殖", sentence: "I learned the word \"increase\" today." },
-  "cover": { meaning: "盖子, 封面, 藉口；覆盖, 掩饰, 保护, 掩护, 包括；覆盖", sentence: "I learned the word \"cover\" today." },
-  "usually": { meaning: "通常, 大抵", sentence: "I learned the word \"usually\" today." },
-  "official": { meaning: "官员, 公务员, 职员；公务的, 官方的, 正式的", sentence: "I learned the word \"official\" today." },
-  "everyone": { meaning: "每个人, 人人； 系统中的一个组名", sentence: "I learned the word \"everyone\" today." },
-  "university": { meaning: "大学", sentence: "I learned the word \"university\" today." },
-  "couple": { meaning: "对, 夫妇, 数个；使成双, 连接, 使成婚, 把...联系起来；结合, 成婚", sentence: "I learned the word \"couple\" today." },
-  "site": { meaning: "位置, 场所, 地点；给...择址", sentence: "I learned the word \"site\" today." },
-  "claim": { meaning: "要求, 要求权, 断言, 权利；要求, 认领, 主张；提出要求, 主张, 断言", sentence: "I learned the word \"claim\" today." },
-  "sir": { meaning: "先生, 阁下", sentence: "I learned the word \"sir\" today." },
-  "hit": { meaning: "打击, 打, 冲撞, 讽刺；打, 打击, 碰撞, 打中, 袭击, 偶然碰上；打, 打中, 打击, 碰撞, 偶然碰上； 击中; 找到; 瞬时打扰", sentence: "I learned the word \"hit\" today." },
-  "indeed": { meaning: "的确, 实在, 真正地, 甚至", sentence: "I learned the word \"indeed\" today." },
-  "quality": { meaning: "品质, 特性, 才能, 质量；优质的； 品质", sentence: "I learned the word \"quality\" today." },
-  "star": { meaning: "星, 恒星, 星形物, 运气, 明星；以星状物装饰, 用星号标, 使成为明星；变成明星", sentence: "I learned the word \"star\" today." },
-  "rule": { meaning: "规则, 统治, 控制, 支配, 规律, 标准, 章程, 破折号, 铅线；规定, 统治, 管理, 控制, 支配, 裁决；统治, 管辖, 裁定； 规", sentence: "I learned the word \"rule\" today." },
-  "certainly": { meaning: "确定地", sentence: "I learned the word \"certainly\" today." },
-  "eat": { meaning: "吃, 腐蚀", sentence: "I learned the word \"eat\" today." },
-  "similar": { meaning: "相似的, 类似的；相似的东西", sentence: "I learned the word \"similar\" today." },
-  "worker": { meaning: "工人, 劳动者； 工人, 劳工, 劳动者", sentence: "I learned the word \"worker\" today." },
-  "teach": { meaning: "教, 讲授, 教导, 教育；教书, 教学, 可以教", sentence: "I learned the word \"teach\" today." },
-  "oil": { meaning: "油, 石油, 油画颜料；涂油于, 使融化成油状, 加油于；加燃油, 融化", sentence: "I learned the word \"oil\" today." },
-  "pound": { meaning: "磅, 英镑, 重击, 鱼塘, 拘留所, 兽栏；强烈打击, 捣烂, 监禁, 关入栏内；连续重击, 苦干", sentence: "I learned the word \"pound\" today." },
-  "data": { meaning: "资料, 数据； 数据; DOS内部命令:用于显示或设定系统的日期", sentence: "I learned the word \"data\" today." },
-  "nature": { meaning: "自然, 大自然, 本性, 性格, 性质； 自然, 大自然; 本性, 性能", sentence: "I learned the word \"nature\" today." },
-  "common": { meaning: "通常的, 共同的, 通俗的, 公共的； 公用块", sentence: "I learned the word \"common\" today." },
-  "image": { meaning: "影像, 肖像, 想象, 图像, 形象, 翻版；作...的像, 反映, 想象, 象征；图像； 图象", sentence: "I learned the word \"image\" today." },
-  "necessary": { meaning: "必要的；必然的；必需的", sentence: "I learned the word \"necessary\" today." },
-  "officer": { meaning: "军官, 主管, 官员, 公务员；指挥", sentence: "I learned the word \"officer\" today." },
-  "phone": { meaning: "电话, 受话器, 耳机；打电话给；打电话", sentence: "I learned the word \"phone\" today." },
-  "structure": { meaning: "结构, 构造, 建筑物；构成, 组织", sentence: "I learned the word \"structure\" today." },
-  "contain": { meaning: "包含, 容纳, 控制；自制", sentence: "I learned the word \"contain\" today." },
-  "unit": { meaning: "单位, 分队, 部队, 单元, 部件, 装置；单位的, 单元的； 单元常数; 部件", sentence: "I learned the word \"unit\" today." },
-  "method": { meaning: "方法, 办法, 条理, 秩序； 法", sentence: "I learned the word \"method\" today." },
-  "picture": { meaning: "图画, 照片, 景色, 美丽如画的人(或物), 化身, 生动的描述, 想像, 形象思维；画, 拍摄, 用图说明, 描写, 想像； 图象; 形象", sentence: "I learned the word \"picture\" today." },
-  "hospital": { meaning: "医院； 医院", sentence: "I learned the word \"hospital\" today." },
-  "bed": { meaning: "床, 睡眠处, 河床, 底座, 路基, 一层；提供宿处, 栽种, 安装；睡, 形成坚实的一层", sentence: "I learned the word \"bed\" today." },
-  "movement": { meaning: "运动, 动作, 运转, 移动, 倾向, 变化, 活动, 乐章； 运动", sentence: "I learned the word \"movement\" today." },
-  "piece": { meaning: "块, 片, 篇, 碎片, 部分, 部件, 标准量；修补, 修理, 拼合, 接线头；吃零食", sentence: "I learned the word \"piece\" today." },
-  "detail": { meaning: "细节, 详情；详述, 选派；画详图； 详细数据", sentence: "I learned the word \"detail\" today." },
-  "recent": { meaning: "最近的, 近代的, 最新的； 最近的, 新进的", sentence: "I learned the word \"recent\" today." },
-  "reduce": { meaning: "减少, 分解, 降低, 使衰退, 把...分解, 把...归纳；减少, 减肥, 缩小； 缩小", sentence: "I learned the word \"reduce\" today." },
-  "simply": { meaning: "简单地, 只是, 简直, 简朴地, 坦白地", sentence: "I learned the word \"simply\" today." },
-  "single": { meaning: "单身的, 单程的, 单一的, 个别的, 孤独的, 专一的；一个, 单打, 单程票；选出；击出一垒打； 单精度型", sentence: "I learned the word \"single\" today." },
-  "doctor": { meaning: "医生, 博士；授以博士学位, 诊断, 修改；行医", sentence: "I learned the word \"doctor\" today." },
-  "date": { meaning: "日期, 约会, 枣椰树；约会, 定日期；注明日期, 过时", sentence: "I learned the word \"date\" today." },
-  "wall": { meaning: "墙, 墙壁, 垣, 内壁, 分界物, 屏障；墙的；给...建墙, 禁闭, 用墙围住； 背景墙", sentence: "I learned the word \"wall\" today." },
-  "news": { meaning: "新闻, 消息, 报导； 新闻, 消息, 新闻报导", sentence: "I learned the word \"news\" today." },
-  "personal": { meaning: "私人的, 涉及隐私的, 有人性的, 人称的, 亲自的, 身体的； 人的; 个人的, 自身的", sentence: "I learned the word \"personal\" today." },
-  "test": { meaning: "测试, 试验, 化验, 检验, 考验, 甲壳；测试, 试验, 化验；接受测验, 进行测试", sentence: "I learned the word \"test\" today." },
-  "movie": { meaning: "电影", sentence: "I learned the word \"movie\" today." },
-  "establish": { meaning: "建立, 确立, 制定；移植生长", sentence: "I learned the word \"establish\" today." },
-  "north": { meaning: "北方, 北；北的, 北方的；向北方, 在北方", sentence: "I learned the word \"north\" today." },
-  "computer": { meaning: "电脑, 电子计算机； 计算机", sentence: "I learned the word \"computer\" today." },
-  "private": { meaning: "私人的, 秘密的, 私立的, 隐蔽的；士兵, 隐士, 阴部； 私人的", sentence: "I learned the word \"private\" today." },
-  "herself": { meaning: "她自己, 她亲自", sentence: "I learned the word \"herself\" today." },
-  "approach": { meaning: "接近, 入门；接近, 近似, 找...商量；靠近", sentence: "I learned the word \"approach\" today." },
-  "amount": { meaning: "总数, 总额；总计, 等同", sentence: "I learned the word \"amount\" today." },
-  "bit": { meaning: "少量, 马嚼子, 辅币；给马上嚼子, 控制；bite的过去式和过去分词； 比特, 二进制数位, 机内测试", sentence: "I learned the word \"bit\" today." },
-  "technology": { meaning: "技术, 工业技术, 术语； 技术学, 工艺学", sentence: "I learned the word \"technology\" today." },
-  "wish": { meaning: "希望, 愿望, 祝愿, 命令, 请求；愿, 想要, 希望, 祝愿；希望", sentence: "I learned the word \"wish\" today." },
-  "catch": { meaning: "捕捉, 陷阱, 捕捉之物, 抓, 拉手；捕捉, 赶上, 感染, 听清楚；抓住, 燃着", sentence: "I learned the word \"catch\" today." },
-  "step": { meaning: "步骤, 步, 步幅, 脚步声, 踏级, 步伐, 短距离, 步态, 手段, 等级；踏, 以步测量, 跨步, 使成阶梯状；跨步, 轻快地走, 跳舞,", sentence: "I learned the word \"step\" today." },
-  "scheme": { meaning: "方案, 计划, 组合, 系统, 图解, 诡计, 阴谋；计划, 设计, 图谋, 策划", sentence: "I learned the word \"scheme\" today." },
-  "baby": { meaning: "婴孩； 婴儿", sentence: "I learned the word \"baby\" today." },
-  "award": { meaning: "奖品, 裁定, 判决；授予, 给予", sentence: "I learned the word \"award\" today." },
-  "seek": { meaning: "寻求, 寻找, 探索, 追求, 搜索, 请求；寻找, 搜索； 查找", sentence: "I learned the word \"seek\" today." },
-  "attention": { meaning: "注意, 注意力； 引起注意信号", sentence: "I learned the word \"attention\" today." },
-  "achieve": { meaning: "完成, 达到；如愿以偿", sentence: "I learned the word \"achieve\" today." },
-  "film": { meaning: "软片, 薄膜, 胶卷, 电影；覆以薄膜, 拍摄；生薄膜, 拍电影", sentence: "I learned the word \"film\" today." },
-  "chapter": { meaning: "章, 篇, 重要章节； 章; 段", sentence: "I learned the word \"chapter\" today." },
-  "choose": { meaning: "选择, 宁愿, 欲；作出选择, 愿意； 选取", sentence: "I learned the word \"choose\" today." },
-  "deal": { meaning: "交易, 协定, 数量, 买卖, 松木板；处理, 应付, 做生意；分配, 发牌, 给予； 发牌", sentence: "I learned the word \"deal\" today." },
-  "organization": { meaning: "组织, 结构, 团体, 体制； 组织, 机构, 机化(血栓或坏死组织)", sentence: "I learned the word \"organization\" today." },
-  "tree": { meaning: "树, 木料, 树状物；把...赶上树； 树; DOS外部命令:显示指定磁盘驱动器的目录结构", sentence: "I learned the word \"tree\" today." },
-  "theory": { meaning: "理论, 学说, 原理, 意见, 推测； 理论", sentence: "I learned the word \"theory\" today." },
-  "source": { meaning: "来源, 水源, 根源, 原始资料, 源； 来源, 源程序", sentence: "I learned the word \"source\" today." },
-  "property": { meaning: "财产, 所有权, 性质, 属性； 属性", sentence: "I learned the word \"property\" today." },
-  "red": { meaning: "红的, 红色的, 红肿的, 流血的；红色, 红颜料, 赤字； 简化, 减少", sentence: "I learned the word \"red\" today." },
-  "poor": { meaning: "贫穷的, 贫乏的, 不幸的, 可怜的, 拙劣的, 卑鄙的； 低劣的, 不良的", sentence: "I learned the word \"poor\" today." },
-  "nearly": { meaning: "几乎, 密切地", sentence: "I learned the word \"nearly\" today." },
-  "wide": { meaning: "宽的, 广阔的, 普遍的, 宽阔的, 广泛的, 一般的；广阔地, 遍及各处地, 广泛地；大千世界", sentence: "I learned the word \"wide\" today." },
-  "south": { meaning: "南方, 南；南的, 向南的；在南方；转向南方", sentence: "I learned the word \"south\" today." },
-  "hair": { meaning: "头发, 毛发, 些微； 毛, 发", sentence: "I learned the word \"hair\" today." },
-  "financial": { meaning: "财政的, 金融的； 财政的, 金融的, 财务的", sentence: "I learned the word \"financial\" today." },
-  "firm": { meaning: "公司, 商号；坚定的, 坚强的, 牢固的, 结实的, 坚硬的, 坚挺的, 严格的, 确定的；使牢固, 使坚定；变稳固, 变坚实；稳固地", sentence: "I learned the word \"firm\" today." },
-  "application": { meaning: "应用, 申请, 志愿书, 应用程序； 应用, 应用程序", sentence: "I learned the word \"application\" today." },
-  "listen": { meaning: "听, 倾听, 听从；听, 倾听", sentence: "I learned the word \"listen\" today." },
-  "soon": { meaning: "不久, 早, 快, 宁可", sentence: "I learned the word \"soon\" today." },
-  "production": { meaning: "制造, 生产, 产物； 产生, 生成", sentence: "I learned the word \"production\" today." },
-  "board": { meaning: "木板, 甲板, 膳食, 会议桌；乘船, 供膳食, 用板覆盖；搭伙； 板", sentence: "I learned the word \"board\" today." },
-  "culture": { meaning: "文化, 修养, 耕种；耕种, 培养", sentence: "I learned the word \"culture\" today." },
-  "king": { meaning: "国王, 君主；使...成为君主；君临, 统治", sentence: "I learned the word \"king\" today." },
-  "chance": { meaning: "机会, 意外, 可能性；偶然发生；冒险", sentence: "I learned the word \"chance\" today." },
-  "secretary": { meaning: "秘书, 书记, 大臣； 秘书", sentence: "I learned the word \"secretary\" today." },
-  "brother": { meaning: "兄弟", sentence: "I learned the word \"brother\" today." },
-  "energy": { meaning: "精力, 精神, 活力, 能量； 能; 能量", sentence: "I learned the word \"energy\" today." },
-  "fail": { meaning: "失败, 缺乏, 中断, 衰退, 失灵；忘记, 使...失望, 缺乏, 不及格；不及格", sentence: "I learned the word \"fail\" today." },
-  "realize": { meaning: "了解, 实现, 使显得逼真, 变卖；变卖", sentence: "I learned the word \"realize\" today." },
-  "opportunity": { meaning: "机会, 时机", sentence: "I learned the word \"opportunity\" today." },
-  "summer": { meaning: "夏季, 全盛时期；避暑, 过夏天； 加法器", sentence: "I learned the word \"summer\" today." },
-  "operation": { meaning: "操作, 动作, 手术, 运算, 作用, 业务； 运算", sentence: "I learned the word \"operation\" today." },
-  "share": { meaning: "部分, 参与, 一份, 参股, 份额；均分, 分担, 分享, 分配, 共有；分享； 共享; DOS外部命令:在网络或多工系统中提供文件共享；文件", sentence: "I learned the word \"share\" today." },
-  "foreign": { meaning: "外国的, 外交的, 外省的, 外来的, 不相关的； 外来的", sentence: "I learned the word \"foreign\" today." },
-  "lord": { meaning: "统治者, 阁下, 上帝；称王, 作威作福；使成贵族", sentence: "I learned the word \"lord\" today." },
-  "plant": { meaning: "植物, 作物, 工厂, 树枝, 生长, 设施, 成套设备；种植, 栽培, 播种, 培养, 安置, 殖民于, 使位于；种植", sentence: "I learned the word \"plant\" today." },
-  "agreement": { meaning: "同意, 合约, 协议； 契约, 协议, 协定", sentence: "I learned the word \"agreement\" today." },
-  "simple": { meaning: "简单的, 普通的, 朴素的, 单纯的, 绝对的, 初级的, 原始的, 迟钝的；出身低微者, 傻子", sentence: "I learned the word \"simple\" today." },
-  "contract": { meaning: "合约, 婚约, 契约；使皱缩, 使缩短, 感染, 订约, 缔结；皱缩, 订约, 收缩", sentence: "I learned the word \"contract\" today." },
-  "choice": { meaning: "选择, 精选品, 选择权；精选的, 挑三拣四的, 上等的； DOS内部命令:在批处理文件中；该命令用于提示用户作出选择, 决定批处理文件的流程", sentence: "I learned the word \"choice\" today." },
-  "security": { meaning: "安全, 安全性, 防护物, 保安, 可靠性, 担保人, 抵押品, 保证金； 安全性, 保密性, 安全检查程序", sentence: "I learned the word \"security\" today." },
-  "occur": { meaning: "发生, 被想到, 存在", sentence: "I learned the word \"occur\" today." },
-  "daughter": { meaning: "女儿；女儿的", sentence: "I learned the word \"daughter\" today." },
-  "husband": { meaning: "丈夫, 管理人, 节俭的人；节俭, 使成丈夫, 持有", sentence: "I learned the word \"husband\" today." },
-  "congress": { meaning: "国会, 会议, 讨论会； 会议, 会合", sentence: "I learned the word \"congress\" today." },
-  "election": { meaning: "选举, 当选, 选择权； 选举, 当选", sentence: "I learned the word \"election\" today." },
-  "floor": { meaning: "地板, 楼层, 底部, 底价；铺地板, 打倒；地面, 地板, 基底； 基底", sentence: "I learned the word \"floor\" today." },
-  "future": { meaning: "未来, 将来；将来的, 未来的", sentence: "I learned the word \"future\" today." },
-  "campaign": { meaning: "战役, 运动, 竞选运动；参加运动, 作战", sentence: "I learned the word \"campaign\" today." },
-  "used": { meaning: "使用过的, 二手的, 习惯的", sentence: "I learned the word \"used\" today." },
-  "colour": { meaning: "颜色, 面色, 颜料, 外貌；把...涂上颜色, 粉饰, 使脸红, 歪曲；变色", sentence: "I learned the word \"colour\" today." },
-  "population": { meaning: "人口, 人口数； 群体; 总体", sentence: "I learned the word \"population\" today." },
-  "various": { meaning: "不同的, 各种的, 多方面的, 许多的, 个别的, 杂色的； 不同的, 种种的, 各式各样的", sentence: "I learned the word \"various\" today." },
-  "rise": { meaning: "上升, 增加, 上涨, 高地, 升高, 出现；升起, 起身, 起立, 上升, 上涨, 增长, 高耸, 起义, 浮现；使飞起", sentence: "I learned the word \"rise\" today." },
-  "economy": { meaning: "经济, 理财, 节约； 经济, 整体", sentence: "I learned the word \"economy\" today." },
-  "represent": { meaning: "表现, 表示, 描绘, 讲述, 代表, 象征, 回忆, 再赠送, 再上演；提出异议", sentence: "I learned the word \"represent\" today." },
-  "medical": { meaning: "医生, 体格检查；医学的, 内科的, 药的", sentence: "I learned the word \"medical\" today." },
-  "close": { meaning: "结束, 完结；靠近的, 亲近的, 亲密的, 严密的, 关闭的, 狭窄的, 秘密的；关, 结束, 使靠近, 封闭, 使接近；关闭, 结束, 靠近", sentence: "I learned the word \"close\" today." },
-  "shop": { meaning: "商店, 工厂, 车间；购物, 到处寻找；选购", sentence: "I learned the word \"shop\" today." },
-  "loss": { meaning: "损失, 遗失, 失败, 输, 错过, 伤亡； 损失; 损耗", sentence: "I learned the word \"loss\" today." },
-  "risk": { meaning: "冒险, 危险, 保险额；冒...的危险, 冒险干", sentence: "I learned the word \"risk\" today." },
-  "evening": { meaning: "傍晚, 晚间, 末期", sentence: "I learned the word \"evening\" today." },
-  "animal": { meaning: "动物； 动物", sentence: "I learned the word \"animal\" today." },
-  "current": { meaning: "涌流, 趋势, 流；流通的, 现在的, 当前的, 流行的； 当前的", sentence: "I learned the word \"current\" today." },
-  "fire": { meaning: "火, 炉火, 电炉, 火灾, 闪光体, 炮火, 热情；点燃, 烧制, 使发光, 激动, 放枪, 解雇；着火, 烧火, 开枪, 射击, 激动", sentence: "I learned the word \"fire\" today." },
-  "standard": { meaning: "标准, 规格, 旗, 军旗, 本位；标准的, 合规格的； 标准", sentence: "I learned the word \"standard\" today." },
-  "wrong": { meaning: "错误的, 不正当的, 失常的；错误地", sentence: "I learned the word \"wrong\" today." },
-  "purpose": { meaning: "目的, 意向, 决心, 用途, 效果, 论题；意欲, 企图, 计划", sentence: "I learned the word \"purpose\" today." },
-  "benefit": { meaning: "利益；有益于；受益", sentence: "I learned the word \"benefit\" today." },
-  "page": { meaning: "页, 记录, 事件, 专栏, 男侍；标明...的页数, 翻...的书页, 分页排版, 呼叫, 侍候；翻书页, 侍侯； 页; 页面", sentence: "I learned the word \"page\" today." },
-  "anyone": { meaning: "任何人", sentence: "I learned the word \"anyone\" today." },
-  "fine": { meaning: "罚款, 罚金, 晴天, 精细；好的, 晴朗的, 健康的, 细小的, 精细的；罚款, 精炼, 澄清；变清, 变细；很好； 精细", sentence: "I learned the word \"fine\" today." },
-  "discuss": { meaning: "讨论, 论述； 讨论, 辩论", sentence: "I learned the word \"discuss\" today." },
-  "myself": { meaning: "我自己, 我亲自, 我独自", sentence: "I learned the word \"myself\" today." },
-  "west": { meaning: "西方, 西部；西方的, 向西的；向西, 自西方, 在西方", sentence: "I learned the word \"west\" today." },
-  "sport": { meaning: "运动, 游戏, 娱乐, 消遣, 玩笑；运动的, 户外穿戴的；游戏, 参加体育运动, 戏弄, 产生变种；炫耀, 使产生变种", sentence: "I learned the word \"sport\" today." },
-  "factor": { meaning: "因素, 因数, 系数, 基因, 代理人； 因式", sentence: "I learned the word \"factor\" today." },
-  "prove": { meaning: "证明, 查验, 检验, 勘探, 显示；证明是", sentence: "I learned the word \"prove\" today." },
-  "rest": { meaning: "休息, 睡眠, 安息, 稍息, 静止, 支架, 休息处, 其余者, 剩余部分；休息, 睡, 长眠, 安心, 静止, 停止, 安置, 依赖；使休息", sentence: "I learned the word \"rest\" today." },
-  "argue": { meaning: "提出理由, 争论, 辩论；主张, 辩论, 证明, 说服", sentence: "I learned the word \"argue\" today." },
-  "charge": { meaning: "指控, 费用, 冲锋, 电荷, 炸药, 主管, 被托管人, 命令；控诉, 加罪于, 使充满, 使充电, 使承担；冲锋, 要价, 收费", sentence: "I learned the word \"charge\" today." },
-  "performance": { meaning: "施行, 工作情况, 成绩, 行为, 表现, 演出； 绩效, 性能", sentence: "I learned the word \"performance\" today." },
-  "fight": { meaning: "打架, 争吵, 斗志；对抗, 打架", sentence: "I learned the word \"fight\" today." },
-  "pattern": { meaning: "模范, 典型, 式样, 样品, 图案, 格调, 模式；模仿, 仿造, 以图案装饰；形成图案； 模式, 图案", sentence: "I learned the word \"pattern\" today." },
-  "throw": { meaning: "投, 掷, 抛, 发射, 摔下, 匆匆穿上(或脱下), 抛弃, 摆脱；丢, 掷, 抛；投掷, 掷骰子, 冒险", sentence: "I learned the word \"throw\" today." },
-  "top": { meaning: "顶部, 顶端, 极点, 上面, 上部, 顶篷, 最高地位, 首位, 陀螺；最高的, 顶上的, 头等的；盖, 加以顶, 高达, 超越；结束, 达到", sentence: "I learned the word \"top\" today." },
-  "present": { meaning: "现在, 礼品, 瞄准；现在的, 出席的；介绍, 引见, 赠送, 提出, 呈现, 上演；举枪瞄准", sentence: "I learned the word \"present\" today." },
-  "design": { meaning: "设计, 图样, 方案, 企图；设计, 计划", sentence: "I learned the word \"design\" today." },
-  "past": { meaning: "过去, 昔时, 往事, 早年经历, 过去时；过去的, 结束的, 卸任的, 过去时的；越过, 晚于, 超越, 超出...的可能性(能力、范围等)", sentence: "I learned the word \"past\" today." },
-  "goal": { meaning: "目标, 终点, 得分, 球门, 守门员；攻门, 射门得分", sentence: "I learned the word \"goal\" today." },
-  "royal": { meaning: "王室, 皇族；王室的, 皇家的, 盛大的, 庄严的", sentence: "I learned the word \"royal\" today." },
-  "april": { meaning: "四月", sentence: "I learned the word \"april\" today." },
-  "enjoy": { meaning: "享受, 喜欢, 欣赏； 享受, 享有, 获得某种利益", sentence: "I learned the word \"enjoy\" today." },
-  "author": { meaning: "作家, 作家的著作, 创始人； 作者, 著作人, 本人", sentence: "I learned the word \"author\" today." },
-  "fill": { meaning: "装满, 填充, 弥漫, 供给, 满足, 供应；充满, 变得沉重；满足, 装满, 充分, 填方；填充；填充； 填充", sentence: "I learned the word \"fill\" today." },
-  "despite": { meaning: "轻视, 憎恨；虽然, 尽管", sentence: "I learned the word \"despite\" today." },
-  "pressure": { meaning: "压, 榨, 按, 强制, 压力, 压迫, 压强；迫使, 使增压, 密封", sentence: "I learned the word \"pressure\" today." },
-  "focus": { meaning: "焦点, 焦距；聚焦, 注视；使聚焦, 调焦, 集中； 焦点", sentence: "I learned the word \"focus\" today." },
-  "knowledge": { meaning: "知识, 学问, 认识, 知道", sentence: "I learned the word \"knowledge\" today." },
-  "drop": { meaning: "滴, 微量, 落下, 空投；放下, 掉下, 下降；使滴下, 放下, 丢失, 遗漏； 投入, 投入点, 接入点, 分接点", sentence: "I learned the word \"drop\" today." },
-  "june": { meaning: "六月", sentence: "I learned the word \"june\" today." },
-  "blood": { meaning: "血, 血统, 流血, 气质, 生命；使出血, 用血涂", sentence: "I learned the word \"blood\" today." },
-  "basis": { meaning: "基础, 主要成分； 基底", sentence: "I learned the word \"basis\" today." },
-  "agency": { meaning: "代理机构, 经销商, 中介； 办事处", sentence: "I learned the word \"agency\" today." },
-  "push": { meaning: "推, 推动, 奋斗, 攻击, 进取心；推, 推动, 使伸出, 推行, 逼迫, 增加；推, 推进, 增加, 努力争取", sentence: "I learned the word \"push\" today." },
-  "march": { meaning: "三月, 进行, 行军, 步伐, 长途跋涉, 进行曲, 边界；进军, 前进, 交界；使行军, 使行进", sentence: "I learned the word \"march\" today." },
-  "further": { meaning: "更远的, 此外的, 更多的；促进, 增进, 助长；更进一步地, 更远地, 此外", sentence: "I learned the word \"further\" today." },
-  "size": { meaning: "大小, 尺寸, 规模, 尺码, 能力, 浆料；上浆, 依大小排列；可比拟；一定大小的, 一定尺寸的", sentence: "I learned the word \"size\" today." },
-  "introduce": { meaning: "介绍, 引入, 采用, 输入； 引进, 输入, 介绍", sentence: "I learned the word \"introduce\" today." },
-  "series": { meaning: "串联, 序列, 连续, 系列, 丛书, 套, 级数, 组； 系列", sentence: "I learned the word \"series\" today." },
-  "recently": { meaning: "最近", sentence: "I learned the word \"recently\" today." },
-  "store": { meaning: "商店, 贮藏, 仓库, 备用品, 存储器；储存, 贮藏, 供给；贮藏；贮藏的, 现成的； 存储器操作; 存储", sentence: "I learned the word \"store\" today." },
-  "garden": { meaning: "花园, 果园, 菜园；栽培花木；造园；花园的, 普通的", sentence: "I learned the word \"garden\" today." },
-  "sound": { meaning: "声音, 语音, 吵闹, 声调, 听力范围, 探条, 海峡；健全的, 可靠的, 合理的, 健康的, 彻底的, 资金充实的；彻底地, 充分地；发出声", sentence: "I learned the word \"sound\" today." },
-  "environment": { meaning: "环境, 外界, 围绕； 环境", sentence: "I learned the word \"environment\" today." },
-  "note": { meaning: "笔记, 记录, 注解, 票据, 符号, 显要, 注重, 便笺, 照会；记录, 注解, 注意", sentence: "I learned the word \"note\" today." },
-  "success": { meaning: "成功, 成就, 胜利", sentence: "I learned the word \"success\" today." },
-  "near": { meaning: "近的, 近亲的, 近似的；接近, 亲近；靠近, 近似于；接近, 走近", sentence: "I learned the word \"near\" today." },
-  "enter": { meaning: "进入, 参加, 开始, 输入, 回车；进去, 参加； 输入, 回车", sentence: "I learned the word \"enter\" today." },
-  "analysis": { meaning: "分析； 分析机; 分析员; 分析; 分析程序", sentence: "I learned the word \"analysis\" today." },
-  "arrive": { meaning: "到达, 抵达", sentence: "I learned the word \"arrive\" today." },
-  "natural": { meaning: "自然的, 天然的, 天生的, 正常的", sentence: "I want to learn English in a natural way." },
-  "thought": { meaning: "想法, 思想, 思维, 关心, 挂念；think的过去式和过去分词", sentence: "I learned the word \"thought\" today." },
-  "ensure": { meaning: "确定, 保证, 担保, 保护； 确保, 确定", sentence: "I learned the word \"ensure\" today." },
-  "region": { meaning: "区域, 地带, 地区, 领域, 范围, 区； 区, 区域", sentence: "I learned the word \"region\" today." },
-  "list": { meaning: "目录, 名单, 明细表, 布条, 条纹, 列表, 序列, 数据清单；列出, 列于表上, 记入名单内, 装布条；列于表上； 列表, 序列, 数据清", sentence: "I learned the word \"list\" today." },
-  "race": { meaning: "种族, 人种, 赛跑, 比赛, 急流, 人类, 同道, 姜根；赛跑, 竞赛, 疾走；与...赛跑, 使疾走, 使猛转； 竞争; 追赶; 欧州高级", sentence: "I learned the word \"race\" today." },
-  "concern": { meaning: "关心, 忧虑；与...有关, 使担心, 使挂念", sentence: "I learned the word \"concern\" today." },
-  "statement": { meaning: "陈述, 指令, 声明； 程序语句; 语句", sentence: "I learned the word \"statement\" today." },
-  "relation": { meaning: "关系, 联系, 叙述, 故事, 家属, 亲戚； 关系", sentence: "I learned the word \"relation\" today." },
-  "significant": { meaning: "重要的, 有效的, 有含义的, 暗示的, 值得注意的", sentence: "I learned the word \"significant\" today." },
-  "hot": { meaning: "热的, 热心的, 辣的, 热情的, 激动的, 猛烈的, 紧迫的；热, 紧迫地", sentence: "I learned the word \"hot\" today." },
-  "sea": { meaning: "海, 海洋, 海浪, 大量； 海, 海洋", sentence: "I learned the word \"sea\" today." },
-  "principle": { meaning: "原则, 原理, 主义； 原理", sentence: "I learned the word \"principle\" today." },
-  "demand": { meaning: "要求, 需求, 需要；要求, 查询", sentence: "I learned the word \"demand\" today." },
-  "labour": { meaning: "劳动, 努力, 工作, 劳工, 分娩；劳动, 努力, 苦干；详细分析, 使厌烦", sentence: "I learned the word \"labour\" today." },
-  "response": { meaning: "反应, 回答, 响应； 应答", sentence: "I learned the word \"response\" today." },
-  "dead": { meaning: "死的, 不活泼的, 麻木的, 熄灭的；死者；完全地, 直接地", sentence: "I learned the word \"dead\" today." },
-  "capital": { meaning: "首都, 大写字母, 资本；首都的, 重要的", sentence: "I learned the word \"capital\" today." },
-  "tv": { meaning: "电视； 电视, 转移向量", sentence: "I learned the word \"tv\" today." },
-  "round": { meaning: "圆, 圆形物, 巡回, 循环, 一轮, 一回合, 一局, 范围, 轮唱；圆的, 球形的, 丰满的, 肥胖的, 完全的, 大概的, 完美的, 圆润", sentence: "I learned the word \"round\" today." },
-  "decade": { meaning: "十年, 十", sentence: "I learned the word \"decade\" today." },
-  "hotel": { meaning: "旅馆, 客栈", sentence: "I learned the word \"hotel\" today." },
-  "article": { meaning: "文章, 冠词, 物品, 物件, 条款, 契约； 信件", sentence: "I learned the word \"article\" today." },
-  "shoot": { meaning: "射击, 狩猎, 芽, 射伤, 发射, 发芽, 急流, 推力, 摄影, 急送, 滑运道, 浪费；射击, 射中, 损毁, 拍摄, 喷出, 投射, 挥", sentence: "I learned the word \"shoot\" today." },
-  "east": { meaning: "东方, 东；东方的, 向东的；向东方, 朝东方", sentence: "I learned the word \"east\" today." },
-  "above": { meaning: "在上方, 超出；在上面；上述的, 上面的", sentence: "I learned the word \"above\" today." },
-  "forward": { meaning: "向前的, 早的, 迅速的, 在前的, 进步的；促进...的生长, 转寄, 运送；向前地； 前推, 转信", sentence: "I learned the word \"forward\" today." },
-  "save": { meaning: "救球；解救, 挽救, 储蓄, 保存, 节省, 保留；挽救, 节省, 救球；除...之外； 保存", sentence: "I learned the word \"save\" today." },
-  "village": { meaning: "村庄；乡村的, 村庄的", sentence: "I learned the word \"village\" today." },
-  "artist": { meaning: "艺术家, 画家", sentence: "I learned the word \"artist\" today." },
-  "station": { meaning: "车站, 站, 局, 驻地, 位置, 身分, 地位；安置, 配置, 驻扎； 站", sentence: "I learned the word \"station\" today." },
-  "scene": { meaning: "场, 情景, 镜头, 发生地点, 道具, 布景, 景色； 现场", sentence: "I learned the word \"scene\" today." },
-  "individual": { meaning: "人, 个人, 个体；个别的, 个人的, 独特的", sentence: "I learned the word \"individual\" today." },
-  "stock": { meaning: "树干, 祖先, 血统, 原料, 备料, 库存, 牲畜, 股票, 股份, 保留剧目；存货的, 常备的, 平凡的, 普通的, 股票的, 保留剧目的,", sentence: "I learned the word \"stock\" today." },
-  "attempt": { meaning: "尝试, 企图；尝试, 企图", sentence: "I learned the word \"attempt\" today." },
-  "career": { meaning: "事业, 生涯, 成功； 职业, 专业, 履历", sentence: "I learned the word \"career\" today." },
-  "feature": { meaning: "面孔的一部分(如眼、口等), 特征, 容貌, 特色, 特写；是...的特色, 特写, 放映；起重要作用； 特性", sentence: "I learned the word \"feature\" today." },
-  "association": { meaning: "协会； 关联", sentence: "I learned the word \"association\" today." },
-  "income": { meaning: "收入, 收益, 流入； 收益", sentence: "I learned the word \"income\" today." },
-  "treatment": { meaning: "治疗, 待遇, 处理； 疗法, 治疗; 处理", sentence: "I learned the word \"treatment\" today." },
-  "beyond": { meaning: "超过, 在那一边, 迟于；在远处；更远处", sentence: "I learned the word \"beyond\" today." },
-  "happy": { meaning: "快乐的, 幸福的, 愉快的, 恰当的", sentence: "I learned the word \"happy\" today." },
-  "relate": { meaning: "讲, 叙述, 使互相关联；有关, 符合, 相处得好", sentence: "I learned the word \"relate\" today." },
-  "exactly": { meaning: "确切地, 精确地, 恰好, 完全地, 确实, 恰恰正是, 确实如此", sentence: "I learned the word \"exactly\" today." },
-  "following": { meaning: "下列各项, 部下, 追随者；下列的, 其次的", sentence: "I learned the word \"following\" today." },
-  "cup": { meaning: "杯子, 茶杯, 优胜杯；使成杯状, 为...拔火罐", sentence: "I learned the word \"cup\" today." },
-  "protect": { meaning: "防卫, 保护, 警戒； 庇护, 保护, 警戒", sentence: "I learned the word \"protect\" today." },
-  "nice": { meaning: "美好的, 和蔼的, 正派的, 做得好的, 精密的, 细微的, 挑剔的, 谨慎的", sentence: "I learned the word \"nice\" today." },
-  "manage": { meaning: "处理；管理, 控制, 维持, 达成, 经营, 运用", sentence: "I learned the word \"manage\" today." },
-  "dog": { meaning: "狗, 坏蛋；跟踪, 尾随", sentence: "I learned the word \"dog\" today." },
-  "fund": { meaning: "基金, 资金, 存款, 财源, 贮藏；提供资金, 积累", sentence: "I learned the word \"fund\" today." },
-  "affect": { meaning: "影响, 感动, 假装, 模仿, 爱好, 倾向于；自觉感情", sentence: "I learned the word \"affect\" today." },
-  "serious": { meaning: "严肃的, 认真的, 重要的, 严重的； 严重的", sentence: "I learned the word \"serious\" today." },
-  "media": { meaning: "媒体； 媒质", sentence: "I learned the word \"media\" today." },
-  "identify": { meaning: "识别, 认为...等同于, 确定, 使参与；一致, 认同", sentence: "I learned the word \"identify\" today." },
-  "ready": { meaning: "预备好的状态, 现款；准备好的, 备用的, 可以使用的；预先, 迅速；使准备好", sentence: "I learned the word \"ready\" today." },
-  "please": { meaning: "请；使高兴, 合...的心意, 取悦；使人满意, 讨好, 愿意, 敬请", sentence: "I learned the word \"please\" today." },
-  "sign": { meaning: "符号, 招牌, 征兆, 正负号, 手势；签名, 打手势表达；签名； 正负号; 符号; 符号字符", sentence: "I learned the word \"sign\" today." },
-  "whatever": { meaning: "无论什么", sentence: "I learned the word \"whatever\" today." },
-  "difficulty": { meaning: "困难, 难点", sentence: "I learned the word \"difficulty\" today." },
-  "machine": { meaning: "机器, 机械装置, 机构, 自动售货机, 机械般工作的人；以机器制造", sentence: "I learned the word \"machine\" today." },
-  "modern": { meaning: "现代人, 有思想的人；现代的, 时髦的", sentence: "I learned the word \"modern\" today." },
-  "degree": { meaning: "程度, 度数, 学位, 度； 度, 程度", sentence: "I learned the word \"degree\" today." },
-  "legal": { meaning: "法律的, 法定的, 合法的； 法定权利; 法律(上)的, 合法的", sentence: "I learned the word \"legal\" today." },
-  "answer": { meaning: "答案, 回答, 回报, 答辩；回答, 反驳, 适应, 响应, 符合；回答, 答应, 负责, 符合, 成功； 用户问题及答案新闻组", sentence: "I learned the word \"answer\" today." },
-  "cell": { meaning: "单元, 细胞, 电池； 单元", sentence: "I learned the word \"cell\" today." },
-  "resource": { meaning: "资源, 财力, 办法, 策略, 急智, 消遣； 资源", sentence: "I learned the word \"resource\" today." },
-  "growth": { meaning: "生长, 栽培, 增长； 等比级数", sentence: "I learned the word \"growth\" today." },
-  "left": { meaning: "左边的, 左倾的, 左侧的, 左派的；在左面；左, 左面, 左派；leave的过去式和过去分词", sentence: "I learned the word \"left\" today." },
-  "mile": { meaning: "英里, 很大距离； 英里, 哩", sentence: "I learned the word \"mile\" today." },
-  "compare": { meaning: "比较, 比喻, 对照；相比；比较； 比较", sentence: "I learned the word \"compare\" today." },
-  "determine": { meaning: "决定, 决心", sentence: "I learned the word \"determine\" today." },
-  "lady": { meaning: "淑女, 夫人, 女士, 贵妇", sentence: "I learned the word \"lady\" today." },
-  "prepare": { meaning: "准备, 筹备, 使在思想上有准备, 制造, 调制；预备", sentence: "I learned the word \"prepare\" today." },
-  "whom": { meaning: "谁", sentence: "I learned the word \"whom\" today." },
-  "disease": { meaning: "疾病, 弊病； 病", sentence: "I learned the word \"disease\" today." },
-  "final": { meaning: "期末考试, 结局, 决赛；最后的, 终极的, 决定性的", sentence: "I learned the word \"final\" today." },
-  "task": { meaning: "工作, 任务, 作业, 困难的工作；派给...工作, 使辛劳； 任务", sentence: "I learned the word \"task\" today." },
-  "recognize": { meaning: "认出, 认可, 承认, 公认, 识别, 赏识；承认, 具结", sentence: "I learned the word \"recognize\" today." },
-  "function": { meaning: "官能, 职务, 功能, 函数；活动, 运行, 行使职责； 功能, 函数", sentence: "I learned the word \"function\" today." },
-  "ability": { meaning: "能力, 才干； 能力, 才能", sentence: "I learned the word \"ability\" today." },
-  "county": { meaning: "县, 郡", sentence: "I learned the word \"county\" today." },
-  "indicate": { meaning: "显示, 象征, 指示, 指出； 指示", sentence: "I learned the word \"indicate\" today." },
-  "character": { meaning: "个性, 字符, 人物, 性质, 品格, 资格； 字符", sentence: "I learned the word \"character\" today." },
-  "behaviour": { meaning: "行为, 举止； 特性, 性能, 特点, 行为, 动作, 状态", sentence: "I learned the word \"behaviour\" today." },
-  "defence": { meaning: "防卫, 防卫设备； (诉讼程序中的)辩护", sentence: "I learned the word \"defence\" today." },
-  "style": { meaning: "风格, 时尚, 文体, 风度, 字体, 类型；称呼, (根据新款式)设计, 使合潮流；风格, 样式； 风格, 样式", sentence: "I learned the word \"style\" today." },
-  "wonder": { meaning: "奇迹, 惊奇, 惊愕；惊奇, 想知道；惊讶, 怀疑", sentence: "I learned the word \"wonder\" today." },
-  "attack": { meaning: "攻击, 抨击；攻击, 抨击, 动手干；攻击", sentence: "I learned the word \"attack\" today." },
-  "obtain": { meaning: "获得, 达到；流行, 得到公认", sentence: "I learned the word \"obtain\" today." },
-  "science": { meaning: "科学, 学科, 学问, 自然科学； 科学", sentence: "I learned the word \"science\" today." },
-  "television": { meaning: "电视； 电视", sentence: "I learned the word \"television\" today." },
-  "box": { meaning: "盒子, 箱, 方框, 一巴掌；装...入盒中, 装箱, 打耳光；拳击； 方框", sentence: "I learned the word \"box\" today." },
-  "announce": { meaning: "宣布, 声称, 显示, 预告；当报幕员, 宣布参加竞选", sentence: "I learned the word \"announce\" today." },
-  "pretty": { meaning: "漂亮的, 优美的, 机灵的, 狡猾的, 恰当的；相当, 颇", sentence: "I learned the word \"pretty\" today." },
-  "feeling": { meaning: "摸, 触觉, 知觉, 感觉, 情绪, 同情；有同情心的, 有感觉的, 仁慈的, 动人的", sentence: "I learned the word \"feeling\" today." },
-  "hall": { meaning: "门厅, 走廊, 会堂", sentence: "I learned the word \"hall\" today." },
-  "skill": { meaning: "技术, 技巧, 技能, 熟练, 熟练工人； 技能", sentence: "I learned the word \"skill\" today." },
-  "physical": { meaning: "身体的, 物质的, 自然的, 物理学的, 好色的；体格检查", sentence: "I learned the word \"physical\" today." },
-  "lay": { meaning: "放置, 产, 铺设, 布置, 提出, 平息；下蛋, 打赌；位置, 层, 隐藏处；世俗的, 外行的；lie的过去式", sentence: "I learned the word \"lay\" today." },
-  "horse": { meaning: "马, 骑兵, 脚架；骑马, 取笑；使骑马, 系马于", sentence: "I learned the word \"horse\" today." },
-  "user": { meaning: "使用者； 用户", sentence: "I learned the word \"user\" today." },
-  "message": { meaning: "消息, 通讯, 讯息, 教训, 预言, 广告词；通知；通报, 报告, 报信； 报文; 消息; 信息", sentence: "I learned the word \"message\" today." },
-  "outside": { meaning: "外面, 外表, 外界；外面的, 外表的, 外界的；外面, 外表, 外界", sentence: "I learned the word \"outside\" today." },
-  "nor": { meaning: "也不, 也没有； 或非", sentence: "I learned the word \"nor\" today." },
-  "normal": { meaning: "常态, 标准, 正常, 普通；正常的, 正规的, 标准的, 师范的, 正态的； 标准, 普通", sentence: "I learned the word \"normal\" today." },
-  "forget": { meaning: "忘记, 忽略, 忘；忘记", sentence: "I learned the word \"forget\" today." },
-  "sex": { meaning: "性别, 性欲；区别...的性别, 引起...的性欲", sentence: "I learned the word \"sex\" today." },
-  "lawyer": { meaning: "律师； 律师", sentence: "I learned the word \"lawyer\" today." },
-  "investment": { meaning: "投资； 包埋料, 围模料, 包埋法, 围模法", sentence: "I learned the word \"investment\" today." },
-  "army": { meaning: "军队, 陆军", sentence: "I learned the word \"army\" today." },
-  "glass": { meaning: "玻璃, 玻璃杯, 透镜；装玻璃于, 反射, 反映；成玻璃状", sentence: "I learned the word \"glass\" today." },
-  "suffer": { meaning: "遭受, 经历, 忍受；受痛苦, 受损害", sentence: "I learned the word \"suffer\" today." },
-  "sister": { meaning: "姐妹, 姐, 妹, 护士, 修女；姐妹般对待", sentence: "I learned the word \"sister\" today." },
-  "previous": { meaning: "早先的, 前面的, 过急的； 以前的, 生前的, 前述的", sentence: "I learned the word \"previous\" today." },
-  "maintain": { meaning: "维持, 维修, 保持, 坚持, 供养, 主张； 维修", sentence: "I learned the word \"maintain\" today." },
-  "professor": { meaning: "教授", sentence: "I learned the word \"professor\" today." },
-  "crime": { meaning: "犯罪, 罪行, 罪恶； 犯罪, 罪, 罪恶", sentence: "I learned the word \"crime\" today." },
-  "publish": { meaning: "出版, 发行, 公开, 发表, 宣传, 公布；出版, 发行", sentence: "I learned the word \"publish\" today." },
-  "responsibility": { meaning: "责任, 职责, 负担, 可靠性； 职责", sentence: "I learned the word \"responsibility\" today." },
-  "total": { meaning: "全体的, 总的, 全然的；计算...的总和, 共计为；合计；总数, 全体, 合计；统统", sentence: "I learned the word \"total\" today." },
-  "argument": { meaning: "争论, 论证, 论据, 自变量； 参数", sentence: "I learned the word \"argument\" today." },
-  "miss": { meaning: "失误, 避免, 失败, 小姐；未得到, 未达到, 未听到, 未觉察, 逃脱, 遗漏, 错过, 思念；失败, 击不中", sentence: "I learned the word \"miss\" today." },
-  "anyway": { meaning: "无论如何, 至少", sentence: "I learned the word \"anyway\" today." },
-  "avoid": { meaning: "避免, 防止, 撤消； 避免, 回避, 躲开", sentence: "I learned the word \"avoid\" today." },
-  "bill": { meaning: "帐单, 清单, 钞票, 鸟嘴, 广告, 法案, 票据；开帐单, (用招贴)宣布", sentence: "I learned the word \"bill\" today." },
-  "express": { meaning: "快车, 快递, 专使；明确的, 丝毫不差的, 专门的, 快的；表达, 表示, 表露", sentence: "I learned the word \"express\" today." },
-  "gun": { meaning: "枪； 枪", sentence: "I learned the word \"gun\" today." },
-  "suppose": { meaning: "推想, 假设, 以为, 想像, 假定；料想", sentence: "I learned the word \"suppose\" today." },
-  "blue": { meaning: "蓝色；蓝色的, 下流的, 忧郁的；染成蓝色；变蓝", sentence: "I learned the word \"blue\" today." },
-  "finish": { meaning: "完成, 结束, 末道漆, 磨光, 完美；完成, 结束, 用完, 毁掉；结束； 完成", sentence: "I learned the word \"finish\" today." },
-  "element": { meaning: "元件, 元素, 要素； 部分; 成分; 单元; 码元; 元件; 元素; 单元", sentence: "I learned the word \"element\" today." },
-  "strategy": { meaning: "战略, 策略； 战略, 策略", sentence: "I learned the word \"strategy\" today." },
-  "duty": { meaning: "责任, 关税, 职务, 尊敬； 职责", sentence: "I learned the word \"duty\" today." },
-  "july": { meaning: "七月", sentence: "I learned the word \"july\" today." },
-  "tend": { meaning: "走向, 有某种的倾向, 易于, 照顾, 注意；照料, 护理", sentence: "I learned the word \"tend\" today." },
-  "truth": { meaning: "事实, 实情； 真实, 真相, 事实", sentence: "I learned the word \"truth\" today." },
-  "leg": { meaning: "腿, 假腿, 路程；走, 跑", sentence: "I learned the word \"leg\" today." },
-  "song": { meaning: "歌, 曲, 鸣声, 歌唱, 歌曲, 诗歌", sentence: "I learned the word \"song\" today." },
-  "park": { meaning: "公园, 停车处；停车, 置于；停车", sentence: "I learned the word \"park\" today." },
-  "check": { meaning: "检查, 支票, 阻止物, 寄物牌, 象棋中将军；检查, 阻止, 核对, 寄存, 托运；逐项相符, 开支票； 复选", sentence: "I learned the word \"check\" today." },
-  "suddenly": { meaning: "突然, 意外, 忽然, 迅速, 即席作成, 即刻, 急速", sentence: "I learned the word \"suddenly\" today." },
-  "title": { meaning: "头衔, 名称, 标题, 书名, 扉页, 权利, 资格, 冠军, 字幕；授予头衔, 加标题于； 标题", sentence: "I learned the word \"title\" today." },
-  "treat": { meaning: "宴请, 款待；视为, 对待, 论述, 治疗, 款待；讨论, 谈判, 作东", sentence: "I learned the word \"treat\" today." },
-  "dark": { meaning: "黑暗, 夜, 黄昏, 模糊；黑暗的, 暗的, 深色的, 隐密的, 模糊的, 无知的", sentence: "I learned the word \"dark\" today." },
-  "throughout": { meaning: "到处, 贯穿全部地, 自始至终；遍及, 在各处； 吞吐量", sentence: "I learned the word \"throughout\" today." },
-  "discussion": { meaning: "讨论", sentence: "I learned the word \"discussion\" today." },
-  "laugh": { meaning: "笑, 笑声；笑, 大笑；以笑表示", sentence: "I learned the word \"laugh\" today." },
-  "generally": { meaning: "通常, 逐渐地, 普遍地", sentence: "I learned the word \"generally\" today." },
-  "guess": { meaning: "猜测, 臆测；猜测, 臆测", sentence: "I learned the word \"guess\" today." },
-  "aspect": { meaning: "外观, 方面, 面貌, 方向； 方面, 局面; 外观", sentence: "I learned the word \"aspect\" today." },
-  "executive": { meaning: "执行部门, 执行委员会, 执行者, 经理主管人员；执行的, 善于执行的, 善于经营的； 执行程序", sentence: "I learned the word \"executive\" today." },
-  "industrial": { meaning: "工业的, 供工业用的, 工业高度发展的, 产业的；工业工人, 工业股票", sentence: "I learned the word \"industrial\" today." },
-  "chairman": { meaning: "主席, 会长； 主席", sentence: "I learned the word \"chairman\" today." },
-  "remove": { meaning: "移动, 调动, 除去, 迁移, 开除, 移交；迁移, 移动, 搬家；班级, 升级, 移动, 搬家, 间距； 删除", sentence: "I learned the word \"remove\" today." },
-  "hang": { meaning: "悬挂, 诀窍, 意义；悬挂, 附着, 装饰, 垂下, 踌躇, 绞死, 使悬而未决；悬着, 垂下, 被绞死, 悬而不决", sentence: "I learned the word \"hang\" today." },
-  "visit": { meaning: "拜访, 访问, 游览, 视察；拜访, 访问, 参观, 视察, 降临；访问, 参观, 闲谈", sentence: "I learned the word \"visit\" today." },
-  "entire": { meaning: "整个, 全部；全体的, 完全的, 全部的", sentence: "I learned the word \"entire\" today." },
-  "rock": { meaning: "岩石, 岩礁, 石头, 基石, 暗礁, 摇动, 摇滚乐；摇摆, 摇动, 使摇晃, 使动摇；摇, 摇动", sentence: "I learned the word \"rock\" today." },
-  "sorry": { meaning: "难过的, 悲哀的, 遗憾的", sentence: "I learned the word \"sorry\" today." },
-  "sun": { meaning: "太阳, 日, 日光, 阳光；晒；晒太阳", sentence: "I learned the word \"sun\" today." },
-  "exist": { meaning: "存在, 生存, 发生", sentence: "I learned the word \"exist\" today." },
-  "river": { meaning: "河, 江； 河流, 江河, 内河", sentence: "I learned the word \"river\" today." },
-  "customer": { meaning: "消费者； 顾客", sentence: "I learned the word \"customer\" today." },
-  "institution": { meaning: "机构, 惯例, 制度； 机关, 机构, 设施", sentence: "I learned the word \"institution\" today." },
-  "encourage": { meaning: "鼓励, 支持, 激励； 怂恿, 煽动, 助长", sentence: "I learned the word \"encourage\" today." },
-  "network": { meaning: "网络, 广播网, 网状物； 网络", sentence: "I learned the word \"network\" today." },
-  "specific": { meaning: "特效药, 特性；特殊的, 明确的, 具有特效的, 特定地, 具体地", sentence: "I learned the word \"specific\" today." },
-  "appropriate": { meaning: "适当的； 适当的, 拨出, 占用", sentence: "I learned the word \"appropriate\" today." },
-  "profit": { meaning: "利润, 赢利, 利益；有益, 获利, 赚钱；有益于", sentence: "I learned the word \"profit\" today." },
-  "religious": { meaning: "宗教性的, 虔诚的, 宗教上的, 严谨的；修道士, 出家人", sentence: "I learned the word \"religious\" today." },
-  "cold": { meaning: "感冒, 寒冷；寒冷的, 冷淡的, 冷静的；完全地", sentence: "I learned the word \"cold\" today." },
-  "reflect": { meaning: "反射, 反映, 招致, 深思；被反射, 映出, 深思, 考虑, 指责", sentence: "I learned the word \"reflect\" today." },
-  "assume": { meaning: "假定, 承担, 呈现；装腔作势, 僭越", sentence: "I learned the word \"assume\" today." },
-  "admit": { meaning: "承认, 接受, 允许进入, 容许；开向, 容许, 承认", sentence: "I learned the word \"admit\" today." },
-  "stone": { meaning: "石头, 宝石, 果核, 纪念碑, 结石；投扔石子, 铺石头；石的, 石制的, 完全的", sentence: "I learned the word \"stone\" today." },
-  "measure": { meaning: "尺寸, 量度器, 量度标准, 测量, 量具, 程度, 范围, 限度, 分寸, 措施, 方法；测量, 测度, 估量, 权衡, 调节, 拿(自己或自", sentence: "I learned the word \"measure\" today." },
-  "green": { meaning: "绿色, 绿色颜料；绿色的, 未成熟的, 新鲜的, 青春的, 无经验的, 脸色发青的", sentence: "I learned the word \"green\" today." },
-  "conference": { meaning: "会议； 会议, 讨论会, 协商会", sentence: "I learned the word \"conference\" today." },
-  "memory": { meaning: "记忆, 记忆力, 回忆, 纪念, 存储；内存； 存储器, 内存, 查看内存实用程序", sentence: "I learned the word \"memory\" today." },
-  "division": { meaning: "分, 分开, 除法, 部门(如部、处、系等), 师； 部分", sentence: "I learned the word \"division\" today." },
-  "card": { meaning: "卡片, 纸牌, 节目单, 明信片, 梳棉机；备置卡片, 记于卡片上, 梳理； 卡片, 卡", sentence: "I learned the word \"card\" today." },
-  "smile": { meaning: "微笑, 喜色, 笑容；微笑, 觉得好笑；微笑着表示", sentence: "I learned the word \"smile\" today." },
-  "seat": { meaning: "座, 座位, 位子, 席位, 所在地；使坐下, 使就座, 为...设座于, 使就职；安装在底座上", sentence: "I learned the word \"seat\" today." },
-  "replace": { meaning: "代替, 替换, 放回, 归还； 替换; DOS外部命令:取代或更新文件", sentence: "I learned the word \"replace\" today." },
-  "post": { meaning: "柱, 杆, 准星, 邮件, 邮政, 标竿, 职位, 岗位, 哨所, 兵营；张帖, 邮递, 公布, 登入帐, 使熟悉, 布置；快速行进；急速地", sentence: "I learned the word \"post\" today." },
-  "procedure": { meaning: "程序, 过程, 手续； 规程; 过程", sentence: "I learned the word \"procedure\" today." },
-  "trial": { meaning: "审判, 试验, 艰苦, 麻烦事, 考验；审讯的, 试验性的", sentence: "I learned the word \"trial\" today." },
-  "commission": { meaning: "委任状, 任官令, 所委职责, 佣金, 犯, 委托, 所托之事；委任, 委托制作, 使服役", sentence: "I learned the word \"commission\" today." },
-  "expert": { meaning: "专家, 行家；老练的, 内行的, 专门的； 高级", sentence: "I learned the word \"expert\" today." },
-  "proposal": { meaning: "提议, 计划, 求婚； 提案, 申请, 投标", sentence: "I learned the word \"proposal\" today." },
-  "spring": { meaning: "春天, 弹簧, 跳跃, 弹性, 活力, 泉, 源泉；春天的；跳, 弹跳, 涌出, 生长, 裂开, 高耸；使跳起, 使爆炸, 突然提出", sentence: "I learned the word \"spring\" today." },
-  "unless": { meaning: "除非；除...之外", sentence: "I learned the word \"unless\" today." },
-  "mention": { meaning: "提到, 言及, 陈述；提到, 提及", sentence: "I learned the word \"mention\" today." },
-  "improve": { meaning: "改良, 提高...的价值, 改善, 利用；变得更好, 增加", sentence: "I learned the word \"improve\" today." },
-  "radio": { meaning: "无线电, 收音机, 无线电报, 无线电广播, 无线电台；用无线电发送", sentence: "I learned the word \"radio\" today." },
-  "circumstance": { meaning: "环境, 状况, 事件", sentence: "I learned the word \"circumstance\" today." },
-  "client": { meaning: "客户, 顾客, 委托人； 客户, 客户机, 客户机程序", sentence: "I learned the word \"client\" today." },
-  "obviously": { meaning: "显而易见地, 明显地", sentence: "I learned the word \"obviously\" today." },
-  "sector": { meaning: "扇形, 部门, 部分, 函数尺, 象限仪, 段, 区段；把...分成扇形； 扇面; 扇区; 段; 区段", sentence: "I learned the word \"sector\" today." },
-  "imagine": { meaning: "想像, 设想, 猜测；想像起来", sentence: "I learned the word \"imagine\" today." },
-  "tonight": { meaning: "今晚, 今夜；今晚, 今夜", sentence: "I learned the word \"tonight\" today." },
-  "direction": { meaning: "方向, 指导, 趋势； 方向; 流向", sentence: "I learned the word \"direction\" today." },
-  "huge": { meaning: "极大的, 巨大的, 无限的", sentence: "I learned the word \"huge\" today." },
-  "basic": { meaning: "基本原理, 要素, 基本规律；基本的, 碱性的；(计算机)BASIC语言", sentence: "I learned the word \"basic\" today." },
-  "ball": { meaning: "球, 舞会, 球状物；捏成球形", sentence: "I learned the word \"ball\" today." },
-  "yourself": { meaning: "你自己", sentence: "I learned the word \"yourself\" today." },
-  "successful": { meaning: "成功的, 一帆风顺的, 顺利的； 成功的", sentence: "I learned the word \"successful\" today." },
-  "intend": { meaning: "计划, 打算, 意思是； 想要, 打算, 意旨", sentence: "I learned the word \"intend\" today." },
-  "original": { meaning: "最初的, 原始的, 有创意的；原物, 原作", sentence: "I learned the word \"original\" today." },
-  "impact": { meaning: "冲击, 冲突, 影响, 效果；挤入, 撞击, 压紧, 对...发生影响", sentence: "I learned the word \"impact\" today." },
-  "respond": { meaning: "以...回答；回答, 响应, 回报, 有反应, 承担责任", sentence: "I learned the word \"respond\" today." },
-  "attitude": { meaning: "态度, 看法, 姿势； 体态, 姿势, 态度", sentence: "I learned the word \"attitude\" today." },
-  "aware": { meaning: "知道的, 有觉悟的", sentence: "I learned the word \"aware\" today." },
-  "discover": { meaning: "发现, 找到, 暴露；发现", sentence: "I learned the word \"discover\" today." },
-  "popular": { meaning: "通俗的, 流行的, 受欢迎的, 大众的, 人民的, 普及的； 大众的, 通俗的, 普及的", sentence: "I learned the word \"popular\" today." },
-  "traditional": { meaning: "传统的, 惯例的； 传统的, 惯例的", sentence: "I learned the word \"traditional\" today." },
-  "onto": { meaning: "在...之上", sentence: "I learned the word \"onto\" today." },
-  "reveal": { meaning: "露出, 显示, 透露, 揭露, 泄露, (神)启示；窗侧, 门侧", sentence: "I learned the word \"reveal\" today." },
-  "weapon": { meaning: "武器, 兵器；武装", sentence: "I learned the word \"weapon\" today." },
-  "employee": { meaning: "职员, 员工, 受雇人员； 职工; 雇员", sentence: "I learned the word \"employee\" today." },
-  "peace": { meaning: "和平, 和约, 治安, 和睦, 安宁, 静寂；安静下来, 不作声", sentence: "I learned the word \"peace\" today." },
-  "employment": { meaning: "雇用, 职业, 工作； 职业, 雇用, 职工招请", sentence: "I learned the word \"employment\" today." },
-  "refuse": { meaning: "拒绝, 谢绝；拒绝；废物；扔掉的, 无用的", sentence: "I learned the word \"refuse\" today." },
-  "pain": { meaning: "痛苦, 疼痛, 辛苦；使痛苦, 痛苦；作痛, 疼", sentence: "I learned the word \"pain\" today." },
-  "prevent": { meaning: "预防, 防止, 阻止, 妨碍", sentence: "I learned the word \"prevent\" today." },
-  "october": { meaning: "十月", sentence: "I learned the word \"october\" today." },
-  "affair": { meaning: "事件, 事务, 恋爱事件", sentence: "I learned the word \"affair\" today." },
-  "shake": { meaning: "摇动, 震动；摇动, 动摇, 使震动, 挥舞；震动, 发抖, 动摇", sentence: "I learned the word \"shake\" today." },
-  "appeal": { meaning: "恳求, 诉请, 上诉, 吸引力；呼吁, 诉请, 要求, 上诉, 有吸引力；将...上诉", sentence: "I learned the word \"appeal\" today." },
-  "fly": { meaning: "苍蝇, 两翼昆虫, 飞行；飞, 飞翔, 飘扬, 逃走；飞, 飞越, 使飘扬, 逃出；敏捷的", sentence: "I learned the word \"fly\" today." },
-  "heavy": { meaning: "重的, 巨大的, 沉重的, 笨重的, 过度的；沉重地；重物, 严肃角色", sentence: "I learned the word \"heavy\" today." },
-  "interview": { meaning: "面谈, 访问, 接见, 面试；接见, 对...进行面谈(试)", sentence: "I learned the word \"interview\" today." },
-  "regard": { meaning: "关心, 注意, 尊敬, 关系, 问候；视为, 注意, 考虑, 和...有关, 看待；注视, 注意", sentence: "I learned the word \"regard\" today." },
-  "chair": { meaning: "椅子, 显要的席位, 主席；使入座, 使就任要职", sentence: "I learned the word \"chair\" today." },
-  "fish": { meaning: "鱼, 鱼肉, 鱼类, 接合板；钓, 钓鱼, 查出, 用接合板连接；捕鱼, 钓鱼, 用钩捞取, 摸索寻找", sentence: "I learned the word \"fish\" today." },
-  "professional": { meaning: "专业人才；专业的, 职业的", sentence: "I learned the word \"professional\" today." },
-  "holiday": { meaning: "假日, 假期, 节日；度假", sentence: "I learned the word \"holiday\" today." },
-  "camera": { meaning: "照相机, 摄影机, 密谈室, 暗箱； 摄影", sentence: "I learned the word \"camera\" today." },
-  "technique": { meaning: "技巧, 技术, 方法； 工艺方法; 技巧", sentence: "I learned the word \"technique\" today." },
-  "item": { meaning: "项目, 条款, 一则, 项； 项", sentence: "I learned the word \"item\" today." },
-  "medium": { meaning: "媒体, 方法, 媒介；半生熟的, 中间的； 媒体, 中", sentence: "I learned the word \"medium\" today." },
-  "politics": { meaning: "政治, 政治学, 政见, 政治活动； 政治, 政治学, 政纲", sentence: "I learned the word \"politics\" today." },
-  "pupil": { meaning: "学生, 门生, 未成年人, 瞳孔； 瞳孔", sentence: "I learned the word \"pupil\" today." },
-  "perform": { meaning: "进行, 履行, 完成, 执行, 表演；行动, 工作, 执行, 演出", sentence: "I learned the word \"perform\" today." },
-  "version": { meaning: "一种描述, 版本, 译文； 版本", sentence: "I learned the word \"version\" today." },
-  "weight": { meaning: "重, 重量, 体重, 砝码, 重大, 影响, 力量；加重量于, 压迫, 使加权, 称重量； 粗细", sentence: "I learned the word \"weight\" today." },
-  "candidate": { meaning: "候选人, 投考者； 候选, 候补者", sentence: "I learned the word \"candidate\" today." },
-  "direct": { meaning: "直接的, 坦白的；指示, 指挥, 命令, 导演；指导, 指挥；直接地", sentence: "I learned the word \"direct\" today." },
-  "press": { meaning: "压, 揿, 按, 人群, 印刷机, 压力, 出版社, 记者, 报刊, 新闻舆论, 紧迫；压, 压榨, 紧抱, 逼迫, 推进, 强迫征募, 催逼", sentence: "I learned the word \"press\" today." },
-  "trip": { meaning: "旅行, 绊倒, 摔倒, 失足, 差错, 旅程；使跌倒, 使犯错, 使失败；轻快地走, 绊倒, 失误, 犯错, 结巴, 旅行, 远足", sentence: "I learned the word \"trip\" today." },
-  "advice": { meaning: "忠告, 劝告, 意见, 报道, 通知； 通知书, 通知, 建议", sentence: "I learned the word \"advice\" today." },
-  "inside": { meaning: "内部, 内脏, 内幕；内部的, 秘密的, 户内的；在里面；在...之内", sentence: "I learned the word \"inside\" today." },
-  "september": { meaning: "九月", sentence: "I learned the word \"september\" today." },
-  "library": { meaning: "图书馆, 藏书, 库； 库", sentence: "I learned the word \"library\" today." },
-  "adult": { meaning: "成人, 成虫；成年的, 成熟的", sentence: "I learned the word \"adult\" today." },
-  "advantage": { meaning: "优点, 便利, 好处, 优势；有助于", sentence: "I learned the word \"advantage\" today." },
-  "worry": { meaning: "担心, 烦恼, 忧虑, 苦恼, 撕咬；使烦恼, 使焦虑, 使苦恼, 困扰, 折磨, 撕咬；烦恼, 担心, 撕咬", sentence: "I learned the word \"worry\" today." },
-  "operate": { meaning: "操作, 运转, 动手术, 活动", sentence: "I learned the word \"operate\" today." },
-  "surface": { meaning: "面, 表面, 水面, 外表, 平面；表面的, 外观的, 肤浅的, 水面上的；使成平面, 使浮出水面；浮出水面, 呈现, 在地面上工作", sentence: "I learned the word \"surface\" today." },
-  "immediately": { meaning: "直接地, 立刻, 立即", sentence: "I learned the word \"immediately\" today." },
-  "deep": { meaning: "深的；深入地；深渊, 深处", sentence: "I learned the word \"deep\" today." },
-  "worth": { meaning: "价值, 财产；值...的, 值得的", sentence: "I learned the word \"worth\" today." },
-  "edge": { meaning: "边缘, 尖锐, 刀刃, 优势；使锐利, 挤进, 镶边；缓缓移动", sentence: "I learned the word \"edge\" today." },
-  "variety": { meaning: "多样, 种类, 变种, 杂耍； 变种", sentence: "I learned the word \"variety\" today." },
-  "trouble": { meaning: "烦恼, 麻烦, 困难, 动乱, 故障；困扰, 麻烦, 使烦恼, 折磨；烦恼, 费心", sentence: "I learned the word \"trouble\" today." },
-  "island": { meaning: "岛, 岛屿, 孤立地区, 安全岛；使成岛状, 孤立", sentence: "I learned the word \"island\" today." },
-  "january": { meaning: "一月", sentence: "I learned the word \"january\" today." },
-  "challenge": { meaning: "挑战, 盘问；向...挑战, 要求, 怀疑；挑战, 对(证据等)表示异议", sentence: "I learned the word \"challenge\" today." },
-  "fear": { meaning: "恐怖, 害怕, 担心；害怕, 恐惧, 为...担心, 敬畏", sentence: "I learned the word \"fear\" today." },
-  "useful": { meaning: "有用的, 有益的； 有用的, 有效的", sentence: "I learned the word \"useful\" today." },
-  "shoulder": { meaning: "肩, 肩膀, 衣肩；肩负, 负担, 担任；用肩推挤", sentence: "I learned the word \"shoulder\" today." },
-  "depend": { meaning: "靠, 视...而定, 信赖", sentence: "I learned the word \"depend\" today." },
-  "middle": { meaning: "中央, 中间, 腰部；中央的, 中庸的, 中间的", sentence: "I learned the word \"middle\" today." },
-  "sunday": { meaning: "星期日；星期日的, 业余的；度星期日", sentence: "I learned the word \"sunday\" today." },
-  "majority": { meaning: "多数, 大半； 多数逻辑", sentence: "I learned the word \"majority\" today." },
-  "dream": { meaning: "梦, 空想, 愿望；做梦, 想象, 梦想", sentence: "I learned the word \"dream\" today." },
-  "extent": { meaning: "范围, 程度, 区域； 范围", sentence: "I learned the word \"extent\" today." },
-  "bar": { meaning: "条, 棒, 酒吧, 栅, 障碍物；禁止, 阻挡, 妨碍； 棒形图", sentence: "I learned the word \"bar\" today." },
-  "enable": { meaning: "使能够； 允许, 使能, 打开", sentence: "I learned the word \"enable\" today." },
-  "beautiful": { meaning: "美丽的", sentence: "I learned the word \"beautiful\" today." },
-  "competition": { meaning: "竞争, 竞赛； 竞争, 竞销, 比赛", sentence: "I learned the word \"competition\" today." },
-  "instead": { meaning: "作为替代, 反而", sentence: "I learned the word \"instead\" today." },
-  "parliament": { meaning: "国会, 议会； 会议, 国会, 议院", sentence: "I learned the word \"parliament\" today." },
-  "goods": { meaning: "货物； 货物, 商品, 动产", sentence: "I learned the word \"goods\" today." },
-  "stuff": { meaning: "原料, 要素, 东西, 材料, 素质, 织品, 废物, 废话；装填；狼吞虎咽", sentence: "I learned the word \"stuff\" today." },
-  "speaker": { meaning: "说话人, 讲演者, 发言人, 喇叭, 扬声器； 扬声器", sentence: "I learned the word \"speaker\" today." },
-  "complete": { meaning: "完全的, 十足的, 完成的；完成, 完工, 使圆满", sentence: "I learned the word \"complete\" today." },
-  "access": { meaning: "通路, 入口, 接近, 进入, 使用权, 发作；访问, 存取, 接近, 使用； 访问, 存取", sentence: "I learned the word \"access\" today." },
-  "somebody": { meaning: "了不起的人, 大人物；有人, 某人", sentence: "I learned the word \"somebody\" today." },
-  "magazine": { meaning: "杂志, 仓库, 弹盒, 胶卷盒； 卡片箱, 介质装卸程序", sentence: "I learned the word \"magazine\" today." },
-  "text": { meaning: "文本, 正文, 课文, 主题, 圣经文句, 乐谱； 电文; 文本; 正文", sentence: "I learned the word \"text\" today." },
-  "soldier": { meaning: "军人, 士兵, 兵蚁；从军, 尽职, 偷懒, 磨洋工", sentence: "I learned the word \"soldier\" today." },
-  "easily": { meaning: "容易地, 轻易地, 流利地", sentence: "I learned the word \"easily\" today." },
-  "sexual": { meaning: "性的, 性别的； 性的; 性欲的", sentence: "I learned the word \"sexual\" today." },
-  "effective": { meaning: "有效的, 有力的, 实际的；有生力量", sentence: "I learned the word \"effective\" today." },
-  "bag": { meaning: "袋子, 袋状物；使膨大, 装袋, 猎获", sentence: "I learned the word \"bag\" today." },
-  "heat": { meaning: "热, 热度, 体温, 高潮；加热, 激昂, 加剧；把...加热, 使激动", sentence: "I learned the word \"heat\" today." },
-  "payment": { meaning: "付款, 支付的款项(或实物), 偿还, 报应, 惩罚； 支付, 缴纳, 支付款额", sentence: "I learned the word \"payment\" today." },
-  "mouth": { meaning: "嘴, 口, 口腔, 口状物；装腔作势说话, 做鬼脸；说出, 做作地说", sentence: "I learned the word \"mouth\" today." },
-  "marriage": { meaning: "婚姻, 结婚, 婚礼, 合并； 婚姻, 结婚", sentence: "I learned the word \"marriage\" today." },
-  "tough": { meaning: "恶棍；强硬的, 艰苦的, 坚固的, 坚韧的, 粗暴的, 咬不动的", sentence: "I learned the word \"tough\" today." },
-  "sing": { meaning: "唱, 唱歌, 演唱, 鸣, 啼；唱, 歌颂；嗖嗖声", sentence: "I learned the word \"sing\" today." },
-  "independent": { meaning: "独立自主者, 无党派者；独立的, 有主见的, 不须依赖的, 不受约束的", sentence: "I learned the word \"independent\" today." },
-  "facility": { meaning: "容易, 灵巧, 设备； 设施; 设备; 装备", sentence: "I learned the word \"facility\" today." },
-  "survey": { meaning: "纵览, 视察, 测量, 俯瞰, 调查；审视, 视察, 俯瞰, 通盘考虑；测量土地", sentence: "I learned the word \"survey\" today." },
-  "reference": { meaning: "参考, 索引, 参照；给...加上参考资料；引用；引用； 引用", sentence: "I learned the word \"reference\" today." },
-  "skin": { meaning: "皮肤, 皮；剥皮, 在...植皮；长皮, 愈合, 蜕皮", sentence: "I learned the word \"skin\" today." },
-  "context": { meaning: "上下文, 背景, 来龙去脉；上下文； 上下文", sentence: "I learned the word \"context\" today." },
-  "agent": { meaning: "代理商, 政府代表, 动原, 媒介； 代理程序", sentence: "I learned the word \"agent\" today." },
-  "owner": { meaning: "拥有者, 物主, 所有人； 所有者, 物主, 业主", sentence: "I learned the word \"owner\" today." },
-  "gas": { meaning: "气体, 汽油, 瓦斯； 气体; 煤气; 瓦斯; 毒气", sentence: "I learned the word \"gas\" today." },
-  "extend": { meaning: "扩充, 延伸, 伸展, 扩大； 扩展", sentence: "I learned the word \"extend\" today." },
-  "ahead": { meaning: "领先的, 预先的, 向前的；领先, 预先, 向前, 胜于, 在前面, 在将来", sentence: "I learned the word \"ahead\" today." },
-  "earth": { meaning: "地球, 泥土, 世界, 尘世；埋入土中, 赶入洞内；躲入洞内", sentence: "I learned the word \"earth\" today." },
-  "generation": { meaning: "一代, 一世, 产生； 生殖, 世代", sentence: "I learned the word \"generation\" today." },
-  "commercial": { meaning: "商业的, 商用的, 商品化的；商业广告节目", sentence: "I learned the word \"commercial\" today." },
-  "object": { meaning: "物体, 目标, 目的, 对象, 宾语, 客体；反对, 抱反感；提出...来反对； 对象", sentence: "I learned the word \"object\" today." },
-  "address": { meaning: "住址, 演说, 举止, 灵巧, 求爱；发表(演说或讲话), 对付, 写地址； 地址, 寻址", sentence: "I learned the word \"address\" today." },
-  "cancer": { meaning: "癌, 恶性肿瘤； 癌", sentence: "I learned the word \"cancer\" today." },
-  "possibility": { meaning: "可能性, 可能的事； 可能性, 可能发生的事, 不确定权", sentence: "I learned the word \"possibility\" today." },
-  "reality": { meaning: "实在, 事实, 实体, 逼真； 现实, 实在存在的事物, 实在性", sentence: "I learned the word \"reality\" today." },
-  "interesting": { meaning: "有趣的", sentence: "I learned the word \"interesting\" today." },
-  "coach": { meaning: "四轮大马车, 教练；训练, 指导；坐马车旅行, 作指导", sentence: "I learned the word \"coach\" today." },
-  "means": { meaning: "方法, 手段, 工具, 财产, 收入； 方法, 手段, 工具; 意谓", sentence: "I learned the word \"means\" today." },
-  "notice": { meaning: "注意, 布告, 通知, 预告, 短评；注意, 通知, 评论, 提及, 关注；注意", sentence: "I learned the word \"notice\" today." },
-  "yard": { meaning: "码, 庭院, 工场； 堆置场", sentence: "I learned the word \"yard\" today." },
-  "beat": { meaning: "心跳(声), 打, 敲打声, 拍子；打, 拍打, 打败；疲乏的, 颓废的；beat的过去式； 拍; 节拍", sentence: "I learned the word \"beat\" today." },
-  "violence": { meaning: "猛烈, 暴力, 暴虐, 暴行； 暴行, 暴力, 暴乱", sentence: "I learned the word \"violence\" today." },
-  "collection": { meaning: "收集, 采集, (一批)收藏品, 募捐； 收集; 收集品, 标本", sentence: "I learned the word \"collection\" today." },
-  "communication": { meaning: "交流, 交通, 通讯； 通信", sentence: "I learned the word \"communication\" today." },
-  "finger": { meaning: "手指, 指状物, (手套的)手指部分, 指针；用手指拨弄, 伸出； 网络命令", sentence: "I learned the word \"finger\" today." },
-  "considerable": { meaning: "相当的, 可观的, 重要的", sentence: "I learned the word \"considerable\" today." },
-  "arise": { meaning: "站立, 出现, 起来", sentence: "I learned the word \"arise\" today." },
-  "fit": { meaning: "适宜, 合身, 发作, 痉挛；适宜的, 对的, 准备好的；适合, 安装, 使合身, 使适应, 使合格；适合, 符合, 合身； 非特", sentence: "I learned the word \"fit\" today." },
-  "supply": { meaning: "补给, 供给, 供应品；补给, 供给, 提供, 补充；替代", sentence: "I learned the word \"supply\" today." },
-  "partner": { meaning: "合伙人, 股东, 伙伴, 伴侣；与...合伙, 组成一对；做伙伴, 当助手", sentence: "I learned the word \"partner\" today." },
-  "positive": { meaning: "肯定的, 积极的, 有把握的； 正的, 阳性的", sentence: "I learned the word \"positive\" today." },
-  "civil": { meaning: "市民的, 公民的, 有礼貌的； 公民的, 国民的, 民用的", sentence: "I learned the word \"civil\" today." },
-  "examine": { meaning: "检查, 调查, 考试", sentence: "I learned the word \"examine\" today." },
-  "kitchen": { meaning: "厨房, 全套炊具； 厨房", sentence: "I learned the word \"kitchen\" today." },
-  "consumer": { meaning: "消费者； 消费者, 用户", sentence: "I learned the word \"consumer\" today." },
-  "document": { meaning: "文件, 公文, 文档；证明, 为...引证； 文档", sentence: "I learned the word \"document\" today." },
-  "shot": { meaning: "发射, 炮弹, 射击, 射手, 投篮, 射门, 子弹, 射程, 拍摄, 注射；装弹, 使成颗粒状；杂色的, 交织着的, 渗透的, 点焊的, 破旧", sentence: "I learned the word \"shot\" today." },
-  "define": { meaning: "定义, 规定, 使明确； 定义", sentence: "I learned the word \"define\" today." },
-  "budget": { meaning: "预算；编预算；编入预算, 安排；廉价的", sentence: "I learned the word \"budget\" today." },
-  "responsible": { meaning: "有责任的, 负责的, 责任重大的； 应负责任的, 有责任的, 能履行责任的", sentence: "I learned the word \"responsible\" today." },
-  "painting": { meaning: "画, 绘画, 油漆； 涂漆", sentence: "I learned the word \"painting\" today." },
-  "scientist": { meaning: "科学家； 科学家", sentence: "I learned the word \"scientist\" today." },
-  "safe": { meaning: "保险箱, 冷藏室；安全的, 可靠的, 平安的, 稳健的, 有把握的", sentence: "I learned the word \"safe\" today." },
-  "solution": { meaning: "解决, 解答, 溶液； 溶液", sentence: "I learned the word \"solution\" today." },
-  "november": { meaning: "十一月", sentence: "I learned the word \"november\" today." },
-  "december": { meaning: "十二月", sentence: "I learned the word \"december\" today." },
-  "influence": { meaning: "影响力, 权力, 势力；影响, 改变", sentence: "I learned the word \"influence\" today." },
-  "victim": { meaning: "受害人, 牺牲者, 牺牲品； 受害人, 被害人, 遭难者", sentence: "I learned the word \"victim\" today." },
-  "software": { meaning: "软件； 软设备", sentence: "I learned the word \"software\" today." },
-  "newspaper": { meaning: "报纸", sentence: "I learned the word \"newspaper\" today." },
-  "bear": { meaning: "熊；忍受, 支承, 产生, 怀有, 通过卖空使跌价；忍受, 结果实, 压挤, 行进, 转向", sentence: "I learned the word \"bear\" today." },
-  "threat": { meaning: "恐吓, 恶兆, 威胁； 威胁", sentence: "I learned the word \"threat\" today." },
-  "opinion": { meaning: "意见, 评价, 主张； 意见", sentence: "I learned the word \"opinion\" today." },
-  "attorney": { meaning: "代理人, 律师； 律师, 代理人", sentence: "I learned the word \"attorney\" today." },
-  "score": { meaning: "得分, 抓痕, 二十个, 刻痕, 帐目, 乐谱, 起跑线, 终点线, 大量；刻划, 划线, 获得, 评价, 把...记下；刻痕, 记分, 得分", sentence: "I learned the word \"score\" today." },
-  "district": { meaning: "区域, 地方； 地区, 地段", sentence: "I learned the word \"district\" today." },
-  "bird": { meaning: "鸟, 羽毛球；打鸟", sentence: "I learned the word \"bird\" today." },
-  "damage": { meaning: "损害, 伤害；损害", sentence: "I learned the word \"damage\" today." },
-  "audience": { meaning: "听众, 观众, 读者； 听讼, 观众, 听众", sentence: "I learned the word \"audience\" today." },
-  "rich": { meaning: "富裕的, 富饶的, 浓厚的, 贵重的", sentence: "I learned the word \"rich\" today." },
-  "tomorrow": { meaning: "明天, 未来；明天, 未来地", sentence: "I learned the word \"tomorrow\" today." },
-  "dinner": { meaning: "晚餐, 正餐, 宴会", sentence: "I learned the word \"dinner\" today." },
-  "vote": { meaning: "投票, 选举, 选票, 表决, 选举权, 得票数；投票, 选举；投票选举, 投票决定, 公认, 使投票", sentence: "I learned the word \"vote\" today." },
-  "requirement": { meaning: "需求, 必要条件, 要求； 要求; 合同要求", sentence: "I learned the word \"requirement\" today." },
-  "extra": { meaning: "额外的事物, 另外的收费；额外的, 特别的；额外地, 特别地, 非常地", sentence: "I learned the word \"extra\" today." },
-  "travel": { meaning: "旅行, 游历, 行进；旅行, 行进, 移动, 被传播；旅行, 通过, 使移动", sentence: "I learned the word \"travel\" today." },
-  "debate": { meaning: "辩论, 讨论；争论, 辩论", sentence: "I learned the word \"debate\" today." },
-  "citizen": { meaning: "市民, 公民； 公民, 国民, 市民", sentence: "I learned the word \"citizen\" today." },
-  "exchange": { meaning: "交换, (电话)交换局, 交换机, 汇兑, 交易所；交换, 交易, 兑换； 交换; 电话局", sentence: "I learned the word \"exchange\" today." },
-  "quarter": { meaning: "四分之一, 一刻钟, 季度, 地区；四等分, 肢解；驻扎, 住宿", sentence: "I learned the word \"quarter\" today." },
-  "none": { meaning: "一点也不, 毫不；没有人, 无一物, 并无一个；没有的", sentence: "I learned the word \"none\" today." },
-  "option": { meaning: "选择权, 挑选, 选项； 选项", sentence: "I learned the word \"option\" today." },
-  "front": { meaning: "前面, 开头, 前线, 阵线, 态度；面对, 朝向, 对抗；朝向", sentence: "I learned the word \"front\" today." },
-  "eventually": { meaning: "最后, 终于", sentence: "I learned the word \"eventually\" today." },
-  "senior": { meaning: "年长者, 资深者, 毕业班学生；年长的, 高级的, 资深的", sentence: "I learned the word \"senior\" today." },
-  "occasion": { meaning: "场合, 时机, 机会, 诱因, 理由；惹起, 引起", sentence: "I learned the word \"occasion\" today." },
-  "highly": { meaning: "非常, 非常赞许地； 大大地", sentence: "I learned the word \"highly\" today." },
-  "wind": { meaning: "风, 气息, 气味, 呼吸, 风声, 趋势, 空谈, 卷绕, 弯曲；使通风, 嗅出, 使喘气, 吹号角, 上发条, 缠绕, 包, 绞起, 吊起,", sentence: "I learned the word \"wind\" today." },
-  "arrangement": { meaning: "排列, 整齐, 安排； 排列", sentence: "I learned the word \"arrangement\" today." },
-  "key": { meaning: "钥匙, 键, 解答, 关键, 要害, 基调, 线索, 答案, 暗礁；调音, 锁上, 提供线索；使用钥匙； 键, 密钥", sentence: "I learned the word \"key\" today." },
-  "target": { meaning: "目标, 靶子, 指标；对准, 订指标", sentence: "I learned the word \"target\" today." },
-  "aid": { meaning: "帮助, 外援, 助手；援助, 帮助, 有助于；帮助； 自动内部诊断", sentence: "I learned the word \"aid\" today." },
-  "fast": { meaning: "快速的, 紧的；很快地, 紧紧地, 彻底地；绝食, 斋戒；绝食, 斋戒", sentence: "I learned the word \"fast\" today." },
-  "alone": { meaning: "孤独的, 单独的, 独自的；独自地", sentence: "I learned the word \"alone\" today." },
-  "match": { meaning: "比赛, 火柴, 对手；使相配, 使比赛, 与...竞争；结婚, 相配； 比较", sentence: "I learned the word \"match\" today." },
-  "railway": { meaning: "铁路, 轨道； 铁路", sentence: "I learned the word \"railway\" today." },
-  "attend": { meaning: "参加, 照料, 伴随；专心于, 照顾, 服侍, 出席", sentence: "I learned the word \"attend\" today." },
-  "speech": { meaning: "演讲, 说话, 谈话, 言语, 引语, 民族语言； 言语, 语言", sentence: "I learned the word \"speech\" today." },
-  "concept": { meaning: "观念, 概念； 概念", sentence: "I learned the word \"concept\" today." },
-  "lack": { meaning: "缺乏, 无, 不足；缺乏, 短少, 不足, 需要；缺乏", sentence: "I learned the word \"lack\" today." },
-  "corner": { meaning: "角落, 转角, 窘境；迫至一隅, 垄断, 使陷入绝境；相交成角, 垄断； 边角", sentence: "I learned the word \"corner\" today." },
-  "southern": { meaning: "南方人, 男风；向南方的, 来自南方的", sentence: "I learned the word \"southern\" today." },
-  "fresh": { meaning: "新鲜的, 新奇的, 另外的, 淡的, 精神饱满的, 冒失的；最新地, 刚刚；开始, 泛滥", sentence: "I learned the word \"fresh\" today." },
-  "forest": { meaning: "森林, 林区；植树于", sentence: "I learned the word \"forest\" today." },
-  "video": { meaning: "影像, 电视；图像的, 电视的", sentence: "I learned the word \"video\" today." },
-  "global": { meaning: "通用的, 全球的, 球形的, 综合的, 普遍的； 共用", sentence: "I learned the word \"global\" today." },
-  "slightly": { meaning: "些微地, 苗条地", sentence: "I learned the word \"slightly\" today." },
-  "reform": { meaning: "改革, 改正, 改造；改革, 改过, 革新, 重整；革新, 改过", sentence: "I learned the word \"reform\" today." },
-  "gain": { meaning: "增益, 获得, 利润, 收获, 增加；得到, 增进, 赚到；获利, 增加； 增益", sentence: "I learned the word \"gain\" today." },
-  "restaurant": { meaning: "餐馆, 饭店", sentence: "I learned the word \"restaurant\" today." },
-  "judge": { meaning: "法官, 裁判员, 审判官, 鉴定人；审理, 鉴定, 判断, 判决, 裁定；下判断, 作评价", sentence: "I learned the word \"judge\" today." },
-  "scale": { meaning: "刻度, 衡量, 比例, 比例尺, 数值范围, 等级, 规模, 天平, 秤, 鳞, 积垢；依比例决定, 攀登, 测量, 绘制, 刮鳞, 使生垢,", sentence: "I learned the word \"scale\" today." },
-  "equipment": { meaning: "装备, 设备, 才能； 设备; 装备; 装置", sentence: "I learned the word \"equipment\" today." },
-  "afternoon": { meaning: "午后, 下午", sentence: "I learned the word \"afternoon\" today." },
-  "release": { meaning: "释放, 发泄, 豁免, 发行, 释放证书；释放, 解除, 放松, 豁免, 免除, 发布, 放弃, 让与；发布； 版本, 发布", sentence: "I learned the word \"release\" today." },
-  "credit": { meaning: "信用, 信任, 荣誉, 贷款, 学分；归功于, 赞颂, 信任, 相信； 信用量", sentence: "I learned the word \"credit\" today." },
-  "male": { meaning: "男人, 雄性动物；男性的, 雄性的, 有力的", sentence: "I learned the word \"male\" today." },
-  "critical": { meaning: "批评的, 决定性的, 危险的, 临界的； 危象的; 临界的, 极期的", sentence: "I learned the word \"critical\" today." },
-  "review": { meaning: "检讨, 复习, 回顾, 检阅, 评论；温习, 检讨, 评论, 再检察, 复审；复习功课, 写评论", sentence: "I learned the word \"review\" today." },
-  "recall": { meaning: "回忆, 召回, 撤消；回想, 回忆, 召回, 撤消, 使恢复； 检索", sentence: "I learned the word \"recall\" today." },
-  "stare": { meaning: "注视, 凝视, 瞪视, 显眼；盯；凝视", sentence: "I learned the word \"stare\" today." },
-  "safety": { meaning: "安全, 保险, 平安, 保安设备；保护, 防护", sentence: "I learned the word \"safety\" today." },
-  "otherwise": { meaning: "否则, 不同地, 别的方式", sentence: "I learned the word \"otherwise\" today." },
-  "hill": { meaning: "小山, 丘陵, 小土堆；作成土堆, 堆成小丘", sentence: "I learned the word \"hill\" today." },
-  "hardly": { meaning: "刚刚, 几乎不, 勉强是", sentence: "I learned the word \"hardly\" today." },
-  "below": { meaning: "在下面；在下面", sentence: "I learned the word \"below\" today." },
-  "status": { meaning: "状态, 情形, 地位, 要人身份； 状态", sentence: "I learned the word \"status\" today." },
-  "directly": { meaning: "径直地, 直接地, 直率地, 正好地, 直截了当地, (非正式)立即, 马上；一...(就...), 一当...就...； 直接的", sentence: "I learned the word \"directly\" today." },
-  "expression": { meaning: "表达, 表现, 词语, 措辞； 表达式", sentence: "I learned the word \"expression\" today." },
-  "tea": { meaning: "茶, 茶叶； 茶, 茶剂, 浸剂", sentence: "I learned the word \"tea\" today." },
-  "hurt": { meaning: "伤害, 创伤, 损害；伤害, (使)伤心, 危害, 刺痛", sentence: "I learned the word \"hurt\" today." },
-  "sale": { meaning: "出售, 卖, 拍卖, 销售额, 廉价出售； 卖, 出售; 销售(货)", sentence: "I learned the word \"sale\" today." },
-  "track": { meaning: "轨迹, 足迹, 径迹, 小道, 轨道, 磁轨, 途径；循路而行, 追踪, 通过, 用纤拉；追踪, 留下足迹, 沿轨道运行； 跟踪", sentence: "I learned the word \"track\" today." },
-  "band": { meaning: "带子, 队, 乐队；联合, 结合； 频带; 波段; 区", sentence: "I learned the word \"band\" today." },
-  "strike": { meaning: "罢工, 打击, 殴打；打, 撞击, 冲击, 侵袭, 取消, 结算, 打掉, 罢工, 刺透, 使生根, 遇见；打, 打击, 抓, 罢工, 搏动,", sentence: "I learned the word \"strike\" today." },
-  "sky": { meaning: "天空, 天色, 天堂；击向空中, 挂在高处；高涨", sentence: "I learned the word \"sky\" today." },
-  "failure": { meaning: "失败, 失败者, 不足, 缺乏, 破产； 故障; 失效", sentence: "I learned the word \"failure\" today." },
-  "reader": { meaning: "读者, 读物, 文选, 校对人, 讲师； 阅读程序; 阅读器", sentence: "I learned the word \"reader\" today." },
-  "freedom": { meaning: "自由, 坦率, 特权； 自由, 自主, 免除", sentence: "I learned the word \"freedom\" today." },
-  "absolutely": { meaning: "完全地, 绝对地, 确确实实地", sentence: "I learned the word \"absolutely\" today." },
-  "fair": { meaning: "展览会, 市集, 美好的事物；公平的, 按规则进行的, 不好不坏的, 晴朗的, 美丽的；公平地, 正面地, 有教养地, 清楚地；转晴", sentence: "I learned the word \"fair\" today." },
-  "plane": { meaning: "平面, 扁平物, 机翼, 飞机, 水准, 地位；平的, 平面的；将...刨平, 刨平, 掠过水面；翱翔, 乘飞机旅行, 刨掉", sentence: "I learned the word \"plane\" today." },
-  "nobody": { meaning: "小人物, 无名小卒；无人, 没有人", sentence: "I learned the word \"nobody\" today." },
-  "essential": { meaning: "要素, 要点, 本质；必要的, 重要的, 本质的； 本质冒险", sentence: "I learned the word \"essential\" today." },
-  "confirm": { meaning: "证实, 确定, 批准, 使巩固； 确认", sentence: "I learned the word \"confirm\" today." },
-  "adopt": { meaning: "采用, 正式通过, 收养, 接受； 采取", sentence: "I learned the word \"adopt\" today." },
-  "powerful": { meaning: "有力的, 有权力的, 强大的； 强力的", sentence: "I learned the word \"powerful\" today." },
-  "saturday": { meaning: "星期六", sentence: "I learned the word \"saturday\" today." },
-  "trust": { meaning: "信任, 信赖, 相信, 受托, 职责, 信心, 托拉斯；信托的, 托拉斯的；信赖, 信任, 相信, 盼望, 赊卖给；相信, 信赖, 依靠； 委托", sentence: "I learned the word \"trust\" today." },
-  "perfect": { meaning: "完成时；完美的, 完好的, 理想的, 熟练的, 精确的, 完成式的；使完美, 修改, 使精通, 改善, 使熟练", sentence: "I learned the word \"perfect\" today." },
-  "conduct": { meaning: "行为, 举动, 指导；为人, 指挥, 管理, 实施；领导, 传导, 指挥", sentence: "I learned the word \"conduct\" today." },
-  "conversation": { meaning: "会话, 说话, 交谈； 交谈, 社交, 性交", sentence: "I learned the word \"conversation\" today." },
-  "touch": { meaning: "触觉, 碰, 触, 机灵, 轻触, 格调, 少许, 缺点, 弹力；接触, 触摸, 触及, 使接触, 达到, 涉及, 影响到, 使轻度受害, 感动", sentence: "I learned the word \"touch\" today." },
-  "farm": { meaning: "农场, 农田；耕种；种田", sentence: "I learned the word \"farm\" today." },
-  "sentence": { meaning: "句子, 命题, 宣判；宣判, 判决； 句子", sentence: "I learned the word \"sentence\" today." },
-  "file": { meaning: "档案, 公文箱, 文件夹, 文件, 卷宗, 锉刀；列队行进, 用锉刀做；归档, 申请, 锉, 琢磨； 文件", sentence: "I learned the word \"file\" today." },
-  "sleep": { meaning: "睡眠, 静止, 昏迷, 麻木, 长眠, 冬眠；睡觉, 睡眠, 静止；睡", sentence: "I learned the word \"sleep\" today." },
-  "primary": { meaning: "最主要者, 原色；主要的, 初期的, 根本的, 原始的, 首要的, 基本的； 初等量; 主要的; 一次的", sentence: "I learned the word \"primary\" today." },
-  "obvious": { meaning: "明显的, 明白的, 显然的, 平淡无奇的", sentence: "I learned the word \"obvious\" today." },
-  "length": { meaning: "长度, 长, 期间, 一段； 记录长度; 块长; 字长", sentence: "I learned the word \"length\" today." },
-  "copy": { meaning: "副本, 摹仿, 一册；复印, 抄袭, 复制； 副本; 复制; DOS内部命令:复制文件；将几个文件合并成一个文件, 以及将文件传至外设或在设备之", sentence: "I learned the word \"copy\" today." },
-  "balance": { meaning: "平衡, 差额；平衡, 相等；称, 权衡, 比较, 使平衡, 结算, 抵消", sentence: "I learned the word \"balance\" today." },
-  "nuclear": { meaning: "核子的, 原子能的, 核的, 中心的； 核的", sentence: "I learned the word \"nuclear\" today." },
-  "branch": { meaning: "树枝, 支店, 支流, 分部；分支, 出枝；分割, 用枝状叶脉刺绣花纹装饰； 分支, 目录分支", sentence: "I learned the word \"branch\" today." },
-  "conflict": { meaning: "战斗, 冲突, 矛盾, 争执；争执, 战斗, 冲突, 抵触； 冲突", sentence: "I learned the word \"conflict\" today." },
-  "spirit": { meaning: "精神, 心灵, 灵魂, 态度, 志气, 人格, 情绪, 心情, 烈酒；诱拐, 鼓励, 鼓舞", sentence: "I learned the word \"spirit\" today." },
-  "league": { meaning: "同盟, 联盟, 盟约；组联盟, (使)加盟", sentence: "I learned the word \"league\" today." },
-  "doubt": { meaning: "怀疑, 疑惑；怀疑, 不信", sentence: "I learned the word \"doubt\" today." },
-  "train": { meaning: "火车, 列车, 行列, 长队, 一连串的后果, 顺序；训练, 教育, 对准；受训练, 锻炼", sentence: "I learned the word \"train\" today." },
-  "accident": { meaning: "意外事件, 机遇, 事故, 次要方面； 意外事故; 事故", sentence: "I learned the word \"accident\" today." },
-  "camp": { meaning: "露营, 帐篷；露营, 扎营；使扎营", sentence: "I learned the word \"camp\" today." },
-  "february": { meaning: "二月", sentence: "I learned the word \"february\" today." },
-  "brain": { meaning: "脑；打碎脑部", sentence: "I learned the word \"brain\" today." },
-  "studio": { meaning: "工作室, 画室, 演播室, 电影制片厂", sentence: "I learned the word \"studio\" today." },
-  "weekend": { meaning: "周末, 周末休假", sentence: "I learned the word \"weekend\" today." },
-  "dozen": { meaning: "打, 十二个；一打的", sentence: "I learned the word \"dozen\" today." },
-  "strength": { meaning: "力量, 实力, 强度, 浓度, 人数, 抵抗力； 强度", sentence: "I learned the word \"strength\" today." },
-  "normally": { meaning: "正规地, 合规则, 正常地", sentence: "I learned the word \"normally\" today." },
-  "contact": { meaning: "联系, 交际, 熟人, 接触；接触, 联系；使接触", sentence: "I learned the word \"contact\" today." },
-  "insurance": { meaning: "保险, 保险业, 保险费； 保险", sentence: "I learned the word \"insurance\" today." },
-  "battle": { meaning: "战役；战斗", sentence: "I learned the word \"battle\" today." },
-  "shape": { meaning: "形状, 形态, 外形, 形式, 身材；定形, 使成形, 塑造, 计划, 使符合；成形, 形成, 成长； 形状", sentence: "I learned the word \"shape\" today." },
-  "beginning": { meaning: "开始", sentence: "I learned the word \"beginning\" today." },
-  "transport": { meaning: "运输, 运输工具, 激动, 狂喜, 流放犯；传送, 运输, 流放； 传送", sentence: "I learned the word \"transport\" today." },
-  "cash": { meaning: "现金；兑现", sentence: "I learned the word \"cash\" today." },
-  "crisis": { meaning: "危机, 危险期, 紧要关头； 危象; 骤退, 临界, 极期", sentence: "I learned the word \"crisis\" today." },
-  "fan": { meaning: "风扇, 迷, 狂热者, 爱好者；煽动, 刺激, 吹拂；飘动, 成扇形散开", sentence: "I learned the word \"fan\" today." },
-  "stick": { meaning: "棍, 棒, 刺, 枯枝, 茎, 条状物；插进, 刺入, 钉住, 伸出, 粘贴, 停止；粘住, 停留, 坚持, 陷住, 伸出", sentence: "I learned the word \"stick\" today." },
-  "museum": { meaning: "博物馆", sentence: "I learned the word \"museum\" today." },
-  "hole": { meaning: "孔, 洞, 穴, 漏洞；挖洞, 掘坑；进洞, 凿洞", sentence: "I learned the word \"hole\" today." },
-  "pair": { meaning: "一双, 一对, 一副；(使)成对", sentence: "I learned the word \"pair\" today." },
-  "annual": { meaning: "年刊, 年报；每年的, 一年一次的, 全年的, 一年生的", sentence: "I learned the word \"annual\" today." },
-  "vision": { meaning: "视觉, 眼光, 视力, 幻想；梦见, 想象, 显示", sentence: "I learned the word \"vision\" today." },
-  "associate": { meaning: "同伴, 伙伴, 关联的事物；使联合, 使发生联系；交往； 关联", sentence: "I learned the word \"associate\" today." },
-  "marry": { meaning: "与...结婚, 娶, 嫁；结婚", sentence: "I learned the word \"marry\" today." },
-  "ship": { meaning: "船, 舰；以船运送, 装船, 运送；上船, 乘船", sentence: "I learned the word \"ship\" today." },
-  "presence": { meaning: "出席, 面前, 存在, 仪态, 风度； 出现", sentence: "I learned the word \"presence\" today." },
-  "protection": { meaning: "保护, 防卫, 贸易保护制度； 保护", sentence: "I learned the word \"protection\" today." },
-  "collect": { meaning: "收集, 聚集, 集中, 搜集；由收到者付款的；由收到者付款地", sentence: "I learned the word \"collect\" today." },
-  "queen": { meaning: "王后, 女王；立为女王；做女王", sentence: "I learned the word \"queen\" today." },
-  "master": { meaning: "掌握, 精通, 大师；主人的, 主要的", sentence: "I want to master English." },
-  "meaning": { meaning: "意义, 含义, 目的, 意图；意味深长的", sentence: "I learned the word \"meaning\" today." },
-  "spot": { meaning: "污点, 地点, 斑点, 点, 娱乐场所, 处境, 少量；当场的, 现场的, 现货买卖的, 现金交易的, 抽样的；点缀, 玷污, 认出, 准确定.", sentence: "I learned the word \"spot\" today." },
-  "ice": { meaning: "冰, 冰淇淋, 糖衣, 冷若冰霜, 矜持, 贿赂；使结冰, 冰镇, 覆以糖衣；结冰", sentence: "I learned the word \"ice\" today." },
-  "boat": { meaning: "船；乘船；以船运", sentence: "I learned the word \"boat\" today." },
-  "employ": { meaning: "雇用；雇用, 使用, 使从事于", sentence: "I learned the word \"employ\" today." },
-  "drink": { meaning: "饮料, 酒；喝, 喝酒", sentence: "I learned the word \"drink\" today." },
-  "exercise": { meaning: "行使, 执行, 运动, 练习, 作业；运用, 练习, 运动；练习, 锻炼", sentence: "I learned the word \"exercise\" today." },
-  "consequence": { meaning: "结果, 重要性； 结果, 后果, 推断", sentence: "I learned the word \"consequence\" today." },
-  "distance": { meaning: "距离, 远方, 遥远； 位距", sentence: "I learned the word \"distance\" today." },
-  "wood": { meaning: "木材, 木制品；植林于, 给...添加木柴；收集木材", sentence: "I learned the word \"wood\" today." },
-  "truck": { meaning: "卡车, 货车, 对...进行交易, 来往, 实物工资, (供应市场的)蔬菜, 废物, 废话；对...进行交易, 交往, 以卡车运输；驾驶卡车,", sentence: "I learned the word \"truck\" today." },
-  "handle": { meaning: "柄, 把手, 把柄, 柄状物, 手感；触摸, 运用, 买卖, 处理, 操作；搬运, 易于操纵；句柄； 句柄", sentence: "I learned the word \"handle\" today." },
-  "august": { meaning: "八月；威严的, 令人敬畏的", sentence: "I learned the word \"august\" today." },
-  "mountain": { meaning: "山, 山脉, 大堆", sentence: "I learned the word \"mountain\" today." },
-  "relevant": { meaning: "有关联的, 有关系的, 适当的, 相应的； 有关的, 相关的", sentence: "I learned the word \"relevant\" today." },
-  "tradition": { meaning: "传说, 传统, 交付； 传统, 惯例, 移交", sentence: "I learned the word \"tradition\" today." },
-  "winter": { meaning: "冬季, 萧条期, 衰退期；冬天的；使度过冬天；过冬", sentence: "I learned the word \"winter\" today." },
-  "speed": { meaning: "速率, 速度, 迅速；加速, 超速, 快进；快速传送, 促进, 使加速； 中央处理机速度设置程序", sentence: "I learned the word \"speed\" today." },
-  "route": { meaning: "路径, 途径, 路线；确定路线, 按规定路线发送； 传递, 路由设定程序", sentence: "I learned the word \"route\" today." },
-  "proportion": { meaning: "比例, 比率, 均衡, 部分, 面积；使成比例, 使均衡", sentence: "I learned the word \"proportion\" today." },
-  "consideration": { meaning: "考虑, 原因； 考虑, 思考, 报酬", sentence: "I learned the word \"consideration\" today." },
-  "roll": { meaning: "卷, 滚动, 名单, 案卷, 压路机；滚, 滚动, 飘流, 起伏, 卷, 绕；使滚动, 卷, 绕", sentence: "I learned the word \"roll\" today." },
-  "latter": { meaning: "后者的, 较后的, 近来的", sentence: "I learned the word \"latter\" today." },
-  "emerge": { meaning: "浮现, 形成, 出现, (事实)显露", sentence: "I learned the word \"emerge\" today." },
-  "screen": { meaning: "幕, 银幕, 屏风, 掩蔽物, 屏蔽, 筛子；掩蔽, 放映, 拍摄, 掩护, 筛, 甄别；拍电影； 筛选; 屏幕", sentence: "I learned the word \"screen\" today." },
-  "resident": { meaning: "居民, 常驻程序, 居住者, 留鸟；居留的, 定居的", sentence: "I learned the word \"resident\" today." },
-  "hide": { meaning: "兽皮, 迹象, 躲藏处；藏, 隐瞒, 遮避, 剥...的皮, 隐藏；躲藏； 隐藏", sentence: "I learned the word \"hide\" today." },
-  "mark": { meaning: "标志, 分数, 马克, 痕迹, 斑点, 靶子, 刻度, 记号, 符号, 戳记, 标准, 起跑线；做标记于, 留意, 打分数, 表明, 标志, 记", sentence: "I learned the word \"mark\" today." },
-  "gold": { meaning: "黄金, 钱财, 金块, 金色, 宝贵；金的, 似金的, 金色的, 金制的", sentence: "I learned the word \"gold\" today." },
-  "separate": { meaning: "独立件, 抽印本；分开的, 各别的, 单独的, 分隔的；分开, 隔开, 分居；使分离, 使分开, 区分, 使分居", sentence: "I learned the word \"separate\" today." },
-  "deny": { meaning: "否认, 拒绝", sentence: "I learned the word \"deny\" today." },
-  "practical": { meaning: "实际的, 现实的, 实用性的； 事实上的, 实际上的, 接近...的", sentence: "I learned the word \"practical\" today." },
-  "potential": { meaning: "潜在性, 可能性, 潜力, 潜能, 势, 位；有潜力的, 可能的, 潜在的", sentence: "I learned the word \"potential\" today." },
-  "understanding": { meaning: "理解, 谅解； 协商, 协议, 谅解", sentence: "I learned the word \"understanding\" today." },
-  "aim": { meaning: "目标, 瞄准, 击中目标的能力；对准目标, 致力, 打算；瞄准； 医学文摘索引, 存取隔离机构, 高级信息管理程序, 先进接口模块；应用接口模块", sentence: "I learned the word \"aim\" today." },
-  "danger": { meaning: "危险, 威胁； 危险, 危险物, 危机", sentence: "I learned the word \"danger\" today." },
-  "progress": { meaning: "进步, 发展, 前进；进步, 进行", sentence: "I learned the word \"progress\" today." },
-  "path": { meaning: "路径, 小路, 道路, 途径, 路线, 轨道； 路径; DOS内部命令:设定DOS读取程序的路径", sentence: "I learned the word \"path\" today." },
-  "reaction": { meaning: "反应, 反作用, 反动； 反应", sentence: "I learned the word \"reaction\" today." },
-  "crowd": { meaning: "群众, 一伙人；拥挤, 挤满, 挤进", sentence: "I learned the word \"crowd\" today." },
-  "flower": { meaning: "花, 开花植物, 精华, 盛时；开花, 发育, 旺盛, 成熟；用花装饰, 使开花", sentence: "I learned the word \"flower\" today." },
-  "appoint": { meaning: "任命, 指定, 下令； 派, 派任, 任命", sentence: "I learned the word \"appoint\" today." },
-  "merely": { meaning: "只", sentence: "I learned the word \"merely\" today." },
-  "apartment": { meaning: "房间, 公寓", sentence: "I learned the word \"apartment\" today." },
-  "willing": { meaning: "乐意的, 自愿的, 甘愿的", sentence: "I learned the word \"willing\" today." },
-  "regular": { meaning: "规则的, 常例的, 有秩序的, 整齐的, 等边的, 定期的, 经常的, 合格的, 常备军的；正规军, 正式队员；经常地；正常体； 正常体", sentence: "I learned the word \"regular\" today." },
-  "link": { meaning: "环, 连结物, 链接, 火把；连结, 联合, 挽住；连接起来； 连接, 链路", sentence: "I learned the word \"link\" today." },
-  "comment": { meaning: "注解, 批评, 评论, 备注；评论, 注解； 备注", sentence: "I learned the word \"comment\" today." },
-  "due": { meaning: "应得的东西, 应付款；到期的, 应得的, 应付的, 约定的", sentence: "I learned the word \"due\" today." },
-  "content": { meaning: "内容, 满足, 意义, 要旨；满足的, 满意的；使...满足, 使...安心； 内容", sentence: "I learned the word \"content\" today." },
-  "prison": { meaning: "监狱, 监禁, 拘留所；监禁", sentence: "I learned the word \"prison\" today." },
-  "conclusion": { meaning: "结论, 结尾, 推论； 缔结, 结论, 推论", sentence: "I learned the word \"conclusion\" today." },
-  "ride": { meaning: "骑马, 乘坐, 乘车, 搭便车；骑, 乘坐, 压迫, 控制；骑马, 乘车, 漂游", sentence: "I learned the word \"ride\" today." },
-  "chief": { meaning: "领袖, 酋长, 长官, 主要部分；主要的, 首位的", sentence: "I learned the word \"chief\" today." },
-  "guard": { meaning: "守卫者, 警戒, 护卫队, 防护装置；保卫, 看守, 当心；防止, 警惕, 警卫, 看守", sentence: "I learned the word \"guard\" today." },
-  "reply": { meaning: "答复, 回答, 答辩；答复, 回答, 回击, 反响, 答辩；回答； 答复", sentence: "I learned the word \"reply\" today." },
-  "justice": { meaning: "正义, 公平, 公正, 正确, 司法, 审判", sentence: "I learned the word \"justice\" today." },
-  "deliver": { meaning: "递送, 陈述, 释放, 发表, 引渡, 投递, 交付； 交运", sentence: "I learned the word \"deliver\" today." },
-  "observe": { meaning: "觉察到, 遵守, 注意到, 庆祝；注意, 评论", sentence: "I learned the word \"observe\" today." },
-  "tool": { meaning: "工具, 机床, 傀儡；用工具加工；使用工具", sentence: "I learned the word \"tool\" today." },
-  "belief": { meaning: "信念, 相信, 信仰", sentence: "I learned the word \"belief\" today." },
-  "wild": { meaning: "荒野, 荒地；野性的, 野蛮的, 野生的, 失控的, 任性的, 杂乱的, 轻率的, 狂热的, 疯狂的；狂暴地, 失控地", sentence: "I learned the word \"wild\" today." },
-  "vehicle": { meaning: "交通工具, 车辆, 传播媒介； 载体; 运载体; 漆料", sentence: "I learned the word \"vehicle\" today." },
-  "flight": { meaning: "飞行, 射程, 逃走, 飞跃, 飞机航程, 班机, 迁徙, 飞逝；迁徙；射击(飞禽), 为(箭)装上羽毛, 使惊飞", sentence: "I learned the word \"flight\" today." },
-  "settle": { meaning: "有背长椅；决定, 整理, 安放, 使定居, 使平静, 支付, 安排, 解决, 结算；停留, 下陷, 沉淀, 澄清, 安下心来, 结清, 定居,", sentence: "I learned the word \"settle\" today." },
-  "ignore": { meaning: "不理睬, 忽视, 驳回, 忽略； 忽略", sentence: "I learned the word \"ignore\" today." },
-  "sight": { meaning: "景观, 视力, 眼界, 阅读, 见解, 意见；看见, 瞄准；瞄准, 观看；即席的, 见票即付的", sentence: "I learned the word \"sight\" today." },
-  "average": { meaning: "平均, 平均数, 一般水平, 海损；平均的, 中等的, 平常的；算出...平均数, 平均做, 均分, 使平衡；平均为, 呈中间色", sentence: "I learned the word \"average\" today." },
-  "estate": { meaning: "不动产, (人生的)阶段, 阶层, 财产； 房地产, 遗产, 财产", sentence: "I learned the word \"estate\" today." },
-  "quick": { meaning: "快的, 迅速的, 敏捷的, 灵敏的, 急速的；快；新长出的肉, 要害, 核心, 感觉敏锐部位", sentence: "I learned the word \"quick\" today." },
-  "wine": { meaning: "葡萄酒, 果酒, 暗红色；(请)喝酒", sentence: "I learned the word \"wine\" today." },
-  "earn": { meaning: "赚得, 获得, 博得； 欧州科学研究网", sentence: "I learned the word \"earn\" today." },
-  "ring": { meaning: "环, 环形物, 拳击场, 戒指, 角逐, 小集团, 铃声, 钟声, 声调；包围, 套住, 按铃, 敲钟；成环形, 响, 鸣, 按铃, 敲钟, 回", sentence: "I learned the word \"ring\" today." },
-  "bright": { meaning: "明亮的, 聪明的, 鲜明的, 欢快的；明亮地, 欢快地", sentence: "I learned the word \"bright\" today." },
-  "propose": { meaning: "计划, 打算, 建议, 提议, 求(婚)；打算, 求婚", sentence: "I learned the word \"propose\" today." },
-  "guest": { meaning: "客人, 来宾, 旅客； 客体", sentence: "I learned the word \"guest\" today." },
-  "dad": { meaning: "爸爸, 爹爹", sentence: "I learned the word \"dad\" today." },
-  "sample": { meaning: "样品, 范例, 样本；抽样, 尝试； 示例, 字样", sentence: "I learned the word \"sample\" today." },
-  "possibly": { meaning: "可能, 也许", sentence: "I learned the word \"possibly\" today." },
-  "contribute": { meaning: "有助于, 捐助, 投稿；出力, 捐献, 投稿", sentence: "I learned the word \"contribute\" today." },
-  "tiny": { meaning: "很少的, 微小的", sentence: "I learned the word \"tiny\" today." },
-  "block": { meaning: "街区, 木块, 石块, 块；阻塞, 封锁, 使成块状； 块, 数据块", sentence: "I learned the word \"block\" today." },
-  "clothes": { meaning: "衣服", sentence: "I learned the word \"clothes\" today." },
-  "active": { meaning: "活跃的, 起作用的, 积极的, 有效的, 主动的, 活性的, 现行的, 现役的；主动语态, 积极分子", sentence: "I learned the word \"active\" today." },
-  "feed": { meaning: "饲料, 一餐, 饲养；喂, 饲养, 放牧, 靠...为生；吃东西, 用餐, 流入； 送纸", sentence: "I learned the word \"feed\" today." },
-  "employer": { meaning: "雇主, 老板； 雇主, 业主", sentence: "I learned the word \"employer\" today." },
-  "debt": { meaning: "债务, 罪过； 借款, 欠款, 债务", sentence: "I learned the word \"debt\" today." },
-  "identity": { meaning: "身份, 相同, 一致, 特性, 恒等式； (打)标记, 标识", sentence: "I learned the word \"identity\" today." },
-  "objective": { meaning: "目的, 目标, 宗旨, 宾格, 实物；客观的, 如实的, 无偏见的, 宾格的", sentence: "I learned the word \"objective\" today." },
-  "largely": { meaning: "大量地, 很多地, 大半地", sentence: "I learned the word \"largely\" today." },
-  "mostly": { meaning: "大概, 大部分, 主要； 大部份", sentence: "I learned the word \"mostly\" today." },
-  "arrange": { meaning: "安排, 排列, 达成协议； 重排", sentence: "I learned the word \"arrange\" today." },
-  "lesson": { meaning: "课, 课业, 教训", sentence: "I learned the word \"lesson\" today." },
-  "survive": { meaning: "比...活得长, 生存, 生还, 幸免于；活下来, 幸存", sentence: "I learned the word \"survive\" today." },
-  "faith": { meaning: "信心, 信任, 忠实, 保证； 信任, 信仰, 信念", sentence: "I learned the word \"faith\" today." },
-  "telephone": { meaning: "电话, 电话机；打电话", sentence: "I learned the word \"telephone\" today." },
-  "promote": { meaning: "促进, 晋升, 创办, 推销； 促进, 推广, 推销", sentence: "I learned the word \"promote\" today." },
-  "living": { meaning: "生活, 生计, 生存；活的, 逼真的, 现存的", sentence: "I learned the word \"living\" today." },
-  "count": { meaning: "计算, 视为；计数；计算, 合计, 计数, 伯爵； 计数", sentence: "I learned the word \"count\" today." },
-  "farmer": { meaning: "农夫, 农场主； 农民, 农场主, 承包者", sentence: "I learned the word \"farmer\" today." },
-  "injury": { meaning: "伤害, 侮辱； 伤, 损伤", sentence: "I learned the word \"injury\" today." },
-  "package": { meaning: "包裹, 套装软件, 包, 包装用物, 程序包；包装, 打包；一揽子的； 包, 软件包, 包装", sentence: "I learned the word \"package\" today." },
-  "ear": { meaning: "耳朵, 倾听, 听觉, 穗；抽穗", sentence: "I learned the word \"ear\" today." },
-  "nevertheless": { meaning: "然而, 虽然如此；然而", sentence: "I learned the word \"nevertheless\" today." },
-  "colleague": { meaning: "同事, 同僚", sentence: "I learned the word \"colleague\" today." },
-  "complex": { meaning: "综合体, 情结, 络合物；复杂的, 组合的", sentence: "I learned the word \"complex\" today." },
-  "impossible": { meaning: "不可能的, 难以置信的, 令人无法忍受的", sentence: "I learned the word \"impossible\" today." },
-  "concentrate": { meaning: "浓缩, 精选；集中, 专心", sentence: "I learned the word \"concentrate\" today." },
-  "confidence": { meaning: "信心； 可靠", sentence: "I learned the word \"confidence\" today." },
-  "lift": { meaning: "举起, 帮助, 昂扬, 电梯；升高, 提高, 鼓舞, 清偿, 空运, 举起, 剽窃；升起, 消散, 耸立", sentence: "I learned the word \"lift\" today." },
-  "mainly": { meaning: "主要地, 大抵", sentence: "I learned the word \"mainly\" today." },
-  "border": { meaning: "边缘, 边境, 边界, 花坛；在...上镶边, 接近；接界, 近似； 边框", sentence: "I learned the word \"border\" today." },
-  "jump": { meaning: "跳跃, 跳动, 暴涨, 惊跳；跳跃, 跃过, 突升, 使跳跃；跳跃, 跳, 跳动, 暴涨； 转移, 跳转", sentence: "I learned the word \"jump\" today." },
-  "gather": { meaning: "集合, 聚集；聚集, 集合, 渐增；使聚集, 搜集, 积聚", sentence: "I learned the word \"gather\" today." },
-  "limit": { meaning: "界限, 边界, 限度, 极限, 限制；限制, 限定", sentence: "I learned the word \"limit\" today." },
-  "cry": { meaning: "叫声, 哭声, 大叫；哭, 叫, 喊；叫喊, 大声说, 哭出", sentence: "I learned the word \"cry\" today." },
-  "cross": { meaning: "十字架, 十字架形物件, 交叉, 十字标, 交叉路, 磨难, 杂交；生气的, 交叉的, 相反的；交叉, 横过, 越过； 交叉, 十字标", sentence: "I learned the word \"cross\" today." },
-  "warm": { meaning: "暖和的, 暖的, 温暖的, 热烈的, 兴奋的, 激烈的, 多情的, 色情的；使温暖, 弄热, 使兴奋, 使充满仇恨；变暖和, 变温暖, 取暖,", sentence: "I learned the word \"warm\" today." },
-  "visitor": { meaning: "参观者, 游客, 访客； 视察人, 检视人, 检查员", sentence: "I learned the word \"visitor\" today." },
-  "commitment": { meaning: "委托, 交押, 承担义务, 赞助； 院禁", sentence: "I learned the word \"commitment\" today." },
-  "plus": { meaning: "加上, 加, 外加；正的, 附加的；正号, 加号, 附加额, 正数, 增益； 正差", sentence: "I learned the word \"plus\" today." },
-  "volume": { meaning: "册, 卷, 体积, 容量, 大量, 许多, 份量, 音量；成团卷起；把...收集成卷；大量的； 卷", sentence: "I learned the word \"volume\" today." },
-  "insist": { meaning: "坚持, 坚决主张, 强调", sentence: "I learned the word \"insist\" today." },
-  "somewhere": { meaning: "到某处, 在某处", sentence: "I learned the word \"somewhere\" today." },
-  "manner": { meaning: "样子, 礼貌, 风格； 方式, 方法, 样式", sentence: "I learned the word \"manner\" today." },
-  "background": { meaning: "背景, 背景资料； 背景, 后台", sentence: "I learned the word \"background\" today." },
-  "spread": { meaning: "传播, 散布, 伸展；双唇展开的, 伸展的；展开, 铺开, 传播, 推广, 伸出, 涂, 敷, 延伸；展开, 扩大, 传开, 延伸； 展开", sentence: "I learned the word \"spread\" today." },
-  "entry": { meaning: "登录, 条目, 进入, 入口, 报关； 登录项, 输入项, 条目", sentence: "I learned the word \"entry\" today." },
-  "soft": { meaning: "软的, 温和的, 柔和的, 柔滑的, 温柔的, 软弱的, 坡度小的, 笨的, 纸币的；柔软的东西, 笨人, 纸币；柔软地, 温和地", sentence: "I learned the word \"soft\" today." },
-  "engine": { meaning: "引擎, 发动机, 机车；安装发动机于", sentence: "I learned the word \"engine\" today." },
-  "egg": { meaning: "蛋, 卵；挑唆, 煽动, 调蛋黄", sentence: "I learned the word \"egg\" today." },
-  "cabinet": { meaning: "橱柜, 内阁；内阁的, 细木工做的； 机柜", sentence: "I learned the word \"cabinet\" today." },
-  "demonstrate": { meaning: "示范, 证明；示威", sentence: "I learned the word \"demonstrate\" today." },
-  "introduction": { meaning: "介绍, 传入, 采用, 初步", sentence: "I learned the word \"introduction\" today." },
-  "previously": { meaning: "先, 先前, 以前, 前, (非正式)过早, 过急, 在前, 在...以前, 在先； 先前地", sentence: "I learned the word \"previously\" today." },
-  "murder": { meaning: "谋杀；谋杀, 损毁, 破坏；犯杀人罪", sentence: "I learned the word \"murder\" today." },
-  "domestic": { meaning: "家庭的, 国内的, 驯养的； 家庭的, 家用的", sentence: "I learned the word \"domestic\" today." },
-  "gift": { meaning: "礼物, 赠予, 天才；赋予", sentence: "I learned the word \"gift\" today." },
-  "religion": { meaning: "宗教, 信仰； 宗教, 宗教信仰, 信仰", sentence: "I learned the word \"religion\" today." },
-  "editor": { meaning: "编者, 编辑, 主笔, 编辑器, 编辑装置； 编辑器", sentence: "I learned the word \"editor\" today." },
-  "prefer": { meaning: "宁可, 较喜欢, 提出； 给予优先权, 优先偿还, 提出", sentence: "I learned the word \"prefer\" today." },
-  "engage": { meaning: "答应, 从事, 交战；使忙碌, 雇佣, 预定, 使从事于, 使参加", sentence: "I learned the word \"engage\" today." },
-  "ordinary": { meaning: "平常的, 普通的, 平凡的；平常的人(或事)", sentence: "I learned the word \"ordinary\" today." },
-  "coffee": { meaning: "咖啡, 咖啡色； 咖啡, 咖啡豆", sentence: "I learned the word \"coffee\" today." },
-  "extremely": { meaning: "极端地, 非常地", sentence: "I learned the word \"extremely\" today." },
-  "cheap": { meaning: "便宜的, 不值钱的, 可鄙的；便宜地", sentence: "I learned the word \"cheap\" today." },
-  "threaten": { meaning: "恐吓, 威胁, 预示...的凶兆；威胁, 恫吓, 可能来临", sentence: "I learned the word \"threaten\" today." },
-  "relief": { meaning: "减轻, 解除, 救济, 安慰, 调剂, 浮雕, 换班, (地势的)起伏； 缓减, 减轻, 浮雕(绘画中)", sentence: "I learned the word \"relief\" today." },
-  "commit": { meaning: "委托(托付), 犯罪, 指派...作战, 使承担义务； 犯, 做, 把...交托给", sentence: "I learned the word \"commit\" today." },
-  "technical": { meaning: "技术上的, 专门的, 工业的, 严格根据法律的； 技巧", sentence: "I learned the word \"technical\" today." },
-  "grant": { meaning: "授予, 授予物, 允许；允许, 承认, 授与； 授权命令", sentence: "I learned the word \"grant\" today." },
-  "actual": { meaning: "真实的, 实际的, 现行的； 实际死亡率", sentence: "I learned the word \"actual\" today." },
-  "female": { meaning: "女性, 女人, 雌性动物；女性的, 女子的", sentence: "I learned the word \"female\" today." },
-  "youth": { meaning: "年轻, 青年时代, 青年们, 青春； 青年, 青年时期, 青春时期", sentence: "I learned the word \"youth\" today." },
-  "strange": { meaning: "奇怪的, 陌生的, 生疏的, 不熟悉的, 不可思议的, 外行的, 外地的, 异乡的", sentence: "I learned the word \"strange\" today." },
-  "wave": { meaning: "波, 波浪, 波动, 起伏, 高潮, 潮涌, 挥手致意, (气压)突变；波动, 飘动, 挥手示意, 起伏；使波动, 使飘扬, 挥舞, 使成波浪形", sentence: "I learned the word \"wave\" today." },
-  "repeat": { meaning: "重复, 反复；重做, 重复, 复述, 使再现, 复制；重复； 重复", sentence: "I learned the word \"repeat\" today." },
-  "bus": { meaning: "公共汽车； 总线; 汇流条; 母线", sentence: "I learned the word \"bus\" today." },
-  "afraid": { meaning: "害怕的, 恐怕的, 遗憾的", sentence: "I learned the word \"afraid\" today." },
-  "regulation": { meaning: "规则, 管理, 调整； 调整; 规章; 规则; 调节", sentence: "I learned the word \"regulation\" today." },
-  "wage": { meaning: "工资, 报应, 报偿；开展, 进行；进行", sentence: "I learned the word \"wage\" today." },
-  "broad": { meaning: "宽广的, 辽阔的, 广大的, 显著的；宽阔地；宽阔部分", sentence: "I learned the word \"broad\" today." },
-  "wonderful": { meaning: "令人惊奇的, 奇妙的, 极好的", sentence: "I learned the word \"wonderful\" today." },
-  "row": { meaning: "排, 行, 街道, 划船, 吵闹；使成排, 划, 划船, 参加(赛船), 痛骂；划船, 划动, 争吵； 行", sentence: "I learned the word \"row\" today." },
-  "acquire": { meaning: "获得, 学到； 目标锁定", sentence: "I learned the word \"acquire\" today." },
-  "twice": { meaning: "两次, 两倍", sentence: "I learned the word \"twice\" today." },
-  "suit": { meaning: "套装, 诉讼, 请求, 起诉, 套, 组；适合, 使适应；合适, 相称", sentence: "I learned the word \"suit\" today." },
-  "fairly": { meaning: "美观地, 公平地, 相当地, 清楚地", sentence: "I learned the word \"fairly\" today." },
-  "blow": { meaning: "吹, 打击, 殴打, 花开；吹, 风吹, 吹响, 开花", sentence: "I learned the word \"blow\" today." },
-  "meal": { meaning: "一餐, 膳食, 粗粉；进餐", sentence: "I learned the word \"meal\" today." },
-  "construction": { meaning: "建筑, 构造, 建筑物； 施工", sentence: "I learned the word \"construction\" today." },
-  "excellent": { meaning: "优良的, 杰出的, 出色的", sentence: "I learned the word \"excellent\" today." },
-  "intelligence": { meaning: "智力, 情报, 信息； 智力", sentence: "I learned the word \"intelligence\" today." },
-  "destroy": { meaning: "破坏, 毁坏, 消灭", sentence: "I learned the word \"destroy\" today." },
-  "internal": { meaning: "内在的, 国内的； 内的, 内部的", sentence: "I learned the word \"internal\" today." },
-  "cook": { meaning: "厨子, 厨师；烹调, 煮饭, 加热；在煮着", sentence: "I learned the word \"cook\" today." },
-  "category": { meaning: "种类, 类项； 分类", sentence: "I learned the word \"category\" today." },
-  "tour": { meaning: "旅游, 观光旅行, 任期；旅行, 周游, 巡回；周游, 观光, 游历, 使巡回演出", sentence: "I learned the word \"tour\" today." },
-  "connection": { meaning: "连接, 关系, 前后关系； 连接", sentence: "I learned the word \"connection\" today." },
-  "burn": { meaning: "烧, 烧毁, 烧伤；燃烧, 发热, 烧毁；烧伤, 烙印", sentence: "I learned the word \"burn\" today." },
-  "shoe": { meaning: "鞋, 靴, 外胎；给...穿鞋, 为马钉蹄铁", sentence: "I learned the word \"shoe\" today." },
-  "traffic": { meaning: "交通, 通行, 运输, 交通量, 贸易, 交易, 交往, 通信量；交易, 做买卖；用...作交换； 通信量, 传输量", sentence: "I learned the word \"traffic\" today." },
-  "football": { meaning: "足球, 橄榄球", sentence: "I learned the word \"football\" today." },
-  "grade": { meaning: "等级, 年级, 阶段, 成绩, 程度, 坡度, 斜坡；分等, 分级, 评分；属于某等级, 逐渐变化", sentence: "I learned the word \"grade\" today." },
-  "exhibition": { meaning: "表现, 展览会, 展览品； 投药, 展览, 展出", sentence: "I learned the word \"exhibition\" today." },
-  "launch": { meaning: "下水, 汽艇, 发射；使下水, 发射, 发动；起飞, 下水, 投入, 开始", sentence: "I learned the word \"launch\" today." },
-  "sheet": { meaning: "床单, 张, 纸张, 印刷品, 裹尸布, 薄片；盖上被单, 遍布；大片落下；片状的, 成薄片的； 工作表", sentence: "I learned the word \"sheet\" today." },
-  "mistake": { meaning: "错误, 误会；犯错, 误认；误解, 弄错； 错误", sentence: "I learned the word \"mistake\" today." },
-  "location": { meaning: "位置, 场所, 特定区域； 位置", sentence: "I learned the word \"location\" today." },
-  "bridge": { meaning: "桥, 舰桥, 桥梁, 桥牌；架桥于, 跨越； 桥, 网桥, 桥接器", sentence: "I learned the word \"bridge\" today." },
-  "quiet": { meaning: "安静, 闲适, 平静；安静的, 静止的, 寂静的, 朴素的, 从容的, 暗中的；平静下来；使平静, 使平息, 使安心, 安慰", sentence: "I learned the word \"quiet\" today." },
-  "appearance": { meaning: "出现, 露面, 外观, 外表, 出版； 外观, 版面", sentence: "I learned the word \"appearance\" today." },
-  "dress": { meaning: "服装, 覆盖物；穿着；给...穿衣, 整理", sentence: "I learned the word \"dress\" today." },
-  "promise": { meaning: "诺言, 约定的事情, 有指望；允诺, 约定, 预示；允诺, 有前途, 有指望", sentence: "I learned the word \"promise\" today." },
-  "improvement": { meaning: "进步, 改善, 利用； 改善, 好转, 进步", sentence: "I learned the word \"improvement\" today." },
-  "description": { meaning: "描述, 说明, 种类； 说明书(物品), 品名种类, 货物名称", sentence: "I learned the word \"description\" today." },
-  "bone": { meaning: "骨头, 骨, 骨制品；剔骨；专心致志", sentence: "I learned the word \"bone\" today." },
-  "session": { meaning: "期间, 开庭期, 会议, 学期； 会话, 对话, 会晤, 通用任务程序", sentence: "I learned the word \"session\" today." },
-  "housing": { meaning: "遮盖, 住房供给, 居留(处), 房屋, 装饰； 外壳", sentence: "I learned the word \"housing\" today." },
-  "flat": { meaning: "平坦的, 单调的, 无力的, 浅的, 萧条的, 干脆的, 无聊的；平直地, 断然地；扁平物, 平面, 平地, 平原, 平板车；(使)变平", sentence: "I learned the word \"flat\" today." },
-  "combine": { meaning: "(使)联合, (使)结合；(企业的)联合, 联合收割机", sentence: "I learned the word \"combine\" today." },
-  "discipline": { meaning: "训练, 纪律；训练, 惩罚", sentence: "I learned the word \"discipline\" today." },
-  "cool": { meaning: "凉爽, 凉爽的空气；凉爽的, 冷淡的, 冷静的；冷却, 平息；使冷却, 使平静", sentence: "I learned the word \"cool\" today." },
-  "contrast": { meaning: "差别, 对比, 对照物；使对比；成对照； 反差; 对比度", sentence: "I learned the word \"contrast\" today." },
-  "lip": { meaning: "唇, 口缘, 唇状构造；以嘴唇碰, 轻轻说出；口头上的； 大型互连网信息包", sentence: "I learned the word \"lip\" today." },
-  "increasingly": { meaning: "逐渐地, 渐增地", sentence: "I learned the word \"increasingly\" today." },
-  "gentleman": { meaning: "绅士, 先生", sentence: "I learned the word \"gentleman\" today." },
-  "hell": { meaning: "地狱, 邪恶势力, 苦境, 阴间, 毁坏, 训斥；狂饮, 飞驰", sentence: "I learned the word \"hell\" today." },
-  "distribution": { meaning: "分配； 分布", sentence: "I learned the word \"distribution\" today." },
-  "dangerous": { meaning: "危险的； 危险的, 危害的", sentence: "I learned the word \"dangerous\" today." },
-  "proper": { meaning: "适当的, 固有的, 高尚的, 专属的；完全地, 彻底地", sentence: "I learned the word \"proper\" today." },
-  "remind": { meaning: "提醒, 使想起", sentence: "I learned the word \"remind\" today." },
-  "moral": { meaning: "道德, 品行, 寓意；道德的, 品性端正的, 精神上的", sentence: "I learned the word \"moral\" today." },
-  "retain": { meaning: "保持, 保有, 留住, 记得, 付定金聘请； 保留, 留存", sentence: "I learned the word \"retain\" today." },
-  "famous": { meaning: "出名的, 极好的", sentence: "I learned the word \"famous\" today." },
-  "victory": { meaning: "胜利, 战胜, 克服", sentence: "I learned the word \"victory\" today." },
-  "theatre": { meaning: "戏院, 电影院, 剧场, 全体观众, 戏剧, 戏剧效果, 阶梯式讲堂, 场所", sentence: "I learned the word \"theatre\" today." },
-  "academic": { meaning: "学院的, 学术的, 不切实际的；大学生, 大学教师, 学者, 学会会员", sentence: "I learned the word \"academic\" today." },
-  "prince": { meaning: "王子, 亲王, 国君, 贵族, 诸侯, 有权势的大人物", sentence: "I learned the word \"prince\" today." },
-  "loan": { meaning: "贷款, 借出；借, 供应货款, 借给", sentence: "I learned the word \"loan\" today." },
-  "healthy": { meaning: "健康的, 有益健康的, 卫生的； 健康的", sentence: "I learned the word \"healthy\" today." },
-  "code": { meaning: "代码, 密码, 法规, 法典；把...编码； 代码", sentence: "I learned the word \"code\" today." },
-  "negative": { meaning: "否定, 否定语, 负数, 底片；否定的, 消极的, 负的, 阴性的；负数, 负值； 负数, 负值", sentence: "I learned the word \"negative\" today." },
-  "representative": { meaning: "代表, 众议员, 典型；描写的, 表现的, 代理的, 代表的, 代议制的, 典型的", sentence: "I learned the word \"representative\" today." },
-  "historical": { meaning: "历史的, 史实的, 历史上的； 历史性的", sentence: "I learned the word \"historical\" today." },
-  "usual": { meaning: "平常的, 通常的", sentence: "I learned the word \"usual\" today." },
-  "medicine": { meaning: "药, 医学, 内科；给...用药", sentence: "I learned the word \"medicine\" today." },
-  "unable": { meaning: "不能的, 不会的； 无能力的, 无资格的, 没有办法的", sentence: "I learned the word \"unable\" today." },
-  "belong": { meaning: "属于, 合适", sentence: "I learned the word \"belong\" today." },
-  "respect": { meaning: "尊敬, 尊重, 问候；尊敬, 注意, 遵守", sentence: "I learned the word \"respect\" today." },
-  "grab": { meaning: "抓握, 掠夺, 强占, 东方沿岸帆船；抓取, 抢去；攫取, 捕获, 霸占", sentence: "I learned the word \"grab\" today." },
-  "attract": { meaning: "吸引, 诱惑；有吸引力", sentence: "I learned the word \"attract\" today." },
-  "classroom": { meaning: "教室", sentence: "I learned the word \"classroom\" today." },
-  "limited": { meaning: "有限制的, 有限的, 有限责任的；特别快车", sentence: "I learned the word \"limited\" today." },
-  "photograph": { meaning: "相片, 照片, 逼真的描绘；照相, 摄影", sentence: "I learned the word \"photograph\" today." },
-  "formal": { meaning: "正式的, 形式的, 礼仪的, 拘于礼节的, 拘谨的；正式的社交活动", sentence: "I learned the word \"formal\" today." },
-  "daily": { meaning: "每日的, 日常的；每日地, 日常地；日报", sentence: "I learned the word \"daily\" today." },
-  "writing": { meaning: "书写, 著作, 笔迹, 作品； 书写", sentence: "I learned the word \"writing\" today." },
-  "reject": { meaning: "被拒之人, 被弃之物, 不合格品, 次品；拒绝, 抵制, 否决, 驳回, 丢弃, 呕出", sentence: "I learned the word \"reject\" today." },
-  "knee": { meaning: "膝, 膝盖；膝行, 用膝盖碰", sentence: "I learned the word \"knee\" today." },
-  "joint": { meaning: "连接处, 接合, 关节；共同的, 联合的, 连接的, 合办的；连接, 接合, 使有接头；贴合, 长节", sentence: "I learned the word \"joint\" today." },
-  "tape": { meaning: "带子, 录音带, 磁带, 窄带, 卷尺；以带子绑起, 测量, 录音； 带", sentence: "I learned the word \"tape\" today." },
-  "pension": { meaning: "养老金, 退休金, 津贴, 年金, 抚恤金, 膳宿学校, 膳宿费；发给退休金, 用津贴拉拢", sentence: "I learned the word \"pension\" today." },
-  "hire": { meaning: "租金, 租用, 雇用；雇请, 出租；受雇", sentence: "I learned the word \"hire\" today." },
-  "rain": { meaning: "雨, 下雨, 雨天；下雨；使大量落下", sentence: "I learned the word \"rain\" today." },
-  "familiar": { meaning: "熟悉的, 常见的, 亲密的；熟友, 常客", sentence: "I learned the word \"familiar\" today." },
-  "explanation": { meaning: "解释, 说明, 辩解, 表明； 解释, 注释, 说明", sentence: "I learned the word \"explanation\" today." },
-  "plate": { meaning: "碟, 盘子, 盆中物, 金属板, 图版, 金银餐具, 印版, 金属牌(照)；镀金, 电镀, 用金属板固定, 给...装钢板, 为...制印版", sentence: "I learned the word \"plate\" today." },
-  "unemployment": { meaning: "失业, 失业人数； 失业", sentence: "I learned the word \"unemployment\" today." },
-  "lovely": { meaning: "可爱的, 有趣的", sentence: "I learned the word \"lovely\" today." },
-  "actor": { meaning: "男演员, 行动者； 作用物, 反应物", sentence: "I learned the word \"actor\" today." },
-  "conservative": { meaning: "保守的, 守旧的, 有保存力的； 防腐剂; 保存剂", sentence: "I learned the word \"conservative\" today." },
-  "birth": { meaning: "出生, 起源； 生产, 分娩", sentence: "I learned the word \"birth\" today." },
-  "search": { meaning: "搜寻, 查究；搜寻, 搜查, 探求, 调查, 搜索； 搜索, 路径检索程序", sentence: "I learned the word \"search\" today." },
-  "tie": { meaning: "带子, 线, 鞋带, 领带, 领结, 关系, 束缚, 平局, 不分胜负；系, 打结, 扎, 约束, 与...成平局；结合, 打结, 不分胜负", sentence: "I learned the word \"tie\" today." },
-  "invite": { meaning: "邀请, 请求, 引起, 招致；邀请", sentence: "I learned the word \"invite\" today." },
-  "eastern": { meaning: "东方人, 东正教徒；东方的, 向东的, 自东的", sentence: "I learned the word \"eastern\" today." },
-  "factory": { meaning: "工厂, 产生地, 代理店； 工厂, 代理店, 商行在国外的代理处", sentence: "I learned the word \"factory\" today." },
-  "circle": { meaning: "圆周, 社交圈, 循环, 范围；围着, 环绕；盘旋, 循环", sentence: "I learned the word \"circle\" today." },
-  "device": { meaning: "装置, 设计, 策略, 发明物, 设备； 设备; DOS内部命令:该命令要求DOS安装一个设备驱动程序", sentence: "I learned the word \"device\" today." },
-  "capacity": { meaning: "容量, 能力, 才能, 资格； 容量", sentence: "I learned the word \"capacity\" today." },
-  "vary": { meaning: "改变, 使多样化；变化, 有不同, 违反", sentence: "I learned the word \"vary\" today." },
-  "bottom": { meaning: "底部；底部的；给...装底, 查明真相；到达底部, 建立基础", sentence: "I learned the word \"bottom\" today." },
-  "selection": { meaning: "选择, 选文, 精选品； 选择, 淘汰", sentence: "I learned the word \"selection\" today." },
-  "warn": { meaning: "警告, 提醒, 通知；发出警告", sentence: "I learned the word \"warn\" today." },
-  "clean": { meaning: "干净的, 清白的, 简洁的；清洁地, 完全地；清理, 使干净, 出空；被搞干净；打扫", sentence: "I learned the word \"clean\" today." },
-  "finance": { meaning: "财政, 财务；供给...经费, 负担经费；筹措资金", sentence: "I learned the word \"finance\" today." },
-  "surely": { meaning: "的确地, 安全地； 保证, 保证人, 保证金", sentence: "I learned the word \"surely\" today." },
-  "impose": { meaning: "征(税), 把...强加于, 以...欺骗；利用, 欺骗, 施加影响", sentence: "I learned the word \"impose\" today." },
-  "rural": { meaning: "乡下的, 田园的, 乡村风味的； 农村的, 乡村的, 有关农业的", sentence: "I learned the word \"rural\" today." },
-  "lean": { meaning: "瘦肉, 倾斜, 倾斜度；瘦的, 贫乏的, 歉收的；倚靠, 倾斜, 依赖；使倾斜", sentence: "I learned the word \"lean\" today." },
-  "neck": { meaning: "脖子, 衣领, 颈；拥抱, 拥吻, 收缩；割颈", sentence: "I learned the word \"neck\" today." },
-  "plastic": { meaning: "塑料, 可塑体, 可塑性物质；塑料的, 塑造的, 有可塑性的, 造型的, 易受影响的, 有创造力的", sentence: "I learned the word \"plastic\" today." },
-  "intention": { meaning: "意图, 目的, 含义； 愈合, 意向", sentence: "I learned the word \"intention\" today." },
-  "tall": { meaning: "高的, 长的, 夸大的；夸大地", sentence: "I learned the word \"tall\" today." },
-  "whereas": { meaning: "然而, 鉴于； 考虑到, 鉴于, 就...而论", sentence: "I learned the word \"whereas\" today." },
-  "initial": { meaning: "字首, 首字母；开始的, 最初的, 字首的；用姓名的首字母签名", sentence: "I learned the word \"initial\" today." },
-  "hate": { meaning: "憎恨, 恨, 厌恶；憎恨, 憎恶；仇恨", sentence: "I learned the word \"hate\" today." },
-  "examination": { meaning: "考试, 测验, 审查； 检查, 诊察", sentence: "I learned the word \"examination\" today." },
-  "alive": { meaning: "活着的, 活泼的, 敏感的, 热闹的", sentence: "I learned the word \"alive\" today." },
-  "definition": { meaning: "定义, 精确度, 清晰度； 清晰度; 清晰度", sentence: "I learned the word \"definition\" today." },
-  "declare": { meaning: "宣布, 声明, 申报, 断言", sentence: "I learned the word \"declare\" today." },
-  "substantial": { meaning: "重要材料(或事物), 有实际价值的东西；实质上的, 物质的, 有内容的, 结实的", sentence: "I learned the word \"substantial\" today." },
-  "chicken": { meaning: "小鸡, 鸡肉", sentence: "I learned the word \"chicken\" today." },
-  "aircraft": { meaning: "航空器, 飞机； 航空器", sentence: "I learned the word \"aircraft\" today." },
-  "abuse": { meaning: "滥用, 虐待, 恶习, 辱骂；滥用, 辱骂, 虐待", sentence: "I learned the word \"abuse\" today." },
-  "output": { meaning: "输出, 产品, 产量； 输出", sentence: "I learned the word \"output\" today." },
-  "shut": { meaning: "关闭；关上, 闭起, 幽禁, 合拢, 轧住；关上, 停止营业", sentence: "I learned the word \"shut\" today." },
-  "suitable": { meaning: "适当的, 相配的； 合适的, 适宜的, 适当的", sentence: "I learned the word \"suitable\" today." },
-  "map": { meaning: "地图, 天体图, 映像；映射, 绘制...地图, 计划； 实用程序, 映射, 制造自动化协议", sentence: "I learned the word \"map\" today." },
-  "immediate": { meaning: "立即的, 直接的, 接近的； 直接的, 立即的", sentence: "I learned the word \"immediate\" today." },
-  "divide": { meaning: "分开, 分配, 分裂；分, 分开, 分裂, 除；分配, 分水岭； 除", sentence: "I learned the word \"divide\" today." },
-  "welcome": { meaning: "欢迎, 欢迎词；受欢迎的, 可随意的, 可喜的；欢迎, 接待；欢迎", sentence: "I learned the word \"welcome\" today." },
-  "equal": { meaning: "对手, 匹敌, 同辈；相等的, 平等的, 胜任的, 合适的, 平静的, 不相上下的；等于, 比得上； 等长度编码", sentence: "I learned the word \"equal\" today." },
-  "literature": { meaning: "文学, 文艺, 著作； 广告, 商品介绍等文学", sentence: "I learned the word \"literature\" today." },
-  "reasonable": { meaning: "合理的, 明理的, 适当的； 合理的, 公道的, 正当的", sentence: "I learned the word \"reasonable\" today." },
-  "offence": { meaning: "犯罪, 冒犯, 违反, 罪过, 过错, 攻击； 犯法, 罪过, 过错", sentence: "I learned the word \"offence\" today." },
-  "desire": { meaning: "欲望, 要求；想要, 请求；渴望", sentence: "I learned the word \"desire\" today." },
-  "leading": { meaning: "领导, 指挥, 神示, 铅板；领导的, 主要的, 在前的", sentence: "I learned the word \"leading\" today." },
-  "reduction": { meaning: "减少, 缩影, 变化； 还原", sentence: "I learned the word \"reduction\" today." },
-  "paint": { meaning: "油漆, 颜料, 绘画作品, 涂漆；油漆, 绘, 画, 描绘, 装饰, 点缀；绘画, 涂漆", sentence: "I learned the word \"paint\" today." },
-  "fuel": { meaning: "燃料, 木炭；加燃料, 供燃料；得到燃料", sentence: "I learned the word \"fuel\" today." },
-  "appointment": { meaning: "约会, 委任的职位, 委派； 任命, 派, 指定", sentence: "I learned the word \"appointment\" today." },
-  "leaf": { meaning: "叶, 树叶, 花瓣, 页；生叶, 翻书页；在...上长叶, 翻...的页", sentence: "I learned the word \"leaf\" today." },
-  "dry": { meaning: "干的, 无酒的, 枯燥无味的, 干燥的；把...弄干；变干；干, 干涸", sentence: "I learned the word \"dry\" today." },
-  "instruction": { meaning: "指令, 教导, 命令； 指令", sentence: "I learned the word \"instruction\" today." },
-  "concentration": { meaning: "集中, 专心； 浓度; 浓缩", sentence: "I learned the word \"concentration\" today." },
-  "pool": { meaning: "池, 水塘, 石油层, 联营；合伙经营, 共享, 采掘, 汇聚成；汇合成塘, 淤积, 联营", sentence: "I learned the word \"pool\" today." },
-  "overall": { meaning: "全部的, 全体的, 从头至尾的, 一切在内的；从头到尾, 总的说来；罩衫, 工作服", sentence: "I learned the word \"overall\" today." },
-  "climb": { meaning: "攀登, 上升, 爬；攀登, 爬升", sentence: "I learned the word \"climb\" today." },
-  "sweet": { meaning: "甜蜜, 糖果, 情人；甜的, 芳香的, 悦耳的, 漂亮的, 和蔼的, 不咸的, 灵活的, 轻快的", sentence: "I learned the word \"sweet\" today." },
-  "bedroom": { meaning: "卧室", sentence: "I learned the word \"bedroom\" today." },
-  "salt": { meaning: "盐, 风趣, 刺激；含盐的, 咸的, 风趣的, 辛辣的；加盐于, 用盐腌", sentence: "I learned the word \"salt\" today." },
-  "expand": { meaning: "使膨胀, 详述, 扩张；张开, 发展；展开；展开； 展开; DOS外部命令:将原始DOS磁盘上的压缩文件解压缩并拷贝到硬盘上", sentence: "I learned the word \"expand\" today." },
-  "metal": { meaning: "金属, 金属制品, 合金, 本质, 质料；金属制的；以金属覆盖", sentence: "I learned the word \"metal\" today." },
-  "fat": { meaning: "脂肪, 脂油, 肥肉；肥的, 胖的, 油腻的；文件分配表； 文件分配表", sentence: "I learned the word \"fat\" today." },
-  "ticket": { meaning: "票, 券, 车票, 标签, 入场券, 证明书；加标签于, 为...购票", sentence: "I learned the word \"ticket\" today." },
-  "expensive": { meaning: "贵的, 奢华的, 费用浩大的, 乱化钱的； 高价的, 昂贵的, 浪费的", sentence: "I learned the word \"expensive\" today." },
-  "disappear": { meaning: "消失, 不见", sentence: "I learned the word \"disappear\" today." },
-  "recommend": { meaning: "推荐, 介绍, 劝告, 使受欢迎, 托付； 建议, 推荐", sentence: "I learned the word \"recommend\" today." },
-  "correct": { meaning: "正确的, 合适的；改正, 订正", sentence: "I learned the word \"correct\" today." },
-  "reading": { meaning: "阅读, 知识, 读物；阅读的", sentence: "I learned the word \"reading\" today." },
-  "sufficient": { meaning: "充分的, 足够的； 充分的, 足够的", sentence: "I learned the word \"sufficient\" today." },
-  "urban": { meaning: "都市的, 住在都市的, 习惯于都市的； 城市的, 都市的, 市区的", sentence: "I learned the word \"urban\" today." },
-  "bottle": { meaning: "瓶子, 酒瓶；装瓶, 抑制, 围困", sentence: "I learned the word \"bottle\" today." },
-  "mental": { meaning: "心智的, 精神病的, 心理的, 颏的；精神病患者", sentence: "I learned the word \"mental\" today." },
-  "absence": { meaning: "缺席, 缺乏, 没有； 失神", sentence: "I learned the word \"absence\" today." },
-  "lunch": { meaning: "午餐", sentence: "I learned the word \"lunch\" today." },
-  "criticism": { meaning: "批评, 评论, 非难； 批判, 批评, 评论", sentence: "I learned the word \"criticism\" today." },
-  "teaching": { meaning: "教学, 学说, 教导", sentence: "I learned the word \"teaching\" today." },
-  "shout": { meaning: "呼喊, 喊声；呼喊, 喊叫, 嚷；高喊", sentence: "I learned the word \"shout\" today." },
-  "sugar": { meaning: "糖, 糖块, 甜言蜜语；加糖于, 使甜蜜, 粉饰, 美化；制成糖", sentence: "I learned the word \"sugar\" today." },
-  "planet": { meaning: "行星, 命运星辰, 杰出的人, 重大影响的事", sentence: "I learned the word \"planet\" today." },
-  "transfer": { meaning: "迁移, 移动, 传递, 转让, 转移, 过户, 汇兑, 换车；使转移, 调转, 调任, 改变, 传递, 转让；转移, 转学, 转职, 换车； 传", sentence: "I learned the word \"transfer\" today." },
-  "explore": { meaning: "探险, 探测, 探究", sentence: "I learned the word \"explore\" today." },
-  "error": { meaning: "错误, 过失, 失误, 误差； 错误", sentence: "I learned the word \"error\" today." },
-  "enemy": { meaning: "敌人, 仇敌, 敌军；敌人的", sentence: "I learned the word \"enemy\" today." },
-  "acid": { meaning: "酸, 酸类物质, 尖刻, 迷幻药；酸的, 酸性的, 尖刻的, 敏锐的； 自动文档互参与索引生成程序", sentence: "I learned the word \"acid\" today." },
-  "straight": { meaning: "直线, 直；直的, 笔直的, 正直的, 直接的, 连续的, 整齐的；直接地, 立即, 不断地", sentence: "I learned the word \"straight\" today." },
-  "surround": { meaning: "包围, 环绕, 围绕；围绕物", sentence: "I learned the word \"surround\" today." },
-  "scientific": { meaning: "科学的, 系统的, 符合科学规律的； 科学记数法", sentence: "I learned the word \"scientific\" today." },
-  "soul": { meaning: "灵魂, 心灵, 精神, 精髓, 人, 化身, 典型, 鬼魂；黑人的", sentence: "I learned the word \"soul\" today." },
-  "panel": { meaning: "嵌板, 仪表板, 专题讨论小组, 全体陪审员；嵌镶板", sentence: "I learned the word \"panel\" today." },
-  "mom": { meaning: "妈妈", sentence: "I learned the word \"mom\" today." },
-  "married": { meaning: "已婚的, 婚姻的； 结了婚的, 有配偶的, 夫妇的", sentence: "I learned the word \"married\" today." },
-  "weather": { meaning: "天气, 气象, 处境；迎风的；使受风吹雨打, 侵蚀, 使风化, 经受住；风化, 受侵蚀, 经受风雨", sentence: "I learned the word \"weather\" today." },
-  "instrument": { meaning: "工具, 手段, 仪器； 仪器", sentence: "I learned the word \"instrument\" today." },
-  "whilst": { meaning: "当...的时候, 和...同时, 虽然, 只要, 然而, 而, 尽管", sentence: "I learned the word \"whilst\" today." },
-  "predict": { meaning: "预知, 预言, 预报", sentence: "I learned the word \"predict\" today." },
-  "pleasure": { meaning: "快乐, 愉快, 令人高兴的事, 娱乐, 希望；(使)高兴", sentence: "I learned the word \"pleasure\" today." },
-  "select": { meaning: "挑选出来的, 极好的；选择, 挑选；被挑选者, 精萃； 选定", sentence: "I learned the word \"select\" today." },
-  "channel": { meaning: "海峡, 航道, 频道；引导, 在...上挖沟, 形成河道； 信道, 通道", sentence: "I learned the word \"channel\" today." },
-  "emotional": { meaning: "情绪的, 情感的； 情绪的", sentence: "I learned the word \"emotional\" today." },
-  "fee": { meaning: "费用, 小费, 封地, 所有权；付费给", sentence: "I learned the word \"fee\" today." },
-  "pocket": { meaning: "口袋, 钱袋, 钱, 容器；装...在口袋里, 隐藏, 抑制, 私吞, 搁置, 击...入袋；袖珍的, 小型的, 压缩的, 金钱上的", sentence: "I learned the word \"pocket\" today." },
-  "thin": { meaning: "薄的, 细的, 瘦的, 稀疏的, 稀薄的, 淡的, 弱的, 空洞的；使变薄, 使变细, 使稀少, 使淡；变薄, 变细, 变少, 变淡；薄地, 稀", sentence: "I learned the word \"thin\" today." },
-  "friday": { meaning: "星期五", sentence: "I learned the word \"friday\" today." },
-  "temperature": { meaning: "温度, 发烧, 热度； 温度", sentence: "I learned the word \"temperature\" today." },
-  "beside": { meaning: "在旁边", sentence: "I learned the word \"beside\" today." },
-  "waste": { meaning: "浪费, 废物, 损耗, 消耗, 荒地, 垃圾, 地面风化物；废弃的, 荒芜的, 多余的；浪费, 消耗, 使荒芜；浪费, 消耗, 变消瘦", sentence: "I learned the word \"waste\" today." },
-  "surprise": { meaning: "惊奇, 奇袭, 诧异；使惊奇, 撞见, 奇袭", sentence: "I learned the word \"surprise\" today." },
-  "implication": { meaning: "牵连, 含义, 暗示； 推断, 含蓄之意, 暗示", sentence: "I learned the word \"implication\" today." },
-  "breath": { meaning: "呼吸, 气息, 瞬间； 呼气, 呵气, 口气, 呼吸", sentence: "I learned the word \"breath\" today." },
-  "recognition": { meaning: "赞誉, 认得, 识别, 承认, 认可, 认识； 认识", sentence: "I learned the word \"recognition\" today." },
-  "institute": { meaning: "学会, 学院, 协会；创立, 开始, 制定, 任命", sentence: "I learned the word \"institute\" today." },
-  "minority": { meaning: "少数, 未成年, 少数民族；少数的, 属于少数派的", sentence: "I learned the word \"minority\" today." },
-  "seriously": { meaning: "严肃地, 认真地, 严重地", sentence: "I learned the word \"seriously\" today." },
-  "connect": { meaning: "连接, 联合, 联系", sentence: "I learned the word \"connect\" today." },
-  "unlikely": { meaning: "不太可能的", sentence: "I learned the word \"unlikely\" today." },
-  "partly": { meaning: "部分地, 在一定程度上", sentence: "I learned the word \"partly\" today." },
-  "elsewhere": { meaning: "在别处", sentence: "I learned the word \"elsewhere\" today." },
-  "double": { meaning: "两倍；两倍的, 双重的；使加倍；加倍, 代替, 快步走； 双精度型", sentence: "I learned the word \"double\" today." },
-  "necessarily": { meaning: "必然地, 必须地, 必要地", sentence: "I learned the word \"necessarily\" today." },
-  "organize": { meaning: "组织, 有机化, 给予生机；组织起来", sentence: "I learned the word \"organize\" today." },
-  "empty": { meaning: "空的, 空虚的, 空腹的, 空洞的；空的东西, 空车；倒空, 使变空, 使排出；流空； 空", sentence: "I learned the word \"empty\" today." },
-  "household": { meaning: "一家人, 家庭, 家族, 王室；家庭的, 家常的, 王室的", sentence: "I learned the word \"household\" today." },
-  "guide": { meaning: "引导者, 导游, 指南, 路标；指导, 支配, 管理, 带领, 操纵；任向导； 辅助线", sentence: "I learned the word \"guide\" today." },
-  "novel": { meaning: "小说, 长篇故事；新奇的, 异常的", sentence: "I learned the word \"novel\" today." },
-  "somehow": { meaning: "不知何故", sentence: "I learned the word \"somehow\" today." },
-  "nurse": { meaning: "护士, 保姆, 奶妈；看护, 照顾, 培养；喂奶, 看护病人", sentence: "I learned the word \"nurse\" today." },
-  "experiment": { meaning: "实验, 试验, 实验仪器；实验, 尝试", sentence: "I learned the word \"experiment\" today." },
-  "breast": { meaning: "胸部, 乳房, 胸怀；以胸对着, 面对", sentence: "I learned the word \"breast\" today." },
-  "silence": { meaning: "沉默, 无声, 静寂, 湮没, 无声息；使缄默；安静", sentence: "I learned the word \"silence\" today." },
-  "secure": { meaning: "无虑的, 安心的, 安全的, 可靠的, 保险的；固定, 获得, 保证, 使安全, 掩护, 招致；停止操作, 船抛锚", sentence: "I learned the word \"secure\" today." },
-  "acknowledge": { meaning: "承认, 告知收悉, 答谢, 报偿； 承认, 答谢, 收到的通知", sentence: "I learned the word \"acknowledge\" today." },
-  "theme": { meaning: "主题, 话题, 题目", sentence: "I learned the word \"theme\" today." },
-  "storm": { meaning: "暴风雨, 骚动, 风波, 风暴, 猛攻；起风, 猛冲, 怒吼；猛攻", sentence: "I learned the word \"storm\" today." },
-  "publication": { meaning: "出版物, 出版, 公布； 发布", sentence: "I learned the word \"publication\" today." },
-  "desk": { meaning: "书桌, 办公桌, 工作台", sentence: "I learned the word \"desk\" today." },
-  "slow": { meaning: "慢的, 缓慢的, 迟缓的, 迟钝的, 冷漠的, 落后的；慢地, 迟缓地；(使)慢下来", sentence: "I learned the word \"slow\" today." },
-  "fruit": { meaning: "水果, 果类, 结果； 果实, 种实", sentence: "I learned the word \"fruit\" today." },
-  "journey": { meaning: "旅程, 旅行, 行程；旅行；游历", sentence: "I learned the word \"journey\" today." },
-  "yellow": { meaning: "黄色；黄色的", sentence: "I learned the word \"yellow\" today." },
-  "noise": { meaning: "噪音, 杂音, 响声, 喧闹；谣传；喧闹； 噪声", sentence: "I learned the word \"noise\" today." },
-  "shadow": { meaning: "阴影, 荫, 影子, 影像, 阴暗, 幽灵, 少许, 隐蔽处, 庇护；遮蔽, 使朦胧, 预示, 尾随；渐变, 变阴暗； 阴影", sentence: "I learned the word \"shadow\" today." },
-  "struggle": { meaning: "斗争, 努力, 奋斗；努力, 奋斗, 挣扎", sentence: "I learned the word \"struggle\" today." },
-  "conclude": { meaning: "结束, 作结论, 推断；结束, 推断", sentence: "I learned the word \"conclude\" today." },
-  "sum": { meaning: "总数, 总和, 金额, 概要, 顶点；总计, 概括；合计； 系统实用程序和维护", sentence: "I learned the word \"sum\" today." },
-  "dance": { meaning: "跳舞, 舞蹈, 舞会；跳舞", sentence: "I learned the word \"dance\" today." },
-  "imply": { meaning: "暗示, 意味； 隐含", sentence: "I learned the word \"imply\" today." },
-  "illustrate": { meaning: "举例说明, 作图解, 阐明；举例说明", sentence: "I learned the word \"illustrate\" today." },
-  "monday": { meaning: "星期一", sentence: "I learned the word \"monday\" today." },
-  "shift": { meaning: "变化, 移动, 轮班, 手段, 应急办法, 移位；替换, 转移, 改变, 推卸, 变速；转换, 移动, 转变, 推托, 变速； DOS内部命令:", sentence: "I learned the word \"shift\" today." },
-  "captain": { meaning: "船长, 指挥官, 海军上校, 首领；率领, 指挥", sentence: "I learned the word \"captain\" today." },
-  "phase": { meaning: "时期, 局面, 方面, 位相, 相, 阶段；使调整相位, 使定相, 使一致, 逐步执行, 实行； 阶段", sentence: "I learned the word \"phase\" today." },
-  "locate": { meaning: "找出, 设于, 位于；定居", sentence: "I learned the word \"locate\" today." },
-  "display": { meaning: "显示, 陈列, 炫耀, 显示器；陈列, 显示, 表现, 夸示； 显示器; 显示", sentence: "I learned the word \"display\" today." },
-  "initiative": { meaning: "主动行动, 首创精神, 主动权；自发的, 起始的", sentence: "I learned the word \"initiative\" today." },
-  "basically": { meaning: "基本上, 主要地", sentence: "I learned the word \"basically\" today." },
-  "generate": { meaning: "产生, 发生, 导致； 产生", sentence: "I learned the word \"generate\" today." },
-  "thinking": { meaning: "思考, 思想；思考的, 有理性的", sentence: "I learned the word \"thinking\" today." },
-  "trend": { meaning: "趋势, 倾向, 走向；倾向, 转向； 趋势", sentence: "I learned the word \"trend\" today." },
-  "escape": { meaning: "逃亡, 避难设备, 逃跑；逃脱, 避开, 溜走；逃避, 避免, 被...忘掉", sentence: "I learned the word \"escape\" today." },
-  "comfortable": { meaning: "舒服的, 轻松的；盖被", sentence: "I learned the word \"comfortable\" today." },
-  "angry": { meaning: "生气的, 愤怒的", sentence: "I learned the word \"angry\" today." },
-  "gate": { meaning: "门, 牌楼, 大门, 通道, 闸；装门于； 门; 栅", sentence: "I learned the word \"gate\" today." },
-  "investigate": { meaning: "调查, 审查", sentence: "I learned the word \"investigate\" today." },
-  "hearing": { meaning: "听, 听觉, 听讯； 听, 听觉", sentence: "I learned the word \"hearing\" today." },
-  "cat": { meaning: "猫, 恶妇；呕吐；计算机辅助教育, 计算机辅助测试, 计算机辅助翻译, 计算机辅助排版； 计算机辅助教学, 计算机辅助翻译, 计算机辅助排字,", sentence: "I learned the word \"cat\" today." },
-  "muscle": { meaning: "肌肉, 臂力； 肌", sentence: "I learned the word \"muscle\" today." },
-  "capture": { meaning: "抓取, 战利品, 捕获之物；抓取, 获得, 迷住； 截获命令", sentence: "I learned the word \"capture\" today." },
-  "chest": { meaning: "胸, 胸部, 衣柜, 箱子； 胸, 胸廓", sentence: "I learned the word \"chest\" today." },
-  "ministry": { meaning: "部, 内阁, 服务； 部", sentence: "I learned the word \"ministry\" today." },
-  "truly": { meaning: "真实地, 不假", sentence: "I learned the word \"truly\" today." },
-  "emphasis": { meaning: "强调, 加强, 重点, 强语气", sentence: "I learned the word \"emphasis\" today." },
-  "thick": { meaning: "厚的, 粗壮的, 浓的, 迟钝的, 浑浊的, 多雾的, 过分的, 口齿不清的；厚地, 密地, 浓浓地；最浓处, 最厚处, 最密集处； 暗, 粗线", sentence: "I learned the word \"thick\" today." },
-  "neither": { meaning: "皆不, 两个都不；(两者)都不的；两者都不；既非, 既不", sentence: "I learned the word \"neither\" today." },
-  "afford": { meaning: "买得起, 足以, 给予", sentence: "I learned the word \"afford\" today." },
-  "beauty": { meaning: "美, 美人", sentence: "I learned the word \"beauty\" today." },
-  "prospect": { meaning: "景色, 展望；勘探, 勘察；勘探, 有前途", sentence: "I learned the word \"prospect\" today." },
-  "narrow": { meaning: "狭窄部分, 隘路；狭窄的, 仔细的, 有限的, 勉强的, 狭隘的, 手紧的；变窄；使变狭窄", sentence: "I learned the word \"narrow\" today." },
-  "emergency": { meaning: "紧急状况, 紧急事件, 紧急需要； 紧急情况", sentence: "I learned the word \"emergency\" today." },
-  "inform": { meaning: "通知, 使了解, 使充满；提供资料, 告发", sentence: "I learned the word \"inform\" today." },
-  "unique": { meaning: "独一无二的, 独特的, 稀罕的", sentence: "I learned the word \"unique\" today." },
-  "advise": { meaning: "劝告, 给...出主意, 通知, 建议；提意见, 商量", sentence: "I learned the word \"advise\" today." },
-  "priority": { meaning: "优先权, 优先； 优先级", sentence: "I learned the word \"priority\" today." },
-  "opening": { meaning: "开始, 口子, 穴, 揭幕；开始的", sentence: "I learned the word \"opening\" today." },
-  "stress": { meaning: "压力, 紧迫, 强调, 重音, 重点, 应力；加压力于, 着重, 重读", sentence: "I learned the word \"stress\" today." },
-  "combination": { meaning: "组合, 合并, 联合； 组合图", sentence: "I learned the word \"combination\" today." },
-  "root": { meaning: "根, 根本, 根源, 基础, 底部；使扎根, 使固定, 根除, 肃清, 搜出, 用鼻拱；生根, 固定, 源于, 用鼻拱土, 寻找, 捧场, 支持", sentence: "I learned the word \"root\" today." },
-  "nose": { meaning: "鼻子, 突出部分, 嗅觉；嗅到, 探出, 用鼻子触；闻, 嗅, 探听, 告密", sentence: "I learned the word \"nose\" today." },
-  "appreciate": { meaning: "赏识, 鉴别, 为...而感激, 领会, 欣赏；增值, 涨价", sentence: "I learned the word \"appreciate\" today." },
-  "succeed": { meaning: "成功, 继承, 继续；继承, 接替", sentence: "I learned the word \"succeed\" today." },
-  "upper": { meaning: "上面的, 较高的, 上级的, 上院的, 穿在外面的, 北部的, 地表的, 后期的；鞋帮, 上齿", sentence: "I learned the word \"upper\" today." },
-  "interpretation": { meaning: "解释, 演出, 翻译； 插值; 插值法; 解释", sentence: "I learned the word \"interpretation\" today." },
-  "sick": { meaning: "病人；不舒服, 有病的, 恶心的, 厌恶的, 渴望的, 病态的；呕吐, 追击, 使(狗)去攻击", sentence: "I learned the word \"sick\" today." },
-  "tooth": { meaning: "牙齿, 齿状物, 爱好；装以齿, 将...切成齿状；啮合", sentence: "I learned the word \"tooth\" today." },
-  "ad": { meaning: "广告； 地址, 模拟-数字", sentence: "I learned the word \"ad\" today." },
-  "defend": { meaning: "防护, 辩护, 防卫； 作...的辩护律师, 辩护, 为...答辩", sentence: "I learned the word \"defend\" today." },
-  "alternative": { meaning: "两者择一, 供替代的选择；两者择一的, 供选择的； 选择对象", sentence: "I learned the word \"alternative\" today." },
-  "busy": { meaning: "忙碌的, 热闹的, 没空的；使忙；忙碌； 忙; 忙碌", sentence: "I learned the word \"busy\" today." },
-  "wing": { meaning: "翅膀, 翼, 机翼, 派别；给...装上翼, 飞过, 使飞, 空运, 增加...速度；飞行", sentence: "I learned the word \"wing\" today." },
-  "lane": { meaning: "小路, 巷, 弄, 单行道", sentence: "I learned the word \"lane\" today." },
-  "mix": { meaning: "混合物, 混乱, 糊涂；使混合, 弄混, 使结合, 混淆；相混合, 交往, 参与", sentence: "I learned the word \"mix\" today." },
-  "flow": { meaning: "流程, 流动, 流量, 洋溢, 泛滥, 涨潮；流动, 流泄, 畅流, 川流不息, 飘扬, 涌出；使流动, 淹没, 流出", sentence: "I learned the word \"flow\" today." },
-  "crown": { meaning: "王冠, 王权, 顶点；使成王, 加冕, 居...之顶", sentence: "I learned the word \"crown\" today." },
-  "coal": { meaning: "煤, 木炭；加煤", sentence: "I learned the word \"coal\" today." },
-  "approve": { meaning: "赞同, 核准, 为...提供证据；赞许", sentence: "I learned the word \"approve\" today." },
-  "zone": { meaning: "地带, 带, 地区；环绕, 使分成地带；分成区； 卡片顶部的三行区; 区; 区域", sentence: "I learned the word \"zone\" today." },
-  "wake": { meaning: "叫醒, 激发；醒来, 醒着, 觉醒, 活跃起来；守侯, 守夜, 尾迹, 痕迹", sentence: "I learned the word \"wake\" today." },
-  "variation": { meaning: "变更, 变化, 变种, 变奏； 变异, 变易; 变度", sentence: "I learned the word \"variation\" today." },
-  "castle": { meaning: "城堡, 象棋中的车；置于城堡中, 盘踞于", sentence: "I learned the word \"castle\" today." },
-  "airport": { meaning: "飞机场； 航空站, 机场", sentence: "I learned the word \"airport\" today." },
-  "ourselves": { meaning: "我们自己", sentence: "I learned the word \"ourselves\" today." },
-  "motion": { meaning: "移动, 手势, 动作, 意向, 请求, 提议；打手势", sentence: "I learned the word \"motion\" today." },
-  "brown": { meaning: "褐色；褐色的；(使)变褐色", sentence: "I learned the word \"brown\" today." },
-  "apparent": { meaning: "清晰可见的, 显然的, 表面上的； 外在的", sentence: "I learned the word \"apparent\" today." },
-  "shirt": { meaning: "衬衫, 内衣, 汗衫", sentence: "I learned the word \"shirt\" today." },
-  "membership": { meaning: "会员的资格, 全体会员, 会员数目； 会员资格, 成员资格, 会籍", sentence: "I learned the word \"membership\" today." },
-  "pilot": { meaning: "飞行员, 领航员, 航船者, 导向器, 驾驶仪, 向导, 领导人；领航, 驾驶, 引导, 试用；引导的, 控制的, 试点的； 引导", sentence: "I learned the word \"pilot\" today." },
-  "ultimately": { meaning: "最后, 最终； 最后, 终究, 总之", sentence: "I learned the word \"ultimately\" today." },
-  "suggestion": { meaning: "提议, 意见； 暗示", sentence: "I learned the word \"suggestion\" today." },
-  "persuade": { meaning: "劝, 使相信, 恳求, 敦促, 说服；劝服, 被说服", sentence: "I learned the word \"persuade\" today." },
-  "careful": { meaning: "小心的, 谨慎的", sentence: "I learned the word \"careful\" today." },
-  "cope": { meaning: "竞争, 应付；长袍", sentence: "I learned the word \"cope\" today." },
-  "snow": { meaning: "雪, 积雪, 下雪, 雪花形干扰；下雪, 似雪般落下；使雪白, 用雪覆盖, 使像雪般落下", sentence: "I learned the word \"snow\" today." },
-  "attractive": { meaning: "吸引人的, 有魅力的； 有吸引力的, 有迷惑力的", sentence: "I learned the word \"attractive\" today." },
-  "passage": { meaning: "通道, 通过, 移居, 航行, 一段, 走廊；通过, 经过, 航行, 横渡, 争吵；(使)马以斜横步前进, 使传代", sentence: "I learned the word \"passage\" today." },
-  "politician": { meaning: "政客, 政治家, 从事党派政治的人； 政客, 政治家", sentence: "I learned the word \"politician\" today." },
-  "steal": { meaning: "剽窃；偷偷地做；偷窃；窃取；偷偷地行动；偷垒；偷窃；便宜货；偷垒；断球", sentence: "I learned the word \"steal\" today." },
-  "pursue": { meaning: "追赶, 追踪, 追随, 追求, 实行, 继续, 从事；追赶, 继续", sentence: "I learned the word \"pursue\" today." },
-  "incident": { meaning: "事件, 事变, 小事；附带的, 易于发生的, 外来的, 入射的", sentence: "I learned the word \"incident\" today." },
-  "slip": { meaning: "滑, 滑行, 事故, 溜, 差错, 滑台, 下降, 插条, 后裔, 板条, 瘦长的年轻人；滑动, 滑倒, 失足, 溜走, 滑落, 犯错, 变坏", sentence: "I learned the word \"slip\" today." },
-  "meat": { meaning: "肉, 餐, 食物； 肉类", sentence: "I learned the word \"meat\" today." },
-  "funny": { meaning: "好笑的, 有趣的, 滑稽的；滑稽人物", sentence: "I learned the word \"funny\" today." },
-  "winner": { meaning: "胜利者, 优胜者； 取胜者", sentence: "I learned the word \"winner\" today." },
-  "soil": { meaning: "土壤, 土地, 国家, 国土, 温床, 污物, 粪便, 水池；弄脏, 污辱；变脏", sentence: "I learned the word \"soil\" today." },
-  "index": { meaning: "索引, 指针, 指数, 指标；编入索引中, 指出；做索引； 下标; 附标; 变址; 索引; 编索引", sentence: "I learned the word \"index\" today." },
-  "elect": { meaning: "当选人, 被选的人；被选的, 选出的；选举, 选择；作选择", sentence: "I learned the word \"elect\" today." },
-  "valley": { meaning: "山谷, 溪谷, 流域, 凹地； 谷", sentence: "I learned the word \"valley\" today." },
-  "blame": { meaning: "过失, 责备；责备, 归咎于", sentence: "I learned the word \"blame\" today." },
-  "derive": { meaning: "得自；起源", sentence: "I learned the word \"derive\" today." },
-  "estimate": { meaning: "估计, 判断；估计, 评价, 判断；估计", sentence: "I learned the word \"estimate\" today." },
-  "criterion": { meaning: "标准, 准则, 规范； 判据", sentence: "I learned the word \"criterion\" today." },
-  "square": { meaning: "正方形, 街区, 广场, 平方, 直角尺；正方形的, 正直的, 公正的, 平方的, 方正的, 结清的；成直角地, 对准地；一致, 符合, 结清", sentence: "I learned the word \"square\" today." },
-  "crazy": { meaning: "发狂的, 狂热的", sentence: "I learned the word \"crazy\" today." },
-  "vital": { meaning: "生命的, 重要的, 充满活力的, 生死攸关的, 致命的； 生命的, 生活的, 生活上必需的, 紧要的", sentence: "I learned the word \"vital\" today." },
-  "recover": { meaning: "重新获得, 恢复, 复原, 拯救；痊愈, 复原, 胜诉； 恢复", sentence: "I learned the word \"recover\" today." },
-  "chain": { meaning: "链, 枷锁, 束缚；用铁练锁住, 束缚, 囚禁", sentence: "I learned the word \"chain\" today." },
-  "specialist": { meaning: "专门医师, 专家；专业的, 专家的", sentence: "I learned the word \"specialist\" today." },
-  "governor": { meaning: "(美)州长, (英)总督, 统治者, 管理者, 理事； 节制器, 调节器", sentence: "I learned the word \"governor\" today." },
-  "characteristic": { meaning: "特性, 特征, 特色；特性的, 特有的, 有特色的； 阶; 指数", sentence: "I learned the word \"characteristic\" today." },
-  "lake": { meaning: "湖, 池, 色淀；(使)血球溶解", sentence: "I learned the word \"lake\" today." },
-  "tone": { meaning: "音调, 音质, 语调, 语气, 色调, 气氛, 状况, 思想状态；给...定色调, 增强, 使...的声调和谐, 定音调；颜色调和； 双音频", sentence: "I learned the word \"tone\" today." },
-  "kick": { meaning: "踢, 反冲, 后座力, 凹底；踢, 反抗, 反冲；踢, 反冲", sentence: "I learned the word \"kick\" today." },
-  "engineering": { meaning: "工程学, 工程, 操纵； 机器; 机器学", sentence: "I learned the word \"engineering\" today." },
-  "pub": { meaning: "酒馆, 客栈", sentence: "I learned the word \"pub\" today." },
-  "ancient": { meaning: "古代的, 古老的, 年老的, 旧的", sentence: "I learned the word \"ancient\" today." },
-  "request": { meaning: "请求, 需要, 申请书；请求, 要求, 邀请； 请求", sentence: "I learned the word \"request\" today." },
-  "foundation": { meaning: "基础, 根据, 建立； 地基", sentence: "I learned the word \"foundation\" today." },
-  "solve": { meaning: "解决, 付给, 溶解；求解；求解； 求解", sentence: "I learned the word \"solve\" today." },
-  "bowl": { meaning: "碗, 木球, 大酒杯；滚木球, 快而稳地行驶", sentence: "I learned the word \"bowl\" today." },
-  "rare": { meaning: "稀罕的, 罕有的, 珍奇的, 稀薄的, 半熟的, 非常好的；非常", sentence: "I learned the word \"rare\" today." },
-  "frame": { meaning: "框, 结构, 体格；构成, 设计, 制定, 使适合, 陷害； 框架, 图文框, 帧", sentence: "I learned the word \"frame\" today." },
-  "typical": { meaning: "典型的, 象征性的； 典型的", sentence: "I learned the word \"typical\" today." },
-  "except": { meaning: "除, 除外；反对；除了...之外, 若不是, 除非；只是", sentence: "I learned the word \"except\" today." },
-  "elderly": { meaning: "过了中年的, 稍老的", sentence: "I learned the word \"elderly\" today." },
-  "host": { meaning: "主人, 旅馆老板, 节目主持人；当主人招待, 作...节目主持人； 主机, 宿主机", sentence: "I learned the word \"host\" today." },
-  "ocean": { meaning: "海洋, 广阔, 许多, 一大片； 海洋, 海", sentence: "I learned the word \"ocean\" today." },
-  "observation": { meaning: "观察, 注意, 观测, 观察力； 观察", sentence: "I learned the word \"observation\" today." },
-  "impression": { meaning: "印象, 意念, 盖印, 印记, 印数, 底色, 效果； 压迹, 印模, 印象, 影响", sentence: "I learned the word \"impression\" today." },
-  "meanwhile": { meaning: "其时, 其间；同时, 于此时", sentence: "I learned the word \"meanwhile\" today." },
-  "neighbour": { meaning: "邻居, 邻接的东西, 邻国, 邻座, 邻人, 世人；邻接的, 邻近的；邻近, 与...结邻, 邻接", sentence: "I learned the word \"neighbour\" today." },
-  "capable": { meaning: "有能力的, 能的, 能干的", sentence: "I learned the word \"capable\" today." },
-  "attach": { meaning: "附上, 使依附, 使附属, 使喜爱, 系, 缚；附属, 归属, 联系在一起； 挂接服务器命令, 关联, 挂接, 附加", sentence: "I learned the word \"attach\" today." },
-  "fix": { meaning: "使固定, 修理, 准备, 安装, 凝视, 牢记, 确定, 整理；固定, 注视, 确定；困境, 方位, 维修, 贿赂", sentence: "I learned the word \"fix\" today." },
-  "grand": { meaning: "庄重的, 壮观的, 显赫的, 重大的, 最高的, 雄伟的, 宏大的, 豪华的, 傲慢的； 重大的, 主要的, 伟大的", sentence: "I learned the word \"grand\" today." },
-  "fashion": { meaning: "流行, 风尚, 时样；形成, 造, 作", sentence: "I learned the word \"fashion\" today." },
-  "wash": { meaning: "洗, 洗涤, 冲洗, 洗的衣服, 冲积物, 洼地；洗, 洗涤, 洗清, 用水冲洗, 流过, 弄湿, 粉刷, 镀金属薄层于；洗涤, 洗澡, 被冲蚀", sentence: "I learned the word \"wash\" today." },
-  "mirror": { meaning: "镜子, 写真, 典范；反映, 映出", sentence: "I learned the word \"mirror\" today." },
-  "coast": { meaning: "海岸, 滑坡；沿海岸而行", sentence: "I learned the word \"coast\" today." },
-  "atmosphere": { meaning: "大气, 空气, 气氛； 大气; 大气压", sentence: "I learned the word \"atmosphere\" today." },
-  "smart": { meaning: "聪明的, 漂亮的, 刺痛的, 剧烈的, 敏捷的, 巧妙的, 伶俐的, 潇洒的；刺痛, 痛苦；刺痛", sentence: "I learned the word \"smart\" today." },
-  "mass": { meaning: "块, 大多数, 质量, 大量, 群众, 弥撒；群众的, 大规模的, 整个的；使集合, 集中；聚集", sentence: "I learned the word \"mass\" today." },
-  "revolution": { meaning: "革命, 大变革, 旋转, 转数, 循环； 回转", sentence: "I learned the word \"revolution\" today." },
-  "complain": { meaning: "抱怨, 抗议, 控诉", sentence: "I learned the word \"complain\" today." },
-  "topic": { meaning: "主题, 论题, 话题", sentence: "I learned the word \"topic\" today." },
-  "tear": { meaning: "泪滴, 眼泪, 撕, 扯, 裂缝, 激怒, 飞奔；流泪, 撕破, 赶快, 飞奔, 被撕破；撕裂, 戳破, 拉掉, 撕掉, 使分裂, 使精神不安,", sentence: "I learned the word \"tear\" today." },
-  "brief": { meaning: "摘要, 简报；简短的, 短暂的；对...作简报, 摘要, 节录", sentence: "I learned the word \"brief\" today." },
-  "secret": { meaning: "秘密, 机密, 秘诀, 秘方；秘密的, 极机密的, 隐蔽的, 暗中的, 神秘的, 偏僻的", sentence: "I learned the word \"secret\" today." },
-  "tank": { meaning: "槽, 箱, 柜, 罐, 池塘, 储水池, 坦克；储于箱中", sentence: "I learned the word \"tank\" today." },
-  "iron": { meaning: "铁, 熨斗, 铁器, 坚强, 烙铁, 镣铐；烫平, 熨, 用铁包；烫平", sentence: "I learned the word \"iron\" today." },
-  "aside": { meaning: "小声说的话, 旁白；在一边, 离开, 另外", sentence: "I learned the word \"aside\" today." },
-  "servant": { meaning: "仆人, 有用物, 公务员, 雇员； 受雇人, 服务者, 公务员", sentence: "I learned the word \"servant\" today." },
-  "roof": { meaning: "屋顶, 室顶；给...盖屋顶, 遮蔽", sentence: "I learned the word \"roof\" today." },
-  "anywhere": { meaning: "无论何处", sentence: "I learned the word \"anywhere\" today." },
-  "advance": { meaning: "前进, 进展, 行过的路程；前进, 进展, 提高, 上涨；使前进, 促进, 提出, 提高, 使提前, 预付；前面的, 预先的", sentence: "I learned the word \"advance\" today." },
-  "milk": { meaning: "奶, 乳状物；挤乳, 榨取；产乳", sentence: "I learned the word \"milk\" today." },
-  "fun": { meaning: "乐趣, 玩笑, 娱乐；开玩笑；供娱乐用的", sentence: "I learned the word \"fun\" today." },
-  "engineer": { meaning: "工程师, 工兵；设计, 监造, 精明地处理, 策划", sentence: "I learned the word \"engineer\" today." },
-  "beneath": { meaning: "在...下方；在...下方", sentence: "I learned the word \"beneath\" today." },
-  "expectation": { meaning: "期待, 指望, 展望； 期望值", sentence: "I learned the word \"expectation\" today." },
-  "drawing": { meaning: "图画, 制图, 拉； 绘图", sentence: "I learned the word \"drawing\" today." },
-  "accuse": { meaning: "指责, 控告, 归咎于；指责, 控告", sentence: "I learned the word \"accuse\" today." },
-  "motor": { meaning: "马达, 发动机, 原动力, 汽车；马达的, 发动机的, 汽车的, 发动的；推动, 以汽车载运；乘汽车, 驾车", sentence: "I learned the word \"motor\" today." },
-  "somewhat": { meaning: "某物, 几分；多少, 几分", sentence: "I learned the word \"somewhat\" today." },
-  "pour": { meaning: "流出, 倾泻, 骤雨；倒, 灌, 注, 倾泻, 诉说, 倾吐；倾泻, 蜂涌而来, 下大雨", sentence: "I learned the word \"pour\" today." },
-  "origin": { meaning: "起源, 起因, 出身, 开端； 原点; 起始地址; 信件来源的相关数据", sentence: "I learned the word \"origin\" today." },
-  "grey": { meaning: "灰色；灰色的, 阴沉的；(使)成灰色", sentence: "I learned the word \"grey\" today." },
-  "stir": { meaning: "骚动, 轰动, 搅动, 监狱；移动, 摇动, 激起, 惹起, 搅拌；走动, 传播, 搅拌", sentence: "I learned the word \"stir\" today." },
-  "beach": { meaning: "海滩", sentence: "I learned the word \"beach\" today." },
-  "beer": { meaning: "啤酒； 啤酒", sentence: "I learned the word \"beer\" today." },
-  "accompany": { meaning: "陪伴, 伴随, 补充, 为...伴奏；伴奏, 伴唱", sentence: "I learned the word \"accompany\" today." },
-  "hence": { meaning: "因此, 从此", sentence: "I learned the word \"hence\" today." },
-  "unfortunately": { meaning: "恐怕, 不幸的是", sentence: "I learned the word \"unfortunately\" today." },
-  "warning": { meaning: "警告, 预告, 预兆, 通知； 警告, 警戒, 预告; 警告的, 注意的", sentence: "I learned the word \"warning\" today." },
-  "hero": { meaning: "英雄, 超越常人者, 男主角", sentence: "I learned the word \"hero\" today." },
-  "minor": { meaning: "未成年人, 副修科目；较小的, 二流的, 未成年的；副修； 次要", sentence: "I learned the word \"minor\" today." },
-  "height": { meaning: "高度, 海拔, 高地, 顶点； 高度", sentence: "I learned the word \"height\" today." },
-  "cloud": { meaning: "云, 阴暗, 烟雾, 疑团；以云遮敝, 笼罩, 使黯然；乌云密布, 阴沉", sentence: "I learned the word \"cloud\" today." },
-  "stretch": { meaning: "伸展, 张开, 连绵, 一段路, 一段时间；可伸缩的, 弹性的；伸展, 张开, 曲解, 使过度伸展；伸展, 延伸； 伸展", sentence: "I learned the word \"stretch\" today." },
-  "constant": { meaning: "常数, 恒量；不变的, 一定的, 时常的； 常量; 常数; 恒值", sentence: "I learned the word \"constant\" today." },
-  "pleased": { meaning: "高兴的, 喜欢的, 满足的", sentence: "I learned the word \"pleased\" today." },
-  "ideal": { meaning: "理想, 典范, 观念, 思想, 最后目标；理想的, 完美的, 空想的, 观念的, 唯心论的", sentence: "I learned the word \"ideal\" today." },
-  "seed": { meaning: "种子, 籽, 萌芽, 子孙, 精液；在...播种, 催...发育, 脱...籽；结实, 播种", sentence: "I learned the word \"seed\" today." },
-  "expense": { meaning: "费用, 代价, 开支, 损失； 费用, 开支, 将支出转为费用", sentence: "I learned the word \"expense\" today." },
-  "withdraw": { meaning: "撤回, 取回, 撤消, 使撤退, 拉开, 移开；撤退, 离开", sentence: "I learned the word \"withdraw\" today." },
-  "pepper": { meaning: "胡椒粉, 胡椒, 辣椒； 胡椒; 辣椒; 花椒", sentence: "I learned the word \"pepper\" today." },
-  "severe": { meaning: "严格的, 尖锐的, 严肃的, 严重的, 严厉的, 朴素的； 严厉的, 苛刻的, 严重的", sentence: "I learned the word \"severe\" today." },
-  "terrible": { meaning: "可怕的, 令人恐惧的, 极坏的", sentence: "I learned the word \"terrible\" today." },
-  "tip": { meaning: "顶, 尖端, 梢, 末端, 倾斜, 垃圾场, 小费, 轻击, 指点, 秘密消息；装顶端, 使倾斜, 使翻倒, 泄露, 告诫, 暗示, 给...小", sentence: "I learned the word \"tip\" today." },
-  "prisoner": { meaning: "囚犯, 犯人, 战俘； 犯人, 囚犯, 扣押犯", sentence: "I learned the word \"prisoner\" today." },
-  "vegetable": { meaning: "蔬菜, 植物, 无精打采之人；蔬菜的, 植物的", sentence: "I learned the word \"vegetable\" today." },
-  "dish": { meaning: "盘子, 碟, 菜肴； 皿, 碟", sentence: "I learned the word \"dish\" today." },
-  "palace": { meaning: "宫, 宫殿, 华丽大厦", sentence: "I learned the word \"palace\" today." },
-  "vast": { meaning: "巨大的, 广大的, 非常的, 大量的", sentence: "I learned the word \"vast\" today." },
-  "everywhere": { meaning: "各处, 到处", sentence: "I learned the word \"everywhere\" today." },
-  "exclude": { meaning: "除外, 排除, 排斥； 除外(诊断)", sentence: "I learned the word \"exclude\" today." },
-  "oppose": { meaning: "反对, 以...对抗, 抗争；反对", sentence: "I learned the word \"oppose\" today." },
-  "convention": { meaning: "大会, 协定, 惯例, 约定； 约定", sentence: "I learned the word \"convention\" today." },
-  "contemporary": { meaning: "同时代的人；同时代的, 属于同一时期的", sentence: "I learned the word \"contemporary\" today." },
-  "switch": { meaning: "开关, 电闸, 转换, 软枝, 鞭子, 道岔；转变, 切换, 摆动, 转换, 使转轨；转换, 变换, 摆动； 开关; 翻转; 转移", sentence: "I learned the word \"switch\" today." },
-  "criminal": { meaning: "罪犯, 犯人, 刑事；犯了罪的, 刑事的, 有罪的", sentence: "I learned the word \"criminal\" today." },
-  "core": { meaning: "核心, 果心, 要点；挖...的核； 内核, 核心网", sentence: "I learned the word \"core\" today." },
-  "ill": { meaning: "疾病, 坏事, 罪恶, 灾难；生病的, 邪恶的, 不吉利的, 敌意的, 不良的, 不顺利的；有害地, 不幸地, 几乎不", sentence: "I learned the word \"ill\" today." },
-  "rush": { meaning: "匆促, 冲进, 急流, 灯心草；冲, 奔, 闯, 赶紧, 匆促行事, 涌现；使冲, 匆忙地做, 突袭, 飞跃, 用灯心草做；紧急的", sentence: "I learned the word \"rush\" today." },
-  "knock": { meaning: "敲, 敲打, 敲门；敲击, 互撞, 攻击", sentence: "I learned the word \"knock\" today." },
-  "tired": { meaning: "疲累的, 疲乏的, 厌倦的", sentence: "I learned the word \"tired\" today." },
-  "justify": { meaning: "替...辩护, 证明；证明合法； 段落重排, 两端对齐", sentence: "I learned the word \"justify\" today." },
-  "signal": { meaning: "信号, 暗号, 近因, 导火线；向...作信号, 标志, 用信号通知；发信号；作为信号的, 显著的； 信号", sentence: "I learned the word \"signal\" today." },
-  "rail": { meaning: "横杆, 围栏, 栏杆, 铁轨, 扶手, 秧鸡；以横木围栏, 给...铺铁轨；责骂, 抱怨", sentence: "I learned the word \"rail\" today." },
-  "diet": { meaning: "日常饮食, 议会；照规定饮食；忌食", sentence: "I learned the word \"diet\" today." },
-  "comparison": { meaning: "比较, 对照, 比喻； 比较, 对比", sentence: "I learned the word \"comparison\" today." },
-  "witness": { meaning: "证人, 目击者, 证据, 证词；目击, 作证, 证明, 表明；作证人, 作为证据", sentence: "I learned the word \"witness\" today." },
-  "apart": { meaning: "成零碎, 成距离, 分别地, 分离着；分离的", sentence: "I learned the word \"apart\" today." },
-  "mine": { meaning: "矿, 矿藏, 地雷；挖掘, 开采, 在...布雷, 破坏；开矿, 埋设地雷；我的", sentence: "I learned the word \"mine\" today." },
-  "emphasize": { meaning: "强调, 加强语气, 着重", sentence: "I learned the word \"emphasize\" today." },
-  "plenty": { meaning: "充分, 很多, 丰富；很多的, 足够的, 丰富的", sentence: "I learned the word \"plenty\" today." },
-  "achievement": { meaning: "完成, 成就, 功业", sentence: "I learned the word \"achievement\" today." },
-  "wednesday": { meaning: "星期三", sentence: "I learned the word \"wednesday\" today." },
-  "proud": { meaning: "骄傲的, 自大的, 自豪的, 辉煌的, 壮丽的", sentence: "I learned the word \"proud\" today." },
-  "gap": { meaning: "缝隙, 缺口, 间断, 间距, 通用汇编程序；打开缺口, 造成缝隙；豁开； 通用汇编程序, 图形应用程序, 间距", sentence: "I learned the word \"gap\" today." },
-  "weak": { meaning: "不牢固的, 弱的, 虚弱的, 软弱的, 无力的, 无权力的, (论据等)不充分的； 疲软的", sentence: "I learned the word \"weak\" today." },
-  "occupy": { meaning: "占领, 占(时间、空间等), 住进, 担任, 使从事, 使全神贯注； 占领, 占据, 占有", sentence: "I learned the word \"occupy\" today." },
-  "definitely": { meaning: "明确无疑地, 清楚地", sentence: "I learned the word \"definitely\" today." },
-  "bomb": { meaning: "炸弹；轰炸, 投弹于；失败", sentence: "I learned the word \"bomb\" today." },
-  "permanent": { meaning: "永久的, 不变的, 固定的, 持久的；烫发； 永久的", sentence: "I learned the word \"permanent\" today." },
-  "enormous": { meaning: "巨大的, 庞大的", sentence: "I learned the word \"enormous\" today." },
-  "massive": { meaning: "大而重的, 宽大的, 宏伟的； 大块的, 整块的, 大量的", sentence: "I learned the word \"massive\" today." },
-  "complaint": { meaning: "诉苦, 抱怨, 控诉； 陈诉; 病", sentence: "I learned the word \"complaint\" today." },
-  "shock": { meaning: "震动, 冲突, 震惊, 冲击, 突击, 禾束堆, 休克, 长毛狗；使震动, 使休克, 使受电击, 震惊得；震动, 吓人；蓬乱浓密的", sentence: "I learned the word \"shock\" today." },
-  "wheel": { meaning: "轮子, 车轮, 轮, 方向盘, 旋转, 机构, 重要人物；使旋转, 转动, 使转向；旋转, 转弯, 盘旋", sentence: "I learned the word \"wheel\" today." },
-  "decline": { meaning: "衰退, 跌落, 下降；使降低, 婉谢；下降, 衰落, 偏斜", sentence: "I learned the word \"decline\" today." },
-  "invest": { meaning: "投资, 花费, 笼罩, 授予；投资, 利用", sentence: "I learned the word \"invest\" today." },
-  "passenger": { meaning: "乘客, 旅客； 乘客, 旅客", sentence: "I learned the word \"passenger\" today." },
-  "odd": { meaning: "奇数的, 古怪的, 剩余的, 零散的, 各种各样的, 少量的；奇特的事物, 怪人； 奇数, 奇校验, 光数据数字转换器", sentence: "I learned the word \"odd\" today." },
-  "cable": { meaning: "电缆, 海底电报, 缆, 索；打海底电报；发海底电报, 缚住； 电缆", sentence: "I learned the word \"cable\" today." },
-  "grass": { meaning: "草, 草原, 牧场； 草, 禾本", sentence: "I learned the word \"grass\" today." },
-  "via": { meaning: "经由, 经过, 通过； 病毒灭活剂", sentence: "I learned the word \"via\" today." },
-  "expose": { meaning: "使暴露, 使曝光, 揭穿, 陈列； 暴露, 露置", sentence: "I learned the word \"expose\" today." },
-  "column": { meaning: "专栏, 圆柱, 纵队, 列, 柱形物； 列, 柱形图", sentence: "I learned the word \"column\" today." },
-  "cream": { meaning: "乳酪, 奶油, 面霜； 乳油, 乳皮; 乳膏, 霜", sentence: "I learned the word \"cream\" today." },
-  "charity": { meaning: "慈悲, 博爱, 慈善团体, 施舍； 宽大, 宽恕, 慈善机关", sentence: "I learned the word \"charity\" today." },
-  "solid": { meaning: "固体；坚硬的, 稳固的, 固体的, 实心的, 纯质的, 立体的, 立方的； 原色", sentence: "I learned the word \"solid\" today." },
-  "crucial": { meaning: "决定性的, 重要的, 严厉的； 十字形的; 决断的, 定局的", sentence: "I learned the word \"crucial\" today." },
-  "inner": { meaning: "内部的, 内心的；内部", sentence: "I learned the word \"inner\" today." },
-  "hat": { meaning: "帽子；给...戴帽子", sentence: "I learned the word \"hat\" today." },
-  "manufacturer": { meaning: "制造业者, 厂商； 制造人, 制造商, 制造厂", sentence: "I learned the word \"manufacturer\" today." },
-  "breakfast": { meaning: "早餐", sentence: "I learned the word \"breakfast\" today." },
-  "celebrate": { meaning: "庆祝, 祝贺, 举行", sentence: "I learned the word \"celebrate\" today." },
-  "permit": { meaning: "许可证, 许可, 执照, 通行证；允许, 容许, 可能, 使放手做；容许, 给以机会, 提供可能", sentence: "I learned the word \"permit\" today." },
-  "similarly": { meaning: "相像地, 类似于", sentence: "I learned the word \"similarly\" today." },
-  "taste": { meaning: "味道, 品味, 味觉, 感受, 体验, 爱好, 审美, 少量；尝, 察觉...的味道, 体会；品尝, 察觉味道, 有某种味道", sentence: "I learned the word \"taste\" today." },
-  "fundamental": { meaning: "基本原理, 原则, 基波；基本的, 重要的, 原音的", sentence: "I learned the word \"fundamental\" today." },
-  "virtually": { meaning: "事实上", sentence: "I learned the word \"virtually\" today." },
-  "cast": { meaning: "演员阵容, 投掷, 铸件, 预测, 特性；投, 掷, 抛, 脱落, 铸, 使弯曲, 计算；投, 计算, 浇铸成型", sentence: "I learned the word \"cast\" today." },
-  "sharp": { meaning: "半升音调, 利刃, 骗子；锋利的, 明显的, 敏锐的, 急剧的, 尖刻的, 严厉的, 刺耳的, 精明的；锐利地, 急速地", sentence: "I learned the word \"sharp\" today." },
-  "perfectly": { meaning: "完全地, 无瑕疵地, 完整地", sentence: "I learned the word \"perfectly\" today." },
-  "unusual": { meaning: "不寻常的, 罕见的, 与众不同的", sentence: "I learned the word \"unusual\" today." },
-  "quote": { meaning: "引用；引述, 举证, 报(价)；引用", sentence: "I learned the word \"quote\" today." },
-  "convince": { meaning: "说服, 使相信； 使确信, 使信服, 使人认识错误", sentence: "I learned the word \"convince\" today." },
-  "dominate": { meaning: "支配, 占优势", sentence: "I learned the word \"dominate\" today." },
-  "exception": { meaning: "例外, 除外, 异议； 例外; 异常", sentence: "I learned the word \"exception\" today." },
-  "addition": { meaning: "加法, 增加的人(或物)； 加法", sentence: "I learned the word \"addition\" today." },
-  "accommodation": { meaning: "膳宿, 预订铺位, 适应性调节, 调和, 贷款； 调节(眼); 适应", sentence: "I learned the word \"accommodation\" today." },
-  "licence": { meaning: "执照, 许可证, 特许；许可, 特许, 认可", sentence: "I learned the word \"licence\" today." },
-  "abandon": { meaning: "放弃, 抛弃, 遗弃, 使屈从, 沉溺, 放纵；放任, 无拘束, 狂热", sentence: "I learned the word \"abandon\" today." },
-  "construct": { meaning: "构造, 建造, 对...进行构思, 作图；构成物", sentence: "I learned the word \"construct\" today." },
-  "guilty": { meaning: "犯罪的, 有过失的, 自觉有错的, 心虚的； 有罪的, 犯罪的, 自觉有罪的", sentence: "I learned the word \"guilty\" today." },
-  "compete": { meaning: "竞争, 对抗", sentence: "I learned the word \"compete\" today." },
-  "inquiry": { meaning: "质询, 探索, 调查, 询盘； 询问; 查询", sentence: "I learned the word \"inquiry\" today." },
-  "illegal": { meaning: "违法的, 不合规定的； 非法的, 犯规的", sentence: "I learned the word \"illegal\" today." },
-  "hi": { meaning: "喂", sentence: "I learned the word \"hi\" today." },
-  "fault": { meaning: "过错, 故障, 毛病；挑剔；产生断层, 弄错； 故障", sentence: "I learned the word \"fault\" today." },
-  "personality": { meaning: "个性, 人格, (团体、地方、国家)特有特性, 名人； 人格; 个性", sentence: "I learned the word \"personality\" today." },
-  "badly": { meaning: "严重地, 恶劣地, 极度地", sentence: "I learned the word \"badly\" today." },
-  "phrase": { meaning: "惯用语, 词组, 成语, 措词, 乐句；用短语表达, 把(乐曲)分成短句； 短语", sentence: "I learned the word \"phrase\" today." },
-  "assistance": { meaning: "协助, 援助； 援助, 帮助", sentence: "I learned the word \"assistance\" today." },
-  "forever": { meaning: "永远", sentence: "I learned the word \"forever\" today." },
-  "quantity": { meaning: "量, 数量, 总量； 数量; 量", sentence: "I learned the word \"quantity\" today." },
-  "unknown": { meaning: "不知道的, 未知的, 陌生的；未知物, 未知数", sentence: "I learned the word \"unknown\" today." },
-  "naturally": { meaning: "自然地, 以自然力, 天生地", sentence: "I learned the word \"naturally\" today." },
-  "proceed": { meaning: "继续进行, 进行, 开始, 发出, 起诉； 所得, 收入, 收益", sentence: "I learned the word \"proceed\" today." },
-  "wrap": { meaning: "外套, 围巾, 包裹物, 限制, 约束, 秘密, 换行；包装, 卷, 缠绕, 包, 裹, 覆盖, 遮蔽, 隐藏, 掩护；缠绕, 穿外衣, 包起来", sentence: "I learned the word \"wrap\" today." },
-  "preparation": { meaning: "准备, 预备, 预习； 制剂", sentence: "I learned the word \"preparation\" today." },
-  "tension": { meaning: "紧张, 不安, 拉紧, 张力, 压力, 电压；拉紧, 使紧张", sentence: "I learned the word \"tension\" today." },
-  "interpret": { meaning: "解释, 演出, 翻译, 理解；翻译, 解释", sentence: "I learned the word \"interpret\" today." },
-  "spiritual": { meaning: "精神上的, 神圣的, 崇高的, 高尚的, 鬼的, 招魂术的；有关教会的事", sentence: "I learned the word \"spiritual\" today." },
-  "musical": { meaning: "音乐片, 音乐舞台剧；音乐的, 声音美妙的, 喜爱音乐的", sentence: "I learned the word \"musical\" today." },
-  "prayer": { meaning: "祈祷, 恳求, 祷辞, 祈祷者", sentence: "I learned the word \"prayer\" today." },
-  "secondary": { meaning: "中级的, 中等的, 次要的, 第二的, 从属的, 辅助的； 仲(指CH-3...CH(CH-3)-型支链烃基或指二元胺及R-2CHOH型的醇)", sentence: "I learned the word \"secondary\" today." },
-  "metre": { meaning: "公尺, 格律, 韵律； 米, 公尺", sentence: "I learned the word \"metre\" today." },
-  "journalist": { meaning: "新闻记者, 从事新闻杂志业的人", sentence: "I learned the word \"journalist\" today." },
-  "dismiss": { meaning: "解散, 开除, 解职；解散； 解散", sentence: "I learned the word \"dismiss\" today." },
-  "suspect": { meaning: "被怀疑者, 嫌疑犯；令人怀疑的, 不可信的, 可疑的；怀疑, 猜想", sentence: "I learned the word \"suspect\" today." },
-  "climate": { meaning: "气候, 社会趋势, 气候区； 气候", sentence: "I learned the word \"climate\" today." },
-  "cheese": { meaning: "乳酪； 干酪", sentence: "I learned the word \"cheese\" today." },
-  "moreover": { meaning: "而且, 此外", sentence: "I learned the word \"moreover\" today." },
-  "cigarette": { meaning: "香烟, 纸烟", sentence: "I learned the word \"cigarette\" today." },
-  "bread": { meaning: "面包, 生计, 食物；裹以面包屑", sentence: "I learned the word \"bread\" today." },
-  "emotion": { meaning: "情绪, 激动, 强烈的情感； 情绪, 情感", sentence: "I learned the word \"emotion\" today." },
-  "scream": { meaning: "尖叫声；尖叫, 大笑, 尖啸, 令人震惊；尖叫着说, 大叫大嚷着要求", sentence: "I learned the word \"scream\" today." },
-  "dramatic": { meaning: "戏剧性的, 生动的", sentence: "I learned the word \"dramatic\" today." },
-  "universe": { meaning: "宇宙, 星系, (思想等)范围", sentence: "I learned the word \"universe\" today." },
-  "alter": { meaning: "改变", sentence: "I learned the word \"alter\" today." },
-  "rarely": { meaning: "很少地, 罕有地", sentence: "I learned the word \"rarely\" today." },
-  "extension": { meaning: "延长, 扩充, 范围, 扩展名；伸缩的； 扩展名, 扩充名", sentence: "I learned the word \"extension\" today." },
-  "prize": { meaning: "奖赏, 奖金, 奖品, 战利品, 捕获；得奖的；珍视, 估价, 捕获, 撬, 撬动", sentence: "I learned the word \"prize\" today." },
-  "lucky": { meaning: "幸运的, 吉祥的, 好运的, 侥幸的", sentence: "I learned the word \"lucky\" today." },
-  "drag": { meaning: "拖, 拖累；拖累, 拖拉, 沉重缓慢地走, 拖动； 拖动", sentence: "I learned the word \"drag\" today." },
-  "possess": { meaning: "持有, 占有, 拥有, 克制, 支配, 迷住； 持有, 占有, 具有", sentence: "I learned the word \"possess\" today." },
-  "tower": { meaning: "塔, 高楼, 堡垒；高耸, 翱翔", sentence: "I learned the word \"tower\" today." },
-  "yours": { meaning: "你的(东西), 你们的(东西)", sentence: "I learned the word \"yours\" today." },
-  "arrest": { meaning: "逮捕, 监禁；拘捕, 抑制, 吸引, 阻止", sentence: "I learned the word \"arrest\" today." },
-  "primarily": { meaning: "主要地, 首先地", sentence: "I learned the word \"primarily\" today." },
-  "coat": { meaning: "外套；外面覆盖, 给...穿外套", sentence: "I learned the word \"coat\" today." },
-  "analyse": { meaning: "分析, 细察, 分解； 分析", sentence: "I learned the word \"analyse\" today." },
-  "schedule": { meaning: "时间表, 一览表, 计划表, 议事日程；预定, 编制目录, 制...表, 安排", sentence: "I learned the word \"schedule\" today." },
-  "sad": { meaning: "忧愁的, 悲哀的", sentence: "I learned the word \"sad\" today." },
-  "pollution": { meaning: "污染, 玷污； 污染", sentence: "I learned the word \"pollution\" today." },
-  "purchase": { meaning: "购买, 购买品, 紧握, 绞辘；购买, 赢得, 努力取得, 用滑轮起(锚等)", sentence: "I learned the word \"purchase\" today." },
-  "steel": { meaning: "钢, 钢制品, 钢铁, 坚硬, 坚固；钢的, 钢制的, 钢铁业的, 坚强的；使坚强, 钢化, 使冷酷", sentence: "I learned the word \"steel\" today." },
-  "regarding": { meaning: "关于", sentence: "I learned the word \"regarding\" today." },
-  "inch": { meaning: "英寸, 身高, 小岛；慢慢前进, 慢慢移动；使缓慢地移动", sentence: "I learned the word \"inch\" today." },
-  "violent": { meaning: "暴力的, 猛烈的, 激烈的, 极端的, 凶暴的", sentence: "I learned the word \"violent\" today." },
-  "chip": { meaning: "屑片, 薄片, 碎片；削, 切, 削成碎片, 使摔倒, 凿；削下屑片； 孔屑; 组件; 晶片; 芯片", sentence: "I learned the word \"chip\" today." },
-  "depth": { meaning: "深度, 深处, 深奥； 深度", sentence: "I learned the word \"depth\" today." },
-  "silent": { meaning: "沉默的, 安静的, 无声的, 静止的； 静止的, 无症状的", sentence: "I learned the word \"silent\" today." },
-  "self": { meaning: "自己, 自我, 本性, 本质, 私心, 本人；使近亲繁殖, 使自花授精；自花授精；同一的", sentence: "I learned the word \"self\" today." },
-  "assist": { meaning: "帮助, 协助；帮助, 促进；协助, 参加", sentence: "I learned the word \"assist\" today." },
-  "port": { meaning: "港口, 埠, 舱门, 避风港, 左舷, 炮眼, 姿势, 意义；左转舵, 持(枪)；左转舵； 端口, 移植", sentence: "I learned the word \"port\" today." },
-  "command": { meaning: "命令, 指挥, 控制, 部队, 司令部；命令, 指挥, 控制； 命令; 指令; DOS外部命令:启动新的命令处理器", sentence: "I learned the word \"command\" today." },
-  "dear": { meaning: "亲爱的人；亲爱的, 昂贵的, 严重的, 急迫的；啊；深爱地, 高价地", sentence: "I learned the word \"dear\" today." },
-  "layer": { meaning: "层, 产卵鸡, 放置者；分层堆积, 压植； 层", sentence: "I learned the word \"layer\" today." },
-  "calculate": { meaning: "计算, 预测, 计划, 打算", sentence: "I learned the word \"calculate\" today." },
-  "delivery": { meaning: "递送, 交付, 分娩, 交货, 引渡； 交货额", sentence: "I learned the word \"delivery\" today." },
-  "string": { meaning: "线, 细绳, 一串, 字符串；串起, 成串, 收紧, 缚, 扎；成一串； 字符串, 串", sentence: "I learned the word \"string\" today." },
-  "slide": { meaning: "滑, 滑道, 山崩, 雪崩, 幻灯片；使滑动, 偷偷放入；滑动, 滑落, 不知不觉陷入, 偷偷地走", sentence: "I learned the word \"slide\" today." },
-  "resolve": { meaning: "决定, 分解, 决心；使分解, 解析, 解决, 消除, 决心；决定之事, 决心, 坚决", sentence: "I learned the word \"resolve\" today." },
-  "boot": { meaning: "长靴, 踢, 解雇, 效用；使穿靴, 踢, 解雇, 有用； 引导, 自举", sentence: "I learned the word \"boot\" today." },
-  "wedding": { meaning: "婚礼, 结婚, 结婚周年纪念日, 结合； 结婚, 婚礼, 结婚纪念日", sentence: "I learned the word \"wedding\" today." },
-  "poem": { meaning: "诗, 诗般美的事物", sentence: "I learned the word \"poem\" today." },
-  "opponent": { meaning: "对手, 敌手, 反对者；敌对的, 反对的, 对面的", sentence: "I learned the word \"opponent\" today." },
-  "extensive": { meaning: "广的, 广泛的, 多方面的； 广大的, 扩大的", sentence: "I learned the word \"extensive\" today." },
-  "glad": { meaning: "高兴的, 喜欢的, 情愿的", sentence: "I learned the word \"glad\" today." },
-  "transform": { meaning: "使转换, 改变, 改造, 使...变形；改变, 转化, 变换； 变换", sentence: "I learned the word \"transform\" today." },
-  "net": { meaning: "网, 网状物, 罗网, 净利, 净价；净的, 最终的；用网捕, 撒网, 净赚, 得到；编网； 网络, 网络分析程序", sentence: "I learned the word \"net\" today." },
-  "alcohol": { meaning: "酒精, 酒； 醇; 乙醇; 酒精", sentence: "I learned the word \"alcohol\" today." },
-  "bend": { meaning: "变弯曲, 屈服；使弯曲, 使屈服；弯曲", sentence: "I learned the word \"bend\" today." },
-  "unlike": { meaning: "不像的, 不同的；不像, 和...不同", sentence: "I learned the word \"unlike\" today." },
-  "desert": { meaning: "沙漠, 应得的赏罚, 功劳；沙漠的, 不毛的；放弃, 遗弃, 擅离；逃掉", sentence: "I learned the word \"desert\" today." },
-  "efficient": { meaning: "有效率的, 能干的", sentence: "I learned the word \"efficient\" today." },
-  "cycle": { meaning: "周期, 循环, 自行车, 一段时间, 整套；循环, 轮转, 骑自行车；使循环, 使轮转； 环路; 周期; 循环", sentence: "I learned the word \"cycle\" today." },
-  "reckon": { meaning: "计算, 总计, 估计, 认为, 猜想；数, 计算, 估计, 依赖, 料想", sentence: "I learned the word \"reckon\" today." },
-  "sand": { meaning: "沙, 沙子, 沙滩, 光阴, 生涯；撒沙, 以沙掩盖", sentence: "I learned the word \"sand\" today." },
-  "print": { meaning: "打印, 版, 印刷物, 痕迹, 印刷业, 印刷字体, 图片, 印花布, 印章；打印, 印刷, 铭记, 留印记于, 用印刷体写； DOS外部命令:", sentence: "I learned the word \"print\" today." },
-  "restrict": { meaning: "限制, 限定, 约束； 限制", sentence: "I learned the word \"restrict\" today." },
-  "preserve": { meaning: "保护, 保持, 保存, 维持, 腌, 禁猎；加工食品, 禁猎；加工成的食品, 禁猎地, 保护区, 防护物", sentence: "I learned the word \"preserve\" today." },
-  "profession": { meaning: "职业, 表白, 声明； 工种; 职业", sentence: "I learned the word \"profession\" today." },
-  "load": { meaning: "负荷, 担子, 重担, 装载量, 负载, 工作量, 加载；装载, 装填, 使担负；装货, 上客, 装料； 加载, 装入程序", sentence: "I learned the word \"load\" today." },
-  "restore": { meaning: "回复, 恢复, 归还, 修补, 修复；还原；还原； 还原; DOS外部命令:从备份盘中取回文件", sentence: "I learned the word \"restore\" today." },
-  "lock": { meaning: "锁, 刹车, 水闸, 一缕头发；锁, 锁上, 拘禁, 隐藏, (用锁等)拴住, 刹住；锁住, (齿轮等)啮合, (船)过闸", sentence: "I learned the word \"lock\" today." },
-  "opposite": { meaning: "相对的, 相反的, 对面的；对面；对立面", sentence: "I learned the word \"opposite\" today." },
-  "approval": { meaning: "赞成, 批准； 核准", sentence: "I learned the word \"approval\" today." },
-  "cottage": { meaning: "小屋, 茅舍", sentence: "I learned the word \"cottage\" today." },
-  "deserve": { meaning: "该得到, 值得；应得报答", sentence: "I learned the word \"deserve\" today." },
-  "resistance": { meaning: "抵抗力, 反抗, 耐力, 阻力, 电阻； 抵抗; 抗性; 阻力; 抗药性; 电阻", sentence: "I learned the word \"resistance\" today." },
-  "boss": { meaning: "老板, 上司, 岩瘤, 浮雕, 母牛；指挥, 控制, 浮雕", sentence: "I learned the word \"boss\" today." },
-  "discovery": { meaning: "发现, 被发现的事物； 要求告知, 发现, 发觉", sentence: "I learned the word \"discovery\" today." },
-  "protest": { meaning: "抗议, 反对, 抗议书, 断言；反对, 抗议, 断言", sentence: "I learned the word \"protest\" today." },
-  "pose": { meaning: "姿势, 姿态, 装模作样, 伪装；摆姿势, 装模作样, 假装；使摆好姿势, 提出, 造成", sentence: "I learned the word \"pose\" today." },
-  "export": { meaning: "输出品, 输出；输出, 出口；输出物资； 导出", sentence: "I learned the word \"export\" today." },
-  "stream": { meaning: "水流, 小河, 流出, 趋势, 人潮；流出, 流动, 展开；流, 涌, 飘扬； 流", sentence: "I learned the word \"stream\" today." },
-  "pot": { meaning: "盆, 罐, 壶, 坩埚, 奖杯；装入盆中, 在锅中煮, 随手射击；随手射击", sentence: "I learned the word \"pot\" today." },
-  "reputation": { meaning: "名誉, 名声, 声望； 名声, 名誉, 公认证据", sentence: "I learned the word \"reputation\" today." },
-  "valuable": { meaning: "有价值的, 贵重的, 宝贵的, 可估价的； 有价值的, 可估价的, 贵重的", sentence: "I learned the word \"valuable\" today." },
-  "slight": { meaning: "轻蔑, 怠慢；轻微的, 纤细的, 脆弱的, 苗条的；轻视, 忽略, 怠慢", sentence: "I learned the word \"slight\" today." },
-  "hello": { meaning: "喂, 嘿", sentence: "I learned the word \"hello\" today." },
-  "habit": { meaning: "习惯, 嗜好, 习性；使穿衣", sentence: "I learned the word \"habit\" today." },
-  "knife": { meaning: "小刀, 匕首；切割, 伤害, 切, 戳；劈开, 穿过", sentence: "I learned the word \"knife\" today." },
-  "friendly": { meaning: "友好的, 亲切的, 互助的；友善地, 温和地", sentence: "I learned the word \"friendly\" today." },
-  "abroad": { meaning: "往国外, 到室外, 到处；往国外的, 在室外的, 广泛四散的", sentence: "I learned the word \"abroad\" today." },
-  "silver": { meaning: "银, 银币, 银器；银的, 银制的, 银器的；镀银；变银白色", sentence: "I learned the word \"silver\" today." },
-  "convert": { meaning: "皈依者, 改变宗教信仰者；使改变信仰, 转换, 兑换, 倒置；皈依； 转换", sentence: "I learned the word \"convert\" today." },
-  "joke": { meaning: "笑话, 玩笑, 笑柄；开玩笑, 取笑, 作弄", sentence: "I learned the word \"joke\" today." },
-  "countryside": { meaning: "乡下地方, 乡下居民", sentence: "I learned the word \"countryside\" today." },
-  "sudden": { meaning: "突然, 忽然；突然的, 意外的, 快速的", sentence: "I learned the word \"sudden\" today." },
-  "empire": { meaning: "帝国, 帝权", sentence: "I learned the word \"empire\" today." },
-  "autumn": { meaning: "秋天, 成熟期", sentence: "I learned the word \"autumn\" today." },
-  "philosophy": { meaning: "哲学, 人生观, 哲学思想, 哲理, 基本原理, 见解, 达观, 沉着", sentence: "I learned the word \"philosophy\" today." },
-  "potato": { meaning: "马铃薯", sentence: "I learned the word \"potato\" today." },
-  "conventional": { meaning: "传统的, 习惯的, 约定的； 惯例的, 常规的, 传统的", sentence: "I learned the word \"conventional\" today." },
-  "relative": { meaning: "亲戚, 关系词；有关系的, 相对的, 比较的", sentence: "I learned the word \"relative\" today." },
-  "thursday": { meaning: "星期四", sentence: "I learned the word \"thursday\" today." },
-  "urge": { meaning: "冲动, 推动力, 迫切的要求；驱策, 力劝, 竭力主张, 推动；强烈要求", sentence: "I learned the word \"urge\" today." },
-  "dust": { meaning: "灰尘, 尘埃, 粉末, 花粉, 土, 骚乱；拂去灰尘, 撒, 弄成粉末；拂去灰尘, 化为粉末", sentence: "I learned the word \"dust\" today." },
-  "breathe": { meaning: "呼吸, 生存, 低语；呼吸, 使喘息, 发散, 低声说", sentence: "I learned the word \"breathe\" today." },
-  "distinguish": { meaning: "区别, 辨别", sentence: "I learned the word \"distinguish\" today." },
-  "jacket": { meaning: "夹克, 外套, 护套；给...穿夹克, 给...装护套", sentence: "I learned the word \"jacket\" today." },
-  "creature": { meaning: "人, 动物, 创造物, 生物", sentence: "I learned the word \"creature\" today." },
-  "pack": { meaning: "包裹, 一伙, 一副, 背包, 包装；包装, 捆扎, 塞满, 压紧, 挑选；包装货物, 挤, 群集, 被包装； 压缩", sentence: "I learned the word \"pack\" today." },
-  "substance": { meaning: "物质, 实质, 主旨, 资产, 本质, 牢固； 物质", sentence: "I learned the word \"substance\" today." },
-  "shortly": { meaning: "不久, 简短, 唐突地", sentence: "I learned the word \"shortly\" today." },
-  "keen": { meaning: "锋利的, 敏锐的, 强烈的, 敏捷的, 热心的, 渴望的；挽歌, 痛哭；唱挽歌, 痛哭", sentence: "I learned the word \"keen\" today." },
-  "arrival": { meaning: "到达, 抵达, 到达者； 到达, 到达物", sentence: "I learned the word \"arrival\" today." },
-  "worried": { meaning: "担心的, 闷闷不乐的", sentence: "I learned the word \"worried\" today." },
-  "sauce": { meaning: "酱油, 调味汁, 酱；给...调味, 使增加趣味", sentence: "I learned the word \"sauce\" today." },
-  "illness": { meaning: "疾病, 恶意； 病", sentence: "I learned the word \"illness\" today." },
-  "priest": { meaning: "祭司, 牧师, 神父, 神质人员, 僧侣, 泰斗", sentence: "I learned the word \"priest\" today." },
-  "amazing": { meaning: "令人惊异的", sentence: "I learned the word \"amazing\" today." },
-  "electricity": { meaning: "电, 电流, 电学, 热情, 电力供应； 电学; 电", sentence: "I learned the word \"electricity\" today." },
-  "adjust": { meaning: "调整, 使适应于, 校准；适应于, 被调节, 相互熟悉而适应", sentence: "I learned the word \"adjust\" today." },
-  "uncle": { meaning: "叔父, 伯父, 姨丈", sentence: "I learned the word \"uncle\" today." },
-  "retire": { meaning: "隐居；引退, 退役, 退休, 退去, 撤退, 退却；使...撤退, 辞退", sentence: "I learned the word \"retire\" today." },
-  "kiss": { meaning: "吻；吻；接吻", sentence: "I learned the word \"kiss\" today." },
-  "temporary": { meaning: "暂时的, 临时的；临时工, 临时雇员； 临时", sentence: "I learned the word \"temporary\" today." },
-  "visible": { meaning: "看得见的, 明显的, 显然的；可见物", sentence: "I learned the word \"visible\" today." },
-  "cap": { meaning: "盖子, 帽子；戴帽子, 覆盖, 胜过；脱帽致意； 调用程序分析, 容量, 代码分析程序, 计算机辅助生产, 计算机辅助印刷", sentence: "I learned the word \"cap\" today." },
-  "competitive": { meaning: "竞争的； 竞争的", sentence: "I learned the word \"competitive\" today." },
-  "drama": { meaning: "戏剧, 戏剧艺术", sentence: "I learned the word \"drama\" today." },
-  "cake": { meaning: "蛋糕, 块, 饼；使结块, 加块状物于；结块", sentence: "I learned the word \"cake\" today." },
-  "juice": { meaning: "汁, 活力, 体液；挤出汁来, 加汁", sentence: "I learned the word \"juice\" today." },
-  "wealth": { meaning: "财富, 资源, 财产, 丰富, 富裕, 大量； 财富", sentence: "I learned the word \"wealth\" today." },
-  "peak": { meaning: "山峰, 巅, 山顶, 顶点, 尖峰, 帽舌；最高的, 最大值的；到达最高点, 消瘦, 变憔悴, 逐渐缩小；使竖起, 使达到最高点", sentence: "I learned the word \"peak\" today." },
-  "presentation": { meaning: "赠与, 描述, 介绍； 简报", sentence: "I learned the word \"presentation\" today." },
-  "whenever": { meaning: "每当；不论何时, 每逢", sentence: "I learned the word \"whenever\" today." },
-  "pale": { meaning: "栅栏, 界线, 范围；苍白的, 暗淡的, 无力的；变苍白, 变暗, 失色；使变苍白, 使失色, 用栅栏围", sentence: "I learned the word \"pale\" today." },
-  "laboratory": { meaning: "实验室, 研究室, 化工厂； 实验室, 检验室, 化验室", sentence: "I learned the word \"laboratory\" today." },
-  "disaster": { meaning: "灾祸, 不幸, 彻底失败", sentence: "I learned the word \"disaster\" today." },
-  "owe": { meaning: "亏欠, 负...债, 归功于, 怀有, 应给予, 感恩；欠钱", sentence: "I learned the word \"owe\" today." },
-  "mood": { meaning: "心情, 气氛, 生气, 基调； 心境", sentence: "I learned the word \"mood\" today." },
-  "bay": { meaning: "海湾, 狗吠声, 月桂；吠, 使走投无路；吠", sentence: "I learned the word \"bay\" today." },
-  "mystery": { meaning: "秘密, 神秘, 奥秘", sentence: "I learned the word \"mystery\" today." },
-  "possession": { meaning: "拥有, 占有, 所有, 财产, 领土, 领地, 自制, 着迷； 占有, 持有", sentence: "I learned the word \"possession\" today." },
-  "dollar": { meaning: "美元, 元(加、澳等国货币单位)； 纯经济的, 美元, 元", sentence: "I learned the word \"dollar\" today." },
-  "symbol": { meaning: "符号, 象征, 代号, 信条； 符号; 码元", sentence: "I learned the word \"symbol\" today." },
-  "certificate": { meaning: "证书, 证明书；发给证明书, 用证书批准, 用证书证明", sentence: "I learned the word \"certificate\" today." },
-  "wet": { meaning: "湿气, 潮湿, 水分, 雨天；湿的, 潮的, 搞错的, 下雨的, 反对禁酒的；变湿；使...湿", sentence: "I learned the word \"wet\" today." },
-  "custom": { meaning: "习惯, 风俗, 海关, 自定义；定制的； 定制; 自定义", sentence: "I learned the word \"custom\" today." },
-  "angle": { meaning: "角, 角度, 角落；钓鱼, 谋取, 博取, 斜向移动, 转变角度；使转动角度, 在...钓鱼, 获取", sentence: "I learned the word \"angle\" today." },
-  "tuesday": { meaning: "星期二", sentence: "I learned the word \"tuesday\" today." },
-  "monitor": { meaning: "监督器, 级长, 监听员, 班长, 监视器, 告诫物；监视, 监听, 监督； 监视器, 监视程序; 监视", sentence: "I learned the word \"monitor\" today." },
-  "entertainment": { meaning: "娱乐, 款待, 娱乐表演", sentence: "I learned the word \"entertainment\" today." },
-  "bid": { meaning: "出价；命令, 吩咐, 请求, 表示, 宣布, 投标", sentence: "I learned the word \"bid\" today." },
-  "anger": { meaning: "忿怒；激怒, 使发怒；发怒", sentence: "I learned the word \"anger\" today." },
-  "wire": { meaning: "电线, 电报, 电信, 铁丝网, 金属丝；用金属丝捆扎, 拍电报；打电报", sentence: "I learned the word \"wire\" today." },
-  "false": { meaning: "错误的, 虚伪的, 假的, 不老实的；不准确地, 欺诈地", sentence: "I learned the word \"false\" today." },
-  "sensitive": { meaning: "敏感的, 易感的, 灵敏的, 感光的； 敏感的, 灵敏的, 感度高的", sentence: "I learned the word \"sensitive\" today." },
-  "holy": { meaning: "神圣的, 圣洁的, 至善的；神圣的东西", sentence: "I learned the word \"holy\" today." },
-  "twin": { meaning: "双胞胎中一人, 一对非常相像的人(或物)中的一个；双胞胎的, 成对的, 孪生的；生双胞胎, 成对；怀(双胞胎), 使成对", sentence: "I learned the word \"twin\" today." },
-  "tendency": { meaning: "趋向, 倾向； 趋向, 趋势", sentence: "I learned the word \"tendency\" today." },
-  "chamber": { meaning: "室, 房间, 枪膛；装(弹药), 把...关在室内；室内的", sentence: "I learned the word \"chamber\" today." },
-  "honour": { meaning: "荣誉, 头衔, 信用, 尊敬, 名誉, 阁下, 勋章；尊敬, 授予荣誉, 承兑, 实践", sentence: "I learned the word \"honour\" today." },
-  "luck": { meaning: "运气, 幸运, 好运, 侥幸；靠好运成功", sentence: "I learned the word \"luck\" today." },
-  "deposit": { meaning: "存款, 定金, 堆积物；存放, 堆积；沉淀", sentence: "I learned the word \"deposit\" today." },
-  "rent": { meaning: "租金, 房租, 出租物, 裂缝, 破裂处, 分裂；租用, 租出；出租；分裂的, 破裂的；rend的过去式和过去分词", sentence: "I learned the word \"rent\" today." },
-  "pure": { meaning: "纯的, 纯净的, 纯洁的, 清白的, 完美的, 无瑕的, 抽象的； 的, 纯净的", sentence: "I learned the word \"pure\" today." },
-  "acceptable": { meaning: "可接受的, 合意的, 可忍受的", sentence: "I learned the word \"acceptable\" today." },
-  "smell": { meaning: "味道, 气味, 嗅觉, 嗅, 臭味, 气息；闻, 探出, 察觉, 发出...的气味；嗅, 散发气味, 发臭", sentence: "I learned the word \"smell\" today." },
-  "nervous": { meaning: "神经紧张的, 不安的, 神经的； 神经的; 神经质的, 神经过敏的", sentence: "I learned the word \"nervous\" today." },
-  "tourist": { meaning: "观光客, 旅行者；旅游的", sentence: "I learned the word \"tourist\" today." },
-  "festival": { meaning: "节日的, 喜庆的, 快乐的；节日, 庆祝, 欢宴", sentence: "I learned the word \"festival\" today." },
-  "qualification": { meaning: "资格, 条件, 限制； 限定", sentence: "I learned the word \"qualification\" today." },
-  "bury": { meaning: "埋葬, 埋藏", sentence: "I learned the word \"bury\" today." },
-  "adequate": { meaning: "适当的, 足够的； 胜任的, 适当的, 充分的", sentence: "I learned the word \"adequate\" today." },
-  "tomato": { meaning: "番茄, 西红柿", sentence: "I learned the word \"tomato\" today." },
-  "rapid": { meaning: "迅速的, 飞快的, 急促的, 陡的；急流", sentence: "I learned the word \"rapid\" today." },
-  "butter": { meaning: "奶油, 黄油；涂黄油于", sentence: "I learned the word \"butter\" today." },
-  "bathroom": { meaning: "浴室, 厕所", sentence: "I learned the word \"bathroom\" today." },
-  "electronic": { meaning: "电子的； 电子工业协会接口", sentence: "I learned the word \"electronic\" today." },
-  "ally": { meaning: "同盟者, 同盟国, 助手；使联盟, 使联合, 使有关系；结盟", sentence: "I learned the word \"ally\" today." },
-  "mixture": { meaning: "混合, 混淆, 混合物； 混合物", sentence: "I learned the word \"mixture\" today." },
-  "smoke": { meaning: "烟, 雾气, 烟熏剂, 抽烟, 烟色；吸烟, 冒烟, 弥漫；以烟熏, 抽烟而导致...", sentence: "I learned the word \"smoke\" today." },
-  "resist": { meaning: "抵抗, 耐得住, 抵制, 反抗；防染材料", sentence: "I learned the word \"resist\" today." },
-  "confront": { meaning: "使面对, 对抗, 遭遇, 使对质, 比较； 对证, 使对质, 比较", sentence: "I learned the word \"confront\" today." },
-  "toy": { meaning: "玩具, 小玩艺儿, 小型的东西, 消遣；供玩耍的, 作为玩具的；玩弄, 戏弄, 调情", sentence: "I learned the word \"toy\" today." },
-  "absolute": { meaning: "绝对的, 专制的, 完全的, 独立的；绝对事物", sentence: "I learned the word \"absolute\" today." },
-  "fellow": { meaning: "男人, 朋友, 同事；同伴的, 同事的, 同道的", sentence: "I learned the word \"fellow\" today." },
-  "routine": { meaning: "常规, 日常工作, 惯例, 例行公事；日常的, 常规的； 例程", sentence: "I learned the word \"routine\" today." },
-  "rough": { meaning: "粗糙的东西, 毛坯, 未加工品, 梗概, 草图, 暴徒, 艰难；粗糙的, 粗暴的, 蓬乱的, 草率的, 大致的, 简陋的, 暴风雨的, 艰难的", sentence: "I learned the word \"rough\" today." },
-  "smooth": { meaning: "平滑的, 平稳的, 流畅的, 和蔼的, 安祥的, 圆滑的, 调匀的, 无毛的；使光滑, 烫平, 使平和, 消除；变平滑, 变平静；一块平地, 平", sentence: "I learned the word \"smooth\" today." },
-  "nearby": { meaning: "附近的, 近旁的；在附近, 近旁地；在...附近", sentence: "I learned the word \"nearby\" today." },
-  "remarkable": { meaning: "不平常的, 值得注意的, 显著的", sentence: "I learned the word \"remarkable\" today." },
-  "maximum": { meaning: "极点, 最大量, 极大；最高的, 最大的, 最大极限的； 最大值", sentence: "I learned the word \"maximum\" today." },
-  "furniture": { meaning: "家具, 帆具", sentence: "I learned the word \"furniture\" today." },
-  "brilliant": { meaning: "光辉的, 灿烂的, 有才气的； 亮的", sentence: "I learned the word \"brilliant\" today." },
-  "belt": { meaning: "带子, 地带； 带, 腰带, 束带, 地带, 区", sentence: "I learned the word \"belt\" today." },
-  "register": { meaning: "寄存器, 记录, 登记簿, 注册；记录, 注册, 提示, 表达, 把...挂号；登记, 注册, 挂号； 寄存器", sentence: "I learned the word \"register\" today." },
-  "birthday": { meaning: "生日", sentence: "I learned the word \"birthday\" today." },
-  "pipe": { meaning: "管, 导管, 输送管, 管状器官, 声带, 尖细的声音, 烟斗, 笛, 管乐器；以管输送, 吹哨子, 吹奏, 尖声唱；吹笛, 尖叫, 吹长哨发令", sentence: "I learned the word \"pipe\" today." },
-  "mere": { meaning: "小湖, 池塘；仅仅的, 只不过的", sentence: "I learned the word \"mere\" today." },
-  "instance": { meaning: "建议, 情况, 例子, 场合；引以为例, 举例说明", sentence: "I learned the word \"instance\" today." },
-  "flag": { meaning: "标志, 旗标, 旗子, 信号旗, 菖蒲；悬旗, 打旗号, 铺石板；无力地下垂； 标志; 属性标记命令", sentence: "I learned the word \"flag\" today." },
-  "apple": { meaning: "苹果, 家伙； 苹果", sentence: "I learned the word \"apple\" today." },
-  "whisper": { meaning: "耳语, 密谈, 谣传, 沙沙声；耳语, 密谈, 沙沙地响；低声说", sentence: "I learned the word \"whisper\" today." },
-  "throat": { meaning: "咽喉, 喉咙, 嗓音；用喉音说, 开沟于", sentence: "I learned the word \"throat\" today." },
-  "moon": { meaning: "月亮, 月球, 月光；闲荡；虚度", sentence: "I learned the word \"moon\" today." },
-  "junior": { meaning: "年少者, 地位较低者, 大学三年级学生；年少的, 下级的, 后进的", sentence: "I learned the word \"junior\" today." },
-  "wooden": { meaning: "木制的, 呆笨的, 木然的", sentence: "I learned the word \"wooden\" today." },
-  "swing": { meaning: "摇摆, 振幅, 音律, 节奏, 涨落, 秋千, 旋转, 行动自由；摇摆, 悬挂, 旋转, 大摇大摆地走, 转向；挥舞, 使旋转, 使转向, 悬挂", sentence: "I learned the word \"swing\" today." },
-  "salary": { meaning: "薪水；给...加薪", sentence: "I learned the word \"salary\" today." },
-  "cheek": { meaning: "颊, 厚颜, 脸蛋； 颊", sentence: "I learned the word \"cheek\" today." },
-  "dig": { meaning: "挖, 翻土, 发掘；挖掘；挖掘； 数字, 数位", sentence: "I learned the word \"dig\" today." },
-  "crop": { meaning: "农作物, 产量, 平头；收割, 修剪, 种植；收获； 裁剪", sentence: "I learned the word \"crop\" today." },
-  "pace": { meaning: "速度, 步调, 步法；踱步, 缓慢走；用步测, 踱步于", sentence: "I learned the word \"pace\" today." },
-  "overcome": { meaning: "战胜, 克服, 胜过；得胜", sentence: "I learned the word \"overcome\" today." },
-  "behave": { meaning: "举止端正, 行为规矩；检点(自己的)行为, 使表现好", sentence: "I learned the word \"behave\" today." },
-  "rank": { meaning: "等级, 排, 横列, 队伍, 阶级；茂密丛生的, 恶臭的, 十足的, 粗俗的；排列, 归类于, 把...分等；列为, 列队；秩； 秩", sentence: "I learned the word \"rank\" today." },
-  "entrance": { meaning: "入口, 进入点, 入场, 入学, 进入, 开始(阶段), 就任；使出神, 使入迷； 入口", sentence: "I learned the word \"entrance\" today." },
-  "anxiety": { meaning: "焦虑, 忧虑, 令人焦虑的事； 焦虑", sentence: "I learned the word \"anxiety\" today." },
-  "permission": { meaning: "许可, 允许； 许可, 认可", sentence: "I learned the word \"permission\" today." },
-  "electric": { meaning: "电的, 导电的, 电动的； 电的", sentence: "I learned the word \"electric\" today." },
-  "reserve": { meaning: "储备品, 贮量, 后备军, 自然保护区, 保留, 拘谨, 节制, 储备金；保留, 保存, 预订, 延期, 推迟", sentence: "I learned the word \"reserve\" today." },
-  "pan": { meaning: "平锅, 浅盘, 盆地, 硬土层, 拍摄全景；上下左右移动, 摇镜头, 淘洗, 淘金", sentence: "I learned the word \"pan\" today." },
-  "carpet": { meaning: "地毯, 地毯状物；铺以地毯, 铺盖", sentence: "I learned the word \"carpet\" today." },
-  "mail": { meaning: "邮件, 邮政, 邮递, 盔甲；邮寄, 给...穿盔甲； 邮件", sentence: "I learned the word \"mail\" today." },
-  "mayor": { meaning: "市长； 市长", sentence: "I learned the word \"mayor\" today." },
-  "pink": { meaning: "粉红色, 石竹花, 化身, 典范, 头面人物, 极度；粉红的, 石竹科的, 比较激进的, 脸色发红的, 精致的, 有点下流的；刺, 扎, 刺痛,", sentence: "I learned the word \"pink\" today." },
-  "platform": { meaning: "站台, 月台, 讲台, 论坛, 平台； 平台", sentence: "I learned the word \"platform\" today." },
-  "curtain": { meaning: "帐, 幕, 窗帘；装帘子于, 遮蔽", sentence: "I learned the word \"curtain\" today." },
-  "grandmother": { meaning: "祖母, 女祖先", sentence: "I learned the word \"grandmother\" today." },
-  "stomach": { meaning: "胃, 食欲, 欲望, 肚子；吃下, 忍受", sentence: "I learned the word \"stomach\" today." },
-  "weigh": { meaning: "称...重量, 衡量, 把...压弯, 考虑, 权衡, 起锚；称分量, 有意义, 重压, 起锚；过秤, 称分量", sentence: "I learned the word \"weigh\" today." },
-  "install": { meaning: "安装, 安置, 使就职； 安装, 安装程序; DOS内部命令:安装常驻程序", sentence: "I learned the word \"install\" today." },
-  "curve": { meaning: "曲线, 弯曲, 曲线球；弯, 使弯曲；成曲形", sentence: "I learned the word \"curve\" today." },
-  "infection": { meaning: "传染, 影响, 传染病； 传染, 感染", sentence: "I learned the word \"infection\" today." },
-  "aggressive": { meaning: "侵略的, 挑畔的, 进取的； 侵略的, 爱挑衅的, 行为过火的", sentence: "I learned the word \"aggressive\" today." },
-  "concert": { meaning: "音乐会, 和声, 一致；协力, 协调；协力； 美国北卡罗来纳州Internet网", sentence: "I learned the word \"concert\" today." },
-  "disk": { meaning: "圆盘, 磁盘； 磁盘", sentence: "I learned the word \"disk\" today." },
-  "extreme": { meaning: "极端, 末端；极端的, 尽头的, 极度的, 偏激的", sentence: "I learned the word \"extreme\" today." },
-  "tube": { meaning: "管, 软管, 隧道；把...装管, 使通过管子； 管子", sentence: "I learned the word \"tube\" today." },
-  "quit": { meaning: "离开, 辞职, 停止；离开, 放弃, 使解除, 停止；离开； 结束, 退出", sentence: "I learned the word \"quit\" today." },
-  "presumably": { meaning: "推测上, 大概", sentence: "I learned the word \"presumably\" today." },
-  "genuine": { meaning: "真正的, 真实的, 诚恳的； 真性的", sentence: "I learned the word \"genuine\" today." },
-  "guarantee": { meaning: "担保, 抵押品, 保证书；保证, 担保", sentence: "I learned the word \"guarantee\" today." },
-  "favourite": { meaning: "喜欢的事物；喜爱的, 宠爱的", sentence: "I learned the word \"favourite\" today." },
-  "delay": { meaning: "耽搁, 迟滞；耽搁, 延迟； 延迟, 延时", sentence: "I learned the word \"delay\" today." },
-  "honest": { meaning: "诚实的, 坦直的, 可靠的", sentence: "I learned the word \"honest\" today." },
-  "relax": { meaning: "放松, 松懈, 松弛, 变从容, 休息, 休养；使松弛, 缓和, 使松懈, 使休息", sentence: "I learned the word \"relax\" today." },
-  "essay": { meaning: "随笔, 短文, 评论, 企图；试图", sentence: "I learned the word \"essay\" today." },
-  "edition": { meaning: "版本, 版, 翻版", sentence: "I learned the word \"edition\" today." },
-  "giant": { meaning: "巨人, 大力士, 巨大怪物；庞大的, 巨大的", sentence: "I learned the word \"giant\" today." },
-  "exciting": { meaning: "令人兴奋的, 刺激的； 激磁", sentence: "I learned the word \"exciting\" today." },
-  "clock": { meaning: "时钟, 计时器, (袜子上的)绣花边花；绣花样, 记时, 记录；记录时间； 时钟", sentence: "I learned the word \"clock\" today." },
-  "pop": { meaning: "砰然声, 枪击, 含气饮料, 流行音乐, 通俗艺术；流行的, 热门的, 通俗的；使发出爆裂声, 开枪打, 突然伸出；发出爆裂声, 射击, 突然出", sentence: "I learned the word \"pop\" today." },
-  "chemical": { meaning: "化学药品；化学的, 化学上用的", sentence: "I learned the word \"chemical\" today." },
-  "criticize": { meaning: "批评, 吹毛求疵, 非难", sentence: "I learned the word \"criticize\" today." },
-  "bath": { meaning: "沐浴, 浴室； 浴", sentence: "I learned the word \"bath\" today." },
-  "advanced": { meaning: "在前的, 高级的, 先进的, 年老的； 预付的, 预支的, 垫付的", sentence: "I learned the word \"advanced\" today." },
-  "stupid": { meaning: "愚蠢的, 麻木的", sentence: "I learned the word \"stupid\" today." },
-  "shell": { meaning: "贝壳, 壳, 外形, 炮弹；去壳, 脱落, 炮轰；剥落, 脱壳； 外壳; DOS内部命令:指定命令行处理程序", sentence: "I learned the word \"shell\" today." },
-  "defeat": { meaning: "败北, 失败；击败, 使落空", sentence: "I learned the word \"defeat\" today." },
-  "pause": { meaning: "暂停, 中止, 停顿, 间歇, 踌躇, 休止符；暂停, 中止, 停顿, 踌躇； DOS内部命令:暂时停止批处理文件的执行", sentence: "I learned the word \"pause\" today." },
-  "onion": { meaning: "洋葱；因洋葱使掉泪", sentence: "I learned the word \"onion\" today." },
-  "aunt": { meaning: "阿姨, 姨妈, 舅妈, 姑妈, 伯母", sentence: "I learned the word \"aunt\" today." },
-  "assure": { meaning: "保证, 使确信, 弄清楚, 担保； 确信, 保证, 保障", sentence: "I learned the word \"assure\" today." },
-  "mad": { meaning: "疯狂的, 发疯的, 生气的, 愚蠢的, 狂欢的；狂怒", sentence: "I learned the word \"mad\" today." },
-  "split": { meaning: "劈开, 裂片, 裂缝, 分裂, 派系, 派别, 柳条；劈开的；分离, 分开, 裂开, 被劈开；劈开, 切开, 使分裂, 使分离； 拆分", sentence: "I learned the word \"split\" today." },
-  "altogether": { meaning: "完全地, 总而言之", sentence: "I learned the word \"altogether\" today." },
-  "confident": { meaning: "有信心的, 有把握的", sentence: "I learned the word \"confident\" today." },
-  "remark": { meaning: "评论, 注意；评论, 注意；评论, 谈论； 注释", sentence: "I learned the word \"remark\" today." },
-  "helpful": { meaning: "有帮助的, 有益的, 有用的", sentence: "I learned the word \"helpful\" today." },
-  "highway": { meaning: "公路, 大道, 捷径； 公路, 大路", sentence: "I learned the word \"highway\" today." },
-  "sink": { meaning: "藏垢的场所, 沟渠, 污水槽；下沉, 沉没, 下陷, 减弱, 衰退, 消沉, 堕落, 渗透；使低落, 使下沉, 陷于, 投入(资金等), 挖掘", sentence: "I learned the word \"sink\" today." },
-  "lecture": { meaning: "演讲, 谴责, 讲稿；演讲, 训诫, 说教；讲演", sentence: "I learned the word \"lecture\" today." },
-  "ingredient": { meaning: "成分, 因素； 配合剂; 拼料; 成分; 组分", sentence: "I learned the word \"ingredient\" today." },
-  "mount": { meaning: "乘骑用马, 框, 衬纸, 山；乘马, 爬上, 增长；爬上, 使上马, 装上, 装裱, 安放, 制作...的标本, 设置, 上演； 安装", sentence: "I learned the word \"mount\" today." },
-  "formula": { meaning: "客套语, 公式, 准则； 公式", sentence: "I learned the word \"formula\" today." },
-  "ultimate": { meaning: "终极, 根本, 顶点, 基本原则；终极的, 根本的, 极限的, 最远的, 最后的, 最大的", sentence: "I learned the word \"ultimate\" today." },
-  "hip": { meaning: "臀部, 蔷薇果, 忧郁；熟悉内情的；使忧郁, 给(屋顶)造屋脊；喝彩声", sentence: "I learned the word \"hip\" today." },
-  "tail": { meaning: "尾部, 后部, 辫子, 随员, 特务, 燕尾服, 踪迹, 限定继承(权)；在后面的, 从后面而来的, 限定继承的, 尾部的, 后部的；为...装", sentence: "I learned the word \"tail\" today." },
-  "gear": { meaning: "齿轮, 工具；以齿轮连起, 开动, 使适应, 安排；连接上, 适合", sentence: "I learned the word \"gear\" today." },
-  "found": { meaning: "建立, 创立, 铸造；find的过去式和过去分词", sentence: "I learned the word \"found\" today." },
-  "barrier": { meaning: "障碍, 栅栏； 势垒; 阻片; 阻挡层", sentence: "I learned the word \"barrier\" today." },
-  "classic": { meaning: "古典作品, 杰作, 大艺术家；第一流的, 最优秀的, 古典的", sentence: "I learned the word \"classic\" today." },
-  "vacation": { meaning: "假期, 休假； 假期, 停审期, 休庭期", sentence: "I learned the word \"vacation\" today." },
-  "draft": { meaning: "气流, 草稿, 汇票, 草案；起草, 征兵； 草稿", sentence: "I learned the word \"draft\" today." },
-  "extraordinary": { meaning: "非常的, 特别的, 非凡的； 非常的, 特别的, 临时的", sentence: "I learned the word \"extraordinary\" today." },
-  "heaven": { meaning: "天堂, 上帝, 天空", sentence: "I learned the word \"heaven\" today." },
-  "fortune": { meaning: "财富, 运气, 兴隆, 大量财产, 好运, 命运； 命运, 财产, 大量财产", sentence: "I learned the word \"fortune\" today." },
-  "pregnant": { meaning: "怀孕的, 充满的, 思想丰富的, 成果丰硕的； 妊娠的, 有孕的", sentence: "I learned the word \"pregnant\" today." },
-  "anxious": { meaning: "忧虑的, 发愁的, 渴望的", sentence: "I learned the word \"anxious\" today." },
-  "conscious": { meaning: "有意识的, 知觉的, 觉察的； 有意识的, 清醒的", sentence: "I learned the word \"conscious\" today." },
-  "personally": { meaning: "亲自地, 个别地, 当面, 就本人而言, 针对个人地", sentence: "I learned the word \"personally\" today." },
-  "tackle": { meaning: "工具, 复滑车, 滑车, 装备, 扭倒；固定, 处理, 抓住；扭倒", sentence: "I learned the word \"tackle\" today." },
-  "sweep": { meaning: "扫除, 打扫, 肃清, 视野, 范围, 全胜；扫除, 掸去, 猛拉, 扫荡, 肃清, 冲走, 刮起, 环视, 掠过, 扫射；扫, 打扫, 袭击,", sentence: "I learned the word \"sweep\" today." },
-  "chocolate": { meaning: "巧克力；巧克力制的", sentence: "I learned the word \"chocolate\" today." },
-  "stable": { meaning: "马房, 牛棚；稳定的, 安定的, 坚固的, 坚定的；赶入马房；被关在马厩", sentence: "I learned the word \"stable\" today." },
-  "borrow": { meaning: "借, 借入, 借用；借； 借位; 借位数", sentence: "I learned the word \"borrow\" today." },
-  "ceiling": { meaning: "天花板； 顶点, 顶线, 上限", sentence: "I learned the word \"ceiling\" today." },
-  "preference": { meaning: "偏爱, 优先, 喜爱物； 首选项", sentence: "I learned the word \"preference\" today." },
-  "spin": { meaning: "旋转, 自旋, 疾驰, 情绪低落；纺织, 纺, 使旋转, 编造；纺纱, 吐丝, 作茧, 结网, 旋转, 自旋, 疾驰", sentence: "I learned the word \"spin\" today." },
-  "button": { meaning: "钮扣, 按钮；扣住；钉钮扣于, 扣紧； 按钮", sentence: "I learned the word \"button\" today." },
-  "bell": { meaning: "铃, 钟； 响铃命令", sentence: "I learned the word \"bell\" today." },
-  "clothing": { meaning: "衣服", sentence: "I learned the word \"clothing\" today." },
-  "pitch": { meaning: "程度, 坡度, 顶点, 前倾, 倾斜, 投掷, 音高, 螺距, 节距, 摊位, 树脂, 沥青；投, 掷, 向前倾跌, 扎营, 竭力推销, 为..", sentence: "I learned the word \"pitch\" today." },
-  "fence": { meaning: "围墙, 栅栏, 买卖赃物的人, 剑术；用篱笆围住, 练习剑术, 防护；击剑, 搪塞", sentence: "I learned the word \"fence\" today." },
-  "bunch": { meaning: "串, 束； 骨肿块(马)", sentence: "I learned the word \"bunch\" today." },
-  "concerning": { meaning: "关于； 关于", sentence: "I learned the word \"concerning\" today." },
-  "awful": { meaning: "可怕的, 庄严的, 虔敬的", sentence: "I learned the word \"awful\" today." },
-  "distribute": { meaning: "分配, 散布, 分发； 分配, 分发", sentence: "I learned the word \"distribute\" today." },
-  "react": { meaning: "起反应, 起作用, 反攻； 应答, 发生反应", sentence: "I learned the word \"react\" today." },
-  "measurement": { meaning: "尺寸, 度量, 度量单位； 度量, 度量单位", sentence: "I learned the word \"measurement\" today." },
-  "ceremony": { meaning: "典礼, 仪式, 礼节； 典礼, 仪式", sentence: "I learned the word \"ceremony\" today." },
-  "disabled": { meaning: "残废的, 有缺陷的, 失效的； 失效的", sentence: "I learned the word \"disabled\" today." },
-  "communicate": { meaning: "显露, 传达, 感染；通讯", sentence: "I learned the word \"communicate\" today." },
-  "enthusiasm": { meaning: "巨大的热情, 热心", sentence: "I learned the word \"enthusiasm\" today." },
-  "cease": { meaning: "停止；停止, 终了", sentence: "I learned the word \"cease\" today." },
-  "disagree": { meaning: "不一致, 不适宜； 抵触, 不同意, 争执", sentence: "I learned the word \"disagree\" today." },
-  "impressive": { meaning: "给人深刻印象的, 威严的", sentence: "I learned the word \"impressive\" today." },
-  "satisfaction": { meaning: "满足, 满意, 快事, 赔偿, 赎罪, 报仇的机会； 偿还, 赎回", sentence: "I learned the word \"satisfaction\" today." },
-  "remote": { meaning: "遥远的, 偏僻的, 疏远的, 微少的； 远程, 远程访问实用程序", sentence: "I learned the word \"remote\" today." },
-  "resort": { meaning: "度假胜地, 手段, 凭借, 常去之地；诉诸, 常去", sentence: "I learned the word \"resort\" today." },
-  "qualify": { meaning: "取得资格, 有资格；使有资格, 使合格, 限定, 限制, 准予", sentence: "I learned the word \"qualify\" today." },
-  "interval": { meaning: "间隔, 距离, 间歇, 间隙； 时间间隔", sentence: "I learned the word \"interval\" today." },
-  "princess": { meaning: "公主, 王妃, 女巨头", sentence: "I learned the word \"princess\" today." },
-  "stranger": { meaning: "陌生人, 门外汉； 局外人, 非当事人, 第三者", sentence: "I learned the word \"stranger\" today." },
-  "confusion": { meaning: "混乱, 混淆, 无秩序； 含混", sentence: "I learned the word \"confusion\" today." },
-  "broken": { meaning: "坏掉的, 打破的, 断掉的；break的过去分词", sentence: "I learned the word \"broken\" today." },
-  "provided": { meaning: "倘若, 以...为条件", sentence: "I learned the word \"provided\" today." },
-  "sheep": { meaning: "羊, 胆小者", sentence: "I learned the word \"sheep\" today." },
-  "bet": { meaning: "打赌, 赌注；打赌", sentence: "I learned the word \"bet\" today." },
-  "virus": { meaning: "病毒, 滤过性病毒, 毒害； 病毒", sentence: "I learned the word \"virus\" today." },
-  "assistant": { meaning: "助手, 助理, 助教；有帮助的, 辅助的, 助理的", sentence: "I learned the word \"assistant\" today." },
-  "summary": { meaning: "摘要, 概要；摘要的, 简略的； 摘要; 概要", sentence: "I learned the word \"summary\" today." },
-  "encounter": { meaning: "相会, 相遇, 遭遇；遇见, 邂逅, 会战；偶然相遇", sentence: "I learned the word \"encounter\" today." },
-  "shopping": { meaning: "买东西, 购物； 购物, 买东西", sentence: "I learned the word \"shopping\" today." },
-  "cousin": { meaning: "堂兄弟姊妹, 表兄弟姊妹； 同辈表亲或堂亲", sentence: "I learned the word \"cousin\" today." },
-  "outstanding": { meaning: "杰出的, 突出的, 未偿付的, 未决定的； 未解决的, 未偿付", sentence: "I learned the word \"outstanding\" today." },
-  "minimum": { meaning: "最小的, 最低的；最小值； 最小值", sentence: "I learned the word \"minimum\" today." },
-  "blind": { meaning: "蒙蔽物, 窗帘；盲目的, 瞎的, 不加思考的；使失明, 蒙蔽, 遮暗；盲目地", sentence: "I learned the word \"blind\" today." },
-  "accurate": { meaning: "正确的, 精确的； 准确的, 精确的", sentence: "I learned the word \"accurate\" today." },
-  "translate": { meaning: "翻译, 解释, 转化, 转变为, 调动；翻译, 被译； 转换", sentence: "I learned the word \"translate\" today." },
-  "complicated": { meaning: "复杂的； 并发的", sentence: "I learned the word \"complicated\" today." },
-  "dirt": { meaning: "污垢, 泥土； 污垢", sentence: "I learned the word \"dirt\" today." },
-  "alongside": { meaning: "在旁边, 靠拢着；在...旁边, 与...在一起", sentence: "I learned the word \"alongside\" today." },
-  "bullet": { meaning: "子弹； 弹, 子弹, 距节(马)", sentence: "I learned the word \"bullet\" today." },
-  "lend": { meaning: "借, 贷款给, 增添, 提供, 出租；贷款", sentence: "I learned the word \"lend\" today." },
-  "rice": { meaning: "米, 米饭, 稻；将...压成米粒状", sentence: "I learned the word \"rice\" today." },
-  "tight": { meaning: "紧的, 密封的, 吝啬的, 严厉的；紧紧地", sentence: "I learned the word \"tight\" today." },
-  "chart": { meaning: "图表, 海图；制成图表； 图表", sentence: "I learned the word \"chart\" today." },
-  "proof": { meaning: "证据, 证明, 试验, 检验, 考验；不能透入的, 证明用的, 防...的, 耐...的；检验, 试验, 校对, 使不被穿透； 审稿", sentence: "I learned the word \"proof\" today." },
-  "practise": { meaning: "实践, 实行, 练习, 实习, 从事(职业)", sentence: "I learned the word \"practise\" today." },
-  "strain": { meaning: "紧张, 拉紧, 张力, 过劳, 扭伤, 血缘, 种, 族, 气质, 曲调, 旋律, 口吻；使劳累, 拉紧, 过分使用, 扭伤, 滥用, 曲解,", sentence: "I learned the word \"strain\" today." },
-  "cheque": { meaning: "支票", sentence: "I learned the word \"cheque\" today." },
-  "strip": { meaning: "长条, 条状, 带, 脱衣舞；脱衣, 被剥去, 剥夺, 拆卸；脱衣服", sentence: "I learned the word \"strip\" today." },
-  "steam": { meaning: "蒸汽, 精力；蒸汽的；蒸发, 行驶, 发怒；蒸, 煮, 散发", sentence: "I learned the word \"steam\" today." },
-  "import": { meaning: "进口货, 进口, 输入, 含义, 重要性；输入, 引入, 进口, 含...的意思, 重要；有关系； 引入", sentence: "I learned the word \"import\" today." },
-  "precise": { meaning: "精确的, 严谨的, 明确的； 精密的, 正确的", sentence: "I learned the word \"precise\" today." },
-  "plain": { meaning: "平原, 草原, 朴实无华的东西, 无格式；简单的, 明白的, 平常的, 不好看的, 朴素的, 清晰的, 普通的, 平坦的, 十足的；清楚地, 显", sentence: "I learned the word \"plain\" today." },
-  "lover": { meaning: "爱人, 爱好者", sentence: "I learned the word \"lover\" today." },
-  "senator": { meaning: "参议员, (某些大学的)理事； 参议员, 上议员", sentence: "I learned the word \"senator\" today." },
-  "tunnel": { meaning: "隧道, 地下道；挖隧道；掘隧道于", sentence: "I learned the word \"tunnel\" today." },
-  "poetry": { meaning: "诗, 韵文, 诗歌艺术", sentence: "I learned the word \"poetry\" today." },
-  "salad": { meaning: "色拉", sentence: "I learned the word \"salad\" today." },
-  "satisfy": { meaning: "使满意, 满足, 符合, 使确信, 赔偿；令人满意, 替人赎罪", sentence: "I learned the word \"satisfy\" today." },
-  "innocent": { meaning: "无罪的, 不懂事的, 无知的；天真的人, 笨蛋", sentence: "I learned the word \"innocent\" today." },
-  "gentle": { meaning: "温和的, 文雅的", sentence: "I learned the word \"gentle\" today." },
-  "favour": { meaning: "好感, 偏爱, 喜爱, 相信, 庇护, 赞同, 支持, 信赖, 善行, 恩惠, 徽章, 礼物；赞成, 帮助, 支持, 喜爱, 偏袒, 关切, 赐", sentence: "I learned the word \"favour\" today." },
-  "raw": { meaning: "擦伤处, 半成品；生的, 未加工的, 生疏的, 不成熟的, 阴冷的, 刺痛的, 擦掉皮的；擦伤； 写后读", sentence: "I learned the word \"raw\" today." },
-  "determination": { meaning: "决心, 果断； 判定; 测定", sentence: "I learned the word \"determination\" today." },
-  "pole": { meaning: "波兰人, 极点, 磁极, 电极, 杆, 竿, 相反的极端；用竿支撑；撑篙", sentence: "I learned the word \"pole\" today." },
-  "silly": { meaning: "愚蠢的, 糊涂的", sentence: "I learned the word \"silly\" today." },
-  "newly": { meaning: "重新, 最近", sentence: "I learned the word \"newly\" today." },
-  "bush": { meaning: "矮树丛； 管衬", sentence: "I learned the word \"bush\" today." },
-  "pride": { meaning: "骄傲, 自尊心, 自豪, 精华, 勇气；以...自豪", sentence: "I learned the word \"pride\" today." },
-  "freeze": { meaning: "冻结, 冷冻, 僵硬, 楞住；使结冰, 使冻住, 使呆住；结冰, 凝固； 冻结", sentence: "I learned the word \"freeze\" today." },
-  "sensible": { meaning: "有感觉的, 敏感的, 明智的； 可感觉的", sentence: "I learned the word \"sensible\" today." },
-  "bake": { meaning: "烘焙, 烤；烤面包；烘焙, 烤", sentence: "I learned the word \"bake\" today." },
-  "brick": { meaning: "砖块, 积木；用砖做的；用砖造, 用砖砌", sentence: "I learned the word \"brick\" today." },
-  "joy": { meaning: "欢喜, 乐事, 高兴；使快乐, 令人高兴；欢喜", sentence: "I learned the word \"joy\" today." },
-  "adapt": { meaning: "使适应, 改编；适应", sentence: "I learned the word \"adapt\" today." },
-  "reward": { meaning: "报酬, 酬谢, 赏金；奖赏, 酬谢, 给...应有报应", sentence: "I learned the word \"reward\" today." },
-  "shooting": { meaning: "发射, 猎场, 射击", sentence: "I learned the word \"shooting\" today." },
-  "singer": { meaning: "歌手", sentence: "I learned the word \"singer\" today." },
-  "ban": { meaning: "禁令；禁止, 取缔", sentence: "I learned the word \"ban\" today." },
-  "consult": { meaning: "商讨, 商量, 协商, 会诊；向...请教, 查阅, 考虑", sentence: "I learned the word \"consult\" today." },
-  "comfort": { meaning: "舒适, 安慰, 安慰者；安慰", sentence: "I learned the word \"comfort\" today." },
-  "imagination": { meaning: "想像, 听觉, 想像力； 想像", sentence: "I learned the word \"imagination\" today." },
-  "counter": { meaning: "计算器, 计算者, 柜台, 筹码；反方向的, 相反的；反方向地, 相反地； 计数器; 计数字", sentence: "I learned the word \"counter\" today." },
-  "tongue": { meaning: "舌, 语言能力, 讲话方式, 语言；舔, 斥责, 发...的音；使用舌头, 吹管乐器", sentence: "I learned the word \"tongue\" today." },
-  "till": { meaning: "直到, 在...以前, 迄；直到...为止；耕种；放钱的抽屉, 备用现金, 冰碛", sentence: "I learned the word \"till\" today." },
-  "crash": { meaning: "哗啦声, 猛撞, 崩溃, 粗布；撞碎, 破碎, (使)...坠毁；速成的； 崩溃", sentence: "I learned the word \"crash\" today." },
-  "inevitable": { meaning: "不可避免的, 必然的； 不可避免的, 无法规避的, 必然的", sentence: "I learned the word \"inevitable\" today." },
-  "outline": { meaning: "大纲, 轮廓, 概要；描画轮廓, 描述要点；大纲, 分级, 轮廓； 大纲, 分级, 轮廓", sentence: "I learned the word \"outline\" today." },
-  "craft": { meaning: "技艺, 手艺, 诡计；精心制作", sentence: "I learned the word \"craft\" today." },
-  "tap": { meaning: "轻打, 水龙头；轻打, 轻敲, 敲打出, 选择, 装上嘴子, 使流出, 开发, 分接, 向...乞讨；轻叩, 轻拍, 啪塔啪塔地走； 接头", sentence: "I learned the word \"tap\" today." },
-  "mouse": { meaning: "老鼠, 胆小羞怯的人, 鼠标；捕鼠, 窥探；探出； 鼠标", sentence: "I learned the word \"mouse\" today." },
-  "swim": { meaning: "游泳, 漂浮, 潮流, 眩晕；游泳, 游, 漂浮, 浸, 覆盖, 充溢, 大量拥有, 旋转, 眩晕；游过, 使浮起", sentence: "I learned the word \"swim\" today." },
-  "tire": { meaning: "轮胎, 头饰；使疲倦, 使厌烦, 打扮；疲劳, 厌倦", sentence: "I learned the word \"tire\" today." },
-  "loose": { meaning: "发射, 放任, 放纵；宽松的, 松的, 宽的, 不牢固的, 散漫的, 自由的, 不精确的；释放, 放枪, 开船；变松, 开火；松散地", sentence: "I learned the word \"loose\" today." },
-  "highlight": { meaning: "加亮区, 精彩场面；加亮, 使显著, 以强光照射, 突出； 突出", sentence: "I learned the word \"highlight\" today." },
-  "prior": { meaning: "更重要的, 较早的, 在先的；小隐修院院长, 大隐修院副院长", sentence: "I learned the word \"prior\" today." },
-  "adventure": { meaning: "冒险, 冒险经历；冒险", sentence: "I learned the word \"adventure\" today." },
-  "stair": { meaning: "梯级, 楼梯, 阶梯", sentence: "I learned the word \"stair\" today." },
-  "weakness": { meaning: "虚弱, 薄弱, 弱点； 欲振乏力", sentence: "I learned the word \"weakness\" today." },
-  "trace": { meaning: "痕迹, 踪迹, 微量, 迹线, 缰绳；追踪, 回溯, 描绘；追溯, 沿路走", sentence: "I learned the word \"trace\" today." },
-  "dirty": { meaning: "肮脏的, 卑鄙的；弄脏；变脏", sentence: "I learned the word \"dirty\" today." },
-  "rid": { meaning: "免除, 以...清除, 使获自由, 使摆脱； 免除, 清除, 摆脱", sentence: "I learned the word \"rid\" today." },
-  "license": { meaning: "执照, 许可证, 特许；许可, 特许", sentence: "I learned the word \"license\" today." },
-  "shelter": { meaning: "庇护所, 避难所, 庇护, 隐蔽处, 掩蔽；庇护, 保护, 隐匿；躲避", sentence: "I learned the word \"shelter\" today." },
-  "rub": { meaning: "摩擦, 困难, 障碍, 磨损处；擦, 搓, 摩擦, 惹怒；摩擦, 擦破", sentence: "I learned the word \"rub\" today." },
-  "sail": { meaning: "帆, 篷, 帆船, 航程, 帆状物；航行, 启航, 张帆而行；航行于, 驾船", sentence: "I learned the word \"sail\" today." },
-  "absorb": { meaning: "吸收, 使全神贯注, 同化, 买进, 理解, 承受, 忍受, 承担； 吸收", sentence: "I learned the word \"absorb\" today." },
-  "pleasant": { meaning: "愉快的, 可爱的, 活泼的, 亲切的", sentence: "I learned the word \"pleasant\" today." },
-  "funeral": { meaning: "葬礼, 出殡", sentence: "I learned the word \"funeral\" today." },
-  "pretend": { meaning: "假装, 伪称, 自命, 自称", sentence: "I learned the word \"pretend\" today." },
-  "entitle": { meaning: "给...权利, 取名为, 给予名称, 叫做； 给...权利, 使有资格, 称呼", sentence: "I learned the word \"entitle\" today." },
-  "grateful": { meaning: "感谢的, 感激的, 令人快意的, 受欢迎的", sentence: "I learned the word \"grateful\" today." },
-  "venture": { meaning: "冒险, 风险；敢于, 冒...的危险；冒险", sentence: "I learned the word \"venture\" today." },
-  "squeeze": { meaning: "紧握, 挤, 榨, 榨取, 佣金；紧握, 挤, 榨取；压榨, 榨", sentence: "I learned the word \"squeeze\" today." },
-  "excitement": { meaning: "刺激, 兴奋； 兴奋, 激动", sentence: "I learned the word \"excitement\" today." },
-  "deaf": { meaning: "聋的； 聋的", sentence: "I learned the word \"deaf\" today." },
-  "confine": { meaning: "限制, 使不外出, 禁闭；邻接, 交界；边缘, 范围, 区域", sentence: "I learned the word \"confine\" today." },
-  "steady": { meaning: "稳定的, 不动摇的, 沉着的, 稳固的, 坚定的, 经常的；使稳定, 使坚定；变为沉着, 稳固", sentence: "I learned the word \"steady\" today." },
-  "oven": { meaning: "烤箱, 灶, 子宫； 烘箱", sentence: "I learned the word \"oven\" today." },
-  "nowhere": { meaning: "无处, 到处都无", sentence: "I learned the word \"nowhere\" today." },
-  "reception": { meaning: "接待, 接受, 招待会； 接受, 感受", sentence: "I learned the word \"reception\" today." },
-  "purely": { meaning: "纯粹地, 清白地, 贞洁地", sentence: "I learned the word \"purely\" today." },
-  "shelf": { meaning: "架子, 搁板； 架子", sentence: "I learned the word \"shelf\" today." },
-  "diary": { meaning: "日记； 日记簿", sentence: "I learned the word \"diary\" today." },
-  "desperate": { meaning: "不顾一切的, 危急的, 令人绝望的, 极渴望的", sentence: "I learned the word \"desperate\" today." },
-  "musician": { meaning: "音乐家, 乐师, 作曲家", sentence: "I learned the word \"musician\" today." },
-  "continuous": { meaning: "连续的, 继续的, 连续不断的； 连续的", sentence: "I learned the word \"continuous\" today." },
-  "horror": { meaning: "惊骇, 恐怖, 惨状； 恐怖, 恐惧", sentence: "I learned the word \"horror\" today." },
-  "delighted": { meaning: "高兴的, 快乐的", sentence: "I learned the word \"delighted\" today." },
-  "repair": { meaning: "修理, 补救, 修复；修理, 修补, 补救, 恢复, 补偿；修理, 修补, 补救, 恢复, 去, 常去, 集合", sentence: "I learned the word \"repair\" today." },
-  "leather": { meaning: "皮革, 皮制品, 马镫的皮带；覆以皮革, 鞭苔, 抽打；皮革的, 皮制的", sentence: "I learned the word \"leather\" today." },
-  "cow": { meaning: "母牛, 母兽；威胁", sentence: "I learned the word \"cow\" today." },
-  "grandfather": { meaning: "祖父, 始祖； 原始资料组", sentence: "I learned the word \"grandfather\" today." },
-  "tin": { meaning: "锡, 马口铁, 罐头；在...镀锡于；锡制的； tin阅读程序", sentence: "I learned the word \"tin\" today." },
-  "clerk": { meaning: "办事员, 职员, 文书；当店员", sentence: "I learned the word \"clerk\" today." },
-  "coin": { meaning: "硬币, 金钱, 货币；铸币, 创造, 杜撰", sentence: "I learned the word \"coin\" today." },
-  "plot": { meaning: "小块土地, 地区图, 图, 阴谋, 情节；划分, 绘图, 密谋；密谋, 策划； 绘制", sentence: "I learned the word \"plot\" today." },
-  "trousers": { meaning: "裤子, 长裤", sentence: "I learned the word \"trousers\" today." },
-  "divorce": { meaning: "离婚；与...离婚", sentence: "I learned the word \"divorce\" today." },
-  "grammar": { meaning: "语法学, 入门书； 语法检查", sentence: "I learned the word \"grammar\" today." },
-  "shade": { meaning: "荫, 阴暗, 遮光物, 灯罩, 帘, 浓淡, 微量, 底纹；渐变；使阴暗, 使渐变, 遮蔽, 微减； 底纹", sentence: "I learned the word \"shade\" today." },
-  "celebration": { meaning: "庆祝, 庆典", sentence: "I learned the word \"celebration\" today." },
-  "soup": { meaning: "汤, 马力；加速, 增加马力", sentence: "I learned the word \"soup\" today." },
-  "pile": { meaning: "堆, 大堆, 大厦, 建筑群, 电池, 大量, 桥桩, 软毛, 痔疮；堆起, 堆积, 积累, 挤, 猛烈攻击；堆于, 累积, 堆叠, 打桩于,", sentence: "I learned the word \"pile\" today." },
-  "publicity": { meaning: "名声, 宣传, 公开场合； 宣传, 广告", sentence: "I learned the word \"publicity\" today." },
-  "alarm": { meaning: "惊恐, 警报, 警钟；使惊恐, 警告； 报警信号", sentence: "I learned the word \"alarm\" today." },
-  "nerve": { meaning: "精神, 勇气, 叶脉, 神经；鼓起勇气", sentence: "I learned the word \"nerve\" today." },
-  "crack": { meaning: "裂缝, 爆裂声；(使)爆裂, (使)裂开, (使)发出爆裂声；第一流的；啪地一声", sentence: "I learned the word \"crack\" today." },
-  "burst": { meaning: "破裂, 突发, 爆发；爆裂, 突发, 充满； 二进制位组; 字符组; 脉冲串", sentence: "I learned the word \"burst\" today." },
-  "pig": { meaning: "猪, 猪肉, 贪婪的人, 猪一样的人；生小猪, 象猪般地生活", sentence: "I learned the word \"pig\" today." },
-  "pen": { meaning: "钢笔, 笔, 笔调, 笔杆子, 作家, 围栏, 栅栏, 禽畜；写, 关入栏中, 囚禁；动笔, 写作", sentence: "I learned the word \"pen\" today." },
-  "explosion": { meaning: "爆发, 激增, 爆炸(声)； 爆炸", sentence: "I learned the word \"explosion\" today." },
-  "clever": { meaning: "聪明的, 精明的", sentence: "I learned the word \"clever\" today." },
-  "wander": { meaning: "游荡, 漫步, 徘徊, 迷路, 离题, 蜿蜒；在...漫游", sentence: "I learned the word \"wander\" today." },
-  "van": { meaning: "货车, 篷车, 先锋, 前驱, 前卫；用货车搬运； 增值网", sentence: "I learned the word \"van\" today." },
-  "punishment": { meaning: "处罚, 刑罚, 惩罚； 罚, 处罚, 刑罚", sentence: "I learned the word \"punishment\" today." },
-  "injure": { meaning: "伤害, 损害, 使受冤屈； 损伤", sentence: "I learned the word \"injure\" today." },
-  "educate": { meaning: "教育, 培养, 训练", sentence: "I learned the word \"educate\" today." },
-  "painful": { meaning: "痛苦的, 困难的, 令人烦恼的； 疼痛的", sentence: "I learned the word \"painful\" today." },
-  "flesh": { meaning: "肉, 肉体, 肉欲, 人性, 亲属, 人类, 众生, 人体；以肉喂, 激起...的杀戳情绪, 使肥, 赋以血肉；长胖", sentence: "I learned the word \"flesh\" today." },
-  "friendship": { meaning: "友谊, 友爱, 友善", sentence: "I learned the word \"friendship\" today." },
-  "asleep": { meaning: "睡着的, 长眠的, 麻木的；熟睡地", sentence: "I learned the word \"asleep\" today." },
-  "uniform": { meaning: "制服；统一的, 一律的, 始终如一的", sentence: "I learned the word \"uniform\" today." },
-  "reservation": { meaning: "保留, 预定, 保留品, 保留地； 预定, 预约, 权益保留", sentence: "I learned the word \"reservation\" today." },
-  "govern": { meaning: "统治, 支配, 管理", sentence: "I learned the word \"govern\" today." },
-  "equivalent": { meaning: "同等物, 等价物, 相等物；相等的, 相当的, 同意义的； 等价的", sentence: "I learned the word \"equivalent\" today." },
-  "impress": { meaning: "印象, 特征, 印记；使有印象, 印, 铭刻, 传送, 影响, 强征；给人印象", sentence: "I learned the word \"impress\" today." },
-  "heel": { meaning: "脚后跟, 踵, 后部, 倾侧；尾随, 装以鞋跟, 倾侧, 追赶；紧随, 用脚后跟传球", sentence: "I learned the word \"heel\" today." },
-  "rival": { meaning: "对手, 竞争者；竞争的", sentence: "I learned the word \"rival\" today." },
-  "mate": { meaning: "配偶, 对手, 助手, (象棋)将死；使配对, 使一致, 结伴, (象棋)将死；成配偶, 紧密配合", sentence: "I learned the word \"mate\" today." },
-  "contest": { meaning: "竞赛, 争论；竞争, 争取, 争辩；竞争", sentence: "I learned the word \"contest\" today." },
-  "hurry": { meaning: "匆忙, 急忙, 急促；急派, 催促；匆忙, 赶快", sentence: "I learned the word \"hurry\" today." },
-  "printer": { meaning: "印刷工, 打印机； 打印机", sentence: "I learned the word \"printer\" today." },
-  "upstairs": { meaning: "楼上的；在楼上, 向楼上, 处于更高地位；楼层", sentence: "I learned the word \"upstairs\" today." },
-  "trick": { meaning: "诡计, 欺诈, 谋略, 恶作剧, 习惯, 决窍；愚弄, 欺骗, 装饰；哄骗, 戏弄；有决窍的, 特技的, 欺诈的, 漂亮的, 靠不住的", sentence: "I learned the word \"trick\" today." },
-  "hers": { meaning: "她的", sentence: "I learned the word \"hers\" today." },
-  "tent": { meaning: "帐篷, 帷幕, 住处, 塞条, 塞子；住帐蓬, 宿营, 暂时居住；用帐篷遮盖, 使住帐篷, 用塞条嵌入", sentence: "I learned the word \"tent\" today." },
-  "menu": { meaning: "菜单, (功能)选择单； 菜单", sentence: "I learned the word \"menu\" today." },
-  "wise": { meaning: "明智的, 慎虑的, 聪明的, 博学的, 狡猾的, 机灵的；知道；教导, 告诉, 劝导；方法, 方式； 教育信息系统", sentence: "I learned the word \"wise\" today." },
-  "sympathy": { meaning: "同情, 赞同, 怜悯, 慰问, 吊唁； 交感, 同感, 感应, 同情", sentence: "I learned the word \"sympathy\" today." },
-  "strict": { meaning: "严厉的, 绝对的, 详尽的, 严格的, 精确的； 严格的, 精确的, 绝对的", sentence: "I learned the word \"strict\" today." },
-  "ease": { meaning: "安乐, 安逸, 悠闲；使安乐, 使安心, 减轻, 放松；减轻, 放松, 灵活地移动", sentence: "I learned the word \"ease\" today." },
-  "loud": { meaning: "大声的, 不断的, 喧吵的；高声地, 大声地", sentence: "I learned the word \"loud\" today." },
-  "collapse": { meaning: "崩溃, 倒塌, 虚脱；倒塌, 崩溃, 瓦解；使倒塌, 折叠； 折叠", sentence: "I learned the word \"collapse\" today." },
-  "glove": { meaning: "手套；给...戴手套", sentence: "I learned the word \"glove\" today." },
-  "bitter": { meaning: "苦的, 痛苦的, 怀恨的；刺骨；(使)变苦", sentence: "I learned the word \"bitter\" today." },
-  "outer": { meaning: "外部的, 外面的, 在外的, 远离中心的； 外部的, 外面的, 外侧的", sentence: "I learned the word \"outer\" today." },
-  "machinery": { meaning: "机器, 机械装置, 机构； 机械", sentence: "I learned the word \"machinery\" today." },
-  "petrol": { meaning: "汽油； 汽油, 挥发油, 石油", sentence: "I learned the word \"petrol\" today." },
-  "organ": { meaning: "风琴, 器官, 元件, 机构, 机关； 风琴", sentence: "I learned the word \"organ\" today." },
-  "explode": { meaning: "爆炸, 爆发, 激增；使爆炸", sentence: "I learned the word \"explode\" today." },
-  "anticipate": { meaning: "预期, 占先, 加速, 提前使用； 提前出现, 先期发生", sentence: "I learned the word \"anticipate\" today." },
-  "stroke": { meaning: "笔划, 打, 中风, 抚, 摩, 冲程；划尾桨, 抚, 摩, 划去； 笔划", sentence: "I learned the word \"stroke\" today." },
-  "attraction": { meaning: "吸引, 吸引人的事物, 吸引力； 吸引", sentence: "I learned the word \"attraction\" today." },
-  "frequent": { meaning: "时常发生的, 频繁的, 快速的；时常来访, 常常聚集, 常与...交往", sentence: "I learned the word \"frequent\" today." },
-  "curious": { meaning: "好奇的, 求知的, 古怪的", sentence: "I learned the word \"curious\" today." },
-  "garage": { meaning: "车库, 汽车修理厂, 机库；把车送入修车场", sentence: "I learned the word \"garage\" today." },
-  "prompt": { meaning: "激励, 提示, 提醒物, 提词, 付款期限；迅速的, 敏捷的, 立刻的, 提词员的；激励, 鼓动, 提示；准时地； 提示符; DOS内部命令:设", sentence: "I learned the word \"prompt\" today." },
-  "slope": { meaning: "倾斜, 斜坡, 斜率, 扛枪姿势；使倾斜, 弄斜, 扛；倾斜, 走, 逃走", sentence: "I learned the word \"slope\" today." },
-  "silk": { meaning: "丝, 绸, 绸锻类, 丝织品；丝的, 丝织的", sentence: "I learned the word \"silk\" today." },
-  "romantic": { meaning: "浪漫的, 风流的, 传奇性的, 夸大的, 空想的, 浪漫派的", sentence: "I learned the word \"romantic\" today." },
-  "disc": { meaning: "圆盘, 唱片；灌唱片", sentence: "I learned the word \"disc\" today." },
-  "cotton": { meaning: "棉花；和谐, 有好感, 理解", sentence: "I learned the word \"cotton\" today." },
-  "float": { meaning: "漂流物, 浮舟, 漂浮, 浮萍, 彩车；浮动, 飘动, 散播, 摇摆, 动摇, 浮动；使漂浮, 容纳, 淹没, 发行, 实行； 浮动", sentence: "I learned the word \"float\" today." },
-  "discount": { meaning: "折扣, 贴现率；打折扣；贴现", sentence: "I learned the word \"discount\" today." },
-  "orange": { meaning: "柑橘, 桔子, 橘色；橘色的", sentence: "I learned the word \"orange\" today." },
-  "blade": { meaning: "叶片, 刀锋, 刀口, 剑； 页, 叶片, 刀片, 刀刃, 刀口", sentence: "I learned the word \"blade\" today." },
-  "bite": { meaning: "咬, 一口；咬, 刺痛, 穿透", sentence: "I learned the word \"bite\" today." },
-  "offensive": { meaning: "令人不快的, 侮辱的, 攻击性的； 攻击的, 进攻的, 冒犯的", sentence: "I learned the word \"offensive\" today." },
-  "bound": { meaning: "跃, 回跳, 范围, 边界；受约束的, 装有封面的, 有义务的, 关联的, 被束缚的, 准备去...的, 便秘的；跳跃, 弹起；使跳, 限制,", sentence: "I learned the word \"bound\" today." },
-  "reverse": { meaning: "相反, 背面, 倒退, 挫折, 失败；反面的, 相反的, 反向的, 颠倒的；使颠倒, 使逆转, 使倒退, 使反向；倒退, 反向, 倒转, 反转", sentence: "I learned the word \"reverse\" today." },
-  "invitation": { meaning: "邀请, 请柬, 引诱； 邀请, 招待, 吸引", sentence: "I learned the word \"invitation\" today." },
-  "generous": { meaning: "慷慨的, 有雅量的, 大量的, 丰富的", sentence: "I learned the word \"generous\" today." },
-  "lemon": { meaning: "柠檬, 柠檬树, 柠檬色； 柠檬", sentence: "I learned the word \"lemon\" today." },
-  "hungry": { meaning: "饥饿的, 荒年的, 渴望的, 不毛的； 欠鞣皮", sentence: "I learned the word \"hungry\" today." },
-  "excuse": { meaning: "原谅, 申辩, 做为...的托辞；致歉, 理由, 饶恕, 借口", sentence: "I learned the word \"excuse\" today." },
-  "cancel": { meaning: "取消, 撤消, 盖销(邮票)；取消, 删去, 抵销, 盖销；相互抵销； 作废", sentence: "I learned the word \"cancel\" today." },
-  "automatic": { meaning: "自动手枪, 自动机械；自动的, 机械的, 必然的, 无意识的", sentence: "I learned the word \"automatic\" today." },
-  "naked": { meaning: "裸体的, 无装饰的, 无保护的, 赤贫的； 裸露的", sentence: "I learned the word \"naked\" today." },
-  "ambition": { meaning: "野心, 志向", sentence: "I learned the word \"ambition\" today." },
-  "weekly": { meaning: "周刊, 周报；每周的, 一周一次的, 周刊的；每周, 一周一次", sentence: "I learned the word \"weekly\" today." },
-  "nut": { meaning: "坚果, 核心, 螺帽； Novell NetWare服务器实用程序", sentence: "I learned the word \"nut\" today." },
-  "logical": { meaning: "合乎逻辑的, 合理的； 逻辑的, 符合逻辑的", sentence: "I learned the word \"logical\" today." },
-  "harm": { meaning: "伤害, 害处；伤害, 损害", sentence: "I learned the word \"harm\" today." },
-  "electrical": { meaning: "电的, 有关电的； 电的", sentence: "I learned the word \"electrical\" today." },
-  "logic": { meaning: "逻辑, 逻辑学, 推理的方法, 推理, 逻辑性； 逻辑", sentence: "I learned the word \"logic\" today." },
-  "battery": { meaning: "电池, 殴打； 蓄电池", sentence: "I learned the word \"battery\" today." },
-  "flame": { meaning: "火焰, 火舌, 热情, 光辉；焚烧, 用火焰给...灭菌, 用火焰传送(信号), 点燃, 激动；燃烧, 爆发, 闪耀； 无聊邮件, 无益邮件", sentence: "I learned the word \"flame\" today." },
-  "wherever": { meaning: "无论哪里", sentence: "I learned the word \"wherever\" today." },
-  "wound": { meaning: "创伤, 伤口, 伤疤, 伤害, 痛苦；伤害, 损害, 使受伤；打伤, 伤害；wind的过去式和过去分词", sentence: "I learned the word \"wound\" today." },
-  "shower": { meaning: "阵雨, 淋浴, 一阵, 展出者, 显示者；淋浴, 下阵雨；淋湿, 倾注", sentence: "I learned the word \"shower\" today." },
-  "rubbish": { meaning: "废物, 垃圾, 胡说", sentence: "I learned the word \"rubbish\" today." },
-  "dare": { meaning: "挑战, 挑动, 大胆；敢, 胆敢", sentence: "I learned the word \"dare\" today." },
-  "valid": { meaning: "有确实根据的, 有法律效力的, 正当的, 正确的； 有效的", sentence: "I learned the word \"valid\" today." },
-  "mineral": { meaning: "矿物, 无机物, 苏打水；矿物的, 似矿物的", sentence: "I learned the word \"mineral\" today." },
-  "comedy": { meaning: "喜剧, 有趣的事情", sentence: "I learned the word \"comedy\" today." },
-  "suspicion": { meaning: "怀疑, 觉察, 嫌疑； 怀疑, 疑心, 嫌疑", sentence: "I learned the word \"suspicion\" today." },
-  "humour": { meaning: "幽默, 诙谐, 情绪, 体液；使满足, 迁就", sentence: "I learned the word \"humour\" today." },
-  "grain": { meaning: "谷粒, 颗粒, 谷类, 纹理, 本质；(使)成谷粒", sentence: "I learned the word \"grain\" today." },
-  "brush": { meaning: "刷子, 毛笔, 争吵；刷；擦过, 掠过； 电刷", sentence: "I learned the word \"brush\" today." },
-  "swear": { meaning: "发誓, 咒骂, 使宣誓；发誓, 诅咒；诅咒, 誓言", sentence: "I learned the word \"swear\" today." },
-  "devote": { meaning: "投入于, 献身", sentence: "I learned the word \"devote\" today." },
-  "needle": { meaning: "针, 尖；用针缝；缝纫； 探针", sentence: "I learned the word \"needle\" today." },
-  "lung": { meaning: "肺, 肺脏, 空地； 肺", sentence: "I learned the word \"lung\" today." },
-  "artistic": { meaning: "艺术的, 艺术家的, 富有艺术性的", sentence: "I learned the word \"artistic\" today." },
-  "running": { meaning: "赛跑, 流出, 运转；流动的, 跑着的, 连续的", sentence: "I learned the word \"running\" today." },
-  "powder": { meaning: "粉, 粉末, 火药；搽粉于, 搽粉, 撒粉, 使成粉末；搽粉, 变成粉末", sentence: "I learned the word \"powder\" today." },
-  "ugly": { meaning: "丑陋的, 邪恶的, 险恶的, 不祥的；丑陋的人(或物)", sentence: "I learned the word \"ugly\" today." },
-  "urgent": { meaning: "紧急的, 急迫的, 催逼的； 紧急的, 急迫的", sentence: "I learned the word \"urgent\" today." },
-  "cookie": { meaning: "饼干, 小甜点； 糕点", sentence: "I learned the word \"cookie\" today." },
-  "exact": { meaning: "精确的, 准确的, 精密的；强求, 急需", sentence: "I learned the word \"exact\" today." },
-  "disturb": { meaning: "扰乱, 妨碍, 使不安； 滋扰, 扰乱", sentence: "I learned the word \"disturb\" today." },
-  "admire": { meaning: "赞美, 钦佩, 爱慕；称赞, 惊奇", sentence: "I learned the word \"admire\" today." },
-  "advertisement": { meaning: "广告, 启事, 广告宣传； 广告, 公告, 告示", sentence: "I learned the word \"advertisement\" today." },
-  "pet": { meaning: "宠物, 受宠爱的人, 宠坏的孩子, 不悦, 生气；宠爱的, 表示亲昵的, 养着观赏的, 特别珍爱的, 格外的；宠爱, 溺爱, 抚摸；拥抱, 爱抚", sentence: "I learned the word \"pet\" today." },
-  "hesitate": { meaning: "犹豫, 迟疑, 踌躇, 支吾, 停顿", sentence: "I learned the word \"hesitate\" today." },
-  "rhythm": { meaning: "旋律, 节奏, 韵律, 匀称, 张弛节律； 节律", sentence: "I learned the word \"rhythm\" today." },
-  "swallow": { meaning: "燕子, 吞咽, 喉；咽, 淹没, 吞没, 耗尽, 轻信, 忍受, 抑制；吞下, 咽下", sentence: "I learned the word \"swallow\" today." },
-  "piano": { meaning: "钢琴", sentence: "I learned the word \"piano\" today." },
-  "exhibit": { meaning: "显示, 显现, 展览品, 陈列品, 展览；展现, 陈列, 展览；开展览会", sentence: "I learned the word \"exhibit\" today." },
-  "removal": { meaning: "移动, 移居, 迁移, 排除, 切除； 切除, 除去", sentence: "I learned the word \"removal\" today." },
-  "cloth": { meaning: "布料, 织品, 布； 布", sentence: "I learned the word \"cloth\" today." },
-  "interior": { meaning: "内部, 内政；内部的, 心灵的, 内地的, 内政的", sentence: "I learned the word \"interior\" today." },
-  "rope": { meaning: "绳, 索, 粗绳, 绞索, 决窍；捆, 缚, 绑, 圈起, 以绳将...系住；拧成绳状", sentence: "I learned the word \"rope\" today." },
-  "concrete": { meaning: "凝结物, 混凝土；具体的, 实在的, 混凝土的；(使)凝结, 用混凝土浇筑", sentence: "I learned the word \"concrete\" today." },
-  "chase": { meaning: "追求, 狩猎, 追逐；追捕, 追逐, 雕刻, 在...上镶嵌宝石；追赶, 奔跑", sentence: "I learned the word \"chase\" today." },
-  "taxi": { meaning: "出租车；乘出租车；用出租车送", sentence: "I learned the word \"taxi\" today." },
-  "cinema": { meaning: "电影院, 电影", sentence: "I learned the word \"cinema\" today." },
-  "painter": { meaning: "画家, 油漆匠； 油漆匠, 喷漆匠", sentence: "I learned the word \"painter\" today." },
-  "courage": { meaning: "勇气, 胆量", sentence: "I learned the word \"courage\" today." },
-  "shine": { meaning: "光泽, 阳光；使发光；照耀, 发光, 发亮", sentence: "I learned the word \"shine\" today." },
-  "dictionary": { meaning: "字典, 词典； 词典", sentence: "I learned the word \"dictionary\" today." },
-  "slice": { meaning: "薄的切片, 一部分, 菜刀；切成薄片, 切下；切； 片", sentence: "I learned the word \"slice\" today." },
-  "lamp": { meaning: "灯；照亮； 逻辑模拟分析系统", sentence: "I learned the word \"lamp\" today." },
-  "knit": { meaning: "编织, 结合", sentence: "I learned the word \"knit\" today." },
-  "grave": { meaning: "墓穴, 坟墓, 终结, 死亡；庄重的, 严肃的, 重大的, 低沉的；雕刻", sentence: "I learned the word \"grave\" today." },
-  "toe": { meaning: "足趾, 趾部, 脚趾；以趾踏触, 用脚尖走；动脚尖", sentence: "I learned the word \"toe\" today." },
-  "container": { meaning: "容器, 集装箱； 集装箱; 贮存箱; 容器(任何一种)", sentence: "I learned the word \"container\" today." },
-  "unexpected": { meaning: "料想不到的, 突然的, 意外的； 不能预料的, 意外的", sentence: "I learned the word \"unexpected\" today." },
-  "decrease": { meaning: "减少, 减少量；减少", sentence: "I learned the word \"decrease\" today." },
-  "trap": { meaning: "圈套, 陷阱, 诡计, 存水弯；设圈套, 设陷阱；诱捕, 诱骗, 抓住, 使受限制； 俘获; 陷井", sentence: "I learned the word \"trap\" today." },
-  "anniversary": { meaning: "周年纪念", sentence: "I learned the word \"anniversary\" today." },
-  "navy": { meaning: "海军, 海军人员, 海军军力, 烟蒂", sentence: "I learned the word \"navy\" today." },
-  "mess": { meaning: "食堂, 伙食, 用膳, 一份食品, 混乱, 乱七八糟, 困境；将...弄糟, 妨碍, 使紊乱, 使就餐；陷入困境, 搞乱, 用膳", sentence: "I learned the word \"mess\" today." },
-  "spell": { meaning: "符咒, 魅力, 轮值, 轮班, 工作时间, 一次发作；拼写, 拼成, 琢磨, 理解, 招致, 轮换, 迷住；轮换, 拼字", sentence: "I learned the word \"spell\" today." },
-  "interrupt": { meaning: "中断, 妨碍, 插嘴；打断；中断； 中断", sentence: "I learned the word \"interrupt\" today." },
-  "upset": { meaning: "弄翻的, 混乱的, 心烦的；弄翻, 颠覆, 推翻, 打乱, 使不适, 使心烦；翻倒", sentence: "I learned the word \"upset\" today." },
-  "delight": { meaning: "高兴, 愉快；使高兴, 乐于；感到高兴(或愉快、快乐)", sentence: "I learned the word \"delight\" today." },
-  "forgive": { meaning: "原谅, 宽恕, 免除； 免除, 宽恕, 原谅", sentence: "I learned the word \"forgive\" today." },
-  "invent": { meaning: "发明, 创作, 虚构； 发明", sentence: "I learned the word \"invent\" today." },
-  "insect": { meaning: "昆虫, 卑鄙的人； 昆虫", sentence: "I learned the word \"insect\" today." },
-  "superior": { meaning: "长者, 占优势的人, 上级；上级的, 出众的, 高傲的", sentence: "I learned the word \"superior\" today." },
-  "magic": { meaning: "魔术, 魔法；魔术的, 有魔力的, 不可思议的", sentence: "I learned the word \"magic\" today." },
-  "physics": { meaning: "物理学, 物理过程, 物理现象； 物理; 物理学", sentence: "I learned the word \"physics\" today." },
-  "hunt": { meaning: "狩猎, 追捕, 搜寻, 猎区；狩猎, 打猎, 搜索；打猎, 猎食, 搜寻", sentence: "I learned the word \"hunt\" today." },
-  "jeans": { meaning: "工装裤, 牛仔裤", sentence: "I learned the word \"jeans\" today." },
-  "pill": { meaning: "药丸, 弹丸, 屈辱, 胡说；做成药丸, 形成丸状, 服药丸, 挫败, 抢劫", sentence: "I learned the word \"pill\" today." },
-  "flour": { meaning: "面粉, 粉沫, 碎粉； 面粉, 麦粉", sentence: "I learned the word \"flour\" today." },
-  "candy": { meaning: "糖果, 冰糖；用糖煮, 使结晶为砂糖；结晶为砂糖", sentence: "I learned the word \"candy\" today." },
-  "evil": { meaning: "邪恶, 不幸, 罪恶；邪恶的, 不幸的, 有害的, 讨厌的", sentence: "I learned the word \"evil\" today." },
-  "melt": { meaning: "熔化, 熔化物, 溶解；(使)熔化, (使)溶解, (使)消散, (使)变软", sentence: "I learned the word \"melt\" today." },
-  "midnight": { meaning: "午夜, 子夜, 半夜；午夜的, 半夜的", sentence: "I learned the word \"midnight\" today." },
-  "closet": { meaning: "壁橱, 小室；秘密的, 空谈的；把...关入小室", sentence: "I learned the word \"closet\" today." },
-  "snake": { meaning: "蛇, 阴险的人；曲折行进；迂回, 拉, 急抽", sentence: "I learned the word \"snake\" today." },
-  "specially": { meaning: "特别地, 专门地", sentence: "I learned the word \"specially\" today." },
-  "fold": { meaning: "折层, 折, 羊栏, 折痕, 信徒；折叠, 包, 合拢, 交迭；折叠起来, 彻底失败； 折叠; 合并", sentence: "I learned the word \"fold\" today." },
-  "convenient": { meaning: "方便的, 合宜的； 适当的, 合理而可行的, 方便的", sentence: "I learned the word \"convenient\" today." },
-  "rumour": { meaning: "谣言, 传闻；谣传", sentence: "I learned the word \"rumour\" today." },
-  "missing": { meaning: "不见的, 缺少的； 行踪不明的, 失踪的, 遗失的", sentence: "I learned the word \"missing\" today." },
-  "artificial": { meaning: "人造的, 假的, 非原地产的； 人工的, 人造的, 伟牟", sentence: "I learned the word \"artificial\" today." },
-  "flash": { meaning: "闪光, 闪现, 一瞬间；闪光, 闪现, 反射；使闪光, 反射", sentence: "I learned the word \"flash\" today." },
-  "beef": { meaning: "牛肉, 肌肉；养(牛), 宰(牛)；抱怨, 告发", sentence: "I learned the word \"beef\" today." },
-  "heating": { meaning: "加热, 供热, 暖气设备, 供暖系统, 暖气装置；加热的, 供暖的", sentence: "I learned the word \"heating\" today." },
-  "elbow": { meaning: "手肘, 弯头, 扶手；用手肘推开, 推挤", sentence: "I learned the word \"elbow\" today." },
-  "strictly": { meaning: "严格地, 确实地", sentence: "I learned the word \"strictly\" today." },
-  "confuse": { meaning: "使混乱, 使狼狈, 使困惑； 混淆", sentence: "I learned the word \"confuse\" today." },
-  "disadvantage": { meaning: "缺点, 不利, 坏处", sentence: "I learned the word \"disadvantage\" today." },
-  "mud": { meaning: "泥, 诽谤；弄脏", sentence: "I learned the word \"mud\" today." },
-  "lorry": { meaning: "卡车, 货车； 载重汽车", sentence: "I learned the word \"lorry\" today." },
-  "warmth": { meaning: "温暖, 温情, 暖和, 激动, 生气", sentence: "I learned the word \"warmth\" today." },
-  "uncertain": { meaning: "不确定的, 无常的, 不确信的, 不可预测的； 不确定的, 未定的, 不确信的", sentence: "I learned the word \"uncertain\" today." },
-  "businessman": { meaning: "商人, 实业家, 工商业家", sentence: "I learned the word \"businessman\" today." },
-  "toilet": { meaning: "厕所, 梳妆；梳妆, 打扮, 上厕所；给...梳妆打扮", sentence: "I learned the word \"toilet\" today." },
-  "chemistry": { meaning: "化学, 化学过程； 化学", sentence: "I learned the word \"chemistry\" today." },
-  "nail": { meaning: "钉子, 指甲；用钉钉牢, 使固定, 截住, 揭露", sentence: "I learned the word \"nail\" today." },
-  "refusal": { meaning: "拒绝, 推却, 优先决定权； 拒绝, 谢绝, 取舍权", sentence: "I learned the word \"refusal\" today." },
-  "flood": { meaning: "洪水, 大量之水, 涨潮；淹没, 使泛滥, 注满；被淹, 溢出, 涌进", sentence: "I learned the word \"flood\" today." },
-  "skirt": { meaning: "裙子, 下摆, 边缘, 郊区；位于...边缘, 绕过, 回避；位于边缘", sentence: "I learned the word \"skirt\" today." },
-  "mathematics": { meaning: "数学； 数学", sentence: "I learned the word \"mathematics\" today." },
-  "bacteria": { meaning: "细菌； 细菌, 杆菌", sentence: "I learned the word \"bacteria\" today." },
-  "outdoor": { meaning: "户外的, 屋外的, 露天的", sentence: "I learned the word \"outdoor\" today." },
-  "spare": { meaning: "剩余, 备用品, 备件, 备用零件, 备用轮胎；多余的, 备用的, 空闲的, 节约的, 瘦的；节约, 省掉, 宽恕；节约, 省用, 剩下, 饶恕", sentence: "I learned the word \"spare\" today." },
-  "broadcast": { meaning: "广播, 传播；广播的；广播；经广播, 四散地； 广播命令, 广播", sentence: "I learned the word \"broadcast\" today." },
-  "suck": { meaning: "吸, 吮, 吸入, 吮吸, 吸收；吸, 吸奶；吸, 吸入, 吮吸", sentence: "I learned the word \"suck\" today." },
-  "realistic": { meaning: "现实的, 逼真的, 现实主义的, 实在论的", sentence: "I learned the word \"realistic\" today." },
-  "intelligent": { meaning: "聪明的, 智能的, 了解的", sentence: "I learned the word \"intelligent\" today." },
-  "unhappy": { meaning: "不快乐的, 不幸的, 不适当的", sentence: "I learned the word \"unhappy\" today." },
-  "wrist": { meaning: "手腕, 腕关节； 腕", sentence: "I learned the word \"wrist\" today." },
-  "unfair": { meaning: "不公平的, 不正直的, 不正当的； 不正直的, 不公平的, 偏颇的", sentence: "I learned the word \"unfair\" today." },
-  "continent": { meaning: "大陆, 洲；自制的", sentence: "I learned the word \"continent\" today." },
-  "unite": { meaning: "联合, 接合, 混合；使联合, 统一, 使粘合, 使结合", sentence: "I learned the word \"unite\" today." },
-  "ridiculous": { meaning: "荒谬的, 可笑的", sentence: "I learned the word \"ridiculous\" today." },
-  "receipt": { meaning: "收据, 收入, 收到；开...的收据", sentence: "I learned the word \"receipt\" today." },
-  "dump": { meaning: "垃圾场；倾倒, 倾销；倒垃圾, 倾销商品； 转出; 转储; 倾卸; 切断电源", sentence: "I learned the word \"dump\" today." },
-  "unnecessary": { meaning: "不必要的", sentence: "I learned the word \"unnecessary\" today." },
-  "uncomfortable": { meaning: "不舒服的, 不自在的, 不安的", sentence: "I learned the word \"uncomfortable\" today." },
-  "tune": { meaning: "歌曲, 主旋律, 心情, 声调, 和谐, 一致, 语调, 程度；为...调音, 调整, 调谐, 使一致；协调, 调谐", sentence: "I learned the word \"tune\" today." },
-  "horn": { meaning: "角, 角质, 喇叭, 号角；角制的；用角触, 长角于", sentence: "I learned the word \"horn\" today." },
-  "peaceful": { meaning: "平静的, 和平的, 和平时期的, 爱好和平的, 喜爱安静的； 和平的, 爱好和平的, 和平时期的", sentence: "I learned the word \"peaceful\" today." },
-  "shame": { meaning: "羞耻, 羞愧, 耻辱；使羞愧, 侮辱", sentence: "I learned the word \"shame\" today." },
-  "envelope": { meaning: "信封, 封套, 封袋； 膜, 包袋", sentence: "I learned the word \"envelope\" today." },
-  "twist": { meaning: "一扭, 扭曲, 曲折, 歪曲, 螺旋状, 新手法；拧, 扭, 捻, 编织, 使扭转, 缠绕, 盘绕, 歪曲, 使转动, 使苦恼, 使混乱, 使旋", sentence: "I learned the word \"twist\" today." },
-  "towel": { meaning: "手巾, 毛巾；擦干身子", sentence: "I learned the word \"towel\" today." },
-  "fetch": { meaning: "取得, 拿, 诡计, 魂；接来, 取来, 售得, 带来, 推出, 引出, 杀死, 吸引, 到达；取物, 前进； 取", sentence: "I learned the word \"fetch\" today." },
-  "cupboard": { meaning: "食橱, 碗柜, 餐具柜", sentence: "I learned the word \"cupboard\" today." },
-  "faint": { meaning: "昏厥, 昏倒；模糊的, 微弱的, 无力的；昏倒, 变得微弱", sentence: "I learned the word \"faint\" today." },
-  "sweat": { meaning: "汗, 汗水, 水珠, 焦急；出汗, 渗出, 冒出水气, 结水珠, 烦恼, 懊恼；使出汗, 流出, 榨出, 使汗流浃背", sentence: "I learned the word \"sweat\" today." },
-  "drunk": { meaning: "喝醉了的；drink的过去式", sentence: "I learned the word \"drunk\" today." },
-  "accent": { meaning: "重音, 口音, 特点, 注重点；重读, 加重音号于, 强调", sentence: "I learned the word \"accent\" today." },
-  "web": { meaning: "网, 蛛丝, 蹼, 织物, 圈套, 卷筒纸；结网, 形成网；织蜘蛛网于, 使落入圈套", sentence: "I learned the word \"web\" today." },
-  "praise": { meaning: "赞美, 称赞, 崇拜；称赞, 赞美；赞扬, 表扬", sentence: "I learned the word \"praise\" today." },
-  "breed": { meaning: "种类, 品种；养育, 引起, 饲养, 繁殖", sentence: "I learned the word \"breed\" today." },
-  "apologize": { meaning: "道歉, 辩解", sentence: "I learned the word \"apologize\" today." },
-  "thumb": { meaning: "拇指；以拇指拨弄, 笨拙地摆弄, 用拇指翻旧, 迅速翻阅, 作搭车手势", sentence: "I learned the word \"thumb\" today." },
-  "fork": { meaning: "叉子, 叉状物, 分岔；分支, 分歧；做成叉形, 叉起； 派生指令", sentence: "I learned the word \"fork\" today." },
-  "regret": { meaning: "遗憾, 后悔, 悔恨, 抱歉, 歉意；为...感到遗憾, 后悔, 惋惜, 懊悔, 抱歉；感到抱歉", sentence: "I learned the word \"regret\" today." },
-  "signature": { meaning: "签字, 识别标志, 调号； 签名附件", sentence: "I learned the word \"signature\" today." },
-  "mild": { meaning: "温和的, 温柔的, 淡味的, 适度的, 轻微的, (肥皂等)软性的； 轻的, 缓和的", sentence: "I learned the word \"mild\" today." },
-  "delicate": { meaning: "细致优雅的, 微妙的, 美味的； 柔弱的", sentence: "I learned the word \"delicate\" today." },
-  "hook": { meaning: "钩, 钩状, 镰刀, 陷阱；挂...于钩上, 钩住, 引上钩, 偷窃；弯成钩状, 钩紧； 钩", sentence: "I learned the word \"hook\" today." },
-  "wool": { meaning: "羊毛, 毛织物, 毛线, 绒线； 羊毛, 绒毛, 棉", sentence: "I learned the word \"wool\" today." },
-  "steep": { meaning: "浸渍, 悬崖；险峻的, 陡峭的, 急剧升降的, 夸大的；浸, 泡", sentence: "I learned the word \"steep\" today." },
-  "click": { meaning: "咔哒声, 啪嗒声；作咔哒声；使发咔哒声； 单击", sentence: "I learned the word \"click\" today." },
-  "insert": { meaning: "插入物；插入, 把(人造卫星)射入(轨道), 添写；附着； 插入", sentence: "I learned the word \"insert\" today." },
-  "exit": { meaning: "出口, 退场, 离去, 去世；退出, 脱离, 去世； 退出; DOS内部命令:本命令用于退出当前的命令处理器(COMMAND.COM)；恢复前一", sentence: "I learned the word \"exit\" today." },
-  "dull": { meaning: "钝的, 无趣的, 呆滞的, 阴暗的；使迟钝, 使阴暗, 缓和；变迟钝, 减少", sentence: "I learned the word \"dull\" today." },
-  "brave": { meaning: "勇敢的, 美好的, 华丽的；勇敢者；勇敢地面对", sentence: "I learned the word \"brave\" today." },
-  "pity": { meaning: "遗憾, 同情, 怜悯, 憾事, 可惜；同情, 怜悯；觉得可怜, 有同情心", sentence: "I learned the word \"pity\" today." },
-  "packet": { meaning: "小包, 一批信件, 大量, 信息包；打包, 装进小包； 分组, 分组报文, 数据分组", sentence: "I learned the word \"packet\" today." },
-  "scare": { meaning: "惊吓, 恐慌；惊吓, 使恐慌；受惊", sentence: "I learned the word \"scare\" today." },
-  "skilled": { meaning: "熟练的； 熟练的, 有技能的", sentence: "I learned the word \"skilled\" today." },
-  "ankle": { meaning: "踝； 踝, 踝关节", sentence: "I learned the word \"ankle\" today." },
-  "swimming": { meaning: "游泳, 眩晕", sentence: "I learned the word \"swimming\" today." },
-  "rescue": { meaning: "援救, 解救, 营救；援救, 救出, 营救", sentence: "I learned the word \"rescue\" today." },
-  "happily": { meaning: "幸福地, 快乐地, 幸好", sentence: "I learned the word \"happily\" today." },
-  "neat": { meaning: "整洁的, 巧妙的, 匀称的, 简洁的；牛", sentence: "I learned the word \"neat\" today." },
-  "rider": { meaning: "骑手, (文件后的)附件, 扶手； 游码", sentence: "I learned the word \"rider\" today." },
-  "elegant": { meaning: "优雅的, 端庄的, 高雅的", sentence: "I learned the word \"elegant\" today." },
-  "lonely": { meaning: "孤单的, 孤寂的, 荒凉的", sentence: "I learned the word \"lonely\" today." },
-  "damp": { meaning: "潮湿, 湿气；潮湿的；使潮湿, 使阻尼, 抑止；变潮湿, 衰减", sentence: "I learned the word \"damp\" today." },
-  "diagram": { meaning: "图表；图解", sentence: "I learned the word \"diagram\" today." },
-  "vertical": { meaning: "垂直的, 直立的； 垂直的, 顶的, 头顶的", sentence: "I learned the word \"vertical\" today." },
-  "fancy": { meaning: "想象力, 幻想, 喜好；想象的, 精美的, 新奇的, 奇特的, 高价的, 特级的；想象, 设想, 相信, 喜爱；想象, 幻想", sentence: "I learned the word \"fancy\" today." },
-  "ambulance": { meaning: "救护车； 救护车", sentence: "I learned the word \"ambulance\" today." },
-  "punish": { meaning: "处罚, 惩罚, 严厉对待；惩罚", sentence: "I learned the word \"punish\" today." },
-  "nest": { meaning: "巢, 窝, 休息所, 隐匿处；筑巢, 找鸟巢；为...设窝, 使套叠； 嵌套", sentence: "I learned the word \"nest\" today." },
-  "parallel": { meaning: "平行, 对比, 相匹敌之物；平行的, 相似的；与...平行, 与...相似, 相比, 使平行； 并联; 并行", sentence: "I learned the word \"parallel\" today." },
-  "elevator": { meaning: "电梯, 升降机； 提升机", sentence: "I learned the word \"elevator\" today." },
-  "statue": { meaning: "以雕像装饰；雕像", sentence: "I learned the word \"statue\" today." },
-  "tropical": { meaning: "热带的, 热情的； 热带的", sentence: "I learned the word \"tropical\" today." },
-  "purple": { meaning: "紫色, 帝位；紫色的, 帝王的, 华而不实的；(使)成紫色", sentence: "I learned the word \"purple\" today." },
-  "practically": { meaning: "几乎, 差不多, 事实上", sentence: "I learned the word \"practically\" today." },
-  "stamp": { meaning: "印, 邮票, 打印器, 戳子, 图章, 印花税票, 标志, 特征, 类型, 跺脚；盖章于, 顿足, 贴上邮票, 铭刻, 捣碎, 扑灭；捣碎, 跺", sentence: "I learned the word \"stamp\" today." },
-  "disappointment": { meaning: "失望", sentence: "I learned the word \"disappointment\" today." },
-  "striking": { meaning: "醒目的, 惊人的, 打击的, 罢工的； 罢工的, 罢市的, 罢课的", sentence: "I learned the word \"striking\" today." },
-  "suffering": { meaning: "苦难, 受苦", sentence: "I learned the word \"suffering\" today." },
-  "garbage": { meaning: "垃圾, 废物； 无用信息", sentence: "I learned the word \"garbage\" today." },
-  "ton": { meaning: "吨； 吨", sentence: "I learned the word \"ton\" today." },
-  "diamond": { meaning: "钻石, 菱形； 菱形", sentence: "I learned the word \"diamond\" today." },
-  "neighbourhood": { meaning: "邻接, 周围, 附近一带, 邻近, 邻居关系, 地区, 街道, 街坊, 四邻； 邻域", sentence: "I learned the word \"neighbourhood\" today." },
-  "chin": { meaning: "下巴, 颏； 颏", sentence: "I learned the word \"chin\" today." },
-  "ours": { meaning: "我们的", sentence: "I learned the word \"ours\" today." },
-  "decorate": { meaning: "装饰", sentence: "I learned the word \"decorate\" today." },
-  "thief": { meaning: "小偷, 贼； 取样", sentence: "I learned the word \"thief\" today." },
-  "flavour": { meaning: "味, 调味香料, 滋味, 香味, 气味, 风味, 情味, 情趣, 风韵；给...调味, 给...增添风趣, 加香料, 加味于", sentence: "I learned the word \"flavour\" today." },
-  "geography": { meaning: "地理学, 地理； 地理", sentence: "I learned the word \"geography\" today." },
-  "pint": { meaning: "品脱(干量或液量的单位)； 量磅, 品脱", sentence: "I learned the word \"pint\" today." },
-  "forecast": { meaning: "预想, 预测, 预报；预想, 预测, 预报； 趋势预测", sentence: "I learned the word \"forecast\" today." },
-  "translation": { meaning: "翻译, 译文, 转化, 调任, 平移, 转译； 转换", sentence: "I learned the word \"translation\" today." },
-  "seal": { meaning: "印章, 封条, 海豹, 海豹皮, 火漆, 封蜡, 玺, 保证, 批准, 象征, 标志；封闭, 盖印, 盖章；猎海豹", sentence: "I learned the word \"seal\" today." },
-  "rear": { meaning: "后面, 背后, 后方；后面的, 背面的, 后方的；养育, 培养, 饲养, 举起, 树立, 栽种；高耸, 暴跳", sentence: "I learned the word \"rear\" today." },
-  "bye": { meaning: "再会, 回头见； 结束命令", sentence: "I learned the word \"bye\" today." },
-  "unfortunate": { meaning: "不幸的, 不合适的, 不吉利的", sentence: "I learned the word \"unfortunate\" today." },
-  "freely": { meaning: "自由地, 随意地, 无拘束地, 直率地, 坦白地, 慷慨地, 免费地, 大量地； 浮动地", sentence: "I learned the word \"freely\" today." },
-  "definite": { meaning: "明确的, 一定的； 明确的, 确切的, 一定的", sentence: "I learned the word \"definite\" today." },
-  "gasoline": { meaning: "汽油； 汽油", sentence: "I learned the word \"gasoline\" today." },
-  "stiff": { meaning: "坚硬的, 严厉的, 呆板的, 生硬的, 刚强的, 强烈的, 粘的, 稠的, 艰难的；死尸, 醉鬼, 钞票；不肯付...小费", sentence: "I learned the word \"stiff\" today." },
-  "advertise": { meaning: "做广告, 通知, 公布；做广告", sentence: "I learned the word \"advertise\" today." },
-  "upwards": { meaning: "以上, 向上", sentence: "I learned the word \"upwards\" today." },
-  "supermarket": { meaning: "超级市场； 超级市场, 自助售货商店", sentence: "I learned the word \"supermarket\" today." },
-  "nonsense": { meaning: "无意义的事, 荒谬言行, 荒唐", sentence: "I learned the word \"nonsense\" today." },
-  "mysterious": { meaning: "神秘的, 难解的, 不可思议的", sentence: "I learned the word \"mysterious\" today." },
-  "awkward": { meaning: "笨拙的, 棘手的", sentence: "I learned the word \"awkward\" today." },
-  "affection": { meaning: "影响, 病, 喜爱, 情感, 倾向； 疾患, 病变, 病; 感情", sentence: "I learned the word \"affection\" today." },
-  "bubble": { meaning: "泡沫；冒泡, 沸腾；使冒泡, 滔滔不绝地说", sentence: "I learned the word \"bubble\" today." },
-  "dissolve": { meaning: "溶解, 解散", sentence: "I learned the word \"dissolve\" today." },
-  "drum": { meaning: "鼓, 鼓声；击鼓, 作鼓声；打鼓奏出； 磁鼓", sentence: "I learned the word \"drum\" today." },
-  "shallow": { meaning: "水浅的地方, 浅滩；浅的, 肤浅的；(使)变浅", sentence: "I learned the word \"shallow\" today." },
-  "boring": { meaning: "烦人的, 无聊的, 无趣的； 成孔期, 搪孔", sentence: "I learned the word \"boring\" today." },
-  "arrow": { meaning: "箭, 箭状物, 箭头记号", sentence: "I learned the word \"arrow\" today." },
-  "dot": { meaning: "点, 圆点, 小数点, 小东西, 嫁妆；作小点记号, 加小点于；打上点； 点", sentence: "I learned the word \"dot\" today." },
-  "refrigerator": { meaning: "电冰箱, 冷藏库； 冷冻机; 致冷器", sentence: "I learned the word \"refrigerator\" today." },
-  "lively": { meaning: "活泼的, 鲜明的, 生动的", sentence: "I learned the word \"lively\" today." },
-  "ruler": { meaning: "统治者, 管理者, 尺, 直尺；划线板； 标尺", sentence: "I learned the word \"ruler\" today." },
-  "reproduce": { meaning: "繁殖, 再生, 复制, 生殖； 复制", sentence: "I learned the word \"reproduce\" today." },
-  "sleeve": { meaning: "袖子, 套管；缝上袖子", sentence: "I learned the word \"sleeve\" today." },
-  "exam": { meaning: "考试, 测验", sentence: "I learned the word \"exam\" today." },
-  "drawer": { meaning: "抽屉, 开票人； 抽屉", sentence: "I learned the word \"drawer\" today." },
-  "patience": { meaning: "耐性, 忍耐", sentence: "I learned the word \"patience\" today." },
-  "spite": { meaning: "恶意, 怨恨, 使人烦恼的事物；故意刁难, 欺侮", sentence: "I learned the word \"spite\" today." },
-  "calm": { meaning: "平稳, 风平浪静；平静的, 冷静的；平静下来, 镇静；使平静", sentence: "I learned the word \"calm\" today." },
-  "ruin": { meaning: "毁灭, 推翻, 废墟；毁灭, 衰败, 破坏, 破产, 堕落；使毁灭, 毁坏, 使破产", sentence: "I learned the word \"ruin\" today." },
-  "biscuit": { meaning: "饼干； 素坯; 饼干", sentence: "I learned the word \"biscuit\" today." },
-  "runner": { meaning: "跑步者, 赛跑者, 送信人, 走私船, 操作者, 滑槽； 碾碎机; 压碎机", sentence: "I learned the word \"runner\" today." },
-  "biology": { meaning: "生物学； 生物; 生物学", sentence: "I learned the word \"biology\" today." },
-  "indirect": { meaning: "间接的, 非直截了当的, 不坦率的； 间接的", sentence: "I learned the word \"indirect\" today." },
-  "whoever": { meaning: "任何人, 无论谁", sentence: "I learned the word \"whoever\" today." },
-  "atom": { meaning: "原子, 核能, 微粒, 微量； 原子", sentence: "I learned the word \"atom\" today." },
-  "boil": { meaning: "煮沸, 沸腾, 疖；煮沸, 激动", sentence: "I learned the word \"boil\" today." },
-  "encouragement": { meaning: "鼓励, 激励, 奖励； 怂恿, 煽动, 助长", sentence: "I learned the word \"encouragement\" today." },
-  "sock": { meaning: "短袜, 鞋垫, 一击；重击, 猛投, 给...穿袜；打击；正着地, 不偏不倚地；非常成功的", sentence: "I learned the word \"sock\" today." },
-  "sympathetic": { meaning: "有同情心的, 合意的, 赞成的；交感神经, 容易感受的人", sentence: "I learned the word \"sympathetic\" today." },
-  "spoil": { meaning: "战利品, 赃物, 奖品, 变质, 次品；损坏, 破坏, 溺爱；腐坏, 掠夺", sentence: "I learned the word \"spoil\" today." },
-  "soap": { meaning: "肥皂, 阿谀；以肥皂洗, 阿谀； 评语", sentence: "I learned the word \"soap\" today." },
-  "zero": { meaning: "零, 零点, 零度, 无, 乌有, 最低点；零的, 没有的；调零, 对(炮火等)作协调校正； 零", sentence: "I learned the word \"zero\" today." },
-  "absent": { meaning: "缺席的, 不在的, 缺乏的, 漫不经心的；使缺席", sentence: "I learned the word \"absent\" today." },
-  "lump": { meaning: "块, 瘤, 很多, 肿块, 笨人；使成块状, 混在一起；结块", sentence: "I learned the word \"lump\" today." },
-  "waist": { meaning: "腰部, 腰； 腰", sentence: "I learned the word \"waist\" today." },
-  "penny": { meaning: "便士, 一分, 小钱, 点滴； 便士", sentence: "I learned the word \"penny\" today." },
-  "blank": { meaning: "空格, 空白；空白的, 空虚的, 完全的, 无色的；消失, 成为空白；使无效, 取消, 封锁； 空白", sentence: "I learned the word \"blank\" today." },
-  "crush": { meaning: "压碎, 粉碎, 群众, 迷恋；压破, 征服, 塞, 弄皱, 榨出；被压碎, 起皱, 挤", sentence: "I learned the word \"crush\" today." },
-  "spoon": { meaning: "匙, 调羹, 匙形工具；以匙舀起, 调情, 使成匙状", sentence: "I learned the word \"spoon\" today." },
-  "liquid": { meaning: "液体, 流体, 流音；液体的, 透明的, 明亮的, 流动的, 易变的", sentence: "I learned the word \"liquid\" today." },
-  "polish": { meaning: "波兰的；波兰人, 上光剂, 光泽, 优雅；擦亮, 擦去, 使完美；擦亮, 变得光亮", sentence: "I learned the word \"polish\" today." },
-  "pin": { meaning: "大头针, 针, 别针, 栓, 销子, 图钉, 插头, 管脚, 品(液量单位)；将...用针别住, 钉住, 压住, 牵制, 使不能动, 归罪于；针", sentence: "I learned the word \"pin\" today." },
-  "punch": { meaning: "打洞器, 钻孔机, 冲压机, 冲床, 潘趣酒；以拳重击, 开洞, 冲压；用拳猛击", sentence: "I learned the word \"punch\" today." },
-  "smash": { meaning: "打碎, 粉碎, 打碎时哗啦声, 猛击, 扣球, 杀球, 经营失败, 破产, 硬币, 假硬币；非常轰动的, 了不起的；打碎, 粉碎, 击溃, 使破", sentence: "I learned the word \"smash\" today." },
-  "bicycle": { meaning: "自行车", sentence: "I learned the word \"bicycle\" today." },
-  "cheat": { meaning: "欺骗, 作弊, 骗子；欺骗, 逃脱, 骗取", sentence: "I learned the word \"cheat\" today." },
-  "heal": { meaning: "痊愈；使复原, 使和解, 治愈", sentence: "I learned the word \"heal\" today." },
-  "fever": { meaning: "发烧, 发热, 热病； 发热, 热", sentence: "I learned the word \"fever\" today." },
-  "stove": { meaning: "火炉, 窑；用火炉烤；stave的过去式和过去分词", sentence: "I learned the word \"stove\" today." },
-  "grandchild": { meaning: "孙, 外孙女, 外孙, 孙女, 孙子", sentence: "I learned the word \"grandchild\" today." },
-  "shy": { meaning: "惊跳, 惊避；胆怯的, 畏缩的, 迟疑的, 羞怯的；惊退, 乱投, 乱掷, 厌恶, 避开；乱投, 乱掷", sentence: "I learned the word \"shy\" today." },
-  "pencil": { meaning: "铅笔, 色笔, 眉笔, 画笔, 光线束；用铅笔写或涂, 草拟", sentence: "I learned the word \"pencil\" today." },
-  "spray": { meaning: "水沫, 浪花, 水花, 喷雾, 喷雾器, 小树枝；喷雾, 扫射, 喷射；喷, 溅开", sentence: "I learned the word \"spray\" today." },
-  "behalf": { meaning: "利益, 方面", sentence: "I learned the word \"behalf\" today." },
-  "enthusiastic": { meaning: "狂热的, 热心的, 热烈的", sentence: "I learned the word \"enthusiastic\" today." },
-  "loyal": { meaning: "忠诚的, 忠实的, 忠贞的", sentence: "I learned the word \"loyal\" today." },
-  "suspicious": { meaning: "可疑的, 多疑的, 怀疑的； 怀疑的, 令人怀疑的, 可疑的", sentence: "I learned the word \"suspicious\" today." },
-  "sack": { meaning: "麻布袋, 洗劫；把...装入袋, 洗劫", sentence: "I learned the word \"sack\" today." },
-  "mobile": { meaning: "移动的, 易变的, 机动的；活动物体", sentence: "I learned the word \"mobile\" today." },
-  "cruel": { meaning: "残酷的, 令人极痛苦的； 残忍的, 残酷的", sentence: "I learned the word \"cruel\" today." },
-  "entertain": { meaning: "娱乐, 招待, 怀抱；款待", sentence: "I learned the word \"entertain\" today." },
-  "tyre": { meaning: "轮胎；装轮胎于", sentence: "I learned the word \"tyre\" today." },
-  "manufacture": { meaning: "产品, 制造；制造, 假造；制造", sentence: "I learned the word \"manufacture\" today." },
-  "feather": { meaning: "羽毛；长羽毛；用羽毛装饰", sentence: "I learned the word \"feather\" today." },
-  "timetable": { meaning: "时间表", sentence: "I learned the word \"timetable\" today." },
-  "lid": { meaning: "盖子, 限制, 眼睑；给...盖盖子", sentence: "I learned the word \"lid\" today." },
-  "substitute": { meaning: "代理, 代理人, 代用品, 代替者, 代替物；代替；替代, 取代, 代用；代替的, 代用的, 代用品的； 置换; 替代", sentence: "I learned the word \"substitute\" today." },
-  "decoration": { meaning: "装饰, 装饰品", sentence: "I learned the word \"decoration\" today." },
-  "bored": { meaning: "无聊的；烦人的；无趣的", sentence: "I learned the word \"bored\" today." },
-  "kilometre": { meaning: "公里, 千米", sentence: "I learned the word \"kilometre\" today." },
-  "worship": { meaning: "崇拜, 礼拜, 尊敬；参加礼拜；崇拜, 尊敬", sentence: "I learned the word \"worship\" today." },
-  "cure": { meaning: "治疗, 治愈, 治疗法；治疗, 治愈, 改正, 腌制, 加工处理, 使硫化；受治疗, 被加工处理, 被硫化", sentence: "I learned the word \"cure\" today." },
-  "dying": { meaning: "垂死的； 快要死的, 垂死的, 临终的", sentence: "I learned the word \"dying\" today." },
-  "fame": { meaning: "名望, 名声, 传说", sentence: "I learned the word \"fame\" today." },
-  "carrot": { meaning: "胡萝卜； 胡萝卜", sentence: "I learned the word \"carrot\" today." },
-  "allied": { meaning: "联盟的, 联姻的, 联系起来的", sentence: "I learned the word \"allied\" today." },
-  "steer": { meaning: "引导, 驾驶, 航行, 控制；驾驶, 掌舵, 行驶；驾驶指示, 劝告", sentence: "I learned the word \"steer\" today." },
-  "chew": { meaning: "咀嚼, 嚼碎；咀嚼, 细想；咀嚼, 咀嚼物", sentence: "I learned the word \"chew\" today." },
-  "scratch": { meaning: "抓痕, 搔, 抓, 擦伤, 刮擦声, 乱写, 零分, 起跑线；搔, 抓, 挖出, 擦, 刮, 乱涂, 勾抹掉；搔, 抓, 发刮擦声, 勉强糊口", sentence: "I learned the word \"scratch\" today." },
-  "awake": { meaning: "醒着的；唤醒, 唤起, 使意识到；醒来, 被唤起, 意识到", sentence: "I learned the word \"awake\" today." },
-  "useless": { meaning: "无用的, 无效的, 无益的； 无用, 无价值, 无效", sentence: "I learned the word \"useless\" today." },
-  "grandparent": { meaning: "祖父母", sentence: "I learned the word \"grandparent\" today." },
-  "beard": { meaning: "胡须；抓住胡须, 公开反对", sentence: "I learned the word \"beard\" today." },
-  "width": { meaning: "宽度, 宽广, 广博； 宽度", sentence: "I learned the word \"width\" today." },
-  "fur": { meaning: "毛皮；以毛皮制作, 使生苔, 使生水垢；生苔, 积水垢", sentence: "I learned the word \"fur\" today." },
-  "deliberate": { meaning: "深思熟虑的, 故意的, 从容的；仔细考虑", sentence: "I learned the word \"deliberate\" today." },
-  "thread": { meaning: "线, 丝, 纤维, 线索；穿线于, 穿过, 通过, 用线穿成；穿过； 线索, 线程", sentence: "I learned the word \"thread\" today." },
-  "unpleasant": { meaning: "使人不愉快的, 使人厌恶的, 煞风景的", sentence: "I learned the word \"unpleasant\" today." },
-  "chat": { meaning: "闲谈；闲谈, 聊天", sentence: "I learned the word \"chat\" today." },
-  "crowded": { meaning: "拥挤的, 塞满的", sentence: "I learned the word \"crowded\" today." },
-  "headache": { meaning: "头痛, 令人头痛之事； 头痛", sentence: "I learned the word \"headache\" today." },
-  "screw": { meaning: "螺旋, 螺杆, 螺钉, 螺旋桨, 吝啬鬼；调节, 扭紧, 旋, 拧, 加强, 压榨, 勒索；转动, 旋, 拧", sentence: "I learned the word \"screw\" today." },
-  "invention": { meaning: "发明, 创作能力, 虚构的故事； 发明", sentence: "I learned the word \"invention\" today." },
-  "homework": { meaning: "家庭作业, 家里做的工作； 家庭作业", sentence: "I learned the word \"homework\" today." },
-  "tablet": { meaning: "平板, 门牌, 笔记簿, 碑, 匾, 药片； 片剂", sentence: "I learned the word \"tablet\" today." },
-  "sweater": { meaning: "毛衣, 毛线衫, 运动衫, 出汗者； 发汗器", sentence: "I learned the word \"sweater\" today." },
-  "rubber": { meaning: "橡皮, 橡胶, 做摩擦动作的人, 按摩师, 决胜盘；用橡胶制造, 涂橡胶于", sentence: "I learned the word \"rubber\" today." },
-  "vocabulary": { meaning: "词汇(量), 词汇表； 词表", sentence: "I learned the word \"vocabulary\" today." },
-  "swell": { meaning: "增大, 隆起的部分, 巨浪, 肿胀；优秀的, 一流的；增大, 膨胀, 肿胀, 增强, 骄傲；使膨胀, 使增大, 使上涨, 使骄傲", sentence: "I learned the word \"swell\" today." },
-  "bargain": { meaning: "交易, 买卖协定, 特价商品；讲价, 交易", sentence: "I learned the word \"bargain\" today." },
-  "revise": { meaning: "校订, 修正, 改样；校订, 修正, 校正", sentence: "I learned the word \"revise\" today." },
-  "bore": { meaning: "令人讨厌的人, 激浪, 枪膛, 孔；使烦扰, 钻孔；钻孔；bear的过去式； 内径; 孔径", sentence: "I learned the word \"bore\" today." },
-  "pronounce": { meaning: "发音, 宣告, 断言", sentence: "I learned the word \"pronounce\" today." },
-  "dislike": { meaning: "嫌恶；讨厌, 不喜欢", sentence: "I learned the word \"dislike\" today." },
-  "obey": { meaning: "服从, 遵从, 顺从；服从", sentence: "I learned the word \"obey\" today." },
-  "hammer": { meaning: "锤, 铁锤, 钉锤；锤打, 敲打, 钉；连续锤打； 锤头", sentence: "I learned the word \"hammer\" today." },
-  "polite": { meaning: "有礼貌的, 文雅的, 客气的, 有教养的", sentence: "I learned the word \"polite\" today." },
-  "fashionable": { meaning: "时髦的, 上流社会的, 流行的", sentence: "I learned the word \"fashionable\" today." },
-  "surroundings": { meaning: "环境, 周围的事物； 环境", sentence: "I learned the word \"surroundings\" today." },
-  "faithful": { meaning: "忠实的, 详确的, 可靠的；信徒", sentence: "I learned the word \"faithful\" today." },
-  "probable": { meaning: "很可能的, 大概的, 可信的；很有希望的候选人, 很可能的事情", sentence: "I learned the word \"probable\" today." },
-  "unconscious": { meaning: "未意识到的, 无意识的, 无知觉的； 人事不省的, 神志丧失的; 无意识的", sentence: "I learned the word \"unconscious\" today." },
-  "multiply": { meaning: "繁殖, 乘, 增加； 乘", sentence: "I learned the word \"multiply\" today." },
-  "sailor": { meaning: "水手, 船员, 海员； 水手, 船员, 海员", sentence: "I learned the word \"sailor\" today." },
-  "chemist": { meaning: "化学家, 药剂师； 化学家; 化学师; 化学工作者; 药剂师; 药房", sentence: "I learned the word \"chemist\" today." },
-  "cheerful": { meaning: "快活的, 高兴的, 兴高采烈的", sentence: "I learned the word \"cheerful\" today." },
-  "frighten": { meaning: "使惊吓；惊恐", sentence: "I learned the word \"frighten\" today." },
-  "disagreement": { meaning: "不合, 争论, 不一致； 不一致, 不同意, 陪审团的意见不一", sentence: "I learned the word \"disagreement\" today." },
-  "knot": { meaning: "结, 群, 难题；打结, (使)纠缠", sentence: "I learned the word \"knot\" today." },
-  "rob": { meaning: "抢夺, 抢掠, 剥夺", sentence: "I learned the word \"rob\" today." },
-  "horizontal": { meaning: "水平线, 水平面, 水平位置；水平线的, 平坦的, 横的；水平； 水平", sentence: "I learned the word \"horizontal\" today." },
-  "curl": { meaning: "拳曲, 鬈发；弄卷；拳曲, 弯曲", sentence: "I learned the word \"curl\" today." },
-  "ending": { meaning: "终止, 终了, 收场； 末梢", sentence: "I learned the word \"ending\" today." },
-  "ink": { meaning: "墨水, 墨汁；涂墨水于, 签署, 加墨水", sentence: "I learned the word \"ink\" today." },
-  "infect": { meaning: "传染, 感染； 传染, 感染", sentence: "I learned the word \"infect\" today." },
-  "backward": { meaning: "向后地, 相反地；向后的, 相反的； 倒推", sentence: "I learned the word \"backward\" today." },
-  "offend": { meaning: "犯罪, 冒犯, 违反, 进攻", sentence: "I learned the word \"offend\" today." },
-  "noisy": { meaning: "嘈杂的, 喧闹的； 噪声的, 嘈杂的", sentence: "I learned the word \"noisy\" today." },
-  "hatred": { meaning: "憎恨, 仇恨, 憎恶； 敌意, 憎恨, 憎恶", sentence: "I learned the word \"hatred\" today." },
-  "thorough": { meaning: "十分的, 彻底的", sentence: "I learned the word \"thorough\" today." },
-  "sour": { meaning: "酸的, 酸臭的, 发酵的, 愠怒的, 讨厌的, 拙劣的, 不健全的；变酸, 发酵, 厌烦, 变坏；使变酸, 使失望；酸味, 酸饮料", sentence: "I learned the word \"sour\" today." },
-  "underground": { meaning: "地下, 地铁, 地道, 秘密活动；地下的, 秘密的；在地下, 秘密地", sentence: "I learned the word \"underground\" today." },
-  "passport": { meaning: "护照, 手段, 通行证； 通行证, 护照", sentence: "I learned the word \"passport\" today." },
-  "ashamed": { meaning: "惭愧的, 羞耻的", sentence: "I learned the word \"ashamed\" today." },
-  "triangle": { meaning: "三角形, 三个一组, 三角关系； 三角, 三角形", sentence: "I learned the word \"triangle\" today." },
-  "gradual": { meaning: "逐渐的, 渐增的；弥撒升阶圣歌", sentence: "I learned the word \"gradual\" today." },
-  "excite": { meaning: "刺激, 使兴奋, 激励", sentence: "I learned the word \"excite\" today." },
-  "sincerely": { meaning: "真诚地", sentence: "I learned the word \"sincerely\" today." },
-  "bin": { meaning: "(贮存谷物等的)容器, 箱子； 二进制, 商业信息网", sentence: "I learned the word \"bin\" today." },
-  "keyboard": { meaning: "键盘； 键盘", sentence: "I learned the word \"keyboard\" today." },
-  "fridge": { meaning: "电冰箱", sentence: "I learned the word \"fridge\" today." },
-  "waiter": { meaning: "侍者", sentence: "I learned the word \"waiter\" today." },
-  "jam": { meaning: "果酱, 拥塞之物, 堵塞, 困境；挤进, 使塞满, 混杂, 压碎, 使堵塞；堵塞, 轧住, 拥挤", sentence: "I learned the word \"jam\" today." },
-  "poison": { meaning: "毒药, 毒, 毒物, 有毒害的事物；毒害, 毒杀, 使中毒；放毒, 下毒", sentence: "I learned the word \"poison\" today." },
-  "umbrella": { meaning: "伞, 雨伞, 保护伞；伞的, 包罗万象的；用伞遮掩", sentence: "I learned the word \"umbrella\" today." },
-  "underneath": { meaning: "在下面；在...的下面", sentence: "I learned the word \"underneath\" today." },
-  "spider": { meaning: "蜘蛛, 设圈套者； 星形轮", sentence: "I learned the word \"spider\" today." },
-  "goodbye": { meaning: "再见", sentence: "I learned the word \"goodbye\" today." },
-  "unwilling": { meaning: "不愿意的, 勉强的； 不愿意的, 勉强的, 不服从的", sentence: "I learned the word \"unwilling\" today." },
-  "plug": { meaning: "塞子, 栓, 插头；插入, 塞住, 接插头；被塞住", sentence: "I learned the word \"plug\" today." },
-  "wallet": { meaning: "皮夹； 皮包, 皮夹, 钱袋", sentence: "I learned the word \"wallet\" today." },
-  "suitcase": { meaning: "手提箱", sentence: "I learned the word \"suitcase\" today." },
-  "unusually": { meaning: "不寻常地, 异乎寻常地, (非正式)非常", sentence: "I learned the word \"unusually\" today." },
-  "rude": { meaning: "粗鲁无礼的, 粗陋的, 粗暴的, 原始的, 未开化的, 大略的, 崎岖不平的, 狂暴的", sentence: "I learned the word \"rude\" today." },
-  "unsuccessful": { meaning: "不成功的", sentence: "I learned the word \"unsuccessful\" today." },
-  "flu": { meaning: "流感, 流行性感冒", sentence: "I learned the word \"flu\" today." },
-  "aloud": { meaning: "出声地, 大声地", sentence: "I learned the word \"aloud\" today." },
-  "jealous": { meaning: "嫉妒的, 羡慕的, 留心的, 戒备的", sentence: "I learned the word \"jealous\" today." },
-  "sailing": { meaning: "航行, 航海术, 启航；航行的", sentence: "I learned the word \"sailing\" today." },
-  "litre": { meaning: "升, 公升； 升", sentence: "I learned the word \"litre\" today." },
-  "cough": { meaning: "咳嗽；咳嗽；咳出", sentence: "I learned the word \"cough\" today." },
-  "shave": { meaning: "修面, 刮胡子, 幸免, 剃刀；修面, 剃, 修剪, 掠过；刮脸, 勉强通过", sentence: "I learned the word \"shave\" today." },
-  "spelling": { meaning: "拼, 拼字, 拼法； 拼写检查", sentence: "I learned the word \"spelling\" today." },
-  "harmful": { meaning: "有害的, 伤害的", sentence: "I learned the word \"harmful\" today." },
-  "transparent": { meaning: "透明的, 显然的, 清晰的； 透明", sentence: "I learned the word \"transparent\" today." },
-  "exaggerate": { meaning: "夸大, 夸张", sentence: "I learned the word \"exaggerate\" today." },
-  "complicate": { meaning: "弄复杂, 使错综, 使恶化；变复杂", sentence: "I learned the word \"complicate\" today." },
-  "hobby": { meaning: "嗜好, 癖好, 爱好", sentence: "I learned the word \"hobby\" today." },
-  "enjoyable": { meaning: "可从中得到乐趣的, 令人愉快的", sentence: "I learned the word \"enjoyable\" today." },
-  "decay": { meaning: "衰退, 腐败；(使)衰退, (使)腐败", sentence: "I learned the word \"decay\" today." },
-  "gallon": { meaning: "加仑； 加仑", sentence: "I learned the word \"gallon\" today." },
-  "sticky": { meaning: "粘的, 有粘性的, 顽固的", sentence: "I learned the word \"sticky\" today." },
-  "dentist": { meaning: "牙科医生； 牙医师", sentence: "I learned the word \"dentist\" today." },
-  "motorcycle": { meaning: "摩托车； 机动车, 机踏车, 摩托车", sentence: "I learned the word \"motorcycle\" today." },
-  "indoor": { meaning: "户内的, 室内的", sentence: "I learned the word \"indoor\" today." },
-  "crisp": { meaning: "脆的, 新鲜的, 活泼的；(使)烘脆, (使)拳曲, (使)起皱；松脆物", sentence: "I learned the word \"crisp\" today." },
-  "lazy": { meaning: "懒惰的, 怠惰的, 缓慢的；懒散", sentence: "I learned the word \"lazy\" today." },
-  "stripe": { meaning: "斑纹, 条纹； 纹, 条纹", sentence: "I learned the word \"stripe\" today." },
-  "noticeable": { meaning: "显而易见的, 显著的, 值得注意的", sentence: "I learned the word \"noticeable\" today." },
-  "sore": { meaning: "悲伤的, 痛的, 引起痛苦的；痛处, 溃疡, 疮", sentence: "I learned the word \"sore\" today." },
-  "nephew": { meaning: "侄子, 外甥", sentence: "I learned the word \"nephew\" today." },
-  "tidy": { meaning: "椅子的背罩, 装杂物的容器；整齐的, 有条理的；弄整齐, 收拾, 整理；整理, 收拾", sentence: "I learned the word \"tidy\" today." },
-  "undo": { meaning: "解开, 取消, 破坏, 毁灭, 扰乱；松开； 撤消", sentence: "I learned the word \"undo\" today." },
-  "sew": { meaning: "缝纫, 缝合, 缝；缝纫", sentence: "I learned the word \"sew\" today." },
-  "whistle": { meaning: "口哨, 汽笛, 啸啸声, 口哨声；吹口哨, 鸣汽笛, 发嘘嘘声；用口哨或吹哨传意, 用口哨演奏", sentence: "I learned the word \"whistle\" today." },
-  "imaginary": { meaning: "想像的, 虚构的, 假想的", sentence: "I learned the word \"imaginary\" today." },
-  "underwear": { meaning: "内衣", sentence: "I learned the word \"underwear\" today." },
-  "disgusting": { meaning: "令人厌恶的", sentence: "I learned the word \"disgusting\" today." },
-  "insult": { meaning: "侮辱, 无礼, 损害；损害, 侮辱, 攻击", sentence: "I learned the word \"insult\" today." },
-  "sideways": { meaning: "向旁边, 向侧面地；旁边的, 向侧面的", sentence: "I learned the word \"sideways\" today." },
-  "grandson": { meaning: "孙子, 外孙", sentence: "I learned the word \"grandson\" today." },
-  "clap": { meaning: "拍手, 拍手声, 霹雳声, 花柳病；鼓掌, (使)啪地关上", sentence: "I learned the word \"clap\" today." },
-  "curb": { meaning: "抑制, 勒马绳, 边石；抑制, 束缚, 勒住", sentence: "I learned the word \"curb\" today." },
-  "worse": { meaning: "更坏的事, 更恶劣的事, 败局；更坏的, 更恶劣的；更坏地, 更恶劣地", sentence: "I learned the word \"worse\" today." },
-  "sincere": { meaning: "诚实的, 正直的, 真挚的, 纯净的", sentence: "I learned the word \"sincere\" today." },
-  "accidental": { meaning: "意外的, 偶然的, 非主要的, 附属的；临时记号, 次要方面", sentence: "I learned the word \"accidental\" today." },
-  "harmless": { meaning: "无害处的, 未受损害的, 无辜的, 无恶意的； 无害的, 无恶意的, 无损害的", sentence: "I learned the word \"harmless\" today." },
-  "kindness": { meaning: "仁慈, 亲切, 和蔼", sentence: "I learned the word \"kindness\" today." },
-  "hollow": { meaning: "洞, 窟窿, 山谷；空的, 虚伪的, 空腹的, 凹的；形成空洞；挖空", sentence: "I learned the word \"hollow\" today." },
-  "impatient": { meaning: "不耐烦的, 着急的, 急切的", sentence: "I learned the word \"impatient\" today." },
-  "fry": { meaning: "油炸食物, 鱼苗；油炸, 煎", sentence: "I learned the word \"fry\" today." },
-  "infectious": { meaning: "有传染性的, 易传染的； 传染性的", sentence: "I learned the word \"infectious\" today." },
-  "embarrass": { meaning: "使困窘, 使局促不安, 阻碍", sentence: "I learned the word \"embarrass\" today." },
-  "fasten": { meaning: "拴紧, 使固定, 系, 集中于, 强加于；扣紧", sentence: "I learned the word \"fasten\" today." },
-  "luggage": { meaning: "行李, 皮箱", sentence: "I learned the word \"luggage\" today." },
-  "unload": { meaning: "卸货；从...卸下, 摆脱...之负担, 倾销, 卸(货)； 卸载", sentence: "I learned the word \"unload\" today." },
-  "glue": { meaning: "胶, 粘性物；粘合, 胶合", sentence: "I learned the word \"glue\" today." },
-  "cooker": { meaning: "炊事用具, 炉灶, 锅, 炊具, 烹饪用水果, 窜改者, 伪造者； 蒸锅", sentence: "I learned the word \"cooker\" today." },
-  "baggage": { meaning: "行李； 行李", sentence: "I learned the word \"baggage\" today." },
-  "disgust": { meaning: "厌恶, 嫌恶；令人厌恶；使作呕", sentence: "I learned the word \"disgust\" today." },
-  "niece": { meaning: "侄女, 甥女", sentence: "I learned the word \"niece\" today." },
-  "outdoors": { meaning: "户外, 野外活动；在户外, 在野外", sentence: "I learned the word \"outdoors\" today." },
-  "midday": { meaning: "正午, 中午；正午的", sentence: "I learned the word \"midday\" today." },
-  "careless": { meaning: "粗心的, 不关心的, 无忧无虑的", sentence: "I learned the word \"careless\" today." },
-  "annoy": { meaning: "使恼怒, 骚扰", sentence: "I learned the word \"annoy\" today." },
-  "spicy": { meaning: "香的, 多香料的, 辛辣的, 下流的", sentence: "I learned the word \"spicy\" today." },
-  "indoors": { meaning: "在户内", sentence: "I learned the word \"indoors\" today." },
-  "pants": { meaning: "裤子, 长裤, 短衬裤, 女式运动短裤", sentence: "I learned the word \"pants\" today." },
-  "alcoholic": { meaning: "酒鬼, 酒精中毒者；酒精的", sentence: "I learned the word \"alcoholic\" today." },
-  "irritate": { meaning: "激怒, 使发怒, 使兴奋, 使发炎；引起不快", sentence: "I learned the word \"irritate\" today." },
-  "sting": { meaning: "叮, 刺痛, 刺激, 讽刺；叮, 刺痛, 刺激, 使苦恼；叮, 刺痛", sentence: "I learned the word \"sting\" today." },
-  "pronunciation": { meaning: "发音, 读法", sentence: "I learned the word \"pronunciation\" today." },
-  "disappoint": { meaning: "使失望", sentence: "I learned the word \"disappoint\" today." },
-  "awfully": { meaning: "恶劣地, 非常地, 极端地", sentence: "I learned the word \"awfully\" today." },
-  "disapprove": { meaning: "不赞成", sentence: "I learned the word \"disapprove\" today." },
-  "granddaughter": { meaning: "孙女, 外孙女", sentence: "I learned the word \"granddaughter\" today." },
-  "unlucky": { meaning: "不吉利的, 不祥的, 不幸的", sentence: "I learned the word \"unlucky\" today." },
-  "amaze": { meaning: "使吃惊", sentence: "I learned the word \"amaze\" today." },
-  "scissors": { meaning: "剪刀； 剪", sentence: "I learned the word \"scissors\" today." },
-  "amuse": { meaning: "消遣, 娱乐, 使发笑", sentence: "I learned the word \"amuse\" today." },
-  "centimetre": { meaning: "厘米, 公分", sentence: "I learned the word \"centimetre\" today." },
-  "gram": { meaning: "克, 绿豆, 鹰嘴豆； 克", sentence: "I learned the word \"gram\" today." },
-  "gamble": { meaning: "赌博, 冒险；赌博, 孤注一掷", sentence: "I learned the word \"gamble\" today." },
-  "alphabet": { meaning: "字母； 字母表", sentence: "I learned the word \"alphabet\" today." },
-  "salty": { meaning: "有盐分的, 咸味浓的, 海洋的, 辛辣的, 有经验的", sentence: "I learned the word \"salty\" today." },
-  "bandage": { meaning: "绷带； 帘布筒; 实心轮胎; 紧带; 绷带", sentence: "I learned the word \"bandage\" today." },
-  "depress": { meaning: "使沮丧, 压低, 降低, 使萧条； 推下", sentence: "I learned the word \"depress\" today." },
-  "humorous": { meaning: "富幽默感的, 滑稽的, 诙谐的", sentence: "I learned the word \"humorous\" today." },
-  "surname": { meaning: "姓, 别号, 绰号；呼以姓氏, 起绰号", sentence: "I learned the word \"surname\" today." },
-  "unimportant": { meaning: "不重要的", sentence: "I learned the word \"unimportant\" today." },
-  "mistaken": { meaning: "犯错的, 错误的；mistake的过去分词", sentence: "I learned the word \"mistaken\" today." },
-  "poisonous": { meaning: "有毒的, 恶毒的, 讨厌的； 有毒的", sentence: "I learned the word \"poisonous\" today." },
-  "millimetre": { meaning: "毫米； 公厘", sentence: "I learned the word \"millimetre\" today." },
-  "approximate": { meaning: "大约的, 接近的, 近似的；接近, 使接近, 粗略估计；接近于", sentence: "I learned the word \"approximate\" today." },
-  "cent": { meaning: "分； 美分", sentence: "I learned the word \"cent\" today." },
-  "thirsty": { meaning: "口渴的, 渴望的, 干燥的", sentence: "I learned the word \"thirsty\" today." },
-  "yawn": { meaning: "哈欠；打哈欠, 裂开；打着哈欠说", sentence: "I learned the word \"yawn\" today." },
-  "unkind": { meaning: "不仁慈的, 不亲切的", sentence: "I learned the word \"unkind\" today." },
-  "bent": { meaning: "弯曲的, 决心的；爱好；bend的过去式和过去分词", sentence: "I learned the word \"bent\" today." },
-  "kilogram": { meaning: "千克, 公斤； 千克, 公斤", sentence: "I learned the word \"kilogram\" today." },
-  "mr": { meaning: "先生； 存储器回收程序, 多重请求", sentence: "I learned the word \"mr\" today." },
-  "including": { meaning: "包含, 包括； 包括, 算入", sentence: "I learned the word \"including\" today." },
-  "mrs": { meaning: "太太", sentence: "I learned the word \"mrs\" today." },
-  "concerned": { meaning: "关心的, 有关的, 参与的, 担心的", sentence: "I learned the word \"concerned\" today." },
-  "environmental": { meaning: "周围的, 环境的； 环境的, 环保的", sentence: "I learned the word \"environmental\" today." },
-  "united": { meaning: "联合的, 团结的, 一致的, 和睦的； 联合的, 统一的, 一致的", sentence: "I learned the word \"united\" today." },
-  "cultural": { meaning: "文化的, 教养的, 修养的； 培养的", sentence: "I learned the word \"cultural\" today." },
-  "planning": { meaning: "计划的制订, 策划, 设计, 规划； 计划, 规划", sentence: "I learned the word \"planning\" today." },
-  "opposition": { meaning: "反对, 敌对, 相反, 在野党； 对生, 对向, 反抗, 反对症", sentence: "I learned the word \"opposition\" today." },
-  "mum": { meaning: "菊花, 沉默；沉默的；演哑剧；别说话", sentence: "I learned the word \"mum\" today." },
-  "fully": { meaning: "十分地, 完全地, 充分地", sentence: "I learned the word \"fully\" today." },
-  "interested": { meaning: "感兴趣的； 有利害关系的, 有股份的, 偏私的", sentence: "I learned the word \"interested\" today." },
-  "ms": { meaning: "美国微软公司； 主存储器, 制造系统, 毫秒, 微软公司", sentence: "I learned the word \"ms\" today." },
-  "apparently": { meaning: "表面上, 清楚地, 显然地", sentence: "I learned the word \"apparently\" today." },
-  "regional": { meaning: "地方的, 地域性的； 区的, 部位的", sentence: "I learned the word \"regional\" today." },
-  "entirely": { meaning: "完全, 全然, 一概", sentence: "I learned the word \"entirely\" today." },
-  "equally": { meaning: "相等地, 同样地, 平等地", sentence: "I learned the word \"equally\" today." },
-  "working": { meaning: "工作, 运转, 劳动；工作的, 劳动的, 经营的, 抽搐的, 运转的", sentence: "I learned the word \"working\" today." },
-  "detailed": { meaning: "详细的, 复杂的； 详细的, 详尽的", sentence: "I learned the word \"detailed\" today." },
-  "prepared": { meaning: "准备好的, 特制的", sentence: "I learned the word \"prepared\" today." },
-  "effectively": { meaning: "有效地, 有力地, 实际上", sentence: "I learned the word \"effectively\" today." },
-  "landscape": { meaning: "风景, 山水, 风景画；从事景观美化；美化...景观； 横向", sentence: "I learned the word \"landscape\" today." },
-  "afterwards": { meaning: "然后, 后来", sentence: "I learned the word \"afterwards\" today." },
-  "specifically": { meaning: "特定地, 明确地, 按特性", sentence: "I learned the word \"specifically\" today." },
-  "originally": { meaning: "本来, 原来, 最初, 就起源而论, 独创地", sentence: "I learned the word \"originally\" today." },
-  "typically": { meaning: "代表性地；作为特色地", sentence: "I learned the word \"typically\" today." },
-  "fishing": { meaning: "钓鱼, 鱼业；钓鱼的", sentence: "I learned the word \"fishing\" today." },
-  "bother": { meaning: "烦扰, 迷惑；烦恼, 操心；麻烦, 纠纷, 讨厌的人", sentence: "I learned the word \"bother\" today." },
-  "involvement": { meaning: "卷入, 牵连, 包含, 困窘； 财政困难, 经济上的困窘", sentence: "I learned the word \"involvement\" today." },
-  "cd": { meaning: "镭射碟, 镭射唱片； 光盘, 压缩盘, 载波检测, DOS内部命令:显示或改变当前目录", sentence: "I learned the word \"cd\" today." },
-  "partnership": { meaning: "合伙, 合股, 合作关系； 合伙(合作)关系, 全体合伙人", sentence: "I learned the word \"partnership\" today." },
-  "remaining": { meaning: "剩余的", sentence: "I learned the word \"remaining\" today." },
-  "essentially": { meaning: "本质上, 本来", sentence: "I learned the word \"essentially\" today." },
-  "initially": { meaning: "最初, 开头", sentence: "I learned the word \"initially\" today." },
-  "armed": { meaning: "有扶手的, 武装的, 有防卫器官的； 武装的, 持械的, \"F带武器的", sentence: "I learned the word \"armed\" today." },
-  "fixed": { meaning: "固定的, 不变的； 固定的, 确定的, 不变的", sentence: "I learned the word \"fixed\" today." },
-  "precisely": { meaning: "精确地, 明确地, 刻板地, 拘泥地, 正好, 恰恰, 对, 正是如此, 确实如此, 不错", sentence: "I learned the word \"precisely\" today." },
-  "retirement": { meaning: "退休, 隐居, 撤退； 退休, 退股, (固定资产)报废", sentence: "I learned the word \"retirement\" today." },
-  "recording": { meaning: "记录的, 记录用的；录音", sentence: "I learned the word \"recording\" today." },
-  "briefly": { meaning: "简短地, 扼要地, 简明地, 简单地", sentence: "I learned the word \"briefly\" today." },
-  "written": { meaning: "书面的, 写成文字的；write的过去分词", sentence: "I learned the word \"written\" today." },
-  "satisfied": { meaning: "感到满意的", sentence: "I learned the word \"satisfied\" today." },
-  "lost": { meaning: "失去的, 遗失的, 迷惑的；lose的过去式和过去分词", sentence: "I learned the word \"lost\" today." },
-  "related": { meaning: "讲述的, 叙述的；有关系的, 有关联的", sentence: "I learned the word \"related\" today." },
-  "hunting": { meaning: "狩猎, 猎狐, 探求； 寻找平衡; 寻找", sentence: "I learned the word \"hunting\" today." },
-  "unemployed": { meaning: "失业的, 未被利用的； 没有被雇用的, 失业的, 没有被利用的", sentence: "I learned the word \"unemployed\" today." },
-  "aged": { meaning: "老的, 陈的, 有...岁的； 老化的; 老化了的; 陈化的; 陈化了的", sentence: "I learned the word \"aged\" today." },
-  "scared": { meaning: "害怕的, 担惊受怕的, 惊慌的, 吓坏了的", sentence: "I learned the word \"scared\" today." },
-  "traveller": { meaning: "旅行者； 旅行商", sentence: "I learned the word \"traveller\" today." },
-  "mall": { meaning: "林荫路", sentence: "I learned the word \"mall\" today." },
-  "girlfriend": { meaning: "女朋友", sentence: "I learned the word \"girlfriend\" today." },
-  "informal": { meaning: "非正式的, 不拘礼的, 通俗的； 非正式的, 日常使用的", sentence: "I learned the word \"informal\" today." },
-  "cooking": { meaning: "烹饪； 熬炼; 热炼; 蒸煮", sentence: "I learned the word \"cooking\" today." },
-  "killing": { meaning: "谋杀, 杀戮；杀害的, 疲惫的, 迷人的", sentence: "I learned the word \"killing\" today." },
-  "farming": { meaning: "农业, 耕作", sentence: "I learned the word \"farming\" today." },
-  "publishing": { meaning: "出版, 刊印, 发行", sentence: "I learned the word \"publishing\" today." },
-  "tonne": { meaning: "吨, 公吨； 吨", sentence: "I learned the word \"tonne\" today." },
-  "disappointed": { meaning: "失望的", sentence: "I learned the word \"disappointed\" today." },
-  "boyfriend": { meaning: "男朋友", sentence: "I learned the word \"boyfriend\" today." },
-  "excited": { meaning: "兴奋的, 已励磁的, 已激发的, 激昂的, 激动的", sentence: "I learned the word \"excited\" today." },
-  "closed": { meaning: "关闭的, 限于少数人的； 关闭指令", sentence: "I learned the word \"closed\" today." },
-  "mixed": { meaning: "混合的, 形形色色的, 弄糊涂的； 混合的", sentence: "I learned the word \"mixed\" today." },
-  "formerly": { meaning: "从前, 以前", sentence: "I learned the word \"formerly\" today." },
-  "confused": { meaning: "困惑的, 混乱的", sentence: "I learned the word \"confused\" today." },
-  "coloured": { meaning: "有色的, 有...色的, 经过渲染的, 有色彩的, 伪装的, 有色人种的, 混血种的；有色人种的人, 混血人； 着色的", sentence: "I learned the word \"coloured\" today." },
-  "walking": { meaning: "步行, 步态；步行的, 步行用的", sentence: "I learned the word \"walking\" today." },
-  "dancer": { meaning: "舞蹈演员, 跳舞者", sentence: "I learned the word \"dancer\" today." },
-  "retired": { meaning: "隐退的, 退休的, 退役的； 退休的, 已收回的", sentence: "I learned the word \"retired\" today." },
-  "driving": { meaning: "赶, 操纵, 驾驶；推进的, 强劲的, 精力旺盛的", sentence: "I learned the word \"driving\" today." },
-  "frozen": { meaning: "冻结的, 冰冷的, 严寒的, 冻伤的, 冷酷的；freeze的过去分词", sentence: "I learned the word \"frozen\" today." },
-  "backwards": { meaning: "向后", sentence: "I learned the word \"backwards\" today." },
-  "photography": { meaning: "摄影, 摄影术； 照相术", sentence: "I learned the word \"photography\" today." },
-  "alternatively": { meaning: "非此即彼", sentence: "I learned the word \"alternatively\" today." },
-  "substantially": { meaning: "实质上, 本质上, 大体上", sentence: "I learned the word \"substantially\" today." },
-  "determined": { meaning: "坚决的, 已下决心的", sentence: "I learned the word \"determined\" today." },
-  "washing": { meaning: "洗涤, 浸, 洗涤物； 涂浆, 洗涤", sentence: "I learned the word \"washing\" today." },
-  "broadly": { meaning: "宽广地, 明白地, 无礼貌地", sentence: "I learned the word \"broadly\" today." },
-  "depressed": { meaning: "沮丧的, 降低的； 抑郁的, 阻抑的, 压低的, 凹的, 扁平的", sentence: "I learned the word \"depressed\" today." },
-  "qualified": { meaning: "有资格的； 合格的, 有条件的, 有限制的", sentence: "I learned the word \"qualified\" today." },
-  "passing": { meaning: "通过, 逝去, 死, 流逝；经过的, 流逝的, 目前的, 短暂的, 及格的, 仓促的", sentence: "I learned the word \"passing\" today." },
-  "km": { meaning: "千米, 公里", sentence: "I learned the word \"km\" today." },
-  "embarrassment": { meaning: "困难, 阻碍, 困窘； 窘迫", sentence: "I learned the word \"embarrassment\" today." },
-  "openly": { meaning: "公开地, 坦率地, 直率地, 公然地", sentence: "I learned the word \"openly\" today." },
-  "honestly": { meaning: "真诚地, 公正地", sentence: "I learned the word \"honestly\" today." },
-  "embarrassed": { meaning: "尴尬的；窘迫的", sentence: "I learned the word \"embarrassed\" today." },
-  "privately": { meaning: "秘密地；私下地", sentence: "I learned the word \"privately\" today." },
-  "varied": { meaning: "不同的, 杂色的, 各式各样的； 不同的, 种种的, 变化的", sentence: "I learned the word \"varied\" today." },
-  "jewellery": { meaning: "宝石, 贵重饰物, 珠宝, 宝石饰物, 受珍视的人/物, 宝贝, 有价值的人/物", sentence: "I learned the word \"jewellery\" today." },
-  "organized": { meaning: "有组织的, 组织起来的", sentence: "I learned the word \"organized\" today." },
-  "ideally": { meaning: "完美地, 理想地", sentence: "I learned the word \"ideally\" today." },
-  "devoted": { meaning: "投入的, 深爱的", sentence: "I learned the word \"devoted\" today." },
-  "unacceptable": { meaning: "无法接受的, 不受欢迎的； 不能接受的, 不受欢迎的, 难以承认的", sentence: "I learned the word \"unacceptable\" today." },
-  "inability": { meaning: "无能, 无力", sentence: "I learned the word \"inability\" today." },
-  "shiny": { meaning: "有光泽的, 发光的, 辉煌的, 磨光的, 磨损的", sentence: "I learned the word \"shiny\" today." },
-  "worrying": { meaning: "使人烦恼的, 忧虑重重的", sentence: "I learned the word \"worrying\" today." },
-  "injured": { meaning: "受伤的, 受损害的, 被触怒的； 受害的, 被害的", sentence: "I learned the word \"injured\" today." },
-  "winning": { meaning: "胜利, 获得, 成功, 赢得物；得胜的, 胜利的", sentence: "I learned the word \"winning\" today." },
-  "promptly": { meaning: "敏捷地, 迅速地", sentence: "I learned the word \"promptly\" today." },
-  "repeated": { meaning: "重复的, 再三的； 反复的, 再三的, 屡次的", sentence: "I learned the word \"repeated\" today." },
-  "enjoyment": { meaning: "享乐, 快乐, 享受； 使用权", sentence: "I learned the word \"enjoyment\" today." },
-  "unreasonable": { meaning: "不合理的, 过度的, 不切实际的； 不讲道理的, 非理智的, 不合理的", sentence: "I learned the word \"unreasonable\" today." },
-  "nicely": { meaning: "漂亮地, 谨慎地, 恰好地", sentence: "I learned the word \"nicely\" today." },
-  "wildly": { meaning: "狂暴地, 激动地, 狂热地, 鲁莽地, 轻率地", sentence: "I learned the word \"wildly\" today." },
-  "disappointing": { meaning: "使失望的, 期待落空的, 令人沮丧的", sentence: "I learned the word \"disappointing\" today." },
-  "spice": { meaning: "香料, 药料, 香气, 调味品, 情趣, 少许；加香料, 使添趣味", sentence: "I learned the word \"spice\" today." },
-  "packaging": { meaning: "包装, 包装业, 包装术； 组装; 封装", sentence: "I learned the word \"packaging\" today." },
-  "restricted": { meaning: "受限制的, 有限的", sentence: "I learned the word \"restricted\" today." },
-  "knitting": { meaning: "编结, 针织法, 针织, 编结法, 编结物, 针织品； 骨愈合", sentence: "I learned the word \"knitting\" today." },
-  "educated": { meaning: "受过教育的, 有教养的", sentence: "I learned the word \"educated\" today." },
-  "comfortably": { meaning: "安乐地, 舒服地, 宽裕地", sentence: "I learned the word \"comfortably\" today." },
-  "kindly": { meaning: "和蔼的, 温和的, 爽快的；温和地, 亲切地", sentence: "I learned the word \"kindly\" today." },
-  "shocking": { meaning: "令人震惊的, 极坏的, 不正当的", sentence: "I learned the word \"shocking\" today." },
-  "attempted": { meaning: "企图的；未遂的", sentence: "I learned the word \"attempted\" today." },
-  "decorative": { meaning: "装饰性的", sentence: "I learned the word \"decorative\" today." },
-  "moving": { meaning: "动人的, 令人感动的, 鼓动的, 原动的, 活动的, 转动的", sentence: "I learned the word \"moving\" today." },
-  "blonde": { meaning: "(头发)亚麻色的, 淡色的, 白肤金发碧眼的, 白里透红的, 白皙的, 淡黄色的；肤色白皙的金发女人", sentence: "I learned the word \"blonde\" today." },
-  "abandoned": { meaning: "被抛弃的, 无约束的, 恣意放荡的", sentence: "I learned the word \"abandoned\" today." },
-  "confusing": { meaning: "令人困惑的；混淆的；混乱的", sentence: "I learned the word \"confusing\" today." },
-  "satisfying": { meaning: "满意的, 充分的, 足可相信的", sentence: "I learned the word \"satisfying\" today." },
-  "matching": { meaning: "相同的, 协调的； 匹配, 对比", sentence: "I learned the word \"matching\" today." },
-  "amusing": { meaning: "有趣的, 引人发笑的", sentence: "I learned the word \"amusing\" today." },
-  "finished": { meaning: "完成的, 完结的, 精巧的, 完美的", sentence: "I learned the word \"finished\" today." },
-  "oddly": { meaning: "奇怪地", sentence: "I learned the word \"oddly\" today." },
-  "singing": { meaning: "歌唱, 歌声； 振鸣; 蜂鸣", sentence: "I learned the word \"singing\" today." },
-  "curved": { meaning: "弯曲的；弄弯的", sentence: "I learned the word \"curved\" today." },
-  "opposing": { meaning: "对面的, 反对的, 相反的, 相对的", sentence: "I learned the word \"opposing\" today." },
-  "calmly": { meaning: "平静地, 安静地, 冷静地", sentence: "I learned the word \"calmly\" today." },
-  "amused": { meaning: "愉快的, 被逗乐的", sentence: "I learned the word \"amused\" today." },
-  "climbing": { meaning: "攀缘而登的, 上升的；攀登", sentence: "I learned the word \"climbing\" today." },
-  "depressing": { meaning: "抑压的, 沉闷的, 阴沉的", sentence: "I learned the word \"depressing\" today." },
-  "downwards": { meaning: "向下", sentence: "I learned the word \"downwards\" today." },
-  "annoyed": { meaning: "恼怒的；烦闷的", sentence: "I learned the word \"annoyed\" today." },
-  "pleasing": { meaning: "令人喜爱的, 愉快的, 舒适的", sentence: "I learned the word \"pleasing\" today." },
-  "congratulations": { meaning: "祝贺词, 祝贺语", sentence: "I learned the word \"congratulations\" today." },
-  "rounded": { meaning: "圆形的, 滚圆的, 完整的, 圆润的", sentence: "I learned the word \"rounded\" today." },
-  "racing": { meaning: "赛马, 赛车； 空转, 急转", sentence: "I learned the word \"racing\" today." },
-  "cardboard": { meaning: "薄纸板； 咭纸; 特等纸板; 卡纸板; 卡片纸板", sentence: "I learned the word \"cardboard\" today." },
-  "hairdresser": { meaning: "美发师, 理发师", sentence: "I learned the word \"hairdresser\" today." },
-  "jelly": { meaning: "果冻, 果冻甜食, 胶状物；(使)结冻, (使)成胶状", sentence: "I learned the word \"jelly\" today." },
-  "striped": { meaning: "有斑纹的", sentence: "I learned the word \"striped\" today." },
-  "annoying": { meaning: "恼人的, 讨厌的", sentence: "I learned the word \"annoying\" today." },
-  "skilful": { meaning: "灵巧的, 熟练的, 制作精巧的", sentence: "I learned the word \"skilful\" today." },
-  "pointed": { meaning: "尖的, 有尖顶的, 锐利的, 率直的, 显然的", sentence: "I learned the word \"pointed\" today." },
-  "shaped": { meaning: "成某种形状的, 制成一定形状的, 有某种形状的, 合适的, 计划好的, 有目标的； 具形的, 形似的", sentence: "I learned the word \"shaped\" today." },
-  "entertainer": { meaning: "表演娱乐节目的人, 演艺人员", sentence: "I learned the word \"entertainer\" today." },
-  "disapproval": { meaning: "不赞成", sentence: "I learned the word \"disapproval\" today." },
-  "underwater": { meaning: "在水中的；在水下", sentence: "I learned the word \"underwater\" today." },
-  "covered": { meaning: "隐蔽着的, 掩藏着的, 有屋顶的； 涂抹了的, 覆盖了的, 掩盖了的", sentence: "I learned the word \"covered\" today." },
-  "curly": { meaning: "拳曲的, 卷毛的, 弯曲的", sentence: "I learned the word \"curly\" today." },
-  "drugstore": { meaning: "药房, 杂货店", sentence: "I learned the word \"drugstore\" today." },
-  "cracked": { meaning: "破碎的, 破裂的, 声音嘶哑的； 有裂缝的, 裂化的", sentence: "I learned the word \"cracked\" today." },
-  "exaggerated": { meaning: "夸大的, 夸张的, 言过其实的", sentence: "I learned the word \"exaggerated\" today." },
-  "swollen": { meaning: "肿大的, 涨水的, 夸张的, 骄傲的；swell的过去分词", sentence: "I learned the word \"swollen\" today." },
-  "covering": { meaning: "覆盖物, 掩蔽物；掩护的, 掩盖的； 覆盖", sentence: "I learned the word \"covering\" today." },
-  "swelling": { meaning: "肿胀, 肿大, 隆起部, 身上的肿胀处, 膨胀, 增大；肿大的, 突起的", sentence: "I learned the word \"swelling\" today." },
-  "immoral": { meaning: "不道德的, 邪恶的, 放荡的； 不道德的, 道德败坏的, 邪恶的", sentence: "I learned the word \"immoral\" today." },
-  "untidy": { meaning: "不整齐的, 懒散的, 混乱的", sentence: "I learned the word \"untidy\" today." },
-  "faithfully": { meaning: "忠实地, 诚心诚意地, 深信着地", sentence: "I learned the word \"faithfully\" today." },
-  "excluding": { meaning: "把...排除在外, 不包括..., 不计...", sentence: "I learned the word \"excluding\" today." },
-  "dishonest": { meaning: "不诚实的； 不忠实的, 不诚实的, 欺诈的", sentence: "I learned the word \"dishonest\" today." },
-  "sewing": { meaning: "缝制品, 缝纫", sentence: "I learned the word \"sewing\" today." },
-  "riding": { meaning: "骑, 乘车, 乘, 骑术, 骑马", sentence: "I learned the word \"riding\" today." },
-  "engaged": { meaning: "忙碌的, 使用中的", sentence: "I learned the word \"engaged\" today." },
-  "ruined": { meaning: "毁灭的, 没落的, 荒废的", sentence: "I learned the word \"ruined\" today." },
-  "beak": { meaning: "鸟嘴, 喙； 嘴, 喙", sentence: "I learned the word \"beak\" today." },
-  "disgusted": { meaning: "厌恶的；厌烦的", sentence: "I learned the word \"disgusted\" today." },
-  "threatening": { meaning: "胁迫的, 危险的； 威胁的, 恐吓的, 危险的", sentence: "I learned the word \"threatening\" today." },
-  "uncontrolled": { meaning: "不受抑制的, 不受控制的, 自由的", sentence: "I learned the word \"uncontrolled\" today." },
-  "tiring": { meaning: "引起疲劳的, 累人的； 轮箍术(髌骨骨折时)", sentence: "I learned the word \"tiring\" today." },
-  "justified": { meaning: "有道理的, 合乎情理的； 两端对齐的", sentence: "I learned the word \"justified\" today." },
-  "attached": { meaning: "附加的；依恋的, 充满爱心的", sentence: "I learned the word \"attached\" today." },
-  "pt": { meaning: "点, 处理时间, 可编程序终端； 铂(78号元素)", sentence: "I learned the word \"pt\" today." },
-  "gm": { meaning: "通用汽车公司, 总经理, 导弹； 通用汽车公司", sentence: "I learned the word \"gm\" today." },
-  "unfriendly": { meaning: "不友善地", sentence: "I learned the word \"unfriendly\" today." },
-  "wrapping": { meaning: "用于包裹的材料； 绕接", sentence: "I learned the word \"wrapping\" today." },
-  "confined": { meaning: "被限制的, 狭窄的, 在分娩中的, 坐月子的； 有限的, 狭窄的", sentence: "I learned the word \"confined\" today." },
-  "photocopy": { meaning: "影印, 复印件；影印", sentence: "I learned the word \"photocopy\" today." },
-  "stressed": { meaning: "感到有压力的；紧张的", sentence: "I learned the word \"stressed\" today." },
-  "suited": { meaning: "适合的", sentence: "I learned the word \"suited\" today." },
-  "mm": { meaning: "毫米； 毫米", sentence: "I learned the word \"mm\" today." },
-  "teacher": { meaning: "教师, 老师, 导师", sentence: "I learned the word \"teacher\" today." },
-  "training": { meaning: "训练, 培养； 训练", sentence: "I learned the word \"training\" today." },
-  "clearly": { meaning: "清楚地", sentence: "I learned the word \"clearly\" today." },
-  "per": { meaning: "每一, 通过, 经, 按照； 每, 按照", sentence: "I learned the word \"per\" today." },
-  "dr": { meaning: "博士, 医生； 英钱", sentence: "I learned the word \"dr\" today." },
-  "ok": { meaning: "好, 不错, 可以；好, 不错, 可以；批准, 认可； 确定", sentence: "I learned the word \"ok\" today." },
-  "writer": { meaning: "作家, 撰稿者, 抄写员； 记录器", sentence: "I learned the word \"writer\" today." },
-  "western": { meaning: "西方人, 西部片, 西部小说；向西方的, 来自西方的, 西方的, 西洋的, 西部的", sentence: "I learned the word \"western\" today." },
-  "importance": { meaning: "重要, 重要性, 重要地位, 自大； 重要, 重要性", sentence: "I learned the word \"importance\" today." },
-  "senate": { meaning: "参议院, 立法机构, 评议会", sentence: "I learned the word \"senate\" today." },
-  "completely": { meaning: "完全地, 十分地, 圆满地", sentence: "I learned the word \"completely\" today." },
-  "investigation": { meaning: "调查, 审查； 调查, 调查研究", sentence: "I learned the word \"investigation\" today." },
-  "contribution": { meaning: "捐助, 捐助之物, 贡献； 贡献, 捐款, 补助品", sentence: "I learned the word \"contribution\" today." },
-  "slowly": { meaning: "慢慢地, 迟缓地", sentence: "I learned the word \"slowly\" today." },
-  "driver": { meaning: "驾驶员, 驱动器, 驱动程序； 驱动器", sentence: "I learned the word \"driver\" today." },
-  "relatively": { meaning: "相对地, 比较地, 相当地, 相关地； 相对地", sentence: "I learned the word \"relatively\" today." },
-  "additional": { meaning: "附加的, 另外的, 额外的； 加添的, 附加的", sentence: "I learned the word \"additional\" today." },
-  "northern": { meaning: "北方人；北方的, 向北的, 自北方来的", sentence: "I learned the word \"northern\" today." },
-  "existence": { meaning: "存在, 生存； 存在, 存在状态, 实体", sentence: "I learned the word \"existence\" today." },
-  "internet": { meaning: "因特网, 国际互连网, 网际网络, 互连网络, 广域网", sentence: "I learned the word \"internet\" today." },
-  "totally": { meaning: "完全地", sentence: "I learned the word \"totally\" today." },
-  "frequently": { meaning: "频繁, 经常地", sentence: "I learned the word \"frequently\" today." },
-  "properly": { meaning: "适当地, 相当地", sentence: "I learned the word \"properly\" today." },
-  "widely": { meaning: "广泛地", sentence: "I learned the word \"widely\" today." },
-  "closely": { meaning: "接近地", sentence: "I learned the word \"closely\" today." },
-  "gray": { meaning: "灰色, 暗淡；灰色的, 灰白的, 面色苍白的, 年老的, 老练的, 阴沉的；(使)变灰色", sentence: "I learned the word \"gray\" today." },
-  "strongly": { meaning: "强有力地, 坚强地, 激烈地", sentence: "I learned the word \"strongly\" today." },
-  "rapidly": { meaning: "飞快地, 迅速地, 赶紧地", sentence: "I learned the word \"rapidly\" today." },
-  "independence": { meaning: "独立, 自立, 自主； 自主性, 独立性", sentence: "I learned the word \"independence\" today." },
-  "deeply": { meaning: "深刻地, 在深处, 深沉地", sentence: "I learned the word \"deeply\" today." },
-  "heavily": { meaning: "很重地, 严重地, 难以忍受地", sentence: "I learned the word \"heavily\" today." },
-  "saving": { meaning: "存款, 挽救, 节约；搭救的, 节约的, 保留的, 补偿的；除...之外", sentence: "I learned the word \"saving\" today." },
-  "occasionally": { meaning: "有时候, 偶而", sentence: "I learned the word \"occasionally\" today." },
-  "firmly": { meaning: "坚固, 坚定, 断然", sentence: "I learned the word \"firmly\" today." },
-  "gently": { meaning: "温和地, 温柔地, 轻轻地, 逐渐地", sentence: "I learned the word \"gently\" today." },
-  "restriction": { meaning: "限制, 限定, 约束； 限定", sentence: "I learned the word \"restriction\" today." },
-  "regularly": { meaning: "有规则地, 一丝不苟地, 正式地", sentence: "I learned the word \"regularly\" today." },
-  "gradually": { meaning: "逐渐地", sentence: "I learned the word \"gradually\" today." },
-  "approximately": { meaning: "大约, 大致, 近于； 大约, 近似", sentence: "I learned the word \"approximately\" today." },
-  "surprising": { meaning: "令人惊讶的", sentence: "I learned the word \"surprising\" today." },
-  "enquiry": { meaning: "询问； 询价, 询盘", sentence: "I learned the word \"enquiry\" today." },
-  "judgement": { meaning: "审判, 判决, 判断； 判定, 审定, 鉴定", sentence: "I learned the word \"judgement\" today." },
-  "successfully": { meaning: "成功, 结果良好, 有成就", sentence: "I learned the word \"successfully\" today." },
-  "greatly": { meaning: "很, 非常", sentence: "I learned the word \"greatly\" today." },
-  "indication": { meaning: "指示, 象征, 暗示； 指示, 指征, 适应征", sentence: "I learned the word \"indication\" today." },
-  "roughly": { meaning: "概略地, 粗糙地, 粗暴地", sentence: "I learned the word \"roughly\" today." },
-  "destruction": { meaning: "破坏, 毁灭； 破坏", sentence: "I learned the word \"destruction\" today." },
-  "deliberately": { meaning: "故意地", sentence: "I learned the word \"deliberately\" today." },
-  "automatically": { meaning: "自动地, 机械地", sentence: "I learned the word \"automatically\" today." },
-  "departure": { meaning: "离开, 出发, 违背, 偏离； 启运", sentence: "I learned the word \"departure\" today." },
-  "surprisingly": { meaning: "使人惊奇, 出人意外, 惊人, 令人惊讶", sentence: "I learned the word \"surprisingly\" today." },
-  "sufficiently": { meaning: "足够, 充分", sentence: "I learned the word \"sufficiently\" today." },
-  "commonly": { meaning: "一般, 普通, 通常", sentence: "I learned the word \"commonly\" today." },
-  "publicly": { meaning: "公然地, 以公众名义", sentence: "I learned the word \"publicly\" today." },
-  "sharply": { meaning: "锐利地, 严厉地, 厉害地； 剧烈地", sentence: "I learned the word \"sharply\" today." },
-  "softly": { meaning: "柔和地, 静静地, 温柔地", sentence: "I learned the word \"softly\" today." },
-  "photographer": { meaning: "摄影师, 摄影者", sentence: "I learned the word \"photographer\" today." },
-  "calculation": { meaning: "计算, 考虑, 计算的结果； 计算", sentence: "I learned the word \"calculation\" today." },
-  "repeatedly": { meaning: "重复地, 再三地", sentence: "I learned the word \"repeatedly\" today." },
-  "grocery": { meaning: "食品杂货店, 食品杂货业", sentence: "I learned the word \"grocery\" today." },
-  "lightly": { meaning: "轻轻地, 少许, 不费力地", sentence: "I learned the word \"lightly\" today." },
-  "mentally": { meaning: "心理上, 精神上, 智力上； 精神上, 智力上", sentence: "I learned the word \"mentally\" today." },
-  "sadly": { meaning: "悲痛地, 悲惨地, 悲伤地, 说来遗憾", sentence: "I learned the word \"sadly\" today." },
-  "separation": { meaning: "分离, 分居, 缺口, 退职； 分离", sentence: "I learned the word \"separation\" today." },
-  "separately": { meaning: "分开, 不相连, 分隔, 分离, 不同, 单独, 独立, 各自, 各别, 脱离肉体, 灵魂； 分离地", sentence: "I learned the word \"separately\" today." },
-  "severely": { meaning: "严格, 尖锐, 严肃, 严重, 严厉, 朴素", sentence: "I learned the word \"severely\" today." },
-  "happiness": { meaning: "快乐, 幸运, 适当", sentence: "I learned the word \"happiness\" today." },
-  "safely": { meaning: "安全地, 确实地", sentence: "I learned the word \"safely\" today." },
-  "performer": { meaning: "表演者, 执行者, 完成者； 执行者, 履行者, 实行者", sentence: "I learned the word \"performer\" today." },
-  "surrounding": { meaning: "环境；周围的", sentence: "I learned the word \"surrounding\" today." },
-  "steadily": { meaning: "稳定地, 无变化地, 有规则地", sentence: "I learned the word \"steadily\" today." },
-  "downstairs": { meaning: "楼下；楼下的；在楼下", sentence: "I learned the word \"downstairs\" today." },
-  "willingness": { meaning: "乐意, 心甘情愿, 愿意", sentence: "I learned the word \"willingness\" today." },
-  "remains": { meaning: "剩余物, 废墟, 残余； 遗体, 尸体, 遗骸", sentence: "I learned the word \"remains\" today." },
-  "revision": { meaning: "校订, 修正, 修订本, 修订版； 修订版", sentence: "I learned the word \"revision\" today." },
-  "printing": { meaning: "印刷, 印刷术, 印花； 打印; 印刷", sentence: "I learned the word \"printing\" today." },
-  "disturbing": { meaning: "引起烦恼的, 令人不安的", sentence: "I learned the word \"disturbing\" today." },
-  "pence": { meaning: "(非正式)copper便士, (美)分, 分币", sentence: "I learned the word \"pence\" today." },
-  "permanently": { meaning: "永久, 不变, 持久； 永久性的", sentence: "I learned the word \"permanently\" today." },
-  "website": { meaning: "网站（全球资讯网的主机站）", sentence: "I learned the word \"website\" today." },
-  "smoking": { meaning: "抽烟, 冒烟； 烟熏; 吸烟", sentence: "I learned the word \"smoking\" today." },
-  "bitterly": { meaning: "怨恨地, 悲痛地, 残酷地", sentence: "I learned the word \"bitterly\" today." },
-  "wounded": { meaning: "受伤的； 受伤者; 受伤的, 受了损害的", sentence: "I learned the word \"wounded\" today." },
-  "theirs": { meaning: "他们的", sentence: "I learned the word \"theirs\" today." },
-  "loudly": { meaning: "高声地, 大声地, 吵闹地", sentence: "I learned the word \"loudly\" today." },
-  "sadness": { meaning: "悲哀, 悲伤", sentence: "I learned the word \"sadness\" today." },
-  "smoothly": { meaning: "平滑地, 流畅地, 流利地", sentence: "I learned the word \"smoothly\" today." },
-  "upward": { meaning: "向上的；以上", sentence: "I learned the word \"upward\" today." },
-  "thickness": { meaning: "厚度, 密度, 愚钝, 含混不清； 厚度", sentence: "I learned the word \"thickness\" today." },
-  "interruption": { meaning: "打扰, 中断, 障碍物； 间断, 阻断, 中止", sentence: "I learned the word \"interruption\" today." },
-  "milligram": { meaning: "毫克； 毫克", sentence: "I learned the word \"milligram\" today." },
-  "spoken": { meaning: "口头讲的, 口语的；speak的过去分词", sentence: "I learned the word \"spoken\" today." },
-  "dishonestly": { meaning: "不诚实地, 不正直地", sentence: "I learned the word \"dishonestly\" today." },
-  "mg": { meaning: "微粒剂； 镁(12号元素)", sentence: "I learned the word \"mg\" today." },
-  "downward": { meaning: "向下的", sentence: "I learned the word \"downward\" today." },
-  "willingly": { meaning: "自动地, 欣然地", sentence: "I learned the word \"willingly\" today." },
-  "farther": { meaning: "更远的, 进一步的；更远的, 此外, far的比较级", sentence: "I learned the word \"farther\" today." },
-  "noisily": { meaning: "吵闹地", sentence: "I learned the word \"noisily\" today." },
-  "yeah": { meaning: "(非正式)是, 是的", sentence: "I learned the word \"yeah\" today." },
-  "quickly": { meaning: "很快地", sentence: "I learned the word \"quickly\" today." },
-  "carefully": { meaning: "小心地, 谨慎地", sentence: "I learned the word \"carefully\" today." },
-  "currently": { meaning: "现在, 当前, 一般, 普通； 当前", sentence: "I learned the word \"currently\" today." },
-  "thanks": { meaning: "感谢, 谢意, 谢忱；谢谢, 谢谢你", sentence: "I learned the word \"thanks\" today." },
-  "significantly": { meaning: "值得注目地；意味深长地", sentence: "I learned the word \"significantly\" today." },
-  "producer": { meaning: "生产者, 制作者, 制作人； 发生器; (炉煤气)发生炉; 制气炉; 生产者", sentence: "I learned the word \"producer\" today." },
-  "marketing": { meaning: "行销, 买卖； 推销, 在市场买卖, 销售", sentence: "I learned the word \"marketing\" today." },
-  "surprised": { meaning: "感到惊讶的", sentence: "I learned the word \"surprised\" today." },
-  "buyer": { meaning: "买主, 买方； 买主, 买方, 买手", sentence: "I learned the word \"buyer\" today." },
-  "supporter": { meaning: "支持者, 后盾, 迫随者, 护身织物； 支持者, 赡养者, 抚养者", sentence: "I learned the word \"supporter\" today." },
-  "manufacturing": { meaning: "制造业；制造业的", sentence: "I learned the word \"manufacturing\" today." },
-  "quietly": { meaning: "安静地, 沉着地, 秘密地", sentence: "I learned the word \"quietly\" today." },
-  "advertising": { meaning: "广告业, 广告；广告的； 发广告", sentence: "I learned the word \"advertising\" today." },
-  "trading": { meaning: "交易", sentence: "I learned the word \"trading\" today." },
-  "promotion": { meaning: "晋级, 创建, 增进； 推广, 推销, 促进", sentence: "I learned the word \"promotion\" today." },
-  "constantly": { meaning: "不变地, 不断地, 时常地", sentence: "I learned the word \"constantly\" today." },
-  "reasonably": { meaning: "适度地, 相当地", sentence: "I learned the word \"reasonably\" today." },
-  "inevitably": { meaning: "不可避免地", sentence: "I learned the word \"inevitably\" today." },
-  "considerably": { meaning: "非常地, 很, 颇", sentence: "I learned the word \"considerably\" today." },
-  "potentially": { meaning: "可能地, 潜在地", sentence: "I learned the word \"potentially\" today." },
-  "politically": { meaning: "政治上", sentence: "I learned the word \"politically\" today." },
-  "differently": { meaning: "差异, 不同, 各别, 各种", sentence: "I learned the word \"differently\" today." },
-  "physically": { meaning: "按自然规律, 完全地, 实际上, 真正地, 身体上地", sentence: "I learned the word \"physically\" today." },
-  "fighting": { meaning: "战斗的, 容易引起争斗的, 适于格斗的, 好斗的, 好战的, 斗争的, 搏斗的；战斗, 斗争, 搏斗", sentence: "I learned the word \"fighting\" today." },
-  "formally": { meaning: "正式地, 形式上", sentence: "I learned the word \"formally\" today." },
-  "cm": { meaning: "厘米, 中央存储器, 通信多路转换器, 控制标志, 磁心存储器； 锔(96号元素)", sentence: "I learned the word \"cm\" today." },
-  "dramatically": { meaning: "戏剧地, 引人注目地, 突然地", sentence: "I learned the word \"dramatically\" today." },
-  "thoroughly": { meaning: "彻底地, 绝对地, 透彻地, 详尽地, 周到地, 完全地, 完善地, 全面地", sentence: "I learned the word \"thoroughly\" today." },
-  "experienced": { meaning: "富有经验的, 老练的, 熟练的", sentence: "I learned the word \"experienced\" today." },
-  "frightened": { meaning: "受惊吓的, 受惊的, (非正式)害怕...的", sentence: "I learned the word \"frightened\" today." },
-  "expected": { meaning: "预期的；预料的", sentence: "I learned the word \"expected\" today." },
-  "traditionally": { meaning: "传统上；传说上；习惯上", sentence: "I learned the word \"traditionally\" today." },
-  "desperately": { meaning: "拼命地；绝望地；极度地", sentence: "I learned the word \"desperately\" today." },
-  "correctly": { meaning: "对, 正确, 恰当, 符合一般性准则, 符合行为准则, 端正, 符合", sentence: "I learned the word \"correctly\" today." },
-  "flying": { meaning: "飞的, 飘扬的, 飞速的；飞行, 飞花", sentence: "I learned the word \"flying\" today." },
-  "officially": { meaning: "作为公务员, 职务上, 官方地", sentence: "I learned the word \"officially\" today." },
-  "locally": { meaning: "地方性地, 局部性地, 在当地", sentence: "I learned the word \"locally\" today." },
-  "tightly": { meaning: "紧紧地, 坚固地", sentence: "I learned the word \"tightly\" today." },
-  "annually": { meaning: "一年一次, 每年； 年度的, 每年的", sentence: "I learned the word \"annually\" today." },
-  "sexually": { meaning: "性别地；两性之间地", sentence: "I learned the word \"sexually\" today." },
-  "impressed": { meaning: "外加的；印象深刻的；了不起的；受感动的", sentence: "I learned the word \"impressed\" today." },
-  "shocked": { meaning: "震撼的；震惊的", sentence: "I learned the word \"shocked\" today." },
-  "rightly": { meaning: "合适地, 正当地, 正确地", sentence: "I learned the word \"rightly\" today." },
-  "remarkably": { meaning: "显著地, 引人注目地, 非常地", sentence: "I learned the word \"remarkably\" today." },
-  "actively": { meaning: "活跃地, 积极地", sentence: "I learned the word \"actively\" today." },
-  "socially": { meaning: "在社会上, 在社交上, 以社会生活方式", sentence: "I learned the word \"socially\" today." },
-  "genuinely": { meaning: "真诚地；诚实地", sentence: "I learned the word \"genuinely\" today." },
-  "relaxed": { meaning: "松懈的, 不严密的, 不严格的, 放松的, 得到休息的, 随意的, 不拘束的, 自在的", sentence: "I learned the word \"relaxed\" today." },
-  "accurately": { meaning: "正确地, 精确地", sentence: "I learned the word \"accurately\" today." },
-  "breathing": { meaning: "呼吸, 瞬间, 微风；呼吸的, 逼真的", sentence: "I learned the word \"breathing\" today." },
-  "legally": { meaning: "法律上, 合法地； 法律上, 合法地, 法定地", sentence: "I learned the word \"legally\" today." },
-  "independently": { meaning: "独立地, 自立地", sentence: "I learned the word \"independently\" today." },
-  "emotionally": { meaning: "在情绪上", sentence: "I learned the word \"emotionally\" today." },
-  "temporarily": { meaning: "暂时, 一时, 临时", sentence: "I learned the word \"temporarily\" today." },
-  "importantly": { meaning: "重要地；大量地；有名望地；自命不凡地", sentence: "I learned the word \"importantly\" today." },
-  "neatly": { meaning: "整洁地, 干净地, 匀称地", sentence: "I learned the word \"neatly\" today." },
-  "dancing": { meaning: "舞蹈； 跳动的", sentence: "I learned the word \"dancing\" today." },
-  "terribly": { meaning: "可怕地, 甚为, 非常", sentence: "I learned the word \"terribly\" today." },
-  "beautifully": { meaning: "美好地, 漂亮地", sentence: "I learned the word \"beautifully\" today." },
-  "gambling": { meaning: "赌博", sentence: "I learned the word \"gambling\" today." },
-  "embarrassing": { meaning: "令人为难的, 麻烦的", sentence: "I learned the word \"embarrassing\" today." },
-  "adequately": { meaning: "足够地, 适当地", sentence: "I learned the word \"adequately\" today." },
-  "efficiently": { meaning: "生效, 能胜任, 有能力, 效率高, 有效", sentence: "I learned the word \"efficiently\" today." },
-  "freshly": { meaning: "新, 新近, 精神饱满", sentence: "I learned the word \"freshly\" today." },
-  "jointly": { meaning: "共同地, 连带地", sentence: "I learned the word \"jointly\" today." },
-  "angrily": { meaning: "愤怒地", sentence: "I learned the word \"angrily\" today." },
-  "frightening": { meaning: "令人恐惧的；引起突然惊恐的", sentence: "I learned the word \"frightening\" today." },
-  "controlled": { meaning: "受约束的, 克制的； 受管制的, 受控制的, 受管辖的", sentence: "I learned the word \"controlled\" today." },
-  "admiration": { meaning: "赞赏, 钦佩, 引人赞赏的对象", sentence: "I learned the word \"admiration\" today." },
-  "indirectly": { meaning: "间接, 曲折, 迂回, 不直截了当, 不诚实, 不坦率； 间接地", sentence: "I learned the word \"indirectly\" today." },
-  "strangely": { meaning: "奇妙地, 奇怪地, 不可思议地", sentence: "I learned the word \"strangely\" today." },
-  "continuously": { meaning: "不断地, 连续地； 连续地", sentence: "I learned the word \"continuously\" today." },
-  "entertaining": { meaning: "使人愉快的, 有趣的", sentence: "I learned the word \"entertaining\" today." },
-  "finely": { meaning: "雅致地, 仔细地, 敏锐地, 微细地", sentence: "I learned the word \"finely\" today." },
-  "amazed": { meaning: "吃惊的, 惊奇的", sentence: "I learned the word \"amazed\" today." },
-  "unexpectedly": { meaning: "想不到的, 突然的, 意外的, 出乎意料的", sentence: "I learned the word \"unexpectedly\" today." },
-  "curiously": { meaning: "好奇地", sentence: "I learned the word \"curiously\" today." },
-  "secretly": { meaning: "秘密地, 背地里", sentence: "I learned the word \"secretly\" today." },
-  "proudly": { meaning: "傲慢地, 自大地, 得意洋洋地", sentence: "I learned the word \"proudly\" today." },
-  "morally": { meaning: "道德上, 德性上, 有道德地", sentence: "I learned the word \"morally\" today." },
-  "violently": { meaning: "猛烈地, 激烈地, 极端地", sentence: "I learned the word \"violently\" today." },
-  "politely": { meaning: "有礼貌地, 文雅地, 客气地", sentence: "I learned the word \"politely\" today." },
-  "brightly": { meaning: "生辉地, 明亮地, 鲜明地", sentence: "I learned the word \"brightly\" today." },
-  "illegally": { meaning: "非法地, 不合法地, 违法地", sentence: "I learned the word \"illegally\" today." },
-  "loosely": { meaning: "松弛地, 宽松地, 不紧", sentence: "I learned the word \"loosely\" today." },
-  "intended": { meaning: "有意的, 故意的；未婚夫(妻)", sentence: "I learned the word \"intended\" today." },
-  "accidentally": { meaning: "偶然地, 意外地", sentence: "I learned the word \"accidentally\" today." },
-  "nervously": { meaning: "焦急地；神经质地；提心吊胆地", sentence: "I learned the word \"nervously\" today." },
-  "anxiously": { meaning: "忧虑地, 不安地", sentence: "I learned the word \"anxiously\" today." },
-  "faintly": { meaning: "微弱地, 模糊地, 朦胧地", sentence: "I learned the word \"faintly\" today." },
-  "camping": { meaning: "野营, 露营", sentence: "I learned the word \"camping\" today." },
-  "wrongly": { meaning: "错误地, 不恰当地, 不正确地, 不正直地, 不公正地", sentence: "I learned the word \"wrongly\" today." },
-  "alarming": { meaning: "使人惊恐的, 引起惊恐的", sentence: "I learned the word \"alarming\" today." },
-  "deserted": { meaning: "被遗弃的, 废弃的； 被遗弃的, 无人的, 放弃的", sentence: "I learned the word \"deserted\" today." },
-  "occupied": { meaning: "已占用的；使用中的；无空闲的", sentence: "I learned the word \"occupied\" today." },
-  "twisted": { meaning: "扭曲的", sentence: "I learned the word \"twisted\" today." },
-  "cheerfully": { meaning: "高高兴兴地", sentence: "I learned the word \"cheerfully\" today." },
-  "divorced": { meaning: "离婚的", sentence: "I learned the word \"divorced\" today." },
-  "infected": { meaning: "被感染的； 被感染的", sentence: "I learned the word \"infected\" today." },
-  "cycling": { meaning: "骑脚踏车兜风, 骑脚踏车消遣； 循环操作", sentence: "I learned the word \"cycling\" today." },
-  "coldly": { meaning: "冷淡地", sentence: "I learned the word \"coldly\" today." },
-  "euro": { meaning: "欧元（欧盟的统一货币单位）", sentence: "I learned the word \"euro\" today." },
-  "impatiently": { meaning: "不耐烦, 忍受不了, 急躁, 急欲, 急切", sentence: "I learned the word \"impatiently\" today." },
-  "confidently": { meaning: "自信地；安心地", sentence: "I learned the word \"confidently\" today." },
-  "alarmed": { meaning: "受惊的；焦虑的；惊恐的", sentence: "I learned the word \"alarmed\" today." },
-  "generously": { meaning: "宽大地；慷慨地；丰盛地", sentence: "I learned the word \"generously\" today." },
-  "cheaply": { meaning: "便宜地", sentence: "I learned the word \"cheaply\" today." },
-  "pleasantly": { meaning: "和蔼地, 亲切地；友好地；愉快地", sentence: "I learned the word \"pleasantly\" today." },
-  "contrasting": { meaning: "（靠近或作比较时）显出明显的差异, 形成对比( contrast的现在分词 ); 对比, 对照", sentence: "I learned the word \"contrasting\" today." },
-  "stiffly": { meaning: "呆板地, 顽固地, 僵硬地", sentence: "I learned the word \"stiffly\" today." },
-  "irritating": { meaning: "刺激的, 使愤怒的, 气人的", sentence: "I learned the word \"irritating\" today." },
-  "rented": { meaning: "租用的", sentence: "I learned the word \"rented\" today." },
-  "relaxing": { meaning: "令人轻松的", sentence: "I learned the word \"relaxing\" today." },
-  "insulting": { meaning: "侮辱的, 损害人体的", sentence: "I learned the word \"insulting\" today." },
-  "unfairly": { meaning: "不正当地；不公平地", sentence: "I learned the word \"unfairly\" today." },
-  "folding": { meaning: "可折叠的； 折叠; 折叠效应", sentence: "I learned the word \"folding\" today." },
-  "awkwardly": { meaning: "笨拙地；无技巧地", sentence: "I learned the word \"awkwardly\" today." },
-  "thickly": { meaning: "厚地；浓地", sentence: "I learned the word \"thickly\" today." },
-  "cellphone": { meaning: "蜂窝式便携无线电话；大哥大", sentence: "I learned the word \"cellphone\" today." },
-  "faucet": { meaning: "龙头, 开关, 旋塞", sentence: "I learned the word \"faucet\" today." },
-  "separated": { meaning: "分居；分开的；不在一起生活的", sentence: "I learned the word \"separated\" today." },
-  "artificially": { meaning: "人工地, 人为地, 不自然地", sentence: "I learned the word \"artificially\" today." },
-  "steeply": { meaning: "险峻地", sentence: "I learned the word \"steeply\" today." },
-  "skilfully": { meaning: "熟练地（等于skillfully）", sentence: "I learned the word \"skilfully\" today." },
-  "unhappiness": { meaning: "苦恼；忧愁", sentence: "I learned the word \"unhappiness\" today." },
-  "burnt": { meaning: "burn的过去式和过去分词", sentence: "I learned the word \"burnt\" today." },
-  "betting": { meaning: "打赌； 打赌, 赌博", sentence: "I learned the word \"betting\" today." },
-  "blankly": { meaning: "茫然地, 毫无表情地", sentence: "I learned the word \"blankly\" today." },
-  "alphabetical": { meaning: "依字母顺序的, 字母的", sentence: "I learned the word \"alphabetical\" today." },
-  "carelessly": { meaning: "不注意地, 粗心地", sentence: "I learned the word \"carelessly\" today." },
-  "unsteady": { meaning: "不稳固的, 摇摆的, 不稳定的, 易变的, 不安定的, 不规则的, 古怪的, 无常的；使不稳定, 使不安定, 动摇", sentence: "I learned the word \"unsteady\" today." },
-  "knitted": { meaning: "knit的过去式和过去分词", sentence: "I learned the word \"knitted\" today." },
-  "irritated": { meaning: "被激怒的, 生了气的, 变粗的, 因刺激而发炎的, 发红的", sentence: "I learned the word \"irritated\" today." },
-  "disapproving": { meaning: "不满的, 反对的；不赞成( disapprove的现在分词 )", sentence: "I learned the word \"disapproving\" today." },
-  "upsetting": { meaning: "镦(粗); 镦锻", sentence: "I learned the word \"upsetting\" today." },
-  "unwillingly": { meaning: "不情愿地, 勉强地; 勉勉强强", sentence: "I learned the word \"unwillingly\" today." },
-  "rudely": { meaning: "无礼地, 粗鲁地, 粗陋地", sentence: "I learned the word \"rudely\" today." },
-  "swearing": { meaning: "发誓, 宣誓", sentence: "I learned the word \"swearing\" today." },
-  "coughing": { meaning: "咳嗽( cough的现在分词 ); （从喉咙或肺中）咳出; （突然）发出刺耳的噪音", sentence: "I learned the word \"coughing\" today." },
-  "dressed": { meaning: "穿好衣服的；打扮好的；去内脏及分割加工好的（特指动物, 如鱼, 禽类等）", sentence: "I learned the word \"dressed\" today." },
-  "alphabetically": { meaning: "按字母顺序地", sentence: "I learned the word \"alphabetically\" today." },
-  "ct": { meaning: "计算机断层扫描； 通信终端, 计算机终端, 计算机断层造影, 计数器", sentence: "I learned the word \"ct\" today." },
-  "arms": { meaning: "武器, 军事行动； 武器, 军械, 枪械", sentence: "I learned the word \"arms\" today." },
-  "approving": { meaning: "赞成的", sentence: "I learned the word \"approving\" today." },
-  "lacking": { meaning: "缺乏的, 不足的", sentence: "I learned the word \"lacking\" today." },
-  "located": { meaning: "处于, 位于；坐落的", sentence: "I learned the word \"located\" today." },
-  "two": { meaning: "二, 二个", sentence: "I learned the word \"two\" today." },
-  "these": { meaning: "这些", sentence: "I learned the word \"these\" today." },
-  "those": { meaning: "那些", sentence: "I learned the word \"those\" today." },
-  "three": { meaning: "三, 三个", sentence: "I learned the word \"three\" today." },
-  "four": { meaning: "四, 四个； 四冲程循环", sentence: "I learned the word \"four\" today." },
-  "five": { meaning: "五, 五个", sentence: "I learned the word \"five\" today." },
-  "million": { meaning: "百万, 无数；百万", sentence: "I learned the word \"million\" today." },
-  "lot": { meaning: "运气, 签, 抽签, 份额, 许多, 一堆；划分；抽签, 抓阄", sentence: "I learned the word \"lot\" today." },
-  "six": { meaning: "六, 六个", sentence: "I learned the word \"six\" today." },
-  "hundred": { meaning: "百, 百个东西；百, 百个；一百的, 许多的", sentence: "I learned the word \"hundred\" today." },
-  "someone": { meaning: "有人, 某人", sentence: "I learned the word \"someone\" today." },
-  "third": { meaning: "第三, 三分之一； 第三; 第三的", sentence: "I learned the word \"third\" today." },
-  "ten": { meaning: "十, 十个", sentence: "I learned the word \"ten\" today." },
-  "seven": { meaning: "七, 七个", sentence: "I learned the word \"seven\" today." },
-  "eight": { meaning: "八, 八个", sentence: "I learned the word \"eight\" today." },
-  "republican": { meaning: "共和主义者, 共和党员；共和政体的, 共和国的, 共和主义的", sentence: "I learned the word \"republican\" today." },
-  "twenty": { meaning: "二十, 二十个", sentence: "I learned the word \"twenty\" today." },
-  "billion": { meaning: "十亿, 十亿个", sentence: "I learned the word \"billion\" today." },
-  "thousand": { meaning: "千；成千的, 许多的；许许多多", sentence: "I learned the word \"thousand\" today." },
-  "administration": { meaning: "行政, 管理, 政府机关； 给药", sentence: "I learned the word \"administration\" today." },
-  "refer": { meaning: "提交, 归诸于, 把...提交, 使求助于；提到, 涉及, 查阅, 查询, 咨询", sentence: "I learned the word \"refer\" today." },
-  "nine": { meaning: "九, 九个", sentence: "I learned the word \"nine\" today." },
-  "provision": { meaning: "(政府提供的)钱和设备, 准备, 供应品, 规定, 条款；供给...食物及必需品", sentence: "I learned the word \"provision\" today." },
-  "everybody": { meaning: "每个人, 人人", sentence: "I learned the word \"everybody\" today." },
-  "prime": { meaning: "最佳部分, 初期, 全盛期；主要的, 最初的, 根本的；加油启动, 灌注, 填装", sentence: "I learned the word \"prime\" today." },
-  "democratic": { meaning: "民主的； 民主的, 民主政体的, 平民的", sentence: "I learned the word \"democratic\" today." },
-  "okay": { meaning: "好, 可以, 行, 对, 好吗, 很好；好, 可以, 行, 对, 好吗, 很好；同意, 签认, 批准, 认可；同意, 签认, 批准, 认可", sentence: "I learned the word \"okay\" today." },
-  "thirty": { meaning: "三十, 三十个", sentence: "I learned the word \"thirty\" today." },
-  "fifty": { meaning: "五十, 五十个", sentence: "I learned the word \"fifty\" today." },
-  "species": { meaning: "种, 类, 外形； 茶剂; 种", sentence: "I learned the word \"species\" today." },
-  "born": { meaning: "天生的；bear的过去分词", sentence: "I learned the word \"born\" today." },
-  "mission": { meaning: "任务, 代表团, 使命, 传教团；派遣, 向...传教", sentence: "I learned the word \"mission\" today." },
-  "participant": { meaning: "参加者, 参与者；有份的, 参加的, 参与的", sentence: "I learned the word \"participant\" today." },
-  "troop": { meaning: "军队, 一群, 一队；群集, 结队, 成群而行", sentence: "I learned the word \"troop\" today." },
-  "christmas": { meaning: "圣诞节", sentence: "I learned the word \"christmas\" today." },
-  "christian": { meaning: "基督徒, 正派人；基督的, 基督教的", sentence: "I learned the word \"christian\" today." },
-  "reporter": { meaning: "记者, 报告者； 指示器", sentence: "I learned the word \"reporter\" today." },
-  "leadership": { meaning: "领导能力, 领导阶层", sentence: "I learned the word \"leadership\" today." },
-  "photo": { meaning: "相片, 照片, 逼真的描绘；照相；照相的, 摄影用的, 详细记录的, 逼真的, 酷似的", sentence: "I learned the word \"photo\" today." },
-  "folk": { meaning: "人们, 家人, 亲属, 民族；民间的", sentence: "I learned the word \"folk\" today." },
-  "forty": { meaning: "四十, 四十个", sentence: "I learned the word \"forty\" today." },
-  "critic": { meaning: "批评家, 鉴定家", sentence: "I learned the word \"critic\" today." },
-  "legislation": { meaning: "立法, 法律； 立法, 法规", sentence: "I learned the word \"legislation\" today." },
-  "baseball": { meaning: "棒球； 棒球系统", sentence: "I learned the word \"baseball\" today." },
-  "anybody": { meaning: "任何人；重要人物", sentence: "I learned the word \"anybody\" today." },
-  "native": { meaning: "本地人, 土产, 当地人；本国的, 与生俱来的, 自然的", sentence: "I learned the word \"native\" today." },
-  "perspective": { meaning: "远景, 透视感, (观察问题的)视角, 透视法, 看法, 透视图；透视的, 透视法的； 透视", sentence: "I learned the word \"perspective\" today." },
-  "hey": { meaning: "嗨", sentence: "I learned the word \"hey\" today." },
-  "twelve": { meaning: "十二, 十二个", sentence: "I learned the word \"twelve\" today." },
-  "finding": { meaning: "发现, 发现物, 决定, 裁决； 调查结果, 对事实的认定, 判定的要素", sentence: "I learned the word \"finding\" today." },
-  "participate": { meaning: "参加, 分享, 参与, 带有；分享, 分担", sentence: "I learned the word \"participate\" today." },
-  "assess": { meaning: "估定, 对...征税, 评定； 估计, 估价, 确定(税款罚款等)的金额", sentence: "I learned the word \"assess\" today." },
-  "consist": { meaning: "组成, 存在于, 一致", sentence: "I learned the word \"consist\" today." },
-  "asset": { meaning: "资产, 有益的东西", sentence: "I learned the word \"asset\" today." },
-  "democracy": { meaning: "民主政治, 民主主义； 民主, 民主政治, 民主政体", sentence: "I learned the word \"democracy\" today." },
-  "fourth": { meaning: "第四, 四分之一", sentence: "I learned the word \"fourth\" today." },
-  "ought": { meaning: "应该, 大概；责任", sentence: "I learned the word \"ought\" today." },
-  "nod": { meaning: "点头, 打盹, 晃动；点头, 打盹；点头表示, 点(头)", sentence: "I learned the word \"nod\" today." },
-  "enterprise": { meaning: "企业, 事业心, 进取心, 干事业； 企业", sentence: "I learned the word \"enterprise\" today." },
-  "assembly": { meaning: "与会者, 集会, 装配, 组件； 装配", sentence: "I learned the word \"assembly\" today." },
-  "athlete": { meaning: "运动员, 运动选手； 运动员", sentence: "I learned the word \"athlete\" today." },
-  "settlement": { meaning: "安顿, 解决, 处理, 结算, 殖民, 殖民地, 沉降； 居住区; 沉渣", sentence: "I learned the word \"settlement\" today." },
-  "undertake": { meaning: "试图, 从事, 保证, 承担, 同意, 接受； 承包; 承担", sentence: "I learned the word \"undertake\" today." },
-  "module": { meaning: "组件, 模数； 模块", sentence: "I learned the word \"module\" today." },
-  "supreme": { meaning: "至高, 霸权；至高的, 终极的, 极端的, 最大的", sentence: "I learned the word \"supreme\" today." },
-  "poll": { meaning: "投票, 民意测验, 选举投票, 投票数, 一组人中的一个, 头颈和后脑部, 鹦鹉；对...进行民意测验, 获得...票, 剪树枝, 轮询；投票", sentence: "I learned the word \"poll\" today." },
-  "component": { meaning: "元件, 组件, 成分；组成的, 构成的； 组件", sentence: "I learned the word \"component\" today." },
-  "republic": { meaning: "共和国, 共和政体, 团体, 界", sentence: "I learned the word \"republic\" today." },
-  "trail": { meaning: "踪迹, 痕迹, 一串, 尾部, 小径, 持枪姿势；拖, 尾随, 追踪, 落后于, 开出路；拖曳, 垂下, 落后, 飘出, 蔓生", sentence: "I learned the word \"trail\" today." },
-  "jury": { meaning: "陪审团, 评判委员会；应急的", sentence: "I learned the word \"jury\" today." },
-  "sixty": { meaning: "六十, 六十个", sentence: "I learned the word \"sixty\" today." },
-  "expenditure": { meaning: "开支, 费用, 用光, 消费额； 支出, 费用, 消费", sentence: "I learned the word \"expenditure\" today." },
-  "treaty": { meaning: "条约, 谈判； 协议, 协定, 协商", sentence: "I learned the word \"treaty\" today." },
-  "being": { meaning: "存在, 性质, 生命, 人, 生物, be的现在分词", sentence: "I learned the word \"being\" today." },
-  "revenue": { meaning: "收入, 岁入, 税收, 税务局； 岁入, 税收, 税务局", sentence: "I learned the word \"revenue\" today." },
-  "sequence": { meaning: "序列, 续发事件, 顺序, 连续；按顺序排好； 顺序", sentence: "I learned the word \"sequence\" today." },
-  "assumption": { meaning: "假定, 自负, 担任, 假装； 假定, 承担", sentence: "I learned the word \"assumption\" today." },
-  "curriculum": { meaning: "课程； 课程, 学程", sentence: "I learned the word \"curriculum\" today." },
-  "crew": { meaning: "全体人员, 一群人, 全体队员；crow的过去式", sentence: "I learned the word \"crew\" today." },
-  "notion": { meaning: "概念, 观念, 想法, 打算, 别致的小东西； 概念, 打算, 想法", sentence: "I learned the word \"notion\" today." },
-  "gallery": { meaning: "走廊, 最高楼座, 画廊, 收集, 图库； 图库", sentence: "I learned the word \"gallery\" today." },
-  "ethnic": { meaning: "人种的, 种族的； 人种的", sentence: "I learned the word \"ethnic\" today." },
-  "rely": { meaning: "信赖, 依赖, 信任", sentence: "I learned the word \"rely\" today." },
-  "fifteen": { meaning: "十五, 十五个", sentence: "I learned the word \"fifteen\" today." },
-  "liberal": { meaning: "自由主义者；慷慨的, 不拘泥的, 宽大的, 自由主义的", sentence: "I learned the word \"liberal\" today." },
-  "setting": { meaning: "环境, 背景, 布景, 镶嵌, 调整, 沉落, 一副餐具； 设置", sentence: "I learned the word \"setting\" today." },
-  "outcome": { meaning: "结果, 出口", sentence: "I learned the word \"outcome\" today." },
-  "catholic": { meaning: "天主教徒；天主教的, 普遍的, 广泛的, 宽宏大量的", sentence: "I learned the word \"catholic\" today." },
-  "bloody": { meaning: "血腥的, 嗜杀的, 有血的", sentence: "I learned the word \"bloody\" today." },
-  "percentage": { meaning: "百分比, 比率, 部分, 可能性； 百分比", sentence: "I learned the word \"percentage\" today." },
-  "aids": { meaning: "爱滋病(获得性免疫缺陷综合征)； 高级综合数据系统, 先进交互调试系统, 自动图解文档编制系统；美国决策学学会, 信息自动显示系统, 自动综合调", sentence: "I learned the word \"aids\" today." },
-  "surgery": { meaning: "外科, 手术, 手术室, 换球术", sentence: "I learned the word \"surgery\" today." },
-  "basketball": { meaning: "篮球", sentence: "I learned the word \"basketball\" today." },
-  "golf": { meaning: "高尔夫球；打高尔夫球", sentence: "I learned the word \"golf\" today." },
-  "golden": { meaning: "金的, 含金的, 金色的, 贵重的, 繁盛的； 金制的, 金色的, 兴隆的", sentence: "I learned the word \"golden\" today." },
-  "gender": { meaning: "性；产生", sentence: "I learned the word \"gender\" today." },
-  "deputy": { meaning: "副手，代理人", sentence: "I learned the word \"deputy\" today." },
-  "forth": { meaning: "往前, 以后, 向外", sentence: "I learned the word \"forth\" today." },
-  "eliminate": { meaning: "除去, 排除, 剔除, 消除", sentence: "I learned the word \"eliminate\" today." },
-  "regime": { meaning: "政权, 当权期间, 政体, 社会制度, 体制, 情态； 制度, 生活制度", sentence: "I learned the word \"regime\" today." },
-  "variable": { meaning: "易变的事物, 变数, 可变物, 变量；可变的, 不定的, 易变的, 变量的； 变量", sentence: "I learned the word \"variable\" today." },
-  "distinction": { meaning: "区别", sentence: "I learned the word \"distinction\" today." },
-  "perception": { meaning: "知觉, 感觉, 领悟力, 获取； 知觉", sentence: "I learned the word \"perception\" today." },
-  "mechanism": { meaning: "机械, 机构, 结构, 机理, 技巧； 机理; 历程; 机构", sentence: "I learned the word \"mechanism\" today." },
-  "external": { meaning: "外部, 外面；外部的, 客观的, 表面的", sentence: "I learned the word \"external\" today." },
-  "clause": { meaning: "子句, 条款； 子句", sentence: "I learned the word \"clause\" today." },
-  "coverage": { meaning: "覆盖的范围, 保险总额, 新闻报导； 可达范围; 覆盖度", sentence: "I learned the word \"coverage\" today." },
-  "bond": { meaning: "捆绑物, 结合, 债券, 契约, 粘合剂, 保证人, 键, 关栈保留；存入关栈, 使黏合；结合", sentence: "I learned the word \"bond\" today." },
-  "welfare": { meaning: "福利, 安宁, 幸福, 福利事业；福利的", sentence: "I learned the word \"welfare\" today." },
-  "era": { meaning: "时代, 纪元, 时期", sentence: "I learned the word \"era\" today." },
-  "bind": { meaning: "绑, 约束, 装订, 包扎, 使结合；凝固, 有约束力； 赋值, 绑定", sentence: "I learned the word \"bind\" today." },
-  "establishment": { meaning: "确立, 制定, 设施； 企业, 公司, 商店", sentence: "I learned the word \"establishment\" today." },
-  "nineteen": { meaning: "十九, 十九个", sentence: "I learned the word \"nineteen\" today." },
-  "liability": { meaning: "责任, 债务, 倾向； 责任, 义务, 负债", sentence: "I learned the word \"liability\" today." },
-  "significance": { meaning: "重要性, 意义, 意味； 有效; 有效性", sentence: "I learned the word \"significance\" today." },
-  "cite": { meaning: "引用, 引证, 表彰； 引证, 指引", sentence: "I learned the word \"cite\" today." },
-  "champion": { meaning: "冠军, 拥护者, 战士；保卫, 拥护；优胜的", sentence: "I learned the word \"champion\" today." },
-  "eighty": { meaning: "八十, 八十个", sentence: "I learned the word \"eighty\" today." },
-  "christ": { meaning: "基督, 救世主", sentence: "I learned the word \"christ\" today." },
-  "ninety": { meaning: "九十, 九十个", sentence: "I learned the word \"ninety\" today." },
-  "multiple": { meaning: "倍数, 并联；多样的, 许多的, 多功能的", sentence: "I learned the word \"multiple\" today." },
-  "resolution": { meaning: "解析, 决心, 坚定, 决定, 决议, 消除, 解答, 分解；图形分辨率； 图形分辨率", sentence: "I learned the word \"resolution\" today." },
-  "abortion": { meaning: "流产, 堕胎, 失败, 夭折, 中止； 流产, 小产; 顿挫", sentence: "I learned the word \"abortion\" today." },
-  "china": { meaning: "中国, 瓷器；中国的", sentence: "I learned the word \"china\" today." },
-  "barely": { meaning: "几乎不", sentence: "I learned the word \"barely\" today." },
-  "faculty": { meaning: "才能, 能力, 全体教员, (大学的)系； 能力, 院系", sentence: "I learned the word \"faculty\" today." },
-  "amongst": { meaning: "在...当中, 在...之间, 在...之中", sentence: "I learned the word \"amongst\" today." },
-  "territory": { meaning: "领土, 领地, 版图, 地区, 活动范围； (推销员等的)推销区域", sentence: "I learned the word \"territory\" today." },
-  "corporation": { meaning: "公司, 合作, 法人团体； 法人团体, 社团, 法人", sentence: "I learned the word \"corporation\" today." },
-  "tenant": { meaning: "承租人, 房客, 居住者；租借； 占据者", sentence: "I learned the word \"tenant\" today." },
-  "talent": { meaning: "天才, 才能, 有才干的人, 天资", sentence: "I learned the word \"talent\" today." },
-  "inflation": { meaning: "胀大, 夸张, 通货膨胀； 充气吹胀; 膨胀", sentence: "I learned the word \"inflation\" today." },
-  "physician": { meaning: "医师, 内科医师, 解除痛苦者； 主治医师", sentence: "I learned the word \"physician\" today." },
-  "boundary": { meaning: "边界, 分界线； 边界", sentence: "I learned the word \"boundary\" today." },
-  "creative": { meaning: "有创造力的, 创作的, 产生的", sentence: "I learned the word \"creative\" today." },
-  "lower": { meaning: "低的, 下级的, 下层的；降低, 跌落, 减弱；放下, 降下, 减弱, 贬低", sentence: "I learned the word \"lower\" today." },
-  "gay": { meaning: "欢快的, 艳丽的, 快乐的, 放荡的", sentence: "I learned the word \"gay\" today." },
-  "campus": { meaning: "校园, 大学生活", sentence: "I learned the word \"campus\" today." },
-  "formation": { meaning: "形成, 构造, 编队； 形成, 结构", sentence: "I learned the word \"formation\" today." },
-  "dispute": { meaning: "争论；争论", sentence: "I learned the word \"dispute\" today." },
-  "immigrant": { meaning: "移民；移入的, 移民的", sentence: "I learned the word \"immigrant\" today." },
-  "kingdom": { meaning: "王国, 领域； 界(动物,植物,矿物)", sentence: "I learned the word \"kingdom\" today." },
-  "database": { meaning: "数据库； 数据库", sentence: "I learned the word \"database\" today." },
-  "lab": { meaning: "实验室, 研究室； 凝乳酶", sentence: "I learned the word \"lab\" today." },
-  "depression": { meaning: "不景气, 消沉, 沮丧, 洼地； 抑郁, 阻抑, 压低, 凹, 窝, 衰退, 俯角", sentence: "I learned the word \"depression\" today." },
-  "incorporate": { meaning: "合并的, 组成公司的, 一体化的；吸收, 合并, 使组成公司, 体现；合并, 混合, 组成公司", sentence: "I learned the word \"incorporate\" today." },
-  "scholar": { meaning: "学者, 奖学金获得者, 有文化者, 学习者", sentence: "I learned the word \"scholar\" today." },
-  "childhood": { meaning: "孩童时期； 儿童期", sentence: "I learned the word \"childhood\" today." },
-  "proceeding": { meaning: "进行, 程序, 行动, 诉讼程序, 事项； 会议论文集", sentence: "I learned the word \"proceeding\" today." },
-  "subsequent": { meaning: "后来的, 接下去的； 后来的", sentence: "I learned the word \"subsequent\" today." },
-  "currency": { meaning: "货币, 通货, 流通, 通用； 货币, 货币型", sentence: "I learned the word \"currency\" today." },
-  "graduate": { meaning: "毕业生, 量杯；已得学位的, 研究生的, 毕业的；毕业, 得学位, 逐渐变为；准予...毕业, 授予...学位, 分等级, 刻刻度", sentence: "I learned the word \"graduate\" today." },
-  "prosecutor": { meaning: "实行者, 告发者, 公诉人； 原告, 起诉人, 检举人", sentence: "I learned the word \"prosecutor\" today." },
-  "mill": { meaning: "压榨机, 磨坊, 制造厂；碾磨, 磨细, 搅拌, 使乱转；乱转, 被碾磨", sentence: "I learned the word \"mill\" today." },
-  "airline": { meaning: "航线, 航线的设备, 航空公司", sentence: "I learned the word \"airline\" today." },
-  "agenda": { meaning: "议程, 日常工作事项； 待议事件", sentence: "I learned the word \"agenda\" today." },
-  "premise": { meaning: "前提, 房屋连地基, 上述各项；预先提出, 引出, 作为...的前提；作出前提", sentence: "I learned the word \"premise\" today." },
-  "therapy": { meaning: "治疗； 疗法, 治疗", sentence: "I learned the word \"therapy\" today." },
-  "spokesman": { meaning: "发言人, 代言者", sentence: "I learned the word \"spokesman\" today." },
-  "communist": { meaning: "共产主义者, 共产党员； 共产主义的, 共产党的", sentence: "I learned the word \"communist\" today." },
-  "constitution": { meaning: "构成, 宪法, 体格； 体质; 结构, 组织", sentence: "I learned the word \"constitution\" today." },
-  "implement": { meaning: "工具, 器具, 手段；实现, 使生效, 执行", sentence: "I learned the word \"implement\" today." },
-  "gene": { meaning: "基因； 基因(遗传因子)", sentence: "I learned the word \"gene\" today." },
-  "visual": { meaning: "视觉的； 视觉的, 视力的, 视觉性记忆优势者", sentence: "I learned the word \"visual\" today." },
-  "bike": { meaning: "自行车, 脚踏车", sentence: "I learned the word \"bike\" today." },
-  "perceive": { meaning: "感觉, 认知, 理解, 意识到", sentence: "I learned the word \"perceive\" today." },
-  "framework": { meaning: "结构, 骨架, 参照标准, 准则, 观点； 构架组织", sentence: "I learned the word \"framework\" today." },
-  "portion": { meaning: "部分, 一份, 命运, 嫁妆；分配, 给...嫁妆", sentence: "I learned the word \"portion\" today." },
-  "rose": { meaning: "玫瑰, 蔷薇, 玫瑰色；玫瑰色的, 玫瑰花的；使成玫瑰色；rise的过去式", sentence: "I learned the word \"rose\" today." },
-  "obligation": { meaning: "义务, 责任, 约束, 契约, 恩惠, 债务； 待付款, 债务, 义务", sentence: "I learned the word \"obligation\" today." },
-  "agricultural": { meaning: "农业的； 农业的, 耕作的", sentence: "I learned the word \"agricultural\" today." },
-  "glance": { meaning: "一瞥, 闪光, 掠过, 辉矿类；扫视, 闪光, 掠过, 提到, 略说；扫视, 反射, 使掠过", sentence: "I learned the word \"glance\" today." },
-  "protein": { meaning: "蛋白质；蛋白质的", sentence: "I learned the word \"protein\" today." }
+  "the": {
+    "meaning": "那",
+    "sentence": "I learned the word \"the\" today."
+  },
+  "be": {
+    "meaning": "是；成为；存在",
+    "sentence": "I want to be better."
+  },
+  "of": {
+    "meaning": "的, 属于",
+    "sentence": "I learned the word \"of\" today."
+  },
+  "and": {
+    "meaning": "和, 与；与",
+    "sentence": "I learned the word \"and\" today."
+  },
+  "in": {
+    "meaning": "在...期间, 在...之内, 处于...之中, 从事于, 按照, 穿着；进入, 朝里, 在里面, 在屋里；在里面的, 在朝的；执政者, 交情",
+    "sentence": "I learned the word \"in\" today."
+  },
+  "to": {
+    "meaning": "到, 向, 趋于；向前",
+    "sentence": "I learned the word \"to\" today."
+  },
+  "have": {
+    "meaning": "有, 怀有, 拿, 进行；已经",
+    "sentence": "I learned the word \"have\" today."
+  },
+  "it": {
+    "meaning": "它；这件事",
+    "sentence": "It is important."
+  },
+  "he": {
+    "meaning": "他；男孩, 男人, 雄性动物",
+    "sentence": "I learned the word \"he\" today."
+  },
+  "for": {
+    "meaning": "为了；给；持续",
+    "sentence": "This lesson is for me."
+  },
+  "that": {
+    "meaning": "那, 那个；以致, 因为；那；那么, 那样",
+    "sentence": "I learned the word \"that\" today."
+  },
+  "not": {
+    "meaning": "不, 非, 未；非",
+    "sentence": "I learned the word \"not\" today."
+  },
+  "you": {
+    "meaning": "你, 你们",
+    "sentence": "I learned the word \"you\" today."
+  },
+  "with": {
+    "meaning": "和...在一起, 以, 由于",
+    "sentence": "I learned the word \"with\" today."
+  },
+  "on": {
+    "meaning": "在...之上；...上去；正起作用的；打开",
+    "sentence": "I learned the word \"on\" today."
+  },
+  "do": {
+    "meaning": "做, 进行, 完成",
+    "sentence": "I learned the word \"do\" today."
+  },
+  "they": {
+    "meaning": "他们, 它们",
+    "sentence": "I learned the word \"they\" today."
+  },
+  "say": {
+    "meaning": "说, 讲, 念, 说明, 指明；说, 讲；意见, 发言权",
+    "sentence": "I learned the word \"say\" today."
+  },
+  "by": {
+    "meaning": "被, 经, 由, 在...之旁；经过, 在近处",
+    "sentence": "I learned the word \"by\" today."
+  },
+  "this": {
+    "meaning": "这, 本；这, 本；这么",
+    "sentence": "I learned the word \"this\" today."
+  },
+  "she": {
+    "meaning": "她",
+    "sentence": "I learned the word \"she\" today."
+  },
+  "at": {
+    "meaning": "在；向；以某时间",
+    "sentence": "I start at eight."
+  },
+  "but": {
+    "meaning": "除了；但是；仅仅",
+    "sentence": "I learned the word \"but\" today."
+  },
+  "we": {
+    "meaning": "我们",
+    "sentence": "I learned the word \"we\" today."
+  },
+  "his": {
+    "meaning": "他的；组氨酸",
+    "sentence": "I learned the word \"his\" today."
+  },
+  "from": {
+    "meaning": "从, 来自, 根据",
+    "sentence": "I learned the word \"from\" today."
+  },
+  "which": {
+    "meaning": "哪一个, 那一个",
+    "sentence": "I learned the word \"which\" today."
+  },
+  "or": {
+    "meaning": "或, 或者；或",
+    "sentence": "I learned the word \"or\" today."
+  },
+  "will": {
+    "meaning": "意志, 决心, 意愿, 意向, 干劲, 遗嘱；用意志的力量驱使, 决意, 愿意, 立遗嘱；下决心, 愿意；将, 愿意, 必须",
+    "sentence": "I learned the word \"will\" today."
+  },
+  "as": {
+    "meaning": "作为；像；当...时",
+    "sentence": "I work as usual."
+  },
+  "what": {
+    "meaning": "什么；怎么, 多么；什么的；到什么程度",
+    "sentence": "I learned the word \"what\" today."
+  },
+  "would": {
+    "meaning": "将, 愿意",
+    "sentence": "I learned the word \"would\" today."
+  },
+  "go": {
+    "meaning": "去, 走, 达到, 运转, 查阅, 消失, 结束, 放弃, 花费, 流传, 趋于, 打算, 剩下；以...打赌, 对付, 忍受, 出产, 为被捕",
+    "sentence": "I learned the word \"go\" today."
+  },
+  "can": {
+    "meaning": "能；可以",
+    "sentence": "I can understand this."
+  },
+  "their": {
+    "meaning": "他们的",
+    "sentence": "I learned the word \"their\" today."
+  },
+  "there": {
+    "meaning": "在那里",
+    "sentence": "I learned the word \"there\" today."
+  },
+  "who": {
+    "meaning": "谁",
+    "sentence": "I learned the word \"who\" today."
+  },
+  "all": {
+    "meaning": "所有的, 全部的, 一切的；全部, 全然；全部；全部",
+    "sentence": "I learned the word \"all\" today."
+  },
+  "get": {
+    "meaning": "得到, 获得, 变成, 使得, 收获, 接通, 抓住, 染上；到达, 成为, 变得；(网球等)救球, 生殖, 幼兽；取得指令, 获取文件",
+    "sentence": "I learned the word \"get\" today."
+  },
+  "if": {
+    "meaning": "如果；是否",
+    "sentence": "If possible, I want tomorrow."
+  },
+  "her": {
+    "meaning": "她的, 她",
+    "sentence": "I learned the word \"her\" today."
+  },
+  "make": {
+    "meaning": "制造, 安排, 创造, 构成, 使得, 产生, 造成, 整理, 布置, 引起, 到达, 进行；开始, 前进, 增大, 被制造, 被处理；制造,",
+    "sentence": "I learned the word \"make\" today."
+  },
+  "my": {
+    "meaning": "我的；迈尔(热容单位)",
+    "sentence": "I learned the word \"my\" today."
+  },
+  "one": {
+    "meaning": "一(个)；一, 任何人；一, 一个；一致的, 完整的",
+    "sentence": "I learned the word \"one\" today."
+  },
+  "about": {
+    "meaning": "在...周围, 大约, 有关, 关于；大约, 四处, 在附近, 周围",
+    "sentence": "I learned the word \"about\" today."
+  },
+  "see": {
+    "meaning": "看见, 查看, 参观, 游览, 理解, 知道, 同意；看, 观看, 注意, 知道, 考虑；主教的职位",
+    "sentence": "I learned the word \"see\" today."
+  },
+  "know": {
+    "meaning": "知道, 了解, 认识, 确信",
+    "sentence": "I learned the word \"know\" today."
+  },
+  "so": {
+    "meaning": "如此, 如是, 如...那样；所以, 因此；这样",
+    "sentence": "I learned the word \"so\" today."
+  },
+  "up": {
+    "meaning": "向上的, 起床的, 涨的；向上, 上涨；在...上面, 向...的较高处",
+    "sentence": "I learned the word \"up\" today."
+  },
+  "time": {
+    "meaning": "时间, 时侯, 时机, 时期, 期限, 次数, 节拍, 暂停, 规定时间；测定...的时间, 记录...的时间, 计时, 定时；时间的, 记时的",
+    "sentence": "I learned the word \"time\" today."
+  },
+  "take": {
+    "meaning": "拿, 取, 抓, 带领, 获得, 就座, 接受, 吃, 吸引, 采取, 乘, 需要, 花费；吃掉对方棋子, 抓住, 起作用, 依法获得财产；拿,",
+    "sentence": "I learned the word \"take\" today."
+  },
+  "some": {
+    "meaning": "一些, 一部分, 若干；大约；一些的, 少许的, 某一的",
+    "sentence": "I learned the word \"some\" today."
+  },
+  "when": {
+    "meaning": "当...的时候；何时, 什么时候；什么时侯；时间",
+    "sentence": "I learned the word \"when\" today."
+  },
+  "year": {
+    "meaning": "年, 年度, 年龄；年度",
+    "sentence": "I learned the word \"year\" today."
+  },
+  "could": {
+    "meaning": "可以, 能",
+    "sentence": "I learned the word \"could\" today."
+  },
+  "think": {
+    "meaning": "想, 考虑, 想起, 想像, 打算, 认为；思考, 料想；想法；思想的",
+    "sentence": "I learned the word \"think\" today."
+  },
+  "into": {
+    "meaning": "进入...之内, 朝..., 深入...之中, 成为...状况",
+    "sentence": "I learned the word \"into\" today."
+  },
+  "its": {
+    "meaning": "它的",
+    "sentence": "I learned the word \"its\" today."
+  },
+  "them": {
+    "meaning": "他们, 她们, 它们",
+    "sentence": "I learned the word \"them\" today."
+  },
+  "then": {
+    "meaning": "然后, 当时；然后, 当时；那时",
+    "sentence": "I learned the word \"then\" today."
+  },
+  "me": {
+    "meaning": "我",
+    "sentence": "I learned the word \"me\" today."
+  },
+  "out": {
+    "meaning": "外面的, 熄灭的, 结束的；在外, 熄灭, 出现；出自, 离去, 向",
+    "sentence": "I learned the word \"out\" today."
+  },
+  "people": {
+    "meaning": "人, 人民, 民族, 平民；使住满人, 居住于",
+    "sentence": "I learned the word \"people\" today."
+  },
+  "come": {
+    "meaning": "过来, 来, 到达, 出现, 开始；喂",
+    "sentence": "I learned the word \"come\" today."
+  },
+  "just": {
+    "meaning": "正直的, 合理的, 正确的, 应得的；刚刚, 正好, 仅仅",
+    "sentence": "I learned the word \"just\" today."
+  },
+  "your": {
+    "meaning": "你的, 你们的",
+    "sentence": "I learned the word \"your\" today."
+  },
+  "now": {
+    "meaning": "现在, 刚才, 目前；现在；现在的；由于",
+    "sentence": "I learned the word \"now\" today."
+  },
+  "no": {
+    "meaning": "不, 拒绝, 否决票；没有, 不是, 绝非；不",
+    "sentence": "I learned the word \"no\" today."
+  },
+  "him": {
+    "meaning": "他",
+    "sentence": "I learned the word \"him\" today."
+  },
+  "other": {
+    "meaning": "其他的, 另外的, 从前的；其他的, 他人, 另外一个",
+    "sentence": "I learned the word \"other\" today."
+  },
+  "only": {
+    "meaning": "唯一的, 仅有的, 最佳的；只有, 仅仅, 只能；但是, 不过",
+    "sentence": "I learned the word \"only\" today."
+  },
+  "give": {
+    "meaning": "弹性, 适应性；给, 授予, 供给, 产生, 发表, 付出, 献出, 让出；捐赠, 支持不住, 让步",
+    "sentence": "I learned the word \"give\" today."
+  },
+  "good": {
+    "meaning": "善行, 好处, 利益；好的, 优良的, 上等的, 愉快的, 有益的, 好心的, 慈善的, 虔诚的",
+    "sentence": "I learned the word \"good\" today."
+  },
+  "than": {
+    "meaning": "比, 除...外；比",
+    "sentence": "I learned the word \"than\" today."
+  },
+  "like": {
+    "meaning": "相似的, 同样的；喜欢, 愿意, 想；喜欢, 希望；爱好, 同样的人(或物)；象, 如同；可能",
+    "sentence": "I learned the word \"like\" today."
+  },
+  "more": {
+    "meaning": "更多；更",
+    "sentence": "I need more practice."
+  },
+  "how": {
+    "meaning": "如何, 怎样, 多少, 多么；方式",
+    "sentence": "I learned the word \"how\" today."
+  },
+  "also": {
+    "meaning": "也, 并且, 同样地",
+    "sentence": "I learned the word \"also\" today."
+  },
+  "any": {
+    "meaning": "任何的；任何",
+    "sentence": "I learned the word \"any\" today."
+  },
+  "our": {
+    "meaning": "我们的",
+    "sentence": "I learned the word \"our\" today."
+  },
+  "first": {
+    "meaning": "首先, 第一, 优先；第一的；第一；开始, 第一",
+    "sentence": "I learned the word \"first\" today."
+  },
+  "very": {
+    "meaning": "真正的, 恰好的, 十足的, 特有的；非常, 完全",
+    "sentence": "I learned the word \"very\" today."
+  },
+  "new": {
+    "meaning": "新的, 陌生的, 最近的, 不熟悉的；新发现的, 新的, 重新开始的",
+    "sentence": "I learned the word \"new\" today."
+  },
+  "look": {
+    "meaning": "一看, 神色, 样子, 面容；看, 注意, 朝着, 显得；打量, 看上去与...一样, 以眼色(或脸色)显示, 期待",
+    "sentence": "I learned the word \"look\" today."
+  },
+  "may": {
+    "meaning": "五月；愿能, 可以, 愿意",
+    "sentence": "I learned the word \"may\" today."
+  },
+  "want": {
+    "meaning": "需要的东西, 缺乏, 贫困, 需要；要, 希望, 应该, 缺少；生活困苦, 需要, 缺少",
+    "sentence": "I learned the word \"want\" today."
+  },
+  "way": {
+    "meaning": "路, 路线, 路途, 方法, 道路, 情形, 规模, 习惯, 行业, 方面；远远地, 非常",
+    "sentence": "I learned the word \"way\" today."
+  },
+  "well": {
+    "meaning": "井, 泉水, 源泉, 好；涌出；健康的, 良好的, 适宜的, 恰当的；很好地, 适当地, 好意地, 很, 完全；好啦",
+    "sentence": "I learned the word \"well\" today."
+  },
+  "should": {
+    "meaning": "应该, 将要",
+    "sentence": "I learned the word \"should\" today."
+  },
+  "use": {
+    "meaning": "使用, 习惯, 使用价值, 用法, 使用权；使用, 利用, 运用, 耗费；惯常",
+    "sentence": "I learned the word \"use\" today."
+  },
+  "because": {
+    "meaning": "因为",
+    "sentence": "I learned the word \"because\" today."
+  },
+  "day": {
+    "meaning": "天, 日子, 白天, 工作日；日(一昼夜), 昼, 白天",
+    "sentence": "I learned the word \"day\" today."
+  },
+  "man": {
+    "meaning": "男人, 人类, 人；为...配备人手, 操纵, 使振奋；城域网, 手册",
+    "sentence": "I learned the word \"man\" today."
+  },
+  "find": {
+    "meaning": "找到；发现",
+    "sentence": "Where can I find olive oil?"
+  },
+  "here": {
+    "meaning": "在这里, 此时, 这里；这里",
+    "sentence": "I learned the word \"here\" today."
+  },
+  "after": {
+    "meaning": "在...之后, 由于；在...之后；后来",
+    "sentence": "I learned the word \"after\" today."
+  },
+  "thing": {
+    "meaning": "事物, 东西, 物, 用品, 事, 事件, 情况, 行为, 特征",
+    "sentence": "I learned the word \"thing\" today."
+  },
+  "between": {
+    "meaning": "在...之间",
+    "sentence": "I learned the word \"between\" today."
+  },
+  "many": {
+    "meaning": "多数, 多数人；许多的；许多",
+    "sentence": "I learned the word \"many\" today."
+  },
+  "down": {
+    "meaning": "向下的；下, 下去, 降下；往下, 沿着；丘陵, 软毛, 开阔的高地；向下, 退下命令",
+    "sentence": "I learned the word \"down\" today."
+  },
+  "tell": {
+    "meaning": "告诉；讲述",
+    "sentence": "Please tell me a story."
+  },
+  "back": {
+    "meaning": "后面的；使后退, 支持；倒退, 背靠；向后地；背部, 后面",
+    "sentence": "I learned the word \"back\" today."
+  },
+  "even": {
+    "meaning": "平坦的, 相等的, 连贯的, 均等的, 公平的, 偶数的, 平均的, 平衡的, 恰好的；使平坦, 使相等；变平, 成为相等；甚至, 实际上, 完",
+    "sentence": "I learned the word \"even\" today."
+  },
+  "such": {
+    "meaning": "如此的, 这样的",
+    "sentence": "I learned the word \"such\" today."
+  },
+  "through": {
+    "meaning": "穿越, 从头至尾, 到底, 因为；经过, 穿过；对穿的, 直达的, 完结的",
+    "sentence": "I learned the word \"through\" today."
+  },
+  "over": {
+    "meaning": "结束, 越过, 从头到尾；在...之上, 遍于...之上, 越过；上面的；越过",
+    "sentence": "I learned the word \"over\" today."
+  },
+  "must": {
+    "meaning": "必须, 未发酵葡萄汁, 绝对必要的事物；必须",
+    "sentence": "I learned the word \"must\" today."
+  },
+  "woman": {
+    "meaning": "女人, 妇女, 女仆；女用的, 女性的, 妇女的；贬称...为女人, 使成女人腔",
+    "sentence": "I learned the word \"woman\" today."
+  },
+  "still": {
+    "meaning": "蒸馏室, 寂静, 剧照；蒸馏, (使)平静, (使)静止；静止的, 不动的, 静寂的, 不起泡的, 静物摄影的；仍然, 更, 静止地；然而, 但",
+    "sentence": "I learned the word \"still\" today."
+  },
+  "us": {
+    "meaning": "我们；美国",
+    "sentence": "I learned the word \"us\" today."
+  },
+  "life": {
+    "meaning": "生活, 生命, 人生, 世事, 生物, 寿命, 一生, 生命力, 灵魂, 无期徒刑；生活, 生存, 生命, 寿命",
+    "sentence": "I learned the word \"life\" today."
+  },
+  "child": {
+    "meaning": "孩子, 产物, 追随者；儿童",
+    "sentence": "I learned the word \"child\" today."
+  },
+  "too": {
+    "meaning": "也, 非常, 太",
+    "sentence": "I learned the word \"too\" today."
+  },
+  "put": {
+    "meaning": "放, 摆, 安置, 移动, 发射, 投掷, 写上, 表达, 使从事, 使受到, 驱使, 赋予；出发, 航行, 发芽；掷, 股票出售权, 笨蛋；固",
+    "sentence": "I learned the word \"put\" today."
+  },
+  "work": {
+    "meaning": "工作, 劳动, 职业, 行为, 功, 作品, 成果, 产品, 工程；工作, 劳动, 做, 运转, 起作用, 被加工；使工作, 使转动, 开动,",
+    "sentence": "I learned the word \"work\" today."
+  },
+  "own": {
+    "meaning": "自己的；自己的, 嫡亲的, 同胞的；拥有, 支配, 自认, 承认, 顺从于；承认, 供认",
+    "sentence": "I learned the word \"own\" today."
+  },
+  "last": {
+    "meaning": "最后的, 末尾的, 最近的；持续, 支持, 维持；使维持, 够...用；最后, 后来；最后, 末尾, 鞋楦头",
+    "sentence": "I learned the word \"last\" today."
+  },
+  "oh": {
+    "meaning": "(表示惊讶、恐怖、赞叹)哦",
+    "sentence": "I learned the word \"oh\" today."
+  },
+  "mean": {
+    "meaning": "低劣的, 卑贱的, 简陋的, 吝啬的, 惭愧的, 平均的, 中间的, 普通的；意谓, 想要, 意欲, 预定；用意, 有意义；平均数, 中间, 中",
+    "sentence": "I learned the word \"mean\" today."
+  },
+  "call": {
+    "meaning": "打电话；称呼；叫",
+    "sentence": "I need to call the clinic."
+  },
+  "become": {
+    "meaning": "变成, 变得；适合",
+    "sentence": "I learned the word \"become\" today."
+  },
+  "world": {
+    "meaning": "世界, 地球, 宇宙, 万物, 世人, 人间, 领域, 世事, 世故, 社会生活, 大量；世界, 地球, 世人",
+    "sentence": "I learned the word \"world\" today."
+  },
+  "government": {
+    "meaning": "政府, 内阁；政府, 政治, 政体",
+    "sentence": "I learned the word \"government\" today."
+  },
+  "school": {
+    "meaning": "学校, 鱼群, 门派, 学派；教育, 训练, 培养；成群地游",
+    "sentence": "I learned the word \"school\" today."
+  },
+  "old": {
+    "meaning": "以前, 往昔；老的, 旧的, 古老的, 年长的, 老练的",
+    "sentence": "I learned the word \"old\" today."
+  },
+  "try": {
+    "meaning": "尝试, 试验, 审理, 审判；试, 尝试, 试验, 考验, 审问, 提炼；尝试, 试图",
+    "sentence": "I learned the word \"try\" today."
+  },
+  "leave": {
+    "meaning": "许可, 告别, 请假, 休假；离开, 剩下, 遗忘, 委托, 丢弃；出发, 离开, 生叶",
+    "sentence": "I learned the word \"leave\" today."
+  },
+  "great": {
+    "meaning": "大的, 非常的, 主要的, 重大的, 崇高的, 伟大的；顺利地, 得意地；全部, 大人物, 大师",
+    "sentence": "I learned the word \"great\" today."
+  },
+  "ask": {
+    "meaning": "问, 要求；问, 要求, 邀请, 需要",
+    "sentence": "I learned the word \"ask\" today."
+  },
+  "where": {
+    "meaning": "在哪里；哪里；地点",
+    "sentence": "I learned the word \"where\" today."
+  },
+  "need": {
+    "meaning": "需要, 必须, 缺乏；需要, 必需；贫困, 有必要；需要",
+    "sentence": "I learned the word \"need\" today."
+  },
+  "feel": {
+    "meaning": "感觉, 觉得, 触摸, 以为；有知觉, 摸索, 同情；感觉, 觉得, 触摸",
+    "sentence": "I learned the word \"feel\" today."
+  },
+  "seem": {
+    "meaning": "象是, 似乎",
+    "sentence": "I learned the word \"seem\" today."
+  },
+  "system": {
+    "meaning": "系统, 体系, 制度, 方式, 秩序, 分类原则；系统?体制?体系",
+    "sentence": "I learned the word \"system\" today."
+  },
+  "same": {
+    "meaning": "相同的, 同样的；相同的人(或事物)；同样地",
+    "sentence": "I learned the word \"same\" today."
+  },
+  "state": {
+    "meaning": "州, 状态, 情形, 国家, 政府, 领土, 国务, 社会地位；国家的, 正式的, 礼仪用的, 州的；说明, 陈述, 规定；状态",
+    "sentence": "I learned the word \"state\" today."
+  },
+  "might": {
+    "meaning": "力量, 权力；可能, 也许",
+    "sentence": "I learned the word \"might\" today."
+  },
+  "never": {
+    "meaning": "从不, 决不, 不曾；永不, 决不, 从来没有",
+    "sentence": "I learned the word \"never\" today."
+  },
+  "case": {
+    "meaning": "情形, 情况, 箱, 容器, 事实, 病例, 案例, 框子；装箱, 包盖",
+    "sentence": "I learned the word \"case\" today."
+  },
+  "part": {
+    "meaning": "部分, 局部, 零件, 要素, 等分, 职责, 角色, 部位；分开, 分离, 断绝, 区别, 分配；分开, 断裂, 分手；部分的, 局部的；部分",
+    "sentence": "I learned the word \"part\" today."
+  },
+  "high": {
+    "meaning": "高度, 高处；高的, 高级的, 主要的, 高尚的, 高原的, 高音的, 昂贵的, 傲慢的；高度地, 奢侈地",
+    "sentence": "I learned the word \"high\" today."
+  },
+  "group": {
+    "meaning": "团体, 组, 团, 群；聚合, 成群；创建组?组, 用户组",
+    "sentence": "I learned the word \"group\" today."
+  },
+  "something": {
+    "meaning": "某事, 某物",
+    "sentence": "I learned the word \"something\" today."
+  },
+  "number": {
+    "meaning": "数, 数字, 数目, 号码；数, 计算, 共计；计算, 报数；数字",
+    "sentence": "I learned the word \"number\" today."
+  },
+  "really": {
+    "meaning": "实际上, 真实地, 实在",
+    "sentence": "I learned the word \"really\" today."
+  },
+  "yes": {
+    "meaning": "是；是, 同意；同意",
+    "sentence": "I learned the word \"yes\" today."
+  },
+  "most": {
+    "meaning": "最多, 最大；大多数的, 几乎全部的, 最多的；最, 最多, 极其",
+    "sentence": "I learned the word \"most\" today."
+  },
+  "another": {
+    "meaning": "另外的, 再一的, 不同的；又一个, 另一个, 类似的另一个",
+    "sentence": "I learned the word \"another\" today."
+  },
+  "however": {
+    "meaning": "然而, 无论如何, 究竟怎样；然而, 可是",
+    "sentence": "I learned the word \"however\" today."
+  },
+  "much": {
+    "meaning": "大量, 许多, 重要的事；很多的, 重要的；多, 甚, 几乎",
+    "sentence": "I learned the word \"much\" today."
+  },
+  "show": {
+    "meaning": "显示, 表现, 展览, 卖弄, 炫耀, 外观, 演出, 洋相；表示, 显示, 展现, 陈列, 演出, 表明, 指出, 带领；露面, 显现, 演出",
+    "sentence": "I learned the word \"show\" today."
+  },
+  "family": {
+    "meaning": "家庭, 家人, 族；家庭的",
+    "sentence": "I learned the word \"family\" today."
+  },
+  "house": {
+    "meaning": "房子, 住宅, 机构, 议院, 家族, 家庭；给...房子住, 收藏；住, 躲藏",
+    "sentence": "I learned the word \"house\" today."
+  },
+  "area": {
+    "meaning": "区域, 面积, 范围, 空地；区域",
+    "sentence": "I learned the word \"area\" today."
+  },
+  "company": {
+    "meaning": "公司, 友伴, 交往, 连队, 朋友, 一群；陪伴；交往",
+    "sentence": "I learned the word \"company\" today."
+  },
+  "while": {
+    "meaning": "一会儿, (一段)时间；当...的时候, 虽然；消磨",
+    "sentence": "I learned the word \"while\" today."
+  },
+  "problem": {
+    "meaning": "问题, 难题；成问题的, 难处理的",
+    "sentence": "I learned the word \"problem\" today."
+  },
+  "against": {
+    "meaning": "反对, 对着, 倚靠",
+    "sentence": "I learned the word \"against\" today."
+  },
+  "keep": {
+    "meaning": "生计, 维持, 保持；保持, 保存, 遵守, 看守, 整理, 维持, 履行, 经营, 拘留, 记帐；保持, 继续不断",
+    "sentence": "I learned the word \"keep\" today."
+  },
+  "again": {
+    "meaning": "再一次, 又, 到原处",
+    "sentence": "I learned the word \"again\" today."
+  },
+  "student": {
+    "meaning": "学生, 研究者, 学者",
+    "sentence": "I learned the word \"student\" today."
+  },
+  "why": {
+    "meaning": "为什么；原因, 理由",
+    "sentence": "I learned the word \"why\" today."
+  },
+  "under": {
+    "meaning": "在...之下, 低于；下面的, 从属的；在下面",
+    "sentence": "I learned the word \"under\" today."
+  },
+  "let": {
+    "meaning": "让, 假设, 出租, 排放, 妨碍；出租, 被承包；出租屋, 障碍",
+    "sentence": "I learned the word \"let\" today."
+  },
+  "service": {
+    "meaning": "服务, 贡献, 雇佣, 公职, 服役, 功劳, 仪式, 送达, 行政部门；保养, 维修；武装部队的, 服务性的, 仆人的, 耐用的；服务, 业",
+    "sentence": "I learned the word \"service\" today."
+  },
+  "big": {
+    "meaning": "大的, 重要的；大量地",
+    "sentence": "I learned the word \"big\" today."
+  },
+  "place": {
+    "meaning": "地方, 地点, 位置, 住所, 座位, 地位, 处境, 特权, 空间, 余地, 职务, 位；放置, 寄予, 认出, 评定, 任命；名次列前",
+    "sentence": "I learned the word \"place\" today."
+  },
+  "hand": {
+    "meaning": "手, 爪, 指针, 掌握, 协助, 人手, 手艺, 手迹, 支配, 插手；交给, 支持, 搀扶",
+    "sentence": "I learned the word \"hand\" today."
+  },
+  "begin": {
+    "meaning": "开始；开始",
+    "sentence": "I learned the word \"begin\" today."
+  },
+  "party": {
+    "meaning": "宴会, 党, 政党, 团体, 当事人, 聚会；举办聚会",
+    "sentence": "I learned the word \"party\" today."
+  },
+  "country": {
+    "meaning": "国家；乡村",
+    "sentence": "Which country are you from?"
+  },
+  "help": {
+    "meaning": "帮助；帮忙",
+    "sentence": "Could you help me?"
+  },
+  "talk": {
+    "meaning": "谈话, 交谈, 会谈, 讲话, 演讲, 空谈, 谣言, 方言, 语言；讲话, 演讲, 说话, 谈话, 交流, 闲聊, 说闲话；讲, 说, 讨论,",
+    "sentence": "I learned the word \"talk\" today."
+  },
+  "small": {
+    "meaning": "小的, 少的, 小型的, 低微的, 小气的, 细微的；些微地；狭小部分",
+    "sentence": "I learned the word \"small\" today."
+  },
+  "each": {
+    "meaning": "每个, 每一；每个；每个, 个人, 各自",
+    "sentence": "I learned the word \"each\" today."
+  },
+  "turn": {
+    "meaning": "转弯, 转动, 旋转, 翻转, 一圈, 顺次, 改动, 变化, 性格, 特色, 形状, 转折；使旋转, 转弯, 转动, 使转向, 驱赶, 阻挡,",
+    "sentence": "I learned the word \"turn\" today."
+  },
+  "every": {
+    "meaning": "每一, 所有的",
+    "sentence": "I learned the word \"every\" today."
+  },
+  "provide": {
+    "meaning": "提供, 供应, 规定, 预备；作准备, 抚养, 规定",
+    "sentence": "I learned the word \"provide\" today."
+  },
+  "start": {
+    "meaning": "惊起, 出发, 开端, 起点, 吃惊, 有利条件；开始, 出发, 启动, 跳起, 吃惊, 出现, 松动, 脱落, 起价, 参赛；使惊起, 开动,",
+    "sentence": "I learned the word \"start\" today."
+  },
+  "off": {
+    "meaning": "关着的, 不再生效的, 处于...境况的, 休假的, 空闲的；走开, ...掉, ...下, 休息, 出发, 隔断；离开, 脱落, 不在从事..",
+    "sentence": "I learned the word \"off\" today."
+  },
+  "point": {
+    "meaning": "点, 小数点, 标点, 地点, 要点, 特点, 尖端, 分数, 得分, 穴位；弄尖, 强调, 指出, 加标点于, 瞄准；指, 指向, 表明",
+    "sentence": "I learned the word \"point\" today."
+  },
+  "different": {
+    "meaning": "不同的；差动, 微分的, 差速器",
+    "sentence": "I learned the word \"different\" today."
+  },
+  "hold": {
+    "meaning": "把握, 把持力, 柄, 控制, 掌握, 监禁；保存, 握住, 拿住, 占据, 持有, 拥有；支持, 持续, 有效；保留；保留",
+    "sentence": "I learned the word \"hold\" today."
+  },
+  "week": {
+    "meaning": "星期, 周",
+    "sentence": "I learned the word \"week\" today."
+  },
+  "large": {
+    "meaning": "大的, 大量的, 宽大的, 广博的；大大地, 夸大地",
+    "sentence": "I learned the word \"large\" today."
+  },
+  "member": {
+    "meaning": "成员, 会员；│肢, 肢体",
+    "sentence": "I learned the word \"member\" today."
+  },
+  "few": {
+    "meaning": "很少的, 不多的, 少数的；少数",
+    "sentence": "I learned the word \"few\" today."
+  },
+  "always": {
+    "meaning": "总是, 始终",
+    "sentence": "I learned the word \"always\" today."
+  },
+  "follow": {
+    "meaning": "跟随, 沿行, 遵循, 追求；跟随, 接着；跟随, 追随",
+    "sentence": "I learned the word \"follow\" today."
+  },
+  "end": {
+    "meaning": "结束, 终点, 目标, 末端, 梢, 死亡, 残余；结束, 终结, 终止；端?结束",
+    "sentence": "I learned the word \"end\" today."
+  },
+  "without": {
+    "meaning": "没有, 不, 在...之外；在外面, 户外；外面, 外部",
+    "sentence": "I learned the word \"without\" today."
+  },
+  "within": {
+    "meaning": "内部, 里头；在内部, 在内心里；在...之内",
+    "sentence": "I learned the word \"within\" today."
+  },
+  "local": {
+    "meaning": "地方性的, 当地的, 局部的, 乡土的, 本地的；当地居民, 本地新闻, 局部；本地的?局部",
+    "sentence": "I learned the word \"local\" today."
+  },
+  "during": {
+    "meaning": "在...的时候",
+    "sentence": "I learned the word \"during\" today."
+  },
+  "right": {
+    "meaning": "权利, 右边, 正义, 右派, 公正；正确的, 对的, 恰当的, 正常的, 正直的, 正面的, 右方的；正确地, 以有利结果, 一直, 直接,",
+    "sentence": "I learned the word \"right\" today."
+  },
+  "program": {
+    "meaning": "节目；程序；计划",
+    "sentence": "This program helps me study."
+  },
+  "hear": {
+    "meaning": "听到, 倾听, 听说, 审理；听见, 听",
+    "sentence": "I learned the word \"hear\" today."
+  },
+  "bring": {
+    "meaning": "带来, 产生, 促使, 提出；生产",
+    "sentence": "I learned the word \"bring\" today."
+  },
+  "word": {
+    "meaning": "话, 消息, 词, 诺言, 命令；用言辞表达；字",
+    "sentence": "I learned the word \"word\" today."
+  },
+  "although": {
+    "meaning": "虽然, 尽管",
+    "sentence": "I learned the word \"although\" today."
+  },
+  "question": {
+    "meaning": "问题, 询问；询问, 审问, 怀疑；询问",
+    "sentence": "I learned the word \"question\" today."
+  },
+  "before": {
+    "meaning": "在...之前；在...之前；在前",
+    "sentence": "I learned the word \"before\" today."
+  },
+  "next": {
+    "meaning": "下一个；下一个的, 其次的, 贴近的；然后, 下次, 次于；近邻干扰",
+    "sentence": "I learned the word \"next\" today."
+  },
+  "play": {
+    "meaning": "游戏, 游玩, 玩笑, 运动, 比赛, 赌博, 跳动, 表演, 剧本；玩, 游戏, 假装, 开玩笑, 比赛, 扮演, 演奏, 演戏, 传摇曳,",
+    "sentence": "I learned the word \"play\" today."
+  },
+  "fact": {
+    "meaning": "事实, 真实性, 真相, 细节, 论据",
+    "sentence": "I learned the word \"fact\" today."
+  },
+  "run": {
+    "meaning": "跑, 赛跑, 奔跑, 奔跑的路程, 趋向, 流出, 运转时间, 连续；跑, 奔跑, 跑步, 赛跑, 竞赛, 行驶, 运转, 进行, 蔓延；使跑,",
+    "sentence": "I learned the word \"run\" today."
+  },
+  "social": {
+    "meaning": "社会的, 群居的, 社交的；联欢会",
+    "sentence": "I learned the word \"social\" today."
+  },
+  "quite": {
+    "meaning": "相当, 完全, 十分",
+    "sentence": "I learned the word \"quite\" today."
+  },
+  "move": {
+    "meaning": "移动, 迁居, 步骤；移动, 开动, 感动, 搬(家)；移动, 离开, 运行, 迁移, 摇动, 搬家, 交往, 进展, 脱手；移动?传送",
+    "sentence": "I learned the word \"move\" today."
+  },
+  "head": {
+    "meaning": "头, 头脑, 领袖, 脑袋, 最前的部分；为首, 朝向, 前进, 用头顶；朝特定方向行进, (作物)结穗；头的, 在顶端的, 主要的；磁头",
+    "sentence": "I learned the word \"head\" today."
+  },
+  "night": {
+    "meaning": "夜, 夜晚, 晚上, 黑暗, 夜晚的工作；夜, 黑夜, 黑暗",
+    "sentence": "I learned the word \"night\" today."
+  },
+  "live": {
+    "meaning": "活的, 生动的, 精力充沛的, 实况转播的；活, 生存, 居住；过着, 度过, 经历；实况地",
+    "sentence": "I learned the word \"live\" today."
+  },
+  "write": {
+    "meaning": "书写, 著述, 写, 写满, 写信给；写, 写字, 写信, 写作, 作曲；书写器",
+    "sentence": "I learned the word \"write\" today."
+  },
+  "side": {
+    "meaning": "旁边, 侧, 方面, 胁, 侧边, 血统；旁的, 侧的, 次要的；同意, 支持；支持, 赞助",
+    "sentence": "I learned the word \"side\" today."
+  },
+  "believe": {
+    "meaning": "相信",
+    "sentence": "I learned the word \"believe\" today."
+  },
+  "set": {
+    "meaning": "日落, 同伙, 组合, 集合, 装置；放, 安置, 放置, 设定, 使凝结, 点燃, 确定, 点缀, 使就位, 树立, 分配, 调整；日落, 凝",
+    "sentence": "I learned the word \"set\" today."
+  },
+  "month": {
+    "meaning": "月；月",
+    "sentence": "I learned the word \"month\" today."
+  },
+  "today": {
+    "meaning": "今天, 当今, 现在；今天, 当今",
+    "sentence": "I learned the word \"today\" today."
+  },
+  "business": {
+    "meaning": "生意, 事情, 业务, 商业, 商行, 职责；企业, 商业, 营业",
+    "sentence": "I learned the word \"business\" today."
+  },
+  "happen": {
+    "meaning": "发生, 发生, 恰巧",
+    "sentence": "I learned the word \"happen\" today."
+  },
+  "long": {
+    "meaning": "长的, 长久的, 冗长的, 做多头的；渴望, 热望, 极想；长久, 始终；长时间, 长信号, 长整型；长, 长整型",
+    "sentence": "I learned the word \"long\" today."
+  },
+  "important": {
+    "meaning": "重要的, 有地位的, 大量的, 显要的, 自负的；要点",
+    "sentence": "I learned the word \"important\" today."
+  },
+  "eye": {
+    "meaning": "眼睛, 视力, 看；看, 注视",
+    "sentence": "I learned the word \"eye\" today."
+  },
+  "home": {
+    "meaning": "家, 避难所, 故乡；家庭的, 国内的, 打中目标的；在家, 在本国, 打中目标地；返回始位",
+    "sentence": "I learned the word \"home\" today."
+  },
+  "information": {
+    "meaning": "消息, 知识, 通知, 情报, 信息, 问讯处, 起诉；信息",
+    "sentence": "I learned the word \"information\" today."
+  },
+  "power": {
+    "meaning": "力量；电力；权力",
+    "sentence": "The phone has no power."
+  },
+  "water": {
+    "meaning": "水, 雨水, 海水, 水位, 水面, 流水；给...浇水, 供以水, 注入水, 使湿；流泪, 流口水, 加水；水的, 水上的, 水生的, 含水的",
+    "sentence": "I learned the word \"water\" today."
+  },
+  "change": {
+    "meaning": "变化, 找回的零钱, 找头, 更换；改变, 更换, 兑换",
+    "sentence": "I learned the word \"change\" today."
+  },
+  "pay": {
+    "meaning": "薪资, 付款, 补偿；支付, 付清, 补偿, 偿还, 对...有利, 为...涂防水物；付款, 付出代价, 偿还, 得到报应, 获得好处",
+    "sentence": "I learned the word \"pay\" today."
+  },
+  "room": {
+    "meaning": "房间, 空位, 场所；住宿, 居住；留宿",
+    "sentence": "I learned the word \"room\" today."
+  },
+  "young": {
+    "meaning": "年轻的, 无经验的, 朝气蓬勃的；青年们, 幼小动物, 崽",
+    "sentence": "I learned the word \"young\" today."
+  },
+  "both": {
+    "meaning": "两者的；两者都；两者",
+    "sentence": "I learned the word \"both\" today."
+  },
+  "mother": {
+    "meaning": "母亲, 修女院长；产生, 照看, 收养",
+    "sentence": "I learned the word \"mother\" today."
+  },
+  "often": {
+    "meaning": "时常, 常常",
+    "sentence": "I learned the word \"often\" today."
+  },
+  "interest": {
+    "meaning": "兴趣, 嗜好, 利息, 利益, 爱好, 趣味, 势力；使感兴趣, 与...有关系",
+    "sentence": "I learned the word \"interest\" today."
+  },
+  "national": {
+    "meaning": "国家的, 国立的, 全国性的, 民族的；全国性的, 国家的, 国民的",
+    "sentence": "I learned the word \"national\" today."
+  },
+  "money": {
+    "meaning": "金钱, 一笔款, 财富, 货币, 金额；货币, 金钱, 财产",
+    "sentence": "I learned the word \"money\" today."
+  },
+  "story": {
+    "meaning": "故事, 小说, 传奇, 描述, 阅历, 经历, 层",
+    "sentence": "I learned the word \"story\" today."
+  },
+  "development": {
+    "meaning": "发展；展开",
+    "sentence": "I learned the word \"development\" today."
+  },
+  "book": {
+    "meaning": "书, 书籍, 帐簿, 名册, 工作簿；登记, 预订；工作簿",
+    "sentence": "I learned the word \"book\" today."
+  },
+  "away": {
+    "meaning": "离去",
+    "sentence": "I learned the word \"away\" today."
+  },
+  "form": {
+    "meaning": "形状, 形体, 类型, 方式, 表格, 形式；形成, 排列, (使)组成；表单；表单",
+    "sentence": "I learned the word \"form\" today."
+  },
+  "study": {
+    "meaning": "学习, 研究, 学科, 论文, 求学, 书房, 试作；学习, 读书, 研究, 考虑, 计划；学习, 思索",
+    "sentence": "I learned the word \"study\" today."
+  },
+  "level": {
+    "meaning": "水平, 水准, 平地；同高的, 平坦的, 齐平的, 水平的；弄平, 夷平, 使同等, 瞄准, 对准；变平, 拉平；级别",
+    "sentence": "I learned the word \"level\" today."
+  },
+  "second": {
+    "meaning": "秒, 瞬间, 第二名, 支持者, 助手；第二的, 其次的, 次要的, 附加的, 辅助的；第二；当...助手, 支持",
+    "sentence": "I learned the word \"second\" today."
+  },
+  "job": {
+    "meaning": "工作, 零活, 职业, 事情；做零工, 打杂, 做股票经纪, 假公济私；代客买卖, 批发, 承包, 欺骗；作业",
+    "sentence": "I learned the word \"job\" today."
+  },
+  "early": {
+    "meaning": "早的, 早熟的；很早, 初",
+    "sentence": "I learned the word \"early\" today."
+  },
+  "though": {
+    "meaning": "然而, 可是；虽然, 纵然",
+    "sentence": "I learned the word \"though\" today."
+  },
+  "include": {
+    "meaning": "包括；包含",
+    "sentence": "Does it include tax?"
+  },
+  "car": {
+    "meaning": "汽车, 客车；车",
+    "sentence": "I learned the word \"car\" today."
+  },
+  "issue": {
+    "meaning": "发行, 问题, 后果, 流出, 出口, 争端；发行, 流出, 造成...结果, 传下；使流出, 放出, 发行, 发布, 发给",
+    "sentence": "I learned the word \"issue\" today."
+  },
+  "perhaps": {
+    "meaning": "也许, 大概",
+    "sentence": "I learned the word \"perhaps\" today."
+  },
+  "kind": {
+    "meaning": "种类, 性质, 方式；亲切的, 仁慈的, 和蔼的",
+    "sentence": "I learned the word \"kind\" today."
+  },
+  "policy": {
+    "meaning": "政策, 方针, 策略, 保险单；凭单, 保险单",
+    "sentence": "I learned the word \"policy\" today."
+  },
+  "council": {
+    "meaning": "会议, 委员会；委员会",
+    "sentence": "I learned the word \"council\" today."
+  },
+  "far": {
+    "meaning": "远的, 久远的, 遥远的；甚远地, 很, 到很深的程度, 到很远的距离",
+    "sentence": "I learned the word \"far\" today."
+  },
+  "black": {
+    "meaning": "黑色, 黑颜料；黑色的",
+    "sentence": "I learned the word \"black\" today."
+  },
+  "market": {
+    "meaning": "市场, 交易, 集市, 推销地区, 行情, 市面, 销路；在市场上交易, 使上市, 销售；在市场上买卖",
+    "sentence": "I learned the word \"market\" today."
+  },
+  "court": {
+    "meaning": "法院, 庭院, 奉承；献殷勤, 追求, 招致；求爱",
+    "sentence": "I learned the word \"court\" today."
+  },
+  "already": {
+    "meaning": "已经, 早已",
+    "sentence": "I learned the word \"already\" today."
+  },
+  "little": {
+    "meaning": "一点点, 少许, 一会儿, 短时间；小的, 很少的, 幼小的, 琐碎的, 短暂的, 矮小的；很少, 稍微, 完全不",
+    "sentence": "I learned the word \"little\" today."
+  },
+  "possible": {
+    "meaning": "可能的, 潜在的, 合适的；可能性, 可能的事物",
+    "sentence": "I learned the word \"possible\" today."
+  },
+  "allow": {
+    "meaning": "允许, 同意给予, 承认；容许, 猜想；允许命令",
+    "sentence": "I learned the word \"allow\" today."
+  },
+  "nothing": {
+    "meaning": "无, 不关紧要之事, 零；毫不, 决不；什么也没有, 无",
+    "sentence": "I learned the word \"nothing\" today."
+  },
+  "meet": {
+    "meaning": "会, 集会；适宜的, 合适的；遇见, 引见, 认识, 满足, 对付；相遇, 接触",
+    "sentence": "I learned the word \"meet\" today."
+  },
+  "since": {
+    "meaning": "自...以后, 自...以来；自那时以后；既然, 自...以后, 自...以来",
+    "sentence": "I learned the word \"since\" today."
+  },
+  "yet": {
+    "meaning": "还, 尚, 仍然, 已经, 然而；然而",
+    "sentence": "I learned the word \"yet\" today."
+  },
+  "effect": {
+    "meaning": "结果, 影响, 效果, 印象；实行, 引起, 完成；效果",
+    "sentence": "I learned the word \"effect\" today."
+  },
+  "lead": {
+    "meaning": "铅, 铅条, 领导, 超前量, 领引, 榜样, 主角, 导线；引导, 带领, 领导, 指挥, 致使, 加铅于, 用铅包；领导, 带头, 导致,",
+    "sentence": "I learned the word \"lead\" today."
+  },
+  "around": {
+    "meaning": "包围, 在...周围, 四处；兜着圈子, 在附近, 到处",
+    "sentence": "I learned the word \"around\" today."
+  },
+  "result": {
+    "meaning": "结果, 成绩, 答案；产生, 结果, 致使；结果",
+    "sentence": "I learned the word \"result\" today."
+  },
+  "friend": {
+    "meaning": "朋友, 支持者, 赞助者；朋友, 友人, 赞助者",
+    "sentence": "I learned the word \"friend\" today."
+  },
+  "whether": {
+    "meaning": "是否, 不论；两个中的哪一个",
+    "sentence": "I learned the word \"whether\" today."
+  },
+  "father": {
+    "meaning": "父亲, 祖先, 长辈, 神父, 创始者；当...的父亲, 保护, 创作, 发明, 培养",
+    "sentence": "I learned the word \"father\" today."
+  },
+  "sit": {
+    "meaning": "坐, 就座, 坐落；使就座, 骑；坐, 衣服合身",
+    "sentence": "I learned the word \"sit\" today."
+  },
+  "idea": {
+    "meaning": "主意, 办法, 理想, 思想, 概念, 意见；观念, 思想",
+    "sentence": "I learned the word \"idea\" today."
+  },
+  "until": {
+    "meaning": "直到, 在...以前；直到...时, 在...以前",
+    "sentence": "I learned the word \"until\" today."
+  },
+  "name": {
+    "meaning": "名字, 名称, 姓名, 名义, 名誉, 文件名；命名, 称呼, 任命, 提名, 列举；姓名的, 据以取名的；名称, 文件名, 姓名",
+    "sentence": "I learned the word \"name\" today."
+  },
+  "hour": {
+    "meaning": "小时, 钟头, 时间, ...点钟, 课时",
+    "sentence": "I learned the word \"hour\" today."
+  },
+  "game": {
+    "meaning": "比赛, 玩耍, 比分, 得胜, 比赛规则, 策略, 游戏, 野味；赌博；勇敢的, 有胆量的, 关于野味的, 跛的；博弈?对策",
+    "sentence": "I learned the word \"game\" today."
+  },
+  "stand": {
+    "meaning": "站；忍受",
+    "sentence": "I can't stand it."
+  },
+  "body": {
+    "meaning": "身体, 人, 尸体, 主要部分, 团体；赋以形体；体",
+    "sentence": "I learned the word \"body\" today."
+  },
+  "line": {
+    "meaning": "列, 线, 绳, 电线, 线路, 路线, 航线, 作业线, 界线, 战线, 外形, 排, 家系；排成一行, 顺...排列, 划线于, 加衬里,",
+    "sentence": "I learned the word \"line\" today."
+  },
+  "report": {
+    "meaning": "报告, 报道, 传说, 案情报告, 爆炸声, 成绩单；报告, 汇报, 转述, 报道, 揭发, 使报到；报告, 写报道, 报到；报告",
+    "sentence": "I learned the word \"report\" today."
+  },
+  "political": {
+    "meaning": "政治的, 政治上的, 政党的, 从事政治的；政治的, 政治上的, 党派政治的",
+    "sentence": "I learned the word \"political\" today."
+  },
+  "law": {
+    "meaning": "法律, 法则, 定律, 法律的制约, 法学, 司法界, 诉讼；起诉",
+    "sentence": "I learned the word \"law\" today."
+  },
+  "among": {
+    "meaning": "在...之中",
+    "sentence": "I learned the word \"among\" today."
+  },
+  "later": {
+    "meaning": "以后, 随后",
+    "sentence": "I learned the word \"later\" today."
+  },
+  "ever": {
+    "meaning": "曾经, 究竟, 永远",
+    "sentence": "I learned the word \"ever\" today."
+  },
+  "almost": {
+    "meaning": "几乎, 差不多",
+    "sentence": "I learned the word \"almost\" today."
+  },
+  "bad": {
+    "meaning": "坏的；坏；坏地",
+    "sentence": "I learned the word \"bad\" today."
+  },
+  "face": {
+    "meaning": "脸, 面容, 正面, 外观；面对, 朝, 正视, 面临；朝, 向；现场可改变的控制元件",
+    "sentence": "I learned the word \"face\" today."
+  },
+  "lose": {
+    "meaning": "遗失, 损失, 丢失, 使失去, 错过, 浪费, 迷失, 使迷路, 输去, 使沉溺于；受损失, 失败",
+    "sentence": "I learned the word \"lose\" today."
+  },
+  "carry": {
+    "meaning": "进位, 射程, 运载；携带, 运送, 支持, 传送, 包含；被携带, 能达到；进位?进位数",
+    "sentence": "I learned the word \"carry\" today."
+  },
+  "road": {
+    "meaning": "路, 道路, 公路, 途径, 方法；公路, 道路, 行车道",
+    "sentence": "I learned the word \"road\" today."
+  },
+  "authority": {
+    "meaning": "权力, 当权者, 当局, 权威, 专家；代理权, 授权, 权威",
+    "sentence": "I learned the word \"authority\" today."
+  },
+  "himself": {
+    "meaning": "他自己, 他亲自",
+    "sentence": "I learned the word \"himself\" today."
+  },
+  "together": {
+    "meaning": "一起, 共同, 彼此",
+    "sentence": "I learned the word \"together\" today."
+  },
+  "city": {
+    "meaning": "城市, 市；都市, 城市, 市",
+    "sentence": "I learned the word \"city\" today."
+  },
+  "appear": {
+    "meaning": "出现, 显得, 来到；出庭, 到案, 出现",
+    "sentence": "I learned the word \"appear\" today."
+  },
+  "continue": {
+    "meaning": "继续, 延续, 延长；使继续, 使延长",
+    "sentence": "I learned the word \"continue\" today."
+  },
+  "minister": {
+    "meaning": "部长, 牧师, 公使；服侍, 救助, 主持宗教仪式",
+    "sentence": "I learned the word \"minister\" today."
+  },
+  "able": {
+    "meaning": "能干的, 能够的",
+    "sentence": "I learned the word \"able\" today."
+  },
+  "produce": {
+    "meaning": "生产品, 物产, 后代；产生, 生产, 提出, 出示；生产, 制造",
+    "sentence": "I learned the word \"produce\" today."
+  },
+  "community": {
+    "meaning": "社区, 公众, 共有, 共同体；公众, 共有, 社会",
+    "sentence": "I learned the word \"community\" today."
+  },
+  "rate": {
+    "meaning": "比率, 率, 速度, 价格, 费用, 等级；估价, 认为, 鉴定等级, 责骂；被评价, 责骂",
+    "sentence": "I learned the word \"rate\" today."
+  },
+  "late": {
+    "meaning": "迟的, 晚的, 已故的；很晚, 很迟, 晚",
+    "sentence": "I learned the word \"late\" today."
+  },
+  "door": {
+    "meaning": "门",
+    "sentence": "I learned the word \"door\" today."
+  },
+  "once": {
+    "meaning": "一次, 曾经, 一旦；一旦, 一经；一次；从前的",
+    "sentence": "I learned the word \"once\" today."
+  },
+  "white": {
+    "meaning": "白色, 洁白, 眼白, 白种人, 蛋白；白色的, 纯洁的, 白种的, 苍白的, 空白的, 幸运的",
+    "sentence": "I learned the word \"white\" today."
+  },
+  "general": {
+    "meaning": "一般, 将军, 大体；全面的, 大体的, 总的, 一般的, 普遍的；常规；常规",
+    "sentence": "I learned the word \"general\" today."
+  },
+  "least": {
+    "meaning": "最少, 最小, 最小限度；最少的, 最小的；最小, 最少",
+    "sentence": "I learned the word \"least\" today."
+  },
+  "office": {
+    "meaning": "办公室, 部, 公职, 职责；办公室",
+    "sentence": "I learned the word \"office\" today."
+  },
+  "president": {
+    "meaning": "总统, 总裁, 董事长, (学院)院长, (大学)校长, 主管人, 主持人；总经理, 董事长, 总裁",
+    "sentence": "I learned the word \"president\" today."
+  },
+  "war": {
+    "meaning": "战争, 战争状态, 战术, 军事, 冲突, 斗争, 竞争；进行战争, 作战, 打仗, 战斗；战争的, 战时用的",
+    "sentence": "I learned the word \"war\" today."
+  },
+  "learn": {
+    "meaning": "学习；认识到；得知",
+    "sentence": "I learned the word \"learn\" today."
+  },
+  "real": {
+    "meaning": "真的, 真实的, 实际的, 实在的, 不动(产)的, 实数的；实数, 现实；真正地",
+    "sentence": "I learned the word \"real\" today."
+  },
+  "team": {
+    "meaning": "队, 组；把马(牛)套在同一辆车上, 把...编成一组；驾驶卡车, 协作",
+    "sentence": "I learned the word \"team\" today."
+  },
+  "offer": {
+    "meaning": "给予(物), 出价, 提议, 意图, 报价；提供, 出价, 奉献, 试图, 使出现, 演出；出现, 献祭, 提议, 求婚",
+    "sentence": "I learned the word \"offer\" today."
+  },
+  "minute": {
+    "meaning": "分, 分钟, 片刻, 备忘录, 笔记；记录, 摘录, 测定时间；微小的, 详细的",
+    "sentence": "I learned the word \"minute\" today."
+  },
+  "person": {
+    "meaning": "人, 人身, 人称；人, 法人, 人身",
+    "sentence": "I learned the word \"person\" today."
+  },
+  "full": {
+    "meaning": "全部, 完整；充满的, 完全的, 丰富的, 完美的, 丰满的, 详尽的；完全地, 整整, 十分；把(衣服等)缝得宽松, 漂洗；完整",
+    "sentence": "I learned the word \"full\" today."
+  },
+  "reason": {
+    "meaning": "理由, 原因, 理智, 道理, 前提, 理性；说服, 推论, 辩论；推论, 劝说, 思考",
+    "sentence": "I learned the word \"reason\" today."
+  },
+  "several": {
+    "meaning": "几个的, 一些的, 各自的；几个",
+    "sentence": "I learned the word \"several\" today."
+  },
+  "view": {
+    "meaning": "视野, 风景, 见解, 视力, 观看, 视图, 指望, 意图, 印象；看, 考虑, 视察, 查看, 估量；视图",
+    "sentence": "I learned the word \"view\" today."
+  },
+  "kid": {
+    "meaning": "小山羊, 小山羊肉, 小孩, 欺骗；小山羊皮制的；哄骗, 嘲弄",
+    "sentence": "I learned the word \"kid\" today."
+  },
+  "consider": {
+    "meaning": "考虑, 思考, 认为",
+    "sentence": "I learned the word \"consider\" today."
+  },
+  "expect": {
+    "meaning": "预期, 盼望, 期待",
+    "sentence": "I learned the word \"expect\" today."
+  },
+  "suggest": {
+    "meaning": "提议, 建议, 促成, 暗示, 启发, 使人想起；建议, 提出, 提议",
+    "sentence": "I learned the word \"suggest\" today."
+  },
+  "anything": {
+    "meaning": "任何事",
+    "sentence": "I learned the word \"anything\" today."
+  },
+  "ago": {
+    "meaning": "以前",
+    "sentence": "I learned the word \"ago\" today."
+  },
+  "term": {
+    "meaning": "术语, 专有名词, 期限, 学期, 任期, 条件, 价钱, 关系, 地位, 项, 界石；称, 呼；检索词?项",
+    "sentence": "I learned the word \"term\" today."
+  },
+  "towards": {
+    "meaning": "向, 对于, 为了",
+    "sentence": "I learned the word \"towards\" today."
+  },
+  "low": {
+    "meaning": "低点, 低价, 低, 牛叫声；低的, 消沉的, 低等的, 浅的, 卑贱的；低下地, 谦卑地, 低；牛叫",
+    "sentence": "I learned the word \"low\" today."
+  },
+  "public": {
+    "meaning": "公众, 民众；公众的, 公共的, 公立的, 公用的",
+    "sentence": "I learned the word \"public\" today."
+  },
+  "understand": {
+    "meaning": "理解, 了解, 领会, 听说, 懂；懂得, 认为",
+    "sentence": "I learned the word \"understand\" today."
+  },
+  "require": {
+    "meaning": "需要, 命令, 要求；需要, 要求, 命令",
+    "sentence": "I learned the word \"require\" today."
+  },
+  "read": {
+    "meaning": "读, 阅读, 理解；有学问的；读取, 阅读；读取",
+    "sentence": "I learned the word \"read\" today."
+  },
+  "watch": {
+    "meaning": "观察, 手表, 看守, 守护, 监视, 值班人；看, 注视, 照顾, 看守, 守护, 监视；观看, 注视, 守侯",
+    "sentence": "I learned the word \"watch\" today."
+  },
+  "period": {
+    "meaning": "时期, 节段, 节, 句点, 学时, 周期；当时特有的, 过去某段时期的；就是这话, 就是这么回事",
+    "sentence": "I learned the word \"period\" today."
+  },
+  "figure": {
+    "meaning": "数字, 价格, 图形, 形状；描绘, 表示, 演算, 认为；计算, 出现, 估计",
+    "sentence": "I learned the word \"figure\" today."
+  },
+  "society": {
+    "meaning": "社会；社交界；交往；社团",
+    "sentence": "I learned the word \"society\" today."
+  },
+  "centre": {
+    "meaning": "中心, 中心点, 中锋；中央的, 位在正中的；集中, 定中心；居中",
+    "sentence": "I learned the word \"centre\" today."
+  },
+  "parent": {
+    "meaning": "父母, 父母亲, 根源；父亲, 母亲, 根源",
+    "sentence": "I learned the word \"parent\" today."
+  },
+  "police": {
+    "meaning": "警察, 警察当局, 治安；维持治安, 管辖",
+    "sentence": "I learned the word \"police\" today."
+  },
+  "stop": {
+    "meaning": "停止, 车站, 逗留, 填塞, 障碍, (风琴的)音栓；停止, 被塞住；塞住, 堵塞, 阻止, 击落, 停止, 终止, 断绝",
+    "sentence": "I learned the word \"stop\" today."
+  },
+  "add": {
+    "meaning": "增加, 添加, 附带说明, 计算...总和；做加法, 积累而成, 增添；加法",
+    "sentence": "I learned the word \"add\" today."
+  },
+  "fall": {
+    "meaning": "落下, 瀑布, 采伐量, 下降, 落差, 降低, 堕落, 秋天；倒下, 落下, 来临, 失守, 阵亡, 下跌, 减弱, 倾斜, 垮台, 轮到,",
+    "sentence": "I learned the word \"fall\" today."
+  },
+  "create": {
+    "meaning": "创造, 建造, 引起, 任命",
+    "sentence": "I learned the word \"create\" today."
+  },
+  "probably": {
+    "meaning": "大概, 或许",
+    "sentence": "I learned the word \"probably\" today."
+  },
+  "available": {
+    "meaning": "可利用的, 可获得的, 有效的；有效的, 可得的",
+    "sentence": "I learned the word \"available\" today."
+  },
+  "speak": {
+    "meaning": "说, 说话, 演说, 发言；说, 讲, 说出",
+    "sentence": "I learned the word \"speak\" today."
+  },
+  "price": {
+    "meaning": "价格, 代价, 价值；定...的价格",
+    "sentence": "I learned the word \"price\" today."
+  },
+  "control": {
+    "meaning": "控制, 管理, 克制, 控制器, 操纵装置；控制, 操纵, 抑制；控制?控制器",
+    "sentence": "I learned the word \"control\" today."
+  },
+  "action": {
+    "meaning": "行动, 活动, 动作, 作用, 战斗, 行为, 诉讼；对...起诉；方式",
+    "sentence": "I learned the word \"action\" today."
+  },
+  "cost": {
+    "meaning": "代价, 价值, 费用；花费；使失去, 值, 使花费",
+    "sentence": "I learned the word \"cost\" today."
+  },
+  "spend": {
+    "meaning": "花费, 浪费, 度过, 消耗, 消磨；花费, 用尽",
+    "sentence": "I learned the word \"spend\" today."
+  },
+  "process": {
+    "meaning": "程序, 进行, 过程；加工, 使...接受处理, 对...处置, 对...起诉；经加工的, 有特殊光效的；进程",
+    "sentence": "I learned the word \"process\" today."
+  },
+  "health": {
+    "meaning": "健康, 卫生, 蓬勃, 健康状态；健康",
+    "sentence": "I learned the word \"health\" today."
+  },
+  "remain": {
+    "meaning": "保持, 逗留, 剩余；停留, 居住, 继续",
+    "sentence": "I learned the word \"remain\" today."
+  },
+  "position": {
+    "meaning": "位置, 地位, 身分, 形势, 姿势, 立场, 职位, 状态, 阵地；安置, 决定...的位置；位置",
+    "sentence": "I learned the word \"position\" today."
+  },
+  "art": {
+    "meaning": "艺术, 人文科学, 技术, 巧妙, 诡计, 美术；实际保持时间, 特许权和资源表, 平均检索时间, 平均运行时间",
+    "sentence": "I learned the word \"art\" today."
+  },
+  "remember": {
+    "meaning": "记得, 回忆起, 记住, 铭记, 纪念；记得",
+    "sentence": "I learned the word \"remember\" today."
+  },
+  "sure": {
+    "meaning": "确信, 必然的, 必定的；当然, 确实地, 无疑地",
+    "sentence": "I learned the word \"sure\" today."
+  },
+  "course": {
+    "meaning": "课程, 路线, 过程, 一道菜, 道路；追, (使)跑",
+    "sentence": "I learned the word \"course\" today."
+  },
+  "history": {
+    "meaning": "历史, 过去, 经历, 发展过程, 历史学, 过去的事, 历史记录；历史记录",
+    "sentence": "I learned the word \"history\" today."
+  },
+  "buy": {
+    "meaning": "买, 获得；买；购买, 买得的东西",
+    "sentence": "I learned the word \"buy\" today."
+  },
+  "grow": {
+    "meaning": "种植, 使长满；生长, 变成, 发展",
+    "sentence": "I learned the word \"grow\" today."
+  },
+  "education": {
+    "meaning": "教育, 训练, 教育学；教育, 训练",
+    "sentence": "I learned the word \"education\" today."
+  },
+  "actually": {
+    "meaning": "事实上, 竟然, 如今, 现在",
+    "sentence": "I learned the word \"actually\" today."
+  },
+  "open": {
+    "meaning": "公开, 户外, 空旷；开着的, 开放的, 开阔的, 营业着的, 公开的, 悬而未决的；打开, 公开, 开放；展开, 开始, 展现；打开指令",
+    "sentence": "I learned the word \"open\" today."
+  },
+  "type": {
+    "meaning": "类型；打字",
+    "sentence": "What type of video is this?"
+  },
+  "morning": {
+    "meaning": "早晨, 早上, 初期",
+    "sentence": "I learned the word \"morning\" today."
+  },
+  "research": {
+    "meaning": "研究, 调查, 考察；研究, 调查",
+    "sentence": "I learned the word \"research\" today."
+  },
+  "walk": {
+    "meaning": "走, 散步, 步行, 行走的路程, 竞走, 散步场所；走路, 步行, 处世；走过, 遛, 使走, 护送...走",
+    "sentence": "I learned the word \"walk\" today."
+  },
+  "subject": {
+    "meaning": "科目, 主题, 臣民, 主语, 题目, (事物的)经受者, 学科, 受治疗者, 原因, 理由；服从的, 易患...的, 隶属的, 受支配的；在.",
+    "sentence": "I learned the word \"subject\" today."
+  },
+  "programme": {
+    "meaning": "节目, 节目单, 程序, 纲要, 大纲, 计划；规划, 拟...计划；安排节目, 编程序",
+    "sentence": "I learned the word \"programme\" today."
+  },
+  "win": {
+    "meaning": "赢得, 打胜, 成功；获胜, 达到, 影响；胜利, 赢, 收益",
+    "sentence": "I learned the word \"win\" today."
+  },
+  "moment": {
+    "meaning": "片刻, 瞬间, 重要, 阶段, 力矩；片刻, 瞬间, 时机, 因素, 矩",
+    "sentence": "I learned the word \"moment\" today."
+  },
+  "girl": {
+    "meaning": "女孩, 少女, 女佣",
+    "sentence": "I learned the word \"girl\" today."
+  },
+  "age": {
+    "meaning": "年龄, 老年, 成年, 寿命, 时代, 时期；变老, 成熟",
+    "sentence": "I learned the word \"age\" today."
+  },
+  "guy": {
+    "meaning": "家伙, 支索；用支索撑住, 取笑, 嘲弄；逃跑",
+    "sentence": "I learned the word \"guy\" today."
+  },
+  "food": {
+    "meaning": "食物, 养料；食物, 食品",
+    "sentence": "I learned the word \"food\" today."
+  },
+  "send": {
+    "meaning": "发送, 使进入, 寄, 派遣, 发射, 使陷于；寄信, 派人, 播送；(船的)上升运动；发送",
+    "sentence": "I learned the word \"send\" today."
+  },
+  "value": {
+    "meaning": "价值, 价格, 购买力, 评价, 估价, 计算结果；评价, 估价, 重视；计算结果",
+    "sentence": "I learned the word \"value\" today."
+  },
+  "order": {
+    "meaning": "次序, 规则, 命令；命令, 定货；整理, 命令, 定购；顺序, 阶数；顺序, 阶数",
+    "sentence": "I learned the word \"order\" today."
+  },
+  "force": {
+    "meaning": "力量, 武力, 势力, 影响力, 军队, 力, 效力；强迫, 强夺, 推动, 提高；人工转移?强制",
+    "sentence": "I learned the word \"force\" today."
+  },
+  "air": {
+    "meaning": "空气, 旋律, 态度；晾, 使通风, 夸耀",
+    "sentence": "I learned the word \"air\" today."
+  },
+  "matter": {
+    "meaning": "事件, 物质, 原因, 素材, 实体, 重要；有关系",
+    "sentence": "I learned the word \"matter\" today."
+  },
+  "act": {
+    "meaning": "行动, 行为, 幕, 法案；行动, 表演, 假装, 见效, 表现, 担当；扮演, 装作；先进通信技术, 先进计算机工艺, 自动代码翻译技术",
+    "sentence": "I learned the word \"act\" today."
+  },
+  "receive": {
+    "meaning": "收到, 接到, 得到, 接待, 迎接, 承受；收到, 会客；接收",
+    "sentence": "I learned the word \"receive\" today."
+  },
+  "enough": {
+    "meaning": "充足, 够, 很多；充足的, 足够；足够；够了",
+    "sentence": "I learned the word \"enough\" today."
+  },
+  "decide": {
+    "meaning": "决定, 判决",
+    "sentence": "I learned the word \"decide\" today."
+  },
+  "main": {
+    "meaning": "主要部分, 干线, 体力, 力量, 主群组；主要的, 重要的, 全力的；主群组",
+    "sentence": "I learned the word \"main\" today."
+  },
+  "across": {
+    "meaning": "越过, 穿过, 与...相交叉, 在...的对面；交叉, 到另一边, 在对面, 成十字",
+    "sentence": "I learned the word \"across\" today."
+  },
+  "less": {
+    "meaning": "较少, 较小；少的, 小的；较少, 较小, 较差；最低成本估算与调度法",
+    "sentence": "I learned the word \"less\" today."
+  },
+  "foot": {
+    "meaning": "脚, 步调, 英尺, 底部, 末尾, 步兵；走在...上, 给...换底, 支付；跳舞, 步行, 总计",
+    "sentence": "I learned the word \"foot\" today."
+  },
+  "street": {
+    "meaning": "街道, 马路, 街区；街道的",
+    "sentence": "I learned the word \"street\" today."
+  },
+  "decision": {
+    "meaning": "决定, 决心, 决断；判定",
+    "sentence": "I learned the word \"decision\" today."
+  },
+  "boy": {
+    "meaning": "男孩；男孩, 少年, 儿子",
+    "sentence": "I learned the word \"boy\" today."
+  },
+  "maybe": {
+    "meaning": "也许, 大概；可能性",
+    "sentence": "I learned the word \"maybe\" today."
+  },
+  "industry": {
+    "meaning": "勤劳, 工业, 企业, 产业, 有组织的劳动；工业, 实业",
+    "sentence": "I learned the word \"industry\" today."
+  },
+  "patient": {
+    "meaning": "病人, 承受者；忍耐的, 容忍的, 有耐性的, 坚忍的",
+    "sentence": "I learned the word \"patient\" today."
+  },
+  "mind": {
+    "meaning": "思想, 愿望, 智力, 记忆, 心理, 情绪, 理智, 主意, 心意；介意, 注意, 留心；注意, 留意, 专心于, 照看, 介意",
+    "sentence": "I learned the word \"mind\" today."
+  },
+  "class": {
+    "meaning": "班级, 阶级, 种类, 课；分类；类别?类?种类?类程",
+    "sentence": "I learned the word \"class\" today."
+  },
+  "everything": {
+    "meaning": "每件事物, 所有事物",
+    "sentence": "I learned the word \"everything\" today."
+  },
+  "love": {
+    "meaning": "爱, 恋爱, 爱情, 爱好, 性爱；爱, 爱好, 爱慕；爱",
+    "sentence": "I learned the word \"love\" today."
+  },
+  "clear": {
+    "meaning": "清楚的, 明确的, 澄清的；清晰地；澄清, 清除障碍；放晴, 变清澈；空隙；清除",
+    "sentence": "I learned the word \"clear\" today."
+  },
+  "major": {
+    "meaning": "主修课, 成年人, 陆军少校；主要的, 较多的, 大部分的, 成年的, 严重的；主修；主要, 主要刻度",
+    "sentence": "I learned the word \"major\" today."
+  },
+  "music": {
+    "meaning": "音乐, 乐曲",
+    "sentence": "I learned the word \"music\" today."
+  },
+  "church": {
+    "meaning": "教堂, 礼拜, 教会；使人接受宗教仪式；教堂的",
+    "sentence": "I learned the word \"church\" today."
+  },
+  "themselves": {
+    "meaning": "他们自己, 她们自己, 它们自己",
+    "sentence": "I learned the word \"themselves\" today."
+  },
+  "paper": {
+    "meaning": "纸, 文件, 文章, 报纸, 证券, 证件；用纸糊, 贴壁纸于, 用纸包装；贴壁纸；纸做的, 纸上的",
+    "sentence": "I learned the word \"paper\" today."
+  },
+  "itself": {
+    "meaning": "它本身, 它自己",
+    "sentence": "I learned the word \"itself\" today."
+  },
+  "describe": {
+    "meaning": "描述, 描绘, 画",
+    "sentence": "I learned the word \"describe\" today."
+  },
+  "human": {
+    "meaning": "人, 人类；人类的, 似人类的, 人性的, 有同情心的",
+    "sentence": "I learned the word \"human\" today."
+  },
+  "condition": {
+    "meaning": "情况, 条件；使健康, 以...为条件, 决定, 使适应；条件",
+    "sentence": "I learned the word \"condition\" today."
+  },
+  "wait": {
+    "meaning": "等待, 等候；等候, 期待, 延缓, 伺候, 推迟；等, 等候, 耽搁, 伺候用餐；等待",
+    "sentence": "I learned the word \"wait\" today."
+  },
+  "develop": {
+    "meaning": "发展, 使发达, 进步, 洗印, 显影；发展, 生长",
+    "sentence": "I learned the word \"develop\" today."
+  },
+  "agree": {
+    "meaning": "同意, 赞成, 应允, 适合；承认, 认定, 同意",
+    "sentence": "I learned the word \"agree\" today."
+  },
+  "serve": {
+    "meaning": "可作...用, 服务, 经历, 招待, 供应, 送交, 对待；服务, 服役, 侍应, 适合, 有用, 开球；发球, 轮到发球",
+    "sentence": "I learned the word \"serve\" today."
+  },
+  "economic": {
+    "meaning": "经济上的, 实用的, 节省的；经济的",
+    "sentence": "I learned the word \"economic\" today."
+  },
+  "die": {
+    "meaning": "死亡, 消逝, 平息, 熄灭, 漠然, 渴望；死；骰子, 冲模",
+    "sentence": "I learned the word \"die\" today."
+  },
+  "reach": {
+    "meaning": "伸出, 延伸, 区域, 范围, 流域, 岬；到达, 达到, 伸出, 延伸, 影响；达到, 延伸, 伸出手, 传到",
+    "sentence": "I learned the word \"reach\" today."
+  },
+  "upon": {
+    "meaning": "在...之上, 迫近, 紧接着",
+    "sentence": "I learned the word \"upon\" today."
+  },
+  "bank": {
+    "meaning": "银行, 堤, 岸；库",
+    "sentence": "I learned the word \"bank\" today."
+  },
+  "sense": {
+    "meaning": "感应, 感觉, 感官, 意识, 观念, 情理, 知觉, 理智；感觉, 觉察, 检测；阅读?检测",
+    "sentence": "I learned the word \"sense\" today."
+  },
+  "century": {
+    "meaning": "世纪, 百年",
+    "sentence": "I learned the word \"century\" today."
+  },
+  "build": {
+    "meaning": "建立, 建筑；构造, 体格",
+    "sentence": "I learned the word \"build\" today."
+  },
+  "therefore": {
+    "meaning": "因此, 所以",
+    "sentence": "I learned the word \"therefore\" today."
+  },
+  "stay": {
+    "meaning": "停留, 逗留, 制止, 延缓, 停止, 支柱, 支撑物, 支索；制止, 延缓, 坚持, 支持, 支撑, 用支索固定；停留, 逗留, 暂停, 坚持",
+    "sentence": "I learned the word \"stay\" today."
+  },
+  "section": {
+    "meaning": "区段, 部分, 区域, 节, 截面, 处, 科, 区, 扇区；把...分段, 把...切片；被切成片；扇区",
+    "sentence": "I learned the word \"section\" today."
+  },
+  "table": {
+    "meaning": "桌子, 餐桌, 工作台, 铭文, 表格, 表, 高原, 平地层；搁置, 嵌合, 制表, 把...列入议事日程；表格, 模拟运算表",
+    "sentence": "I learned the word \"table\" today."
+  },
+  "nation": {
+    "meaning": "国家, 民族；民族, 国家",
+    "sentence": "I learned the word \"nation\" today."
+  },
+  "activity": {
+    "meaning": "活动, 行动, 活跃, 活力；活动",
+    "sentence": "I learned the word \"activity\" today."
+  },
+  "plan": {
+    "meaning": "计划, 方案, 策略, 方法, 进度表, 程序表, 平面图, 设计图, 轮廓, 示意图；计划, 设计, 意欲；订计划",
+    "sentence": "I learned the word \"plan\" today."
+  },
+  "cut": {
+    "meaning": "切口, 割伤, 降低, 切, 割, 砍, 削, 伤口, 削减, 缩短, 删节, 通路；经切割的, 缩减的；切, 割, 减少, 刺痛, 开辟, 雕",
+    "sentence": "I learned the word \"cut\" today."
+  },
+  "death": {
+    "meaning": "死亡；死亡",
+    "sentence": "I learned the word \"death\" today."
+  },
+  "college": {
+    "meaning": "学院, 大学, 学会",
+    "sentence": "I learned the word \"college\" today."
+  },
+  "involve": {
+    "meaning": "包括, 使陷于, 潜心于, 包围；累及, 牵涉, 包含",
+    "sentence": "I learned the word \"involve\" today."
+  },
+  "building": {
+    "meaning": "建筑物, 建筑；营造, 建筑, 建筑物",
+    "sentence": "I learned the word \"building\" today."
+  },
+  "experience": {
+    "meaning": "经历, 经验, 体验；经历, 经验, 体验",
+    "sentence": "I learned the word \"experience\" today."
+  },
+  "sort": {
+    "meaning": "种类；排序；整理",
+    "sentence": "I need to sort my notes."
+  },
+  "behind": {
+    "meaning": "在后地；在...背后",
+    "sentence": "I learned the word \"behind\" today."
+  },
+  "likely": {
+    "meaning": "有可能的, 合适的, 前途有望的；或许, 可能",
+    "sentence": "I learned the word \"likely\" today."
+  },
+  "staff": {
+    "meaning": "全体人员, 工作班子, 棍棒, 杆, 拐杖, 支柱, 权杖；职员的, 雇员的, 参谋的；为...配备人员",
+    "sentence": "I learned the word \"staff\" today."
+  },
+  "kill": {
+    "meaning": "杀, 杀戮, 小河；杀, 破坏, 消灭, 使终止, 抵消, 否决；杀死；删除",
+    "sentence": "I learned the word \"kill\" today."
+  },
+  "return": {
+    "meaning": "回来, 返回, 来回票, 归还, 报答, 利润率, 报告书；返回的, 回程的, 报答的, 反向的, 重现的, 复原的；返回, 归还, 回来；归还",
+    "sentence": "I learned the word \"return\" today."
+  },
+  "draw": {
+    "meaning": "拉, 拖, 拔剑；拖拉, 挨近, 领取, 打成平局, 引导, 抽签决定, 画, 描写, 制订, 草拟, 吸引；拉, 拖, 拔出, 抽签, 平局",
+    "sentence": "I learned the word \"draw\" today."
+  },
+  "particular": {
+    "meaning": "一项(或条、点), 个别项目, 详细说明；特别的, 独有的, 挑剔的, 详尽的",
+    "sentence": "I learned the word \"particular\" today."
+  },
+  "town": {
+    "meaning": "城镇, 市, 镇；城镇, 城市, 闹市",
+    "sentence": "I learned the word \"town\" today."
+  },
+  "raise": {
+    "meaning": "上升, 高地, 增高；升起, 举起, 唤起, 提高, 使出现, 使复活, 提出, 筹集, 饲养",
+    "sentence": "I learned the word \"raise\" today."
+  },
+  "care": {
+    "meaning": "小心, 照料, 忧虑；关心, 介意；在意, 喜欢",
+    "sentence": "I learned the word \"care\" today."
+  },
+  "international": {
+    "meaning": "国际的；国别设定；国别设定",
+    "sentence": "I learned the word \"international\" today."
+  },
+  "language": {
+    "meaning": "语言, 文字, 措辞；语言",
+    "sentence": "I learned the word \"language\" today."
+  },
+  "either": {
+    "meaning": "(两者之中)任一的, (两者之中)各一的；(两者之中)任一；或, 要么",
+    "sentence": "I learned the word \"either\" today."
+  },
+  "hard": {
+    "meaning": "坚硬的, 硬的, 难的, 艰苦的, 困难的, 坚固的, 猛烈的, 艰难的, 结实的, 确实的；坚硬地, 努力地, 辛苦地, 接近地, 猛烈地,",
+    "sentence": "I learned the word \"hard\" today."
+  },
+  "special": {
+    "meaning": "专辑, 专车, 号外, 特别的东西, 负有特别任务的人员；特别的, 专门的, 特殊的, 额外的, 附加的, 特别亲密的",
+    "sentence": "I learned the word \"special\" today."
+  },
+  "field": {
+    "meaning": "领域, 田地, 场地, 战场, 场, 域；使...晒在场上, 使上场；田间的, 野生的, 野外的, 田赛的；域, 字段",
+    "sentence": "I learned the word \"field\" today."
+  },
+  "difficult": {
+    "meaning": "困难的",
+    "sentence": "I learned the word \"difficult\" today."
+  },
+  "else": {
+    "meaning": "别的, 其他的；另外, 否则, 不然",
+    "sentence": "I learned the word \"else\" today."
+  },
+  "certain": {
+    "meaning": "确定的, 某一个的, 必然的；确凿的, 无疑的, 可靠的",
+    "sentence": "I learned the word \"certain\" today."
+  },
+  "pass": {
+    "meaning": "经过, 要隘, 途径, 通行, 护照, 及格；经过, 越过, 通过, 批准, 度过, 传递, 忽略；经过, 变化, 流通, 及格, 宣判, 终止",
+    "sentence": "I learned the word \"pass\" today."
+  },
+  "particularly": {
+    "meaning": "特别, 格外, 尤其, 详细地, 细致地",
+    "sentence": "I learned the word \"particularly\" today."
+  },
+  "former": {
+    "meaning": "从前的, 前者的；起形成作用的人(或物), 模型, 样板",
+    "sentence": "I learned the word \"former\" today."
+  },
+  "sell": {
+    "meaning": "卖, 背叛, 销售, 出卖；卖, 销售；卖, 推销术, 失望",
+    "sentence": "I learned the word \"sell\" today."
+  },
+  "hope": {
+    "meaning": "希望, 信心, 期待；希望, 期望, 信赖",
+    "sentence": "I learned the word \"hope\" today."
+  },
+  "sometimes": {
+    "meaning": "有时, 时常, 往往",
+    "sentence": "I learned the word \"sometimes\" today."
+  },
+  "management": {
+    "meaning": "经营, 支配, 管理；管理处",
+    "sentence": "I learned the word \"management\" today."
+  },
+  "along": {
+    "meaning": "平行地, 向前；沿着",
+    "sentence": "I learned the word \"along\" today."
+  },
+  "department": {
+    "meaning": "部门, 系, 机关；部, 科",
+    "sentence": "I learned the word \"department\" today."
+  },
+  "committee": {
+    "meaning": "委员会；委员会",
+    "sentence": "I learned the word \"committee\" today."
+  },
+  "role": {
+    "meaning": "角色, 职责, 任务；作用, 功用",
+    "sentence": "I learned the word \"role\" today."
+  },
+  "product": {
+    "meaning": "产品, 结果, 乘积；生产物",
+    "sentence": "I learned the word \"product\" today."
+  },
+  "whole": {
+    "meaning": "全部, 全体, 整体, 完全之体系；所有的, 完整的, 完全的, 纯粹的",
+    "sentence": "I learned the word \"whole\" today."
+  },
+  "better": {
+    "meaning": "较好的；比较好",
+    "sentence": "I learned the word \"better\" today."
+  },
+  "practice": {
+    "meaning": "实践, 练习, 实行, 惯例, 习惯, 开业；实践, 实行, 练习, 实习, 业务",
+    "sentence": "I learned the word \"practice\" today."
+  },
+  "effort": {
+    "meaning": "努力, 成就",
+    "sentence": "I learned the word \"effort\" today."
+  },
+  "letter": {
+    "meaning": "信, 字母, 证书, 字面意义, 铅字, 学问, 出租人；写字母于, 在...上刻字母, 用字母标明；写印刷体字；字母",
+    "sentence": "I learned the word \"letter\" today."
+  },
+  "ground": {
+    "meaning": "土地, 战场, 场地, 地面, 范围；土地的, 地面上的；放在地上, 使搁浅, 打基础, 给...以训练；搁浅, 落地, 根据, 基于；磨过的",
+    "sentence": "I learned the word \"ground\" today."
+  },
+  "evidence": {
+    "meaning": "根据, 证据, 迹象；证据, 凭证",
+    "sentence": "I learned the word \"evidence\" today."
+  },
+  "meeting": {
+    "meaning": "会议, 会面；会议, 会谈, 集会",
+    "sentence": "I learned the word \"meeting\" today."
+  },
+  "strong": {
+    "meaning": "强壮的, 坚固的, 坚强的, 强烈的, 有力的, 优良的；强劲地, 有力地, 猛烈地",
+    "sentence": "I learned the word \"strong\" today."
+  },
+  "heart": {
+    "meaning": "心, 心脏, 中心, 内心, 感情, 精神, 心情, 宝贝儿；鼓励",
+    "sentence": "I learned the word \"heart\" today."
+  },
+  "rather": {
+    "meaning": "宁可, 稍微, 相当",
+    "sentence": "I learned the word \"rather\" today."
+  },
+  "drug": {
+    "meaning": "药, 麻药, 麻醉药；吸毒；使服麻醉药, 使麻木",
+    "sentence": "I learned the word \"drug\" today."
+  },
+  "leader": {
+    "meaning": "领导者, 社论, 指挥, 领袖, 领唱者, 前导字符；前导字符",
+    "sentence": "I learned the word \"leader\" today."
+  },
+  "light": {
+    "meaning": "光, 光亮, 灯, 日光, 发光体, 光源, 杰出人物, 火花, 眼光；轻的, 少量的, 轻微的, 轻快的, 轻浮的, 明亮的, 淡色的, 容易",
+    "sentence": "I learned the word \"light\" today."
+  },
+  "voice": {
+    "meaning": "声音, 嗓音, 嗓子, 愿望, 发言权, 表达, 喉舌, 语态；表达, 吐露, 调音",
+    "sentence": "I learned the word \"voice\" today."
+  },
+  "wife": {
+    "meaning": "妻子, 太太, 夫人；妻子, 已婚妇女",
+    "sentence": "I learned the word \"wife\" today."
+  },
+  "union": {
+    "meaning": "联盟, 联合, 结合, 工会；联合?联管节?活接头",
+    "sentence": "I learned the word \"union\" today."
+  },
+  "half": {
+    "meaning": "一半, 半场, 不完全；一半的, 不完全的, 部分的, 半场的；一半地, 部分地, 在某种程度上地, 几乎",
+    "sentence": "I learned the word \"half\" today."
+  },
+  "finally": {
+    "meaning": "最后, 终于",
+    "sentence": "I learned the word \"finally\" today."
+  },
+  "pull": {
+    "meaning": "拉, 拖, 拔, 牵, 撕开, 吸引；拉, 拖, 拔, 有吸引力；拉, 拖, 拔, 拉力, 牵引力, 划船, 吸引",
+    "sentence": "I learned the word \"pull\" today."
+  },
+  "land": {
+    "meaning": "陆地, 地面, 地界, 地产, 国土, 土地；登陆, 登岸, 到达；使上岸, 使登陆, 使到达；连接盘?焊盘",
+    "sentence": "I learned the word \"land\" today."
+  },
+  "free": {
+    "meaning": "自由的, 享受政治权力的, 允许的, 免费的, 丰富的；释放, 解放, 使自由；自由地, 免费",
+    "sentence": "I learned the word \"free\" today."
+  },
+  "event": {
+    "meaning": "事件, 结果, 事情的进程, 竞赛项目；事件",
+    "sentence": "I learned the word \"event\" today."
+  },
+  "shall": {
+    "meaning": "将",
+    "sentence": "I learned the word \"shall\" today."
+  },
+  "military": {
+    "meaning": "军队；军事的, 军人的, 适于战争的",
+    "sentence": "I learned the word \"military\" today."
+  },
+  "cause": {
+    "meaning": "原因, 目标；引起, 使产生, 使遭受",
+    "sentence": "I learned the word \"cause\" today."
+  },
+  "thus": {
+    "meaning": "如此, 因此, 到如此程度；乳香",
+    "sentence": "I learned the word \"thus\" today."
+  },
+  "explain": {
+    "meaning": "解释, 说明",
+    "sentence": "I learned the word \"explain\" today."
+  },
+  "son": {
+    "meaning": "儿子, 女婿, 子孙；儿子, 女婿, 养子",
+    "sentence": "I learned the word \"son\" today."
+  },
+  "support": {
+    "meaning": "支持, 支撑, 援助, 供养, 支撑物；支援, 支撑, 帮助, 支持, 忍受, 供养, 证实；后援?支持",
+    "sentence": "I learned the word \"support\" today."
+  },
+  "stage": {
+    "meaning": "阶段, 舞台, 场所, 戏剧, 站, 驿站, 级, 层, 脚手架；上演, 表演, 筹划；适于上演, 乘驿车旅行",
+    "sentence": "I learned the word \"stage\" today."
+  },
+  "lie": {
+    "meaning": "谎言, 假象, 位置；躺着, 说谎, 位于, 展现, 存在, 停泊；谎骗",
+    "sentence": "I learned the word \"lie\" today."
+  },
+  "range": {
+    "meaning": "排, 行, 山脉, 范围, 行列, 射程；排列, 归类于, 使并列, 放牧；平行, 延伸, 漫游；量程?范围?域?距离",
+    "sentence": "I learned the word \"range\" today."
+  },
+  "trade": {
+    "meaning": "贸易, 商业, 交易, 生意, 职业, 顾客, 信风；进行交易, 做买卖, 经商, 对换, 购物；用...进行交换",
+    "sentence": "I learned the word \"trade\" today."
+  },
+  "relationship": {
+    "meaning": "关系, 关联；关系",
+    "sentence": "I learned the word \"relationship\" today."
+  },
+  "accept": {
+    "meaning": "接受, 承认, 同意, 相信, 赞成, 承担, 承兑, 采纳, 接纳, 容忍；同意",
+    "sentence": "I learned the word \"accept\" today."
+  },
+  "drive": {
+    "meaning": "驾车, 快车道, 推进力, 驱动, 动力, 击球, 驱动器；开车, 驱使, 推动, 驾驶；开车, 猛击, 飞跑；驱动器",
+    "sentence": "I learned the word \"drive\" today."
+  },
+  "arm": {
+    "meaning": "手臂, 袖子, 狭长港湾, 武器；武装, 装备；武装起来；异步应答方式?自动货品销路管理",
+    "sentence": "I learned the word \"arm\" today."
+  },
+  "god": {
+    "meaning": "上帝, 神像, 偶像；使神化",
+    "sentence": "I learned the word \"god\" today."
+  },
+  "true": {
+    "meaning": "真实的, 正确的, 忠诚的, 可靠的, 纯粹的, 正式的；真实, 准确；真实地, 准确地",
+    "sentence": "I learned the word \"true\" today."
+  },
+  "club": {
+    "meaning": "俱乐部, 木棍, 球棒；用棍棒打, 缴纳；联合起来；俱乐部的",
+    "sentence": "I learned the word \"club\" today."
+  },
+  "federal": {
+    "meaning": "联邦的, 联合的, 同盟的；联邦的, 联邦制的, 联盟的",
+    "sentence": "I learned the word \"federal\" today."
+  },
+  "break": {
+    "meaning": "休息, 中断, 破裂处, 绝交, 破晓, 突变；打破, 弄破, 弄坏, 破坏, 违反, 打断, 削弱, 放弃；破碎, 决裂, 破晓, 突变, 变",
+    "sentence": "I learned the word \"break\" today."
+  },
+  "difference": {
+    "meaning": "不同, 差异；差分",
+    "sentence": "I learned the word \"difference\" today."
+  },
+  "thank": {
+    "meaning": "谢意, 感谢；谢谢, 感谢",
+    "sentence": "I learned the word \"thank\" today."
+  },
+  "account": {
+    "meaning": "报告, 解释, 估价, 理由, 利润, 算账, 帐目；报帐, 解释, 导致, 报偿, 占, 杀死；认为；帐户, 帐号",
+    "sentence": "I learned the word \"account\" today."
+  },
+  "material": {
+    "meaning": "材料, 物资, 素材, 布料, 资料；物质的, 肉体的, 重要的",
+    "sentence": "I learned the word \"material\" today."
+  },
+  "short": {
+    "meaning": "短的, 近的, 矮的, 短期的, 简短的, 少量的；简短地, 突然；扼要, 短片, 缺乏；故意少给, 使短路",
+    "sentence": "I learned the word \"short\" today."
+  },
+  "whose": {
+    "meaning": "谁的",
+    "sentence": "I learned the word \"whose\" today."
+  },
+  "easy": {
+    "meaning": "容易的, 缓缓的, 舒适的, 从容的, 宽容的, 流畅的, 随便的, 自在的, 疲软的；容易地, 慢慢地",
+    "sentence": "I learned the word \"easy\" today."
+  },
+  "situation": {
+    "meaning": "情形, 境遇, 位置；情境, 处境",
+    "sentence": "I learned the word \"situation\" today."
+  },
+  "model": {
+    "meaning": "模型, 模范, 模特儿；模范的, 作模型用的；做模型, 做模特儿；使模仿, 塑造；模型",
+    "sentence": "I learned the word \"model\" today."
+  },
+  "join": {
+    "meaning": "参加, 结合, 加入；连接, 结合, 参加, 加入；连接, 结合, 接合点；连接?汇合指令",
+    "sentence": "I learned the word \"join\" today."
+  },
+  "season": {
+    "meaning": "季节, 时节, 当令期, 时期；给...调味, 使成熟, 使老练, 缓和；变干燥",
+    "sentence": "I learned the word \"season\" today."
+  },
+  "record": {
+    "meaning": "记录, 履历, 档案, 审判记录, 最高纪录, 唱片；记录, 记载, 标明, 将...录音；记录, 录音, 可被录音；创纪录的；录制, 记录",
+    "sentence": "I learned the word \"record\" today."
+  },
+  "manager": {
+    "meaning": "经理, 管理员, 管理器；管理器",
+    "sentence": "I learned the word \"manager\" today."
+  },
+  "tax": {
+    "meaning": "税, 税款, 重负, 会费；课以税, 使负重荷, 斥责",
+    "sentence": "I learned the word \"tax\" today."
+  },
+  "project": {
+    "meaning": "计划, 设计, 事业；计划, 设计, 投掷, 发射, 使凸出, 放映；凸出",
+    "sentence": "I learned the word \"project\" today."
+  },
+  "director": {
+    "meaning": "主管, 导演, 董事；寻向偶极子?指挥仪",
+    "sentence": "I learned the word \"director\" today."
+  },
+  "example": {
+    "meaning": "例子, 样本, 实例；实例",
+    "sentence": "I learned the word \"example\" today."
+  },
+  "player": {
+    "meaning": "竞赛者, 上场队员, 游戏者, 演员；交易者",
+    "sentence": "I learned the word \"player\" today."
+  },
+  "yesterday": {
+    "meaning": "昨天；昨天",
+    "sentence": "I learned the word \"yesterday\" today."
+  },
+  "base": {
+    "meaning": "底部, 垒, 基础, 基地；以...作基础；卑鄙的, 低劣的；基准",
+    "sentence": "I learned the word \"base\" today."
+  },
+  "especially": {
+    "meaning": "尤其, 特别, 格外",
+    "sentence": "I learned the word \"especially\" today."
+  },
+  "pick": {
+    "meaning": "精选, 选择, 掘, 精华, 牙签, 鹤嘴锄；摘, 掘, 凿, 挖, 挑选；拾取",
+    "sentence": "I learned the word \"pick\" today."
+  },
+  "window": {
+    "meaning": "窗户, 窗子, 窗口；给...开窗；窗口",
+    "sentence": "I learned the word \"window\" today."
+  },
+  "wear": {
+    "meaning": "穿着, 戴, 使用, 耗损, 服装, 耐久性；穿着, 戴, 留(须、发等), 呈现, 磨损, 磨成, 耗损, 使疲乏, 消磨；磨损, 变旧, 耐",
+    "sentence": "I learned the word \"wear\" today."
+  },
+  "space": {
+    "meaning": "位置, 空间, 距离, 太空, 空白, 间隔, (期刊等的)篇幅；隔开, 分隔；留间隔；空白, 空格校验",
+    "sentence": "I learned the word \"space\" today."
+  },
+  "central": {
+    "meaning": "中央的, 重要的；中央的, 中心的, 中枢的",
+    "sentence": "I learned the word \"central\" today."
+  },
+  "apply": {
+    "meaning": "涂, 应用；申请, 适用",
+    "sentence": "I learned the word \"apply\" today."
+  },
+  "increase": {
+    "meaning": "增加, 增进, 利益；增加, 加大；增加, 繁殖",
+    "sentence": "I learned the word \"increase\" today."
+  },
+  "cover": {
+    "meaning": "盖子, 封面, 藉口；覆盖, 掩饰, 保护, 掩护, 包括；覆盖",
+    "sentence": "I learned the word \"cover\" today."
+  },
+  "usually": {
+    "meaning": "通常, 大抵",
+    "sentence": "I learned the word \"usually\" today."
+  },
+  "official": {
+    "meaning": "官员, 公务员, 职员；公务的, 官方的, 正式的",
+    "sentence": "I learned the word \"official\" today."
+  },
+  "everyone": {
+    "meaning": "每个人, 人人；系统中的一个组名",
+    "sentence": "I learned the word \"everyone\" today."
+  },
+  "university": {
+    "meaning": "大学",
+    "sentence": "I learned the word \"university\" today."
+  },
+  "couple": {
+    "meaning": "对, 夫妇, 数个；使成双, 连接, 使成婚, 把...联系起来；结合, 成婚",
+    "sentence": "I learned the word \"couple\" today."
+  },
+  "site": {
+    "meaning": "位置, 场所, 地点；给...择址",
+    "sentence": "I learned the word \"site\" today."
+  },
+  "claim": {
+    "meaning": "要求, 要求权, 断言, 权利；要求, 认领, 主张；提出要求, 主张, 断言",
+    "sentence": "I learned the word \"claim\" today."
+  },
+  "sir": {
+    "meaning": "先生, 阁下",
+    "sentence": "I learned the word \"sir\" today."
+  },
+  "hit": {
+    "meaning": "打击, 打, 冲撞, 讽刺；打, 打击, 碰撞, 打中, 袭击, 偶然碰上；打, 打中, 打击, 碰撞, 偶然碰上；击中?找到?瞬时打扰",
+    "sentence": "I learned the word \"hit\" today."
+  },
+  "indeed": {
+    "meaning": "的确, 实在, 真正地, 甚至",
+    "sentence": "I learned the word \"indeed\" today."
+  },
+  "quality": {
+    "meaning": "品质, 特性, 才能, 质量；优质的；品质",
+    "sentence": "I learned the word \"quality\" today."
+  },
+  "star": {
+    "meaning": "星, 恒星, 星形物, 运气, 明星；以星状物装饰, 用星号标, 使成为明星；变成明星",
+    "sentence": "I learned the word \"star\" today."
+  },
+  "rule": {
+    "meaning": "规则, 统治, 控制, 支配, 规律, 标准, 章程, 破折号, 铅线；规定, 统治, 管理, 控制, 支配, 裁决；统治, 管辖, 裁定；规",
+    "sentence": "I learned the word \"rule\" today."
+  },
+  "certainly": {
+    "meaning": "确定地",
+    "sentence": "I learned the word \"certainly\" today."
+  },
+  "eat": {
+    "meaning": "吃, 腐蚀",
+    "sentence": "I learned the word \"eat\" today."
+  },
+  "similar": {
+    "meaning": "相似的, 类似的；相似的东西",
+    "sentence": "I learned the word \"similar\" today."
+  },
+  "worker": {
+    "meaning": "工人, 劳动者；工人, 劳工, 劳动者",
+    "sentence": "I learned the word \"worker\" today."
+  },
+  "teach": {
+    "meaning": "教, 讲授, 教导, 教育；教书, 教学, 可以教",
+    "sentence": "I learned the word \"teach\" today."
+  },
+  "oil": {
+    "meaning": "油, 石油, 油画颜料；涂油于, 使融化成油状, 加油于；加燃油, 融化",
+    "sentence": "I learned the word \"oil\" today."
+  },
+  "pound": {
+    "meaning": "磅, 英镑, 重击, 鱼塘, 拘留所, 兽栏；强烈打击, 捣烂, 监禁, 关入栏内；连续重击, 苦干",
+    "sentence": "I learned the word \"pound\" today."
+  },
+  "data": {
+    "meaning": "数据；资料",
+    "sentence": "The app saves my data."
+  },
+  "nature": {
+    "meaning": "自然, 大自然, 本性, 性格, 性质；自然, 大自然?本性, 性能",
+    "sentence": "I learned the word \"nature\" today."
+  },
+  "common": {
+    "meaning": "通常的, 共同的, 通俗的, 公共的；公用块",
+    "sentence": "I learned the word \"common\" today."
+  },
+  "image": {
+    "meaning": "影像, 肖像, 想象, 图像, 形象, 翻版；作...的像, 反映, 想象, 象征；图像；图象",
+    "sentence": "I learned the word \"image\" today."
+  },
+  "necessary": {
+    "meaning": "必要的；必然的；必需的",
+    "sentence": "I learned the word \"necessary\" today."
+  },
+  "officer": {
+    "meaning": "军官, 主管, 官员, 公务员；指挥",
+    "sentence": "I learned the word \"officer\" today."
+  },
+  "phone": {
+    "meaning": "电话, 受话器, 耳机；打电话给；打电话",
+    "sentence": "I learned the word \"phone\" today."
+  },
+  "structure": {
+    "meaning": "结构, 构造, 建筑物；构成, 组织",
+    "sentence": "I learned the word \"structure\" today."
+  },
+  "contain": {
+    "meaning": "包含, 容纳, 控制；自制",
+    "sentence": "I learned the word \"contain\" today."
+  },
+  "unit": {
+    "meaning": "单位, 分队, 部队, 单元, 部件, 装置；单位的, 单元的；单元常数?部件",
+    "sentence": "I learned the word \"unit\" today."
+  },
+  "method": {
+    "meaning": "方法, 办法, 条理, 秩序；法",
+    "sentence": "I learned the word \"method\" today."
+  },
+  "picture": {
+    "meaning": "图画, 照片, 景色, 美丽如画的人(或物), 化身, 生动的描述, 想像, 形象思维；画, 拍摄, 用图说明, 描写, 想像；图象?形象",
+    "sentence": "I learned the word \"picture\" today."
+  },
+  "hospital": {
+    "meaning": "医院；医院",
+    "sentence": "I learned the word \"hospital\" today."
+  },
+  "bed": {
+    "meaning": "床, 睡眠处, 河床, 底座, 路基, 一层；提供宿处, 栽种, 安装；睡, 形成坚实的一层",
+    "sentence": "I learned the word \"bed\" today."
+  },
+  "movement": {
+    "meaning": "运动, 动作, 运转, 移动, 倾向, 变化, 活动, 乐章；运动",
+    "sentence": "I learned the word \"movement\" today."
+  },
+  "piece": {
+    "meaning": "块, 片, 篇, 碎片, 部分, 部件, 标准量；修补, 修理, 拼合, 接线头；吃零食",
+    "sentence": "I learned the word \"piece\" today."
+  },
+  "detail": {
+    "meaning": "细节, 详情；详述, 选派；画详图；详细数据",
+    "sentence": "I learned the word \"detail\" today."
+  },
+  "recent": {
+    "meaning": "最近的, 近代的, 最新的；最近的, 新进的",
+    "sentence": "I learned the word \"recent\" today."
+  },
+  "reduce": {
+    "meaning": "减少, 分解, 降低, 使衰退, 把...分解, 把...归纳；减少, 减肥, 缩小；缩小",
+    "sentence": "I learned the word \"reduce\" today."
+  },
+  "simply": {
+    "meaning": "简单地, 只是, 简直, 简朴地, 坦白地",
+    "sentence": "I learned the word \"simply\" today."
+  },
+  "single": {
+    "meaning": "单身的, 单程的, 单一的, 个别的, 孤独的, 专一的；一个, 单打, 单程票；选出；击出一垒打；单精度型",
+    "sentence": "I learned the word \"single\" today."
+  },
+  "doctor": {
+    "meaning": "医生, 博士；授以博士学位, 诊断, 修改；行医",
+    "sentence": "I learned the word \"doctor\" today."
+  },
+  "date": {
+    "meaning": "日期, 约会, 枣椰树；约会, 定日期；注明日期, 过时",
+    "sentence": "I learned the word \"date\" today."
+  },
+  "wall": {
+    "meaning": "墙, 墙壁, 垣, 内壁, 分界物, 屏障；墙的；给...建墙, 禁闭, 用墙围住；背景墙",
+    "sentence": "I learned the word \"wall\" today."
+  },
+  "news": {
+    "meaning": "新闻, 消息, 报导；新闻, 消息, 新闻报导",
+    "sentence": "I learned the word \"news\" today."
+  },
+  "personal": {
+    "meaning": "私人的, 涉及隐私的, 有人性的, 人称的, 亲自的, 身体的；人的?个人的, 自身的",
+    "sentence": "I learned the word \"personal\" today."
+  },
+  "test": {
+    "meaning": "测试, 试验, 化验, 检验, 考验, 甲壳；测试, 试验, 化验；接受测验, 进行测试",
+    "sentence": "I learned the word \"test\" today."
+  },
+  "movie": {
+    "meaning": "电影",
+    "sentence": "I learned the word \"movie\" today."
+  },
+  "establish": {
+    "meaning": "建立, 确立, 制定；移植生长",
+    "sentence": "I learned the word \"establish\" today."
+  },
+  "north": {
+    "meaning": "北方, 北；北的, 北方的；向北方, 在北方",
+    "sentence": "I learned the word \"north\" today."
+  },
+  "computer": {
+    "meaning": "电脑, 电子计算机；计算机",
+    "sentence": "I learned the word \"computer\" today."
+  },
+  "private": {
+    "meaning": "私人的, 秘密的, 私立的, 隐蔽的；士兵, 隐士, 阴部；私人的",
+    "sentence": "I learned the word \"private\" today."
+  },
+  "herself": {
+    "meaning": "她自己, 她亲自",
+    "sentence": "I learned the word \"herself\" today."
+  },
+  "approach": {
+    "meaning": "接近, 入门；接近, 近似, 找...商量；靠近",
+    "sentence": "I learned the word \"approach\" today."
+  },
+  "amount": {
+    "meaning": "总数, 总额；总计, 等同",
+    "sentence": "I learned the word \"amount\" today."
+  },
+  "bit": {
+    "meaning": "少量, 马嚼子, 辅币；给马上嚼子, 控制；bite的过去式和过去分词；比特, 二进制数位, 机内测试",
+    "sentence": "I learned the word \"bit\" today."
+  },
+  "technology": {
+    "meaning": "技术, 工业技术, 术语；技术学, 工艺学",
+    "sentence": "I learned the word \"technology\" today."
+  },
+  "wish": {
+    "meaning": "希望；愿望",
+    "sentence": "I wish I could understand it faster."
+  },
+  "catch": {
+    "meaning": "抓住；听懂；赶上；碰到",
+    "sentence": "I am glad I caught you."
+  },
+  "step": {
+    "meaning": "步骤, 步, 步幅, 脚步声, 踏级, 步伐, 短距离, 步态, 手段, 等级；踏, 以步测量, 跨步, 使成阶梯状；跨步, 轻快地走, 跳舞,",
+    "sentence": "I learned the word \"step\" today."
+  },
+  "scheme": {
+    "meaning": "方案, 计划, 组合, 系统, 图解, 诡计, 阴谋；计划, 设计, 图谋, 策划",
+    "sentence": "I learned the word \"scheme\" today."
+  },
+  "baby": {
+    "meaning": "婴孩；婴儿",
+    "sentence": "I learned the word \"baby\" today."
+  },
+  "award": {
+    "meaning": "奖品, 裁定, 判决；授予, 给予",
+    "sentence": "I learned the word \"award\" today."
+  },
+  "seek": {
+    "meaning": "寻求, 寻找, 探索, 追求, 搜索, 请求；寻找, 搜索；查找",
+    "sentence": "I learned the word \"seek\" today."
+  },
+  "attention": {
+    "meaning": "注意, 注意力；引起注意信号",
+    "sentence": "I learned the word \"attention\" today."
+  },
+  "achieve": {
+    "meaning": "完成, 达到；如愿以偿",
+    "sentence": "I learned the word \"achieve\" today."
+  },
+  "film": {
+    "meaning": "软片, 薄膜, 胶卷, 电影；覆以薄膜, 拍摄；生薄膜, 拍电影",
+    "sentence": "I learned the word \"film\" today."
+  },
+  "chapter": {
+    "meaning": "章, 篇, 重要章节；章?段",
+    "sentence": "I learned the word \"chapter\" today."
+  },
+  "choose": {
+    "meaning": "选择, 宁愿, 欲；作出选择, 愿意；选取",
+    "sentence": "I learned the word \"choose\" today."
+  },
+  "deal": {
+    "meaning": "交易, 协定, 数量, 买卖, 松木板；处理, 应付, 做生意；分配, 发牌, 给予；发牌",
+    "sentence": "I learned the word \"deal\" today."
+  },
+  "organization": {
+    "meaning": "组织, 结构, 团体, 体制；组织, 机构, 机化(血栓或坏死组织)",
+    "sentence": "I learned the word \"organization\" today."
+  },
+  "tree": {
+    "meaning": "树",
+    "sentence": "There is a tree outside."
+  },
+  "theory": {
+    "meaning": "理论, 学说, 原理, 意见, 推测；理论",
+    "sentence": "I learned the word \"theory\" today."
+  },
+  "source": {
+    "meaning": "来源, 水源, 根源, 原始资料, 源；来源, 源程序",
+    "sentence": "I learned the word \"source\" today."
+  },
+  "property": {
+    "meaning": "财产, 所有权, 性质, 属性；属性",
+    "sentence": "I learned the word \"property\" today."
+  },
+  "red": {
+    "meaning": "红的, 红色的, 红肿的, 流血的；红色, 红颜料, 赤字；简化, 减少",
+    "sentence": "I learned the word \"red\" today."
+  },
+  "poor": {
+    "meaning": "贫穷的, 贫乏的, 不幸的, 可怜的, 拙劣的, 卑鄙的；低劣的, 不良的",
+    "sentence": "I learned the word \"poor\" today."
+  },
+  "nearly": {
+    "meaning": "几乎, 密切地",
+    "sentence": "I learned the word \"nearly\" today."
+  },
+  "wide": {
+    "meaning": "宽的, 广阔的, 普遍的, 宽阔的, 广泛的, 一般的；广阔地, 遍及各处地, 广泛地；大千世界",
+    "sentence": "I learned the word \"wide\" today."
+  },
+  "south": {
+    "meaning": "南方, 南；南的, 向南的；在南方；转向南方",
+    "sentence": "I learned the word \"south\" today."
+  },
+  "hair": {
+    "meaning": "头发, 毛发, 些微；毛, 发",
+    "sentence": "I learned the word \"hair\" today."
+  },
+  "financial": {
+    "meaning": "财政的, 金融的；财政的, 金融的, 财务的",
+    "sentence": "I learned the word \"financial\" today."
+  },
+  "firm": {
+    "meaning": "公司, 商号；坚定的, 坚强的, 牢固的, 结实的, 坚硬的, 坚挺的, 严格的, 确定的；使牢固, 使坚定；变稳固, 变坚实；稳固地",
+    "sentence": "I learned the word \"firm\" today."
+  },
+  "application": {
+    "meaning": "应用, 申请, 志愿书, 应用程序；应用, 应用程序",
+    "sentence": "I learned the word \"application\" today."
+  },
+  "listen": {
+    "meaning": "听, 倾听, 听从；听, 倾听",
+    "sentence": "I learned the word \"listen\" today."
+  },
+  "soon": {
+    "meaning": "不久, 早, 快, 宁可",
+    "sentence": "I learned the word \"soon\" today."
+  },
+  "production": {
+    "meaning": "制造, 生产, 产物；产生, 生成",
+    "sentence": "I learned the word \"production\" today."
+  },
+  "board": {
+    "meaning": "木板, 甲板, 膳食, 会议桌；乘船, 供膳食, 用板覆盖；搭伙；板",
+    "sentence": "I learned the word \"board\" today."
+  },
+  "culture": {
+    "meaning": "文化, 修养, 耕种；耕种, 培养",
+    "sentence": "I learned the word \"culture\" today."
+  },
+  "king": {
+    "meaning": "国王, 君主；使...成为君主；君临, 统治",
+    "sentence": "I learned the word \"king\" today."
+  },
+  "chance": {
+    "meaning": "机会, 意外, 可能性；偶然发生；冒险",
+    "sentence": "I learned the word \"chance\" today."
+  },
+  "secretary": {
+    "meaning": "秘书, 书记, 大臣；秘书",
+    "sentence": "I learned the word \"secretary\" today."
+  },
+  "brother": {
+    "meaning": "兄弟",
+    "sentence": "I learned the word \"brother\" today."
+  },
+  "energy": {
+    "meaning": "精力, 精神, 活力, 能量；能?能量",
+    "sentence": "I learned the word \"energy\" today."
+  },
+  "fail": {
+    "meaning": "失败, 缺乏, 中断, 衰退, 失灵；忘记, 使...失望, 缺乏, 不及格；不及格",
+    "sentence": "I learned the word \"fail\" today."
+  },
+  "realize": {
+    "meaning": "了解, 实现, 使显得逼真, 变卖；变卖",
+    "sentence": "I learned the word \"realize\" today."
+  },
+  "opportunity": {
+    "meaning": "机会, 时机",
+    "sentence": "I learned the word \"opportunity\" today."
+  },
+  "summer": {
+    "meaning": "夏季, 全盛时期；避暑, 过夏天；加法器",
+    "sentence": "I learned the word \"summer\" today."
+  },
+  "operation": {
+    "meaning": "操作, 动作, 手术, 运算, 作用, 业务；运算",
+    "sentence": "I learned the word \"operation\" today."
+  },
+  "share": {
+    "meaning": "分享；份额",
+    "sentence": "Can you share the link?"
+  },
+  "foreign": {
+    "meaning": "外国的, 外交的, 外省的, 外来的, 不相关的；外来的",
+    "sentence": "I learned the word \"foreign\" today."
+  },
+  "lord": {
+    "meaning": "统治者, 阁下, 上帝；称王, 作威作福；使成贵族",
+    "sentence": "I learned the word \"lord\" today."
+  },
+  "plant": {
+    "meaning": "植物, 作物, 工厂, 树枝, 生长, 设施, 成套设备；种植, 栽培, 播种, 培养, 安置, 殖民于, 使位于；种植",
+    "sentence": "I learned the word \"plant\" today."
+  },
+  "agreement": {
+    "meaning": "同意, 合约, 协议；契约, 协议, 协定",
+    "sentence": "I learned the word \"agreement\" today."
+  },
+  "simple": {
+    "meaning": "简单的, 普通的, 朴素的, 单纯的, 绝对的, 初级的, 原始的, 迟钝的；出身低微者, 傻子",
+    "sentence": "I learned the word \"simple\" today."
+  },
+  "contract": {
+    "meaning": "合约, 婚约, 契约；使皱缩, 使缩短, 感染, 订约, 缔结；皱缩, 订约, 收缩",
+    "sentence": "I learned the word \"contract\" today."
+  },
+  "choice": {
+    "meaning": "选择",
+    "sentence": "This is a good choice."
+  },
+  "security": {
+    "meaning": "安全, 安全性, 防护物, 保安, 可靠性, 担保人, 抵押品, 保证金；安全性, 保密性, 安全检查程序",
+    "sentence": "I learned the word \"security\" today."
+  },
+  "occur": {
+    "meaning": "发生, 被想到, 存在",
+    "sentence": "I learned the word \"occur\" today."
+  },
+  "daughter": {
+    "meaning": "女儿；女儿的",
+    "sentence": "I learned the word \"daughter\" today."
+  },
+  "husband": {
+    "meaning": "丈夫, 管理人, 节俭的人；节俭, 使成丈夫, 持有",
+    "sentence": "I learned the word \"husband\" today."
+  },
+  "congress": {
+    "meaning": "国会, 会议, 讨论会；会议, 会合",
+    "sentence": "I learned the word \"congress\" today."
+  },
+  "election": {
+    "meaning": "选举, 当选, 选择权；选举, 当选",
+    "sentence": "I learned the word \"election\" today."
+  },
+  "floor": {
+    "meaning": "地板, 楼层, 底部, 底价；铺地板, 打倒；地面, 地板, 基底；基底",
+    "sentence": "I learned the word \"floor\" today."
+  },
+  "future": {
+    "meaning": "未来, 将来；将来的, 未来的",
+    "sentence": "I learned the word \"future\" today."
+  },
+  "campaign": {
+    "meaning": "战役, 运动, 竞选运动；参加运动, 作战",
+    "sentence": "I learned the word \"campaign\" today."
+  },
+  "used": {
+    "meaning": "使用过的, 二手的, 习惯的",
+    "sentence": "I learned the word \"used\" today."
+  },
+  "colour": {
+    "meaning": "颜色, 面色, 颜料, 外貌；把...涂上颜色, 粉饰, 使脸红, 歪曲；变色",
+    "sentence": "I learned the word \"colour\" today."
+  },
+  "population": {
+    "meaning": "人口, 人口数；群体?总体",
+    "sentence": "I learned the word \"population\" today."
+  },
+  "various": {
+    "meaning": "不同的, 各种的, 多方面的, 许多的, 个别的, 杂色的；不同的, 种种的, 各式各样的",
+    "sentence": "I learned the word \"various\" today."
+  },
+  "rise": {
+    "meaning": "上升, 增加, 上涨, 高地, 升高, 出现；升起, 起身, 起立, 上升, 上涨, 增长, 高耸, 起义, 浮现；使飞起",
+    "sentence": "I learned the word \"rise\" today."
+  },
+  "economy": {
+    "meaning": "经济, 理财, 节约；经济, 整体",
+    "sentence": "I learned the word \"economy\" today."
+  },
+  "represent": {
+    "meaning": "表现, 表示, 描绘, 讲述, 代表, 象征, 回忆, 再赠送, 再上演；提出异议",
+    "sentence": "I learned the word \"represent\" today."
+  },
+  "medical": {
+    "meaning": "医生, 体格检查；医学的, 内科的, 药的",
+    "sentence": "I learned the word \"medical\" today."
+  },
+  "close": {
+    "meaning": "结束, 完结；靠近的, 亲近的, 亲密的, 严密的, 关闭的, 狭窄的, 秘密的；关, 结束, 使靠近, 封闭, 使接近；关闭, 结束, 靠近",
+    "sentence": "I learned the word \"close\" today."
+  },
+  "shop": {
+    "meaning": "商店, 工厂, 车间；购物, 到处寻找；选购",
+    "sentence": "I learned the word \"shop\" today."
+  },
+  "loss": {
+    "meaning": "损失, 遗失, 失败, 输, 错过, 伤亡；损失?损耗",
+    "sentence": "I learned the word \"loss\" today."
+  },
+  "risk": {
+    "meaning": "冒险, 危险, 保险额；冒...的危险, 冒险干",
+    "sentence": "I learned the word \"risk\" today."
+  },
+  "evening": {
+    "meaning": "傍晚, 晚间, 末期",
+    "sentence": "I learned the word \"evening\" today."
+  },
+  "animal": {
+    "meaning": "动物；动物",
+    "sentence": "I learned the word \"animal\" today."
+  },
+  "current": {
+    "meaning": "涌流, 趋势, 流；流通的, 现在的, 当前的, 流行的；当前的",
+    "sentence": "I learned the word \"current\" today."
+  },
+  "fire": {
+    "meaning": "火, 炉火, 电炉, 火灾, 闪光体, 炮火, 热情；点燃, 烧制, 使发光, 激动, 放枪, 解雇；着火, 烧火, 开枪, 射击, 激动",
+    "sentence": "I learned the word \"fire\" today."
+  },
+  "standard": {
+    "meaning": "标准, 规格, 旗, 军旗, 本位；标准的, 合规格的；标准",
+    "sentence": "I learned the word \"standard\" today."
+  },
+  "wrong": {
+    "meaning": "错误的, 不正当的, 失常的；错误地",
+    "sentence": "I learned the word \"wrong\" today."
+  },
+  "purpose": {
+    "meaning": "目的, 意向, 决心, 用途, 效果, 论题；意欲, 企图, 计划",
+    "sentence": "I learned the word \"purpose\" today."
+  },
+  "benefit": {
+    "meaning": "利益；有益于；受益",
+    "sentence": "I learned the word \"benefit\" today."
+  },
+  "page": {
+    "meaning": "页, 记录, 事件, 专栏, 男侍；标明...的页数, 翻...的书页, 分页排版, 呼叫, 侍候；翻书页, 侍侯；页?页面",
+    "sentence": "I learned the word \"page\" today."
+  },
+  "anyone": {
+    "meaning": "任何人",
+    "sentence": "I learned the word \"anyone\" today."
+  },
+  "fine": {
+    "meaning": "罚款, 罚金, 晴天, 精细；好的, 晴朗的, 健康的, 细小的, 精细的；罚款, 精炼, 澄清；变清, 变细；很好；精细",
+    "sentence": "I learned the word \"fine\" today."
+  },
+  "discuss": {
+    "meaning": "讨论, 论述；讨论, 辩论",
+    "sentence": "I learned the word \"discuss\" today."
+  },
+  "myself": {
+    "meaning": "我自己, 我亲自, 我独自",
+    "sentence": "I learned the word \"myself\" today."
+  },
+  "west": {
+    "meaning": "西方, 西部；西方的, 向西的；向西, 自西方, 在西方",
+    "sentence": "I learned the word \"west\" today."
+  },
+  "sport": {
+    "meaning": "运动, 游戏, 娱乐, 消遣, 玩笑；运动的, 户外穿戴的；游戏, 参加体育运动, 戏弄, 产生变种；炫耀, 使产生变种",
+    "sentence": "I learned the word \"sport\" today."
+  },
+  "factor": {
+    "meaning": "因素, 因数, 系数, 基因, 代理人；因式",
+    "sentence": "I learned the word \"factor\" today."
+  },
+  "prove": {
+    "meaning": "证明, 查验, 检验, 勘探, 显示；证明是",
+    "sentence": "I learned the word \"prove\" today."
+  },
+  "rest": {
+    "meaning": "休息, 睡眠, 安息, 稍息, 静止, 支架, 休息处, 其余者, 剩余部分；休息, 睡, 长眠, 安心, 静止, 停止, 安置, 依赖；使休息",
+    "sentence": "I learned the word \"rest\" today."
+  },
+  "argue": {
+    "meaning": "提出理由, 争论, 辩论；主张, 辩论, 证明, 说服",
+    "sentence": "I learned the word \"argue\" today."
+  },
+  "charge": {
+    "meaning": "指控, 费用, 冲锋, 电荷, 炸药, 主管, 被托管人, 命令；控诉, 加罪于, 使充满, 使充电, 使承担；冲锋, 要价, 收费",
+    "sentence": "I learned the word \"charge\" today."
+  },
+  "performance": {
+    "meaning": "施行, 工作情况, 成绩, 行为, 表现, 演出；绩效, 性能",
+    "sentence": "I learned the word \"performance\" today."
+  },
+  "fight": {
+    "meaning": "打架, 争吵, 斗志；对抗, 打架",
+    "sentence": "I learned the word \"fight\" today."
+  },
+  "pattern": {
+    "meaning": "模范, 典型, 式样, 样品, 图案, 格调, 模式；模仿, 仿造, 以图案装饰；形成图案；模式, 图案",
+    "sentence": "I learned the word \"pattern\" today."
+  },
+  "throw": {
+    "meaning": "投, 掷, 抛, 发射, 摔下, 匆匆穿上(或脱下), 抛弃, 摆脱；丢, 掷, 抛；投掷, 掷骰子, 冒险",
+    "sentence": "I learned the word \"throw\" today."
+  },
+  "top": {
+    "meaning": "顶部, 顶端, 极点, 上面, 上部, 顶篷, 最高地位, 首位, 陀螺；最高的, 顶上的, 头等的；盖, 加以顶, 高达, 超越；结束, 达到",
+    "sentence": "I learned the word \"top\" today."
+  },
+  "present": {
+    "meaning": "现在, 礼品, 瞄准；现在的, 出席的；介绍, 引见, 赠送, 提出, 呈现, 上演；举枪瞄准",
+    "sentence": "I learned the word \"present\" today."
+  },
+  "design": {
+    "meaning": "设计, 图样, 方案, 企图；设计, 计划",
+    "sentence": "I learned the word \"design\" today."
+  },
+  "past": {
+    "meaning": "过去, 昔时, 往事, 早年经历, 过去时；过去的, 结束的, 卸任的, 过去时的；越过, 晚于, 超越, 超出...的可能性(能力、范围等)",
+    "sentence": "I learned the word \"past\" today."
+  },
+  "goal": {
+    "meaning": "目标, 终点, 得分, 球门, 守门员；攻门, 射门得分",
+    "sentence": "I learned the word \"goal\" today."
+  },
+  "royal": {
+    "meaning": "王室, 皇族；王室的, 皇家的, 盛大的, 庄严的",
+    "sentence": "I learned the word \"royal\" today."
+  },
+  "april": {
+    "meaning": "四月",
+    "sentence": "I learned the word \"april\" today."
+  },
+  "enjoy": {
+    "meaning": "享受, 喜欢, 欣赏；享受, 享有, 获得某种利益",
+    "sentence": "I learned the word \"enjoy\" today."
+  },
+  "author": {
+    "meaning": "作家, 作家的著作, 创始人；作者, 著作人, 本人",
+    "sentence": "I learned the word \"author\" today."
+  },
+  "fill": {
+    "meaning": "装满, 填充, 弥漫, 供给, 满足, 供应；充满, 变得沉重；满足, 装满, 充分, 填方；填充；填充；填充",
+    "sentence": "I learned the word \"fill\" today."
+  },
+  "despite": {
+    "meaning": "轻视, 憎恨；虽然, 尽管",
+    "sentence": "I learned the word \"despite\" today."
+  },
+  "pressure": {
+    "meaning": "压, 榨, 按, 强制, 压力, 压迫, 压强；迫使, 使增压, 密封",
+    "sentence": "I learned the word \"pressure\" today."
+  },
+  "focus": {
+    "meaning": "焦点, 焦距；聚焦, 注视；使聚焦, 调焦, 集中；焦点",
+    "sentence": "I learned the word \"focus\" today."
+  },
+  "knowledge": {
+    "meaning": "知识, 学问, 认识, 知道",
+    "sentence": "I learned the word \"knowledge\" today."
+  },
+  "drop": {
+    "meaning": "滴, 微量, 落下, 空投；放下, 掉下, 下降；使滴下, 放下, 丢失, 遗漏；投入, 投入点, 接入点, 分接点",
+    "sentence": "I learned the word \"drop\" today."
+  },
+  "june": {
+    "meaning": "六月",
+    "sentence": "I learned the word \"june\" today."
+  },
+  "blood": {
+    "meaning": "血, 血统, 流血, 气质, 生命；使出血, 用血涂",
+    "sentence": "I learned the word \"blood\" today."
+  },
+  "basis": {
+    "meaning": "基础, 主要成分；基底",
+    "sentence": "I learned the word \"basis\" today."
+  },
+  "agency": {
+    "meaning": "代理机构, 经销商, 中介；办事处",
+    "sentence": "I learned the word \"agency\" today."
+  },
+  "push": {
+    "meaning": "推, 推动, 奋斗, 攻击, 进取心；推, 推动, 使伸出, 推行, 逼迫, 增加；推, 推进, 增加, 努力争取",
+    "sentence": "I learned the word \"push\" today."
+  },
+  "march": {
+    "meaning": "三月, 进行, 行军, 步伐, 长途跋涉, 进行曲, 边界；进军, 前进, 交界；使行军, 使行进",
+    "sentence": "I learned the word \"march\" today."
+  },
+  "further": {
+    "meaning": "更远的, 此外的, 更多的；促进, 增进, 助长；更进一步地, 更远地, 此外",
+    "sentence": "I learned the word \"further\" today."
+  },
+  "size": {
+    "meaning": "大小, 尺寸, 规模, 尺码, 能力, 浆料；上浆, 依大小排列；可比拟；一定大小的, 一定尺寸的",
+    "sentence": "I learned the word \"size\" today."
+  },
+  "introduce": {
+    "meaning": "介绍, 引入, 采用, 输入；引进, 输入, 介绍",
+    "sentence": "I learned the word \"introduce\" today."
+  },
+  "series": {
+    "meaning": "串联, 序列, 连续, 系列, 丛书, 套, 级数, 组；系列",
+    "sentence": "I learned the word \"series\" today."
+  },
+  "recently": {
+    "meaning": "最近",
+    "sentence": "I learned the word \"recently\" today."
+  },
+  "store": {
+    "meaning": "商店, 贮藏, 仓库, 备用品, 存储器；储存, 贮藏, 供给；贮藏；贮藏的, 现成的；存储器操作?存储",
+    "sentence": "I learned the word \"store\" today."
+  },
+  "garden": {
+    "meaning": "花园, 果园, 菜园；栽培花木；造园；花园的, 普通的",
+    "sentence": "I learned the word \"garden\" today."
+  },
+  "sound": {
+    "meaning": "声音, 语音, 吵闹, 声调, 听力范围, 探条, 海峡；健全的, 可靠的, 合理的, 健康的, 彻底的, 资金充实的；彻底地, 充分地；发出声",
+    "sentence": "I learned the word \"sound\" today."
+  },
+  "environment": {
+    "meaning": "环境, 外界, 围绕；环境",
+    "sentence": "I learned the word \"environment\" today."
+  },
+  "note": {
+    "meaning": "笔记, 记录, 注解, 票据, 符号, 显要, 注重, 便笺, 照会；记录, 注解, 注意",
+    "sentence": "I learned the word \"note\" today."
+  },
+  "success": {
+    "meaning": "成功, 成就, 胜利",
+    "sentence": "I learned the word \"success\" today."
+  },
+  "near": {
+    "meaning": "近的, 近亲的, 近似的；接近, 亲近；靠近, 近似于；接近, 走近",
+    "sentence": "I learned the word \"near\" today."
+  },
+  "enter": {
+    "meaning": "进入, 参加, 开始, 输入, 回车；进去, 参加；输入, 回车",
+    "sentence": "I learned the word \"enter\" today."
+  },
+  "analysis": {
+    "meaning": "分析；分析机?分析员?分析?分析程序",
+    "sentence": "I learned the word \"analysis\" today."
+  },
+  "arrive": {
+    "meaning": "到达, 抵达",
+    "sentence": "I learned the word \"arrive\" today."
+  },
+  "natural": {
+    "meaning": "自然的；天然的；天生的",
+    "sentence": "I want to learn English in a natural way."
+  },
+  "thought": {
+    "meaning": "想法, 思想, 思维, 关心, 挂念；think的过去式和过去分词",
+    "sentence": "I learned the word \"thought\" today."
+  },
+  "ensure": {
+    "meaning": "确定, 保证, 担保, 保护；确保, 确定",
+    "sentence": "I learned the word \"ensure\" today."
+  },
+  "region": {
+    "meaning": "区域, 地带, 地区, 领域, 范围, 区；区, 区域",
+    "sentence": "I learned the word \"region\" today."
+  },
+  "list": {
+    "meaning": "目录, 名单, 明细表, 布条, 条纹, 列表, 序列, 数据清单；列出, 列于表上, 记入名单内, 装布条；列于表上；列表, 序列, 数据清",
+    "sentence": "I learned the word \"list\" today."
+  },
+  "race": {
+    "meaning": "种族, 人种, 赛跑, 比赛, 急流, 人类, 同道, 姜根；赛跑, 竞赛, 疾走；与...赛跑, 使疾走, 使猛转；竞争?追赶?欧州高级",
+    "sentence": "I learned the word \"race\" today."
+  },
+  "concern": {
+    "meaning": "关心, 忧虑；与...有关, 使担心, 使挂念",
+    "sentence": "I learned the word \"concern\" today."
+  },
+  "statement": {
+    "meaning": "陈述, 指令, 声明；程序语句?语句",
+    "sentence": "I learned the word \"statement\" today."
+  },
+  "relation": {
+    "meaning": "关系, 联系, 叙述, 故事, 家属, 亲戚；关系",
+    "sentence": "I learned the word \"relation\" today."
+  },
+  "significant": {
+    "meaning": "重要的, 有效的, 有含义的, 暗示的, 值得注意的",
+    "sentence": "I learned the word \"significant\" today."
+  },
+  "hot": {
+    "meaning": "热的, 热心的, 辣的, 热情的, 激动的, 猛烈的, 紧迫的；热, 紧迫地",
+    "sentence": "I learned the word \"hot\" today."
+  },
+  "sea": {
+    "meaning": "海, 海洋, 海浪, 大量；海, 海洋",
+    "sentence": "I learned the word \"sea\" today."
+  },
+  "principle": {
+    "meaning": "原则, 原理, 主义；原理",
+    "sentence": "I learned the word \"principle\" today."
+  },
+  "demand": {
+    "meaning": "要求, 需求, 需要；要求, 查询",
+    "sentence": "I learned the word \"demand\" today."
+  },
+  "labour": {
+    "meaning": "劳动, 努力, 工作, 劳工, 分娩；劳动, 努力, 苦干；详细分析, 使厌烦",
+    "sentence": "I learned the word \"labour\" today."
+  },
+  "response": {
+    "meaning": "反应, 回答, 响应；应答",
+    "sentence": "I learned the word \"response\" today."
+  },
+  "dead": {
+    "meaning": "死的, 不活泼的, 麻木的, 熄灭的；死者；完全地, 直接地",
+    "sentence": "I learned the word \"dead\" today."
+  },
+  "capital": {
+    "meaning": "首都, 大写字母, 资本；首都的, 重要的",
+    "sentence": "I learned the word \"capital\" today."
+  },
+  "tv": {
+    "meaning": "电视；电视, 转移向量",
+    "sentence": "I learned the word \"tv\" today."
+  },
+  "round": {
+    "meaning": "圆, 圆形物, 巡回, 循环, 一轮, 一回合, 一局, 范围, 轮唱；圆的, 球形的, 丰满的, 肥胖的, 完全的, 大概的, 完美的, 圆润",
+    "sentence": "I learned the word \"round\" today."
+  },
+  "decade": {
+    "meaning": "十年, 十",
+    "sentence": "I learned the word \"decade\" today."
+  },
+  "hotel": {
+    "meaning": "旅馆, 客栈",
+    "sentence": "I learned the word \"hotel\" today."
+  },
+  "article": {
+    "meaning": "文章, 冠词, 物品, 物件, 条款, 契约；信件",
+    "sentence": "I learned the word \"article\" today."
+  },
+  "shoot": {
+    "meaning": "射击, 狩猎, 芽, 射伤, 发射, 发芽, 急流, 推力, 摄影, 急送, 滑运道, 浪费；射击, 射中, 损毁, 拍摄, 喷出, 投射, 挥",
+    "sentence": "I learned the word \"shoot\" today."
+  },
+  "east": {
+    "meaning": "东方, 东；东方的, 向东的；向东方, 朝东方",
+    "sentence": "I learned the word \"east\" today."
+  },
+  "above": {
+    "meaning": "在上方, 超出；在上面；上述的, 上面的",
+    "sentence": "I learned the word \"above\" today."
+  },
+  "forward": {
+    "meaning": "向前的, 早的, 迅速的, 在前的, 进步的；促进...的生长, 转寄, 运送；向前地；前推, 转信",
+    "sentence": "I learned the word \"forward\" today."
+  },
+  "save": {
+    "meaning": "救球；解救, 挽救, 储蓄, 保存, 节省, 保留；挽救, 节省, 救球；除...之外；保存",
+    "sentence": "I learned the word \"save\" today."
+  },
+  "village": {
+    "meaning": "村庄；乡村的, 村庄的",
+    "sentence": "I learned the word \"village\" today."
+  },
+  "artist": {
+    "meaning": "艺术家, 画家",
+    "sentence": "I learned the word \"artist\" today."
+  },
+  "station": {
+    "meaning": "车站, 站, 局, 驻地, 位置, 身分, 地位；安置, 配置, 驻扎；站",
+    "sentence": "I learned the word \"station\" today."
+  },
+  "scene": {
+    "meaning": "场, 情景, 镜头, 发生地点, 道具, 布景, 景色；现场",
+    "sentence": "I learned the word \"scene\" today."
+  },
+  "individual": {
+    "meaning": "人, 个人, 个体；个别的, 个人的, 独特的",
+    "sentence": "I learned the word \"individual\" today."
+  },
+  "stock": {
+    "meaning": "树干, 祖先, 血统, 原料, 备料, 库存, 牲畜, 股票, 股份, 保留剧目；存货的, 常备的, 平凡的, 普通的, 股票的, 保留剧目的,",
+    "sentence": "I learned the word \"stock\" today."
+  },
+  "attempt": {
+    "meaning": "尝试, 企图；尝试, 企图",
+    "sentence": "I learned the word \"attempt\" today."
+  },
+  "career": {
+    "meaning": "事业, 生涯, 成功；职业, 专业, 履历",
+    "sentence": "I learned the word \"career\" today."
+  },
+  "feature": {
+    "meaning": "面孔的一部分(如眼、口等), 特征, 容貌, 特色, 特写；是...的特色, 特写, 放映；起重要作用；特性",
+    "sentence": "I learned the word \"feature\" today."
+  },
+  "association": {
+    "meaning": "协会；关联",
+    "sentence": "I learned the word \"association\" today."
+  },
+  "income": {
+    "meaning": "收入, 收益, 流入；收益",
+    "sentence": "I learned the word \"income\" today."
+  },
+  "treatment": {
+    "meaning": "治疗, 待遇, 处理；疗法, 治疗?处理",
+    "sentence": "I learned the word \"treatment\" today."
+  },
+  "beyond": {
+    "meaning": "超过, 在那一边, 迟于；在远处；更远处",
+    "sentence": "I learned the word \"beyond\" today."
+  },
+  "happy": {
+    "meaning": "快乐的, 幸福的, 愉快的, 恰当的",
+    "sentence": "I learned the word \"happy\" today."
+  },
+  "relate": {
+    "meaning": "讲, 叙述, 使互相关联；有关, 符合, 相处得好",
+    "sentence": "I learned the word \"relate\" today."
+  },
+  "exactly": {
+    "meaning": "确切地, 精确地, 恰好, 完全地, 确实, 恰恰正是, 确实如此",
+    "sentence": "I learned the word \"exactly\" today."
+  },
+  "following": {
+    "meaning": "下列各项, 部下, 追随者；下列的, 其次的",
+    "sentence": "I learned the word \"following\" today."
+  },
+  "cup": {
+    "meaning": "杯子, 茶杯, 优胜杯；使成杯状, 为...拔火罐",
+    "sentence": "I learned the word \"cup\" today."
+  },
+  "protect": {
+    "meaning": "防卫, 保护, 警戒；庇护, 保护, 警戒",
+    "sentence": "I learned the word \"protect\" today."
+  },
+  "nice": {
+    "meaning": "美好的, 和蔼的, 正派的, 做得好的, 精密的, 细微的, 挑剔的, 谨慎的",
+    "sentence": "I learned the word \"nice\" today."
+  },
+  "manage": {
+    "meaning": "处理；管理, 控制, 维持, 达成, 经营, 运用",
+    "sentence": "I learned the word \"manage\" today."
+  },
+  "dog": {
+    "meaning": "狗, 坏蛋；跟踪, 尾随",
+    "sentence": "I learned the word \"dog\" today."
+  },
+  "fund": {
+    "meaning": "基金, 资金, 存款, 财源, 贮藏；提供资金, 积累",
+    "sentence": "I learned the word \"fund\" today."
+  },
+  "affect": {
+    "meaning": "影响, 感动, 假装, 模仿, 爱好, 倾向于；自觉感情",
+    "sentence": "I learned the word \"affect\" today."
+  },
+  "serious": {
+    "meaning": "严肃的, 认真的, 重要的, 严重的；严重的",
+    "sentence": "I learned the word \"serious\" today."
+  },
+  "media": {
+    "meaning": "媒体；媒质",
+    "sentence": "I learned the word \"media\" today."
+  },
+  "identify": {
+    "meaning": "识别, 认为...等同于, 确定, 使参与；一致, 认同",
+    "sentence": "I learned the word \"identify\" today."
+  },
+  "ready": {
+    "meaning": "预备好的状态, 现款；准备好的, 备用的, 可以使用的；预先, 迅速；使准备好",
+    "sentence": "I learned the word \"ready\" today."
+  },
+  "please": {
+    "meaning": "请；使高兴, 合...的心意, 取悦；使人满意, 讨好, 愿意, 敬请",
+    "sentence": "I learned the word \"please\" today."
+  },
+  "sign": {
+    "meaning": "符号, 招牌, 征兆, 正负号, 手势；签名, 打手势表达；签名；正负号?符号?符号字符",
+    "sentence": "I learned the word \"sign\" today."
+  },
+  "whatever": {
+    "meaning": "无论什么",
+    "sentence": "I learned the word \"whatever\" today."
+  },
+  "difficulty": {
+    "meaning": "困难, 难点",
+    "sentence": "I learned the word \"difficulty\" today."
+  },
+  "machine": {
+    "meaning": "机器, 机械装置, 机构, 自动售货机, 机械般工作的人；以机器制造",
+    "sentence": "I learned the word \"machine\" today."
+  },
+  "modern": {
+    "meaning": "现代人, 有思想的人；现代的, 时髦的",
+    "sentence": "I learned the word \"modern\" today."
+  },
+  "degree": {
+    "meaning": "程度, 度数, 学位, 度；度, 程度",
+    "sentence": "I learned the word \"degree\" today."
+  },
+  "legal": {
+    "meaning": "法律的, 法定的, 合法的；法定权利?法律(上)的, 合法的",
+    "sentence": "I learned the word \"legal\" today."
+  },
+  "answer": {
+    "meaning": "答案, 回答, 回报, 答辩；回答, 反驳, 适应, 响应, 符合；回答, 答应, 负责, 符合, 成功；用户问题及答案新闻组",
+    "sentence": "I learned the word \"answer\" today."
+  },
+  "cell": {
+    "meaning": "单元, 细胞, 电池；单元",
+    "sentence": "I learned the word \"cell\" today."
+  },
+  "resource": {
+    "meaning": "资源, 财力, 办法, 策略, 急智, 消遣；资源",
+    "sentence": "I learned the word \"resource\" today."
+  },
+  "growth": {
+    "meaning": "生长, 栽培, 增长；等比级数",
+    "sentence": "I learned the word \"growth\" today."
+  },
+  "left": {
+    "meaning": "左边的, 左倾的, 左侧的, 左派的；在左面；左, 左面, 左派；leave的过去式和过去分词",
+    "sentence": "I learned the word \"left\" today."
+  },
+  "mile": {
+    "meaning": "英里, 很大距离；英里, 哩",
+    "sentence": "I learned the word \"mile\" today."
+  },
+  "compare": {
+    "meaning": "比较, 比喻, 对照；相比；比较；比较",
+    "sentence": "I learned the word \"compare\" today."
+  },
+  "determine": {
+    "meaning": "决定, 决心",
+    "sentence": "I learned the word \"determine\" today."
+  },
+  "lady": {
+    "meaning": "淑女, 夫人, 女士, 贵妇",
+    "sentence": "I learned the word \"lady\" today."
+  },
+  "prepare": {
+    "meaning": "准备, 筹备, 使在思想上有准备, 制造, 调制；预备",
+    "sentence": "I learned the word \"prepare\" today."
+  },
+  "whom": {
+    "meaning": "谁",
+    "sentence": "I learned the word \"whom\" today."
+  },
+  "disease": {
+    "meaning": "疾病, 弊病；病",
+    "sentence": "I learned the word \"disease\" today."
+  },
+  "final": {
+    "meaning": "期末考试, 结局, 决赛；最后的, 终极的, 决定性的",
+    "sentence": "I learned the word \"final\" today."
+  },
+  "task": {
+    "meaning": "工作, 任务, 作业, 困难的工作；派给...工作, 使辛劳；任务",
+    "sentence": "I learned the word \"task\" today."
+  },
+  "recognize": {
+    "meaning": "认出, 认可, 承认, 公认, 识别, 赏识；承认, 具结",
+    "sentence": "I learned the word \"recognize\" today."
+  },
+  "function": {
+    "meaning": "官能, 职务, 功能, 函数；活动, 运行, 行使职责；功能, 函数",
+    "sentence": "I learned the word \"function\" today."
+  },
+  "ability": {
+    "meaning": "能力, 才干；能力, 才能",
+    "sentence": "I learned the word \"ability\" today."
+  },
+  "county": {
+    "meaning": "县, 郡",
+    "sentence": "I learned the word \"county\" today."
+  },
+  "indicate": {
+    "meaning": "显示, 象征, 指示, 指出；指示",
+    "sentence": "I learned the word \"indicate\" today."
+  },
+  "character": {
+    "meaning": "个性, 字符, 人物, 性质, 品格, 资格；字符",
+    "sentence": "I learned the word \"character\" today."
+  },
+  "behaviour": {
+    "meaning": "行为, 举止；特性, 性能, 特点, 行为, 动作, 状态",
+    "sentence": "I learned the word \"behaviour\" today."
+  },
+  "defence": {
+    "meaning": "防卫, 防卫设备；(诉讼程序中的)辩护",
+    "sentence": "I learned the word \"defence\" today."
+  },
+  "style": {
+    "meaning": "风格, 时尚, 文体, 风度, 字体, 类型；称呼, (根据新款式)设计, 使合潮流；风格, 样式；风格, 样式",
+    "sentence": "I learned the word \"style\" today."
+  },
+  "wonder": {
+    "meaning": "奇迹, 惊奇, 惊愕；惊奇, 想知道；惊讶, 怀疑",
+    "sentence": "I learned the word \"wonder\" today."
+  },
+  "attack": {
+    "meaning": "攻击, 抨击；攻击, 抨击, 动手干；攻击",
+    "sentence": "I learned the word \"attack\" today."
+  },
+  "obtain": {
+    "meaning": "获得, 达到；流行, 得到公认",
+    "sentence": "I learned the word \"obtain\" today."
+  },
+  "science": {
+    "meaning": "科学, 学科, 学问, 自然科学；科学",
+    "sentence": "I learned the word \"science\" today."
+  },
+  "television": {
+    "meaning": "电视；电视",
+    "sentence": "I learned the word \"television\" today."
+  },
+  "box": {
+    "meaning": "盒子, 箱, 方框, 一巴掌；装...入盒中, 装箱, 打耳光；拳击；方框",
+    "sentence": "I learned the word \"box\" today."
+  },
+  "announce": {
+    "meaning": "宣布, 声称, 显示, 预告；当报幕员, 宣布参加竞选",
+    "sentence": "I learned the word \"announce\" today."
+  },
+  "pretty": {
+    "meaning": "漂亮的, 优美的, 机灵的, 狡猾的, 恰当的；相当, 颇",
+    "sentence": "I learned the word \"pretty\" today."
+  },
+  "feeling": {
+    "meaning": "摸, 触觉, 知觉, 感觉, 情绪, 同情；有同情心的, 有感觉的, 仁慈的, 动人的",
+    "sentence": "I learned the word \"feeling\" today."
+  },
+  "hall": {
+    "meaning": "门厅, 走廊, 会堂",
+    "sentence": "I learned the word \"hall\" today."
+  },
+  "skill": {
+    "meaning": "技术, 技巧, 技能, 熟练, 熟练工人；技能",
+    "sentence": "I learned the word \"skill\" today."
+  },
+  "physical": {
+    "meaning": "身体的, 物质的, 自然的, 物理学的, 好色的；体格检查",
+    "sentence": "I learned the word \"physical\" today."
+  },
+  "lay": {
+    "meaning": "放置, 产, 铺设, 布置, 提出, 平息；下蛋, 打赌；位置, 层, 隐藏处；世俗的, 外行的；lie的过去式",
+    "sentence": "I learned the word \"lay\" today."
+  },
+  "horse": {
+    "meaning": "马, 骑兵, 脚架；骑马, 取笑；使骑马, 系马于",
+    "sentence": "I learned the word \"horse\" today."
+  },
+  "user": {
+    "meaning": "使用者；用户",
+    "sentence": "I learned the word \"user\" today."
+  },
+  "message": {
+    "meaning": "消息, 通讯, 讯息, 教训, 预言, 广告词；通知；通报, 报告, 报信；报文?消息?信息",
+    "sentence": "I learned the word \"message\" today."
+  },
+  "outside": {
+    "meaning": "外面, 外表, 外界；外面的, 外表的, 外界的；外面, 外表, 外界",
+    "sentence": "I learned the word \"outside\" today."
+  },
+  "nor": {
+    "meaning": "也不, 也没有；或非",
+    "sentence": "I learned the word \"nor\" today."
+  },
+  "normal": {
+    "meaning": "常态, 标准, 正常, 普通；正常的, 正规的, 标准的, 师范的, 正态的；标准, 普通",
+    "sentence": "I learned the word \"normal\" today."
+  },
+  "forget": {
+    "meaning": "忘记, 忽略, 忘；忘记",
+    "sentence": "I learned the word \"forget\" today."
+  },
+  "sex": {
+    "meaning": "性别, 性欲；区别...的性别, 引起...的性欲",
+    "sentence": "I learned the word \"sex\" today."
+  },
+  "lawyer": {
+    "meaning": "律师；律师",
+    "sentence": "I learned the word \"lawyer\" today."
+  },
+  "investment": {
+    "meaning": "投资；包埋料, 围模料, 包埋法, 围模法",
+    "sentence": "I learned the word \"investment\" today."
+  },
+  "army": {
+    "meaning": "军队, 陆军",
+    "sentence": "I learned the word \"army\" today."
+  },
+  "glass": {
+    "meaning": "玻璃, 玻璃杯, 透镜；装玻璃于, 反射, 反映；成玻璃状",
+    "sentence": "I learned the word \"glass\" today."
+  },
+  "suffer": {
+    "meaning": "遭受, 经历, 忍受；受痛苦, 受损害",
+    "sentence": "I learned the word \"suffer\" today."
+  },
+  "sister": {
+    "meaning": "姐妹, 姐, 妹, 护士, 修女；姐妹般对待",
+    "sentence": "I learned the word \"sister\" today."
+  },
+  "previous": {
+    "meaning": "早先的, 前面的, 过急的；以前的, 生前的, 前述的",
+    "sentence": "I learned the word \"previous\" today."
+  },
+  "maintain": {
+    "meaning": "维持, 维修, 保持, 坚持, 供养, 主张；维修",
+    "sentence": "I learned the word \"maintain\" today."
+  },
+  "professor": {
+    "meaning": "教授",
+    "sentence": "I learned the word \"professor\" today."
+  },
+  "crime": {
+    "meaning": "犯罪, 罪行, 罪恶；犯罪, 罪, 罪恶",
+    "sentence": "I learned the word \"crime\" today."
+  },
+  "publish": {
+    "meaning": "出版, 发行, 公开, 发表, 宣传, 公布；出版, 发行",
+    "sentence": "I learned the word \"publish\" today."
+  },
+  "responsibility": {
+    "meaning": "责任, 职责, 负担, 可靠性；职责",
+    "sentence": "I learned the word \"responsibility\" today."
+  },
+  "total": {
+    "meaning": "全体的, 总的, 全然的；计算...的总和, 共计为；合计；总数, 全体, 合计；统统",
+    "sentence": "I learned the word \"total\" today."
+  },
+  "argument": {
+    "meaning": "争论, 论证, 论据, 自变量；参数",
+    "sentence": "I learned the word \"argument\" today."
+  },
+  "miss": {
+    "meaning": "失误, 避免, 失败, 小姐；未得到, 未达到, 未听到, 未觉察, 逃脱, 遗漏, 错过, 思念；失败, 击不中",
+    "sentence": "I learned the word \"miss\" today."
+  },
+  "anyway": {
+    "meaning": "无论如何, 至少",
+    "sentence": "I learned the word \"anyway\" today."
+  },
+  "avoid": {
+    "meaning": "避免, 防止, 撤消；避免, 回避, 躲开",
+    "sentence": "I learned the word \"avoid\" today."
+  },
+  "bill": {
+    "meaning": "帐单, 清单, 钞票, 鸟嘴, 广告, 法案, 票据；开帐单, (用招贴)宣布",
+    "sentence": "I learned the word \"bill\" today."
+  },
+  "express": {
+    "meaning": "快车, 快递, 专使；明确的, 丝毫不差的, 专门的, 快的；表达, 表示, 表露",
+    "sentence": "I learned the word \"express\" today."
+  },
+  "gun": {
+    "meaning": "枪；枪",
+    "sentence": "I learned the word \"gun\" today."
+  },
+  "suppose": {
+    "meaning": "推想, 假设, 以为, 想像, 假定；料想",
+    "sentence": "I learned the word \"suppose\" today."
+  },
+  "blue": {
+    "meaning": "蓝色；蓝色的, 下流的, 忧郁的；染成蓝色；变蓝",
+    "sentence": "I learned the word \"blue\" today."
+  },
+  "finish": {
+    "meaning": "完成, 结束, 末道漆, 磨光, 完美；完成, 结束, 用完, 毁掉；结束；完成",
+    "sentence": "I learned the word \"finish\" today."
+  },
+  "element": {
+    "meaning": "元件, 元素, 要素；部分?成分?单元?码元?元件?元素?单元",
+    "sentence": "I learned the word \"element\" today."
+  },
+  "strategy": {
+    "meaning": "战略, 策略；战略, 策略",
+    "sentence": "I learned the word \"strategy\" today."
+  },
+  "duty": {
+    "meaning": "责任, 关税, 职务, 尊敬；职责",
+    "sentence": "I learned the word \"duty\" today."
+  },
+  "july": {
+    "meaning": "七月",
+    "sentence": "I learned the word \"july\" today."
+  },
+  "tend": {
+    "meaning": "走向, 有某种的倾向, 易于, 照顾, 注意；照料, 护理",
+    "sentence": "I learned the word \"tend\" today."
+  },
+  "truth": {
+    "meaning": "事实, 实情；真实, 真相, 事实",
+    "sentence": "I learned the word \"truth\" today."
+  },
+  "leg": {
+    "meaning": "腿, 假腿, 路程；走, 跑",
+    "sentence": "I learned the word \"leg\" today."
+  },
+  "song": {
+    "meaning": "歌, 曲, 鸣声, 歌唱, 歌曲, 诗歌",
+    "sentence": "I learned the word \"song\" today."
+  },
+  "park": {
+    "meaning": "公园, 停车处；停车, 置于；停车",
+    "sentence": "I learned the word \"park\" today."
+  },
+  "check": {
+    "meaning": "检查, 支票, 阻止物, 寄物牌, 象棋中将军；检查, 阻止, 核对, 寄存, 托运；逐项相符, 开支票；复选",
+    "sentence": "I learned the word \"check\" today."
+  },
+  "suddenly": {
+    "meaning": "突然, 意外, 忽然, 迅速, 即席作成, 即刻, 急速",
+    "sentence": "I learned the word \"suddenly\" today."
+  },
+  "title": {
+    "meaning": "头衔, 名称, 标题, 书名, 扉页, 权利, 资格, 冠军, 字幕；授予头衔, 加标题于；标题",
+    "sentence": "I learned the word \"title\" today."
+  },
+  "treat": {
+    "meaning": "宴请, 款待；视为, 对待, 论述, 治疗, 款待；讨论, 谈判, 作东",
+    "sentence": "I learned the word \"treat\" today."
+  },
+  "dark": {
+    "meaning": "黑暗, 夜, 黄昏, 模糊；黑暗的, 暗的, 深色的, 隐密的, 模糊的, 无知的",
+    "sentence": "I learned the word \"dark\" today."
+  },
+  "throughout": {
+    "meaning": "到处, 贯穿全部地, 自始至终；遍及, 在各处；吞吐量",
+    "sentence": "I learned the word \"throughout\" today."
+  },
+  "discussion": {
+    "meaning": "讨论",
+    "sentence": "I learned the word \"discussion\" today."
+  },
+  "laugh": {
+    "meaning": "笑, 笑声；笑, 大笑；以笑表示",
+    "sentence": "I learned the word \"laugh\" today."
+  },
+  "generally": {
+    "meaning": "通常, 逐渐地, 普遍地",
+    "sentence": "I learned the word \"generally\" today."
+  },
+  "guess": {
+    "meaning": "猜测, 臆测；猜测, 臆测",
+    "sentence": "I learned the word \"guess\" today."
+  },
+  "aspect": {
+    "meaning": "外观, 方面, 面貌, 方向；方面, 局面?外观",
+    "sentence": "I learned the word \"aspect\" today."
+  },
+  "executive": {
+    "meaning": "执行部门, 执行委员会, 执行者, 经理主管人员；执行的, 善于执行的, 善于经营的；执行程序",
+    "sentence": "I learned the word \"executive\" today."
+  },
+  "industrial": {
+    "meaning": "工业的, 供工业用的, 工业高度发展的, 产业的；工业工人, 工业股票",
+    "sentence": "I learned the word \"industrial\" today."
+  },
+  "chairman": {
+    "meaning": "主席, 会长；主席",
+    "sentence": "I learned the word \"chairman\" today."
+  },
+  "remove": {
+    "meaning": "移动, 调动, 除去, 迁移, 开除, 移交；迁移, 移动, 搬家；班级, 升级, 移动, 搬家, 间距；删除",
+    "sentence": "I learned the word \"remove\" today."
+  },
+  "hang": {
+    "meaning": "悬挂, 诀窍, 意义；悬挂, 附着, 装饰, 垂下, 踌躇, 绞死, 使悬而未决；悬着, 垂下, 被绞死, 悬而不决",
+    "sentence": "I learned the word \"hang\" today."
+  },
+  "visit": {
+    "meaning": "拜访, 访问, 游览, 视察；拜访, 访问, 参观, 视察, 降临；访问, 参观, 闲谈",
+    "sentence": "I learned the word \"visit\" today."
+  },
+  "entire": {
+    "meaning": "整个, 全部；全体的, 完全的, 全部的",
+    "sentence": "I learned the word \"entire\" today."
+  },
+  "rock": {
+    "meaning": "岩石, 岩礁, 石头, 基石, 暗礁, 摇动, 摇滚乐；摇摆, 摇动, 使摇晃, 使动摇；摇, 摇动",
+    "sentence": "I learned the word \"rock\" today."
+  },
+  "sorry": {
+    "meaning": "难过的, 悲哀的, 遗憾的",
+    "sentence": "I learned the word \"sorry\" today."
+  },
+  "sun": {
+    "meaning": "太阳, 日, 日光, 阳光；晒；晒太阳",
+    "sentence": "I learned the word \"sun\" today."
+  },
+  "exist": {
+    "meaning": "存在, 生存, 发生",
+    "sentence": "I learned the word \"exist\" today."
+  },
+  "river": {
+    "meaning": "河, 江；河流, 江河, 内河",
+    "sentence": "I learned the word \"river\" today."
+  },
+  "customer": {
+    "meaning": "消费者；顾客",
+    "sentence": "I learned the word \"customer\" today."
+  },
+  "institution": {
+    "meaning": "机构, 惯例, 制度；机关, 机构, 设施",
+    "sentence": "I learned the word \"institution\" today."
+  },
+  "encourage": {
+    "meaning": "鼓励, 支持, 激励；怂恿, 煽动, 助长",
+    "sentence": "I learned the word \"encourage\" today."
+  },
+  "network": {
+    "meaning": "网络, 广播网, 网状物；网络",
+    "sentence": "I learned the word \"network\" today."
+  },
+  "specific": {
+    "meaning": "特效药, 特性；特殊的, 明确的, 具有特效的, 特定地, 具体地",
+    "sentence": "I learned the word \"specific\" today."
+  },
+  "appropriate": {
+    "meaning": "适当的；适当的, 拨出, 占用",
+    "sentence": "I learned the word \"appropriate\" today."
+  },
+  "profit": {
+    "meaning": "利润, 赢利, 利益；有益, 获利, 赚钱；有益于",
+    "sentence": "I learned the word \"profit\" today."
+  },
+  "religious": {
+    "meaning": "宗教性的, 虔诚的, 宗教上的, 严谨的；修道士, 出家人",
+    "sentence": "I learned the word \"religious\" today."
+  },
+  "cold": {
+    "meaning": "感冒, 寒冷；寒冷的, 冷淡的, 冷静的；完全地",
+    "sentence": "I learned the word \"cold\" today."
+  },
+  "reflect": {
+    "meaning": "反射, 反映, 招致, 深思；被反射, 映出, 深思, 考虑, 指责",
+    "sentence": "I learned the word \"reflect\" today."
+  },
+  "assume": {
+    "meaning": "假定, 承担, 呈现；装腔作势, 僭越",
+    "sentence": "I learned the word \"assume\" today."
+  },
+  "admit": {
+    "meaning": "承认, 接受, 允许进入, 容许；开向, 容许, 承认",
+    "sentence": "I learned the word \"admit\" today."
+  },
+  "stone": {
+    "meaning": "石头, 宝石, 果核, 纪念碑, 结石；投扔石子, 铺石头；石的, 石制的, 完全的",
+    "sentence": "I learned the word \"stone\" today."
+  },
+  "measure": {
+    "meaning": "尺寸, 量度器, 量度标准, 测量, 量具, 程度, 范围, 限度, 分寸, 措施, 方法；测量, 测度, 估量, 权衡, 调节, 拿(自己或自",
+    "sentence": "I learned the word \"measure\" today."
+  },
+  "green": {
+    "meaning": "绿色, 绿色颜料；绿色的, 未成熟的, 新鲜的, 青春的, 无经验的, 脸色发青的",
+    "sentence": "I learned the word \"green\" today."
+  },
+  "conference": {
+    "meaning": "会议；会议, 讨论会, 协商会",
+    "sentence": "I learned the word \"conference\" today."
+  },
+  "memory": {
+    "meaning": "记忆, 记忆力, 回忆, 纪念, 存储；内存；存储器, 内存, 查看内存实用程序",
+    "sentence": "I learned the word \"memory\" today."
+  },
+  "division": {
+    "meaning": "分, 分开, 除法, 部门(如部、处、系等), 师；部分",
+    "sentence": "I learned the word \"division\" today."
+  },
+  "card": {
+    "meaning": "卡片, 纸牌, 节目单, 明信片, 梳棉机；备置卡片, 记于卡片上, 梳理；卡片, 卡",
+    "sentence": "I learned the word \"card\" today."
+  },
+  "smile": {
+    "meaning": "微笑, 喜色, 笑容；微笑, 觉得好笑；微笑着表示",
+    "sentence": "I learned the word \"smile\" today."
+  },
+  "seat": {
+    "meaning": "座, 座位, 位子, 席位, 所在地；使坐下, 使就座, 为...设座于, 使就职；安装在底座上",
+    "sentence": "I learned the word \"seat\" today."
+  },
+  "replace": {
+    "meaning": "替换；代替",
+    "sentence": "I need to replace this part."
+  },
+  "post": {
+    "meaning": "柱, 杆, 准星, 邮件, 邮政, 标竿, 职位, 岗位, 哨所, 兵营；张帖, 邮递, 公布, 登入帐, 使熟悉, 布置；快速行进；急速地",
+    "sentence": "I learned the word \"post\" today."
+  },
+  "procedure": {
+    "meaning": "程序, 过程, 手续；规程?过程",
+    "sentence": "I learned the word \"procedure\" today."
+  },
+  "trial": {
+    "meaning": "审判, 试验, 艰苦, 麻烦事, 考验；审讯的, 试验性的",
+    "sentence": "I learned the word \"trial\" today."
+  },
+  "commission": {
+    "meaning": "委任状, 任官令, 所委职责, 佣金, 犯, 委托, 所托之事；委任, 委托制作, 使服役",
+    "sentence": "I learned the word \"commission\" today."
+  },
+  "expert": {
+    "meaning": "专家, 行家；老练的, 内行的, 专门的；高级",
+    "sentence": "I learned the word \"expert\" today."
+  },
+  "proposal": {
+    "meaning": "提议, 计划, 求婚；提案, 申请, 投标",
+    "sentence": "I learned the word \"proposal\" today."
+  },
+  "spring": {
+    "meaning": "春天, 弹簧, 跳跃, 弹性, 活力, 泉, 源泉；春天的；跳, 弹跳, 涌出, 生长, 裂开, 高耸；使跳起, 使爆炸, 突然提出",
+    "sentence": "I learned the word \"spring\" today."
+  },
+  "unless": {
+    "meaning": "除非；除...之外",
+    "sentence": "I learned the word \"unless\" today."
+  },
+  "mention": {
+    "meaning": "提到, 言及, 陈述；提到, 提及",
+    "sentence": "I learned the word \"mention\" today."
+  },
+  "improve": {
+    "meaning": "改良, 提高...的价值, 改善, 利用；变得更好, 增加",
+    "sentence": "I learned the word \"improve\" today."
+  },
+  "radio": {
+    "meaning": "无线电, 收音机, 无线电报, 无线电广播, 无线电台；用无线电发送",
+    "sentence": "I learned the word \"radio\" today."
+  },
+  "circumstance": {
+    "meaning": "环境, 状况, 事件",
+    "sentence": "I learned the word \"circumstance\" today."
+  },
+  "client": {
+    "meaning": "客户, 顾客, 委托人；客户, 客户机, 客户机程序",
+    "sentence": "I learned the word \"client\" today."
+  },
+  "obviously": {
+    "meaning": "显而易见地, 明显地",
+    "sentence": "I learned the word \"obviously\" today."
+  },
+  "sector": {
+    "meaning": "扇形, 部门, 部分, 函数尺, 象限仪, 段, 区段；把...分成扇形；扇面?扇区?段?区段",
+    "sentence": "I learned the word \"sector\" today."
+  },
+  "imagine": {
+    "meaning": "想像, 设想, 猜测；想像起来",
+    "sentence": "I learned the word \"imagine\" today."
+  },
+  "tonight": {
+    "meaning": "今晚, 今夜；今晚, 今夜",
+    "sentence": "I learned the word \"tonight\" today."
+  },
+  "direction": {
+    "meaning": "方向, 指导, 趋势；方向?流向",
+    "sentence": "I learned the word \"direction\" today."
+  },
+  "huge": {
+    "meaning": "极大的, 巨大的, 无限的",
+    "sentence": "I learned the word \"huge\" today."
+  },
+  "basic": {
+    "meaning": "基本原理, 要素, 基本规律；基本的, 碱性的；(计算机)BASIC语言",
+    "sentence": "I learned the word \"basic\" today."
+  },
+  "ball": {
+    "meaning": "球, 舞会, 球状物；捏成球形",
+    "sentence": "I learned the word \"ball\" today."
+  },
+  "yourself": {
+    "meaning": "你自己",
+    "sentence": "I learned the word \"yourself\" today."
+  },
+  "successful": {
+    "meaning": "成功的, 一帆风顺的, 顺利的；成功的",
+    "sentence": "I learned the word \"successful\" today."
+  },
+  "intend": {
+    "meaning": "计划, 打算, 意思是；想要, 打算, 意旨",
+    "sentence": "I learned the word \"intend\" today."
+  },
+  "original": {
+    "meaning": "最初的, 原始的, 有创意的；原物, 原作",
+    "sentence": "I learned the word \"original\" today."
+  },
+  "impact": {
+    "meaning": "冲击, 冲突, 影响, 效果；挤入, 撞击, 压紧, 对...发生影响",
+    "sentence": "I learned the word \"impact\" today."
+  },
+  "respond": {
+    "meaning": "以...回答；回答, 响应, 回报, 有反应, 承担责任",
+    "sentence": "I learned the word \"respond\" today."
+  },
+  "attitude": {
+    "meaning": "态度, 看法, 姿势；体态, 姿势, 态度",
+    "sentence": "I learned the word \"attitude\" today."
+  },
+  "aware": {
+    "meaning": "知道的, 有觉悟的",
+    "sentence": "I learned the word \"aware\" today."
+  },
+  "discover": {
+    "meaning": "发现, 找到, 暴露；发现",
+    "sentence": "I learned the word \"discover\" today."
+  },
+  "popular": {
+    "meaning": "通俗的, 流行的, 受欢迎的, 大众的, 人民的, 普及的；大众的, 通俗的, 普及的",
+    "sentence": "I learned the word \"popular\" today."
+  },
+  "traditional": {
+    "meaning": "传统的, 惯例的；传统的, 惯例的",
+    "sentence": "I learned the word \"traditional\" today."
+  },
+  "onto": {
+    "meaning": "在...之上",
+    "sentence": "I learned the word \"onto\" today."
+  },
+  "reveal": {
+    "meaning": "露出, 显示, 透露, 揭露, 泄露, (神)启示；窗侧, 门侧",
+    "sentence": "I learned the word \"reveal\" today."
+  },
+  "weapon": {
+    "meaning": "武器, 兵器；武装",
+    "sentence": "I learned the word \"weapon\" today."
+  },
+  "employee": {
+    "meaning": "职员, 员工, 受雇人员；职工?雇员",
+    "sentence": "I learned the word \"employee\" today."
+  },
+  "peace": {
+    "meaning": "和平, 和约, 治安, 和睦, 安宁, 静寂；安静下来, 不作声",
+    "sentence": "I learned the word \"peace\" today."
+  },
+  "employment": {
+    "meaning": "雇用, 职业, 工作；职业, 雇用, 职工招请",
+    "sentence": "I learned the word \"employment\" today."
+  },
+  "refuse": {
+    "meaning": "拒绝, 谢绝；拒绝；废物；扔掉的, 无用的",
+    "sentence": "I learned the word \"refuse\" today."
+  },
+  "pain": {
+    "meaning": "痛苦, 疼痛, 辛苦；使痛苦, 痛苦；作痛, 疼",
+    "sentence": "I learned the word \"pain\" today."
+  },
+  "prevent": {
+    "meaning": "预防, 防止, 阻止, 妨碍",
+    "sentence": "I learned the word \"prevent\" today."
+  },
+  "october": {
+    "meaning": "十月",
+    "sentence": "I learned the word \"october\" today."
+  },
+  "affair": {
+    "meaning": "事件, 事务, 恋爱事件",
+    "sentence": "I learned the word \"affair\" today."
+  },
+  "shake": {
+    "meaning": "摇动, 震动；摇动, 动摇, 使震动, 挥舞；震动, 发抖, 动摇",
+    "sentence": "I learned the word \"shake\" today."
+  },
+  "appeal": {
+    "meaning": "恳求, 诉请, 上诉, 吸引力；呼吁, 诉请, 要求, 上诉, 有吸引力；将...上诉",
+    "sentence": "I learned the word \"appeal\" today."
+  },
+  "fly": {
+    "meaning": "苍蝇, 两翼昆虫, 飞行；飞, 飞翔, 飘扬, 逃走；飞, 飞越, 使飘扬, 逃出；敏捷的",
+    "sentence": "I learned the word \"fly\" today."
+  },
+  "heavy": {
+    "meaning": "重的, 巨大的, 沉重的, 笨重的, 过度的；沉重地；重物, 严肃角色",
+    "sentence": "I learned the word \"heavy\" today."
+  },
+  "interview": {
+    "meaning": "面谈, 访问, 接见, 面试；接见, 对...进行面谈(试)",
+    "sentence": "I learned the word \"interview\" today."
+  },
+  "regard": {
+    "meaning": "关心, 注意, 尊敬, 关系, 问候；视为, 注意, 考虑, 和...有关, 看待；注视, 注意",
+    "sentence": "I learned the word \"regard\" today."
+  },
+  "chair": {
+    "meaning": "椅子, 显要的席位, 主席；使入座, 使就任要职",
+    "sentence": "I learned the word \"chair\" today."
+  },
+  "fish": {
+    "meaning": "鱼, 鱼肉, 鱼类, 接合板；钓, 钓鱼, 查出, 用接合板连接；捕鱼, 钓鱼, 用钩捞取, 摸索寻找",
+    "sentence": "I learned the word \"fish\" today."
+  },
+  "professional": {
+    "meaning": "专业人才；专业的, 职业的",
+    "sentence": "I learned the word \"professional\" today."
+  },
+  "holiday": {
+    "meaning": "假日, 假期, 节日；度假",
+    "sentence": "I learned the word \"holiday\" today."
+  },
+  "camera": {
+    "meaning": "照相机, 摄影机, 密谈室, 暗箱；摄影",
+    "sentence": "I learned the word \"camera\" today."
+  },
+  "technique": {
+    "meaning": "技巧, 技术, 方法；工艺方法?技巧",
+    "sentence": "I learned the word \"technique\" today."
+  },
+  "item": {
+    "meaning": "项目, 条款, 一则, 项；项",
+    "sentence": "I learned the word \"item\" today."
+  },
+  "medium": {
+    "meaning": "媒体, 方法, 媒介；半生熟的, 中间的；媒体, 中",
+    "sentence": "I learned the word \"medium\" today."
+  },
+  "politics": {
+    "meaning": "政治, 政治学, 政见, 政治活动；政治, 政治学, 政纲",
+    "sentence": "I learned the word \"politics\" today."
+  },
+  "pupil": {
+    "meaning": "学生, 门生, 未成年人, 瞳孔；瞳孔",
+    "sentence": "I learned the word \"pupil\" today."
+  },
+  "perform": {
+    "meaning": "进行, 履行, 完成, 执行, 表演；行动, 工作, 执行, 演出",
+    "sentence": "I learned the word \"perform\" today."
+  },
+  "version": {
+    "meaning": "一种描述, 版本, 译文；版本",
+    "sentence": "I learned the word \"version\" today."
+  },
+  "weight": {
+    "meaning": "重, 重量, 体重, 砝码, 重大, 影响, 力量；加重量于, 压迫, 使加权, 称重量；粗细",
+    "sentence": "I learned the word \"weight\" today."
+  },
+  "candidate": {
+    "meaning": "候选人, 投考者；候选, 候补者",
+    "sentence": "I learned the word \"candidate\" today."
+  },
+  "direct": {
+    "meaning": "直接的, 坦白的；指示, 指挥, 命令, 导演；指导, 指挥；直接地",
+    "sentence": "I learned the word \"direct\" today."
+  },
+  "press": {
+    "meaning": "压, 揿, 按, 人群, 印刷机, 压力, 出版社, 记者, 报刊, 新闻舆论, 紧迫；压, 压榨, 紧抱, 逼迫, 推进, 强迫征募, 催逼",
+    "sentence": "I learned the word \"press\" today."
+  },
+  "trip": {
+    "meaning": "旅行, 绊倒, 摔倒, 失足, 差错, 旅程；使跌倒, 使犯错, 使失败；轻快地走, 绊倒, 失误, 犯错, 结巴, 旅行, 远足",
+    "sentence": "I learned the word \"trip\" today."
+  },
+  "advice": {
+    "meaning": "忠告, 劝告, 意见, 报道, 通知；通知书, 通知, 建议",
+    "sentence": "I learned the word \"advice\" today."
+  },
+  "inside": {
+    "meaning": "内部, 内脏, 内幕；内部的, 秘密的, 户内的；在里面；在...之内",
+    "sentence": "I learned the word \"inside\" today."
+  },
+  "september": {
+    "meaning": "九月",
+    "sentence": "I learned the word \"september\" today."
+  },
+  "library": {
+    "meaning": "图书馆, 藏书, 库；库",
+    "sentence": "I learned the word \"library\" today."
+  },
+  "adult": {
+    "meaning": "成人, 成虫；成年的, 成熟的",
+    "sentence": "I learned the word \"adult\" today."
+  },
+  "advantage": {
+    "meaning": "优点, 便利, 好处, 优势；有助于",
+    "sentence": "I learned the word \"advantage\" today."
+  },
+  "worry": {
+    "meaning": "担心, 烦恼, 忧虑, 苦恼, 撕咬；使烦恼, 使焦虑, 使苦恼, 困扰, 折磨, 撕咬；烦恼, 担心, 撕咬",
+    "sentence": "I learned the word \"worry\" today."
+  },
+  "operate": {
+    "meaning": "操作, 运转, 动手术, 活动",
+    "sentence": "I learned the word \"operate\" today."
+  },
+  "surface": {
+    "meaning": "面, 表面, 水面, 外表, 平面；表面的, 外观的, 肤浅的, 水面上的；使成平面, 使浮出水面；浮出水面, 呈现, 在地面上工作",
+    "sentence": "I learned the word \"surface\" today."
+  },
+  "immediately": {
+    "meaning": "直接地, 立刻, 立即",
+    "sentence": "I learned the word \"immediately\" today."
+  },
+  "deep": {
+    "meaning": "深的；深入地；深渊, 深处",
+    "sentence": "I learned the word \"deep\" today."
+  },
+  "worth": {
+    "meaning": "价值, 财产；值...的, 值得的",
+    "sentence": "I learned the word \"worth\" today."
+  },
+  "edge": {
+    "meaning": "边缘, 尖锐, 刀刃, 优势；使锐利, 挤进, 镶边；缓缓移动",
+    "sentence": "I learned the word \"edge\" today."
+  },
+  "variety": {
+    "meaning": "多样, 种类, 变种, 杂耍；变种",
+    "sentence": "I learned the word \"variety\" today."
+  },
+  "trouble": {
+    "meaning": "烦恼, 麻烦, 困难, 动乱, 故障；困扰, 麻烦, 使烦恼, 折磨；烦恼, 费心",
+    "sentence": "I learned the word \"trouble\" today."
+  },
+  "island": {
+    "meaning": "岛, 岛屿, 孤立地区, 安全岛；使成岛状, 孤立",
+    "sentence": "I learned the word \"island\" today."
+  },
+  "january": {
+    "meaning": "一月",
+    "sentence": "I learned the word \"january\" today."
+  },
+  "challenge": {
+    "meaning": "挑战, 盘问；向...挑战, 要求, 怀疑；挑战, 对(证据等)表示异议",
+    "sentence": "I learned the word \"challenge\" today."
+  },
+  "fear": {
+    "meaning": "恐怖, 害怕, 担心；害怕, 恐惧, 为...担心, 敬畏",
+    "sentence": "I learned the word \"fear\" today."
+  },
+  "useful": {
+    "meaning": "有用的, 有益的；有用的, 有效的",
+    "sentence": "I learned the word \"useful\" today."
+  },
+  "shoulder": {
+    "meaning": "肩, 肩膀, 衣肩；肩负, 负担, 担任；用肩推挤",
+    "sentence": "I learned the word \"shoulder\" today."
+  },
+  "depend": {
+    "meaning": "靠, 视...而定, 信赖",
+    "sentence": "I learned the word \"depend\" today."
+  },
+  "middle": {
+    "meaning": "中央, 中间, 腰部；中央的, 中庸的, 中间的",
+    "sentence": "I learned the word \"middle\" today."
+  },
+  "sunday": {
+    "meaning": "星期日；星期日的, 业余的；度星期日",
+    "sentence": "I learned the word \"sunday\" today."
+  },
+  "majority": {
+    "meaning": "多数, 大半；多数逻辑",
+    "sentence": "I learned the word \"majority\" today."
+  },
+  "dream": {
+    "meaning": "梦, 空想, 愿望；做梦, 想象, 梦想",
+    "sentence": "I learned the word \"dream\" today."
+  },
+  "extent": {
+    "meaning": "范围, 程度, 区域；范围",
+    "sentence": "I learned the word \"extent\" today."
+  },
+  "bar": {
+    "meaning": "条, 棒, 酒吧, 栅, 障碍物；禁止, 阻挡, 妨碍；棒形图",
+    "sentence": "I learned the word \"bar\" today."
+  },
+  "enable": {
+    "meaning": "使能够；允许, 使能, 打开",
+    "sentence": "I learned the word \"enable\" today."
+  },
+  "beautiful": {
+    "meaning": "美丽的",
+    "sentence": "I learned the word \"beautiful\" today."
+  },
+  "competition": {
+    "meaning": "竞争, 竞赛；竞争, 竞销, 比赛",
+    "sentence": "I learned the word \"competition\" today."
+  },
+  "instead": {
+    "meaning": "作为替代, 反而",
+    "sentence": "I learned the word \"instead\" today."
+  },
+  "parliament": {
+    "meaning": "国会, 议会；会议, 国会, 议院",
+    "sentence": "I learned the word \"parliament\" today."
+  },
+  "goods": {
+    "meaning": "货物；货物, 商品, 动产",
+    "sentence": "I learned the word \"goods\" today."
+  },
+  "stuff": {
+    "meaning": "原料, 要素, 东西, 材料, 素质, 织品, 废物, 废话；装填；狼吞虎咽",
+    "sentence": "I learned the word \"stuff\" today."
+  },
+  "speaker": {
+    "meaning": "说话人, 讲演者, 发言人, 喇叭, 扬声器；扬声器",
+    "sentence": "I learned the word \"speaker\" today."
+  },
+  "complete": {
+    "meaning": "完全的, 十足的, 完成的；完成, 完工, 使圆满",
+    "sentence": "I learned the word \"complete\" today."
+  },
+  "access": {
+    "meaning": "通路, 入口, 接近, 进入, 使用权, 发作；访问, 存取, 接近, 使用；访问, 存取",
+    "sentence": "I learned the word \"access\" today."
+  },
+  "somebody": {
+    "meaning": "了不起的人, 大人物；有人, 某人",
+    "sentence": "I learned the word \"somebody\" today."
+  },
+  "magazine": {
+    "meaning": "杂志, 仓库, 弹盒, 胶卷盒；卡片箱, 介质装卸程序",
+    "sentence": "I learned the word \"magazine\" today."
+  },
+  "text": {
+    "meaning": "文本, 正文, 课文, 主题, 圣经文句, 乐谱；电文?文本?正文",
+    "sentence": "I learned the word \"text\" today."
+  },
+  "soldier": {
+    "meaning": "军人, 士兵, 兵蚁；从军, 尽职, 偷懒, 磨洋工",
+    "sentence": "I learned the word \"soldier\" today."
+  },
+  "easily": {
+    "meaning": "容易地, 轻易地, 流利地",
+    "sentence": "I learned the word \"easily\" today."
+  },
+  "sexual": {
+    "meaning": "性的, 性别的；性的?性欲的",
+    "sentence": "I learned the word \"sexual\" today."
+  },
+  "effective": {
+    "meaning": "有效的, 有力的, 实际的；有生力量",
+    "sentence": "I learned the word \"effective\" today."
+  },
+  "bag": {
+    "meaning": "袋子, 袋状物；使膨大, 装袋, 猎获",
+    "sentence": "I learned the word \"bag\" today."
+  },
+  "heat": {
+    "meaning": "热, 热度, 体温, 高潮；加热, 激昂, 加剧；把...加热, 使激动",
+    "sentence": "I learned the word \"heat\" today."
+  },
+  "payment": {
+    "meaning": "付款, 支付的款项(或实物), 偿还, 报应, 惩罚；支付, 缴纳, 支付款额",
+    "sentence": "I learned the word \"payment\" today."
+  },
+  "mouth": {
+    "meaning": "嘴, 口, 口腔, 口状物；装腔作势说话, 做鬼脸；说出, 做作地说",
+    "sentence": "I learned the word \"mouth\" today."
+  },
+  "marriage": {
+    "meaning": "婚姻, 结婚, 婚礼, 合并；婚姻, 结婚",
+    "sentence": "I learned the word \"marriage\" today."
+  },
+  "tough": {
+    "meaning": "恶棍；强硬的, 艰苦的, 坚固的, 坚韧的, 粗暴的, 咬不动的",
+    "sentence": "I learned the word \"tough\" today."
+  },
+  "sing": {
+    "meaning": "唱, 唱歌, 演唱, 鸣, 啼；唱, 歌颂；嗖嗖声",
+    "sentence": "I learned the word \"sing\" today."
+  },
+  "independent": {
+    "meaning": "独立自主者, 无党派者；独立的, 有主见的, 不须依赖的, 不受约束的",
+    "sentence": "I learned the word \"independent\" today."
+  },
+  "facility": {
+    "meaning": "容易, 灵巧, 设备；设施?设备?装备",
+    "sentence": "I learned the word \"facility\" today."
+  },
+  "survey": {
+    "meaning": "纵览, 视察, 测量, 俯瞰, 调查；审视, 视察, 俯瞰, 通盘考虑；测量土地",
+    "sentence": "I learned the word \"survey\" today."
+  },
+  "reference": {
+    "meaning": "参考, 索引, 参照；给...加上参考资料；引用；引用；引用",
+    "sentence": "I learned the word \"reference\" today."
+  },
+  "skin": {
+    "meaning": "皮肤, 皮；剥皮, 在...植皮；长皮, 愈合, 蜕皮",
+    "sentence": "I learned the word \"skin\" today."
+  },
+  "context": {
+    "meaning": "上下文, 背景, 来龙去脉；上下文；上下文",
+    "sentence": "I learned the word \"context\" today."
+  },
+  "agent": {
+    "meaning": "代理商, 政府代表, 动原, 媒介；代理程序",
+    "sentence": "I learned the word \"agent\" today."
+  },
+  "owner": {
+    "meaning": "拥有者, 物主, 所有人；所有者, 物主, 业主",
+    "sentence": "I learned the word \"owner\" today."
+  },
+  "gas": {
+    "meaning": "气体, 汽油, 瓦斯；气体?煤气?瓦斯?毒气",
+    "sentence": "I learned the word \"gas\" today."
+  },
+  "extend": {
+    "meaning": "扩充, 延伸, 伸展, 扩大；扩展",
+    "sentence": "I learned the word \"extend\" today."
+  },
+  "ahead": {
+    "meaning": "领先的, 预先的, 向前的；领先, 预先, 向前, 胜于, 在前面, 在将来",
+    "sentence": "I learned the word \"ahead\" today."
+  },
+  "earth": {
+    "meaning": "地球, 泥土, 世界, 尘世；埋入土中, 赶入洞内；躲入洞内",
+    "sentence": "I learned the word \"earth\" today."
+  },
+  "generation": {
+    "meaning": "一代, 一世, 产生；生殖, 世代",
+    "sentence": "I learned the word \"generation\" today."
+  },
+  "commercial": {
+    "meaning": "商业的, 商用的, 商品化的；商业广告节目",
+    "sentence": "I learned the word \"commercial\" today."
+  },
+  "object": {
+    "meaning": "物体, 目标, 目的, 对象, 宾语, 客体；反对, 抱反感；提出...来反对；对象",
+    "sentence": "I learned the word \"object\" today."
+  },
+  "address": {
+    "meaning": "住址, 演说, 举止, 灵巧, 求爱；发表(演说或讲话), 对付, 写地址；地址, 寻址",
+    "sentence": "I learned the word \"address\" today."
+  },
+  "cancer": {
+    "meaning": "癌, 恶性肿瘤；癌",
+    "sentence": "I learned the word \"cancer\" today."
+  },
+  "possibility": {
+    "meaning": "可能性, 可能的事；可能性, 可能发生的事, 不确定权",
+    "sentence": "I learned the word \"possibility\" today."
+  },
+  "reality": {
+    "meaning": "实在, 事实, 实体, 逼真；现实, 实在存在的事物, 实在性",
+    "sentence": "I learned the word \"reality\" today."
+  },
+  "interesting": {
+    "meaning": "有趣的",
+    "sentence": "I learned the word \"interesting\" today."
+  },
+  "coach": {
+    "meaning": "四轮大马车, 教练；训练, 指导；坐马车旅行, 作指导",
+    "sentence": "I learned the word \"coach\" today."
+  },
+  "means": {
+    "meaning": "方法, 手段, 工具, 财产, 收入；方法, 手段, 工具?意谓",
+    "sentence": "I learned the word \"means\" today."
+  },
+  "notice": {
+    "meaning": "注意, 布告, 通知, 预告, 短评；注意, 通知, 评论, 提及, 关注；注意",
+    "sentence": "I learned the word \"notice\" today."
+  },
+  "yard": {
+    "meaning": "码, 庭院, 工场；堆置场",
+    "sentence": "I learned the word \"yard\" today."
+  },
+  "beat": {
+    "meaning": "心跳(声), 打, 敲打声, 拍子；打, 拍打, 打败；疲乏的, 颓废的；beat的过去式；拍?节拍",
+    "sentence": "I learned the word \"beat\" today."
+  },
+  "violence": {
+    "meaning": "猛烈, 暴力, 暴虐, 暴行；暴行, 暴力, 暴乱",
+    "sentence": "I learned the word \"violence\" today."
+  },
+  "collection": {
+    "meaning": "收集, 采集, (一批)收藏品, 募捐；收集?收集品, 标本",
+    "sentence": "I learned the word \"collection\" today."
+  },
+  "communication": {
+    "meaning": "交流, 交通, 通讯；通信",
+    "sentence": "I learned the word \"communication\" today."
+  },
+  "finger": {
+    "meaning": "手指, 指状物, (手套的)手指部分, 指针；用手指拨弄, 伸出；网络命令",
+    "sentence": "I learned the word \"finger\" today."
+  },
+  "considerable": {
+    "meaning": "相当的, 可观的, 重要的",
+    "sentence": "I learned the word \"considerable\" today."
+  },
+  "arise": {
+    "meaning": "站立, 出现, 起来",
+    "sentence": "I learned the word \"arise\" today."
+  },
+  "fit": {
+    "meaning": "适宜, 合身, 发作, 痉挛；适宜的, 对的, 准备好的；适合, 安装, 使合身, 使适应, 使合格；适合, 符合, 合身；非特",
+    "sentence": "I learned the word \"fit\" today."
+  },
+  "supply": {
+    "meaning": "补给, 供给, 供应品；补给, 供给, 提供, 补充；替代",
+    "sentence": "I learned the word \"supply\" today."
+  },
+  "partner": {
+    "meaning": "合伙人, 股东, 伙伴, 伴侣；与...合伙, 组成一对；做伙伴, 当助手",
+    "sentence": "I learned the word \"partner\" today."
+  },
+  "positive": {
+    "meaning": "肯定的, 积极的, 有把握的；正的, 阳性的",
+    "sentence": "I learned the word \"positive\" today."
+  },
+  "civil": {
+    "meaning": "市民的, 公民的, 有礼貌的；公民的, 国民的, 民用的",
+    "sentence": "I learned the word \"civil\" today."
+  },
+  "examine": {
+    "meaning": "检查, 调查, 考试",
+    "sentence": "I learned the word \"examine\" today."
+  },
+  "kitchen": {
+    "meaning": "厨房, 全套炊具；厨房",
+    "sentence": "I learned the word \"kitchen\" today."
+  },
+  "consumer": {
+    "meaning": "消费者；消费者, 用户",
+    "sentence": "I learned the word \"consumer\" today."
+  },
+  "document": {
+    "meaning": "文件, 公文, 文档；证明, 为...引证；文档",
+    "sentence": "I learned the word \"document\" today."
+  },
+  "shot": {
+    "meaning": "发射, 炮弹, 射击, 射手, 投篮, 射门, 子弹, 射程, 拍摄, 注射；装弹, 使成颗粒状；杂色的, 交织着的, 渗透的, 点焊的, 破旧",
+    "sentence": "I learned the word \"shot\" today."
+  },
+  "define": {
+    "meaning": "定义, 规定, 使明确；定义",
+    "sentence": "I learned the word \"define\" today."
+  },
+  "budget": {
+    "meaning": "预算；编预算；编入预算, 安排；廉价的",
+    "sentence": "I learned the word \"budget\" today."
+  },
+  "responsible": {
+    "meaning": "有责任的, 负责的, 责任重大的；应负责任的, 有责任的, 能履行责任的",
+    "sentence": "I learned the word \"responsible\" today."
+  },
+  "painting": {
+    "meaning": "画, 绘画, 油漆；涂漆",
+    "sentence": "I learned the word \"painting\" today."
+  },
+  "scientist": {
+    "meaning": "科学家；科学家",
+    "sentence": "I learned the word \"scientist\" today."
+  },
+  "safe": {
+    "meaning": "保险箱, 冷藏室；安全的, 可靠的, 平安的, 稳健的, 有把握的",
+    "sentence": "I learned the word \"safe\" today."
+  },
+  "solution": {
+    "meaning": "解决, 解答, 溶液；溶液",
+    "sentence": "I learned the word \"solution\" today."
+  },
+  "november": {
+    "meaning": "十一月",
+    "sentence": "I learned the word \"november\" today."
+  },
+  "december": {
+    "meaning": "十二月",
+    "sentence": "I learned the word \"december\" today."
+  },
+  "influence": {
+    "meaning": "影响力, 权力, 势力；影响, 改变",
+    "sentence": "I learned the word \"influence\" today."
+  },
+  "victim": {
+    "meaning": "受害人, 牺牲者, 牺牲品；受害人, 被害人, 遭难者",
+    "sentence": "I learned the word \"victim\" today."
+  },
+  "software": {
+    "meaning": "软件；软设备",
+    "sentence": "I learned the word \"software\" today."
+  },
+  "newspaper": {
+    "meaning": "报纸",
+    "sentence": "I learned the word \"newspaper\" today."
+  },
+  "bear": {
+    "meaning": "熊；忍受, 支承, 产生, 怀有, 通过卖空使跌价；忍受, 结果实, 压挤, 行进, 转向",
+    "sentence": "I learned the word \"bear\" today."
+  },
+  "threat": {
+    "meaning": "恐吓, 恶兆, 威胁；威胁",
+    "sentence": "I learned the word \"threat\" today."
+  },
+  "opinion": {
+    "meaning": "意见, 评价, 主张；意见",
+    "sentence": "I learned the word \"opinion\" today."
+  },
+  "attorney": {
+    "meaning": "代理人, 律师；律师, 代理人",
+    "sentence": "I learned the word \"attorney\" today."
+  },
+  "score": {
+    "meaning": "得分, 抓痕, 二十个, 刻痕, 帐目, 乐谱, 起跑线, 终点线, 大量；刻划, 划线, 获得, 评价, 把...记下；刻痕, 记分, 得分",
+    "sentence": "I learned the word \"score\" today."
+  },
+  "district": {
+    "meaning": "区域, 地方；地区, 地段",
+    "sentence": "I learned the word \"district\" today."
+  },
+  "bird": {
+    "meaning": "鸟, 羽毛球；打鸟",
+    "sentence": "I learned the word \"bird\" today."
+  },
+  "damage": {
+    "meaning": "损害, 伤害；损害",
+    "sentence": "I learned the word \"damage\" today."
+  },
+  "audience": {
+    "meaning": "听众, 观众, 读者；听讼, 观众, 听众",
+    "sentence": "I learned the word \"audience\" today."
+  },
+  "rich": {
+    "meaning": "富裕的, 富饶的, 浓厚的, 贵重的",
+    "sentence": "I learned the word \"rich\" today."
+  },
+  "tomorrow": {
+    "meaning": "明天, 未来；明天, 未来地",
+    "sentence": "I learned the word \"tomorrow\" today."
+  },
+  "dinner": {
+    "meaning": "晚餐, 正餐, 宴会",
+    "sentence": "I learned the word \"dinner\" today."
+  },
+  "vote": {
+    "meaning": "投票, 选举, 选票, 表决, 选举权, 得票数；投票, 选举；投票选举, 投票决定, 公认, 使投票",
+    "sentence": "I learned the word \"vote\" today."
+  },
+  "requirement": {
+    "meaning": "需求, 必要条件, 要求；要求?合同要求",
+    "sentence": "I learned the word \"requirement\" today."
+  },
+  "extra": {
+    "meaning": "额外的事物, 另外的收费；额外的, 特别的；额外地, 特别地, 非常地",
+    "sentence": "I learned the word \"extra\" today."
+  },
+  "travel": {
+    "meaning": "旅行, 游历, 行进；旅行, 行进, 移动, 被传播；旅行, 通过, 使移动",
+    "sentence": "I learned the word \"travel\" today."
+  },
+  "debate": {
+    "meaning": "辩论, 讨论；争论, 辩论",
+    "sentence": "I learned the word \"debate\" today."
+  },
+  "citizen": {
+    "meaning": "市民, 公民；公民, 国民, 市民",
+    "sentence": "I learned the word \"citizen\" today."
+  },
+  "exchange": {
+    "meaning": "交换, (电话)交换局, 交换机, 汇兑, 交易所；交换, 交易, 兑换；交换?电话局",
+    "sentence": "I learned the word \"exchange\" today."
+  },
+  "quarter": {
+    "meaning": "四分之一, 一刻钟, 季度, 地区；四等分, 肢解；驻扎, 住宿",
+    "sentence": "I learned the word \"quarter\" today."
+  },
+  "none": {
+    "meaning": "一点也不, 毫不；没有人, 无一物, 并无一个；没有的",
+    "sentence": "I learned the word \"none\" today."
+  },
+  "option": {
+    "meaning": "选择权, 挑选, 选项；选项",
+    "sentence": "I learned the word \"option\" today."
+  },
+  "front": {
+    "meaning": "前面, 开头, 前线, 阵线, 态度；面对, 朝向, 对抗；朝向",
+    "sentence": "I learned the word \"front\" today."
+  },
+  "eventually": {
+    "meaning": "最后, 终于",
+    "sentence": "I learned the word \"eventually\" today."
+  },
+  "senior": {
+    "meaning": "年长者, 资深者, 毕业班学生；年长的, 高级的, 资深的",
+    "sentence": "I learned the word \"senior\" today."
+  },
+  "occasion": {
+    "meaning": "场合, 时机, 机会, 诱因, 理由；惹起, 引起",
+    "sentence": "I learned the word \"occasion\" today."
+  },
+  "highly": {
+    "meaning": "非常, 非常赞许地；大大地",
+    "sentence": "I learned the word \"highly\" today."
+  },
+  "wind": {
+    "meaning": "风, 气息, 气味, 呼吸, 风声, 趋势, 空谈, 卷绕, 弯曲；使通风, 嗅出, 使喘气, 吹号角, 上发条, 缠绕, 包, 绞起, 吊起,",
+    "sentence": "I learned the word \"wind\" today."
+  },
+  "arrangement": {
+    "meaning": "排列, 整齐, 安排；排列",
+    "sentence": "I learned the word \"arrangement\" today."
+  },
+  "key": {
+    "meaning": "钥匙, 键, 解答, 关键, 要害, 基调, 线索, 答案, 暗礁；调音, 锁上, 提供线索；使用钥匙；键, 密钥",
+    "sentence": "I learned the word \"key\" today."
+  },
+  "target": {
+    "meaning": "目标, 靶子, 指标；对准, 订指标",
+    "sentence": "I learned the word \"target\" today."
+  },
+  "aid": {
+    "meaning": "帮助, 外援, 助手；援助, 帮助, 有助于；帮助；自动内部诊断",
+    "sentence": "I learned the word \"aid\" today."
+  },
+  "fast": {
+    "meaning": "快速的, 紧的；很快地, 紧紧地, 彻底地；绝食, 斋戒；绝食, 斋戒",
+    "sentence": "I learned the word \"fast\" today."
+  },
+  "alone": {
+    "meaning": "孤独的, 单独的, 独自的；独自地",
+    "sentence": "I learned the word \"alone\" today."
+  },
+  "match": {
+    "meaning": "比赛, 火柴, 对手；使相配, 使比赛, 与...竞争；结婚, 相配；比较",
+    "sentence": "I learned the word \"match\" today."
+  },
+  "railway": {
+    "meaning": "铁路, 轨道；铁路",
+    "sentence": "I learned the word \"railway\" today."
+  },
+  "attend": {
+    "meaning": "参加, 照料, 伴随；专心于, 照顾, 服侍, 出席",
+    "sentence": "I learned the word \"attend\" today."
+  },
+  "speech": {
+    "meaning": "演讲, 说话, 谈话, 言语, 引语, 民族语言；言语, 语言",
+    "sentence": "I learned the word \"speech\" today."
+  },
+  "concept": {
+    "meaning": "观念, 概念；概念",
+    "sentence": "I learned the word \"concept\" today."
+  },
+  "lack": {
+    "meaning": "缺乏, 无, 不足；缺乏, 短少, 不足, 需要；缺乏",
+    "sentence": "I learned the word \"lack\" today."
+  },
+  "corner": {
+    "meaning": "角落, 转角, 窘境；迫至一隅, 垄断, 使陷入绝境；相交成角, 垄断；边角",
+    "sentence": "I learned the word \"corner\" today."
+  },
+  "southern": {
+    "meaning": "南方人, 男风；向南方的, 来自南方的",
+    "sentence": "I learned the word \"southern\" today."
+  },
+  "fresh": {
+    "meaning": "新鲜的, 新奇的, 另外的, 淡的, 精神饱满的, 冒失的；最新地, 刚刚；开始, 泛滥",
+    "sentence": "I learned the word \"fresh\" today."
+  },
+  "forest": {
+    "meaning": "森林, 林区；植树于",
+    "sentence": "I learned the word \"forest\" today."
+  },
+  "video": {
+    "meaning": "影像, 电视；图像的, 电视的",
+    "sentence": "I learned the word \"video\" today."
+  },
+  "global": {
+    "meaning": "通用的, 全球的, 球形的, 综合的, 普遍的；共用",
+    "sentence": "I learned the word \"global\" today."
+  },
+  "slightly": {
+    "meaning": "些微地, 苗条地",
+    "sentence": "I learned the word \"slightly\" today."
+  },
+  "reform": {
+    "meaning": "改革, 改正, 改造；改革, 改过, 革新, 重整；革新, 改过",
+    "sentence": "I learned the word \"reform\" today."
+  },
+  "gain": {
+    "meaning": "增益, 获得, 利润, 收获, 增加；得到, 增进, 赚到；获利, 增加；增益",
+    "sentence": "I learned the word \"gain\" today."
+  },
+  "restaurant": {
+    "meaning": "餐馆, 饭店",
+    "sentence": "I learned the word \"restaurant\" today."
+  },
+  "judge": {
+    "meaning": "法官, 裁判员, 审判官, 鉴定人；审理, 鉴定, 判断, 判决, 裁定；下判断, 作评价",
+    "sentence": "I learned the word \"judge\" today."
+  },
+  "scale": {
+    "meaning": "刻度, 衡量, 比例, 比例尺, 数值范围, 等级, 规模, 天平, 秤, 鳞, 积垢；依比例决定, 攀登, 测量, 绘制, 刮鳞, 使生垢,",
+    "sentence": "I learned the word \"scale\" today."
+  },
+  "equipment": {
+    "meaning": "装备, 设备, 才能；设备?装备?装置",
+    "sentence": "I learned the word \"equipment\" today."
+  },
+  "afternoon": {
+    "meaning": "午后, 下午",
+    "sentence": "I learned the word \"afternoon\" today."
+  },
+  "release": {
+    "meaning": "释放, 发泄, 豁免, 发行, 释放证书；释放, 解除, 放松, 豁免, 免除, 发布, 放弃, 让与；发布；版本, 发布",
+    "sentence": "I learned the word \"release\" today."
+  },
+  "credit": {
+    "meaning": "信用, 信任, 荣誉, 贷款, 学分；归功于, 赞颂, 信任, 相信；信用量",
+    "sentence": "I learned the word \"credit\" today."
+  },
+  "male": {
+    "meaning": "男人, 雄性动物；男性的, 雄性的, 有力的",
+    "sentence": "I learned the word \"male\" today."
+  },
+  "critical": {
+    "meaning": "批评的, 决定性的, 危险的, 临界的；危象的?临界的, 极期的",
+    "sentence": "I learned the word \"critical\" today."
+  },
+  "review": {
+    "meaning": "检讨, 复习, 回顾, 检阅, 评论；温习, 检讨, 评论, 再检察, 复审；复习功课, 写评论",
+    "sentence": "I learned the word \"review\" today."
+  },
+  "recall": {
+    "meaning": "回忆, 召回, 撤消；回想, 回忆, 召回, 撤消, 使恢复；检索",
+    "sentence": "I learned the word \"recall\" today."
+  },
+  "stare": {
+    "meaning": "注视, 凝视, 瞪视, 显眼；盯；凝视",
+    "sentence": "I learned the word \"stare\" today."
+  },
+  "safety": {
+    "meaning": "安全, 保险, 平安, 保安设备；保护, 防护",
+    "sentence": "I learned the word \"safety\" today."
+  },
+  "otherwise": {
+    "meaning": "否则, 不同地, 别的方式",
+    "sentence": "I learned the word \"otherwise\" today."
+  },
+  "hill": {
+    "meaning": "小山, 丘陵, 小土堆；作成土堆, 堆成小丘",
+    "sentence": "I learned the word \"hill\" today."
+  },
+  "hardly": {
+    "meaning": "刚刚, 几乎不, 勉强是",
+    "sentence": "I learned the word \"hardly\" today."
+  },
+  "below": {
+    "meaning": "在下面；在下面",
+    "sentence": "I learned the word \"below\" today."
+  },
+  "status": {
+    "meaning": "状态, 情形, 地位, 要人身份；状态",
+    "sentence": "I learned the word \"status\" today."
+  },
+  "directly": {
+    "meaning": "径直地, 直接地, 直率地, 正好地, 直截了当地, (非正式)立即, 马上；一...(就...), 一当...就...；直接的",
+    "sentence": "I learned the word \"directly\" today."
+  },
+  "expression": {
+    "meaning": "表达, 表现, 词语, 措辞；表达式",
+    "sentence": "I learned the word \"expression\" today."
+  },
+  "tea": {
+    "meaning": "茶, 茶叶；茶, 茶剂, 浸剂",
+    "sentence": "I learned the word \"tea\" today."
+  },
+  "hurt": {
+    "meaning": "伤害, 创伤, 损害；伤害, (使)伤心, 危害, 刺痛",
+    "sentence": "I learned the word \"hurt\" today."
+  },
+  "sale": {
+    "meaning": "出售, 卖, 拍卖, 销售额, 廉价出售；卖, 出售?销售(货)",
+    "sentence": "I learned the word \"sale\" today."
+  },
+  "track": {
+    "meaning": "轨迹, 足迹, 径迹, 小道, 轨道, 磁轨, 途径；循路而行, 追踪, 通过, 用纤拉；追踪, 留下足迹, 沿轨道运行；跟踪",
+    "sentence": "I learned the word \"track\" today."
+  },
+  "band": {
+    "meaning": "带子, 队, 乐队；联合, 结合；频带?波段?区",
+    "sentence": "I learned the word \"band\" today."
+  },
+  "strike": {
+    "meaning": "罢工, 打击, 殴打；打, 撞击, 冲击, 侵袭, 取消, 结算, 打掉, 罢工, 刺透, 使生根, 遇见；打, 打击, 抓, 罢工, 搏动,",
+    "sentence": "I learned the word \"strike\" today."
+  },
+  "sky": {
+    "meaning": "天空, 天色, 天堂；击向空中, 挂在高处；高涨",
+    "sentence": "I learned the word \"sky\" today."
+  },
+  "failure": {
+    "meaning": "失败, 失败者, 不足, 缺乏, 破产；故障?失效",
+    "sentence": "I learned the word \"failure\" today."
+  },
+  "reader": {
+    "meaning": "读者, 读物, 文选, 校对人, 讲师；阅读程序?阅读器",
+    "sentence": "I learned the word \"reader\" today."
+  },
+  "freedom": {
+    "meaning": "自由, 坦率, 特权；自由, 自主, 免除",
+    "sentence": "I learned the word \"freedom\" today."
+  },
+  "absolutely": {
+    "meaning": "完全地, 绝对地, 确确实实地",
+    "sentence": "I learned the word \"absolutely\" today."
+  },
+  "fair": {
+    "meaning": "展览会, 市集, 美好的事物；公平的, 按规则进行的, 不好不坏的, 晴朗的, 美丽的；公平地, 正面地, 有教养地, 清楚地；转晴",
+    "sentence": "I learned the word \"fair\" today."
+  },
+  "plane": {
+    "meaning": "平面, 扁平物, 机翼, 飞机, 水准, 地位；平的, 平面的；将...刨平, 刨平, 掠过水面；翱翔, 乘飞机旅行, 刨掉",
+    "sentence": "I learned the word \"plane\" today."
+  },
+  "nobody": {
+    "meaning": "小人物, 无名小卒；无人, 没有人",
+    "sentence": "I learned the word \"nobody\" today."
+  },
+  "essential": {
+    "meaning": "要素, 要点, 本质；必要的, 重要的, 本质的；本质冒险",
+    "sentence": "I learned the word \"essential\" today."
+  },
+  "confirm": {
+    "meaning": "证实, 确定, 批准, 使巩固；确认",
+    "sentence": "I learned the word \"confirm\" today."
+  },
+  "adopt": {
+    "meaning": "采用, 正式通过, 收养, 接受；采取",
+    "sentence": "I learned the word \"adopt\" today."
+  },
+  "powerful": {
+    "meaning": "有力的, 有权力的, 强大的；强力的",
+    "sentence": "I learned the word \"powerful\" today."
+  },
+  "saturday": {
+    "meaning": "星期六",
+    "sentence": "I learned the word \"saturday\" today."
+  },
+  "trust": {
+    "meaning": "信任, 信赖, 相信, 受托, 职责, 信心, 托拉斯；信托的, 托拉斯的；信赖, 信任, 相信, 盼望, 赊卖给；相信, 信赖, 依靠；委托",
+    "sentence": "I learned the word \"trust\" today."
+  },
+  "perfect": {
+    "meaning": "完成时；完美的, 完好的, 理想的, 熟练的, 精确的, 完成式的；使完美, 修改, 使精通, 改善, 使熟练",
+    "sentence": "I learned the word \"perfect\" today."
+  },
+  "conduct": {
+    "meaning": "行为, 举动, 指导；为人, 指挥, 管理, 实施；领导, 传导, 指挥",
+    "sentence": "I learned the word \"conduct\" today."
+  },
+  "conversation": {
+    "meaning": "会话, 说话, 交谈；交谈, 社交, 性交",
+    "sentence": "I learned the word \"conversation\" today."
+  },
+  "touch": {
+    "meaning": "触觉, 碰, 触, 机灵, 轻触, 格调, 少许, 缺点, 弹力；接触, 触摸, 触及, 使接触, 达到, 涉及, 影响到, 使轻度受害, 感动",
+    "sentence": "I learned the word \"touch\" today."
+  },
+  "farm": {
+    "meaning": "农场, 农田；耕种；种田",
+    "sentence": "I learned the word \"farm\" today."
+  },
+  "sentence": {
+    "meaning": "句子, 命题, 宣判；宣判, 判决；句子",
+    "sentence": "I learned the word \"sentence\" today."
+  },
+  "file": {
+    "meaning": "档案, 公文箱, 文件夹, 文件, 卷宗, 锉刀；列队行进, 用锉刀做；归档, 申请, 锉, 琢磨；文件",
+    "sentence": "I learned the word \"file\" today."
+  },
+  "sleep": {
+    "meaning": "睡眠, 静止, 昏迷, 麻木, 长眠, 冬眠；睡觉, 睡眠, 静止；睡",
+    "sentence": "I learned the word \"sleep\" today."
+  },
+  "primary": {
+    "meaning": "最主要者, 原色；主要的, 初期的, 根本的, 原始的, 首要的, 基本的；初等量?主要的?一次的",
+    "sentence": "I learned the word \"primary\" today."
+  },
+  "obvious": {
+    "meaning": "明显的, 明白的, 显然的, 平淡无奇的",
+    "sentence": "I learned the word \"obvious\" today."
+  },
+  "length": {
+    "meaning": "长度, 长, 期间, 一段；记录长度?块长?字长",
+    "sentence": "I learned the word \"length\" today."
+  },
+  "copy": {
+    "meaning": "复制；副本",
+    "sentence": "Please copy this sentence."
+  },
+  "balance": {
+    "meaning": "平衡, 差额；平衡, 相等；称, 权衡, 比较, 使平衡, 结算, 抵消",
+    "sentence": "I learned the word \"balance\" today."
+  },
+  "nuclear": {
+    "meaning": "核子的, 原子能的, 核的, 中心的；核的",
+    "sentence": "I learned the word \"nuclear\" today."
+  },
+  "branch": {
+    "meaning": "树枝, 支店, 支流, 分部；分支, 出枝；分割, 用枝状叶脉刺绣花纹装饰；分支, 目录分支",
+    "sentence": "I learned the word \"branch\" today."
+  },
+  "conflict": {
+    "meaning": "战斗, 冲突, 矛盾, 争执；争执, 战斗, 冲突, 抵触；冲突",
+    "sentence": "I learned the word \"conflict\" today."
+  },
+  "spirit": {
+    "meaning": "精神, 心灵, 灵魂, 态度, 志气, 人格, 情绪, 心情, 烈酒；诱拐, 鼓励, 鼓舞",
+    "sentence": "I learned the word \"spirit\" today."
+  },
+  "league": {
+    "meaning": "同盟, 联盟, 盟约；组联盟, (使)加盟",
+    "sentence": "I learned the word \"league\" today."
+  },
+  "doubt": {
+    "meaning": "怀疑, 疑惑；怀疑, 不信",
+    "sentence": "I learned the word \"doubt\" today."
+  },
+  "train": {
+    "meaning": "火车, 列车, 行列, 长队, 一连串的后果, 顺序；训练, 教育, 对准；受训练, 锻炼",
+    "sentence": "I learned the word \"train\" today."
+  },
+  "accident": {
+    "meaning": "意外事件, 机遇, 事故, 次要方面；意外事故?事故",
+    "sentence": "I learned the word \"accident\" today."
+  },
+  "camp": {
+    "meaning": "露营, 帐篷；露营, 扎营；使扎营",
+    "sentence": "I learned the word \"camp\" today."
+  },
+  "february": {
+    "meaning": "二月",
+    "sentence": "I learned the word \"february\" today."
+  },
+  "brain": {
+    "meaning": "脑；打碎脑部",
+    "sentence": "I learned the word \"brain\" today."
+  },
+  "studio": {
+    "meaning": "工作室, 画室, 演播室, 电影制片厂",
+    "sentence": "I learned the word \"studio\" today."
+  },
+  "weekend": {
+    "meaning": "周末, 周末休假",
+    "sentence": "I learned the word \"weekend\" today."
+  },
+  "dozen": {
+    "meaning": "打, 十二个；一打的",
+    "sentence": "I learned the word \"dozen\" today."
+  },
+  "strength": {
+    "meaning": "力量, 实力, 强度, 浓度, 人数, 抵抗力；强度",
+    "sentence": "I learned the word \"strength\" today."
+  },
+  "normally": {
+    "meaning": "正规地, 合规则, 正常地",
+    "sentence": "I learned the word \"normally\" today."
+  },
+  "contact": {
+    "meaning": "联系, 交际, 熟人, 接触；接触, 联系；使接触",
+    "sentence": "I learned the word \"contact\" today."
+  },
+  "insurance": {
+    "meaning": "保险, 保险业, 保险费；保险",
+    "sentence": "I learned the word \"insurance\" today."
+  },
+  "battle": {
+    "meaning": "战役；战斗",
+    "sentence": "I learned the word \"battle\" today."
+  },
+  "shape": {
+    "meaning": "形状, 形态, 外形, 形式, 身材；定形, 使成形, 塑造, 计划, 使符合；成形, 形成, 成长；形状",
+    "sentence": "I learned the word \"shape\" today."
+  },
+  "beginning": {
+    "meaning": "开始",
+    "sentence": "I learned the word \"beginning\" today."
+  },
+  "transport": {
+    "meaning": "运输, 运输工具, 激动, 狂喜, 流放犯；传送, 运输, 流放；传送",
+    "sentence": "I learned the word \"transport\" today."
+  },
+  "cash": {
+    "meaning": "现金；兑现",
+    "sentence": "I learned the word \"cash\" today."
+  },
+  "crisis": {
+    "meaning": "危机, 危险期, 紧要关头；危象?骤退, 临界, 极期",
+    "sentence": "I learned the word \"crisis\" today."
+  },
+  "fan": {
+    "meaning": "风扇, 迷, 狂热者, 爱好者；煽动, 刺激, 吹拂；飘动, 成扇形散开",
+    "sentence": "I learned the word \"fan\" today."
+  },
+  "stick": {
+    "meaning": "棍, 棒, 刺, 枯枝, 茎, 条状物；插进, 刺入, 钉住, 伸出, 粘贴, 停止；粘住, 停留, 坚持, 陷住, 伸出",
+    "sentence": "I learned the word \"stick\" today."
+  },
+  "museum": {
+    "meaning": "博物馆",
+    "sentence": "I learned the word \"museum\" today."
+  },
+  "hole": {
+    "meaning": "孔, 洞, 穴, 漏洞；挖洞, 掘坑；进洞, 凿洞",
+    "sentence": "I learned the word \"hole\" today."
+  },
+  "pair": {
+    "meaning": "一双, 一对, 一副；(使)成对",
+    "sentence": "I learned the word \"pair\" today."
+  },
+  "annual": {
+    "meaning": "年刊, 年报；每年的, 一年一次的, 全年的, 一年生的",
+    "sentence": "I learned the word \"annual\" today."
+  },
+  "vision": {
+    "meaning": "视觉, 眼光, 视力, 幻想；梦见, 想象, 显示",
+    "sentence": "I learned the word \"vision\" today."
+  },
+  "associate": {
+    "meaning": "同伴, 伙伴, 关联的事物；使联合, 使发生联系；交往；关联",
+    "sentence": "I learned the word \"associate\" today."
+  },
+  "marry": {
+    "meaning": "与...结婚, 娶, 嫁；结婚",
+    "sentence": "I learned the word \"marry\" today."
+  },
+  "ship": {
+    "meaning": "船, 舰；以船运送, 装船, 运送；上船, 乘船",
+    "sentence": "I learned the word \"ship\" today."
+  },
+  "presence": {
+    "meaning": "出席, 面前, 存在, 仪态, 风度；出现",
+    "sentence": "I learned the word \"presence\" today."
+  },
+  "protection": {
+    "meaning": "保护, 防卫, 贸易保护制度；保护",
+    "sentence": "I learned the word \"protection\" today."
+  },
+  "collect": {
+    "meaning": "收集, 聚集, 集中, 搜集；由收到者付款的；由收到者付款地",
+    "sentence": "I learned the word \"collect\" today."
+  },
+  "queen": {
+    "meaning": "王后, 女王；立为女王；做女王",
+    "sentence": "I learned the word \"queen\" today."
+  },
+  "master": {
+    "meaning": "掌握；精通；大师",
+    "sentence": "I want to master English."
+  },
+  "meaning": {
+    "meaning": "意义, 含义, 目的, 意图；意味深长的",
+    "sentence": "I learned the word \"meaning\" today."
+  },
+  "spot": {
+    "meaning": "污点, 地点, 斑点, 点, 娱乐场所, 处境, 少量；当场的, 现场的, 现货买卖的, 现金交易的, 抽样的；点缀, 玷污, 认出, 准确定.",
+    "sentence": "I learned the word \"spot\" today."
+  },
+  "ice": {
+    "meaning": "冰, 冰淇淋, 糖衣, 冷若冰霜, 矜持, 贿赂；使结冰, 冰镇, 覆以糖衣；结冰",
+    "sentence": "I learned the word \"ice\" today."
+  },
+  "boat": {
+    "meaning": "船；乘船；以船运",
+    "sentence": "I learned the word \"boat\" today."
+  },
+  "employ": {
+    "meaning": "雇用；雇用, 使用, 使从事于",
+    "sentence": "I learned the word \"employ\" today."
+  },
+  "drink": {
+    "meaning": "饮料, 酒；喝, 喝酒",
+    "sentence": "I learned the word \"drink\" today."
+  },
+  "exercise": {
+    "meaning": "行使, 执行, 运动, 练习, 作业；运用, 练习, 运动；练习, 锻炼",
+    "sentence": "I learned the word \"exercise\" today."
+  },
+  "consequence": {
+    "meaning": "结果, 重要性；结果, 后果, 推断",
+    "sentence": "I learned the word \"consequence\" today."
+  },
+  "distance": {
+    "meaning": "距离, 远方, 遥远；位距",
+    "sentence": "I learned the word \"distance\" today."
+  },
+  "wood": {
+    "meaning": "木材, 木制品；植林于, 给...添加木柴；收集木材",
+    "sentence": "I learned the word \"wood\" today."
+  },
+  "truck": {
+    "meaning": "卡车, 货车, 对...进行交易, 来往, 实物工资, (供应市场的)蔬菜, 废物, 废话；对...进行交易, 交往, 以卡车运输；驾驶卡车,",
+    "sentence": "I learned the word \"truck\" today."
+  },
+  "handle": {
+    "meaning": "柄, 把手, 把柄, 柄状物, 手感；触摸, 运用, 买卖, 处理, 操作；搬运, 易于操纵；句柄；句柄",
+    "sentence": "I learned the word \"handle\" today."
+  },
+  "august": {
+    "meaning": "八月；威严的, 令人敬畏的",
+    "sentence": "I learned the word \"august\" today."
+  },
+  "mountain": {
+    "meaning": "山, 山脉, 大堆",
+    "sentence": "I learned the word \"mountain\" today."
+  },
+  "relevant": {
+    "meaning": "有关联的, 有关系的, 适当的, 相应的；有关的, 相关的",
+    "sentence": "I learned the word \"relevant\" today."
+  },
+  "tradition": {
+    "meaning": "传说, 传统, 交付；传统, 惯例, 移交",
+    "sentence": "I learned the word \"tradition\" today."
+  },
+  "winter": {
+    "meaning": "冬季, 萧条期, 衰退期；冬天的；使度过冬天；过冬",
+    "sentence": "I learned the word \"winter\" today."
+  },
+  "speed": {
+    "meaning": "速率, 速度, 迅速；加速, 超速, 快进；快速传送, 促进, 使加速；中央处理机速度设置程序",
+    "sentence": "I learned the word \"speed\" today."
+  },
+  "route": {
+    "meaning": "路径, 途径, 路线；确定路线, 按规定路线发送；传递, 路由设定程序",
+    "sentence": "I learned the word \"route\" today."
+  },
+  "proportion": {
+    "meaning": "比例, 比率, 均衡, 部分, 面积；使成比例, 使均衡",
+    "sentence": "I learned the word \"proportion\" today."
+  },
+  "consideration": {
+    "meaning": "考虑, 原因；考虑, 思考, 报酬",
+    "sentence": "I learned the word \"consideration\" today."
+  },
+  "roll": {
+    "meaning": "卷, 滚动, 名单, 案卷, 压路机；滚, 滚动, 飘流, 起伏, 卷, 绕；使滚动, 卷, 绕",
+    "sentence": "I learned the word \"roll\" today."
+  },
+  "latter": {
+    "meaning": "后者的, 较后的, 近来的",
+    "sentence": "I learned the word \"latter\" today."
+  },
+  "emerge": {
+    "meaning": "浮现, 形成, 出现, (事实)显露",
+    "sentence": "I learned the word \"emerge\" today."
+  },
+  "screen": {
+    "meaning": "幕, 银幕, 屏风, 掩蔽物, 屏蔽, 筛子；掩蔽, 放映, 拍摄, 掩护, 筛, 甄别；拍电影；筛选?屏幕",
+    "sentence": "I learned the word \"screen\" today."
+  },
+  "resident": {
+    "meaning": "居民, 常驻程序, 居住者, 留鸟；居留的, 定居的",
+    "sentence": "I learned the word \"resident\" today."
+  },
+  "hide": {
+    "meaning": "兽皮, 迹象, 躲藏处；藏, 隐瞒, 遮避, 剥...的皮, 隐藏；躲藏；隐藏",
+    "sentence": "I learned the word \"hide\" today."
+  },
+  "mark": {
+    "meaning": "标志, 分数, 马克, 痕迹, 斑点, 靶子, 刻度, 记号, 符号, 戳记, 标准, 起跑线；做标记于, 留意, 打分数, 表明, 标志, 记",
+    "sentence": "I learned the word \"mark\" today."
+  },
+  "gold": {
+    "meaning": "黄金, 钱财, 金块, 金色, 宝贵；金的, 似金的, 金色的, 金制的",
+    "sentence": "I learned the word \"gold\" today."
+  },
+  "separate": {
+    "meaning": "独立件, 抽印本；分开的, 各别的, 单独的, 分隔的；分开, 隔开, 分居；使分离, 使分开, 区分, 使分居",
+    "sentence": "I learned the word \"separate\" today."
+  },
+  "deny": {
+    "meaning": "否认, 拒绝",
+    "sentence": "I learned the word \"deny\" today."
+  },
+  "practical": {
+    "meaning": "实际的, 现实的, 实用性的；事实上的, 实际上的, 接近...的",
+    "sentence": "I learned the word \"practical\" today."
+  },
+  "potential": {
+    "meaning": "潜在性, 可能性, 潜力, 潜能, 势, 位；有潜力的, 可能的, 潜在的",
+    "sentence": "I learned the word \"potential\" today."
+  },
+  "understanding": {
+    "meaning": "理解, 谅解；协商, 协议, 谅解",
+    "sentence": "I learned the word \"understanding\" today."
+  },
+  "aim": {
+    "meaning": "目标, 瞄准, 击中目标的能力；对准目标, 致力, 打算；瞄准；医学文摘索引, 存取隔离机构, 高级信息管理程序, 先进接口模块；应用接口模块",
+    "sentence": "I learned the word \"aim\" today."
+  },
+  "danger": {
+    "meaning": "危险, 威胁；危险, 危险物, 危机",
+    "sentence": "I learned the word \"danger\" today."
+  },
+  "progress": {
+    "meaning": "进步, 发展, 前进；进步, 进行",
+    "sentence": "I learned the word \"progress\" today."
+  },
+  "path": {
+    "meaning": "路径；小路；路线",
+    "sentence": "This path is simple."
+  },
+  "reaction": {
+    "meaning": "反应, 反作用, 反动；反应",
+    "sentence": "I learned the word \"reaction\" today."
+  },
+  "crowd": {
+    "meaning": "群众, 一伙人；拥挤, 挤满, 挤进",
+    "sentence": "I learned the word \"crowd\" today."
+  },
+  "flower": {
+    "meaning": "花, 开花植物, 精华, 盛时；开花, 发育, 旺盛, 成熟；用花装饰, 使开花",
+    "sentence": "I learned the word \"flower\" today."
+  },
+  "appoint": {
+    "meaning": "任命, 指定, 下令；派, 派任, 任命",
+    "sentence": "I learned the word \"appoint\" today."
+  },
+  "merely": {
+    "meaning": "只",
+    "sentence": "I learned the word \"merely\" today."
+  },
+  "apartment": {
+    "meaning": "房间, 公寓",
+    "sentence": "I learned the word \"apartment\" today."
+  },
+  "willing": {
+    "meaning": "乐意的, 自愿的, 甘愿的",
+    "sentence": "I learned the word \"willing\" today."
+  },
+  "regular": {
+    "meaning": "规则的, 常例的, 有秩序的, 整齐的, 等边的, 定期的, 经常的, 合格的, 常备军的；正规军, 正式队员；经常地；正常体；正常体",
+    "sentence": "I learned the word \"regular\" today."
+  },
+  "link": {
+    "meaning": "环, 连结物, 链接, 火把；连结, 联合, 挽住；连接起来；连接, 链路",
+    "sentence": "I learned the word \"link\" today."
+  },
+  "comment": {
+    "meaning": "注解, 批评, 评论, 备注；评论, 注解；备注",
+    "sentence": "I learned the word \"comment\" today."
+  },
+  "due": {
+    "meaning": "应得的东西, 应付款；到期的, 应得的, 应付的, 约定的",
+    "sentence": "I learned the word \"due\" today."
+  },
+  "content": {
+    "meaning": "内容, 满足, 意义, 要旨；满足的, 满意的；使...满足, 使...安心；内容",
+    "sentence": "I learned the word \"content\" today."
+  },
+  "prison": {
+    "meaning": "监狱, 监禁, 拘留所；监禁",
+    "sentence": "I learned the word \"prison\" today."
+  },
+  "conclusion": {
+    "meaning": "结论, 结尾, 推论；缔结, 结论, 推论",
+    "sentence": "I learned the word \"conclusion\" today."
+  },
+  "ride": {
+    "meaning": "骑马, 乘坐, 乘车, 搭便车；骑, 乘坐, 压迫, 控制；骑马, 乘车, 漂游",
+    "sentence": "I learned the word \"ride\" today."
+  },
+  "chief": {
+    "meaning": "领袖, 酋长, 长官, 主要部分；主要的, 首位的",
+    "sentence": "I learned the word \"chief\" today."
+  },
+  "guard": {
+    "meaning": "守卫者, 警戒, 护卫队, 防护装置；保卫, 看守, 当心；防止, 警惕, 警卫, 看守",
+    "sentence": "I learned the word \"guard\" today."
+  },
+  "reply": {
+    "meaning": "答复, 回答, 答辩；答复, 回答, 回击, 反响, 答辩；回答；答复",
+    "sentence": "I learned the word \"reply\" today."
+  },
+  "justice": {
+    "meaning": "正义, 公平, 公正, 正确, 司法, 审判",
+    "sentence": "I learned the word \"justice\" today."
+  },
+  "deliver": {
+    "meaning": "递送, 陈述, 释放, 发表, 引渡, 投递, 交付；交运",
+    "sentence": "I learned the word \"deliver\" today."
+  },
+  "observe": {
+    "meaning": "觉察到, 遵守, 注意到, 庆祝；注意, 评论",
+    "sentence": "I learned the word \"observe\" today."
+  },
+  "tool": {
+    "meaning": "工具, 机床, 傀儡；用工具加工；使用工具",
+    "sentence": "I learned the word \"tool\" today."
+  },
+  "belief": {
+    "meaning": "信念, 相信, 信仰",
+    "sentence": "I learned the word \"belief\" today."
+  },
+  "wild": {
+    "meaning": "荒野, 荒地；野性的, 野蛮的, 野生的, 失控的, 任性的, 杂乱的, 轻率的, 狂热的, 疯狂的；狂暴地, 失控地",
+    "sentence": "I learned the word \"wild\" today."
+  },
+  "vehicle": {
+    "meaning": "交通工具, 车辆, 传播媒介；载体?运载体?漆料",
+    "sentence": "I learned the word \"vehicle\" today."
+  },
+  "flight": {
+    "meaning": "飞行, 射程, 逃走, 飞跃, 飞机航程, 班机, 迁徙, 飞逝；迁徙；射击(飞禽), 为(箭)装上羽毛, 使惊飞",
+    "sentence": "I learned the word \"flight\" today."
+  },
+  "settle": {
+    "meaning": "有背长椅；决定, 整理, 安放, 使定居, 使平静, 支付, 安排, 解决, 结算；停留, 下陷, 沉淀, 澄清, 安下心来, 结清, 定居,",
+    "sentence": "I learned the word \"settle\" today."
+  },
+  "ignore": {
+    "meaning": "不理睬, 忽视, 驳回, 忽略；忽略",
+    "sentence": "I learned the word \"ignore\" today."
+  },
+  "sight": {
+    "meaning": "景观, 视力, 眼界, 阅读, 见解, 意见；看见, 瞄准；瞄准, 观看；即席的, 见票即付的",
+    "sentence": "I learned the word \"sight\" today."
+  },
+  "average": {
+    "meaning": "平均, 平均数, 一般水平, 海损；平均的, 中等的, 平常的；算出...平均数, 平均做, 均分, 使平衡；平均为, 呈中间色",
+    "sentence": "I learned the word \"average\" today."
+  },
+  "estate": {
+    "meaning": "不动产, (人生的)阶段, 阶层, 财产；房地产, 遗产, 财产",
+    "sentence": "I learned the word \"estate\" today."
+  },
+  "quick": {
+    "meaning": "快的, 迅速的, 敏捷的, 灵敏的, 急速的；快；新长出的肉, 要害, 核心, 感觉敏锐部位",
+    "sentence": "I learned the word \"quick\" today."
+  },
+  "wine": {
+    "meaning": "葡萄酒, 果酒, 暗红色；(请)喝酒",
+    "sentence": "I learned the word \"wine\" today."
+  },
+  "earn": {
+    "meaning": "赚得, 获得, 博得；欧州科学研究网",
+    "sentence": "I learned the word \"earn\" today."
+  },
+  "ring": {
+    "meaning": "环, 环形物, 拳击场, 戒指, 角逐, 小集团, 铃声, 钟声, 声调；包围, 套住, 按铃, 敲钟；成环形, 响, 鸣, 按铃, 敲钟, 回",
+    "sentence": "I learned the word \"ring\" today."
+  },
+  "bright": {
+    "meaning": "明亮的, 聪明的, 鲜明的, 欢快的；明亮地, 欢快地",
+    "sentence": "I learned the word \"bright\" today."
+  },
+  "propose": {
+    "meaning": "计划, 打算, 建议, 提议, 求(婚)；打算, 求婚",
+    "sentence": "I learned the word \"propose\" today."
+  },
+  "guest": {
+    "meaning": "客人, 来宾, 旅客；客体",
+    "sentence": "I learned the word \"guest\" today."
+  },
+  "dad": {
+    "meaning": "爸爸, 爹爹",
+    "sentence": "I learned the word \"dad\" today."
+  },
+  "sample": {
+    "meaning": "样品, 范例, 样本；抽样, 尝试；示例, 字样",
+    "sentence": "I learned the word \"sample\" today."
+  },
+  "possibly": {
+    "meaning": "可能, 也许",
+    "sentence": "I learned the word \"possibly\" today."
+  },
+  "contribute": {
+    "meaning": "有助于, 捐助, 投稿；出力, 捐献, 投稿",
+    "sentence": "I learned the word \"contribute\" today."
+  },
+  "tiny": {
+    "meaning": "很少的, 微小的",
+    "sentence": "I learned the word \"tiny\" today."
+  },
+  "block": {
+    "meaning": "街区, 木块, 石块, 块；阻塞, 封锁, 使成块状；块, 数据块",
+    "sentence": "I learned the word \"block\" today."
+  },
+  "clothes": {
+    "meaning": "衣服",
+    "sentence": "I learned the word \"clothes\" today."
+  },
+  "active": {
+    "meaning": "活跃的, 起作用的, 积极的, 有效的, 主动的, 活性的, 现行的, 现役的；主动语态, 积极分子",
+    "sentence": "I learned the word \"active\" today."
+  },
+  "feed": {
+    "meaning": "饲料, 一餐, 饲养；喂, 饲养, 放牧, 靠...为生；吃东西, 用餐, 流入；送纸",
+    "sentence": "I learned the word \"feed\" today."
+  },
+  "employer": {
+    "meaning": "雇主, 老板；雇主, 业主",
+    "sentence": "I learned the word \"employer\" today."
+  },
+  "debt": {
+    "meaning": "债务, 罪过；借款, 欠款, 债务",
+    "sentence": "I learned the word \"debt\" today."
+  },
+  "identity": {
+    "meaning": "身份, 相同, 一致, 特性, 恒等式；(打)标记, 标识",
+    "sentence": "I learned the word \"identity\" today."
+  },
+  "objective": {
+    "meaning": "目的, 目标, 宗旨, 宾格, 实物；客观的, 如实的, 无偏见的, 宾格的",
+    "sentence": "I learned the word \"objective\" today."
+  },
+  "largely": {
+    "meaning": "大量地, 很多地, 大半地",
+    "sentence": "I learned the word \"largely\" today."
+  },
+  "mostly": {
+    "meaning": "大概, 大部分, 主要；大部份",
+    "sentence": "I learned the word \"mostly\" today."
+  },
+  "arrange": {
+    "meaning": "安排, 排列, 达成协议；重排",
+    "sentence": "I learned the word \"arrange\" today."
+  },
+  "lesson": {
+    "meaning": "课, 课业, 教训",
+    "sentence": "I learned the word \"lesson\" today."
+  },
+  "survive": {
+    "meaning": "比...活得长, 生存, 生还, 幸免于；活下来, 幸存",
+    "sentence": "I learned the word \"survive\" today."
+  },
+  "faith": {
+    "meaning": "信心, 信任, 忠实, 保证；信任, 信仰, 信念",
+    "sentence": "I learned the word \"faith\" today."
+  },
+  "telephone": {
+    "meaning": "电话, 电话机；打电话",
+    "sentence": "I learned the word \"telephone\" today."
+  },
+  "promote": {
+    "meaning": "促进, 晋升, 创办, 推销；促进, 推广, 推销",
+    "sentence": "I learned the word \"promote\" today."
+  },
+  "living": {
+    "meaning": "生活, 生计, 生存；活的, 逼真的, 现存的",
+    "sentence": "I learned the word \"living\" today."
+  },
+  "count": {
+    "meaning": "计算, 视为；计数；计算, 合计, 计数, 伯爵；计数",
+    "sentence": "I learned the word \"count\" today."
+  },
+  "farmer": {
+    "meaning": "农夫, 农场主；农民, 农场主, 承包者",
+    "sentence": "I learned the word \"farmer\" today."
+  },
+  "injury": {
+    "meaning": "伤害, 侮辱；伤, 损伤",
+    "sentence": "I learned the word \"injury\" today."
+  },
+  "package": {
+    "meaning": "包裹, 套装软件, 包, 包装用物, 程序包；包装, 打包；一揽子的；包, 软件包, 包装",
+    "sentence": "I learned the word \"package\" today."
+  },
+  "ear": {
+    "meaning": "耳朵, 倾听, 听觉, 穗；抽穗",
+    "sentence": "I learned the word \"ear\" today."
+  },
+  "nevertheless": {
+    "meaning": "然而, 虽然如此；然而",
+    "sentence": "I learned the word \"nevertheless\" today."
+  },
+  "colleague": {
+    "meaning": "同事, 同僚",
+    "sentence": "I learned the word \"colleague\" today."
+  },
+  "complex": {
+    "meaning": "综合体, 情结, 络合物；复杂的, 组合的",
+    "sentence": "I learned the word \"complex\" today."
+  },
+  "impossible": {
+    "meaning": "不可能的, 难以置信的, 令人无法忍受的",
+    "sentence": "I learned the word \"impossible\" today."
+  },
+  "concentrate": {
+    "meaning": "浓缩, 精选；集中, 专心",
+    "sentence": "I learned the word \"concentrate\" today."
+  },
+  "confidence": {
+    "meaning": "信心；可靠",
+    "sentence": "I learned the word \"confidence\" today."
+  },
+  "lift": {
+    "meaning": "举起, 帮助, 昂扬, 电梯；升高, 提高, 鼓舞, 清偿, 空运, 举起, 剽窃；升起, 消散, 耸立",
+    "sentence": "I learned the word \"lift\" today."
+  },
+  "mainly": {
+    "meaning": "主要地, 大抵",
+    "sentence": "I learned the word \"mainly\" today."
+  },
+  "border": {
+    "meaning": "边缘, 边境, 边界, 花坛；在...上镶边, 接近；接界, 近似；边框",
+    "sentence": "I learned the word \"border\" today."
+  },
+  "jump": {
+    "meaning": "跳跃, 跳动, 暴涨, 惊跳；跳跃, 跃过, 突升, 使跳跃；跳跃, 跳, 跳动, 暴涨；转移, 跳转",
+    "sentence": "I learned the word \"jump\" today."
+  },
+  "gather": {
+    "meaning": "集合, 聚集；聚集, 集合, 渐增；使聚集, 搜集, 积聚",
+    "sentence": "I learned the word \"gather\" today."
+  },
+  "limit": {
+    "meaning": "界限, 边界, 限度, 极限, 限制；限制, 限定",
+    "sentence": "I learned the word \"limit\" today."
+  },
+  "cry": {
+    "meaning": "叫声, 哭声, 大叫；哭, 叫, 喊；叫喊, 大声说, 哭出",
+    "sentence": "I learned the word \"cry\" today."
+  },
+  "cross": {
+    "meaning": "十字架, 十字架形物件, 交叉, 十字标, 交叉路, 磨难, 杂交；生气的, 交叉的, 相反的；交叉, 横过, 越过；交叉, 十字标",
+    "sentence": "I learned the word \"cross\" today."
+  },
+  "warm": {
+    "meaning": "暖和的, 暖的, 温暖的, 热烈的, 兴奋的, 激烈的, 多情的, 色情的；使温暖, 弄热, 使兴奋, 使充满仇恨；变暖和, 变温暖, 取暖,",
+    "sentence": "I learned the word \"warm\" today."
+  },
+  "visitor": {
+    "meaning": "参观者, 游客, 访客；视察人, 检视人, 检查员",
+    "sentence": "I learned the word \"visitor\" today."
+  },
+  "commitment": {
+    "meaning": "委托, 交押, 承担义务, 赞助；院禁",
+    "sentence": "I learned the word \"commitment\" today."
+  },
+  "plus": {
+    "meaning": "加上, 加, 外加；正的, 附加的；正号, 加号, 附加额, 正数, 增益；正差",
+    "sentence": "I learned the word \"plus\" today."
+  },
+  "volume": {
+    "meaning": "册, 卷, 体积, 容量, 大量, 许多, 份量, 音量；成团卷起；把...收集成卷；大量的；卷",
+    "sentence": "I learned the word \"volume\" today."
+  },
+  "insist": {
+    "meaning": "坚持, 坚决主张, 强调",
+    "sentence": "I learned the word \"insist\" today."
+  },
+  "somewhere": {
+    "meaning": "到某处, 在某处",
+    "sentence": "I learned the word \"somewhere\" today."
+  },
+  "manner": {
+    "meaning": "样子, 礼貌, 风格；方式, 方法, 样式",
+    "sentence": "I learned the word \"manner\" today."
+  },
+  "background": {
+    "meaning": "背景, 背景资料；背景, 后台",
+    "sentence": "I learned the word \"background\" today."
+  },
+  "spread": {
+    "meaning": "传播, 散布, 伸展；双唇展开的, 伸展的；展开, 铺开, 传播, 推广, 伸出, 涂, 敷, 延伸；展开, 扩大, 传开, 延伸；展开",
+    "sentence": "I learned the word \"spread\" today."
+  },
+  "entry": {
+    "meaning": "登录, 条目, 进入, 入口, 报关；登录项, 输入项, 条目",
+    "sentence": "I learned the word \"entry\" today."
+  },
+  "soft": {
+    "meaning": "软的, 温和的, 柔和的, 柔滑的, 温柔的, 软弱的, 坡度小的, 笨的, 纸币的；柔软的东西, 笨人, 纸币；柔软地, 温和地",
+    "sentence": "I learned the word \"soft\" today."
+  },
+  "engine": {
+    "meaning": "引擎, 发动机, 机车；安装发动机于",
+    "sentence": "I learned the word \"engine\" today."
+  },
+  "egg": {
+    "meaning": "蛋, 卵；挑唆, 煽动, 调蛋黄",
+    "sentence": "I learned the word \"egg\" today."
+  },
+  "cabinet": {
+    "meaning": "橱柜, 内阁；内阁的, 细木工做的；机柜",
+    "sentence": "I learned the word \"cabinet\" today."
+  },
+  "demonstrate": {
+    "meaning": "示范, 证明；示威",
+    "sentence": "I learned the word \"demonstrate\" today."
+  },
+  "introduction": {
+    "meaning": "介绍, 传入, 采用, 初步",
+    "sentence": "I learned the word \"introduction\" today."
+  },
+  "previously": {
+    "meaning": "先, 先前, 以前, 前, (非正式)过早, 过急, 在前, 在...以前, 在先；先前地",
+    "sentence": "I learned the word \"previously\" today."
+  },
+  "murder": {
+    "meaning": "谋杀；谋杀, 损毁, 破坏；犯杀人罪",
+    "sentence": "I learned the word \"murder\" today."
+  },
+  "domestic": {
+    "meaning": "家庭的, 国内的, 驯养的；家庭的, 家用的",
+    "sentence": "I learned the word \"domestic\" today."
+  },
+  "gift": {
+    "meaning": "礼物, 赠予, 天才；赋予",
+    "sentence": "I learned the word \"gift\" today."
+  },
+  "religion": {
+    "meaning": "宗教, 信仰；宗教, 宗教信仰, 信仰",
+    "sentence": "I learned the word \"religion\" today."
+  },
+  "editor": {
+    "meaning": "编者, 编辑, 主笔, 编辑器, 编辑装置；编辑器",
+    "sentence": "I learned the word \"editor\" today."
+  },
+  "prefer": {
+    "meaning": "宁可, 较喜欢, 提出；给予优先权, 优先偿还, 提出",
+    "sentence": "I learned the word \"prefer\" today."
+  },
+  "engage": {
+    "meaning": "答应, 从事, 交战；使忙碌, 雇佣, 预定, 使从事于, 使参加",
+    "sentence": "I learned the word \"engage\" today."
+  },
+  "ordinary": {
+    "meaning": "平常的, 普通的, 平凡的；平常的人(或事)",
+    "sentence": "I learned the word \"ordinary\" today."
+  },
+  "coffee": {
+    "meaning": "咖啡, 咖啡色；咖啡, 咖啡豆",
+    "sentence": "I learned the word \"coffee\" today."
+  },
+  "extremely": {
+    "meaning": "极端地, 非常地",
+    "sentence": "I learned the word \"extremely\" today."
+  },
+  "cheap": {
+    "meaning": "便宜的, 不值钱的, 可鄙的；便宜地",
+    "sentence": "I learned the word \"cheap\" today."
+  },
+  "threaten": {
+    "meaning": "恐吓, 威胁, 预示...的凶兆；威胁, 恫吓, 可能来临",
+    "sentence": "I learned the word \"threaten\" today."
+  },
+  "relief": {
+    "meaning": "减轻, 解除, 救济, 安慰, 调剂, 浮雕, 换班, (地势的)起伏；缓减, 减轻, 浮雕(绘画中)",
+    "sentence": "I learned the word \"relief\" today."
+  },
+  "commit": {
+    "meaning": "委托(托付), 犯罪, 指派...作战, 使承担义务；犯, 做, 把...交托给",
+    "sentence": "I learned the word \"commit\" today."
+  },
+  "technical": {
+    "meaning": "技术上的, 专门的, 工业的, 严格根据法律的；技巧",
+    "sentence": "I learned the word \"technical\" today."
+  },
+  "grant": {
+    "meaning": "授予, 授予物, 允许；允许, 承认, 授与；授权命令",
+    "sentence": "I learned the word \"grant\" today."
+  },
+  "actual": {
+    "meaning": "真实的, 实际的, 现行的；实际死亡率",
+    "sentence": "I learned the word \"actual\" today."
+  },
+  "female": {
+    "meaning": "女性, 女人, 雌性动物；女性的, 女子的",
+    "sentence": "I learned the word \"female\" today."
+  },
+  "youth": {
+    "meaning": "年轻, 青年时代, 青年们, 青春；青年, 青年时期, 青春时期",
+    "sentence": "I learned the word \"youth\" today."
+  },
+  "strange": {
+    "meaning": "奇怪的, 陌生的, 生疏的, 不熟悉的, 不可思议的, 外行的, 外地的, 异乡的",
+    "sentence": "I learned the word \"strange\" today."
+  },
+  "wave": {
+    "meaning": "波, 波浪, 波动, 起伏, 高潮, 潮涌, 挥手致意, (气压)突变；波动, 飘动, 挥手示意, 起伏；使波动, 使飘扬, 挥舞, 使成波浪形",
+    "sentence": "I learned the word \"wave\" today."
+  },
+  "repeat": {
+    "meaning": "重复, 反复；重做, 重复, 复述, 使再现, 复制；重复；重复",
+    "sentence": "I learned the word \"repeat\" today."
+  },
+  "bus": {
+    "meaning": "公共汽车；总线?汇流条?母线",
+    "sentence": "I learned the word \"bus\" today."
+  },
+  "afraid": {
+    "meaning": "害怕的, 恐怕的, 遗憾的",
+    "sentence": "I learned the word \"afraid\" today."
+  },
+  "regulation": {
+    "meaning": "规则, 管理, 调整；调整?规章?规则?调节",
+    "sentence": "I learned the word \"regulation\" today."
+  },
+  "wage": {
+    "meaning": "工资, 报应, 报偿；开展, 进行；进行",
+    "sentence": "I learned the word \"wage\" today."
+  },
+  "broad": {
+    "meaning": "宽广的, 辽阔的, 广大的, 显著的；宽阔地；宽阔部分",
+    "sentence": "I learned the word \"broad\" today."
+  },
+  "wonderful": {
+    "meaning": "令人惊奇的, 奇妙的, 极好的",
+    "sentence": "I learned the word \"wonderful\" today."
+  },
+  "row": {
+    "meaning": "排, 行, 街道, 划船, 吵闹；使成排, 划, 划船, 参加(赛船), 痛骂；划船, 划动, 争吵；行",
+    "sentence": "I learned the word \"row\" today."
+  },
+  "acquire": {
+    "meaning": "获得, 学到；目标锁定",
+    "sentence": "I learned the word \"acquire\" today."
+  },
+  "twice": {
+    "meaning": "两次, 两倍",
+    "sentence": "I learned the word \"twice\" today."
+  },
+  "suit": {
+    "meaning": "套装, 诉讼, 请求, 起诉, 套, 组；适合, 使适应；合适, 相称",
+    "sentence": "I learned the word \"suit\" today."
+  },
+  "fairly": {
+    "meaning": "美观地, 公平地, 相当地, 清楚地",
+    "sentence": "I learned the word \"fairly\" today."
+  },
+  "blow": {
+    "meaning": "吹, 打击, 殴打, 花开；吹, 风吹, 吹响, 开花",
+    "sentence": "I learned the word \"blow\" today."
+  },
+  "meal": {
+    "meaning": "一餐, 膳食, 粗粉；进餐",
+    "sentence": "I learned the word \"meal\" today."
+  },
+  "construction": {
+    "meaning": "建筑, 构造, 建筑物；施工",
+    "sentence": "I learned the word \"construction\" today."
+  },
+  "excellent": {
+    "meaning": "优良的, 杰出的, 出色的",
+    "sentence": "I learned the word \"excellent\" today."
+  },
+  "intelligence": {
+    "meaning": "智力, 情报, 信息；智力",
+    "sentence": "I learned the word \"intelligence\" today."
+  },
+  "destroy": {
+    "meaning": "破坏, 毁坏, 消灭",
+    "sentence": "I learned the word \"destroy\" today."
+  },
+  "internal": {
+    "meaning": "内在的, 国内的；内的, 内部的",
+    "sentence": "I learned the word \"internal\" today."
+  },
+  "cook": {
+    "meaning": "厨子, 厨师；烹调, 煮饭, 加热；在煮着",
+    "sentence": "I learned the word \"cook\" today."
+  },
+  "category": {
+    "meaning": "种类, 类项；分类",
+    "sentence": "I learned the word \"category\" today."
+  },
+  "tour": {
+    "meaning": "旅游, 观光旅行, 任期；旅行, 周游, 巡回；周游, 观光, 游历, 使巡回演出",
+    "sentence": "I learned the word \"tour\" today."
+  },
+  "connection": {
+    "meaning": "连接, 关系, 前后关系；连接",
+    "sentence": "I learned the word \"connection\" today."
+  },
+  "burn": {
+    "meaning": "烧, 烧毁, 烧伤；燃烧, 发热, 烧毁；烧伤, 烙印",
+    "sentence": "I learned the word \"burn\" today."
+  },
+  "shoe": {
+    "meaning": "鞋, 靴, 外胎；给...穿鞋, 为马钉蹄铁",
+    "sentence": "I learned the word \"shoe\" today."
+  },
+  "traffic": {
+    "meaning": "交通, 通行, 运输, 交通量, 贸易, 交易, 交往, 通信量；交易, 做买卖；用...作交换；通信量, 传输量",
+    "sentence": "I learned the word \"traffic\" today."
+  },
+  "football": {
+    "meaning": "足球, 橄榄球",
+    "sentence": "I learned the word \"football\" today."
+  },
+  "grade": {
+    "meaning": "等级, 年级, 阶段, 成绩, 程度, 坡度, 斜坡；分等, 分级, 评分；属于某等级, 逐渐变化",
+    "sentence": "I learned the word \"grade\" today."
+  },
+  "exhibition": {
+    "meaning": "表现, 展览会, 展览品；投药, 展览, 展出",
+    "sentence": "I learned the word \"exhibition\" today."
+  },
+  "launch": {
+    "meaning": "下水, 汽艇, 发射；使下水, 发射, 发动；起飞, 下水, 投入, 开始",
+    "sentence": "I learned the word \"launch\" today."
+  },
+  "sheet": {
+    "meaning": "床单, 张, 纸张, 印刷品, 裹尸布, 薄片；盖上被单, 遍布；大片落下；片状的, 成薄片的；工作表",
+    "sentence": "I learned the word \"sheet\" today."
+  },
+  "mistake": {
+    "meaning": "错误, 误会；犯错, 误认；误解, 弄错；错误",
+    "sentence": "I learned the word \"mistake\" today."
+  },
+  "location": {
+    "meaning": "位置, 场所, 特定区域；位置",
+    "sentence": "I learned the word \"location\" today."
+  },
+  "bridge": {
+    "meaning": "桥, 舰桥, 桥梁, 桥牌；架桥于, 跨越；桥, 网桥, 桥接器",
+    "sentence": "I learned the word \"bridge\" today."
+  },
+  "quiet": {
+    "meaning": "安静, 闲适, 平静；安静的, 静止的, 寂静的, 朴素的, 从容的, 暗中的；平静下来；使平静, 使平息, 使安心, 安慰",
+    "sentence": "I learned the word \"quiet\" today."
+  },
+  "appearance": {
+    "meaning": "出现, 露面, 外观, 外表, 出版；外观, 版面",
+    "sentence": "I learned the word \"appearance\" today."
+  },
+  "dress": {
+    "meaning": "服装, 覆盖物；穿着；给...穿衣, 整理",
+    "sentence": "I learned the word \"dress\" today."
+  },
+  "promise": {
+    "meaning": "诺言, 约定的事情, 有指望；允诺, 约定, 预示；允诺, 有前途, 有指望",
+    "sentence": "I learned the word \"promise\" today."
+  },
+  "improvement": {
+    "meaning": "进步, 改善, 利用；改善, 好转, 进步",
+    "sentence": "I learned the word \"improvement\" today."
+  },
+  "description": {
+    "meaning": "描述, 说明, 种类；说明书(物品), 品名种类, 货物名称",
+    "sentence": "I learned the word \"description\" today."
+  },
+  "bone": {
+    "meaning": "骨头, 骨, 骨制品；剔骨；专心致志",
+    "sentence": "I learned the word \"bone\" today."
+  },
+  "session": {
+    "meaning": "期间, 开庭期, 会议, 学期；会话, 对话, 会晤, 通用任务程序",
+    "sentence": "I learned the word \"session\" today."
+  },
+  "housing": {
+    "meaning": "遮盖, 住房供给, 居留(处), 房屋, 装饰；外壳",
+    "sentence": "I learned the word \"housing\" today."
+  },
+  "flat": {
+    "meaning": "平坦的, 单调的, 无力的, 浅的, 萧条的, 干脆的, 无聊的；平直地, 断然地；扁平物, 平面, 平地, 平原, 平板车；(使)变平",
+    "sentence": "I learned the word \"flat\" today."
+  },
+  "combine": {
+    "meaning": "(使)联合, (使)结合；(企业的)联合, 联合收割机",
+    "sentence": "I learned the word \"combine\" today."
+  },
+  "discipline": {
+    "meaning": "训练, 纪律；训练, 惩罚",
+    "sentence": "I learned the word \"discipline\" today."
+  },
+  "cool": {
+    "meaning": "凉爽, 凉爽的空气；凉爽的, 冷淡的, 冷静的；冷却, 平息；使冷却, 使平静",
+    "sentence": "I learned the word \"cool\" today."
+  },
+  "contrast": {
+    "meaning": "差别, 对比, 对照物；使对比；成对照；反差?对比度",
+    "sentence": "I learned the word \"contrast\" today."
+  },
+  "lip": {
+    "meaning": "唇, 口缘, 唇状构造；以嘴唇碰, 轻轻说出；口头上的；大型互连网信息包",
+    "sentence": "I learned the word \"lip\" today."
+  },
+  "increasingly": {
+    "meaning": "逐渐地, 渐增地",
+    "sentence": "I learned the word \"increasingly\" today."
+  },
+  "gentleman": {
+    "meaning": "绅士, 先生",
+    "sentence": "I learned the word \"gentleman\" today."
+  },
+  "hell": {
+    "meaning": "地狱, 邪恶势力, 苦境, 阴间, 毁坏, 训斥；狂饮, 飞驰",
+    "sentence": "I learned the word \"hell\" today."
+  },
+  "distribution": {
+    "meaning": "分配；分布",
+    "sentence": "I learned the word \"distribution\" today."
+  },
+  "dangerous": {
+    "meaning": "危险的；危险的, 危害的",
+    "sentence": "I learned the word \"dangerous\" today."
+  },
+  "proper": {
+    "meaning": "适当的, 固有的, 高尚的, 专属的；完全地, 彻底地",
+    "sentence": "I learned the word \"proper\" today."
+  },
+  "remind": {
+    "meaning": "提醒, 使想起",
+    "sentence": "I learned the word \"remind\" today."
+  },
+  "moral": {
+    "meaning": "道德, 品行, 寓意；道德的, 品性端正的, 精神上的",
+    "sentence": "I learned the word \"moral\" today."
+  },
+  "retain": {
+    "meaning": "保持, 保有, 留住, 记得, 付定金聘请；保留, 留存",
+    "sentence": "I learned the word \"retain\" today."
+  },
+  "famous": {
+    "meaning": "出名的, 极好的",
+    "sentence": "I learned the word \"famous\" today."
+  },
+  "victory": {
+    "meaning": "胜利, 战胜, 克服",
+    "sentence": "I learned the word \"victory\" today."
+  },
+  "theatre": {
+    "meaning": "戏院, 电影院, 剧场, 全体观众, 戏剧, 戏剧效果, 阶梯式讲堂, 场所",
+    "sentence": "I learned the word \"theatre\" today."
+  },
+  "academic": {
+    "meaning": "学院的, 学术的, 不切实际的；大学生, 大学教师, 学者, 学会会员",
+    "sentence": "I learned the word \"academic\" today."
+  },
+  "prince": {
+    "meaning": "王子, 亲王, 国君, 贵族, 诸侯, 有权势的大人物",
+    "sentence": "I learned the word \"prince\" today."
+  },
+  "loan": {
+    "meaning": "贷款, 借出；借, 供应货款, 借给",
+    "sentence": "I learned the word \"loan\" today."
+  },
+  "healthy": {
+    "meaning": "健康的, 有益健康的, 卫生的；健康的",
+    "sentence": "I learned the word \"healthy\" today."
+  },
+  "code": {
+    "meaning": "代码, 密码, 法规, 法典；把...编码；代码",
+    "sentence": "I learned the word \"code\" today."
+  },
+  "negative": {
+    "meaning": "否定, 否定语, 负数, 底片；否定的, 消极的, 负的, 阴性的；负数, 负值；负数, 负值",
+    "sentence": "I learned the word \"negative\" today."
+  },
+  "representative": {
+    "meaning": "代表, 众议员, 典型；描写的, 表现的, 代理的, 代表的, 代议制的, 典型的",
+    "sentence": "I learned the word \"representative\" today."
+  },
+  "historical": {
+    "meaning": "历史的, 史实的, 历史上的；历史性的",
+    "sentence": "I learned the word \"historical\" today."
+  },
+  "usual": {
+    "meaning": "平常的, 通常的",
+    "sentence": "I learned the word \"usual\" today."
+  },
+  "medicine": {
+    "meaning": "药, 医学, 内科；给...用药",
+    "sentence": "I learned the word \"medicine\" today."
+  },
+  "unable": {
+    "meaning": "不能的, 不会的；无能力的, 无资格的, 没有办法的",
+    "sentence": "I learned the word \"unable\" today."
+  },
+  "belong": {
+    "meaning": "属于, 合适",
+    "sentence": "I learned the word \"belong\" today."
+  },
+  "respect": {
+    "meaning": "尊敬, 尊重, 问候；尊敬, 注意, 遵守",
+    "sentence": "I learned the word \"respect\" today."
+  },
+  "grab": {
+    "meaning": "抓握, 掠夺, 强占, 东方沿岸帆船；抓取, 抢去；攫取, 捕获, 霸占",
+    "sentence": "I learned the word \"grab\" today."
+  },
+  "attract": {
+    "meaning": "吸引, 诱惑；有吸引力",
+    "sentence": "I learned the word \"attract\" today."
+  },
+  "classroom": {
+    "meaning": "教室",
+    "sentence": "I learned the word \"classroom\" today."
+  },
+  "limited": {
+    "meaning": "有限制的, 有限的, 有限责任的；特别快车",
+    "sentence": "I learned the word \"limited\" today."
+  },
+  "photograph": {
+    "meaning": "相片, 照片, 逼真的描绘；照相, 摄影",
+    "sentence": "I learned the word \"photograph\" today."
+  },
+  "formal": {
+    "meaning": "正式的, 形式的, 礼仪的, 拘于礼节的, 拘谨的；正式的社交活动",
+    "sentence": "I learned the word \"formal\" today."
+  },
+  "daily": {
+    "meaning": "每日的, 日常的；每日地, 日常地；日报",
+    "sentence": "I learned the word \"daily\" today."
+  },
+  "writing": {
+    "meaning": "书写, 著作, 笔迹, 作品；书写",
+    "sentence": "I learned the word \"writing\" today."
+  },
+  "reject": {
+    "meaning": "被拒之人, 被弃之物, 不合格品, 次品；拒绝, 抵制, 否决, 驳回, 丢弃, 呕出",
+    "sentence": "I learned the word \"reject\" today."
+  },
+  "knee": {
+    "meaning": "膝, 膝盖；膝行, 用膝盖碰",
+    "sentence": "I learned the word \"knee\" today."
+  },
+  "joint": {
+    "meaning": "连接处, 接合, 关节；共同的, 联合的, 连接的, 合办的；连接, 接合, 使有接头；贴合, 长节",
+    "sentence": "I learned the word \"joint\" today."
+  },
+  "tape": {
+    "meaning": "带子, 录音带, 磁带, 窄带, 卷尺；以带子绑起, 测量, 录音；带",
+    "sentence": "I learned the word \"tape\" today."
+  },
+  "pension": {
+    "meaning": "养老金, 退休金, 津贴, 年金, 抚恤金, 膳宿学校, 膳宿费；发给退休金, 用津贴拉拢",
+    "sentence": "I learned the word \"pension\" today."
+  },
+  "hire": {
+    "meaning": "租金, 租用, 雇用；雇请, 出租；受雇",
+    "sentence": "I learned the word \"hire\" today."
+  },
+  "rain": {
+    "meaning": "雨, 下雨, 雨天；下雨；使大量落下",
+    "sentence": "I learned the word \"rain\" today."
+  },
+  "familiar": {
+    "meaning": "熟悉的, 常见的, 亲密的；熟友, 常客",
+    "sentence": "I learned the word \"familiar\" today."
+  },
+  "explanation": {
+    "meaning": "解释, 说明, 辩解, 表明；解释, 注释, 说明",
+    "sentence": "I learned the word \"explanation\" today."
+  },
+  "plate": {
+    "meaning": "碟, 盘子, 盆中物, 金属板, 图版, 金银餐具, 印版, 金属牌(照)；镀金, 电镀, 用金属板固定, 给...装钢板, 为...制印版",
+    "sentence": "I learned the word \"plate\" today."
+  },
+  "unemployment": {
+    "meaning": "失业, 失业人数；失业",
+    "sentence": "I learned the word \"unemployment\" today."
+  },
+  "lovely": {
+    "meaning": "可爱的, 有趣的",
+    "sentence": "I learned the word \"lovely\" today."
+  },
+  "actor": {
+    "meaning": "男演员, 行动者；作用物, 反应物",
+    "sentence": "I learned the word \"actor\" today."
+  },
+  "conservative": {
+    "meaning": "保守的, 守旧的, 有保存力的；防腐剂?保存剂",
+    "sentence": "I learned the word \"conservative\" today."
+  },
+  "birth": {
+    "meaning": "出生, 起源；生产, 分娩",
+    "sentence": "I learned the word \"birth\" today."
+  },
+  "search": {
+    "meaning": "搜寻, 查究；搜寻, 搜查, 探求, 调查, 搜索；搜索, 路径检索程序",
+    "sentence": "I learned the word \"search\" today."
+  },
+  "tie": {
+    "meaning": "带子, 线, 鞋带, 领带, 领结, 关系, 束缚, 平局, 不分胜负；系, 打结, 扎, 约束, 与...成平局；结合, 打结, 不分胜负",
+    "sentence": "I learned the word \"tie\" today."
+  },
+  "invite": {
+    "meaning": "邀请, 请求, 引起, 招致；邀请",
+    "sentence": "I learned the word \"invite\" today."
+  },
+  "eastern": {
+    "meaning": "东方人, 东正教徒；东方的, 向东的, 自东的",
+    "sentence": "I learned the word \"eastern\" today."
+  },
+  "factory": {
+    "meaning": "工厂, 产生地, 代理店；工厂, 代理店, 商行在国外的代理处",
+    "sentence": "I learned the word \"factory\" today."
+  },
+  "circle": {
+    "meaning": "圆周, 社交圈, 循环, 范围；围着, 环绕；盘旋, 循环",
+    "sentence": "I learned the word \"circle\" today."
+  },
+  "device": {
+    "meaning": "设备；装置",
+    "sentence": "This device is old."
+  },
+  "capacity": {
+    "meaning": "容量, 能力, 才能, 资格；容量",
+    "sentence": "I learned the word \"capacity\" today."
+  },
+  "vary": {
+    "meaning": "改变, 使多样化；变化, 有不同, 违反",
+    "sentence": "I learned the word \"vary\" today."
+  },
+  "bottom": {
+    "meaning": "底部；底部的；给...装底, 查明真相；到达底部, 建立基础",
+    "sentence": "I learned the word \"bottom\" today."
+  },
+  "selection": {
+    "meaning": "选择, 选文, 精选品；选择, 淘汰",
+    "sentence": "I learned the word \"selection\" today."
+  },
+  "warn": {
+    "meaning": "警告, 提醒, 通知；发出警告",
+    "sentence": "I learned the word \"warn\" today."
+  },
+  "clean": {
+    "meaning": "干净的, 清白的, 简洁的；清洁地, 完全地；清理, 使干净, 出空；被搞干净；打扫",
+    "sentence": "I learned the word \"clean\" today."
+  },
+  "finance": {
+    "meaning": "财政, 财务；供给...经费, 负担经费；筹措资金",
+    "sentence": "I learned the word \"finance\" today."
+  },
+  "surely": {
+    "meaning": "的确地, 安全地；保证, 保证人, 保证金",
+    "sentence": "I learned the word \"surely\" today."
+  },
+  "impose": {
+    "meaning": "征(税), 把...强加于, 以...欺骗；利用, 欺骗, 施加影响",
+    "sentence": "I learned the word \"impose\" today."
+  },
+  "rural": {
+    "meaning": "乡下的, 田园的, 乡村风味的；农村的, 乡村的, 有关农业的",
+    "sentence": "I learned the word \"rural\" today."
+  },
+  "lean": {
+    "meaning": "瘦肉, 倾斜, 倾斜度；瘦的, 贫乏的, 歉收的；倚靠, 倾斜, 依赖；使倾斜",
+    "sentence": "I learned the word \"lean\" today."
+  },
+  "neck": {
+    "meaning": "脖子, 衣领, 颈；拥抱, 拥吻, 收缩；割颈",
+    "sentence": "I learned the word \"neck\" today."
+  },
+  "plastic": {
+    "meaning": "塑料, 可塑体, 可塑性物质；塑料的, 塑造的, 有可塑性的, 造型的, 易受影响的, 有创造力的",
+    "sentence": "I learned the word \"plastic\" today."
+  },
+  "intention": {
+    "meaning": "意图, 目的, 含义；愈合, 意向",
+    "sentence": "I learned the word \"intention\" today."
+  },
+  "tall": {
+    "meaning": "高的, 长的, 夸大的；夸大地",
+    "sentence": "I learned the word \"tall\" today."
+  },
+  "whereas": {
+    "meaning": "然而, 鉴于；考虑到, 鉴于, 就...而论",
+    "sentence": "I learned the word \"whereas\" today."
+  },
+  "initial": {
+    "meaning": "字首, 首字母；开始的, 最初的, 字首的；用姓名的首字母签名",
+    "sentence": "I learned the word \"initial\" today."
+  },
+  "hate": {
+    "meaning": "憎恨, 恨, 厌恶；憎恨, 憎恶；仇恨",
+    "sentence": "I learned the word \"hate\" today."
+  },
+  "examination": {
+    "meaning": "考试, 测验, 审查；检查, 诊察",
+    "sentence": "I learned the word \"examination\" today."
+  },
+  "alive": {
+    "meaning": "活着的, 活泼的, 敏感的, 热闹的",
+    "sentence": "I learned the word \"alive\" today."
+  },
+  "definition": {
+    "meaning": "定义, 精确度, 清晰度；清晰度?清晰度",
+    "sentence": "I learned the word \"definition\" today."
+  },
+  "declare": {
+    "meaning": "宣布, 声明, 申报, 断言",
+    "sentence": "I learned the word \"declare\" today."
+  },
+  "substantial": {
+    "meaning": "重要材料(或事物), 有实际价值的东西；实质上的, 物质的, 有内容的, 结实的",
+    "sentence": "I learned the word \"substantial\" today."
+  },
+  "chicken": {
+    "meaning": "小鸡, 鸡肉",
+    "sentence": "I learned the word \"chicken\" today."
+  },
+  "aircraft": {
+    "meaning": "航空器, 飞机；航空器",
+    "sentence": "I learned the word \"aircraft\" today."
+  },
+  "abuse": {
+    "meaning": "滥用, 虐待, 恶习, 辱骂；滥用, 辱骂, 虐待",
+    "sentence": "I learned the word \"abuse\" today."
+  },
+  "output": {
+    "meaning": "输出, 产品, 产量；输出",
+    "sentence": "I learned the word \"output\" today."
+  },
+  "shut": {
+    "meaning": "关闭；关上, 闭起, 幽禁, 合拢, 轧住；关上, 停止营业",
+    "sentence": "I learned the word \"shut\" today."
+  },
+  "suitable": {
+    "meaning": "适当的, 相配的；合适的, 适宜的, 适当的",
+    "sentence": "I learned the word \"suitable\" today."
+  },
+  "map": {
+    "meaning": "地图, 天体图, 映像；映射, 绘制...地图, 计划；实用程序, 映射, 制造自动化协议",
+    "sentence": "I learned the word \"map\" today."
+  },
+  "immediate": {
+    "meaning": "立即的, 直接的, 接近的；直接的, 立即的",
+    "sentence": "I learned the word \"immediate\" today."
+  },
+  "divide": {
+    "meaning": "分开, 分配, 分裂；分, 分开, 分裂, 除；分配, 分水岭；除",
+    "sentence": "I learned the word \"divide\" today."
+  },
+  "welcome": {
+    "meaning": "欢迎, 欢迎词；受欢迎的, 可随意的, 可喜的；欢迎, 接待；欢迎",
+    "sentence": "I learned the word \"welcome\" today."
+  },
+  "equal": {
+    "meaning": "对手, 匹敌, 同辈；相等的, 平等的, 胜任的, 合适的, 平静的, 不相上下的；等于, 比得上；等长度编码",
+    "sentence": "I learned the word \"equal\" today."
+  },
+  "literature": {
+    "meaning": "文学, 文艺, 著作；广告, 商品介绍等文学",
+    "sentence": "I learned the word \"literature\" today."
+  },
+  "reasonable": {
+    "meaning": "合理的, 明理的, 适当的；合理的, 公道的, 正当的",
+    "sentence": "I learned the word \"reasonable\" today."
+  },
+  "offence": {
+    "meaning": "犯罪, 冒犯, 违反, 罪过, 过错, 攻击；犯法, 罪过, 过错",
+    "sentence": "I learned the word \"offence\" today."
+  },
+  "desire": {
+    "meaning": "欲望, 要求；想要, 请求；渴望",
+    "sentence": "I learned the word \"desire\" today."
+  },
+  "leading": {
+    "meaning": "领导, 指挥, 神示, 铅板；领导的, 主要的, 在前的",
+    "sentence": "I learned the word \"leading\" today."
+  },
+  "reduction": {
+    "meaning": "减少, 缩影, 变化；还原",
+    "sentence": "I learned the word \"reduction\" today."
+  },
+  "paint": {
+    "meaning": "油漆, 颜料, 绘画作品, 涂漆；油漆, 绘, 画, 描绘, 装饰, 点缀；绘画, 涂漆",
+    "sentence": "I learned the word \"paint\" today."
+  },
+  "fuel": {
+    "meaning": "燃料, 木炭；加燃料, 供燃料；得到燃料",
+    "sentence": "I learned the word \"fuel\" today."
+  },
+  "appointment": {
+    "meaning": "约会, 委任的职位, 委派；任命, 派, 指定",
+    "sentence": "I learned the word \"appointment\" today."
+  },
+  "leaf": {
+    "meaning": "叶, 树叶, 花瓣, 页；生叶, 翻书页；在...上长叶, 翻...的页",
+    "sentence": "I learned the word \"leaf\" today."
+  },
+  "dry": {
+    "meaning": "干的, 无酒的, 枯燥无味的, 干燥的；把...弄干；变干；干, 干涸",
+    "sentence": "I learned the word \"dry\" today."
+  },
+  "instruction": {
+    "meaning": "指令, 教导, 命令；指令",
+    "sentence": "I learned the word \"instruction\" today."
+  },
+  "concentration": {
+    "meaning": "集中, 专心；浓度?浓缩",
+    "sentence": "I learned the word \"concentration\" today."
+  },
+  "pool": {
+    "meaning": "池, 水塘, 石油层, 联营；合伙经营, 共享, 采掘, 汇聚成；汇合成塘, 淤积, 联营",
+    "sentence": "I learned the word \"pool\" today."
+  },
+  "overall": {
+    "meaning": "全部的, 全体的, 从头至尾的, 一切在内的；从头到尾, 总的说来；罩衫, 工作服",
+    "sentence": "I learned the word \"overall\" today."
+  },
+  "climb": {
+    "meaning": "攀登, 上升, 爬；攀登, 爬升",
+    "sentence": "I learned the word \"climb\" today."
+  },
+  "sweet": {
+    "meaning": "甜蜜, 糖果, 情人；甜的, 芳香的, 悦耳的, 漂亮的, 和蔼的, 不咸的, 灵活的, 轻快的",
+    "sentence": "I learned the word \"sweet\" today."
+  },
+  "bedroom": {
+    "meaning": "卧室",
+    "sentence": "I learned the word \"bedroom\" today."
+  },
+  "salt": {
+    "meaning": "盐, 风趣, 刺激；含盐的, 咸的, 风趣的, 辛辣的；加盐于, 用盐腌",
+    "sentence": "I learned the word \"salt\" today."
+  },
+  "expand": {
+    "meaning": "扩大；展开；扩展",
+    "sentence": "I want to expand my vocabulary."
+  },
+  "metal": {
+    "meaning": "金属, 金属制品, 合金, 本质, 质料；金属制的；以金属覆盖",
+    "sentence": "I learned the word \"metal\" today."
+  },
+  "fat": {
+    "meaning": "脂肪, 脂油, 肥肉；肥的, 胖的, 油腻的；文件分配表；文件分配表",
+    "sentence": "I learned the word \"fat\" today."
+  },
+  "ticket": {
+    "meaning": "票, 券, 车票, 标签, 入场券, 证明书；加标签于, 为...购票",
+    "sentence": "I learned the word \"ticket\" today."
+  },
+  "expensive": {
+    "meaning": "贵的, 奢华的, 费用浩大的, 乱化钱的；高价的, 昂贵的, 浪费的",
+    "sentence": "I learned the word \"expensive\" today."
+  },
+  "disappear": {
+    "meaning": "消失, 不见",
+    "sentence": "I learned the word \"disappear\" today."
+  },
+  "recommend": {
+    "meaning": "推荐, 介绍, 劝告, 使受欢迎, 托付；建议, 推荐",
+    "sentence": "I learned the word \"recommend\" today."
+  },
+  "correct": {
+    "meaning": "正确的, 合适的；改正, 订正",
+    "sentence": "I learned the word \"correct\" today."
+  },
+  "reading": {
+    "meaning": "阅读, 知识, 读物；阅读的",
+    "sentence": "I learned the word \"reading\" today."
+  },
+  "sufficient": {
+    "meaning": "充分的, 足够的；充分的, 足够的",
+    "sentence": "I learned the word \"sufficient\" today."
+  },
+  "urban": {
+    "meaning": "都市的, 住在都市的, 习惯于都市的；城市的, 都市的, 市区的",
+    "sentence": "I learned the word \"urban\" today."
+  },
+  "bottle": {
+    "meaning": "瓶子, 酒瓶；装瓶, 抑制, 围困",
+    "sentence": "I learned the word \"bottle\" today."
+  },
+  "mental": {
+    "meaning": "心智的, 精神病的, 心理的, 颏的；精神病患者",
+    "sentence": "I learned the word \"mental\" today."
+  },
+  "absence": {
+    "meaning": "缺席, 缺乏, 没有；失神",
+    "sentence": "I learned the word \"absence\" today."
+  },
+  "lunch": {
+    "meaning": "午餐",
+    "sentence": "I learned the word \"lunch\" today."
+  },
+  "criticism": {
+    "meaning": "批评, 评论, 非难；批判, 批评, 评论",
+    "sentence": "I learned the word \"criticism\" today."
+  },
+  "teaching": {
+    "meaning": "教学, 学说, 教导",
+    "sentence": "I learned the word \"teaching\" today."
+  },
+  "shout": {
+    "meaning": "呼喊, 喊声；呼喊, 喊叫, 嚷；高喊",
+    "sentence": "I learned the word \"shout\" today."
+  },
+  "sugar": {
+    "meaning": "糖, 糖块, 甜言蜜语；加糖于, 使甜蜜, 粉饰, 美化；制成糖",
+    "sentence": "I learned the word \"sugar\" today."
+  },
+  "planet": {
+    "meaning": "行星, 命运星辰, 杰出的人, 重大影响的事",
+    "sentence": "I learned the word \"planet\" today."
+  },
+  "transfer": {
+    "meaning": "迁移, 移动, 传递, 转让, 转移, 过户, 汇兑, 换车；使转移, 调转, 调任, 改变, 传递, 转让；转移, 转学, 转职, 换车；传",
+    "sentence": "I learned the word \"transfer\" today."
+  },
+  "explore": {
+    "meaning": "探险, 探测, 探究",
+    "sentence": "I learned the word \"explore\" today."
+  },
+  "error": {
+    "meaning": "错误, 过失, 失误, 误差；错误",
+    "sentence": "I learned the word \"error\" today."
+  },
+  "enemy": {
+    "meaning": "敌人, 仇敌, 敌军；敌人的",
+    "sentence": "I learned the word \"enemy\" today."
+  },
+  "acid": {
+    "meaning": "酸, 酸类物质, 尖刻, 迷幻药；酸的, 酸性的, 尖刻的, 敏锐的；自动文档互参与索引生成程序",
+    "sentence": "I learned the word \"acid\" today."
+  },
+  "straight": {
+    "meaning": "直线, 直；直的, 笔直的, 正直的, 直接的, 连续的, 整齐的；直接地, 立即, 不断地",
+    "sentence": "I learned the word \"straight\" today."
+  },
+  "surround": {
+    "meaning": "包围, 环绕, 围绕；围绕物",
+    "sentence": "I learned the word \"surround\" today."
+  },
+  "scientific": {
+    "meaning": "科学的, 系统的, 符合科学规律的；科学记数法",
+    "sentence": "I learned the word \"scientific\" today."
+  },
+  "soul": {
+    "meaning": "灵魂, 心灵, 精神, 精髓, 人, 化身, 典型, 鬼魂；黑人的",
+    "sentence": "I learned the word \"soul\" today."
+  },
+  "panel": {
+    "meaning": "嵌板, 仪表板, 专题讨论小组, 全体陪审员；嵌镶板",
+    "sentence": "I learned the word \"panel\" today."
+  },
+  "mom": {
+    "meaning": "妈妈",
+    "sentence": "I learned the word \"mom\" today."
+  },
+  "married": {
+    "meaning": "已婚的, 婚姻的；结了婚的, 有配偶的, 夫妇的",
+    "sentence": "I learned the word \"married\" today."
+  },
+  "weather": {
+    "meaning": "天气, 气象, 处境；迎风的；使受风吹雨打, 侵蚀, 使风化, 经受住；风化, 受侵蚀, 经受风雨",
+    "sentence": "I learned the word \"weather\" today."
+  },
+  "instrument": {
+    "meaning": "工具, 手段, 仪器；仪器",
+    "sentence": "I learned the word \"instrument\" today."
+  },
+  "whilst": {
+    "meaning": "当...的时候, 和...同时, 虽然, 只要, 然而, 而, 尽管",
+    "sentence": "I learned the word \"whilst\" today."
+  },
+  "predict": {
+    "meaning": "预知, 预言, 预报",
+    "sentence": "I learned the word \"predict\" today."
+  },
+  "pleasure": {
+    "meaning": "快乐, 愉快, 令人高兴的事, 娱乐, 希望；(使)高兴",
+    "sentence": "I learned the word \"pleasure\" today."
+  },
+  "select": {
+    "meaning": "挑选出来的, 极好的；选择, 挑选；被挑选者, 精萃；选定",
+    "sentence": "I learned the word \"select\" today."
+  },
+  "channel": {
+    "meaning": "海峡, 航道, 频道；引导, 在...上挖沟, 形成河道；信道, 通道",
+    "sentence": "I learned the word \"channel\" today."
+  },
+  "emotional": {
+    "meaning": "情绪的, 情感的；情绪的",
+    "sentence": "I learned the word \"emotional\" today."
+  },
+  "fee": {
+    "meaning": "费用, 小费, 封地, 所有权；付费给",
+    "sentence": "I learned the word \"fee\" today."
+  },
+  "pocket": {
+    "meaning": "口袋, 钱袋, 钱, 容器；装...在口袋里, 隐藏, 抑制, 私吞, 搁置, 击...入袋；袖珍的, 小型的, 压缩的, 金钱上的",
+    "sentence": "I learned the word \"pocket\" today."
+  },
+  "thin": {
+    "meaning": "薄的, 细的, 瘦的, 稀疏的, 稀薄的, 淡的, 弱的, 空洞的；使变薄, 使变细, 使稀少, 使淡；变薄, 变细, 变少, 变淡；薄地, 稀",
+    "sentence": "I learned the word \"thin\" today."
+  },
+  "friday": {
+    "meaning": "星期五",
+    "sentence": "I learned the word \"friday\" today."
+  },
+  "temperature": {
+    "meaning": "温度, 发烧, 热度；温度",
+    "sentence": "I learned the word \"temperature\" today."
+  },
+  "beside": {
+    "meaning": "在旁边",
+    "sentence": "I learned the word \"beside\" today."
+  },
+  "waste": {
+    "meaning": "浪费, 废物, 损耗, 消耗, 荒地, 垃圾, 地面风化物；废弃的, 荒芜的, 多余的；浪费, 消耗, 使荒芜；浪费, 消耗, 变消瘦",
+    "sentence": "I learned the word \"waste\" today."
+  },
+  "surprise": {
+    "meaning": "惊奇, 奇袭, 诧异；使惊奇, 撞见, 奇袭",
+    "sentence": "I learned the word \"surprise\" today."
+  },
+  "implication": {
+    "meaning": "牵连, 含义, 暗示；推断, 含蓄之意, 暗示",
+    "sentence": "I learned the word \"implication\" today."
+  },
+  "breath": {
+    "meaning": "呼吸, 气息, 瞬间；呼气, 呵气, 口气, 呼吸",
+    "sentence": "I learned the word \"breath\" today."
+  },
+  "recognition": {
+    "meaning": "赞誉, 认得, 识别, 承认, 认可, 认识；认识",
+    "sentence": "I learned the word \"recognition\" today."
+  },
+  "institute": {
+    "meaning": "学会, 学院, 协会；创立, 开始, 制定, 任命",
+    "sentence": "I learned the word \"institute\" today."
+  },
+  "minority": {
+    "meaning": "少数, 未成年, 少数民族；少数的, 属于少数派的",
+    "sentence": "I learned the word \"minority\" today."
+  },
+  "seriously": {
+    "meaning": "严肃地, 认真地, 严重地",
+    "sentence": "I learned the word \"seriously\" today."
+  },
+  "connect": {
+    "meaning": "连接, 联合, 联系",
+    "sentence": "I learned the word \"connect\" today."
+  },
+  "unlikely": {
+    "meaning": "不太可能的",
+    "sentence": "I learned the word \"unlikely\" today."
+  },
+  "partly": {
+    "meaning": "部分地, 在一定程度上",
+    "sentence": "I learned the word \"partly\" today."
+  },
+  "elsewhere": {
+    "meaning": "在别处",
+    "sentence": "I learned the word \"elsewhere\" today."
+  },
+  "double": {
+    "meaning": "两倍；两倍的, 双重的；使加倍；加倍, 代替, 快步走；双精度型",
+    "sentence": "I learned the word \"double\" today."
+  },
+  "necessarily": {
+    "meaning": "必然地, 必须地, 必要地",
+    "sentence": "I learned the word \"necessarily\" today."
+  },
+  "organize": {
+    "meaning": "组织, 有机化, 给予生机；组织起来",
+    "sentence": "I learned the word \"organize\" today."
+  },
+  "empty": {
+    "meaning": "空的, 空虚的, 空腹的, 空洞的；空的东西, 空车；倒空, 使变空, 使排出；流空；空",
+    "sentence": "I learned the word \"empty\" today."
+  },
+  "household": {
+    "meaning": "一家人, 家庭, 家族, 王室；家庭的, 家常的, 王室的",
+    "sentence": "I learned the word \"household\" today."
+  },
+  "guide": {
+    "meaning": "引导者, 导游, 指南, 路标；指导, 支配, 管理, 带领, 操纵；任向导；辅助线",
+    "sentence": "I learned the word \"guide\" today."
+  },
+  "novel": {
+    "meaning": "小说, 长篇故事；新奇的, 异常的",
+    "sentence": "I learned the word \"novel\" today."
+  },
+  "somehow": {
+    "meaning": "不知何故",
+    "sentence": "I learned the word \"somehow\" today."
+  },
+  "nurse": {
+    "meaning": "护士, 保姆, 奶妈；看护, 照顾, 培养；喂奶, 看护病人",
+    "sentence": "I learned the word \"nurse\" today."
+  },
+  "experiment": {
+    "meaning": "实验, 试验, 实验仪器；实验, 尝试",
+    "sentence": "I learned the word \"experiment\" today."
+  },
+  "breast": {
+    "meaning": "胸部, 乳房, 胸怀；以胸对着, 面对",
+    "sentence": "I learned the word \"breast\" today."
+  },
+  "silence": {
+    "meaning": "沉默, 无声, 静寂, 湮没, 无声息；使缄默；安静",
+    "sentence": "I learned the word \"silence\" today."
+  },
+  "secure": {
+    "meaning": "无虑的, 安心的, 安全的, 可靠的, 保险的；固定, 获得, 保证, 使安全, 掩护, 招致；停止操作, 船抛锚",
+    "sentence": "I learned the word \"secure\" today."
+  },
+  "acknowledge": {
+    "meaning": "承认, 告知收悉, 答谢, 报偿；承认, 答谢, 收到的通知",
+    "sentence": "I learned the word \"acknowledge\" today."
+  },
+  "theme": {
+    "meaning": "主题, 话题, 题目",
+    "sentence": "I learned the word \"theme\" today."
+  },
+  "storm": {
+    "meaning": "暴风雨, 骚动, 风波, 风暴, 猛攻；起风, 猛冲, 怒吼；猛攻",
+    "sentence": "I learned the word \"storm\" today."
+  },
+  "publication": {
+    "meaning": "出版物, 出版, 公布；发布",
+    "sentence": "I learned the word \"publication\" today."
+  },
+  "desk": {
+    "meaning": "书桌, 办公桌, 工作台",
+    "sentence": "I learned the word \"desk\" today."
+  },
+  "slow": {
+    "meaning": "慢的, 缓慢的, 迟缓的, 迟钝的, 冷漠的, 落后的；慢地, 迟缓地；(使)慢下来",
+    "sentence": "I learned the word \"slow\" today."
+  },
+  "fruit": {
+    "meaning": "水果, 果类, 结果；果实, 种实",
+    "sentence": "I learned the word \"fruit\" today."
+  },
+  "journey": {
+    "meaning": "旅程, 旅行, 行程；旅行；游历",
+    "sentence": "I learned the word \"journey\" today."
+  },
+  "yellow": {
+    "meaning": "黄色；黄色的",
+    "sentence": "I learned the word \"yellow\" today."
+  },
+  "noise": {
+    "meaning": "噪音, 杂音, 响声, 喧闹；谣传；喧闹；噪声",
+    "sentence": "I learned the word \"noise\" today."
+  },
+  "shadow": {
+    "meaning": "阴影, 荫, 影子, 影像, 阴暗, 幽灵, 少许, 隐蔽处, 庇护；遮蔽, 使朦胧, 预示, 尾随；渐变, 变阴暗；阴影",
+    "sentence": "I learned the word \"shadow\" today."
+  },
+  "struggle": {
+    "meaning": "斗争, 努力, 奋斗；努力, 奋斗, 挣扎",
+    "sentence": "I learned the word \"struggle\" today."
+  },
+  "conclude": {
+    "meaning": "结束, 作结论, 推断；结束, 推断",
+    "sentence": "I learned the word \"conclude\" today."
+  },
+  "sum": {
+    "meaning": "总数, 总和, 金额, 概要, 顶点；总计, 概括；合计；系统实用程序和维护",
+    "sentence": "I learned the word \"sum\" today."
+  },
+  "dance": {
+    "meaning": "跳舞, 舞蹈, 舞会；跳舞",
+    "sentence": "I learned the word \"dance\" today."
+  },
+  "imply": {
+    "meaning": "暗示, 意味；隐含",
+    "sentence": "I learned the word \"imply\" today."
+  },
+  "illustrate": {
+    "meaning": "举例说明, 作图解, 阐明；举例说明",
+    "sentence": "I learned the word \"illustrate\" today."
+  },
+  "monday": {
+    "meaning": "星期一",
+    "sentence": "I learned the word \"monday\" today."
+  },
+  "shift": {
+    "meaning": "轮班；转移；改变",
+    "sentence": "I work the night shift."
+  },
+  "captain": {
+    "meaning": "船长, 指挥官, 海军上校, 首领；率领, 指挥",
+    "sentence": "I learned the word \"captain\" today."
+  },
+  "phase": {
+    "meaning": "时期, 局面, 方面, 位相, 相, 阶段；使调整相位, 使定相, 使一致, 逐步执行, 实行；阶段",
+    "sentence": "I learned the word \"phase\" today."
+  },
+  "locate": {
+    "meaning": "找出, 设于, 位于；定居",
+    "sentence": "I learned the word \"locate\" today."
+  },
+  "display": {
+    "meaning": "显示, 陈列, 炫耀, 显示器；陈列, 显示, 表现, 夸示；显示器?显示",
+    "sentence": "I learned the word \"display\" today."
+  },
+  "initiative": {
+    "meaning": "主动行动, 首创精神, 主动权；自发的, 起始的",
+    "sentence": "I learned the word \"initiative\" today."
+  },
+  "basically": {
+    "meaning": "基本上, 主要地",
+    "sentence": "I learned the word \"basically\" today."
+  },
+  "generate": {
+    "meaning": "产生, 发生, 导致；产生",
+    "sentence": "I learned the word \"generate\" today."
+  },
+  "thinking": {
+    "meaning": "思考, 思想；思考的, 有理性的",
+    "sentence": "I learned the word \"thinking\" today."
+  },
+  "trend": {
+    "meaning": "趋势, 倾向, 走向；倾向, 转向；趋势",
+    "sentence": "I learned the word \"trend\" today."
+  },
+  "escape": {
+    "meaning": "逃亡, 避难设备, 逃跑；逃脱, 避开, 溜走；逃避, 避免, 被...忘掉",
+    "sentence": "I learned the word \"escape\" today."
+  },
+  "comfortable": {
+    "meaning": "舒服的, 轻松的；盖被",
+    "sentence": "I learned the word \"comfortable\" today."
+  },
+  "angry": {
+    "meaning": "生气的, 愤怒的",
+    "sentence": "I learned the word \"angry\" today."
+  },
+  "gate": {
+    "meaning": "门, 牌楼, 大门, 通道, 闸；装门于；门?栅",
+    "sentence": "I learned the word \"gate\" today."
+  },
+  "investigate": {
+    "meaning": "调查, 审查",
+    "sentence": "I learned the word \"investigate\" today."
+  },
+  "hearing": {
+    "meaning": "听, 听觉, 听讯；听, 听觉",
+    "sentence": "I learned the word \"hearing\" today."
+  },
+  "cat": {
+    "meaning": "猫, 恶妇；呕吐；计算机辅助教育, 计算机辅助测试, 计算机辅助翻译, 计算机辅助排版；计算机辅助教学, 计算机辅助翻译, 计算机辅助排字,",
+    "sentence": "I learned the word \"cat\" today."
+  },
+  "muscle": {
+    "meaning": "肌肉, 臂力；肌",
+    "sentence": "I learned the word \"muscle\" today."
+  },
+  "capture": {
+    "meaning": "抓取, 战利品, 捕获之物；抓取, 获得, 迷住；截获命令",
+    "sentence": "I learned the word \"capture\" today."
+  },
+  "chest": {
+    "meaning": "胸, 胸部, 衣柜, 箱子；胸, 胸廓",
+    "sentence": "I learned the word \"chest\" today."
+  },
+  "ministry": {
+    "meaning": "部, 内阁, 服务；部",
+    "sentence": "I learned the word \"ministry\" today."
+  },
+  "truly": {
+    "meaning": "真实地, 不假",
+    "sentence": "I learned the word \"truly\" today."
+  },
+  "emphasis": {
+    "meaning": "强调, 加强, 重点, 强语气",
+    "sentence": "I learned the word \"emphasis\" today."
+  },
+  "thick": {
+    "meaning": "厚的, 粗壮的, 浓的, 迟钝的, 浑浊的, 多雾的, 过分的, 口齿不清的；厚地, 密地, 浓浓地；最浓处, 最厚处, 最密集处；暗, 粗线",
+    "sentence": "I learned the word \"thick\" today."
+  },
+  "neither": {
+    "meaning": "皆不, 两个都不；(两者)都不的；两者都不；既非, 既不",
+    "sentence": "I learned the word \"neither\" today."
+  },
+  "afford": {
+    "meaning": "买得起, 足以, 给予",
+    "sentence": "I learned the word \"afford\" today."
+  },
+  "beauty": {
+    "meaning": "美, 美人",
+    "sentence": "I learned the word \"beauty\" today."
+  },
+  "prospect": {
+    "meaning": "景色, 展望；勘探, 勘察；勘探, 有前途",
+    "sentence": "I learned the word \"prospect\" today."
+  },
+  "narrow": {
+    "meaning": "狭窄部分, 隘路；狭窄的, 仔细的, 有限的, 勉强的, 狭隘的, 手紧的；变窄；使变狭窄",
+    "sentence": "I learned the word \"narrow\" today."
+  },
+  "emergency": {
+    "meaning": "紧急状况, 紧急事件, 紧急需要；紧急情况",
+    "sentence": "I learned the word \"emergency\" today."
+  },
+  "inform": {
+    "meaning": "通知, 使了解, 使充满；提供资料, 告发",
+    "sentence": "I learned the word \"inform\" today."
+  },
+  "unique": {
+    "meaning": "独一无二的, 独特的, 稀罕的",
+    "sentence": "I learned the word \"unique\" today."
+  },
+  "advise": {
+    "meaning": "劝告, 给...出主意, 通知, 建议；提意见, 商量",
+    "sentence": "I learned the word \"advise\" today."
+  },
+  "priority": {
+    "meaning": "优先权, 优先；优先级",
+    "sentence": "I learned the word \"priority\" today."
+  },
+  "opening": {
+    "meaning": "开始, 口子, 穴, 揭幕；开始的",
+    "sentence": "I learned the word \"opening\" today."
+  },
+  "stress": {
+    "meaning": "压力, 紧迫, 强调, 重音, 重点, 应力；加压力于, 着重, 重读",
+    "sentence": "I learned the word \"stress\" today."
+  },
+  "combination": {
+    "meaning": "组合, 合并, 联合；组合图",
+    "sentence": "I learned the word \"combination\" today."
+  },
+  "root": {
+    "meaning": "根, 根本, 根源, 基础, 底部；使扎根, 使固定, 根除, 肃清, 搜出, 用鼻拱；生根, 固定, 源于, 用鼻拱土, 寻找, 捧场, 支持",
+    "sentence": "I learned the word \"root\" today."
+  },
+  "nose": {
+    "meaning": "鼻子, 突出部分, 嗅觉；嗅到, 探出, 用鼻子触；闻, 嗅, 探听, 告密",
+    "sentence": "I learned the word \"nose\" today."
+  },
+  "appreciate": {
+    "meaning": "赏识, 鉴别, 为...而感激, 领会, 欣赏；增值, 涨价",
+    "sentence": "I learned the word \"appreciate\" today."
+  },
+  "succeed": {
+    "meaning": "成功, 继承, 继续；继承, 接替",
+    "sentence": "I learned the word \"succeed\" today."
+  },
+  "upper": {
+    "meaning": "上面的, 较高的, 上级的, 上院的, 穿在外面的, 北部的, 地表的, 后期的；鞋帮, 上齿",
+    "sentence": "I learned the word \"upper\" today."
+  },
+  "interpretation": {
+    "meaning": "解释, 演出, 翻译；插值?插值法?解释",
+    "sentence": "I learned the word \"interpretation\" today."
+  },
+  "sick": {
+    "meaning": "病人；不舒服, 有病的, 恶心的, 厌恶的, 渴望的, 病态的；呕吐, 追击, 使(狗)去攻击",
+    "sentence": "I learned the word \"sick\" today."
+  },
+  "tooth": {
+    "meaning": "牙齿, 齿状物, 爱好；装以齿, 将...切成齿状；啮合",
+    "sentence": "I learned the word \"tooth\" today."
+  },
+  "ad": {
+    "meaning": "广告；地址, 模拟-数字",
+    "sentence": "I learned the word \"ad\" today."
+  },
+  "defend": {
+    "meaning": "防护, 辩护, 防卫；作...的辩护律师, 辩护, 为...答辩",
+    "sentence": "I learned the word \"defend\" today."
+  },
+  "alternative": {
+    "meaning": "两者择一, 供替代的选择；两者择一的, 供选择的；选择对象",
+    "sentence": "I learned the word \"alternative\" today."
+  },
+  "busy": {
+    "meaning": "忙碌的, 热闹的, 没空的；使忙；忙碌；忙?忙碌",
+    "sentence": "I learned the word \"busy\" today."
+  },
+  "wing": {
+    "meaning": "翅膀, 翼, 机翼, 派别；给...装上翼, 飞过, 使飞, 空运, 增加...速度；飞行",
+    "sentence": "I learned the word \"wing\" today."
+  },
+  "lane": {
+    "meaning": "小路, 巷, 弄, 单行道",
+    "sentence": "I learned the word \"lane\" today."
+  },
+  "mix": {
+    "meaning": "混合物, 混乱, 糊涂；使混合, 弄混, 使结合, 混淆；相混合, 交往, 参与",
+    "sentence": "I learned the word \"mix\" today."
+  },
+  "flow": {
+    "meaning": "流程, 流动, 流量, 洋溢, 泛滥, 涨潮；流动, 流泄, 畅流, 川流不息, 飘扬, 涌出；使流动, 淹没, 流出",
+    "sentence": "I learned the word \"flow\" today."
+  },
+  "crown": {
+    "meaning": "王冠, 王权, 顶点；使成王, 加冕, 居...之顶",
+    "sentence": "I learned the word \"crown\" today."
+  },
+  "coal": {
+    "meaning": "煤, 木炭；加煤",
+    "sentence": "I learned the word \"coal\" today."
+  },
+  "approve": {
+    "meaning": "赞同, 核准, 为...提供证据；赞许",
+    "sentence": "I learned the word \"approve\" today."
+  },
+  "zone": {
+    "meaning": "地带, 带, 地区；环绕, 使分成地带；分成区；卡片顶部的三行区?区?区域",
+    "sentence": "I learned the word \"zone\" today."
+  },
+  "wake": {
+    "meaning": "叫醒, 激发；醒来, 醒着, 觉醒, 活跃起来；守侯, 守夜, 尾迹, 痕迹",
+    "sentence": "I learned the word \"wake\" today."
+  },
+  "variation": {
+    "meaning": "变更, 变化, 变种, 变奏；变异, 变易?变度",
+    "sentence": "I learned the word \"variation\" today."
+  },
+  "castle": {
+    "meaning": "城堡, 象棋中的车；置于城堡中, 盘踞于",
+    "sentence": "I learned the word \"castle\" today."
+  },
+  "airport": {
+    "meaning": "飞机场；航空站, 机场",
+    "sentence": "I learned the word \"airport\" today."
+  },
+  "ourselves": {
+    "meaning": "我们自己",
+    "sentence": "I learned the word \"ourselves\" today."
+  },
+  "motion": {
+    "meaning": "移动, 手势, 动作, 意向, 请求, 提议；打手势",
+    "sentence": "I learned the word \"motion\" today."
+  },
+  "brown": {
+    "meaning": "褐色；褐色的；(使)变褐色",
+    "sentence": "I learned the word \"brown\" today."
+  },
+  "apparent": {
+    "meaning": "清晰可见的, 显然的, 表面上的；外在的",
+    "sentence": "I learned the word \"apparent\" today."
+  },
+  "shirt": {
+    "meaning": "衬衫, 内衣, 汗衫",
+    "sentence": "I learned the word \"shirt\" today."
+  },
+  "membership": {
+    "meaning": "会员的资格, 全体会员, 会员数目；会员资格, 成员资格, 会籍",
+    "sentence": "I learned the word \"membership\" today."
+  },
+  "pilot": {
+    "meaning": "飞行员, 领航员, 航船者, 导向器, 驾驶仪, 向导, 领导人；领航, 驾驶, 引导, 试用；引导的, 控制的, 试点的；引导",
+    "sentence": "I learned the word \"pilot\" today."
+  },
+  "ultimately": {
+    "meaning": "最后, 最终；最后, 终究, 总之",
+    "sentence": "I learned the word \"ultimately\" today."
+  },
+  "suggestion": {
+    "meaning": "提议, 意见；暗示",
+    "sentence": "I learned the word \"suggestion\" today."
+  },
+  "persuade": {
+    "meaning": "劝, 使相信, 恳求, 敦促, 说服；劝服, 被说服",
+    "sentence": "I learned the word \"persuade\" today."
+  },
+  "careful": {
+    "meaning": "小心的, 谨慎的",
+    "sentence": "I learned the word \"careful\" today."
+  },
+  "cope": {
+    "meaning": "竞争, 应付；长袍",
+    "sentence": "I learned the word \"cope\" today."
+  },
+  "snow": {
+    "meaning": "雪, 积雪, 下雪, 雪花形干扰；下雪, 似雪般落下；使雪白, 用雪覆盖, 使像雪般落下",
+    "sentence": "I learned the word \"snow\" today."
+  },
+  "attractive": {
+    "meaning": "吸引人的, 有魅力的；有吸引力的, 有迷惑力的",
+    "sentence": "I learned the word \"attractive\" today."
+  },
+  "passage": {
+    "meaning": "通道, 通过, 移居, 航行, 一段, 走廊；通过, 经过, 航行, 横渡, 争吵；(使)马以斜横步前进, 使传代",
+    "sentence": "I learned the word \"passage\" today."
+  },
+  "politician": {
+    "meaning": "政客, 政治家, 从事党派政治的人；政客, 政治家",
+    "sentence": "I learned the word \"politician\" today."
+  },
+  "steal": {
+    "meaning": "剽窃；偷偷地做；偷窃；窃取；偷偷地行动；偷垒；偷窃；便宜货；偷垒；断球",
+    "sentence": "I learned the word \"steal\" today."
+  },
+  "pursue": {
+    "meaning": "追赶, 追踪, 追随, 追求, 实行, 继续, 从事；追赶, 继续",
+    "sentence": "I learned the word \"pursue\" today."
+  },
+  "incident": {
+    "meaning": "事件, 事变, 小事；附带的, 易于发生的, 外来的, 入射的",
+    "sentence": "I learned the word \"incident\" today."
+  },
+  "slip": {
+    "meaning": "滑, 滑行, 事故, 溜, 差错, 滑台, 下降, 插条, 后裔, 板条, 瘦长的年轻人；滑动, 滑倒, 失足, 溜走, 滑落, 犯错, 变坏",
+    "sentence": "I learned the word \"slip\" today."
+  },
+  "meat": {
+    "meaning": "肉, 餐, 食物；肉类",
+    "sentence": "I learned the word \"meat\" today."
+  },
+  "funny": {
+    "meaning": "好笑的, 有趣的, 滑稽的；滑稽人物",
+    "sentence": "I learned the word \"funny\" today."
+  },
+  "winner": {
+    "meaning": "胜利者, 优胜者；取胜者",
+    "sentence": "I learned the word \"winner\" today."
+  },
+  "soil": {
+    "meaning": "土壤, 土地, 国家, 国土, 温床, 污物, 粪便, 水池；弄脏, 污辱；变脏",
+    "sentence": "I learned the word \"soil\" today."
+  },
+  "index": {
+    "meaning": "索引, 指针, 指数, 指标；编入索引中, 指出；做索引；下标?附标?变址?索引?编索引",
+    "sentence": "I learned the word \"index\" today."
+  },
+  "elect": {
+    "meaning": "当选人, 被选的人；被选的, 选出的；选举, 选择；作选择",
+    "sentence": "I learned the word \"elect\" today."
+  },
+  "valley": {
+    "meaning": "山谷, 溪谷, 流域, 凹地；谷",
+    "sentence": "I learned the word \"valley\" today."
+  },
+  "blame": {
+    "meaning": "过失, 责备；责备, 归咎于",
+    "sentence": "I learned the word \"blame\" today."
+  },
+  "derive": {
+    "meaning": "得自；起源",
+    "sentence": "I learned the word \"derive\" today."
+  },
+  "estimate": {
+    "meaning": "估计, 判断；估计, 评价, 判断；估计",
+    "sentence": "I learned the word \"estimate\" today."
+  },
+  "criterion": {
+    "meaning": "标准, 准则, 规范；判据",
+    "sentence": "I learned the word \"criterion\" today."
+  },
+  "square": {
+    "meaning": "正方形, 街区, 广场, 平方, 直角尺；正方形的, 正直的, 公正的, 平方的, 方正的, 结清的；成直角地, 对准地；一致, 符合, 结清",
+    "sentence": "I learned the word \"square\" today."
+  },
+  "crazy": {
+    "meaning": "发狂的, 狂热的",
+    "sentence": "I learned the word \"crazy\" today."
+  },
+  "vital": {
+    "meaning": "生命的, 重要的, 充满活力的, 生死攸关的, 致命的；生命的, 生活的, 生活上必需的, 紧要的",
+    "sentence": "I learned the word \"vital\" today."
+  },
+  "recover": {
+    "meaning": "重新获得, 恢复, 复原, 拯救；痊愈, 复原, 胜诉；恢复",
+    "sentence": "I learned the word \"recover\" today."
+  },
+  "chain": {
+    "meaning": "链, 枷锁, 束缚；用铁练锁住, 束缚, 囚禁",
+    "sentence": "I learned the word \"chain\" today."
+  },
+  "specialist": {
+    "meaning": "专门医师, 专家；专业的, 专家的",
+    "sentence": "I learned the word \"specialist\" today."
+  },
+  "governor": {
+    "meaning": "(美)州长, (英)总督, 统治者, 管理者, 理事；节制器, 调节器",
+    "sentence": "I learned the word \"governor\" today."
+  },
+  "characteristic": {
+    "meaning": "特性, 特征, 特色；特性的, 特有的, 有特色的；阶?指数",
+    "sentence": "I learned the word \"characteristic\" today."
+  },
+  "lake": {
+    "meaning": "湖, 池, 色淀；(使)血球溶解",
+    "sentence": "I learned the word \"lake\" today."
+  },
+  "tone": {
+    "meaning": "音调, 音质, 语调, 语气, 色调, 气氛, 状况, 思想状态；给...定色调, 增强, 使...的声调和谐, 定音调；颜色调和；双音频",
+    "sentence": "I learned the word \"tone\" today."
+  },
+  "kick": {
+    "meaning": "踢, 反冲, 后座力, 凹底；踢, 反抗, 反冲；踢, 反冲",
+    "sentence": "I learned the word \"kick\" today."
+  },
+  "engineering": {
+    "meaning": "工程学, 工程, 操纵；机器?机器学",
+    "sentence": "I learned the word \"engineering\" today."
+  },
+  "pub": {
+    "meaning": "酒馆, 客栈",
+    "sentence": "I learned the word \"pub\" today."
+  },
+  "ancient": {
+    "meaning": "古代的, 古老的, 年老的, 旧的",
+    "sentence": "I learned the word \"ancient\" today."
+  },
+  "request": {
+    "meaning": "请求, 需要, 申请书；请求, 要求, 邀请；请求",
+    "sentence": "I learned the word \"request\" today."
+  },
+  "foundation": {
+    "meaning": "基础, 根据, 建立；地基",
+    "sentence": "I learned the word \"foundation\" today."
+  },
+  "solve": {
+    "meaning": "解决, 付给, 溶解；求解；求解；求解",
+    "sentence": "I learned the word \"solve\" today."
+  },
+  "bowl": {
+    "meaning": "碗, 木球, 大酒杯；滚木球, 快而稳地行驶",
+    "sentence": "I learned the word \"bowl\" today."
+  },
+  "rare": {
+    "meaning": "稀罕的, 罕有的, 珍奇的, 稀薄的, 半熟的, 非常好的；非常",
+    "sentence": "I learned the word \"rare\" today."
+  },
+  "frame": {
+    "meaning": "框, 结构, 体格；构成, 设计, 制定, 使适合, 陷害；框架, 图文框, 帧",
+    "sentence": "I learned the word \"frame\" today."
+  },
+  "typical": {
+    "meaning": "典型的, 象征性的；典型的",
+    "sentence": "I learned the word \"typical\" today."
+  },
+  "except": {
+    "meaning": "除, 除外；反对；除了...之外, 若不是, 除非；只是",
+    "sentence": "I learned the word \"except\" today."
+  },
+  "elderly": {
+    "meaning": "过了中年的, 稍老的",
+    "sentence": "I learned the word \"elderly\" today."
+  },
+  "host": {
+    "meaning": "主人, 旅馆老板, 节目主持人；当主人招待, 作...节目主持人；主机, 宿主机",
+    "sentence": "I learned the word \"host\" today."
+  },
+  "ocean": {
+    "meaning": "海洋, 广阔, 许多, 一大片；海洋, 海",
+    "sentence": "I learned the word \"ocean\" today."
+  },
+  "observation": {
+    "meaning": "观察, 注意, 观测, 观察力；观察",
+    "sentence": "I learned the word \"observation\" today."
+  },
+  "impression": {
+    "meaning": "印象, 意念, 盖印, 印记, 印数, 底色, 效果；压迹, 印模, 印象, 影响",
+    "sentence": "I learned the word \"impression\" today."
+  },
+  "meanwhile": {
+    "meaning": "其时, 其间；同时, 于此时",
+    "sentence": "I learned the word \"meanwhile\" today."
+  },
+  "neighbour": {
+    "meaning": "邻居, 邻接的东西, 邻国, 邻座, 邻人, 世人；邻接的, 邻近的；邻近, 与...结邻, 邻接",
+    "sentence": "I learned the word \"neighbour\" today."
+  },
+  "capable": {
+    "meaning": "有能力的, 能的, 能干的",
+    "sentence": "I learned the word \"capable\" today."
+  },
+  "attach": {
+    "meaning": "附上, 使依附, 使附属, 使喜爱, 系, 缚；附属, 归属, 联系在一起；挂接服务器命令, 关联, 挂接, 附加",
+    "sentence": "I learned the word \"attach\" today."
+  },
+  "fix": {
+    "meaning": "使固定, 修理, 准备, 安装, 凝视, 牢记, 确定, 整理；固定, 注视, 确定；困境, 方位, 维修, 贿赂",
+    "sentence": "I learned the word \"fix\" today."
+  },
+  "grand": {
+    "meaning": "庄重的, 壮观的, 显赫的, 重大的, 最高的, 雄伟的, 宏大的, 豪华的, 傲慢的；重大的, 主要的, 伟大的",
+    "sentence": "I learned the word \"grand\" today."
+  },
+  "fashion": {
+    "meaning": "流行, 风尚, 时样；形成, 造, 作",
+    "sentence": "I learned the word \"fashion\" today."
+  },
+  "wash": {
+    "meaning": "洗, 洗涤, 冲洗, 洗的衣服, 冲积物, 洼地；洗, 洗涤, 洗清, 用水冲洗, 流过, 弄湿, 粉刷, 镀金属薄层于；洗涤, 洗澡, 被冲蚀",
+    "sentence": "I learned the word \"wash\" today."
+  },
+  "mirror": {
+    "meaning": "镜子, 写真, 典范；反映, 映出",
+    "sentence": "I learned the word \"mirror\" today."
+  },
+  "coast": {
+    "meaning": "海岸, 滑坡；沿海岸而行",
+    "sentence": "I learned the word \"coast\" today."
+  },
+  "atmosphere": {
+    "meaning": "大气, 空气, 气氛；大气?大气压",
+    "sentence": "I learned the word \"atmosphere\" today."
+  },
+  "smart": {
+    "meaning": "聪明的, 漂亮的, 刺痛的, 剧烈的, 敏捷的, 巧妙的, 伶俐的, 潇洒的；刺痛, 痛苦；刺痛",
+    "sentence": "I learned the word \"smart\" today."
+  },
+  "mass": {
+    "meaning": "块, 大多数, 质量, 大量, 群众, 弥撒；群众的, 大规模的, 整个的；使集合, 集中；聚集",
+    "sentence": "I learned the word \"mass\" today."
+  },
+  "revolution": {
+    "meaning": "革命, 大变革, 旋转, 转数, 循环；回转",
+    "sentence": "I learned the word \"revolution\" today."
+  },
+  "complain": {
+    "meaning": "抱怨, 抗议, 控诉",
+    "sentence": "I learned the word \"complain\" today."
+  },
+  "topic": {
+    "meaning": "主题, 论题, 话题",
+    "sentence": "I learned the word \"topic\" today."
+  },
+  "tear": {
+    "meaning": "泪滴, 眼泪, 撕, 扯, 裂缝, 激怒, 飞奔；流泪, 撕破, 赶快, 飞奔, 被撕破；撕裂, 戳破, 拉掉, 撕掉, 使分裂, 使精神不安,",
+    "sentence": "I learned the word \"tear\" today."
+  },
+  "brief": {
+    "meaning": "摘要, 简报；简短的, 短暂的；对...作简报, 摘要, 节录",
+    "sentence": "I learned the word \"brief\" today."
+  },
+  "secret": {
+    "meaning": "秘密, 机密, 秘诀, 秘方；秘密的, 极机密的, 隐蔽的, 暗中的, 神秘的, 偏僻的",
+    "sentence": "I learned the word \"secret\" today."
+  },
+  "tank": {
+    "meaning": "槽, 箱, 柜, 罐, 池塘, 储水池, 坦克；储于箱中",
+    "sentence": "I learned the word \"tank\" today."
+  },
+  "iron": {
+    "meaning": "铁, 熨斗, 铁器, 坚强, 烙铁, 镣铐；烫平, 熨, 用铁包；烫平",
+    "sentence": "I learned the word \"iron\" today."
+  },
+  "aside": {
+    "meaning": "小声说的话, 旁白；在一边, 离开, 另外",
+    "sentence": "I learned the word \"aside\" today."
+  },
+  "servant": {
+    "meaning": "仆人, 有用物, 公务员, 雇员；受雇人, 服务者, 公务员",
+    "sentence": "I learned the word \"servant\" today."
+  },
+  "roof": {
+    "meaning": "屋顶, 室顶；给...盖屋顶, 遮蔽",
+    "sentence": "I learned the word \"roof\" today."
+  },
+  "anywhere": {
+    "meaning": "无论何处",
+    "sentence": "I learned the word \"anywhere\" today."
+  },
+  "advance": {
+    "meaning": "前进, 进展, 行过的路程；前进, 进展, 提高, 上涨；使前进, 促进, 提出, 提高, 使提前, 预付；前面的, 预先的",
+    "sentence": "I learned the word \"advance\" today."
+  },
+  "milk": {
+    "meaning": "奶, 乳状物；挤乳, 榨取；产乳",
+    "sentence": "I learned the word \"milk\" today."
+  },
+  "fun": {
+    "meaning": "乐趣, 玩笑, 娱乐；开玩笑；供娱乐用的",
+    "sentence": "I learned the word \"fun\" today."
+  },
+  "engineer": {
+    "meaning": "工程师, 工兵；设计, 监造, 精明地处理, 策划",
+    "sentence": "I learned the word \"engineer\" today."
+  },
+  "beneath": {
+    "meaning": "在...下方；在...下方",
+    "sentence": "I learned the word \"beneath\" today."
+  },
+  "expectation": {
+    "meaning": "期待, 指望, 展望；期望值",
+    "sentence": "I learned the word \"expectation\" today."
+  },
+  "drawing": {
+    "meaning": "图画, 制图, 拉；绘图",
+    "sentence": "I learned the word \"drawing\" today."
+  },
+  "accuse": {
+    "meaning": "指责, 控告, 归咎于；指责, 控告",
+    "sentence": "I learned the word \"accuse\" today."
+  },
+  "motor": {
+    "meaning": "马达, 发动机, 原动力, 汽车；马达的, 发动机的, 汽车的, 发动的；推动, 以汽车载运；乘汽车, 驾车",
+    "sentence": "I learned the word \"motor\" today."
+  },
+  "somewhat": {
+    "meaning": "某物, 几分；多少, 几分",
+    "sentence": "I learned the word \"somewhat\" today."
+  },
+  "pour": {
+    "meaning": "流出, 倾泻, 骤雨；倒, 灌, 注, 倾泻, 诉说, 倾吐；倾泻, 蜂涌而来, 下大雨",
+    "sentence": "I learned the word \"pour\" today."
+  },
+  "origin": {
+    "meaning": "起源, 起因, 出身, 开端；原点?起始地址?信件来源的相关数据",
+    "sentence": "I learned the word \"origin\" today."
+  },
+  "grey": {
+    "meaning": "灰色；灰色的, 阴沉的；(使)成灰色",
+    "sentence": "I learned the word \"grey\" today."
+  },
+  "stir": {
+    "meaning": "骚动, 轰动, 搅动, 监狱；移动, 摇动, 激起, 惹起, 搅拌；走动, 传播, 搅拌",
+    "sentence": "I learned the word \"stir\" today."
+  },
+  "beach": {
+    "meaning": "海滩",
+    "sentence": "I learned the word \"beach\" today."
+  },
+  "beer": {
+    "meaning": "啤酒；啤酒",
+    "sentence": "I learned the word \"beer\" today."
+  },
+  "accompany": {
+    "meaning": "陪伴, 伴随, 补充, 为...伴奏；伴奏, 伴唱",
+    "sentence": "I learned the word \"accompany\" today."
+  },
+  "hence": {
+    "meaning": "因此, 从此",
+    "sentence": "I learned the word \"hence\" today."
+  },
+  "unfortunately": {
+    "meaning": "恐怕, 不幸的是",
+    "sentence": "I learned the word \"unfortunately\" today."
+  },
+  "warning": {
+    "meaning": "警告, 预告, 预兆, 通知；警告, 警戒, 预告?警告的, 注意的",
+    "sentence": "I learned the word \"warning\" today."
+  },
+  "hero": {
+    "meaning": "英雄, 超越常人者, 男主角",
+    "sentence": "I learned the word \"hero\" today."
+  },
+  "minor": {
+    "meaning": "未成年人, 副修科目；较小的, 二流的, 未成年的；副修；次要",
+    "sentence": "I learned the word \"minor\" today."
+  },
+  "height": {
+    "meaning": "高度, 海拔, 高地, 顶点；高度",
+    "sentence": "I learned the word \"height\" today."
+  },
+  "cloud": {
+    "meaning": "云, 阴暗, 烟雾, 疑团；以云遮敝, 笼罩, 使黯然；乌云密布, 阴沉",
+    "sentence": "I learned the word \"cloud\" today."
+  },
+  "stretch": {
+    "meaning": "伸展, 张开, 连绵, 一段路, 一段时间；可伸缩的, 弹性的；伸展, 张开, 曲解, 使过度伸展；伸展, 延伸；伸展",
+    "sentence": "I learned the word \"stretch\" today."
+  },
+  "constant": {
+    "meaning": "常数, 恒量；不变的, 一定的, 时常的；常量?常数?恒值",
+    "sentence": "I learned the word \"constant\" today."
+  },
+  "pleased": {
+    "meaning": "高兴的, 喜欢的, 满足的",
+    "sentence": "I learned the word \"pleased\" today."
+  },
+  "ideal": {
+    "meaning": "理想, 典范, 观念, 思想, 最后目标；理想的, 完美的, 空想的, 观念的, 唯心论的",
+    "sentence": "I learned the word \"ideal\" today."
+  },
+  "seed": {
+    "meaning": "种子, 籽, 萌芽, 子孙, 精液；在...播种, 催...发育, 脱...籽；结实, 播种",
+    "sentence": "I learned the word \"seed\" today."
+  },
+  "expense": {
+    "meaning": "费用, 代价, 开支, 损失；费用, 开支, 将支出转为费用",
+    "sentence": "I learned the word \"expense\" today."
+  },
+  "withdraw": {
+    "meaning": "撤回, 取回, 撤消, 使撤退, 拉开, 移开；撤退, 离开",
+    "sentence": "I learned the word \"withdraw\" today."
+  },
+  "pepper": {
+    "meaning": "胡椒粉, 胡椒, 辣椒；胡椒?辣椒?花椒",
+    "sentence": "I learned the word \"pepper\" today."
+  },
+  "severe": {
+    "meaning": "严格的, 尖锐的, 严肃的, 严重的, 严厉的, 朴素的；严厉的, 苛刻的, 严重的",
+    "sentence": "I learned the word \"severe\" today."
+  },
+  "terrible": {
+    "meaning": "可怕的, 令人恐惧的, 极坏的",
+    "sentence": "I learned the word \"terrible\" today."
+  },
+  "tip": {
+    "meaning": "顶, 尖端, 梢, 末端, 倾斜, 垃圾场, 小费, 轻击, 指点, 秘密消息；装顶端, 使倾斜, 使翻倒, 泄露, 告诫, 暗示, 给...小",
+    "sentence": "I learned the word \"tip\" today."
+  },
+  "prisoner": {
+    "meaning": "囚犯, 犯人, 战俘；犯人, 囚犯, 扣押犯",
+    "sentence": "I learned the word \"prisoner\" today."
+  },
+  "vegetable": {
+    "meaning": "蔬菜, 植物, 无精打采之人；蔬菜的, 植物的",
+    "sentence": "I learned the word \"vegetable\" today."
+  },
+  "dish": {
+    "meaning": "盘子, 碟, 菜肴；皿, 碟",
+    "sentence": "I learned the word \"dish\" today."
+  },
+  "palace": {
+    "meaning": "宫, 宫殿, 华丽大厦",
+    "sentence": "I learned the word \"palace\" today."
+  },
+  "vast": {
+    "meaning": "巨大的, 广大的, 非常的, 大量的",
+    "sentence": "I learned the word \"vast\" today."
+  },
+  "everywhere": {
+    "meaning": "各处, 到处",
+    "sentence": "I learned the word \"everywhere\" today."
+  },
+  "exclude": {
+    "meaning": "除外, 排除, 排斥；除外(诊断)",
+    "sentence": "I learned the word \"exclude\" today."
+  },
+  "oppose": {
+    "meaning": "反对, 以...对抗, 抗争；反对",
+    "sentence": "I learned the word \"oppose\" today."
+  },
+  "convention": {
+    "meaning": "大会, 协定, 惯例, 约定；约定",
+    "sentence": "I learned the word \"convention\" today."
+  },
+  "contemporary": {
+    "meaning": "同时代的人；同时代的, 属于同一时期的",
+    "sentence": "I learned the word \"contemporary\" today."
+  },
+  "switch": {
+    "meaning": "开关, 电闸, 转换, 软枝, 鞭子, 道岔；转变, 切换, 摆动, 转换, 使转轨；转换, 变换, 摆动；开关?翻转?转移",
+    "sentence": "I learned the word \"switch\" today."
+  },
+  "criminal": {
+    "meaning": "罪犯, 犯人, 刑事；犯了罪的, 刑事的, 有罪的",
+    "sentence": "I learned the word \"criminal\" today."
+  },
+  "core": {
+    "meaning": "核心, 果心, 要点；挖...的核；内核, 核心网",
+    "sentence": "I learned the word \"core\" today."
+  },
+  "ill": {
+    "meaning": "疾病, 坏事, 罪恶, 灾难；生病的, 邪恶的, 不吉利的, 敌意的, 不良的, 不顺利的；有害地, 不幸地, 几乎不",
+    "sentence": "I learned the word \"ill\" today."
+  },
+  "rush": {
+    "meaning": "匆促, 冲进, 急流, 灯心草；冲, 奔, 闯, 赶紧, 匆促行事, 涌现；使冲, 匆忙地做, 突袭, 飞跃, 用灯心草做；紧急的",
+    "sentence": "I learned the word \"rush\" today."
+  },
+  "knock": {
+    "meaning": "敲, 敲打, 敲门；敲击, 互撞, 攻击",
+    "sentence": "I learned the word \"knock\" today."
+  },
+  "tired": {
+    "meaning": "疲累的, 疲乏的, 厌倦的",
+    "sentence": "I learned the word \"tired\" today."
+  },
+  "justify": {
+    "meaning": "替...辩护, 证明；证明合法；段落重排, 两端对齐",
+    "sentence": "I learned the word \"justify\" today."
+  },
+  "signal": {
+    "meaning": "信号, 暗号, 近因, 导火线；向...作信号, 标志, 用信号通知；发信号；作为信号的, 显著的；信号",
+    "sentence": "I learned the word \"signal\" today."
+  },
+  "rail": {
+    "meaning": "横杆, 围栏, 栏杆, 铁轨, 扶手, 秧鸡；以横木围栏, 给...铺铁轨；责骂, 抱怨",
+    "sentence": "I learned the word \"rail\" today."
+  },
+  "diet": {
+    "meaning": "日常饮食, 议会；照规定饮食；忌食",
+    "sentence": "I learned the word \"diet\" today."
+  },
+  "comparison": {
+    "meaning": "比较, 对照, 比喻；比较, 对比",
+    "sentence": "I learned the word \"comparison\" today."
+  },
+  "witness": {
+    "meaning": "证人, 目击者, 证据, 证词；目击, 作证, 证明, 表明；作证人, 作为证据",
+    "sentence": "I learned the word \"witness\" today."
+  },
+  "apart": {
+    "meaning": "成零碎, 成距离, 分别地, 分离着；分离的",
+    "sentence": "I learned the word \"apart\" today."
+  },
+  "mine": {
+    "meaning": "矿, 矿藏, 地雷；挖掘, 开采, 在...布雷, 破坏；开矿, 埋设地雷；我的",
+    "sentence": "I learned the word \"mine\" today."
+  },
+  "emphasize": {
+    "meaning": "强调, 加强语气, 着重",
+    "sentence": "I learned the word \"emphasize\" today."
+  },
+  "plenty": {
+    "meaning": "充分, 很多, 丰富；很多的, 足够的, 丰富的",
+    "sentence": "I learned the word \"plenty\" today."
+  },
+  "achievement": {
+    "meaning": "完成, 成就, 功业",
+    "sentence": "I learned the word \"achievement\" today."
+  },
+  "wednesday": {
+    "meaning": "星期三",
+    "sentence": "I learned the word \"wednesday\" today."
+  },
+  "proud": {
+    "meaning": "骄傲的, 自大的, 自豪的, 辉煌的, 壮丽的",
+    "sentence": "I learned the word \"proud\" today."
+  },
+  "gap": {
+    "meaning": "缝隙, 缺口, 间断, 间距, 通用汇编程序；打开缺口, 造成缝隙；豁开；通用汇编程序, 图形应用程序, 间距",
+    "sentence": "I learned the word \"gap\" today."
+  },
+  "weak": {
+    "meaning": "不牢固的, 弱的, 虚弱的, 软弱的, 无力的, 无权力的, (论据等)不充分的；疲软的",
+    "sentence": "I learned the word \"weak\" today."
+  },
+  "occupy": {
+    "meaning": "占领, 占(时间、空间等), 住进, 担任, 使从事, 使全神贯注；占领, 占据, 占有",
+    "sentence": "I learned the word \"occupy\" today."
+  },
+  "definitely": {
+    "meaning": "明确无疑地, 清楚地",
+    "sentence": "I learned the word \"definitely\" today."
+  },
+  "bomb": {
+    "meaning": "炸弹；轰炸, 投弹于；失败",
+    "sentence": "I learned the word \"bomb\" today."
+  },
+  "permanent": {
+    "meaning": "永久的, 不变的, 固定的, 持久的；烫发；永久的",
+    "sentence": "I learned the word \"permanent\" today."
+  },
+  "enormous": {
+    "meaning": "巨大的, 庞大的",
+    "sentence": "I learned the word \"enormous\" today."
+  },
+  "massive": {
+    "meaning": "大而重的, 宽大的, 宏伟的；大块的, 整块的, 大量的",
+    "sentence": "I learned the word \"massive\" today."
+  },
+  "complaint": {
+    "meaning": "诉苦, 抱怨, 控诉；陈诉?病",
+    "sentence": "I learned the word \"complaint\" today."
+  },
+  "shock": {
+    "meaning": "震动, 冲突, 震惊, 冲击, 突击, 禾束堆, 休克, 长毛狗；使震动, 使休克, 使受电击, 震惊得；震动, 吓人；蓬乱浓密的",
+    "sentence": "I learned the word \"shock\" today."
+  },
+  "wheel": {
+    "meaning": "轮子, 车轮, 轮, 方向盘, 旋转, 机构, 重要人物；使旋转, 转动, 使转向；旋转, 转弯, 盘旋",
+    "sentence": "I learned the word \"wheel\" today."
+  },
+  "decline": {
+    "meaning": "衰退, 跌落, 下降；使降低, 婉谢；下降, 衰落, 偏斜",
+    "sentence": "I learned the word \"decline\" today."
+  },
+  "invest": {
+    "meaning": "投资, 花费, 笼罩, 授予；投资, 利用",
+    "sentence": "I learned the word \"invest\" today."
+  },
+  "passenger": {
+    "meaning": "乘客, 旅客；乘客, 旅客",
+    "sentence": "I learned the word \"passenger\" today."
+  },
+  "odd": {
+    "meaning": "奇数的, 古怪的, 剩余的, 零散的, 各种各样的, 少量的；奇特的事物, 怪人；奇数, 奇校验, 光数据数字转换器",
+    "sentence": "I learned the word \"odd\" today."
+  },
+  "cable": {
+    "meaning": "电缆, 海底电报, 缆, 索；打海底电报；发海底电报, 缚住；电缆",
+    "sentence": "I learned the word \"cable\" today."
+  },
+  "grass": {
+    "meaning": "草, 草原, 牧场；草, 禾本",
+    "sentence": "I learned the word \"grass\" today."
+  },
+  "via": {
+    "meaning": "经由, 经过, 通过；病毒灭活剂",
+    "sentence": "I learned the word \"via\" today."
+  },
+  "expose": {
+    "meaning": "使暴露, 使曝光, 揭穿, 陈列；暴露, 露置",
+    "sentence": "I learned the word \"expose\" today."
+  },
+  "column": {
+    "meaning": "专栏, 圆柱, 纵队, 列, 柱形物；列, 柱形图",
+    "sentence": "I learned the word \"column\" today."
+  },
+  "cream": {
+    "meaning": "乳酪, 奶油, 面霜；乳油, 乳皮?乳膏, 霜",
+    "sentence": "I learned the word \"cream\" today."
+  },
+  "charity": {
+    "meaning": "慈悲, 博爱, 慈善团体, 施舍；宽大, 宽恕, 慈善机关",
+    "sentence": "I learned the word \"charity\" today."
+  },
+  "solid": {
+    "meaning": "固体；坚硬的, 稳固的, 固体的, 实心的, 纯质的, 立体的, 立方的；原色",
+    "sentence": "I learned the word \"solid\" today."
+  },
+  "crucial": {
+    "meaning": "决定性的, 重要的, 严厉的；十字形的?决断的, 定局的",
+    "sentence": "I learned the word \"crucial\" today."
+  },
+  "inner": {
+    "meaning": "内部的, 内心的；内部",
+    "sentence": "I learned the word \"inner\" today."
+  },
+  "hat": {
+    "meaning": "帽子；给...戴帽子",
+    "sentence": "I learned the word \"hat\" today."
+  },
+  "manufacturer": {
+    "meaning": "制造业者, 厂商；制造人, 制造商, 制造厂",
+    "sentence": "I learned the word \"manufacturer\" today."
+  },
+  "breakfast": {
+    "meaning": "早餐",
+    "sentence": "I learned the word \"breakfast\" today."
+  },
+  "celebrate": {
+    "meaning": "庆祝, 祝贺, 举行",
+    "sentence": "I learned the word \"celebrate\" today."
+  },
+  "permit": {
+    "meaning": "许可证, 许可, 执照, 通行证；允许, 容许, 可能, 使放手做；容许, 给以机会, 提供可能",
+    "sentence": "I learned the word \"permit\" today."
+  },
+  "similarly": {
+    "meaning": "相像地, 类似于",
+    "sentence": "I learned the word \"similarly\" today."
+  },
+  "taste": {
+    "meaning": "味道, 品味, 味觉, 感受, 体验, 爱好, 审美, 少量；尝, 察觉...的味道, 体会；品尝, 察觉味道, 有某种味道",
+    "sentence": "I learned the word \"taste\" today."
+  },
+  "fundamental": {
+    "meaning": "基本原理, 原则, 基波；基本的, 重要的, 原音的",
+    "sentence": "I learned the word \"fundamental\" today."
+  },
+  "virtually": {
+    "meaning": "事实上",
+    "sentence": "I learned the word \"virtually\" today."
+  },
+  "cast": {
+    "meaning": "演员阵容, 投掷, 铸件, 预测, 特性；投, 掷, 抛, 脱落, 铸, 使弯曲, 计算；投, 计算, 浇铸成型",
+    "sentence": "I learned the word \"cast\" today."
+  },
+  "sharp": {
+    "meaning": "半升音调, 利刃, 骗子；锋利的, 明显的, 敏锐的, 急剧的, 尖刻的, 严厉的, 刺耳的, 精明的；锐利地, 急速地",
+    "sentence": "I learned the word \"sharp\" today."
+  },
+  "perfectly": {
+    "meaning": "完全地, 无瑕疵地, 完整地",
+    "sentence": "I learned the word \"perfectly\" today."
+  },
+  "unusual": {
+    "meaning": "不寻常的, 罕见的, 与众不同的",
+    "sentence": "I learned the word \"unusual\" today."
+  },
+  "quote": {
+    "meaning": "引用；引述, 举证, 报(价)；引用",
+    "sentence": "I learned the word \"quote\" today."
+  },
+  "convince": {
+    "meaning": "说服, 使相信；使确信, 使信服, 使人认识错误",
+    "sentence": "I learned the word \"convince\" today."
+  },
+  "dominate": {
+    "meaning": "支配, 占优势",
+    "sentence": "I learned the word \"dominate\" today."
+  },
+  "exception": {
+    "meaning": "例外, 除外, 异议；例外?异常",
+    "sentence": "I learned the word \"exception\" today."
+  },
+  "addition": {
+    "meaning": "加法, 增加的人(或物)；加法",
+    "sentence": "I learned the word \"addition\" today."
+  },
+  "accommodation": {
+    "meaning": "膳宿, 预订铺位, 适应性调节, 调和, 贷款；调节(眼)?适应",
+    "sentence": "I learned the word \"accommodation\" today."
+  },
+  "licence": {
+    "meaning": "执照, 许可证, 特许；许可, 特许, 认可",
+    "sentence": "I learned the word \"licence\" today."
+  },
+  "abandon": {
+    "meaning": "放弃, 抛弃, 遗弃, 使屈从, 沉溺, 放纵；放任, 无拘束, 狂热",
+    "sentence": "I learned the word \"abandon\" today."
+  },
+  "construct": {
+    "meaning": "构造, 建造, 对...进行构思, 作图；构成物",
+    "sentence": "I learned the word \"construct\" today."
+  },
+  "guilty": {
+    "meaning": "犯罪的, 有过失的, 自觉有错的, 心虚的；有罪的, 犯罪的, 自觉有罪的",
+    "sentence": "I learned the word \"guilty\" today."
+  },
+  "compete": {
+    "meaning": "竞争, 对抗",
+    "sentence": "I learned the word \"compete\" today."
+  },
+  "inquiry": {
+    "meaning": "质询, 探索, 调查, 询盘；询问?查询",
+    "sentence": "I learned the word \"inquiry\" today."
+  },
+  "illegal": {
+    "meaning": "违法的, 不合规定的；非法的, 犯规的",
+    "sentence": "I learned the word \"illegal\" today."
+  },
+  "hi": {
+    "meaning": "喂",
+    "sentence": "I learned the word \"hi\" today."
+  },
+  "fault": {
+    "meaning": "过错, 故障, 毛病；挑剔；产生断层, 弄错；故障",
+    "sentence": "I learned the word \"fault\" today."
+  },
+  "personality": {
+    "meaning": "个性, 人格, (团体、地方、国家)特有特性, 名人；人格?个性",
+    "sentence": "I learned the word \"personality\" today."
+  },
+  "badly": {
+    "meaning": "严重地, 恶劣地, 极度地",
+    "sentence": "I learned the word \"badly\" today."
+  },
+  "phrase": {
+    "meaning": "惯用语, 词组, 成语, 措词, 乐句；用短语表达, 把(乐曲)分成短句；短语",
+    "sentence": "I learned the word \"phrase\" today."
+  },
+  "assistance": {
+    "meaning": "协助, 援助；援助, 帮助",
+    "sentence": "I learned the word \"assistance\" today."
+  },
+  "forever": {
+    "meaning": "永远",
+    "sentence": "I learned the word \"forever\" today."
+  },
+  "quantity": {
+    "meaning": "量, 数量, 总量；数量?量",
+    "sentence": "I learned the word \"quantity\" today."
+  },
+  "unknown": {
+    "meaning": "不知道的, 未知的, 陌生的；未知物, 未知数",
+    "sentence": "I learned the word \"unknown\" today."
+  },
+  "naturally": {
+    "meaning": "自然地；天生地",
+    "sentence": "She speaks naturally."
+  },
+  "proceed": {
+    "meaning": "继续进行, 进行, 开始, 发出, 起诉；所得, 收入, 收益",
+    "sentence": "I learned the word \"proceed\" today."
+  },
+  "wrap": {
+    "meaning": "外套, 围巾, 包裹物, 限制, 约束, 秘密, 换行；包装, 卷, 缠绕, 包, 裹, 覆盖, 遮蔽, 隐藏, 掩护；缠绕, 穿外衣, 包起来",
+    "sentence": "I learned the word \"wrap\" today."
+  },
+  "preparation": {
+    "meaning": "准备, 预备, 预习；制剂",
+    "sentence": "I learned the word \"preparation\" today."
+  },
+  "tension": {
+    "meaning": "紧张, 不安, 拉紧, 张力, 压力, 电压；拉紧, 使紧张",
+    "sentence": "I learned the word \"tension\" today."
+  },
+  "interpret": {
+    "meaning": "解释, 演出, 翻译, 理解；翻译, 解释",
+    "sentence": "I learned the word \"interpret\" today."
+  },
+  "spiritual": {
+    "meaning": "精神上的, 神圣的, 崇高的, 高尚的, 鬼的, 招魂术的；有关教会的事",
+    "sentence": "I learned the word \"spiritual\" today."
+  },
+  "musical": {
+    "meaning": "音乐片, 音乐舞台剧；音乐的, 声音美妙的, 喜爱音乐的",
+    "sentence": "I learned the word \"musical\" today."
+  },
+  "prayer": {
+    "meaning": "祈祷, 恳求, 祷辞, 祈祷者",
+    "sentence": "I learned the word \"prayer\" today."
+  },
+  "secondary": {
+    "meaning": "中级的, 中等的, 次要的, 第二的, 从属的, 辅助的；仲(指CH-3...CH(CH-3)-型支链烃基或指二元胺及R-2CHOH型的醇)",
+    "sentence": "I learned the word \"secondary\" today."
+  },
+  "metre": {
+    "meaning": "公尺, 格律, 韵律；米, 公尺",
+    "sentence": "I learned the word \"metre\" today."
+  },
+  "journalist": {
+    "meaning": "新闻记者, 从事新闻杂志业的人",
+    "sentence": "I learned the word \"journalist\" today."
+  },
+  "dismiss": {
+    "meaning": "解散, 开除, 解职；解散；解散",
+    "sentence": "I learned the word \"dismiss\" today."
+  },
+  "suspect": {
+    "meaning": "被怀疑者, 嫌疑犯；令人怀疑的, 不可信的, 可疑的；怀疑, 猜想",
+    "sentence": "I learned the word \"suspect\" today."
+  },
+  "climate": {
+    "meaning": "气候, 社会趋势, 气候区；气候",
+    "sentence": "I learned the word \"climate\" today."
+  },
+  "cheese": {
+    "meaning": "乳酪；干酪",
+    "sentence": "I learned the word \"cheese\" today."
+  },
+  "moreover": {
+    "meaning": "而且, 此外",
+    "sentence": "I learned the word \"moreover\" today."
+  },
+  "cigarette": {
+    "meaning": "香烟, 纸烟",
+    "sentence": "I learned the word \"cigarette\" today."
+  },
+  "bread": {
+    "meaning": "面包, 生计, 食物；裹以面包屑",
+    "sentence": "I learned the word \"bread\" today."
+  },
+  "emotion": {
+    "meaning": "情绪, 激动, 强烈的情感；情绪, 情感",
+    "sentence": "I learned the word \"emotion\" today."
+  },
+  "scream": {
+    "meaning": "尖叫声；尖叫, 大笑, 尖啸, 令人震惊；尖叫着说, 大叫大嚷着要求",
+    "sentence": "I learned the word \"scream\" today."
+  },
+  "dramatic": {
+    "meaning": "戏剧性的, 生动的",
+    "sentence": "I learned the word \"dramatic\" today."
+  },
+  "universe": {
+    "meaning": "宇宙, 星系, (思想等)范围",
+    "sentence": "I learned the word \"universe\" today."
+  },
+  "alter": {
+    "meaning": "改变",
+    "sentence": "I learned the word \"alter\" today."
+  },
+  "rarely": {
+    "meaning": "很少地, 罕有地",
+    "sentence": "I learned the word \"rarely\" today."
+  },
+  "extension": {
+    "meaning": "延长, 扩充, 范围, 扩展名；伸缩的；扩展名, 扩充名",
+    "sentence": "I learned the word \"extension\" today."
+  },
+  "prize": {
+    "meaning": "奖赏, 奖金, 奖品, 战利品, 捕获；得奖的；珍视, 估价, 捕获, 撬, 撬动",
+    "sentence": "I learned the word \"prize\" today."
+  },
+  "lucky": {
+    "meaning": "幸运的, 吉祥的, 好运的, 侥幸的",
+    "sentence": "I learned the word \"lucky\" today."
+  },
+  "drag": {
+    "meaning": "拖, 拖累；拖累, 拖拉, 沉重缓慢地走, 拖动；拖动",
+    "sentence": "I learned the word \"drag\" today."
+  },
+  "possess": {
+    "meaning": "持有, 占有, 拥有, 克制, 支配, 迷住；持有, 占有, 具有",
+    "sentence": "I learned the word \"possess\" today."
+  },
+  "tower": {
+    "meaning": "塔, 高楼, 堡垒；高耸, 翱翔",
+    "sentence": "I learned the word \"tower\" today."
+  },
+  "yours": {
+    "meaning": "你的(东西), 你们的(东西)",
+    "sentence": "I learned the word \"yours\" today."
+  },
+  "arrest": {
+    "meaning": "逮捕, 监禁；拘捕, 抑制, 吸引, 阻止",
+    "sentence": "I learned the word \"arrest\" today."
+  },
+  "primarily": {
+    "meaning": "主要地, 首先地",
+    "sentence": "I learned the word \"primarily\" today."
+  },
+  "coat": {
+    "meaning": "外套；外面覆盖, 给...穿外套",
+    "sentence": "I learned the word \"coat\" today."
+  },
+  "analyse": {
+    "meaning": "分析, 细察, 分解；分析",
+    "sentence": "I learned the word \"analyse\" today."
+  },
+  "schedule": {
+    "meaning": "时间表, 一览表, 计划表, 议事日程；预定, 编制目录, 制...表, 安排",
+    "sentence": "I learned the word \"schedule\" today."
+  },
+  "sad": {
+    "meaning": "忧愁的, 悲哀的",
+    "sentence": "I learned the word \"sad\" today."
+  },
+  "pollution": {
+    "meaning": "污染, 玷污；污染",
+    "sentence": "I learned the word \"pollution\" today."
+  },
+  "purchase": {
+    "meaning": "购买, 购买品, 紧握, 绞辘；购买, 赢得, 努力取得, 用滑轮起(锚等)",
+    "sentence": "I learned the word \"purchase\" today."
+  },
+  "steel": {
+    "meaning": "钢, 钢制品, 钢铁, 坚硬, 坚固；钢的, 钢制的, 钢铁业的, 坚强的；使坚强, 钢化, 使冷酷",
+    "sentence": "I learned the word \"steel\" today."
+  },
+  "regarding": {
+    "meaning": "关于",
+    "sentence": "I learned the word \"regarding\" today."
+  },
+  "inch": {
+    "meaning": "英寸, 身高, 小岛；慢慢前进, 慢慢移动；使缓慢地移动",
+    "sentence": "I learned the word \"inch\" today."
+  },
+  "violent": {
+    "meaning": "暴力的, 猛烈的, 激烈的, 极端的, 凶暴的",
+    "sentence": "I learned the word \"violent\" today."
+  },
+  "chip": {
+    "meaning": "屑片, 薄片, 碎片；削, 切, 削成碎片, 使摔倒, 凿；削下屑片；孔屑?组件?晶片?芯片",
+    "sentence": "I learned the word \"chip\" today."
+  },
+  "depth": {
+    "meaning": "深度, 深处, 深奥；深度",
+    "sentence": "I learned the word \"depth\" today."
+  },
+  "silent": {
+    "meaning": "沉默的, 安静的, 无声的, 静止的；静止的, 无症状的",
+    "sentence": "I learned the word \"silent\" today."
+  },
+  "self": {
+    "meaning": "自己, 自我, 本性, 本质, 私心, 本人；使近亲繁殖, 使自花授精；自花授精；同一的",
+    "sentence": "I learned the word \"self\" today."
+  },
+  "assist": {
+    "meaning": "帮助, 协助；帮助, 促进；协助, 参加",
+    "sentence": "I learned the word \"assist\" today."
+  },
+  "port": {
+    "meaning": "港口, 埠, 舱门, 避风港, 左舷, 炮眼, 姿势, 意义；左转舵, 持(枪)；左转舵；端口, 移植",
+    "sentence": "I learned the word \"port\" today."
+  },
+  "command": {
+    "meaning": "命令；指令；掌握",
+    "sentence": "This command opens the app."
+  },
+  "dear": {
+    "meaning": "亲爱的人；亲爱的, 昂贵的, 严重的, 急迫的；啊；深爱地, 高价地",
+    "sentence": "I learned the word \"dear\" today."
+  },
+  "layer": {
+    "meaning": "层, 产卵鸡, 放置者；分层堆积, 压植；层",
+    "sentence": "I learned the word \"layer\" today."
+  },
+  "calculate": {
+    "meaning": "计算, 预测, 计划, 打算",
+    "sentence": "I learned the word \"calculate\" today."
+  },
+  "delivery": {
+    "meaning": "递送, 交付, 分娩, 交货, 引渡；交货额",
+    "sentence": "I learned the word \"delivery\" today."
+  },
+  "string": {
+    "meaning": "线, 细绳, 一串, 字符串；串起, 成串, 收紧, 缚, 扎；成一串；字符串, 串",
+    "sentence": "I learned the word \"string\" today."
+  },
+  "slide": {
+    "meaning": "滑, 滑道, 山崩, 雪崩, 幻灯片；使滑动, 偷偷放入；滑动, 滑落, 不知不觉陷入, 偷偷地走",
+    "sentence": "I learned the word \"slide\" today."
+  },
+  "resolve": {
+    "meaning": "决定, 分解, 决心；使分解, 解析, 解决, 消除, 决心；决定之事, 决心, 坚决",
+    "sentence": "I learned the word \"resolve\" today."
+  },
+  "boot": {
+    "meaning": "长靴, 踢, 解雇, 效用；使穿靴, 踢, 解雇, 有用；引导, 自举",
+    "sentence": "I learned the word \"boot\" today."
+  },
+  "wedding": {
+    "meaning": "婚礼, 结婚, 结婚周年纪念日, 结合；结婚, 婚礼, 结婚纪念日",
+    "sentence": "I learned the word \"wedding\" today."
+  },
+  "poem": {
+    "meaning": "诗, 诗般美的事物",
+    "sentence": "I learned the word \"poem\" today."
+  },
+  "opponent": {
+    "meaning": "对手, 敌手, 反对者；敌对的, 反对的, 对面的",
+    "sentence": "I learned the word \"opponent\" today."
+  },
+  "extensive": {
+    "meaning": "广的, 广泛的, 多方面的；广大的, 扩大的",
+    "sentence": "I learned the word \"extensive\" today."
+  },
+  "glad": {
+    "meaning": "高兴的, 喜欢的, 情愿的",
+    "sentence": "I learned the word \"glad\" today."
+  },
+  "transform": {
+    "meaning": "使转换, 改变, 改造, 使...变形；改变, 转化, 变换；变换",
+    "sentence": "I learned the word \"transform\" today."
+  },
+  "net": {
+    "meaning": "网, 网状物, 罗网, 净利, 净价；净的, 最终的；用网捕, 撒网, 净赚, 得到；编网；网络, 网络分析程序",
+    "sentence": "I learned the word \"net\" today."
+  },
+  "alcohol": {
+    "meaning": "酒精, 酒；醇?乙醇?酒精",
+    "sentence": "I learned the word \"alcohol\" today."
+  },
+  "bend": {
+    "meaning": "变弯曲, 屈服；使弯曲, 使屈服；弯曲",
+    "sentence": "I learned the word \"bend\" today."
+  },
+  "unlike": {
+    "meaning": "不像的, 不同的；不像, 和...不同",
+    "sentence": "I learned the word \"unlike\" today."
+  },
+  "desert": {
+    "meaning": "沙漠, 应得的赏罚, 功劳；沙漠的, 不毛的；放弃, 遗弃, 擅离；逃掉",
+    "sentence": "I learned the word \"desert\" today."
+  },
+  "efficient": {
+    "meaning": "有效率的, 能干的",
+    "sentence": "I learned the word \"efficient\" today."
+  },
+  "cycle": {
+    "meaning": "周期, 循环, 自行车, 一段时间, 整套；循环, 轮转, 骑自行车；使循环, 使轮转；环路?周期?循环",
+    "sentence": "I learned the word \"cycle\" today."
+  },
+  "reckon": {
+    "meaning": "计算, 总计, 估计, 认为, 猜想；数, 计算, 估计, 依赖, 料想",
+    "sentence": "I learned the word \"reckon\" today."
+  },
+  "sand": {
+    "meaning": "沙, 沙子, 沙滩, 光阴, 生涯；撒沙, 以沙掩盖",
+    "sentence": "I learned the word \"sand\" today."
+  },
+  "print": {
+    "meaning": "打印；印刷",
+    "sentence": "Can you print this document?"
+  },
+  "restrict": {
+    "meaning": "限制, 限定, 约束；限制",
+    "sentence": "I learned the word \"restrict\" today."
+  },
+  "preserve": {
+    "meaning": "保护, 保持, 保存, 维持, 腌, 禁猎；加工食品, 禁猎；加工成的食品, 禁猎地, 保护区, 防护物",
+    "sentence": "I learned the word \"preserve\" today."
+  },
+  "profession": {
+    "meaning": "职业, 表白, 声明；工种?职业",
+    "sentence": "I learned the word \"profession\" today."
+  },
+  "load": {
+    "meaning": "负荷, 担子, 重担, 装载量, 负载, 工作量, 加载；装载, 装填, 使担负；装货, 上客, 装料；加载, 装入程序",
+    "sentence": "I learned the word \"load\" today."
+  },
+  "restore": {
+    "meaning": "恢复；修复",
+    "sentence": "I need to restore my backup."
+  },
+  "lock": {
+    "meaning": "锁, 刹车, 水闸, 一缕头发；锁, 锁上, 拘禁, 隐藏, (用锁等)拴住, 刹住；锁住, (齿轮等)啮合, (船)过闸",
+    "sentence": "I learned the word \"lock\" today."
+  },
+  "opposite": {
+    "meaning": "相对的, 相反的, 对面的；对面；对立面",
+    "sentence": "I learned the word \"opposite\" today."
+  },
+  "approval": {
+    "meaning": "赞成, 批准；核准",
+    "sentence": "I learned the word \"approval\" today."
+  },
+  "cottage": {
+    "meaning": "小屋, 茅舍",
+    "sentence": "I learned the word \"cottage\" today."
+  },
+  "deserve": {
+    "meaning": "该得到, 值得；应得报答",
+    "sentence": "I learned the word \"deserve\" today."
+  },
+  "resistance": {
+    "meaning": "抵抗力, 反抗, 耐力, 阻力, 电阻；抵抗?抗性?阻力?抗药性?电阻",
+    "sentence": "I learned the word \"resistance\" today."
+  },
+  "boss": {
+    "meaning": "老板, 上司, 岩瘤, 浮雕, 母牛；指挥, 控制, 浮雕",
+    "sentence": "I learned the word \"boss\" today."
+  },
+  "discovery": {
+    "meaning": "发现, 被发现的事物；要求告知, 发现, 发觉",
+    "sentence": "I learned the word \"discovery\" today."
+  },
+  "protest": {
+    "meaning": "抗议, 反对, 抗议书, 断言；反对, 抗议, 断言",
+    "sentence": "I learned the word \"protest\" today."
+  },
+  "pose": {
+    "meaning": "姿势, 姿态, 装模作样, 伪装；摆姿势, 装模作样, 假装；使摆好姿势, 提出, 造成",
+    "sentence": "I learned the word \"pose\" today."
+  },
+  "export": {
+    "meaning": "输出品, 输出；输出, 出口；输出物资；导出",
+    "sentence": "I learned the word \"export\" today."
+  },
+  "stream": {
+    "meaning": "水流, 小河, 流出, 趋势, 人潮；流出, 流动, 展开；流, 涌, 飘扬；流",
+    "sentence": "I learned the word \"stream\" today."
+  },
+  "pot": {
+    "meaning": "盆, 罐, 壶, 坩埚, 奖杯；装入盆中, 在锅中煮, 随手射击；随手射击",
+    "sentence": "I learned the word \"pot\" today."
+  },
+  "reputation": {
+    "meaning": "名誉, 名声, 声望；名声, 名誉, 公认证据",
+    "sentence": "I learned the word \"reputation\" today."
+  },
+  "valuable": {
+    "meaning": "有价值的, 贵重的, 宝贵的, 可估价的；有价值的, 可估价的, 贵重的",
+    "sentence": "I learned the word \"valuable\" today."
+  },
+  "slight": {
+    "meaning": "轻蔑, 怠慢；轻微的, 纤细的, 脆弱的, 苗条的；轻视, 忽略, 怠慢",
+    "sentence": "I learned the word \"slight\" today."
+  },
+  "hello": {
+    "meaning": "喂, 嘿",
+    "sentence": "I learned the word \"hello\" today."
+  },
+  "habit": {
+    "meaning": "习惯, 嗜好, 习性；使穿衣",
+    "sentence": "I learned the word \"habit\" today."
+  },
+  "knife": {
+    "meaning": "小刀, 匕首；切割, 伤害, 切, 戳；劈开, 穿过",
+    "sentence": "I learned the word \"knife\" today."
+  },
+  "friendly": {
+    "meaning": "友好的, 亲切的, 互助的；友善地, 温和地",
+    "sentence": "I learned the word \"friendly\" today."
+  },
+  "abroad": {
+    "meaning": "往国外, 到室外, 到处；往国外的, 在室外的, 广泛四散的",
+    "sentence": "I learned the word \"abroad\" today."
+  },
+  "silver": {
+    "meaning": "银, 银币, 银器；银的, 银制的, 银器的；镀银；变银白色",
+    "sentence": "I learned the word \"silver\" today."
+  },
+  "convert": {
+    "meaning": "皈依者, 改变宗教信仰者；使改变信仰, 转换, 兑换, 倒置；皈依；转换",
+    "sentence": "I learned the word \"convert\" today."
+  },
+  "joke": {
+    "meaning": "笑话, 玩笑, 笑柄；开玩笑, 取笑, 作弄",
+    "sentence": "I learned the word \"joke\" today."
+  },
+  "countryside": {
+    "meaning": "乡下地方, 乡下居民",
+    "sentence": "I learned the word \"countryside\" today."
+  },
+  "sudden": {
+    "meaning": "突然, 忽然；突然的, 意外的, 快速的",
+    "sentence": "I learned the word \"sudden\" today."
+  },
+  "empire": {
+    "meaning": "帝国, 帝权",
+    "sentence": "I learned the word \"empire\" today."
+  },
+  "autumn": {
+    "meaning": "秋天, 成熟期",
+    "sentence": "I learned the word \"autumn\" today."
+  },
+  "philosophy": {
+    "meaning": "哲学, 人生观, 哲学思想, 哲理, 基本原理, 见解, 达观, 沉着",
+    "sentence": "I learned the word \"philosophy\" today."
+  },
+  "potato": {
+    "meaning": "马铃薯",
+    "sentence": "I learned the word \"potato\" today."
+  },
+  "conventional": {
+    "meaning": "传统的, 习惯的, 约定的；惯例的, 常规的, 传统的",
+    "sentence": "I learned the word \"conventional\" today."
+  },
+  "relative": {
+    "meaning": "亲戚, 关系词；有关系的, 相对的, 比较的",
+    "sentence": "I learned the word \"relative\" today."
+  },
+  "thursday": {
+    "meaning": "星期四",
+    "sentence": "I learned the word \"thursday\" today."
+  },
+  "urge": {
+    "meaning": "冲动, 推动力, 迫切的要求；驱策, 力劝, 竭力主张, 推动；强烈要求",
+    "sentence": "I learned the word \"urge\" today."
+  },
+  "dust": {
+    "meaning": "灰尘, 尘埃, 粉末, 花粉, 土, 骚乱；拂去灰尘, 撒, 弄成粉末；拂去灰尘, 化为粉末",
+    "sentence": "I learned the word \"dust\" today."
+  },
+  "breathe": {
+    "meaning": "呼吸, 生存, 低语；呼吸, 使喘息, 发散, 低声说",
+    "sentence": "I learned the word \"breathe\" today."
+  },
+  "distinguish": {
+    "meaning": "区别, 辨别",
+    "sentence": "I learned the word \"distinguish\" today."
+  },
+  "jacket": {
+    "meaning": "夹克, 外套, 护套；给...穿夹克, 给...装护套",
+    "sentence": "I learned the word \"jacket\" today."
+  },
+  "creature": {
+    "meaning": "人, 动物, 创造物, 生物",
+    "sentence": "I learned the word \"creature\" today."
+  },
+  "pack": {
+    "meaning": "包裹, 一伙, 一副, 背包, 包装；包装, 捆扎, 塞满, 压紧, 挑选；包装货物, 挤, 群集, 被包装；压缩",
+    "sentence": "I learned the word \"pack\" today."
+  },
+  "substance": {
+    "meaning": "物质, 实质, 主旨, 资产, 本质, 牢固；物质",
+    "sentence": "I learned the word \"substance\" today."
+  },
+  "shortly": {
+    "meaning": "不久, 简短, 唐突地",
+    "sentence": "I learned the word \"shortly\" today."
+  },
+  "keen": {
+    "meaning": "锋利的, 敏锐的, 强烈的, 敏捷的, 热心的, 渴望的；挽歌, 痛哭；唱挽歌, 痛哭",
+    "sentence": "I learned the word \"keen\" today."
+  },
+  "arrival": {
+    "meaning": "到达, 抵达, 到达者；到达, 到达物",
+    "sentence": "I learned the word \"arrival\" today."
+  },
+  "worried": {
+    "meaning": "担心的, 闷闷不乐的",
+    "sentence": "I learned the word \"worried\" today."
+  },
+  "sauce": {
+    "meaning": "酱油, 调味汁, 酱；给...调味, 使增加趣味",
+    "sentence": "I learned the word \"sauce\" today."
+  },
+  "illness": {
+    "meaning": "疾病, 恶意；病",
+    "sentence": "I learned the word \"illness\" today."
+  },
+  "priest": {
+    "meaning": "祭司, 牧师, 神父, 神质人员, 僧侣, 泰斗",
+    "sentence": "I learned the word \"priest\" today."
+  },
+  "amazing": {
+    "meaning": "令人惊异的",
+    "sentence": "I learned the word \"amazing\" today."
+  },
+  "electricity": {
+    "meaning": "电, 电流, 电学, 热情, 电力供应；电学?电",
+    "sentence": "I learned the word \"electricity\" today."
+  },
+  "adjust": {
+    "meaning": "调整, 使适应于, 校准；适应于, 被调节, 相互熟悉而适应",
+    "sentence": "I learned the word \"adjust\" today."
+  },
+  "uncle": {
+    "meaning": "叔父, 伯父, 姨丈",
+    "sentence": "I learned the word \"uncle\" today."
+  },
+  "retire": {
+    "meaning": "隐居；引退, 退役, 退休, 退去, 撤退, 退却；使...撤退, 辞退",
+    "sentence": "I learned the word \"retire\" today."
+  },
+  "kiss": {
+    "meaning": "吻；吻；接吻",
+    "sentence": "I learned the word \"kiss\" today."
+  },
+  "temporary": {
+    "meaning": "暂时的, 临时的；临时工, 临时雇员；临时",
+    "sentence": "I learned the word \"temporary\" today."
+  },
+  "visible": {
+    "meaning": "看得见的, 明显的, 显然的；可见物",
+    "sentence": "I learned the word \"visible\" today."
+  },
+  "cap": {
+    "meaning": "盖子, 帽子；戴帽子, 覆盖, 胜过；脱帽致意；调用程序分析, 容量, 代码分析程序, 计算机辅助生产, 计算机辅助印刷",
+    "sentence": "I learned the word \"cap\" today."
+  },
+  "competitive": {
+    "meaning": "竞争的；竞争的",
+    "sentence": "I learned the word \"competitive\" today."
+  },
+  "drama": {
+    "meaning": "戏剧, 戏剧艺术",
+    "sentence": "I learned the word \"drama\" today."
+  },
+  "cake": {
+    "meaning": "蛋糕, 块, 饼；使结块, 加块状物于；结块",
+    "sentence": "I learned the word \"cake\" today."
+  },
+  "juice": {
+    "meaning": "汁, 活力, 体液；挤出汁来, 加汁",
+    "sentence": "I learned the word \"juice\" today."
+  },
+  "wealth": {
+    "meaning": "财富, 资源, 财产, 丰富, 富裕, 大量；财富",
+    "sentence": "I learned the word \"wealth\" today."
+  },
+  "peak": {
+    "meaning": "山峰, 巅, 山顶, 顶点, 尖峰, 帽舌；最高的, 最大值的；到达最高点, 消瘦, 变憔悴, 逐渐缩小；使竖起, 使达到最高点",
+    "sentence": "I learned the word \"peak\" today."
+  },
+  "presentation": {
+    "meaning": "赠与, 描述, 介绍；简报",
+    "sentence": "I learned the word \"presentation\" today."
+  },
+  "whenever": {
+    "meaning": "每当；不论何时, 每逢",
+    "sentence": "I learned the word \"whenever\" today."
+  },
+  "pale": {
+    "meaning": "栅栏, 界线, 范围；苍白的, 暗淡的, 无力的；变苍白, 变暗, 失色；使变苍白, 使失色, 用栅栏围",
+    "sentence": "I learned the word \"pale\" today."
+  },
+  "laboratory": {
+    "meaning": "实验室, 研究室, 化工厂；实验室, 检验室, 化验室",
+    "sentence": "I learned the word \"laboratory\" today."
+  },
+  "disaster": {
+    "meaning": "灾祸, 不幸, 彻底失败",
+    "sentence": "I learned the word \"disaster\" today."
+  },
+  "owe": {
+    "meaning": "亏欠, 负...债, 归功于, 怀有, 应给予, 感恩；欠钱",
+    "sentence": "I learned the word \"owe\" today."
+  },
+  "mood": {
+    "meaning": "心情, 气氛, 生气, 基调；心境",
+    "sentence": "I learned the word \"mood\" today."
+  },
+  "bay": {
+    "meaning": "海湾, 狗吠声, 月桂；吠, 使走投无路；吠",
+    "sentence": "I learned the word \"bay\" today."
+  },
+  "mystery": {
+    "meaning": "秘密, 神秘, 奥秘",
+    "sentence": "I learned the word \"mystery\" today."
+  },
+  "possession": {
+    "meaning": "拥有, 占有, 所有, 财产, 领土, 领地, 自制, 着迷；占有, 持有",
+    "sentence": "I learned the word \"possession\" today."
+  },
+  "dollar": {
+    "meaning": "美元, 元(加、澳等国货币单位)；纯经济的, 美元, 元",
+    "sentence": "I learned the word \"dollar\" today."
+  },
+  "symbol": {
+    "meaning": "符号, 象征, 代号, 信条；符号?码元",
+    "sentence": "I learned the word \"symbol\" today."
+  },
+  "certificate": {
+    "meaning": "证书, 证明书；发给证明书, 用证书批准, 用证书证明",
+    "sentence": "I learned the word \"certificate\" today."
+  },
+  "wet": {
+    "meaning": "湿气, 潮湿, 水分, 雨天；湿的, 潮的, 搞错的, 下雨的, 反对禁酒的；变湿；使...湿",
+    "sentence": "I learned the word \"wet\" today."
+  },
+  "custom": {
+    "meaning": "习惯, 风俗, 海关, 自定义；定制的；定制?自定义",
+    "sentence": "I learned the word \"custom\" today."
+  },
+  "angle": {
+    "meaning": "角, 角度, 角落；钓鱼, 谋取, 博取, 斜向移动, 转变角度；使转动角度, 在...钓鱼, 获取",
+    "sentence": "I learned the word \"angle\" today."
+  },
+  "tuesday": {
+    "meaning": "星期二",
+    "sentence": "I learned the word \"tuesday\" today."
+  },
+  "monitor": {
+    "meaning": "监督器, 级长, 监听员, 班长, 监视器, 告诫物；监视, 监听, 监督；监视器, 监视程序?监视",
+    "sentence": "I learned the word \"monitor\" today."
+  },
+  "entertainment": {
+    "meaning": "娱乐, 款待, 娱乐表演",
+    "sentence": "I learned the word \"entertainment\" today."
+  },
+  "bid": {
+    "meaning": "出价；命令, 吩咐, 请求, 表示, 宣布, 投标",
+    "sentence": "I learned the word \"bid\" today."
+  },
+  "anger": {
+    "meaning": "忿怒；激怒, 使发怒；发怒",
+    "sentence": "I learned the word \"anger\" today."
+  },
+  "wire": {
+    "meaning": "电线, 电报, 电信, 铁丝网, 金属丝；用金属丝捆扎, 拍电报；打电报",
+    "sentence": "I learned the word \"wire\" today."
+  },
+  "false": {
+    "meaning": "错误的, 虚伪的, 假的, 不老实的；不准确地, 欺诈地",
+    "sentence": "I learned the word \"false\" today."
+  },
+  "sensitive": {
+    "meaning": "敏感的, 易感的, 灵敏的, 感光的；敏感的, 灵敏的, 感度高的",
+    "sentence": "I learned the word \"sensitive\" today."
+  },
+  "holy": {
+    "meaning": "神圣的, 圣洁的, 至善的；神圣的东西",
+    "sentence": "I learned the word \"holy\" today."
+  },
+  "twin": {
+    "meaning": "双胞胎中一人, 一对非常相像的人(或物)中的一个；双胞胎的, 成对的, 孪生的；生双胞胎, 成对；怀(双胞胎), 使成对",
+    "sentence": "I learned the word \"twin\" today."
+  },
+  "tendency": {
+    "meaning": "趋向, 倾向；趋向, 趋势",
+    "sentence": "I learned the word \"tendency\" today."
+  },
+  "chamber": {
+    "meaning": "室, 房间, 枪膛；装(弹药), 把...关在室内；室内的",
+    "sentence": "I learned the word \"chamber\" today."
+  },
+  "honour": {
+    "meaning": "荣誉, 头衔, 信用, 尊敬, 名誉, 阁下, 勋章；尊敬, 授予荣誉, 承兑, 实践",
+    "sentence": "I learned the word \"honour\" today."
+  },
+  "luck": {
+    "meaning": "运气, 幸运, 好运, 侥幸；靠好运成功",
+    "sentence": "I learned the word \"luck\" today."
+  },
+  "deposit": {
+    "meaning": "存款, 定金, 堆积物；存放, 堆积；沉淀",
+    "sentence": "I learned the word \"deposit\" today."
+  },
+  "rent": {
+    "meaning": "租金, 房租, 出租物, 裂缝, 破裂处, 分裂；租用, 租出；出租；分裂的, 破裂的；rend的过去式和过去分词",
+    "sentence": "I learned the word \"rent\" today."
+  },
+  "pure": {
+    "meaning": "纯的, 纯净的, 纯洁的, 清白的, 完美的, 无瑕的, 抽象的；的, 纯净的",
+    "sentence": "I learned the word \"pure\" today."
+  },
+  "acceptable": {
+    "meaning": "可接受的, 合意的, 可忍受的",
+    "sentence": "I learned the word \"acceptable\" today."
+  },
+  "smell": {
+    "meaning": "味道, 气味, 嗅觉, 嗅, 臭味, 气息；闻, 探出, 察觉, 发出...的气味；嗅, 散发气味, 发臭",
+    "sentence": "I learned the word \"smell\" today."
+  },
+  "nervous": {
+    "meaning": "神经紧张的, 不安的, 神经的；神经的?神经质的, 神经过敏的",
+    "sentence": "I learned the word \"nervous\" today."
+  },
+  "tourist": {
+    "meaning": "观光客, 旅行者；旅游的",
+    "sentence": "I learned the word \"tourist\" today."
+  },
+  "festival": {
+    "meaning": "节日的, 喜庆的, 快乐的；节日, 庆祝, 欢宴",
+    "sentence": "I learned the word \"festival\" today."
+  },
+  "qualification": {
+    "meaning": "资格, 条件, 限制；限定",
+    "sentence": "I learned the word \"qualification\" today."
+  },
+  "bury": {
+    "meaning": "埋葬, 埋藏",
+    "sentence": "I learned the word \"bury\" today."
+  },
+  "adequate": {
+    "meaning": "适当的, 足够的；胜任的, 适当的, 充分的",
+    "sentence": "I learned the word \"adequate\" today."
+  },
+  "tomato": {
+    "meaning": "番茄, 西红柿",
+    "sentence": "I learned the word \"tomato\" today."
+  },
+  "rapid": {
+    "meaning": "迅速的, 飞快的, 急促的, 陡的；急流",
+    "sentence": "I learned the word \"rapid\" today."
+  },
+  "butter": {
+    "meaning": "奶油, 黄油；涂黄油于",
+    "sentence": "I learned the word \"butter\" today."
+  },
+  "bathroom": {
+    "meaning": "浴室, 厕所",
+    "sentence": "I learned the word \"bathroom\" today."
+  },
+  "electronic": {
+    "meaning": "电子的；电子工业协会接口",
+    "sentence": "I learned the word \"electronic\" today."
+  },
+  "ally": {
+    "meaning": "同盟者, 同盟国, 助手；使联盟, 使联合, 使有关系；结盟",
+    "sentence": "I learned the word \"ally\" today."
+  },
+  "mixture": {
+    "meaning": "混合, 混淆, 混合物；混合物",
+    "sentence": "I learned the word \"mixture\" today."
+  },
+  "smoke": {
+    "meaning": "烟, 雾气, 烟熏剂, 抽烟, 烟色；吸烟, 冒烟, 弥漫；以烟熏, 抽烟而导致...",
+    "sentence": "I learned the word \"smoke\" today."
+  },
+  "resist": {
+    "meaning": "抵抗, 耐得住, 抵制, 反抗；防染材料",
+    "sentence": "I learned the word \"resist\" today."
+  },
+  "confront": {
+    "meaning": "使面对, 对抗, 遭遇, 使对质, 比较；对证, 使对质, 比较",
+    "sentence": "I learned the word \"confront\" today."
+  },
+  "toy": {
+    "meaning": "玩具, 小玩艺儿, 小型的东西, 消遣；供玩耍的, 作为玩具的；玩弄, 戏弄, 调情",
+    "sentence": "I learned the word \"toy\" today."
+  },
+  "absolute": {
+    "meaning": "绝对的, 专制的, 完全的, 独立的；绝对事物",
+    "sentence": "I learned the word \"absolute\" today."
+  },
+  "fellow": {
+    "meaning": "男人, 朋友, 同事；同伴的, 同事的, 同道的",
+    "sentence": "I learned the word \"fellow\" today."
+  },
+  "routine": {
+    "meaning": "常规, 日常工作, 惯例, 例行公事；日常的, 常规的；例程",
+    "sentence": "I learned the word \"routine\" today."
+  },
+  "rough": {
+    "meaning": "粗糙的东西, 毛坯, 未加工品, 梗概, 草图, 暴徒, 艰难；粗糙的, 粗暴的, 蓬乱的, 草率的, 大致的, 简陋的, 暴风雨的, 艰难的",
+    "sentence": "I learned the word \"rough\" today."
+  },
+  "smooth": {
+    "meaning": "平滑的, 平稳的, 流畅的, 和蔼的, 安祥的, 圆滑的, 调匀的, 无毛的；使光滑, 烫平, 使平和, 消除；变平滑, 变平静；一块平地, 平",
+    "sentence": "I learned the word \"smooth\" today."
+  },
+  "nearby": {
+    "meaning": "附近的, 近旁的；在附近, 近旁地；在...附近",
+    "sentence": "I learned the word \"nearby\" today."
+  },
+  "remarkable": {
+    "meaning": "不平常的, 值得注意的, 显著的",
+    "sentence": "I learned the word \"remarkable\" today."
+  },
+  "maximum": {
+    "meaning": "极点, 最大量, 极大；最高的, 最大的, 最大极限的；最大值",
+    "sentence": "I learned the word \"maximum\" today."
+  },
+  "furniture": {
+    "meaning": "家具, 帆具",
+    "sentence": "I learned the word \"furniture\" today."
+  },
+  "brilliant": {
+    "meaning": "光辉的, 灿烂的, 有才气的；亮的",
+    "sentence": "I learned the word \"brilliant\" today."
+  },
+  "belt": {
+    "meaning": "带子, 地带；带, 腰带, 束带, 地带, 区",
+    "sentence": "I learned the word \"belt\" today."
+  },
+  "register": {
+    "meaning": "寄存器, 记录, 登记簿, 注册；记录, 注册, 提示, 表达, 把...挂号；登记, 注册, 挂号；寄存器",
+    "sentence": "I learned the word \"register\" today."
+  },
+  "birthday": {
+    "meaning": "生日",
+    "sentence": "I learned the word \"birthday\" today."
+  },
+  "pipe": {
+    "meaning": "管, 导管, 输送管, 管状器官, 声带, 尖细的声音, 烟斗, 笛, 管乐器；以管输送, 吹哨子, 吹奏, 尖声唱；吹笛, 尖叫, 吹长哨发令",
+    "sentence": "I learned the word \"pipe\" today."
+  },
+  "mere": {
+    "meaning": "小湖, 池塘；仅仅的, 只不过的",
+    "sentence": "I learned the word \"mere\" today."
+  },
+  "instance": {
+    "meaning": "建议, 情况, 例子, 场合；引以为例, 举例说明",
+    "sentence": "I learned the word \"instance\" today."
+  },
+  "flag": {
+    "meaning": "标志, 旗标, 旗子, 信号旗, 菖蒲；悬旗, 打旗号, 铺石板；无力地下垂；标志?属性标记命令",
+    "sentence": "I learned the word \"flag\" today."
+  },
+  "apple": {
+    "meaning": "苹果, 家伙；苹果",
+    "sentence": "I learned the word \"apple\" today."
+  },
+  "whisper": {
+    "meaning": "耳语, 密谈, 谣传, 沙沙声；耳语, 密谈, 沙沙地响；低声说",
+    "sentence": "I learned the word \"whisper\" today."
+  },
+  "throat": {
+    "meaning": "咽喉, 喉咙, 嗓音；用喉音说, 开沟于",
+    "sentence": "I learned the word \"throat\" today."
+  },
+  "moon": {
+    "meaning": "月亮, 月球, 月光；闲荡；虚度",
+    "sentence": "I learned the word \"moon\" today."
+  },
+  "junior": {
+    "meaning": "年少者, 地位较低者, 大学三年级学生；年少的, 下级的, 后进的",
+    "sentence": "I learned the word \"junior\" today."
+  },
+  "wooden": {
+    "meaning": "木制的, 呆笨的, 木然的",
+    "sentence": "I learned the word \"wooden\" today."
+  },
+  "swing": {
+    "meaning": "摇摆, 振幅, 音律, 节奏, 涨落, 秋千, 旋转, 行动自由；摇摆, 悬挂, 旋转, 大摇大摆地走, 转向；挥舞, 使旋转, 使转向, 悬挂",
+    "sentence": "I learned the word \"swing\" today."
+  },
+  "salary": {
+    "meaning": "薪水；给...加薪",
+    "sentence": "I learned the word \"salary\" today."
+  },
+  "cheek": {
+    "meaning": "颊, 厚颜, 脸蛋；颊",
+    "sentence": "I learned the word \"cheek\" today."
+  },
+  "dig": {
+    "meaning": "挖, 翻土, 发掘；挖掘；挖掘；数字, 数位",
+    "sentence": "I learned the word \"dig\" today."
+  },
+  "crop": {
+    "meaning": "农作物, 产量, 平头；收割, 修剪, 种植；收获；裁剪",
+    "sentence": "I learned the word \"crop\" today."
+  },
+  "pace": {
+    "meaning": "速度, 步调, 步法；踱步, 缓慢走；用步测, 踱步于",
+    "sentence": "I learned the word \"pace\" today."
+  },
+  "overcome": {
+    "meaning": "战胜, 克服, 胜过；得胜",
+    "sentence": "I learned the word \"overcome\" today."
+  },
+  "behave": {
+    "meaning": "举止端正, 行为规矩；检点(自己的)行为, 使表现好",
+    "sentence": "I learned the word \"behave\" today."
+  },
+  "rank": {
+    "meaning": "等级, 排, 横列, 队伍, 阶级；茂密丛生的, 恶臭的, 十足的, 粗俗的；排列, 归类于, 把...分等；列为, 列队；秩；秩",
+    "sentence": "I learned the word \"rank\" today."
+  },
+  "entrance": {
+    "meaning": "入口, 进入点, 入场, 入学, 进入, 开始(阶段), 就任；使出神, 使入迷；入口",
+    "sentence": "I learned the word \"entrance\" today."
+  },
+  "anxiety": {
+    "meaning": "焦虑, 忧虑, 令人焦虑的事；焦虑",
+    "sentence": "I learned the word \"anxiety\" today."
+  },
+  "permission": {
+    "meaning": "许可, 允许；许可, 认可",
+    "sentence": "I learned the word \"permission\" today."
+  },
+  "electric": {
+    "meaning": "电的, 导电的, 电动的；电的",
+    "sentence": "I learned the word \"electric\" today."
+  },
+  "reserve": {
+    "meaning": "储备品, 贮量, 后备军, 自然保护区, 保留, 拘谨, 节制, 储备金；保留, 保存, 预订, 延期, 推迟",
+    "sentence": "I learned the word \"reserve\" today."
+  },
+  "pan": {
+    "meaning": "平锅, 浅盘, 盆地, 硬土层, 拍摄全景；上下左右移动, 摇镜头, 淘洗, 淘金",
+    "sentence": "I learned the word \"pan\" today."
+  },
+  "carpet": {
+    "meaning": "地毯, 地毯状物；铺以地毯, 铺盖",
+    "sentence": "I learned the word \"carpet\" today."
+  },
+  "mail": {
+    "meaning": "邮件, 邮政, 邮递, 盔甲；邮寄, 给...穿盔甲；邮件",
+    "sentence": "I learned the word \"mail\" today."
+  },
+  "mayor": {
+    "meaning": "市长；市长",
+    "sentence": "I learned the word \"mayor\" today."
+  },
+  "pink": {
+    "meaning": "粉红色, 石竹花, 化身, 典范, 头面人物, 极度；粉红的, 石竹科的, 比较激进的, 脸色发红的, 精致的, 有点下流的；刺, 扎, 刺痛,",
+    "sentence": "I learned the word \"pink\" today."
+  },
+  "platform": {
+    "meaning": "站台, 月台, 讲台, 论坛, 平台；平台",
+    "sentence": "I learned the word \"platform\" today."
+  },
+  "curtain": {
+    "meaning": "帐, 幕, 窗帘；装帘子于, 遮蔽",
+    "sentence": "I learned the word \"curtain\" today."
+  },
+  "grandmother": {
+    "meaning": "祖母, 女祖先",
+    "sentence": "I learned the word \"grandmother\" today."
+  },
+  "stomach": {
+    "meaning": "胃, 食欲, 欲望, 肚子；吃下, 忍受",
+    "sentence": "I learned the word \"stomach\" today."
+  },
+  "weigh": {
+    "meaning": "称...重量, 衡量, 把...压弯, 考虑, 权衡, 起锚；称分量, 有意义, 重压, 起锚；过秤, 称分量",
+    "sentence": "I learned the word \"weigh\" today."
+  },
+  "install": {
+    "meaning": "安装",
+    "sentence": "I need to install the app."
+  },
+  "curve": {
+    "meaning": "曲线, 弯曲, 曲线球；弯, 使弯曲；成曲形",
+    "sentence": "I learned the word \"curve\" today."
+  },
+  "infection": {
+    "meaning": "传染, 影响, 传染病；传染, 感染",
+    "sentence": "I learned the word \"infection\" today."
+  },
+  "aggressive": {
+    "meaning": "侵略的, 挑畔的, 进取的；侵略的, 爱挑衅的, 行为过火的",
+    "sentence": "I learned the word \"aggressive\" today."
+  },
+  "concert": {
+    "meaning": "音乐会, 和声, 一致；协力, 协调；协力；美国北卡罗来纳州Internet网",
+    "sentence": "I learned the word \"concert\" today."
+  },
+  "disk": {
+    "meaning": "圆盘, 磁盘；磁盘",
+    "sentence": "I learned the word \"disk\" today."
+  },
+  "extreme": {
+    "meaning": "极端, 末端；极端的, 尽头的, 极度的, 偏激的",
+    "sentence": "I learned the word \"extreme\" today."
+  },
+  "tube": {
+    "meaning": "管, 软管, 隧道；把...装管, 使通过管子；管子",
+    "sentence": "I learned the word \"tube\" today."
+  },
+  "quit": {
+    "meaning": "离开, 辞职, 停止；离开, 放弃, 使解除, 停止；离开；结束, 退出",
+    "sentence": "I learned the word \"quit\" today."
+  },
+  "presumably": {
+    "meaning": "推测上, 大概",
+    "sentence": "I learned the word \"presumably\" today."
+  },
+  "genuine": {
+    "meaning": "真正的, 真实的, 诚恳的；真性的",
+    "sentence": "I learned the word \"genuine\" today."
+  },
+  "guarantee": {
+    "meaning": "担保, 抵押品, 保证书；保证, 担保",
+    "sentence": "I learned the word \"guarantee\" today."
+  },
+  "favourite": {
+    "meaning": "喜欢的事物；喜爱的, 宠爱的",
+    "sentence": "I learned the word \"favourite\" today."
+  },
+  "delay": {
+    "meaning": "耽搁, 迟滞；耽搁, 延迟；延迟, 延时",
+    "sentence": "I learned the word \"delay\" today."
+  },
+  "honest": {
+    "meaning": "诚实的, 坦直的, 可靠的",
+    "sentence": "I learned the word \"honest\" today."
+  },
+  "relax": {
+    "meaning": "放松, 松懈, 松弛, 变从容, 休息, 休养；使松弛, 缓和, 使松懈, 使休息",
+    "sentence": "I learned the word \"relax\" today."
+  },
+  "essay": {
+    "meaning": "随笔, 短文, 评论, 企图；试图",
+    "sentence": "I learned the word \"essay\" today."
+  },
+  "edition": {
+    "meaning": "版本, 版, 翻版",
+    "sentence": "I learned the word \"edition\" today."
+  },
+  "giant": {
+    "meaning": "巨人, 大力士, 巨大怪物；庞大的, 巨大的",
+    "sentence": "I learned the word \"giant\" today."
+  },
+  "exciting": {
+    "meaning": "令人兴奋的, 刺激的；激磁",
+    "sentence": "I learned the word \"exciting\" today."
+  },
+  "clock": {
+    "meaning": "时钟, 计时器, (袜子上的)绣花边花；绣花样, 记时, 记录；记录时间；时钟",
+    "sentence": "I learned the word \"clock\" today."
+  },
+  "pop": {
+    "meaning": "砰然声, 枪击, 含气饮料, 流行音乐, 通俗艺术；流行的, 热门的, 通俗的；使发出爆裂声, 开枪打, 突然伸出；发出爆裂声, 射击, 突然出",
+    "sentence": "I learned the word \"pop\" today."
+  },
+  "chemical": {
+    "meaning": "化学药品；化学的, 化学上用的",
+    "sentence": "I learned the word \"chemical\" today."
+  },
+  "criticize": {
+    "meaning": "批评, 吹毛求疵, 非难",
+    "sentence": "I learned the word \"criticize\" today."
+  },
+  "bath": {
+    "meaning": "沐浴, 浴室；浴",
+    "sentence": "I learned the word \"bath\" today."
+  },
+  "advanced": {
+    "meaning": "在前的, 高级的, 先进的, 年老的；预付的, 预支的, 垫付的",
+    "sentence": "I learned the word \"advanced\" today."
+  },
+  "stupid": {
+    "meaning": "愚蠢的, 麻木的",
+    "sentence": "I learned the word \"stupid\" today."
+  },
+  "shell": {
+    "meaning": "壳；外壳",
+    "sentence": "The shell is hard."
+  },
+  "defeat": {
+    "meaning": "败北, 失败；击败, 使落空",
+    "sentence": "I learned the word \"defeat\" today."
+  },
+  "pause": {
+    "meaning": "暂停",
+    "sentence": "Pause the video and repeat."
+  },
+  "onion": {
+    "meaning": "洋葱；因洋葱使掉泪",
+    "sentence": "I learned the word \"onion\" today."
+  },
+  "aunt": {
+    "meaning": "阿姨, 姨妈, 舅妈, 姑妈, 伯母",
+    "sentence": "I learned the word \"aunt\" today."
+  },
+  "assure": {
+    "meaning": "保证, 使确信, 弄清楚, 担保；确信, 保证, 保障",
+    "sentence": "I learned the word \"assure\" today."
+  },
+  "mad": {
+    "meaning": "疯狂的, 发疯的, 生气的, 愚蠢的, 狂欢的；狂怒",
+    "sentence": "I learned the word \"mad\" today."
+  },
+  "split": {
+    "meaning": "劈开, 裂片, 裂缝, 分裂, 派系, 派别, 柳条；劈开的；分离, 分开, 裂开, 被劈开；劈开, 切开, 使分裂, 使分离；拆分",
+    "sentence": "I learned the word \"split\" today."
+  },
+  "altogether": {
+    "meaning": "完全地, 总而言之",
+    "sentence": "I learned the word \"altogether\" today."
+  },
+  "confident": {
+    "meaning": "有信心的, 有把握的",
+    "sentence": "I learned the word \"confident\" today."
+  },
+  "remark": {
+    "meaning": "评论, 注意；评论, 注意；评论, 谈论；注释",
+    "sentence": "I learned the word \"remark\" today."
+  },
+  "helpful": {
+    "meaning": "有帮助的, 有益的, 有用的",
+    "sentence": "I learned the word \"helpful\" today."
+  },
+  "highway": {
+    "meaning": "公路, 大道, 捷径；公路, 大路",
+    "sentence": "I learned the word \"highway\" today."
+  },
+  "sink": {
+    "meaning": "藏垢的场所, 沟渠, 污水槽；下沉, 沉没, 下陷, 减弱, 衰退, 消沉, 堕落, 渗透；使低落, 使下沉, 陷于, 投入(资金等), 挖掘",
+    "sentence": "I learned the word \"sink\" today."
+  },
+  "lecture": {
+    "meaning": "演讲, 谴责, 讲稿；演讲, 训诫, 说教；讲演",
+    "sentence": "I learned the word \"lecture\" today."
+  },
+  "ingredient": {
+    "meaning": "成分, 因素；配合剂?拼料?成分?组分",
+    "sentence": "I learned the word \"ingredient\" today."
+  },
+  "mount": {
+    "meaning": "乘骑用马, 框, 衬纸, 山；乘马, 爬上, 增长；爬上, 使上马, 装上, 装裱, 安放, 制作...的标本, 设置, 上演；安装",
+    "sentence": "I learned the word \"mount\" today."
+  },
+  "formula": {
+    "meaning": "客套语, 公式, 准则；公式",
+    "sentence": "I learned the word \"formula\" today."
+  },
+  "ultimate": {
+    "meaning": "终极, 根本, 顶点, 基本原则；终极的, 根本的, 极限的, 最远的, 最后的, 最大的",
+    "sentence": "I learned the word \"ultimate\" today."
+  },
+  "hip": {
+    "meaning": "臀部, 蔷薇果, 忧郁；熟悉内情的；使忧郁, 给(屋顶)造屋脊；喝彩声",
+    "sentence": "I learned the word \"hip\" today."
+  },
+  "tail": {
+    "meaning": "尾部, 后部, 辫子, 随员, 特务, 燕尾服, 踪迹, 限定继承(权)；在后面的, 从后面而来的, 限定继承的, 尾部的, 后部的；为...装",
+    "sentence": "I learned the word \"tail\" today."
+  },
+  "gear": {
+    "meaning": "齿轮, 工具；以齿轮连起, 开动, 使适应, 安排；连接上, 适合",
+    "sentence": "I learned the word \"gear\" today."
+  },
+  "found": {
+    "meaning": "建立, 创立, 铸造；find的过去式和过去分词",
+    "sentence": "I learned the word \"found\" today."
+  },
+  "barrier": {
+    "meaning": "障碍, 栅栏；势垒?阻片?阻挡层",
+    "sentence": "I learned the word \"barrier\" today."
+  },
+  "classic": {
+    "meaning": "古典作品, 杰作, 大艺术家；第一流的, 最优秀的, 古典的",
+    "sentence": "I learned the word \"classic\" today."
+  },
+  "vacation": {
+    "meaning": "假期, 休假；假期, 停审期, 休庭期",
+    "sentence": "I learned the word \"vacation\" today."
+  },
+  "draft": {
+    "meaning": "气流, 草稿, 汇票, 草案；起草, 征兵；草稿",
+    "sentence": "I learned the word \"draft\" today."
+  },
+  "extraordinary": {
+    "meaning": "非常的, 特别的, 非凡的；非常的, 特别的, 临时的",
+    "sentence": "I learned the word \"extraordinary\" today."
+  },
+  "heaven": {
+    "meaning": "天堂, 上帝, 天空",
+    "sentence": "I learned the word \"heaven\" today."
+  },
+  "fortune": {
+    "meaning": "财富, 运气, 兴隆, 大量财产, 好运, 命运；命运, 财产, 大量财产",
+    "sentence": "I learned the word \"fortune\" today."
+  },
+  "pregnant": {
+    "meaning": "怀孕的, 充满的, 思想丰富的, 成果丰硕的；妊娠的, 有孕的",
+    "sentence": "I learned the word \"pregnant\" today."
+  },
+  "anxious": {
+    "meaning": "忧虑的, 发愁的, 渴望的",
+    "sentence": "I learned the word \"anxious\" today."
+  },
+  "conscious": {
+    "meaning": "有意识的, 知觉的, 觉察的；有意识的, 清醒的",
+    "sentence": "I learned the word \"conscious\" today."
+  },
+  "personally": {
+    "meaning": "亲自地, 个别地, 当面, 就本人而言, 针对个人地",
+    "sentence": "I learned the word \"personally\" today."
+  },
+  "tackle": {
+    "meaning": "工具, 复滑车, 滑车, 装备, 扭倒；固定, 处理, 抓住；扭倒",
+    "sentence": "I learned the word \"tackle\" today."
+  },
+  "sweep": {
+    "meaning": "扫除, 打扫, 肃清, 视野, 范围, 全胜；扫除, 掸去, 猛拉, 扫荡, 肃清, 冲走, 刮起, 环视, 掠过, 扫射；扫, 打扫, 袭击,",
+    "sentence": "I learned the word \"sweep\" today."
+  },
+  "chocolate": {
+    "meaning": "巧克力；巧克力制的",
+    "sentence": "I learned the word \"chocolate\" today."
+  },
+  "stable": {
+    "meaning": "马房, 牛棚；稳定的, 安定的, 坚固的, 坚定的；赶入马房；被关在马厩",
+    "sentence": "I learned the word \"stable\" today."
+  },
+  "borrow": {
+    "meaning": "借, 借入, 借用；借；借位?借位数",
+    "sentence": "I learned the word \"borrow\" today."
+  },
+  "ceiling": {
+    "meaning": "天花板；顶点, 顶线, 上限",
+    "sentence": "I learned the word \"ceiling\" today."
+  },
+  "preference": {
+    "meaning": "偏爱, 优先, 喜爱物；首选项",
+    "sentence": "I learned the word \"preference\" today."
+  },
+  "spin": {
+    "meaning": "旋转, 自旋, 疾驰, 情绪低落；纺织, 纺, 使旋转, 编造；纺纱, 吐丝, 作茧, 结网, 旋转, 自旋, 疾驰",
+    "sentence": "I learned the word \"spin\" today."
+  },
+  "button": {
+    "meaning": "钮扣, 按钮；扣住；钉钮扣于, 扣紧；按钮",
+    "sentence": "I learned the word \"button\" today."
+  },
+  "bell": {
+    "meaning": "铃, 钟；响铃命令",
+    "sentence": "I learned the word \"bell\" today."
+  },
+  "clothing": {
+    "meaning": "衣服",
+    "sentence": "I learned the word \"clothing\" today."
+  },
+  "pitch": {
+    "meaning": "程度, 坡度, 顶点, 前倾, 倾斜, 投掷, 音高, 螺距, 节距, 摊位, 树脂, 沥青；投, 掷, 向前倾跌, 扎营, 竭力推销, 为..",
+    "sentence": "I learned the word \"pitch\" today."
+  },
+  "fence": {
+    "meaning": "围墙, 栅栏, 买卖赃物的人, 剑术；用篱笆围住, 练习剑术, 防护；击剑, 搪塞",
+    "sentence": "I learned the word \"fence\" today."
+  },
+  "bunch": {
+    "meaning": "串, 束；骨肿块(马)",
+    "sentence": "I learned the word \"bunch\" today."
+  },
+  "concerning": {
+    "meaning": "关于；关于",
+    "sentence": "I learned the word \"concerning\" today."
+  },
+  "awful": {
+    "meaning": "可怕的, 庄严的, 虔敬的",
+    "sentence": "I learned the word \"awful\" today."
+  },
+  "distribute": {
+    "meaning": "分配, 散布, 分发；分配, 分发",
+    "sentence": "I learned the word \"distribute\" today."
+  },
+  "react": {
+    "meaning": "起反应, 起作用, 反攻；应答, 发生反应",
+    "sentence": "I learned the word \"react\" today."
+  },
+  "measurement": {
+    "meaning": "尺寸, 度量, 度量单位；度量, 度量单位",
+    "sentence": "I learned the word \"measurement\" today."
+  },
+  "ceremony": {
+    "meaning": "典礼, 仪式, 礼节；典礼, 仪式",
+    "sentence": "I learned the word \"ceremony\" today."
+  },
+  "disabled": {
+    "meaning": "残废的, 有缺陷的, 失效的；失效的",
+    "sentence": "I learned the word \"disabled\" today."
+  },
+  "communicate": {
+    "meaning": "显露, 传达, 感染；通讯",
+    "sentence": "I learned the word \"communicate\" today."
+  },
+  "enthusiasm": {
+    "meaning": "巨大的热情, 热心",
+    "sentence": "I learned the word \"enthusiasm\" today."
+  },
+  "cease": {
+    "meaning": "停止；停止, 终了",
+    "sentence": "I learned the word \"cease\" today."
+  },
+  "disagree": {
+    "meaning": "不一致, 不适宜；抵触, 不同意, 争执",
+    "sentence": "I learned the word \"disagree\" today."
+  },
+  "impressive": {
+    "meaning": "给人深刻印象的, 威严的",
+    "sentence": "I learned the word \"impressive\" today."
+  },
+  "satisfaction": {
+    "meaning": "满足, 满意, 快事, 赔偿, 赎罪, 报仇的机会；偿还, 赎回",
+    "sentence": "I learned the word \"satisfaction\" today."
+  },
+  "remote": {
+    "meaning": "遥远的, 偏僻的, 疏远的, 微少的；远程, 远程访问实用程序",
+    "sentence": "I learned the word \"remote\" today."
+  },
+  "resort": {
+    "meaning": "度假胜地, 手段, 凭借, 常去之地；诉诸, 常去",
+    "sentence": "I learned the word \"resort\" today."
+  },
+  "qualify": {
+    "meaning": "取得资格, 有资格；使有资格, 使合格, 限定, 限制, 准予",
+    "sentence": "I learned the word \"qualify\" today."
+  },
+  "interval": {
+    "meaning": "间隔, 距离, 间歇, 间隙；时间间隔",
+    "sentence": "I learned the word \"interval\" today."
+  },
+  "princess": {
+    "meaning": "公主, 王妃, 女巨头",
+    "sentence": "I learned the word \"princess\" today."
+  },
+  "stranger": {
+    "meaning": "陌生人, 门外汉；局外人, 非当事人, 第三者",
+    "sentence": "I learned the word \"stranger\" today."
+  },
+  "confusion": {
+    "meaning": "混乱, 混淆, 无秩序；含混",
+    "sentence": "I learned the word \"confusion\" today."
+  },
+  "broken": {
+    "meaning": "坏掉的, 打破的, 断掉的；break的过去分词",
+    "sentence": "I learned the word \"broken\" today."
+  },
+  "provided": {
+    "meaning": "倘若, 以...为条件",
+    "sentence": "I learned the word \"provided\" today."
+  },
+  "sheep": {
+    "meaning": "羊, 胆小者",
+    "sentence": "I learned the word \"sheep\" today."
+  },
+  "bet": {
+    "meaning": "打赌, 赌注；打赌",
+    "sentence": "I learned the word \"bet\" today."
+  },
+  "virus": {
+    "meaning": "病毒, 滤过性病毒, 毒害；病毒",
+    "sentence": "I learned the word \"virus\" today."
+  },
+  "assistant": {
+    "meaning": "助手, 助理, 助教；有帮助的, 辅助的, 助理的",
+    "sentence": "I learned the word \"assistant\" today."
+  },
+  "summary": {
+    "meaning": "摘要, 概要；摘要的, 简略的；摘要?概要",
+    "sentence": "I learned the word \"summary\" today."
+  },
+  "encounter": {
+    "meaning": "相会, 相遇, 遭遇；遇见, 邂逅, 会战；偶然相遇",
+    "sentence": "I learned the word \"encounter\" today."
+  },
+  "shopping": {
+    "meaning": "买东西, 购物；购物, 买东西",
+    "sentence": "I learned the word \"shopping\" today."
+  },
+  "cousin": {
+    "meaning": "堂兄弟姊妹, 表兄弟姊妹；同辈表亲或堂亲",
+    "sentence": "I learned the word \"cousin\" today."
+  },
+  "outstanding": {
+    "meaning": "杰出的, 突出的, 未偿付的, 未决定的；未解决的, 未偿付",
+    "sentence": "I learned the word \"outstanding\" today."
+  },
+  "minimum": {
+    "meaning": "最小的, 最低的；最小值；最小值",
+    "sentence": "I learned the word \"minimum\" today."
+  },
+  "blind": {
+    "meaning": "蒙蔽物, 窗帘；盲目的, 瞎的, 不加思考的；使失明, 蒙蔽, 遮暗；盲目地",
+    "sentence": "I learned the word \"blind\" today."
+  },
+  "accurate": {
+    "meaning": "正确的, 精确的；准确的, 精确的",
+    "sentence": "I learned the word \"accurate\" today."
+  },
+  "translate": {
+    "meaning": "翻译, 解释, 转化, 转变为, 调动；翻译, 被译；转换",
+    "sentence": "I learned the word \"translate\" today."
+  },
+  "complicated": {
+    "meaning": "复杂的；并发的",
+    "sentence": "I learned the word \"complicated\" today."
+  },
+  "dirt": {
+    "meaning": "污垢, 泥土；污垢",
+    "sentence": "I learned the word \"dirt\" today."
+  },
+  "alongside": {
+    "meaning": "在旁边, 靠拢着；在...旁边, 与...在一起",
+    "sentence": "I learned the word \"alongside\" today."
+  },
+  "bullet": {
+    "meaning": "子弹；弹, 子弹, 距节(马)",
+    "sentence": "I learned the word \"bullet\" today."
+  },
+  "lend": {
+    "meaning": "借, 贷款给, 增添, 提供, 出租；贷款",
+    "sentence": "I learned the word \"lend\" today."
+  },
+  "rice": {
+    "meaning": "米, 米饭, 稻；将...压成米粒状",
+    "sentence": "I learned the word \"rice\" today."
+  },
+  "tight": {
+    "meaning": "紧的, 密封的, 吝啬的, 严厉的；紧紧地",
+    "sentence": "I learned the word \"tight\" today."
+  },
+  "chart": {
+    "meaning": "图表, 海图；制成图表；图表",
+    "sentence": "I learned the word \"chart\" today."
+  },
+  "proof": {
+    "meaning": "证据, 证明, 试验, 检验, 考验；不能透入的, 证明用的, 防...的, 耐...的；检验, 试验, 校对, 使不被穿透；审稿",
+    "sentence": "I learned the word \"proof\" today."
+  },
+  "practise": {
+    "meaning": "实践, 实行, 练习, 实习, 从事(职业)",
+    "sentence": "I learned the word \"practise\" today."
+  },
+  "strain": {
+    "meaning": "紧张, 拉紧, 张力, 过劳, 扭伤, 血缘, 种, 族, 气质, 曲调, 旋律, 口吻；使劳累, 拉紧, 过分使用, 扭伤, 滥用, 曲解,",
+    "sentence": "I learned the word \"strain\" today."
+  },
+  "cheque": {
+    "meaning": "支票",
+    "sentence": "I learned the word \"cheque\" today."
+  },
+  "strip": {
+    "meaning": "长条, 条状, 带, 脱衣舞；脱衣, 被剥去, 剥夺, 拆卸；脱衣服",
+    "sentence": "I learned the word \"strip\" today."
+  },
+  "steam": {
+    "meaning": "蒸汽, 精力；蒸汽的；蒸发, 行驶, 发怒；蒸, 煮, 散发",
+    "sentence": "I learned the word \"steam\" today."
+  },
+  "import": {
+    "meaning": "进口货, 进口, 输入, 含义, 重要性；输入, 引入, 进口, 含...的意思, 重要；有关系；引入",
+    "sentence": "I learned the word \"import\" today."
+  },
+  "precise": {
+    "meaning": "精确的, 严谨的, 明确的；精密的, 正确的",
+    "sentence": "I learned the word \"precise\" today."
+  },
+  "plain": {
+    "meaning": "简单清楚的；朴素的",
+    "sentence": "Please explain it in plain English."
+  },
+  "lover": {
+    "meaning": "爱人, 爱好者",
+    "sentence": "I learned the word \"lover\" today."
+  },
+  "senator": {
+    "meaning": "参议员, (某些大学的)理事；参议员, 上议员",
+    "sentence": "I learned the word \"senator\" today."
+  },
+  "tunnel": {
+    "meaning": "隧道, 地下道；挖隧道；掘隧道于",
+    "sentence": "I learned the word \"tunnel\" today."
+  },
+  "poetry": {
+    "meaning": "诗, 韵文, 诗歌艺术",
+    "sentence": "I learned the word \"poetry\" today."
+  },
+  "salad": {
+    "meaning": "色拉",
+    "sentence": "I learned the word \"salad\" today."
+  },
+  "satisfy": {
+    "meaning": "使满意, 满足, 符合, 使确信, 赔偿；令人满意, 替人赎罪",
+    "sentence": "I learned the word \"satisfy\" today."
+  },
+  "innocent": {
+    "meaning": "无罪的, 不懂事的, 无知的；天真的人, 笨蛋",
+    "sentence": "I learned the word \"innocent\" today."
+  },
+  "gentle": {
+    "meaning": "温和的, 文雅的",
+    "sentence": "I learned the word \"gentle\" today."
+  },
+  "favour": {
+    "meaning": "好感, 偏爱, 喜爱, 相信, 庇护, 赞同, 支持, 信赖, 善行, 恩惠, 徽章, 礼物；赞成, 帮助, 支持, 喜爱, 偏袒, 关切, 赐",
+    "sentence": "I learned the word \"favour\" today."
+  },
+  "raw": {
+    "meaning": "擦伤处, 半成品；生的, 未加工的, 生疏的, 不成熟的, 阴冷的, 刺痛的, 擦掉皮的；擦伤；写后读",
+    "sentence": "I learned the word \"raw\" today."
+  },
+  "determination": {
+    "meaning": "决心, 果断；判定?测定",
+    "sentence": "I learned the word \"determination\" today."
+  },
+  "pole": {
+    "meaning": "波兰人, 极点, 磁极, 电极, 杆, 竿, 相反的极端；用竿支撑；撑篙",
+    "sentence": "I learned the word \"pole\" today."
+  },
+  "silly": {
+    "meaning": "愚蠢的, 糊涂的",
+    "sentence": "I learned the word \"silly\" today."
+  },
+  "newly": {
+    "meaning": "重新, 最近",
+    "sentence": "I learned the word \"newly\" today."
+  },
+  "bush": {
+    "meaning": "矮树丛；管衬",
+    "sentence": "I learned the word \"bush\" today."
+  },
+  "pride": {
+    "meaning": "骄傲, 自尊心, 自豪, 精华, 勇气；以...自豪",
+    "sentence": "I learned the word \"pride\" today."
+  },
+  "freeze": {
+    "meaning": "冻结, 冷冻, 僵硬, 楞住；使结冰, 使冻住, 使呆住；结冰, 凝固；冻结",
+    "sentence": "I learned the word \"freeze\" today."
+  },
+  "sensible": {
+    "meaning": "有感觉的, 敏感的, 明智的；可感觉的",
+    "sentence": "I learned the word \"sensible\" today."
+  },
+  "bake": {
+    "meaning": "烘焙, 烤；烤面包；烘焙, 烤",
+    "sentence": "I learned the word \"bake\" today."
+  },
+  "brick": {
+    "meaning": "砖块, 积木；用砖做的；用砖造, 用砖砌",
+    "sentence": "I learned the word \"brick\" today."
+  },
+  "joy": {
+    "meaning": "欢喜, 乐事, 高兴；使快乐, 令人高兴；欢喜",
+    "sentence": "I learned the word \"joy\" today."
+  },
+  "adapt": {
+    "meaning": "使适应, 改编；适应",
+    "sentence": "I learned the word \"adapt\" today."
+  },
+  "reward": {
+    "meaning": "报酬, 酬谢, 赏金；奖赏, 酬谢, 给...应有报应",
+    "sentence": "I learned the word \"reward\" today."
+  },
+  "shooting": {
+    "meaning": "发射, 猎场, 射击",
+    "sentence": "I learned the word \"shooting\" today."
+  },
+  "singer": {
+    "meaning": "歌手",
+    "sentence": "I learned the word \"singer\" today."
+  },
+  "ban": {
+    "meaning": "禁令；禁止, 取缔",
+    "sentence": "I learned the word \"ban\" today."
+  },
+  "consult": {
+    "meaning": "商讨, 商量, 协商, 会诊；向...请教, 查阅, 考虑",
+    "sentence": "I learned the word \"consult\" today."
+  },
+  "comfort": {
+    "meaning": "舒适, 安慰, 安慰者；安慰",
+    "sentence": "I learned the word \"comfort\" today."
+  },
+  "imagination": {
+    "meaning": "想像, 听觉, 想像力；想像",
+    "sentence": "I learned the word \"imagination\" today."
+  },
+  "counter": {
+    "meaning": "计算器, 计算者, 柜台, 筹码；反方向的, 相反的；反方向地, 相反地；计数器?计数字",
+    "sentence": "I learned the word \"counter\" today."
+  },
+  "tongue": {
+    "meaning": "舌, 语言能力, 讲话方式, 语言；舔, 斥责, 发...的音；使用舌头, 吹管乐器",
+    "sentence": "I learned the word \"tongue\" today."
+  },
+  "till": {
+    "meaning": "直到, 在...以前, 迄；直到...为止；耕种；放钱的抽屉, 备用现金, 冰碛",
+    "sentence": "I learned the word \"till\" today."
+  },
+  "crash": {
+    "meaning": "哗啦声, 猛撞, 崩溃, 粗布；撞碎, 破碎, (使)...坠毁；速成的；崩溃",
+    "sentence": "I learned the word \"crash\" today."
+  },
+  "inevitable": {
+    "meaning": "不可避免的, 必然的；不可避免的, 无法规避的, 必然的",
+    "sentence": "I learned the word \"inevitable\" today."
+  },
+  "outline": {
+    "meaning": "大纲, 轮廓, 概要；描画轮廓, 描述要点；大纲, 分级, 轮廓；大纲, 分级, 轮廓",
+    "sentence": "I learned the word \"outline\" today."
+  },
+  "craft": {
+    "meaning": "技艺, 手艺, 诡计；精心制作",
+    "sentence": "I learned the word \"craft\" today."
+  },
+  "tap": {
+    "meaning": "轻打, 水龙头；轻打, 轻敲, 敲打出, 选择, 装上嘴子, 使流出, 开发, 分接, 向...乞讨；轻叩, 轻拍, 啪塔啪塔地走；接头",
+    "sentence": "I learned the word \"tap\" today."
+  },
+  "mouse": {
+    "meaning": "老鼠, 胆小羞怯的人, 鼠标；捕鼠, 窥探；探出；鼠标",
+    "sentence": "I learned the word \"mouse\" today."
+  },
+  "swim": {
+    "meaning": "游泳, 漂浮, 潮流, 眩晕；游泳, 游, 漂浮, 浸, 覆盖, 充溢, 大量拥有, 旋转, 眩晕；游过, 使浮起",
+    "sentence": "I learned the word \"swim\" today."
+  },
+  "tire": {
+    "meaning": "轮胎, 头饰；使疲倦, 使厌烦, 打扮；疲劳, 厌倦",
+    "sentence": "I learned the word \"tire\" today."
+  },
+  "loose": {
+    "meaning": "发射, 放任, 放纵；宽松的, 松的, 宽的, 不牢固的, 散漫的, 自由的, 不精确的；释放, 放枪, 开船；变松, 开火；松散地",
+    "sentence": "I learned the word \"loose\" today."
+  },
+  "highlight": {
+    "meaning": "加亮区, 精彩场面；加亮, 使显著, 以强光照射, 突出；突出",
+    "sentence": "I learned the word \"highlight\" today."
+  },
+  "prior": {
+    "meaning": "更重要的, 较早的, 在先的；小隐修院院长, 大隐修院副院长",
+    "sentence": "I learned the word \"prior\" today."
+  },
+  "adventure": {
+    "meaning": "冒险, 冒险经历；冒险",
+    "sentence": "I learned the word \"adventure\" today."
+  },
+  "stair": {
+    "meaning": "梯级, 楼梯, 阶梯",
+    "sentence": "I learned the word \"stair\" today."
+  },
+  "weakness": {
+    "meaning": "虚弱, 薄弱, 弱点；欲振乏力",
+    "sentence": "I learned the word \"weakness\" today."
+  },
+  "trace": {
+    "meaning": "痕迹, 踪迹, 微量, 迹线, 缰绳；追踪, 回溯, 描绘；追溯, 沿路走",
+    "sentence": "I learned the word \"trace\" today."
+  },
+  "dirty": {
+    "meaning": "肮脏的, 卑鄙的；弄脏；变脏",
+    "sentence": "I learned the word \"dirty\" today."
+  },
+  "rid": {
+    "meaning": "免除, 以...清除, 使获自由, 使摆脱；免除, 清除, 摆脱",
+    "sentence": "I learned the word \"rid\" today."
+  },
+  "license": {
+    "meaning": "执照, 许可证, 特许；许可, 特许",
+    "sentence": "I learned the word \"license\" today."
+  },
+  "shelter": {
+    "meaning": "庇护所, 避难所, 庇护, 隐蔽处, 掩蔽；庇护, 保护, 隐匿；躲避",
+    "sentence": "I learned the word \"shelter\" today."
+  },
+  "rub": {
+    "meaning": "摩擦, 困难, 障碍, 磨损处；擦, 搓, 摩擦, 惹怒；摩擦, 擦破",
+    "sentence": "I learned the word \"rub\" today."
+  },
+  "sail": {
+    "meaning": "帆, 篷, 帆船, 航程, 帆状物；航行, 启航, 张帆而行；航行于, 驾船",
+    "sentence": "I learned the word \"sail\" today."
+  },
+  "absorb": {
+    "meaning": "吸收, 使全神贯注, 同化, 买进, 理解, 承受, 忍受, 承担；吸收",
+    "sentence": "I learned the word \"absorb\" today."
+  },
+  "pleasant": {
+    "meaning": "愉快的, 可爱的, 活泼的, 亲切的",
+    "sentence": "I learned the word \"pleasant\" today."
+  },
+  "funeral": {
+    "meaning": "葬礼, 出殡",
+    "sentence": "I learned the word \"funeral\" today."
+  },
+  "pretend": {
+    "meaning": "假装, 伪称, 自命, 自称",
+    "sentence": "I learned the word \"pretend\" today."
+  },
+  "entitle": {
+    "meaning": "给...权利, 取名为, 给予名称, 叫做；给...权利, 使有资格, 称呼",
+    "sentence": "I learned the word \"entitle\" today."
+  },
+  "grateful": {
+    "meaning": "感谢的, 感激的, 令人快意的, 受欢迎的",
+    "sentence": "I learned the word \"grateful\" today."
+  },
+  "venture": {
+    "meaning": "冒险, 风险；敢于, 冒...的危险；冒险",
+    "sentence": "I learned the word \"venture\" today."
+  },
+  "squeeze": {
+    "meaning": "紧握, 挤, 榨, 榨取, 佣金；紧握, 挤, 榨取；压榨, 榨",
+    "sentence": "I learned the word \"squeeze\" today."
+  },
+  "excitement": {
+    "meaning": "刺激, 兴奋；兴奋, 激动",
+    "sentence": "I learned the word \"excitement\" today."
+  },
+  "deaf": {
+    "meaning": "聋的；聋的",
+    "sentence": "I learned the word \"deaf\" today."
+  },
+  "confine": {
+    "meaning": "限制, 使不外出, 禁闭；邻接, 交界；边缘, 范围, 区域",
+    "sentence": "I learned the word \"confine\" today."
+  },
+  "steady": {
+    "meaning": "稳定的, 不动摇的, 沉着的, 稳固的, 坚定的, 经常的；使稳定, 使坚定；变为沉着, 稳固",
+    "sentence": "I learned the word \"steady\" today."
+  },
+  "oven": {
+    "meaning": "烤箱, 灶, 子宫；烘箱",
+    "sentence": "I learned the word \"oven\" today."
+  },
+  "nowhere": {
+    "meaning": "无处, 到处都无",
+    "sentence": "I learned the word \"nowhere\" today."
+  },
+  "reception": {
+    "meaning": "接待, 接受, 招待会；接受, 感受",
+    "sentence": "I learned the word \"reception\" today."
+  },
+  "purely": {
+    "meaning": "纯粹地, 清白地, 贞洁地",
+    "sentence": "I learned the word \"purely\" today."
+  },
+  "shelf": {
+    "meaning": "架子, 搁板；架子",
+    "sentence": "I learned the word \"shelf\" today."
+  },
+  "diary": {
+    "meaning": "日记；日记簿",
+    "sentence": "I learned the word \"diary\" today."
+  },
+  "desperate": {
+    "meaning": "不顾一切的, 危急的, 令人绝望的, 极渴望的",
+    "sentence": "I learned the word \"desperate\" today."
+  },
+  "musician": {
+    "meaning": "音乐家, 乐师, 作曲家",
+    "sentence": "I learned the word \"musician\" today."
+  },
+  "continuous": {
+    "meaning": "连续的, 继续的, 连续不断的；连续的",
+    "sentence": "I learned the word \"continuous\" today."
+  },
+  "horror": {
+    "meaning": "惊骇, 恐怖, 惨状；恐怖, 恐惧",
+    "sentence": "I learned the word \"horror\" today."
+  },
+  "delighted": {
+    "meaning": "高兴的, 快乐的",
+    "sentence": "I learned the word \"delighted\" today."
+  },
+  "repair": {
+    "meaning": "修理, 补救, 修复；修理, 修补, 补救, 恢复, 补偿；修理, 修补, 补救, 恢复, 去, 常去, 集合",
+    "sentence": "I learned the word \"repair\" today."
+  },
+  "leather": {
+    "meaning": "皮革, 皮制品, 马镫的皮带；覆以皮革, 鞭苔, 抽打；皮革的, 皮制的",
+    "sentence": "I learned the word \"leather\" today."
+  },
+  "cow": {
+    "meaning": "母牛, 母兽；威胁",
+    "sentence": "I learned the word \"cow\" today."
+  },
+  "grandfather": {
+    "meaning": "祖父, 始祖；原始资料组",
+    "sentence": "I learned the word \"grandfather\" today."
+  },
+  "tin": {
+    "meaning": "锡, 马口铁, 罐头；在...镀锡于；锡制的；tin阅读程序",
+    "sentence": "I learned the word \"tin\" today."
+  },
+  "clerk": {
+    "meaning": "办事员, 职员, 文书；当店员",
+    "sentence": "I learned the word \"clerk\" today."
+  },
+  "coin": {
+    "meaning": "硬币, 金钱, 货币；铸币, 创造, 杜撰",
+    "sentence": "I learned the word \"coin\" today."
+  },
+  "plot": {
+    "meaning": "小块土地, 地区图, 图, 阴谋, 情节；划分, 绘图, 密谋；密谋, 策划；绘制",
+    "sentence": "I learned the word \"plot\" today."
+  },
+  "trousers": {
+    "meaning": "裤子, 长裤",
+    "sentence": "I learned the word \"trousers\" today."
+  },
+  "divorce": {
+    "meaning": "离婚；与...离婚",
+    "sentence": "I learned the word \"divorce\" today."
+  },
+  "grammar": {
+    "meaning": "语法学, 入门书；语法检查",
+    "sentence": "I learned the word \"grammar\" today."
+  },
+  "shade": {
+    "meaning": "荫, 阴暗, 遮光物, 灯罩, 帘, 浓淡, 微量, 底纹；渐变；使阴暗, 使渐变, 遮蔽, 微减；底纹",
+    "sentence": "I learned the word \"shade\" today."
+  },
+  "celebration": {
+    "meaning": "庆祝, 庆典",
+    "sentence": "I learned the word \"celebration\" today."
+  },
+  "soup": {
+    "meaning": "汤, 马力；加速, 增加马力",
+    "sentence": "I learned the word \"soup\" today."
+  },
+  "pile": {
+    "meaning": "堆, 大堆, 大厦, 建筑群, 电池, 大量, 桥桩, 软毛, 痔疮；堆起, 堆积, 积累, 挤, 猛烈攻击；堆于, 累积, 堆叠, 打桩于,",
+    "sentence": "I learned the word \"pile\" today."
+  },
+  "publicity": {
+    "meaning": "名声, 宣传, 公开场合；宣传, 广告",
+    "sentence": "I learned the word \"publicity\" today."
+  },
+  "alarm": {
+    "meaning": "惊恐, 警报, 警钟；使惊恐, 警告；报警信号",
+    "sentence": "I learned the word \"alarm\" today."
+  },
+  "nerve": {
+    "meaning": "精神, 勇气, 叶脉, 神经；鼓起勇气",
+    "sentence": "I learned the word \"nerve\" today."
+  },
+  "crack": {
+    "meaning": "裂缝, 爆裂声；(使)爆裂, (使)裂开, (使)发出爆裂声；第一流的；啪地一声",
+    "sentence": "I learned the word \"crack\" today."
+  },
+  "burst": {
+    "meaning": "破裂, 突发, 爆发；爆裂, 突发, 充满；二进制位组?字符组?脉冲串",
+    "sentence": "I learned the word \"burst\" today."
+  },
+  "pig": {
+    "meaning": "猪, 猪肉, 贪婪的人, 猪一样的人；生小猪, 象猪般地生活",
+    "sentence": "I learned the word \"pig\" today."
+  },
+  "pen": {
+    "meaning": "钢笔, 笔, 笔调, 笔杆子, 作家, 围栏, 栅栏, 禽畜；写, 关入栏中, 囚禁；动笔, 写作",
+    "sentence": "I learned the word \"pen\" today."
+  },
+  "explosion": {
+    "meaning": "爆发, 激增, 爆炸(声)；爆炸",
+    "sentence": "I learned the word \"explosion\" today."
+  },
+  "clever": {
+    "meaning": "聪明的, 精明的",
+    "sentence": "I learned the word \"clever\" today."
+  },
+  "wander": {
+    "meaning": "游荡, 漫步, 徘徊, 迷路, 离题, 蜿蜒；在...漫游",
+    "sentence": "I learned the word \"wander\" today."
+  },
+  "van": {
+    "meaning": "货车, 篷车, 先锋, 前驱, 前卫；用货车搬运；增值网",
+    "sentence": "I learned the word \"van\" today."
+  },
+  "punishment": {
+    "meaning": "处罚, 刑罚, 惩罚；罚, 处罚, 刑罚",
+    "sentence": "I learned the word \"punishment\" today."
+  },
+  "injure": {
+    "meaning": "伤害, 损害, 使受冤屈；损伤",
+    "sentence": "I learned the word \"injure\" today."
+  },
+  "educate": {
+    "meaning": "教育, 培养, 训练",
+    "sentence": "I learned the word \"educate\" today."
+  },
+  "painful": {
+    "meaning": "痛苦的, 困难的, 令人烦恼的；疼痛的",
+    "sentence": "I learned the word \"painful\" today."
+  },
+  "flesh": {
+    "meaning": "肉, 肉体, 肉欲, 人性, 亲属, 人类, 众生, 人体；以肉喂, 激起...的杀戳情绪, 使肥, 赋以血肉；长胖",
+    "sentence": "I learned the word \"flesh\" today."
+  },
+  "friendship": {
+    "meaning": "友谊, 友爱, 友善",
+    "sentence": "I learned the word \"friendship\" today."
+  },
+  "asleep": {
+    "meaning": "睡着的, 长眠的, 麻木的；熟睡地",
+    "sentence": "I learned the word \"asleep\" today."
+  },
+  "uniform": {
+    "meaning": "制服；统一的, 一律的, 始终如一的",
+    "sentence": "I learned the word \"uniform\" today."
+  },
+  "reservation": {
+    "meaning": "保留, 预定, 保留品, 保留地；预定, 预约, 权益保留",
+    "sentence": "I learned the word \"reservation\" today."
+  },
+  "govern": {
+    "meaning": "统治, 支配, 管理",
+    "sentence": "I learned the word \"govern\" today."
+  },
+  "equivalent": {
+    "meaning": "同等物, 等价物, 相等物；相等的, 相当的, 同意义的；等价的",
+    "sentence": "I learned the word \"equivalent\" today."
+  },
+  "impress": {
+    "meaning": "印象, 特征, 印记；使有印象, 印, 铭刻, 传送, 影响, 强征；给人印象",
+    "sentence": "I learned the word \"impress\" today."
+  },
+  "heel": {
+    "meaning": "脚后跟, 踵, 后部, 倾侧；尾随, 装以鞋跟, 倾侧, 追赶；紧随, 用脚后跟传球",
+    "sentence": "I learned the word \"heel\" today."
+  },
+  "rival": {
+    "meaning": "对手, 竞争者；竞争的",
+    "sentence": "I learned the word \"rival\" today."
+  },
+  "mate": {
+    "meaning": "配偶, 对手, 助手, (象棋)将死；使配对, 使一致, 结伴, (象棋)将死；成配偶, 紧密配合",
+    "sentence": "I learned the word \"mate\" today."
+  },
+  "contest": {
+    "meaning": "竞赛, 争论；竞争, 争取, 争辩；竞争",
+    "sentence": "I learned the word \"contest\" today."
+  },
+  "hurry": {
+    "meaning": "匆忙, 急忙, 急促；急派, 催促；匆忙, 赶快",
+    "sentence": "I learned the word \"hurry\" today."
+  },
+  "printer": {
+    "meaning": "印刷工, 打印机；打印机",
+    "sentence": "I learned the word \"printer\" today."
+  },
+  "upstairs": {
+    "meaning": "楼上的；在楼上, 向楼上, 处于更高地位；楼层",
+    "sentence": "I learned the word \"upstairs\" today."
+  },
+  "trick": {
+    "meaning": "诡计, 欺诈, 谋略, 恶作剧, 习惯, 决窍；愚弄, 欺骗, 装饰；哄骗, 戏弄；有决窍的, 特技的, 欺诈的, 漂亮的, 靠不住的",
+    "sentence": "I learned the word \"trick\" today."
+  },
+  "hers": {
+    "meaning": "她的",
+    "sentence": "I learned the word \"hers\" today."
+  },
+  "tent": {
+    "meaning": "帐篷, 帷幕, 住处, 塞条, 塞子；住帐蓬, 宿营, 暂时居住；用帐篷遮盖, 使住帐篷, 用塞条嵌入",
+    "sentence": "I learned the word \"tent\" today."
+  },
+  "menu": {
+    "meaning": "菜单, (功能)选择单；菜单",
+    "sentence": "I learned the word \"menu\" today."
+  },
+  "wise": {
+    "meaning": "明智的, 慎虑的, 聪明的, 博学的, 狡猾的, 机灵的；知道；教导, 告诉, 劝导；方法, 方式；教育信息系统",
+    "sentence": "I learned the word \"wise\" today."
+  },
+  "sympathy": {
+    "meaning": "同情, 赞同, 怜悯, 慰问, 吊唁；交感, 同感, 感应, 同情",
+    "sentence": "I learned the word \"sympathy\" today."
+  },
+  "strict": {
+    "meaning": "严厉的, 绝对的, 详尽的, 严格的, 精确的；严格的, 精确的, 绝对的",
+    "sentence": "I learned the word \"strict\" today."
+  },
+  "ease": {
+    "meaning": "安乐, 安逸, 悠闲；使安乐, 使安心, 减轻, 放松；减轻, 放松, 灵活地移动",
+    "sentence": "I learned the word \"ease\" today."
+  },
+  "loud": {
+    "meaning": "大声的, 不断的, 喧吵的；高声地, 大声地",
+    "sentence": "I learned the word \"loud\" today."
+  },
+  "collapse": {
+    "meaning": "崩溃, 倒塌, 虚脱；倒塌, 崩溃, 瓦解；使倒塌, 折叠；折叠",
+    "sentence": "I learned the word \"collapse\" today."
+  },
+  "glove": {
+    "meaning": "手套；给...戴手套",
+    "sentence": "I learned the word \"glove\" today."
+  },
+  "bitter": {
+    "meaning": "苦的, 痛苦的, 怀恨的；刺骨；(使)变苦",
+    "sentence": "I learned the word \"bitter\" today."
+  },
+  "outer": {
+    "meaning": "外部的, 外面的, 在外的, 远离中心的；外部的, 外面的, 外侧的",
+    "sentence": "I learned the word \"outer\" today."
+  },
+  "machinery": {
+    "meaning": "机器, 机械装置, 机构；机械",
+    "sentence": "I learned the word \"machinery\" today."
+  },
+  "petrol": {
+    "meaning": "汽油；汽油, 挥发油, 石油",
+    "sentence": "I learned the word \"petrol\" today."
+  },
+  "organ": {
+    "meaning": "风琴, 器官, 元件, 机构, 机关；风琴",
+    "sentence": "I learned the word \"organ\" today."
+  },
+  "explode": {
+    "meaning": "爆炸, 爆发, 激增；使爆炸",
+    "sentence": "I learned the word \"explode\" today."
+  },
+  "anticipate": {
+    "meaning": "预期, 占先, 加速, 提前使用；提前出现, 先期发生",
+    "sentence": "I learned the word \"anticipate\" today."
+  },
+  "stroke": {
+    "meaning": "笔划, 打, 中风, 抚, 摩, 冲程；划尾桨, 抚, 摩, 划去；笔划",
+    "sentence": "I learned the word \"stroke\" today."
+  },
+  "attraction": {
+    "meaning": "吸引, 吸引人的事物, 吸引力；吸引",
+    "sentence": "I learned the word \"attraction\" today."
+  },
+  "frequent": {
+    "meaning": "时常发生的, 频繁的, 快速的；时常来访, 常常聚集, 常与...交往",
+    "sentence": "I learned the word \"frequent\" today."
+  },
+  "curious": {
+    "meaning": "好奇的, 求知的, 古怪的",
+    "sentence": "I learned the word \"curious\" today."
+  },
+  "garage": {
+    "meaning": "车库, 汽车修理厂, 机库；把车送入修车场",
+    "sentence": "I learned the word \"garage\" today."
+  },
+  "prompt": {
+    "meaning": "提示；提醒",
+    "sentence": "Copy the AI prompt."
+  },
+  "slope": {
+    "meaning": "倾斜, 斜坡, 斜率, 扛枪姿势；使倾斜, 弄斜, 扛；倾斜, 走, 逃走",
+    "sentence": "I learned the word \"slope\" today."
+  },
+  "silk": {
+    "meaning": "丝, 绸, 绸锻类, 丝织品；丝的, 丝织的",
+    "sentence": "I learned the word \"silk\" today."
+  },
+  "romantic": {
+    "meaning": "浪漫的, 风流的, 传奇性的, 夸大的, 空想的, 浪漫派的",
+    "sentence": "I learned the word \"romantic\" today."
+  },
+  "disc": {
+    "meaning": "圆盘, 唱片；灌唱片",
+    "sentence": "I learned the word \"disc\" today."
+  },
+  "cotton": {
+    "meaning": "棉花；和谐, 有好感, 理解",
+    "sentence": "I learned the word \"cotton\" today."
+  },
+  "float": {
+    "meaning": "漂流物, 浮舟, 漂浮, 浮萍, 彩车；浮动, 飘动, 散播, 摇摆, 动摇, 浮动；使漂浮, 容纳, 淹没, 发行, 实行；浮动",
+    "sentence": "I learned the word \"float\" today."
+  },
+  "discount": {
+    "meaning": "折扣, 贴现率；打折扣；贴现",
+    "sentence": "I learned the word \"discount\" today."
+  },
+  "orange": {
+    "meaning": "柑橘, 桔子, 橘色；橘色的",
+    "sentence": "I learned the word \"orange\" today."
+  },
+  "blade": {
+    "meaning": "叶片, 刀锋, 刀口, 剑；页, 叶片, 刀片, 刀刃, 刀口",
+    "sentence": "I learned the word \"blade\" today."
+  },
+  "bite": {
+    "meaning": "咬, 一口；咬, 刺痛, 穿透",
+    "sentence": "I learned the word \"bite\" today."
+  },
+  "offensive": {
+    "meaning": "令人不快的, 侮辱的, 攻击性的；攻击的, 进攻的, 冒犯的",
+    "sentence": "I learned the word \"offensive\" today."
+  },
+  "bound": {
+    "meaning": "跃, 回跳, 范围, 边界；受约束的, 装有封面的, 有义务的, 关联的, 被束缚的, 准备去...的, 便秘的；跳跃, 弹起；使跳, 限制,",
+    "sentence": "I learned the word \"bound\" today."
+  },
+  "reverse": {
+    "meaning": "相反, 背面, 倒退, 挫折, 失败；反面的, 相反的, 反向的, 颠倒的；使颠倒, 使逆转, 使倒退, 使反向；倒退, 反向, 倒转, 反转",
+    "sentence": "I learned the word \"reverse\" today."
+  },
+  "invitation": {
+    "meaning": "邀请, 请柬, 引诱；邀请, 招待, 吸引",
+    "sentence": "I learned the word \"invitation\" today."
+  },
+  "generous": {
+    "meaning": "慷慨的, 有雅量的, 大量的, 丰富的",
+    "sentence": "I learned the word \"generous\" today."
+  },
+  "lemon": {
+    "meaning": "柠檬, 柠檬树, 柠檬色；柠檬",
+    "sentence": "I learned the word \"lemon\" today."
+  },
+  "hungry": {
+    "meaning": "饥饿的, 荒年的, 渴望的, 不毛的；欠鞣皮",
+    "sentence": "I learned the word \"hungry\" today."
+  },
+  "excuse": {
+    "meaning": "原谅, 申辩, 做为...的托辞；致歉, 理由, 饶恕, 借口",
+    "sentence": "I learned the word \"excuse\" today."
+  },
+  "cancel": {
+    "meaning": "取消, 撤消, 盖销(邮票)；取消, 删去, 抵销, 盖销；相互抵销；作废",
+    "sentence": "I learned the word \"cancel\" today."
+  },
+  "automatic": {
+    "meaning": "自动手枪, 自动机械；自动的, 机械的, 必然的, 无意识的",
+    "sentence": "I learned the word \"automatic\" today."
+  },
+  "naked": {
+    "meaning": "裸体的, 无装饰的, 无保护的, 赤贫的；裸露的",
+    "sentence": "I learned the word \"naked\" today."
+  },
+  "ambition": {
+    "meaning": "野心, 志向",
+    "sentence": "I learned the word \"ambition\" today."
+  },
+  "weekly": {
+    "meaning": "周刊, 周报；每周的, 一周一次的, 周刊的；每周, 一周一次",
+    "sentence": "I learned the word \"weekly\" today."
+  },
+  "nut": {
+    "meaning": "坚果, 核心, 螺帽；Novell NetWare服务器实用程序",
+    "sentence": "I learned the word \"nut\" today."
+  },
+  "logical": {
+    "meaning": "合乎逻辑的, 合理的；逻辑的, 符合逻辑的",
+    "sentence": "I learned the word \"logical\" today."
+  },
+  "harm": {
+    "meaning": "伤害, 害处；伤害, 损害",
+    "sentence": "I learned the word \"harm\" today."
+  },
+  "electrical": {
+    "meaning": "电的, 有关电的；电的",
+    "sentence": "I learned the word \"electrical\" today."
+  },
+  "logic": {
+    "meaning": "逻辑, 逻辑学, 推理的方法, 推理, 逻辑性；逻辑",
+    "sentence": "I learned the word \"logic\" today."
+  },
+  "battery": {
+    "meaning": "电池, 殴打；蓄电池",
+    "sentence": "I learned the word \"battery\" today."
+  },
+  "flame": {
+    "meaning": "火焰, 火舌, 热情, 光辉；焚烧, 用火焰给...灭菌, 用火焰传送(信号), 点燃, 激动；燃烧, 爆发, 闪耀；无聊邮件, 无益邮件",
+    "sentence": "I learned the word \"flame\" today."
+  },
+  "wherever": {
+    "meaning": "无论哪里",
+    "sentence": "I learned the word \"wherever\" today."
+  },
+  "wound": {
+    "meaning": "创伤, 伤口, 伤疤, 伤害, 痛苦；伤害, 损害, 使受伤；打伤, 伤害；wind的过去式和过去分词",
+    "sentence": "I learned the word \"wound\" today."
+  },
+  "shower": {
+    "meaning": "阵雨, 淋浴, 一阵, 展出者, 显示者；淋浴, 下阵雨；淋湿, 倾注",
+    "sentence": "I learned the word \"shower\" today."
+  },
+  "rubbish": {
+    "meaning": "废物, 垃圾, 胡说",
+    "sentence": "I learned the word \"rubbish\" today."
+  },
+  "dare": {
+    "meaning": "挑战, 挑动, 大胆；敢, 胆敢",
+    "sentence": "I learned the word \"dare\" today."
+  },
+  "valid": {
+    "meaning": "有确实根据的, 有法律效力的, 正当的, 正确的；有效的",
+    "sentence": "I learned the word \"valid\" today."
+  },
+  "mineral": {
+    "meaning": "矿物, 无机物, 苏打水；矿物的, 似矿物的",
+    "sentence": "I learned the word \"mineral\" today."
+  },
+  "comedy": {
+    "meaning": "喜剧, 有趣的事情",
+    "sentence": "I learned the word \"comedy\" today."
+  },
+  "suspicion": {
+    "meaning": "怀疑, 觉察, 嫌疑；怀疑, 疑心, 嫌疑",
+    "sentence": "I learned the word \"suspicion\" today."
+  },
+  "humour": {
+    "meaning": "幽默, 诙谐, 情绪, 体液；使满足, 迁就",
+    "sentence": "I learned the word \"humour\" today."
+  },
+  "grain": {
+    "meaning": "谷粒, 颗粒, 谷类, 纹理, 本质；(使)成谷粒",
+    "sentence": "I learned the word \"grain\" today."
+  },
+  "brush": {
+    "meaning": "刷子, 毛笔, 争吵；刷；擦过, 掠过；电刷",
+    "sentence": "I learned the word \"brush\" today."
+  },
+  "swear": {
+    "meaning": "发誓, 咒骂, 使宣誓；发誓, 诅咒；诅咒, 誓言",
+    "sentence": "I learned the word \"swear\" today."
+  },
+  "devote": {
+    "meaning": "投入于, 献身",
+    "sentence": "I learned the word \"devote\" today."
+  },
+  "needle": {
+    "meaning": "针, 尖；用针缝；缝纫；探针",
+    "sentence": "I learned the word \"needle\" today."
+  },
+  "lung": {
+    "meaning": "肺, 肺脏, 空地；肺",
+    "sentence": "I learned the word \"lung\" today."
+  },
+  "artistic": {
+    "meaning": "艺术的, 艺术家的, 富有艺术性的",
+    "sentence": "I learned the word \"artistic\" today."
+  },
+  "running": {
+    "meaning": "赛跑, 流出, 运转；流动的, 跑着的, 连续的",
+    "sentence": "I learned the word \"running\" today."
+  },
+  "powder": {
+    "meaning": "粉, 粉末, 火药；搽粉于, 搽粉, 撒粉, 使成粉末；搽粉, 变成粉末",
+    "sentence": "I learned the word \"powder\" today."
+  },
+  "ugly": {
+    "meaning": "丑陋的, 邪恶的, 险恶的, 不祥的；丑陋的人(或物)",
+    "sentence": "I learned the word \"ugly\" today."
+  },
+  "urgent": {
+    "meaning": "紧急的, 急迫的, 催逼的；紧急的, 急迫的",
+    "sentence": "I learned the word \"urgent\" today."
+  },
+  "cookie": {
+    "meaning": "饼干, 小甜点；糕点",
+    "sentence": "I learned the word \"cookie\" today."
+  },
+  "exact": {
+    "meaning": "精确的, 准确的, 精密的；强求, 急需",
+    "sentence": "I learned the word \"exact\" today."
+  },
+  "disturb": {
+    "meaning": "扰乱, 妨碍, 使不安；滋扰, 扰乱",
+    "sentence": "I learned the word \"disturb\" today."
+  },
+  "admire": {
+    "meaning": "赞美, 钦佩, 爱慕；称赞, 惊奇",
+    "sentence": "I learned the word \"admire\" today."
+  },
+  "advertisement": {
+    "meaning": "广告, 启事, 广告宣传；广告, 公告, 告示",
+    "sentence": "I learned the word \"advertisement\" today."
+  },
+  "pet": {
+    "meaning": "宠物, 受宠爱的人, 宠坏的孩子, 不悦, 生气；宠爱的, 表示亲昵的, 养着观赏的, 特别珍爱的, 格外的；宠爱, 溺爱, 抚摸；拥抱, 爱抚",
+    "sentence": "I learned the word \"pet\" today."
+  },
+  "hesitate": {
+    "meaning": "犹豫, 迟疑, 踌躇, 支吾, 停顿",
+    "sentence": "I learned the word \"hesitate\" today."
+  },
+  "rhythm": {
+    "meaning": "旋律, 节奏, 韵律, 匀称, 张弛节律；节律",
+    "sentence": "I learned the word \"rhythm\" today."
+  },
+  "swallow": {
+    "meaning": "燕子, 吞咽, 喉；咽, 淹没, 吞没, 耗尽, 轻信, 忍受, 抑制；吞下, 咽下",
+    "sentence": "I learned the word \"swallow\" today."
+  },
+  "piano": {
+    "meaning": "钢琴",
+    "sentence": "I learned the word \"piano\" today."
+  },
+  "exhibit": {
+    "meaning": "显示, 显现, 展览品, 陈列品, 展览；展现, 陈列, 展览；开展览会",
+    "sentence": "I learned the word \"exhibit\" today."
+  },
+  "removal": {
+    "meaning": "移动, 移居, 迁移, 排除, 切除；切除, 除去",
+    "sentence": "I learned the word \"removal\" today."
+  },
+  "cloth": {
+    "meaning": "布料, 织品, 布；布",
+    "sentence": "I learned the word \"cloth\" today."
+  },
+  "interior": {
+    "meaning": "内部, 内政；内部的, 心灵的, 内地的, 内政的",
+    "sentence": "I learned the word \"interior\" today."
+  },
+  "rope": {
+    "meaning": "绳, 索, 粗绳, 绞索, 决窍；捆, 缚, 绑, 圈起, 以绳将...系住；拧成绳状",
+    "sentence": "I learned the word \"rope\" today."
+  },
+  "concrete": {
+    "meaning": "凝结物, 混凝土；具体的, 实在的, 混凝土的；(使)凝结, 用混凝土浇筑",
+    "sentence": "I learned the word \"concrete\" today."
+  },
+  "chase": {
+    "meaning": "追求, 狩猎, 追逐；追捕, 追逐, 雕刻, 在...上镶嵌宝石；追赶, 奔跑",
+    "sentence": "I learned the word \"chase\" today."
+  },
+  "taxi": {
+    "meaning": "出租车；乘出租车；用出租车送",
+    "sentence": "I learned the word \"taxi\" today."
+  },
+  "cinema": {
+    "meaning": "电影院, 电影",
+    "sentence": "I learned the word \"cinema\" today."
+  },
+  "painter": {
+    "meaning": "画家, 油漆匠；油漆匠, 喷漆匠",
+    "sentence": "I learned the word \"painter\" today."
+  },
+  "courage": {
+    "meaning": "勇气, 胆量",
+    "sentence": "I learned the word \"courage\" today."
+  },
+  "shine": {
+    "meaning": "光泽, 阳光；使发光；照耀, 发光, 发亮",
+    "sentence": "I learned the word \"shine\" today."
+  },
+  "dictionary": {
+    "meaning": "字典, 词典；词典",
+    "sentence": "I learned the word \"dictionary\" today."
+  },
+  "slice": {
+    "meaning": "薄的切片, 一部分, 菜刀；切成薄片, 切下；切；片",
+    "sentence": "I learned the word \"slice\" today."
+  },
+  "lamp": {
+    "meaning": "灯；照亮；逻辑模拟分析系统",
+    "sentence": "I learned the word \"lamp\" today."
+  },
+  "knit": {
+    "meaning": "编织, 结合",
+    "sentence": "I learned the word \"knit\" today."
+  },
+  "grave": {
+    "meaning": "墓穴, 坟墓, 终结, 死亡；庄重的, 严肃的, 重大的, 低沉的；雕刻",
+    "sentence": "I learned the word \"grave\" today."
+  },
+  "toe": {
+    "meaning": "足趾, 趾部, 脚趾；以趾踏触, 用脚尖走；动脚尖",
+    "sentence": "I learned the word \"toe\" today."
+  },
+  "container": {
+    "meaning": "容器, 集装箱；集装箱?贮存箱?容器(任何一种)",
+    "sentence": "I learned the word \"container\" today."
+  },
+  "unexpected": {
+    "meaning": "料想不到的, 突然的, 意外的；不能预料的, 意外的",
+    "sentence": "I learned the word \"unexpected\" today."
+  },
+  "decrease": {
+    "meaning": "减少, 减少量；减少",
+    "sentence": "I learned the word \"decrease\" today."
+  },
+  "trap": {
+    "meaning": "圈套, 陷阱, 诡计, 存水弯；设圈套, 设陷阱；诱捕, 诱骗, 抓住, 使受限制；俘获?陷井",
+    "sentence": "I learned the word \"trap\" today."
+  },
+  "anniversary": {
+    "meaning": "周年纪念",
+    "sentence": "I learned the word \"anniversary\" today."
+  },
+  "navy": {
+    "meaning": "海军, 海军人员, 海军军力, 烟蒂",
+    "sentence": "I learned the word \"navy\" today."
+  },
+  "mess": {
+    "meaning": "食堂, 伙食, 用膳, 一份食品, 混乱, 乱七八糟, 困境；将...弄糟, 妨碍, 使紊乱, 使就餐；陷入困境, 搞乱, 用膳",
+    "sentence": "I learned the word \"mess\" today."
+  },
+  "spell": {
+    "meaning": "符咒, 魅力, 轮值, 轮班, 工作时间, 一次发作；拼写, 拼成, 琢磨, 理解, 招致, 轮换, 迷住；轮换, 拼字",
+    "sentence": "I learned the word \"spell\" today."
+  },
+  "interrupt": {
+    "meaning": "中断, 妨碍, 插嘴；打断；中断；中断",
+    "sentence": "I learned the word \"interrupt\" today."
+  },
+  "upset": {
+    "meaning": "弄翻的, 混乱的, 心烦的；弄翻, 颠覆, 推翻, 打乱, 使不适, 使心烦；翻倒",
+    "sentence": "I learned the word \"upset\" today."
+  },
+  "delight": {
+    "meaning": "高兴, 愉快；使高兴, 乐于；感到高兴(或愉快、快乐)",
+    "sentence": "I learned the word \"delight\" today."
+  },
+  "forgive": {
+    "meaning": "原谅, 宽恕, 免除；免除, 宽恕, 原谅",
+    "sentence": "I learned the word \"forgive\" today."
+  },
+  "invent": {
+    "meaning": "发明, 创作, 虚构；发明",
+    "sentence": "I learned the word \"invent\" today."
+  },
+  "insect": {
+    "meaning": "昆虫, 卑鄙的人；昆虫",
+    "sentence": "I learned the word \"insect\" today."
+  },
+  "superior": {
+    "meaning": "长者, 占优势的人, 上级；上级的, 出众的, 高傲的",
+    "sentence": "I learned the word \"superior\" today."
+  },
+  "magic": {
+    "meaning": "魔术, 魔法；魔术的, 有魔力的, 不可思议的",
+    "sentence": "I learned the word \"magic\" today."
+  },
+  "physics": {
+    "meaning": "物理学, 物理过程, 物理现象；物理?物理学",
+    "sentence": "I learned the word \"physics\" today."
+  },
+  "hunt": {
+    "meaning": "狩猎, 追捕, 搜寻, 猎区；狩猎, 打猎, 搜索；打猎, 猎食, 搜寻",
+    "sentence": "I learned the word \"hunt\" today."
+  },
+  "jeans": {
+    "meaning": "工装裤, 牛仔裤",
+    "sentence": "I learned the word \"jeans\" today."
+  },
+  "pill": {
+    "meaning": "药丸, 弹丸, 屈辱, 胡说；做成药丸, 形成丸状, 服药丸, 挫败, 抢劫",
+    "sentence": "I learned the word \"pill\" today."
+  },
+  "flour": {
+    "meaning": "面粉, 粉沫, 碎粉；面粉, 麦粉",
+    "sentence": "I learned the word \"flour\" today."
+  },
+  "candy": {
+    "meaning": "糖果, 冰糖；用糖煮, 使结晶为砂糖；结晶为砂糖",
+    "sentence": "I learned the word \"candy\" today."
+  },
+  "evil": {
+    "meaning": "邪恶, 不幸, 罪恶；邪恶的, 不幸的, 有害的, 讨厌的",
+    "sentence": "I learned the word \"evil\" today."
+  },
+  "melt": {
+    "meaning": "熔化, 熔化物, 溶解；(使)熔化, (使)溶解, (使)消散, (使)变软",
+    "sentence": "I learned the word \"melt\" today."
+  },
+  "midnight": {
+    "meaning": "午夜, 子夜, 半夜；午夜的, 半夜的",
+    "sentence": "I learned the word \"midnight\" today."
+  },
+  "closet": {
+    "meaning": "壁橱, 小室；秘密的, 空谈的；把...关入小室",
+    "sentence": "I learned the word \"closet\" today."
+  },
+  "snake": {
+    "meaning": "蛇, 阴险的人；曲折行进；迂回, 拉, 急抽",
+    "sentence": "I learned the word \"snake\" today."
+  },
+  "specially": {
+    "meaning": "特别地, 专门地",
+    "sentence": "I learned the word \"specially\" today."
+  },
+  "fold": {
+    "meaning": "折层, 折, 羊栏, 折痕, 信徒；折叠, 包, 合拢, 交迭；折叠起来, 彻底失败；折叠?合并",
+    "sentence": "I learned the word \"fold\" today."
+  },
+  "convenient": {
+    "meaning": "方便的, 合宜的；适当的, 合理而可行的, 方便的",
+    "sentence": "I learned the word \"convenient\" today."
+  },
+  "rumour": {
+    "meaning": "谣言, 传闻；谣传",
+    "sentence": "I learned the word \"rumour\" today."
+  },
+  "missing": {
+    "meaning": "不见的, 缺少的；行踪不明的, 失踪的, 遗失的",
+    "sentence": "I learned the word \"missing\" today."
+  },
+  "artificial": {
+    "meaning": "人造的, 假的, 非原地产的；人工的, 人造的, 伟牟",
+    "sentence": "I learned the word \"artificial\" today."
+  },
+  "flash": {
+    "meaning": "闪光, 闪现, 一瞬间；闪光, 闪现, 反射；使闪光, 反射",
+    "sentence": "I learned the word \"flash\" today."
+  },
+  "beef": {
+    "meaning": "牛肉, 肌肉；养(牛), 宰(牛)；抱怨, 告发",
+    "sentence": "I learned the word \"beef\" today."
+  },
+  "heating": {
+    "meaning": "加热, 供热, 暖气设备, 供暖系统, 暖气装置；加热的, 供暖的",
+    "sentence": "I learned the word \"heating\" today."
+  },
+  "elbow": {
+    "meaning": "手肘, 弯头, 扶手；用手肘推开, 推挤",
+    "sentence": "I learned the word \"elbow\" today."
+  },
+  "strictly": {
+    "meaning": "严格地, 确实地",
+    "sentence": "I learned the word \"strictly\" today."
+  },
+  "confuse": {
+    "meaning": "使混乱, 使狼狈, 使困惑；混淆",
+    "sentence": "I learned the word \"confuse\" today."
+  },
+  "disadvantage": {
+    "meaning": "缺点, 不利, 坏处",
+    "sentence": "I learned the word \"disadvantage\" today."
+  },
+  "mud": {
+    "meaning": "泥, 诽谤；弄脏",
+    "sentence": "I learned the word \"mud\" today."
+  },
+  "lorry": {
+    "meaning": "卡车, 货车；载重汽车",
+    "sentence": "I learned the word \"lorry\" today."
+  },
+  "warmth": {
+    "meaning": "温暖, 温情, 暖和, 激动, 生气",
+    "sentence": "I learned the word \"warmth\" today."
+  },
+  "uncertain": {
+    "meaning": "不确定的, 无常的, 不确信的, 不可预测的；不确定的, 未定的, 不确信的",
+    "sentence": "I learned the word \"uncertain\" today."
+  },
+  "businessman": {
+    "meaning": "商人, 实业家, 工商业家",
+    "sentence": "I learned the word \"businessman\" today."
+  },
+  "toilet": {
+    "meaning": "厕所, 梳妆；梳妆, 打扮, 上厕所；给...梳妆打扮",
+    "sentence": "I learned the word \"toilet\" today."
+  },
+  "chemistry": {
+    "meaning": "化学, 化学过程；化学",
+    "sentence": "I learned the word \"chemistry\" today."
+  },
+  "nail": {
+    "meaning": "钉子, 指甲；用钉钉牢, 使固定, 截住, 揭露",
+    "sentence": "I learned the word \"nail\" today."
+  },
+  "refusal": {
+    "meaning": "拒绝, 推却, 优先决定权；拒绝, 谢绝, 取舍权",
+    "sentence": "I learned the word \"refusal\" today."
+  },
+  "flood": {
+    "meaning": "洪水, 大量之水, 涨潮；淹没, 使泛滥, 注满；被淹, 溢出, 涌进",
+    "sentence": "I learned the word \"flood\" today."
+  },
+  "skirt": {
+    "meaning": "裙子, 下摆, 边缘, 郊区；位于...边缘, 绕过, 回避；位于边缘",
+    "sentence": "I learned the word \"skirt\" today."
+  },
+  "mathematics": {
+    "meaning": "数学；数学",
+    "sentence": "I learned the word \"mathematics\" today."
+  },
+  "bacteria": {
+    "meaning": "细菌；细菌, 杆菌",
+    "sentence": "I learned the word \"bacteria\" today."
+  },
+  "outdoor": {
+    "meaning": "户外的, 屋外的, 露天的",
+    "sentence": "I learned the word \"outdoor\" today."
+  },
+  "spare": {
+    "meaning": "剩余, 备用品, 备件, 备用零件, 备用轮胎；多余的, 备用的, 空闲的, 节约的, 瘦的；节约, 省掉, 宽恕；节约, 省用, 剩下, 饶恕",
+    "sentence": "I learned the word \"spare\" today."
+  },
+  "broadcast": {
+    "meaning": "广播, 传播；广播的；广播；经广播, 四散地；广播命令, 广播",
+    "sentence": "I learned the word \"broadcast\" today."
+  },
+  "suck": {
+    "meaning": "吸, 吮, 吸入, 吮吸, 吸收；吸, 吸奶；吸, 吸入, 吮吸",
+    "sentence": "I learned the word \"suck\" today."
+  },
+  "realistic": {
+    "meaning": "现实的, 逼真的, 现实主义的, 实在论的",
+    "sentence": "I learned the word \"realistic\" today."
+  },
+  "intelligent": {
+    "meaning": "聪明的, 智能的, 了解的",
+    "sentence": "I learned the word \"intelligent\" today."
+  },
+  "unhappy": {
+    "meaning": "不快乐的, 不幸的, 不适当的",
+    "sentence": "I learned the word \"unhappy\" today."
+  },
+  "wrist": {
+    "meaning": "手腕, 腕关节；腕",
+    "sentence": "I learned the word \"wrist\" today."
+  },
+  "unfair": {
+    "meaning": "不公平的, 不正直的, 不正当的；不正直的, 不公平的, 偏颇的",
+    "sentence": "I learned the word \"unfair\" today."
+  },
+  "continent": {
+    "meaning": "大陆, 洲；自制的",
+    "sentence": "I learned the word \"continent\" today."
+  },
+  "unite": {
+    "meaning": "联合, 接合, 混合；使联合, 统一, 使粘合, 使结合",
+    "sentence": "I learned the word \"unite\" today."
+  },
+  "ridiculous": {
+    "meaning": "荒谬的, 可笑的",
+    "sentence": "I learned the word \"ridiculous\" today."
+  },
+  "receipt": {
+    "meaning": "收据, 收入, 收到；开...的收据",
+    "sentence": "I learned the word \"receipt\" today."
+  },
+  "dump": {
+    "meaning": "垃圾场；倾倒, 倾销；倒垃圾, 倾销商品；转出?转储?倾卸?切断电源",
+    "sentence": "I learned the word \"dump\" today."
+  },
+  "unnecessary": {
+    "meaning": "不必要的",
+    "sentence": "I learned the word \"unnecessary\" today."
+  },
+  "uncomfortable": {
+    "meaning": "不舒服的, 不自在的, 不安的",
+    "sentence": "I learned the word \"uncomfortable\" today."
+  },
+  "tune": {
+    "meaning": "歌曲, 主旋律, 心情, 声调, 和谐, 一致, 语调, 程度；为...调音, 调整, 调谐, 使一致；协调, 调谐",
+    "sentence": "I learned the word \"tune\" today."
+  },
+  "horn": {
+    "meaning": "角, 角质, 喇叭, 号角；角制的；用角触, 长角于",
+    "sentence": "I learned the word \"horn\" today."
+  },
+  "peaceful": {
+    "meaning": "平静的, 和平的, 和平时期的, 爱好和平的, 喜爱安静的；和平的, 爱好和平的, 和平时期的",
+    "sentence": "I learned the word \"peaceful\" today."
+  },
+  "shame": {
+    "meaning": "羞耻, 羞愧, 耻辱；使羞愧, 侮辱",
+    "sentence": "I learned the word \"shame\" today."
+  },
+  "envelope": {
+    "meaning": "信封, 封套, 封袋；膜, 包袋",
+    "sentence": "I learned the word \"envelope\" today."
+  },
+  "twist": {
+    "meaning": "一扭, 扭曲, 曲折, 歪曲, 螺旋状, 新手法；拧, 扭, 捻, 编织, 使扭转, 缠绕, 盘绕, 歪曲, 使转动, 使苦恼, 使混乱, 使旋",
+    "sentence": "I learned the word \"twist\" today."
+  },
+  "towel": {
+    "meaning": "手巾, 毛巾；擦干身子",
+    "sentence": "I learned the word \"towel\" today."
+  },
+  "fetch": {
+    "meaning": "取得, 拿, 诡计, 魂；接来, 取来, 售得, 带来, 推出, 引出, 杀死, 吸引, 到达；取物, 前进；取",
+    "sentence": "I learned the word \"fetch\" today."
+  },
+  "cupboard": {
+    "meaning": "食橱, 碗柜, 餐具柜",
+    "sentence": "I learned the word \"cupboard\" today."
+  },
+  "faint": {
+    "meaning": "昏厥, 昏倒；模糊的, 微弱的, 无力的；昏倒, 变得微弱",
+    "sentence": "I learned the word \"faint\" today."
+  },
+  "sweat": {
+    "meaning": "汗, 汗水, 水珠, 焦急；出汗, 渗出, 冒出水气, 结水珠, 烦恼, 懊恼；使出汗, 流出, 榨出, 使汗流浃背",
+    "sentence": "I learned the word \"sweat\" today."
+  },
+  "drunk": {
+    "meaning": "喝醉了的；drink的过去式",
+    "sentence": "I learned the word \"drunk\" today."
+  },
+  "accent": {
+    "meaning": "重音, 口音, 特点, 注重点；重读, 加重音号于, 强调",
+    "sentence": "I learned the word \"accent\" today."
+  },
+  "web": {
+    "meaning": "网, 蛛丝, 蹼, 织物, 圈套, 卷筒纸；结网, 形成网；织蜘蛛网于, 使落入圈套",
+    "sentence": "I learned the word \"web\" today."
+  },
+  "praise": {
+    "meaning": "赞美, 称赞, 崇拜；称赞, 赞美；赞扬, 表扬",
+    "sentence": "I learned the word \"praise\" today."
+  },
+  "breed": {
+    "meaning": "种类, 品种；养育, 引起, 饲养, 繁殖",
+    "sentence": "I learned the word \"breed\" today."
+  },
+  "apologize": {
+    "meaning": "道歉, 辩解",
+    "sentence": "I learned the word \"apologize\" today."
+  },
+  "thumb": {
+    "meaning": "拇指；以拇指拨弄, 笨拙地摆弄, 用拇指翻旧, 迅速翻阅, 作搭车手势",
+    "sentence": "I learned the word \"thumb\" today."
+  },
+  "fork": {
+    "meaning": "叉子, 叉状物, 分岔；分支, 分歧；做成叉形, 叉起；派生指令",
+    "sentence": "I learned the word \"fork\" today."
+  },
+  "regret": {
+    "meaning": "遗憾, 后悔, 悔恨, 抱歉, 歉意；为...感到遗憾, 后悔, 惋惜, 懊悔, 抱歉；感到抱歉",
+    "sentence": "I learned the word \"regret\" today."
+  },
+  "signature": {
+    "meaning": "签字, 识别标志, 调号；签名附件",
+    "sentence": "I learned the word \"signature\" today."
+  },
+  "mild": {
+    "meaning": "温和的, 温柔的, 淡味的, 适度的, 轻微的, (肥皂等)软性的；轻的, 缓和的",
+    "sentence": "I learned the word \"mild\" today."
+  },
+  "delicate": {
+    "meaning": "细致优雅的, 微妙的, 美味的；柔弱的",
+    "sentence": "I learned the word \"delicate\" today."
+  },
+  "hook": {
+    "meaning": "钩, 钩状, 镰刀, 陷阱；挂...于钩上, 钩住, 引上钩, 偷窃；弯成钩状, 钩紧；钩",
+    "sentence": "I learned the word \"hook\" today."
+  },
+  "wool": {
+    "meaning": "羊毛, 毛织物, 毛线, 绒线；羊毛, 绒毛, 棉",
+    "sentence": "I learned the word \"wool\" today."
+  },
+  "steep": {
+    "meaning": "浸渍, 悬崖；险峻的, 陡峭的, 急剧升降的, 夸大的；浸, 泡",
+    "sentence": "I learned the word \"steep\" today."
+  },
+  "click": {
+    "meaning": "咔哒声, 啪嗒声；作咔哒声；使发咔哒声；单击",
+    "sentence": "I learned the word \"click\" today."
+  },
+  "insert": {
+    "meaning": "插入物；插入, 把(人造卫星)射入(轨道), 添写；附着；插入",
+    "sentence": "I learned the word \"insert\" today."
+  },
+  "exit": {
+    "meaning": "出口；退出",
+    "sentence": "Where is the exit?"
+  },
+  "dull": {
+    "meaning": "钝的, 无趣的, 呆滞的, 阴暗的；使迟钝, 使阴暗, 缓和；变迟钝, 减少",
+    "sentence": "I learned the word \"dull\" today."
+  },
+  "brave": {
+    "meaning": "勇敢的, 美好的, 华丽的；勇敢者；勇敢地面对",
+    "sentence": "I learned the word \"brave\" today."
+  },
+  "pity": {
+    "meaning": "遗憾, 同情, 怜悯, 憾事, 可惜；同情, 怜悯；觉得可怜, 有同情心",
+    "sentence": "I learned the word \"pity\" today."
+  },
+  "packet": {
+    "meaning": "小包, 一批信件, 大量, 信息包；打包, 装进小包；分组, 分组报文, 数据分组",
+    "sentence": "I learned the word \"packet\" today."
+  },
+  "scare": {
+    "meaning": "惊吓, 恐慌；惊吓, 使恐慌；受惊",
+    "sentence": "I learned the word \"scare\" today."
+  },
+  "skilled": {
+    "meaning": "熟练的；熟练的, 有技能的",
+    "sentence": "I learned the word \"skilled\" today."
+  },
+  "ankle": {
+    "meaning": "踝；踝, 踝关节",
+    "sentence": "I learned the word \"ankle\" today."
+  },
+  "swimming": {
+    "meaning": "游泳, 眩晕",
+    "sentence": "I learned the word \"swimming\" today."
+  },
+  "rescue": {
+    "meaning": "援救, 解救, 营救；援救, 救出, 营救",
+    "sentence": "I learned the word \"rescue\" today."
+  },
+  "happily": {
+    "meaning": "幸福地, 快乐地, 幸好",
+    "sentence": "I learned the word \"happily\" today."
+  },
+  "neat": {
+    "meaning": "整洁的, 巧妙的, 匀称的, 简洁的；牛",
+    "sentence": "I learned the word \"neat\" today."
+  },
+  "rider": {
+    "meaning": "骑手, (文件后的)附件, 扶手；游码",
+    "sentence": "I learned the word \"rider\" today."
+  },
+  "elegant": {
+    "meaning": "优雅的, 端庄的, 高雅的",
+    "sentence": "I learned the word \"elegant\" today."
+  },
+  "lonely": {
+    "meaning": "孤单的, 孤寂的, 荒凉的",
+    "sentence": "I learned the word \"lonely\" today."
+  },
+  "damp": {
+    "meaning": "潮湿, 湿气；潮湿的；使潮湿, 使阻尼, 抑止；变潮湿, 衰减",
+    "sentence": "I learned the word \"damp\" today."
+  },
+  "diagram": {
+    "meaning": "图表；图解",
+    "sentence": "I learned the word \"diagram\" today."
+  },
+  "vertical": {
+    "meaning": "垂直的, 直立的；垂直的, 顶的, 头顶的",
+    "sentence": "I learned the word \"vertical\" today."
+  },
+  "fancy": {
+    "meaning": "想象力, 幻想, 喜好；想象的, 精美的, 新奇的, 奇特的, 高价的, 特级的；想象, 设想, 相信, 喜爱；想象, 幻想",
+    "sentence": "I learned the word \"fancy\" today."
+  },
+  "ambulance": {
+    "meaning": "救护车；救护车",
+    "sentence": "I learned the word \"ambulance\" today."
+  },
+  "punish": {
+    "meaning": "处罚, 惩罚, 严厉对待；惩罚",
+    "sentence": "I learned the word \"punish\" today."
+  },
+  "nest": {
+    "meaning": "巢, 窝, 休息所, 隐匿处；筑巢, 找鸟巢；为...设窝, 使套叠；嵌套",
+    "sentence": "I learned the word \"nest\" today."
+  },
+  "parallel": {
+    "meaning": "平行, 对比, 相匹敌之物；平行的, 相似的；与...平行, 与...相似, 相比, 使平行；并联?并行",
+    "sentence": "I learned the word \"parallel\" today."
+  },
+  "elevator": {
+    "meaning": "电梯, 升降机；提升机",
+    "sentence": "I learned the word \"elevator\" today."
+  },
+  "statue": {
+    "meaning": "以雕像装饰；雕像",
+    "sentence": "I learned the word \"statue\" today."
+  },
+  "tropical": {
+    "meaning": "热带的, 热情的；热带的",
+    "sentence": "I learned the word \"tropical\" today."
+  },
+  "purple": {
+    "meaning": "紫色, 帝位；紫色的, 帝王的, 华而不实的；(使)成紫色",
+    "sentence": "I learned the word \"purple\" today."
+  },
+  "practically": {
+    "meaning": "几乎, 差不多, 事实上",
+    "sentence": "I learned the word \"practically\" today."
+  },
+  "stamp": {
+    "meaning": "印, 邮票, 打印器, 戳子, 图章, 印花税票, 标志, 特征, 类型, 跺脚；盖章于, 顿足, 贴上邮票, 铭刻, 捣碎, 扑灭；捣碎, 跺",
+    "sentence": "I learned the word \"stamp\" today."
+  },
+  "disappointment": {
+    "meaning": "失望",
+    "sentence": "I learned the word \"disappointment\" today."
+  },
+  "striking": {
+    "meaning": "醒目的, 惊人的, 打击的, 罢工的；罢工的, 罢市的, 罢课的",
+    "sentence": "I learned the word \"striking\" today."
+  },
+  "suffering": {
+    "meaning": "苦难, 受苦",
+    "sentence": "I learned the word \"suffering\" today."
+  },
+  "garbage": {
+    "meaning": "垃圾, 废物；无用信息",
+    "sentence": "I learned the word \"garbage\" today."
+  },
+  "ton": {
+    "meaning": "吨；吨",
+    "sentence": "I learned the word \"ton\" today."
+  },
+  "diamond": {
+    "meaning": "钻石, 菱形；菱形",
+    "sentence": "I learned the word \"diamond\" today."
+  },
+  "neighbourhood": {
+    "meaning": "邻接, 周围, 附近一带, 邻近, 邻居关系, 地区, 街道, 街坊, 四邻；邻域",
+    "sentence": "I learned the word \"neighbourhood\" today."
+  },
+  "chin": {
+    "meaning": "下巴, 颏；颏",
+    "sentence": "I learned the word \"chin\" today."
+  },
+  "ours": {
+    "meaning": "我们的",
+    "sentence": "I learned the word \"ours\" today."
+  },
+  "decorate": {
+    "meaning": "装饰",
+    "sentence": "I learned the word \"decorate\" today."
+  },
+  "thief": {
+    "meaning": "小偷, 贼；取样",
+    "sentence": "I learned the word \"thief\" today."
+  },
+  "flavour": {
+    "meaning": "味, 调味香料, 滋味, 香味, 气味, 风味, 情味, 情趣, 风韵；给...调味, 给...增添风趣, 加香料, 加味于",
+    "sentence": "I learned the word \"flavour\" today."
+  },
+  "geography": {
+    "meaning": "地理学, 地理；地理",
+    "sentence": "I learned the word \"geography\" today."
+  },
+  "pint": {
+    "meaning": "品脱(干量或液量的单位)；量磅, 品脱",
+    "sentence": "I learned the word \"pint\" today."
+  },
+  "forecast": {
+    "meaning": "预想, 预测, 预报；预想, 预测, 预报；趋势预测",
+    "sentence": "I learned the word \"forecast\" today."
+  },
+  "translation": {
+    "meaning": "翻译, 译文, 转化, 调任, 平移, 转译；转换",
+    "sentence": "I learned the word \"translation\" today."
+  },
+  "seal": {
+    "meaning": "印章, 封条, 海豹, 海豹皮, 火漆, 封蜡, 玺, 保证, 批准, 象征, 标志；封闭, 盖印, 盖章；猎海豹",
+    "sentence": "I learned the word \"seal\" today."
+  },
+  "rear": {
+    "meaning": "后面, 背后, 后方；后面的, 背面的, 后方的；养育, 培养, 饲养, 举起, 树立, 栽种；高耸, 暴跳",
+    "sentence": "I learned the word \"rear\" today."
+  },
+  "bye": {
+    "meaning": "再会, 回头见；结束命令",
+    "sentence": "I learned the word \"bye\" today."
+  },
+  "unfortunate": {
+    "meaning": "不幸的, 不合适的, 不吉利的",
+    "sentence": "I learned the word \"unfortunate\" today."
+  },
+  "freely": {
+    "meaning": "自由地, 随意地, 无拘束地, 直率地, 坦白地, 慷慨地, 免费地, 大量地；浮动地",
+    "sentence": "I learned the word \"freely\" today."
+  },
+  "definite": {
+    "meaning": "明确的, 一定的；明确的, 确切的, 一定的",
+    "sentence": "I learned the word \"definite\" today."
+  },
+  "gasoline": {
+    "meaning": "汽油；汽油",
+    "sentence": "I learned the word \"gasoline\" today."
+  },
+  "stiff": {
+    "meaning": "坚硬的, 严厉的, 呆板的, 生硬的, 刚强的, 强烈的, 粘的, 稠的, 艰难的；死尸, 醉鬼, 钞票；不肯付...小费",
+    "sentence": "I learned the word \"stiff\" today."
+  },
+  "advertise": {
+    "meaning": "做广告, 通知, 公布；做广告",
+    "sentence": "I learned the word \"advertise\" today."
+  },
+  "upwards": {
+    "meaning": "以上, 向上",
+    "sentence": "I learned the word \"upwards\" today."
+  },
+  "supermarket": {
+    "meaning": "超级市场；超级市场, 自助售货商店",
+    "sentence": "I learned the word \"supermarket\" today."
+  },
+  "nonsense": {
+    "meaning": "无意义的事, 荒谬言行, 荒唐",
+    "sentence": "I learned the word \"nonsense\" today."
+  },
+  "mysterious": {
+    "meaning": "神秘的, 难解的, 不可思议的",
+    "sentence": "I learned the word \"mysterious\" today."
+  },
+  "awkward": {
+    "meaning": "笨拙的, 棘手的",
+    "sentence": "I learned the word \"awkward\" today."
+  },
+  "affection": {
+    "meaning": "影响, 病, 喜爱, 情感, 倾向；疾患, 病变, 病?感情",
+    "sentence": "I learned the word \"affection\" today."
+  },
+  "bubble": {
+    "meaning": "泡沫；冒泡, 沸腾；使冒泡, 滔滔不绝地说",
+    "sentence": "I learned the word \"bubble\" today."
+  },
+  "dissolve": {
+    "meaning": "溶解, 解散",
+    "sentence": "I learned the word \"dissolve\" today."
+  },
+  "drum": {
+    "meaning": "鼓, 鼓声；击鼓, 作鼓声；打鼓奏出；磁鼓",
+    "sentence": "I learned the word \"drum\" today."
+  },
+  "shallow": {
+    "meaning": "水浅的地方, 浅滩；浅的, 肤浅的；(使)变浅",
+    "sentence": "I learned the word \"shallow\" today."
+  },
+  "boring": {
+    "meaning": "烦人的, 无聊的, 无趣的；成孔期, 搪孔",
+    "sentence": "I learned the word \"boring\" today."
+  },
+  "arrow": {
+    "meaning": "箭, 箭状物, 箭头记号",
+    "sentence": "I learned the word \"arrow\" today."
+  },
+  "dot": {
+    "meaning": "点, 圆点, 小数点, 小东西, 嫁妆；作小点记号, 加小点于；打上点；点",
+    "sentence": "I learned the word \"dot\" today."
+  },
+  "refrigerator": {
+    "meaning": "电冰箱, 冷藏库；冷冻机?致冷器",
+    "sentence": "I learned the word \"refrigerator\" today."
+  },
+  "lively": {
+    "meaning": "活泼的, 鲜明的, 生动的",
+    "sentence": "I learned the word \"lively\" today."
+  },
+  "ruler": {
+    "meaning": "统治者, 管理者, 尺, 直尺；划线板；标尺",
+    "sentence": "I learned the word \"ruler\" today."
+  },
+  "reproduce": {
+    "meaning": "繁殖, 再生, 复制, 生殖；复制",
+    "sentence": "I learned the word \"reproduce\" today."
+  },
+  "sleeve": {
+    "meaning": "袖子, 套管；缝上袖子",
+    "sentence": "I learned the word \"sleeve\" today."
+  },
+  "exam": {
+    "meaning": "考试, 测验",
+    "sentence": "I learned the word \"exam\" today."
+  },
+  "drawer": {
+    "meaning": "抽屉, 开票人；抽屉",
+    "sentence": "I learned the word \"drawer\" today."
+  },
+  "patience": {
+    "meaning": "耐性, 忍耐",
+    "sentence": "I learned the word \"patience\" today."
+  },
+  "spite": {
+    "meaning": "恶意, 怨恨, 使人烦恼的事物；故意刁难, 欺侮",
+    "sentence": "I learned the word \"spite\" today."
+  },
+  "calm": {
+    "meaning": "平稳, 风平浪静；平静的, 冷静的；平静下来, 镇静；使平静",
+    "sentence": "I learned the word \"calm\" today."
+  },
+  "ruin": {
+    "meaning": "毁灭, 推翻, 废墟；毁灭, 衰败, 破坏, 破产, 堕落；使毁灭, 毁坏, 使破产",
+    "sentence": "I learned the word \"ruin\" today."
+  },
+  "biscuit": {
+    "meaning": "饼干；素坯?饼干",
+    "sentence": "I learned the word \"biscuit\" today."
+  },
+  "runner": {
+    "meaning": "跑步者, 赛跑者, 送信人, 走私船, 操作者, 滑槽；碾碎机?压碎机",
+    "sentence": "I learned the word \"runner\" today."
+  },
+  "biology": {
+    "meaning": "生物学；生物?生物学",
+    "sentence": "I learned the word \"biology\" today."
+  },
+  "indirect": {
+    "meaning": "间接的, 非直截了当的, 不坦率的；间接的",
+    "sentence": "I learned the word \"indirect\" today."
+  },
+  "whoever": {
+    "meaning": "任何人, 无论谁",
+    "sentence": "I learned the word \"whoever\" today."
+  },
+  "atom": {
+    "meaning": "原子, 核能, 微粒, 微量；原子",
+    "sentence": "I learned the word \"atom\" today."
+  },
+  "boil": {
+    "meaning": "煮沸, 沸腾, 疖；煮沸, 激动",
+    "sentence": "I learned the word \"boil\" today."
+  },
+  "encouragement": {
+    "meaning": "鼓励, 激励, 奖励；怂恿, 煽动, 助长",
+    "sentence": "I learned the word \"encouragement\" today."
+  },
+  "sock": {
+    "meaning": "短袜, 鞋垫, 一击；重击, 猛投, 给...穿袜；打击；正着地, 不偏不倚地；非常成功的",
+    "sentence": "I learned the word \"sock\" today."
+  },
+  "sympathetic": {
+    "meaning": "有同情心的, 合意的, 赞成的；交感神经, 容易感受的人",
+    "sentence": "I learned the word \"sympathetic\" today."
+  },
+  "spoil": {
+    "meaning": "战利品, 赃物, 奖品, 变质, 次品；损坏, 破坏, 溺爱；腐坏, 掠夺",
+    "sentence": "I learned the word \"spoil\" today."
+  },
+  "soap": {
+    "meaning": "肥皂, 阿谀；以肥皂洗, 阿谀；评语",
+    "sentence": "I learned the word \"soap\" today."
+  },
+  "zero": {
+    "meaning": "零, 零点, 零度, 无, 乌有, 最低点；零的, 没有的；调零, 对(炮火等)作协调校正；零",
+    "sentence": "I learned the word \"zero\" today."
+  },
+  "absent": {
+    "meaning": "缺席的, 不在的, 缺乏的, 漫不经心的；使缺席",
+    "sentence": "I learned the word \"absent\" today."
+  },
+  "lump": {
+    "meaning": "块, 瘤, 很多, 肿块, 笨人；使成块状, 混在一起；结块",
+    "sentence": "I learned the word \"lump\" today."
+  },
+  "waist": {
+    "meaning": "腰部, 腰；腰",
+    "sentence": "I learned the word \"waist\" today."
+  },
+  "penny": {
+    "meaning": "便士, 一分, 小钱, 点滴；便士",
+    "sentence": "I learned the word \"penny\" today."
+  },
+  "blank": {
+    "meaning": "空格, 空白；空白的, 空虚的, 完全的, 无色的；消失, 成为空白；使无效, 取消, 封锁；空白",
+    "sentence": "I learned the word \"blank\" today."
+  },
+  "crush": {
+    "meaning": "压碎, 粉碎, 群众, 迷恋；压破, 征服, 塞, 弄皱, 榨出；被压碎, 起皱, 挤",
+    "sentence": "I learned the word \"crush\" today."
+  },
+  "spoon": {
+    "meaning": "匙, 调羹, 匙形工具；以匙舀起, 调情, 使成匙状",
+    "sentence": "I learned the word \"spoon\" today."
+  },
+  "liquid": {
+    "meaning": "液体, 流体, 流音；液体的, 透明的, 明亮的, 流动的, 易变的",
+    "sentence": "I learned the word \"liquid\" today."
+  },
+  "polish": {
+    "meaning": "波兰的；波兰人, 上光剂, 光泽, 优雅；擦亮, 擦去, 使完美；擦亮, 变得光亮",
+    "sentence": "I learned the word \"polish\" today."
+  },
+  "pin": {
+    "meaning": "大头针, 针, 别针, 栓, 销子, 图钉, 插头, 管脚, 品(液量单位)；将...用针别住, 钉住, 压住, 牵制, 使不能动, 归罪于；针",
+    "sentence": "I learned the word \"pin\" today."
+  },
+  "punch": {
+    "meaning": "打洞器, 钻孔机, 冲压机, 冲床, 潘趣酒；以拳重击, 开洞, 冲压；用拳猛击",
+    "sentence": "I learned the word \"punch\" today."
+  },
+  "smash": {
+    "meaning": "打碎, 粉碎, 打碎时哗啦声, 猛击, 扣球, 杀球, 经营失败, 破产, 硬币, 假硬币；非常轰动的, 了不起的；打碎, 粉碎, 击溃, 使破",
+    "sentence": "I learned the word \"smash\" today."
+  },
+  "bicycle": {
+    "meaning": "自行车",
+    "sentence": "I learned the word \"bicycle\" today."
+  },
+  "cheat": {
+    "meaning": "欺骗, 作弊, 骗子；欺骗, 逃脱, 骗取",
+    "sentence": "I learned the word \"cheat\" today."
+  },
+  "heal": {
+    "meaning": "痊愈；使复原, 使和解, 治愈",
+    "sentence": "I learned the word \"heal\" today."
+  },
+  "fever": {
+    "meaning": "发烧, 发热, 热病；发热, 热",
+    "sentence": "I learned the word \"fever\" today."
+  },
+  "stove": {
+    "meaning": "火炉, 窑；用火炉烤；stave的过去式和过去分词",
+    "sentence": "I learned the word \"stove\" today."
+  },
+  "grandchild": {
+    "meaning": "孙, 外孙女, 外孙, 孙女, 孙子",
+    "sentence": "I learned the word \"grandchild\" today."
+  },
+  "shy": {
+    "meaning": "惊跳, 惊避；胆怯的, 畏缩的, 迟疑的, 羞怯的；惊退, 乱投, 乱掷, 厌恶, 避开；乱投, 乱掷",
+    "sentence": "I learned the word \"shy\" today."
+  },
+  "pencil": {
+    "meaning": "铅笔, 色笔, 眉笔, 画笔, 光线束；用铅笔写或涂, 草拟",
+    "sentence": "I learned the word \"pencil\" today."
+  },
+  "spray": {
+    "meaning": "水沫, 浪花, 水花, 喷雾, 喷雾器, 小树枝；喷雾, 扫射, 喷射；喷, 溅开",
+    "sentence": "I learned the word \"spray\" today."
+  },
+  "behalf": {
+    "meaning": "利益, 方面",
+    "sentence": "I learned the word \"behalf\" today."
+  },
+  "enthusiastic": {
+    "meaning": "狂热的, 热心的, 热烈的",
+    "sentence": "I learned the word \"enthusiastic\" today."
+  },
+  "loyal": {
+    "meaning": "忠诚的, 忠实的, 忠贞的",
+    "sentence": "I learned the word \"loyal\" today."
+  },
+  "suspicious": {
+    "meaning": "可疑的, 多疑的, 怀疑的；怀疑的, 令人怀疑的, 可疑的",
+    "sentence": "I learned the word \"suspicious\" today."
+  },
+  "sack": {
+    "meaning": "麻布袋, 洗劫；把...装入袋, 洗劫",
+    "sentence": "I learned the word \"sack\" today."
+  },
+  "mobile": {
+    "meaning": "移动的, 易变的, 机动的；活动物体",
+    "sentence": "I learned the word \"mobile\" today."
+  },
+  "cruel": {
+    "meaning": "残酷的, 令人极痛苦的；残忍的, 残酷的",
+    "sentence": "I learned the word \"cruel\" today."
+  },
+  "entertain": {
+    "meaning": "娱乐, 招待, 怀抱；款待",
+    "sentence": "I learned the word \"entertain\" today."
+  },
+  "tyre": {
+    "meaning": "轮胎；装轮胎于",
+    "sentence": "I learned the word \"tyre\" today."
+  },
+  "manufacture": {
+    "meaning": "产品, 制造；制造, 假造；制造",
+    "sentence": "I learned the word \"manufacture\" today."
+  },
+  "feather": {
+    "meaning": "羽毛；长羽毛；用羽毛装饰",
+    "sentence": "I learned the word \"feather\" today."
+  },
+  "timetable": {
+    "meaning": "时间表",
+    "sentence": "I learned the word \"timetable\" today."
+  },
+  "lid": {
+    "meaning": "盖子, 限制, 眼睑；给...盖盖子",
+    "sentence": "I learned the word \"lid\" today."
+  },
+  "substitute": {
+    "meaning": "代理, 代理人, 代用品, 代替者, 代替物；代替；替代, 取代, 代用；代替的, 代用的, 代用品的；置换?替代",
+    "sentence": "I learned the word \"substitute\" today."
+  },
+  "decoration": {
+    "meaning": "装饰, 装饰品",
+    "sentence": "I learned the word \"decoration\" today."
+  },
+  "bored": {
+    "meaning": "无聊的；烦人的；无趣的",
+    "sentence": "I learned the word \"bored\" today."
+  },
+  "kilometre": {
+    "meaning": "公里, 千米",
+    "sentence": "I learned the word \"kilometre\" today."
+  },
+  "worship": {
+    "meaning": "崇拜, 礼拜, 尊敬；参加礼拜；崇拜, 尊敬",
+    "sentence": "I learned the word \"worship\" today."
+  },
+  "cure": {
+    "meaning": "治疗, 治愈, 治疗法；治疗, 治愈, 改正, 腌制, 加工处理, 使硫化；受治疗, 被加工处理, 被硫化",
+    "sentence": "I learned the word \"cure\" today."
+  },
+  "dying": {
+    "meaning": "垂死的；快要死的, 垂死的, 临终的",
+    "sentence": "I learned the word \"dying\" today."
+  },
+  "fame": {
+    "meaning": "名望, 名声, 传说",
+    "sentence": "I learned the word \"fame\" today."
+  },
+  "carrot": {
+    "meaning": "胡萝卜；胡萝卜",
+    "sentence": "I learned the word \"carrot\" today."
+  },
+  "allied": {
+    "meaning": "联盟的, 联姻的, 联系起来的",
+    "sentence": "I learned the word \"allied\" today."
+  },
+  "steer": {
+    "meaning": "引导, 驾驶, 航行, 控制；驾驶, 掌舵, 行驶；驾驶指示, 劝告",
+    "sentence": "I learned the word \"steer\" today."
+  },
+  "chew": {
+    "meaning": "咀嚼, 嚼碎；咀嚼, 细想；咀嚼, 咀嚼物",
+    "sentence": "I learned the word \"chew\" today."
+  },
+  "scratch": {
+    "meaning": "抓痕, 搔, 抓, 擦伤, 刮擦声, 乱写, 零分, 起跑线；搔, 抓, 挖出, 擦, 刮, 乱涂, 勾抹掉；搔, 抓, 发刮擦声, 勉强糊口",
+    "sentence": "I learned the word \"scratch\" today."
+  },
+  "awake": {
+    "meaning": "醒着的；唤醒, 唤起, 使意识到；醒来, 被唤起, 意识到",
+    "sentence": "I learned the word \"awake\" today."
+  },
+  "useless": {
+    "meaning": "无用的, 无效的, 无益的；无用, 无价值, 无效",
+    "sentence": "I learned the word \"useless\" today."
+  },
+  "grandparent": {
+    "meaning": "祖父母",
+    "sentence": "I learned the word \"grandparent\" today."
+  },
+  "beard": {
+    "meaning": "胡须；抓住胡须, 公开反对",
+    "sentence": "I learned the word \"beard\" today."
+  },
+  "width": {
+    "meaning": "宽度, 宽广, 广博；宽度",
+    "sentence": "I learned the word \"width\" today."
+  },
+  "fur": {
+    "meaning": "毛皮；以毛皮制作, 使生苔, 使生水垢；生苔, 积水垢",
+    "sentence": "I learned the word \"fur\" today."
+  },
+  "deliberate": {
+    "meaning": "深思熟虑的, 故意的, 从容的；仔细考虑",
+    "sentence": "I learned the word \"deliberate\" today."
+  },
+  "thread": {
+    "meaning": "线, 丝, 纤维, 线索；穿线于, 穿过, 通过, 用线穿成；穿过；线索, 线程",
+    "sentence": "I learned the word \"thread\" today."
+  },
+  "unpleasant": {
+    "meaning": "使人不愉快的, 使人厌恶的, 煞风景的",
+    "sentence": "I learned the word \"unpleasant\" today."
+  },
+  "chat": {
+    "meaning": "闲谈；闲谈, 聊天",
+    "sentence": "I learned the word \"chat\" today."
+  },
+  "crowded": {
+    "meaning": "拥挤的, 塞满的",
+    "sentence": "I learned the word \"crowded\" today."
+  },
+  "headache": {
+    "meaning": "头痛, 令人头痛之事；头痛",
+    "sentence": "I learned the word \"headache\" today."
+  },
+  "screw": {
+    "meaning": "螺旋, 螺杆, 螺钉, 螺旋桨, 吝啬鬼；调节, 扭紧, 旋, 拧, 加强, 压榨, 勒索；转动, 旋, 拧",
+    "sentence": "I learned the word \"screw\" today."
+  },
+  "invention": {
+    "meaning": "发明, 创作能力, 虚构的故事；发明",
+    "sentence": "I learned the word \"invention\" today."
+  },
+  "homework": {
+    "meaning": "家庭作业, 家里做的工作；家庭作业",
+    "sentence": "I learned the word \"homework\" today."
+  },
+  "tablet": {
+    "meaning": "平板, 门牌, 笔记簿, 碑, 匾, 药片；片剂",
+    "sentence": "I learned the word \"tablet\" today."
+  },
+  "sweater": {
+    "meaning": "毛衣, 毛线衫, 运动衫, 出汗者；发汗器",
+    "sentence": "I learned the word \"sweater\" today."
+  },
+  "rubber": {
+    "meaning": "橡皮, 橡胶, 做摩擦动作的人, 按摩师, 决胜盘；用橡胶制造, 涂橡胶于",
+    "sentence": "I learned the word \"rubber\" today."
+  },
+  "vocabulary": {
+    "meaning": "词汇(量), 词汇表；词表",
+    "sentence": "I learned the word \"vocabulary\" today."
+  },
+  "swell": {
+    "meaning": "增大, 隆起的部分, 巨浪, 肿胀；优秀的, 一流的；增大, 膨胀, 肿胀, 增强, 骄傲；使膨胀, 使增大, 使上涨, 使骄傲",
+    "sentence": "I learned the word \"swell\" today."
+  },
+  "bargain": {
+    "meaning": "交易, 买卖协定, 特价商品；讲价, 交易",
+    "sentence": "I learned the word \"bargain\" today."
+  },
+  "revise": {
+    "meaning": "校订, 修正, 改样；校订, 修正, 校正",
+    "sentence": "I learned the word \"revise\" today."
+  },
+  "bore": {
+    "meaning": "令人讨厌的人, 激浪, 枪膛, 孔；使烦扰, 钻孔；钻孔；bear的过去式；内径?孔径",
+    "sentence": "I learned the word \"bore\" today."
+  },
+  "pronounce": {
+    "meaning": "发音, 宣告, 断言",
+    "sentence": "I learned the word \"pronounce\" today."
+  },
+  "dislike": {
+    "meaning": "嫌恶；讨厌, 不喜欢",
+    "sentence": "I learned the word \"dislike\" today."
+  },
+  "obey": {
+    "meaning": "服从, 遵从, 顺从；服从",
+    "sentence": "I learned the word \"obey\" today."
+  },
+  "hammer": {
+    "meaning": "锤, 铁锤, 钉锤；锤打, 敲打, 钉；连续锤打；锤头",
+    "sentence": "I learned the word \"hammer\" today."
+  },
+  "polite": {
+    "meaning": "有礼貌的, 文雅的, 客气的, 有教养的",
+    "sentence": "I learned the word \"polite\" today."
+  },
+  "fashionable": {
+    "meaning": "时髦的, 上流社会的, 流行的",
+    "sentence": "I learned the word \"fashionable\" today."
+  },
+  "surroundings": {
+    "meaning": "环境, 周围的事物；环境",
+    "sentence": "I learned the word \"surroundings\" today."
+  },
+  "faithful": {
+    "meaning": "忠实的, 详确的, 可靠的；信徒",
+    "sentence": "I learned the word \"faithful\" today."
+  },
+  "probable": {
+    "meaning": "很可能的, 大概的, 可信的；很有希望的候选人, 很可能的事情",
+    "sentence": "I learned the word \"probable\" today."
+  },
+  "unconscious": {
+    "meaning": "未意识到的, 无意识的, 无知觉的；人事不省的, 神志丧失的?无意识的",
+    "sentence": "I learned the word \"unconscious\" today."
+  },
+  "multiply": {
+    "meaning": "繁殖, 乘, 增加；乘",
+    "sentence": "I learned the word \"multiply\" today."
+  },
+  "sailor": {
+    "meaning": "水手, 船员, 海员；水手, 船员, 海员",
+    "sentence": "I learned the word \"sailor\" today."
+  },
+  "chemist": {
+    "meaning": "化学家, 药剂师；化学家?化学师?化学工作者?药剂师?药房",
+    "sentence": "I learned the word \"chemist\" today."
+  },
+  "cheerful": {
+    "meaning": "快活的, 高兴的, 兴高采烈的",
+    "sentence": "I learned the word \"cheerful\" today."
+  },
+  "frighten": {
+    "meaning": "使惊吓；惊恐",
+    "sentence": "I learned the word \"frighten\" today."
+  },
+  "disagreement": {
+    "meaning": "不合, 争论, 不一致；不一致, 不同意, 陪审团的意见不一",
+    "sentence": "I learned the word \"disagreement\" today."
+  },
+  "knot": {
+    "meaning": "结, 群, 难题；打结, (使)纠缠",
+    "sentence": "I learned the word \"knot\" today."
+  },
+  "rob": {
+    "meaning": "抢夺, 抢掠, 剥夺",
+    "sentence": "I learned the word \"rob\" today."
+  },
+  "horizontal": {
+    "meaning": "水平线, 水平面, 水平位置；水平线的, 平坦的, 横的；水平；水平",
+    "sentence": "I learned the word \"horizontal\" today."
+  },
+  "curl": {
+    "meaning": "拳曲, 鬈发；弄卷；拳曲, 弯曲",
+    "sentence": "I learned the word \"curl\" today."
+  },
+  "ending": {
+    "meaning": "终止, 终了, 收场；末梢",
+    "sentence": "I learned the word \"ending\" today."
+  },
+  "ink": {
+    "meaning": "墨水, 墨汁；涂墨水于, 签署, 加墨水",
+    "sentence": "I learned the word \"ink\" today."
+  },
+  "infect": {
+    "meaning": "传染, 感染；传染, 感染",
+    "sentence": "I learned the word \"infect\" today."
+  },
+  "backward": {
+    "meaning": "向后地, 相反地；向后的, 相反的；倒推",
+    "sentence": "I learned the word \"backward\" today."
+  },
+  "offend": {
+    "meaning": "犯罪, 冒犯, 违反, 进攻",
+    "sentence": "I learned the word \"offend\" today."
+  },
+  "noisy": {
+    "meaning": "嘈杂的, 喧闹的；噪声的, 嘈杂的",
+    "sentence": "I learned the word \"noisy\" today."
+  },
+  "hatred": {
+    "meaning": "憎恨, 仇恨, 憎恶；敌意, 憎恨, 憎恶",
+    "sentence": "I learned the word \"hatred\" today."
+  },
+  "thorough": {
+    "meaning": "十分的, 彻底的",
+    "sentence": "I learned the word \"thorough\" today."
+  },
+  "sour": {
+    "meaning": "酸的, 酸臭的, 发酵的, 愠怒的, 讨厌的, 拙劣的, 不健全的；变酸, 发酵, 厌烦, 变坏；使变酸, 使失望；酸味, 酸饮料",
+    "sentence": "I learned the word \"sour\" today."
+  },
+  "underground": {
+    "meaning": "地下, 地铁, 地道, 秘密活动；地下的, 秘密的；在地下, 秘密地",
+    "sentence": "I learned the word \"underground\" today."
+  },
+  "passport": {
+    "meaning": "护照, 手段, 通行证；通行证, 护照",
+    "sentence": "I learned the word \"passport\" today."
+  },
+  "ashamed": {
+    "meaning": "惭愧的, 羞耻的",
+    "sentence": "I learned the word \"ashamed\" today."
+  },
+  "triangle": {
+    "meaning": "三角形, 三个一组, 三角关系；三角, 三角形",
+    "sentence": "I learned the word \"triangle\" today."
+  },
+  "gradual": {
+    "meaning": "逐渐的, 渐增的；弥撒升阶圣歌",
+    "sentence": "I learned the word \"gradual\" today."
+  },
+  "excite": {
+    "meaning": "刺激, 使兴奋, 激励",
+    "sentence": "I learned the word \"excite\" today."
+  },
+  "sincerely": {
+    "meaning": "真诚地",
+    "sentence": "I learned the word \"sincerely\" today."
+  },
+  "bin": {
+    "meaning": "(贮存谷物等的)容器, 箱子；二进制, 商业信息网",
+    "sentence": "I learned the word \"bin\" today."
+  },
+  "keyboard": {
+    "meaning": "键盘；键盘",
+    "sentence": "I learned the word \"keyboard\" today."
+  },
+  "fridge": {
+    "meaning": "电冰箱",
+    "sentence": "I learned the word \"fridge\" today."
+  },
+  "waiter": {
+    "meaning": "侍者",
+    "sentence": "I learned the word \"waiter\" today."
+  },
+  "jam": {
+    "meaning": "果酱, 拥塞之物, 堵塞, 困境；挤进, 使塞满, 混杂, 压碎, 使堵塞；堵塞, 轧住, 拥挤",
+    "sentence": "I learned the word \"jam\" today."
+  },
+  "poison": {
+    "meaning": "毒药, 毒, 毒物, 有毒害的事物；毒害, 毒杀, 使中毒；放毒, 下毒",
+    "sentence": "I learned the word \"poison\" today."
+  },
+  "umbrella": {
+    "meaning": "伞, 雨伞, 保护伞；伞的, 包罗万象的；用伞遮掩",
+    "sentence": "I learned the word \"umbrella\" today."
+  },
+  "underneath": {
+    "meaning": "在下面；在...的下面",
+    "sentence": "I learned the word \"underneath\" today."
+  },
+  "spider": {
+    "meaning": "蜘蛛, 设圈套者；星形轮",
+    "sentence": "I learned the word \"spider\" today."
+  },
+  "goodbye": {
+    "meaning": "再见",
+    "sentence": "I learned the word \"goodbye\" today."
+  },
+  "unwilling": {
+    "meaning": "不愿意的, 勉强的；不愿意的, 勉强的, 不服从的",
+    "sentence": "I learned the word \"unwilling\" today."
+  },
+  "plug": {
+    "meaning": "塞子, 栓, 插头；插入, 塞住, 接插头；被塞住",
+    "sentence": "I learned the word \"plug\" today."
+  },
+  "wallet": {
+    "meaning": "皮夹；皮包, 皮夹, 钱袋",
+    "sentence": "I learned the word \"wallet\" today."
+  },
+  "suitcase": {
+    "meaning": "手提箱",
+    "sentence": "I learned the word \"suitcase\" today."
+  },
+  "unusually": {
+    "meaning": "不寻常地, 异乎寻常地, (非正式)非常",
+    "sentence": "I learned the word \"unusually\" today."
+  },
+  "rude": {
+    "meaning": "粗鲁无礼的, 粗陋的, 粗暴的, 原始的, 未开化的, 大略的, 崎岖不平的, 狂暴的",
+    "sentence": "I learned the word \"rude\" today."
+  },
+  "unsuccessful": {
+    "meaning": "不成功的",
+    "sentence": "I learned the word \"unsuccessful\" today."
+  },
+  "flu": {
+    "meaning": "流感, 流行性感冒",
+    "sentence": "I learned the word \"flu\" today."
+  },
+  "aloud": {
+    "meaning": "出声地, 大声地",
+    "sentence": "I learned the word \"aloud\" today."
+  },
+  "jealous": {
+    "meaning": "嫉妒的, 羡慕的, 留心的, 戒备的",
+    "sentence": "I learned the word \"jealous\" today."
+  },
+  "sailing": {
+    "meaning": "航行, 航海术, 启航；航行的",
+    "sentence": "I learned the word \"sailing\" today."
+  },
+  "litre": {
+    "meaning": "升, 公升；升",
+    "sentence": "I learned the word \"litre\" today."
+  },
+  "cough": {
+    "meaning": "咳嗽；咳嗽；咳出",
+    "sentence": "I learned the word \"cough\" today."
+  },
+  "shave": {
+    "meaning": "修面, 刮胡子, 幸免, 剃刀；修面, 剃, 修剪, 掠过；刮脸, 勉强通过",
+    "sentence": "I learned the word \"shave\" today."
+  },
+  "spelling": {
+    "meaning": "拼, 拼字, 拼法；拼写检查",
+    "sentence": "I learned the word \"spelling\" today."
+  },
+  "harmful": {
+    "meaning": "有害的, 伤害的",
+    "sentence": "I learned the word \"harmful\" today."
+  },
+  "transparent": {
+    "meaning": "透明的, 显然的, 清晰的；透明",
+    "sentence": "I learned the word \"transparent\" today."
+  },
+  "exaggerate": {
+    "meaning": "夸大, 夸张",
+    "sentence": "I learned the word \"exaggerate\" today."
+  },
+  "complicate": {
+    "meaning": "弄复杂, 使错综, 使恶化；变复杂",
+    "sentence": "I learned the word \"complicate\" today."
+  },
+  "hobby": {
+    "meaning": "嗜好, 癖好, 爱好",
+    "sentence": "I learned the word \"hobby\" today."
+  },
+  "enjoyable": {
+    "meaning": "可从中得到乐趣的, 令人愉快的",
+    "sentence": "I learned the word \"enjoyable\" today."
+  },
+  "decay": {
+    "meaning": "衰退, 腐败；(使)衰退, (使)腐败",
+    "sentence": "I learned the word \"decay\" today."
+  },
+  "gallon": {
+    "meaning": "加仑；加仑",
+    "sentence": "I learned the word \"gallon\" today."
+  },
+  "sticky": {
+    "meaning": "粘的, 有粘性的, 顽固的",
+    "sentence": "I learned the word \"sticky\" today."
+  },
+  "dentist": {
+    "meaning": "牙科医生；牙医师",
+    "sentence": "I learned the word \"dentist\" today."
+  },
+  "motorcycle": {
+    "meaning": "摩托车；机动车, 机踏车, 摩托车",
+    "sentence": "I learned the word \"motorcycle\" today."
+  },
+  "indoor": {
+    "meaning": "户内的, 室内的",
+    "sentence": "I learned the word \"indoor\" today."
+  },
+  "crisp": {
+    "meaning": "脆的, 新鲜的, 活泼的；(使)烘脆, (使)拳曲, (使)起皱；松脆物",
+    "sentence": "I learned the word \"crisp\" today."
+  },
+  "lazy": {
+    "meaning": "懒惰的, 怠惰的, 缓慢的；懒散",
+    "sentence": "I learned the word \"lazy\" today."
+  },
+  "stripe": {
+    "meaning": "斑纹, 条纹；纹, 条纹",
+    "sentence": "I learned the word \"stripe\" today."
+  },
+  "noticeable": {
+    "meaning": "显而易见的, 显著的, 值得注意的",
+    "sentence": "I learned the word \"noticeable\" today."
+  },
+  "sore": {
+    "meaning": "悲伤的, 痛的, 引起痛苦的；痛处, 溃疡, 疮",
+    "sentence": "I learned the word \"sore\" today."
+  },
+  "nephew": {
+    "meaning": "侄子, 外甥",
+    "sentence": "I learned the word \"nephew\" today."
+  },
+  "tidy": {
+    "meaning": "椅子的背罩, 装杂物的容器；整齐的, 有条理的；弄整齐, 收拾, 整理；整理, 收拾",
+    "sentence": "I learned the word \"tidy\" today."
+  },
+  "undo": {
+    "meaning": "解开, 取消, 破坏, 毁灭, 扰乱；松开；撤消",
+    "sentence": "I learned the word \"undo\" today."
+  },
+  "sew": {
+    "meaning": "缝纫, 缝合, 缝；缝纫",
+    "sentence": "I learned the word \"sew\" today."
+  },
+  "whistle": {
+    "meaning": "口哨, 汽笛, 啸啸声, 口哨声；吹口哨, 鸣汽笛, 发嘘嘘声；用口哨或吹哨传意, 用口哨演奏",
+    "sentence": "I learned the word \"whistle\" today."
+  },
+  "imaginary": {
+    "meaning": "想像的, 虚构的, 假想的",
+    "sentence": "I learned the word \"imaginary\" today."
+  },
+  "underwear": {
+    "meaning": "内衣",
+    "sentence": "I learned the word \"underwear\" today."
+  },
+  "disgusting": {
+    "meaning": "令人厌恶的",
+    "sentence": "I learned the word \"disgusting\" today."
+  },
+  "insult": {
+    "meaning": "侮辱, 无礼, 损害；损害, 侮辱, 攻击",
+    "sentence": "I learned the word \"insult\" today."
+  },
+  "sideways": {
+    "meaning": "向旁边, 向侧面地；旁边的, 向侧面的",
+    "sentence": "I learned the word \"sideways\" today."
+  },
+  "grandson": {
+    "meaning": "孙子, 外孙",
+    "sentence": "I learned the word \"grandson\" today."
+  },
+  "clap": {
+    "meaning": "拍手, 拍手声, 霹雳声, 花柳病；鼓掌, (使)啪地关上",
+    "sentence": "I learned the word \"clap\" today."
+  },
+  "curb": {
+    "meaning": "抑制, 勒马绳, 边石；抑制, 束缚, 勒住",
+    "sentence": "I learned the word \"curb\" today."
+  },
+  "worse": {
+    "meaning": "更坏的事, 更恶劣的事, 败局；更坏的, 更恶劣的；更坏地, 更恶劣地",
+    "sentence": "I learned the word \"worse\" today."
+  },
+  "sincere": {
+    "meaning": "诚实的, 正直的, 真挚的, 纯净的",
+    "sentence": "I learned the word \"sincere\" today."
+  },
+  "accidental": {
+    "meaning": "意外的, 偶然的, 非主要的, 附属的；临时记号, 次要方面",
+    "sentence": "I learned the word \"accidental\" today."
+  },
+  "harmless": {
+    "meaning": "无害处的, 未受损害的, 无辜的, 无恶意的；无害的, 无恶意的, 无损害的",
+    "sentence": "I learned the word \"harmless\" today."
+  },
+  "kindness": {
+    "meaning": "仁慈, 亲切, 和蔼",
+    "sentence": "I learned the word \"kindness\" today."
+  },
+  "hollow": {
+    "meaning": "洞, 窟窿, 山谷；空的, 虚伪的, 空腹的, 凹的；形成空洞；挖空",
+    "sentence": "I learned the word \"hollow\" today."
+  },
+  "impatient": {
+    "meaning": "不耐烦的, 着急的, 急切的",
+    "sentence": "I learned the word \"impatient\" today."
+  },
+  "fry": {
+    "meaning": "油炸食物, 鱼苗；油炸, 煎",
+    "sentence": "I learned the word \"fry\" today."
+  },
+  "infectious": {
+    "meaning": "有传染性的, 易传染的；传染性的",
+    "sentence": "I learned the word \"infectious\" today."
+  },
+  "embarrass": {
+    "meaning": "使困窘, 使局促不安, 阻碍",
+    "sentence": "I learned the word \"embarrass\" today."
+  },
+  "fasten": {
+    "meaning": "拴紧, 使固定, 系, 集中于, 强加于；扣紧",
+    "sentence": "I learned the word \"fasten\" today."
+  },
+  "luggage": {
+    "meaning": "行李, 皮箱",
+    "sentence": "I learned the word \"luggage\" today."
+  },
+  "unload": {
+    "meaning": "卸货；从...卸下, 摆脱...之负担, 倾销, 卸(货)；卸载",
+    "sentence": "I learned the word \"unload\" today."
+  },
+  "glue": {
+    "meaning": "胶, 粘性物；粘合, 胶合",
+    "sentence": "I learned the word \"glue\" today."
+  },
+  "cooker": {
+    "meaning": "炊事用具, 炉灶, 锅, 炊具, 烹饪用水果, 窜改者, 伪造者；蒸锅",
+    "sentence": "I learned the word \"cooker\" today."
+  },
+  "baggage": {
+    "meaning": "行李；行李",
+    "sentence": "I learned the word \"baggage\" today."
+  },
+  "disgust": {
+    "meaning": "厌恶, 嫌恶；令人厌恶；使作呕",
+    "sentence": "I learned the word \"disgust\" today."
+  },
+  "niece": {
+    "meaning": "侄女, 甥女",
+    "sentence": "I learned the word \"niece\" today."
+  },
+  "outdoors": {
+    "meaning": "户外, 野外活动；在户外, 在野外",
+    "sentence": "I learned the word \"outdoors\" today."
+  },
+  "midday": {
+    "meaning": "正午, 中午；正午的",
+    "sentence": "I learned the word \"midday\" today."
+  },
+  "careless": {
+    "meaning": "粗心的, 不关心的, 无忧无虑的",
+    "sentence": "I learned the word \"careless\" today."
+  },
+  "annoy": {
+    "meaning": "使恼怒, 骚扰",
+    "sentence": "I learned the word \"annoy\" today."
+  },
+  "spicy": {
+    "meaning": "香的, 多香料的, 辛辣的, 下流的",
+    "sentence": "I learned the word \"spicy\" today."
+  },
+  "indoors": {
+    "meaning": "在户内",
+    "sentence": "I learned the word \"indoors\" today."
+  },
+  "pants": {
+    "meaning": "裤子, 长裤, 短衬裤, 女式运动短裤",
+    "sentence": "I learned the word \"pants\" today."
+  },
+  "alcoholic": {
+    "meaning": "酒鬼, 酒精中毒者；酒精的",
+    "sentence": "I learned the word \"alcoholic\" today."
+  },
+  "irritate": {
+    "meaning": "激怒, 使发怒, 使兴奋, 使发炎；引起不快",
+    "sentence": "I learned the word \"irritate\" today."
+  },
+  "sting": {
+    "meaning": "叮, 刺痛, 刺激, 讽刺；叮, 刺痛, 刺激, 使苦恼；叮, 刺痛",
+    "sentence": "I learned the word \"sting\" today."
+  },
+  "pronunciation": {
+    "meaning": "发音, 读法",
+    "sentence": "I learned the word \"pronunciation\" today."
+  },
+  "disappoint": {
+    "meaning": "使失望",
+    "sentence": "I learned the word \"disappoint\" today."
+  },
+  "awfully": {
+    "meaning": "恶劣地, 非常地, 极端地",
+    "sentence": "I learned the word \"awfully\" today."
+  },
+  "disapprove": {
+    "meaning": "不赞成",
+    "sentence": "I learned the word \"disapprove\" today."
+  },
+  "granddaughter": {
+    "meaning": "孙女, 外孙女",
+    "sentence": "I learned the word \"granddaughter\" today."
+  },
+  "unlucky": {
+    "meaning": "不吉利的, 不祥的, 不幸的",
+    "sentence": "I learned the word \"unlucky\" today."
+  },
+  "amaze": {
+    "meaning": "使吃惊",
+    "sentence": "I learned the word \"amaze\" today."
+  },
+  "scissors": {
+    "meaning": "剪刀；剪",
+    "sentence": "I learned the word \"scissors\" today."
+  },
+  "amuse": {
+    "meaning": "消遣, 娱乐, 使发笑",
+    "sentence": "I learned the word \"amuse\" today."
+  },
+  "centimetre": {
+    "meaning": "厘米, 公分",
+    "sentence": "I learned the word \"centimetre\" today."
+  },
+  "gram": {
+    "meaning": "克, 绿豆, 鹰嘴豆；克",
+    "sentence": "I learned the word \"gram\" today."
+  },
+  "gamble": {
+    "meaning": "赌博, 冒险；赌博, 孤注一掷",
+    "sentence": "I learned the word \"gamble\" today."
+  },
+  "alphabet": {
+    "meaning": "字母；字母表",
+    "sentence": "I learned the word \"alphabet\" today."
+  },
+  "salty": {
+    "meaning": "有盐分的, 咸味浓的, 海洋的, 辛辣的, 有经验的",
+    "sentence": "I learned the word \"salty\" today."
+  },
+  "bandage": {
+    "meaning": "绷带；帘布筒?实心轮胎?紧带?绷带",
+    "sentence": "I learned the word \"bandage\" today."
+  },
+  "depress": {
+    "meaning": "使沮丧, 压低, 降低, 使萧条；推下",
+    "sentence": "I learned the word \"depress\" today."
+  },
+  "humorous": {
+    "meaning": "富幽默感的, 滑稽的, 诙谐的",
+    "sentence": "I learned the word \"humorous\" today."
+  },
+  "surname": {
+    "meaning": "姓, 别号, 绰号；呼以姓氏, 起绰号",
+    "sentence": "I learned the word \"surname\" today."
+  },
+  "unimportant": {
+    "meaning": "不重要的",
+    "sentence": "I learned the word \"unimportant\" today."
+  },
+  "mistaken": {
+    "meaning": "犯错的, 错误的；mistake的过去分词",
+    "sentence": "I learned the word \"mistaken\" today."
+  },
+  "poisonous": {
+    "meaning": "有毒的, 恶毒的, 讨厌的；有毒的",
+    "sentence": "I learned the word \"poisonous\" today."
+  },
+  "millimetre": {
+    "meaning": "毫米；公厘",
+    "sentence": "I learned the word \"millimetre\" today."
+  },
+  "approximate": {
+    "meaning": "大约的, 接近的, 近似的；接近, 使接近, 粗略估计；接近于",
+    "sentence": "I learned the word \"approximate\" today."
+  },
+  "cent": {
+    "meaning": "分；美分",
+    "sentence": "I learned the word \"cent\" today."
+  },
+  "thirsty": {
+    "meaning": "口渴的, 渴望的, 干燥的",
+    "sentence": "I learned the word \"thirsty\" today."
+  },
+  "yawn": {
+    "meaning": "哈欠；打哈欠, 裂开；打着哈欠说",
+    "sentence": "I learned the word \"yawn\" today."
+  },
+  "unkind": {
+    "meaning": "不仁慈的, 不亲切的",
+    "sentence": "I learned the word \"unkind\" today."
+  },
+  "bent": {
+    "meaning": "弯曲的, 决心的；爱好；bend的过去式和过去分词",
+    "sentence": "I learned the word \"bent\" today."
+  },
+  "kilogram": {
+    "meaning": "千克, 公斤；千克, 公斤",
+    "sentence": "I learned the word \"kilogram\" today."
+  },
+  "mr": {
+    "meaning": "先生；存储器回收程序, 多重请求",
+    "sentence": "I learned the word \"mr\" today."
+  },
+  "including": {
+    "meaning": "包含, 包括；包括, 算入",
+    "sentence": "I learned the word \"including\" today."
+  },
+  "mrs": {
+    "meaning": "太太",
+    "sentence": "I learned the word \"mrs\" today."
+  },
+  "concerned": {
+    "meaning": "关心的, 有关的, 参与的, 担心的",
+    "sentence": "I learned the word \"concerned\" today."
+  },
+  "environmental": {
+    "meaning": "周围的, 环境的；环境的, 环保的",
+    "sentence": "I learned the word \"environmental\" today."
+  },
+  "united": {
+    "meaning": "联合的, 团结的, 一致的, 和睦的；联合的, 统一的, 一致的",
+    "sentence": "I learned the word \"united\" today."
+  },
+  "cultural": {
+    "meaning": "文化的, 教养的, 修养的；培养的",
+    "sentence": "I learned the word \"cultural\" today."
+  },
+  "planning": {
+    "meaning": "计划的制订, 策划, 设计, 规划；计划, 规划",
+    "sentence": "I learned the word \"planning\" today."
+  },
+  "opposition": {
+    "meaning": "反对, 敌对, 相反, 在野党；对生, 对向, 反抗, 反对症",
+    "sentence": "I learned the word \"opposition\" today."
+  },
+  "mum": {
+    "meaning": "菊花, 沉默；沉默的；演哑剧；别说话",
+    "sentence": "I learned the word \"mum\" today."
+  },
+  "fully": {
+    "meaning": "十分地, 完全地, 充分地",
+    "sentence": "I learned the word \"fully\" today."
+  },
+  "interested": {
+    "meaning": "感兴趣的；有利害关系的, 有股份的, 偏私的",
+    "sentence": "I learned the word \"interested\" today."
+  },
+  "ms": {
+    "meaning": "美国微软公司；主存储器, 制造系统, 毫秒, 微软公司",
+    "sentence": "I learned the word \"ms\" today."
+  },
+  "apparently": {
+    "meaning": "表面上, 清楚地, 显然地",
+    "sentence": "I learned the word \"apparently\" today."
+  },
+  "regional": {
+    "meaning": "地方的, 地域性的；区的, 部位的",
+    "sentence": "I learned the word \"regional\" today."
+  },
+  "entirely": {
+    "meaning": "完全, 全然, 一概",
+    "sentence": "I learned the word \"entirely\" today."
+  },
+  "equally": {
+    "meaning": "相等地, 同样地, 平等地",
+    "sentence": "I learned the word \"equally\" today."
+  },
+  "working": {
+    "meaning": "工作, 运转, 劳动；工作的, 劳动的, 经营的, 抽搐的, 运转的",
+    "sentence": "I learned the word \"working\" today."
+  },
+  "detailed": {
+    "meaning": "详细的, 复杂的；详细的, 详尽的",
+    "sentence": "I learned the word \"detailed\" today."
+  },
+  "prepared": {
+    "meaning": "准备好的, 特制的",
+    "sentence": "I learned the word \"prepared\" today."
+  },
+  "effectively": {
+    "meaning": "有效地, 有力地, 实际上",
+    "sentence": "I learned the word \"effectively\" today."
+  },
+  "landscape": {
+    "meaning": "风景, 山水, 风景画；从事景观美化；美化...景观；横向",
+    "sentence": "I learned the word \"landscape\" today."
+  },
+  "afterwards": {
+    "meaning": "然后, 后来",
+    "sentence": "I learned the word \"afterwards\" today."
+  },
+  "specifically": {
+    "meaning": "特定地, 明确地, 按特性",
+    "sentence": "I learned the word \"specifically\" today."
+  },
+  "originally": {
+    "meaning": "本来, 原来, 最初, 就起源而论, 独创地",
+    "sentence": "I learned the word \"originally\" today."
+  },
+  "typically": {
+    "meaning": "代表性地；作为特色地",
+    "sentence": "I learned the word \"typically\" today."
+  },
+  "fishing": {
+    "meaning": "钓鱼, 鱼业；钓鱼的",
+    "sentence": "I learned the word \"fishing\" today."
+  },
+  "bother": {
+    "meaning": "烦扰, 迷惑；烦恼, 操心；麻烦, 纠纷, 讨厌的人",
+    "sentence": "I learned the word \"bother\" today."
+  },
+  "involvement": {
+    "meaning": "卷入, 牵连, 包含, 困窘；财政困难, 经济上的困窘",
+    "sentence": "I learned the word \"involvement\" today."
+  },
+  "cd": {
+    "meaning": "光盘；唱片",
+    "sentence": "I found an old CD."
+  },
+  "partnership": {
+    "meaning": "合伙, 合股, 合作关系；合伙(合作)关系, 全体合伙人",
+    "sentence": "I learned the word \"partnership\" today."
+  },
+  "remaining": {
+    "meaning": "剩余的",
+    "sentence": "I learned the word \"remaining\" today."
+  },
+  "essentially": {
+    "meaning": "本质上, 本来",
+    "sentence": "I learned the word \"essentially\" today."
+  },
+  "initially": {
+    "meaning": "最初, 开头",
+    "sentence": "I learned the word \"initially\" today."
+  },
+  "armed": {
+    "meaning": "有扶手的, 武装的, 有防卫器官的；武装的, 持械的, \"F带武器的",
+    "sentence": "I learned the word \"armed\" today."
+  },
+  "fixed": {
+    "meaning": "固定的, 不变的；固定的, 确定的, 不变的",
+    "sentence": "I learned the word \"fixed\" today."
+  },
+  "precisely": {
+    "meaning": "精确地, 明确地, 刻板地, 拘泥地, 正好, 恰恰, 对, 正是如此, 确实如此, 不错",
+    "sentence": "I learned the word \"precisely\" today."
+  },
+  "retirement": {
+    "meaning": "退休, 隐居, 撤退；退休, 退股, (固定资产)报废",
+    "sentence": "I learned the word \"retirement\" today."
+  },
+  "recording": {
+    "meaning": "记录的, 记录用的；录音",
+    "sentence": "I learned the word \"recording\" today."
+  },
+  "briefly": {
+    "meaning": "简短地, 扼要地, 简明地, 简单地",
+    "sentence": "I learned the word \"briefly\" today."
+  },
+  "written": {
+    "meaning": "书面的, 写成文字的；write的过去分词",
+    "sentence": "I learned the word \"written\" today."
+  },
+  "satisfied": {
+    "meaning": "感到满意的",
+    "sentence": "I learned the word \"satisfied\" today."
+  },
+  "lost": {
+    "meaning": "失去的, 遗失的, 迷惑的；lose的过去式和过去分词",
+    "sentence": "I learned the word \"lost\" today."
+  },
+  "related": {
+    "meaning": "讲述的, 叙述的；有关系的, 有关联的",
+    "sentence": "I learned the word \"related\" today."
+  },
+  "hunting": {
+    "meaning": "狩猎, 猎狐, 探求；寻找平衡?寻找",
+    "sentence": "I learned the word \"hunting\" today."
+  },
+  "unemployed": {
+    "meaning": "失业的, 未被利用的；没有被雇用的, 失业的, 没有被利用的",
+    "sentence": "I learned the word \"unemployed\" today."
+  },
+  "aged": {
+    "meaning": "老的, 陈的, 有...岁的；老化的?老化了的?陈化的?陈化了的",
+    "sentence": "I learned the word \"aged\" today."
+  },
+  "scared": {
+    "meaning": "害怕的, 担惊受怕的, 惊慌的, 吓坏了的",
+    "sentence": "I learned the word \"scared\" today."
+  },
+  "traveller": {
+    "meaning": "旅行者；旅行商",
+    "sentence": "I learned the word \"traveller\" today."
+  },
+  "mall": {
+    "meaning": "林荫路",
+    "sentence": "I learned the word \"mall\" today."
+  },
+  "girlfriend": {
+    "meaning": "女朋友",
+    "sentence": "I learned the word \"girlfriend\" today."
+  },
+  "informal": {
+    "meaning": "非正式的, 不拘礼的, 通俗的；非正式的, 日常使用的",
+    "sentence": "I learned the word \"informal\" today."
+  },
+  "cooking": {
+    "meaning": "烹饪；熬炼?热炼?蒸煮",
+    "sentence": "I learned the word \"cooking\" today."
+  },
+  "killing": {
+    "meaning": "谋杀, 杀戮；杀害的, 疲惫的, 迷人的",
+    "sentence": "I learned the word \"killing\" today."
+  },
+  "farming": {
+    "meaning": "农业, 耕作",
+    "sentence": "I learned the word \"farming\" today."
+  },
+  "publishing": {
+    "meaning": "出版, 刊印, 发行",
+    "sentence": "I learned the word \"publishing\" today."
+  },
+  "tonne": {
+    "meaning": "吨, 公吨；吨",
+    "sentence": "I learned the word \"tonne\" today."
+  },
+  "disappointed": {
+    "meaning": "失望的",
+    "sentence": "I learned the word \"disappointed\" today."
+  },
+  "boyfriend": {
+    "meaning": "男朋友",
+    "sentence": "I learned the word \"boyfriend\" today."
+  },
+  "excited": {
+    "meaning": "兴奋的, 已励磁的, 已激发的, 激昂的, 激动的",
+    "sentence": "I learned the word \"excited\" today."
+  },
+  "closed": {
+    "meaning": "关闭的, 限于少数人的；关闭指令",
+    "sentence": "I learned the word \"closed\" today."
+  },
+  "mixed": {
+    "meaning": "混合的, 形形色色的, 弄糊涂的；混合的",
+    "sentence": "I learned the word \"mixed\" today."
+  },
+  "formerly": {
+    "meaning": "从前, 以前",
+    "sentence": "I learned the word \"formerly\" today."
+  },
+  "confused": {
+    "meaning": "困惑的, 混乱的",
+    "sentence": "I learned the word \"confused\" today."
+  },
+  "coloured": {
+    "meaning": "有色的, 有...色的, 经过渲染的, 有色彩的, 伪装的, 有色人种的, 混血种的；有色人种的人, 混血人；着色的",
+    "sentence": "I learned the word \"coloured\" today."
+  },
+  "walking": {
+    "meaning": "步行, 步态；步行的, 步行用的",
+    "sentence": "I learned the word \"walking\" today."
+  },
+  "dancer": {
+    "meaning": "舞蹈演员, 跳舞者",
+    "sentence": "I learned the word \"dancer\" today."
+  },
+  "retired": {
+    "meaning": "隐退的, 退休的, 退役的；退休的, 已收回的",
+    "sentence": "I learned the word \"retired\" today."
+  },
+  "driving": {
+    "meaning": "赶, 操纵, 驾驶；推进的, 强劲的, 精力旺盛的",
+    "sentence": "I learned the word \"driving\" today."
+  },
+  "frozen": {
+    "meaning": "冻结的, 冰冷的, 严寒的, 冻伤的, 冷酷的；freeze的过去分词",
+    "sentence": "I learned the word \"frozen\" today."
+  },
+  "backwards": {
+    "meaning": "向后",
+    "sentence": "I learned the word \"backwards\" today."
+  },
+  "photography": {
+    "meaning": "摄影, 摄影术；照相术",
+    "sentence": "I learned the word \"photography\" today."
+  },
+  "alternatively": {
+    "meaning": "非此即彼",
+    "sentence": "I learned the word \"alternatively\" today."
+  },
+  "substantially": {
+    "meaning": "实质上, 本质上, 大体上",
+    "sentence": "I learned the word \"substantially\" today."
+  },
+  "determined": {
+    "meaning": "坚决的, 已下决心的",
+    "sentence": "I learned the word \"determined\" today."
+  },
+  "washing": {
+    "meaning": "洗涤, 浸, 洗涤物；涂浆, 洗涤",
+    "sentence": "I learned the word \"washing\" today."
+  },
+  "broadly": {
+    "meaning": "宽广地, 明白地, 无礼貌地",
+    "sentence": "I learned the word \"broadly\" today."
+  },
+  "depressed": {
+    "meaning": "沮丧的, 降低的；抑郁的, 阻抑的, 压低的, 凹的, 扁平的",
+    "sentence": "I learned the word \"depressed\" today."
+  },
+  "qualified": {
+    "meaning": "有资格的；合格的, 有条件的, 有限制的",
+    "sentence": "I learned the word \"qualified\" today."
+  },
+  "passing": {
+    "meaning": "通过, 逝去, 死, 流逝；经过的, 流逝的, 目前的, 短暂的, 及格的, 仓促的",
+    "sentence": "I learned the word \"passing\" today."
+  },
+  "km": {
+    "meaning": "千米, 公里",
+    "sentence": "I learned the word \"km\" today."
+  },
+  "embarrassment": {
+    "meaning": "困难, 阻碍, 困窘；窘迫",
+    "sentence": "I learned the word \"embarrassment\" today."
+  },
+  "openly": {
+    "meaning": "公开地, 坦率地, 直率地, 公然地",
+    "sentence": "I learned the word \"openly\" today."
+  },
+  "honestly": {
+    "meaning": "真诚地, 公正地",
+    "sentence": "I learned the word \"honestly\" today."
+  },
+  "embarrassed": {
+    "meaning": "尴尬的；窘迫的",
+    "sentence": "I learned the word \"embarrassed\" today."
+  },
+  "privately": {
+    "meaning": "秘密地；私下地",
+    "sentence": "I learned the word \"privately\" today."
+  },
+  "varied": {
+    "meaning": "不同的, 杂色的, 各式各样的；不同的, 种种的, 变化的",
+    "sentence": "I learned the word \"varied\" today."
+  },
+  "jewellery": {
+    "meaning": "宝石, 贵重饰物, 珠宝, 宝石饰物, 受珍视的人/物, 宝贝, 有价值的人/物",
+    "sentence": "I learned the word \"jewellery\" today."
+  },
+  "organized": {
+    "meaning": "有组织的, 组织起来的",
+    "sentence": "I learned the word \"organized\" today."
+  },
+  "ideally": {
+    "meaning": "完美地, 理想地",
+    "sentence": "I learned the word \"ideally\" today."
+  },
+  "devoted": {
+    "meaning": "投入的, 深爱的",
+    "sentence": "I learned the word \"devoted\" today."
+  },
+  "unacceptable": {
+    "meaning": "无法接受的, 不受欢迎的；不能接受的, 不受欢迎的, 难以承认的",
+    "sentence": "I learned the word \"unacceptable\" today."
+  },
+  "inability": {
+    "meaning": "无能, 无力",
+    "sentence": "I learned the word \"inability\" today."
+  },
+  "shiny": {
+    "meaning": "有光泽的, 发光的, 辉煌的, 磨光的, 磨损的",
+    "sentence": "I learned the word \"shiny\" today."
+  },
+  "worrying": {
+    "meaning": "使人烦恼的, 忧虑重重的",
+    "sentence": "I learned the word \"worrying\" today."
+  },
+  "injured": {
+    "meaning": "受伤的, 受损害的, 被触怒的；受害的, 被害的",
+    "sentence": "I learned the word \"injured\" today."
+  },
+  "winning": {
+    "meaning": "胜利, 获得, 成功, 赢得物；得胜的, 胜利的",
+    "sentence": "I learned the word \"winning\" today."
+  },
+  "promptly": {
+    "meaning": "敏捷地, 迅速地",
+    "sentence": "I learned the word \"promptly\" today."
+  },
+  "repeated": {
+    "meaning": "重复的, 再三的；反复的, 再三的, 屡次的",
+    "sentence": "I learned the word \"repeated\" today."
+  },
+  "enjoyment": {
+    "meaning": "享乐, 快乐, 享受；使用权",
+    "sentence": "I learned the word \"enjoyment\" today."
+  },
+  "unreasonable": {
+    "meaning": "不合理的, 过度的, 不切实际的；不讲道理的, 非理智的, 不合理的",
+    "sentence": "I learned the word \"unreasonable\" today."
+  },
+  "nicely": {
+    "meaning": "漂亮地, 谨慎地, 恰好地",
+    "sentence": "I learned the word \"nicely\" today."
+  },
+  "wildly": {
+    "meaning": "狂暴地, 激动地, 狂热地, 鲁莽地, 轻率地",
+    "sentence": "I learned the word \"wildly\" today."
+  },
+  "disappointing": {
+    "meaning": "使失望的, 期待落空的, 令人沮丧的",
+    "sentence": "I learned the word \"disappointing\" today."
+  },
+  "spice": {
+    "meaning": "香料, 药料, 香气, 调味品, 情趣, 少许；加香料, 使添趣味",
+    "sentence": "I learned the word \"spice\" today."
+  },
+  "packaging": {
+    "meaning": "包装, 包装业, 包装术；组装?封装",
+    "sentence": "I learned the word \"packaging\" today."
+  },
+  "restricted": {
+    "meaning": "受限制的, 有限的",
+    "sentence": "I learned the word \"restricted\" today."
+  },
+  "knitting": {
+    "meaning": "编结, 针织法, 针织, 编结法, 编结物, 针织品；骨愈合",
+    "sentence": "I learned the word \"knitting\" today."
+  },
+  "educated": {
+    "meaning": "受过教育的, 有教养的",
+    "sentence": "I learned the word \"educated\" today."
+  },
+  "comfortably": {
+    "meaning": "安乐地, 舒服地, 宽裕地",
+    "sentence": "I learned the word \"comfortably\" today."
+  },
+  "kindly": {
+    "meaning": "和蔼的, 温和的, 爽快的；温和地, 亲切地",
+    "sentence": "I learned the word \"kindly\" today."
+  },
+  "shocking": {
+    "meaning": "令人震惊的, 极坏的, 不正当的",
+    "sentence": "I learned the word \"shocking\" today."
+  },
+  "attempted": {
+    "meaning": "企图的；未遂的",
+    "sentence": "I learned the word \"attempted\" today."
+  },
+  "decorative": {
+    "meaning": "装饰性的",
+    "sentence": "I learned the word \"decorative\" today."
+  },
+  "moving": {
+    "meaning": "动人的, 令人感动的, 鼓动的, 原动的, 活动的, 转动的",
+    "sentence": "I learned the word \"moving\" today."
+  },
+  "blonde": {
+    "meaning": "(头发)亚麻色的, 淡色的, 白肤金发碧眼的, 白里透红的, 白皙的, 淡黄色的；肤色白皙的金发女人",
+    "sentence": "I learned the word \"blonde\" today."
+  },
+  "abandoned": {
+    "meaning": "被抛弃的, 无约束的, 恣意放荡的",
+    "sentence": "I learned the word \"abandoned\" today."
+  },
+  "confusing": {
+    "meaning": "令人困惑的；混淆的；混乱的",
+    "sentence": "I learned the word \"confusing\" today."
+  },
+  "satisfying": {
+    "meaning": "满意的, 充分的, 足可相信的",
+    "sentence": "I learned the word \"satisfying\" today."
+  },
+  "matching": {
+    "meaning": "相同的, 协调的；匹配, 对比",
+    "sentence": "I learned the word \"matching\" today."
+  },
+  "amusing": {
+    "meaning": "有趣的, 引人发笑的",
+    "sentence": "I learned the word \"amusing\" today."
+  },
+  "finished": {
+    "meaning": "完成的, 完结的, 精巧的, 完美的",
+    "sentence": "I learned the word \"finished\" today."
+  },
+  "oddly": {
+    "meaning": "奇怪地",
+    "sentence": "I learned the word \"oddly\" today."
+  },
+  "singing": {
+    "meaning": "歌唱, 歌声；振鸣?蜂鸣",
+    "sentence": "I learned the word \"singing\" today."
+  },
+  "curved": {
+    "meaning": "弯曲的；弄弯的",
+    "sentence": "I learned the word \"curved\" today."
+  },
+  "opposing": {
+    "meaning": "对面的, 反对的, 相反的, 相对的",
+    "sentence": "I learned the word \"opposing\" today."
+  },
+  "calmly": {
+    "meaning": "平静地, 安静地, 冷静地",
+    "sentence": "I learned the word \"calmly\" today."
+  },
+  "amused": {
+    "meaning": "愉快的, 被逗乐的",
+    "sentence": "I learned the word \"amused\" today."
+  },
+  "climbing": {
+    "meaning": "攀缘而登的, 上升的；攀登",
+    "sentence": "I learned the word \"climbing\" today."
+  },
+  "depressing": {
+    "meaning": "抑压的, 沉闷的, 阴沉的",
+    "sentence": "I learned the word \"depressing\" today."
+  },
+  "downwards": {
+    "meaning": "向下",
+    "sentence": "I learned the word \"downwards\" today."
+  },
+  "annoyed": {
+    "meaning": "恼怒的；烦闷的",
+    "sentence": "I learned the word \"annoyed\" today."
+  },
+  "pleasing": {
+    "meaning": "令人喜爱的, 愉快的, 舒适的",
+    "sentence": "I learned the word \"pleasing\" today."
+  },
+  "congratulations": {
+    "meaning": "祝贺词, 祝贺语",
+    "sentence": "I learned the word \"congratulations\" today."
+  },
+  "rounded": {
+    "meaning": "圆形的, 滚圆的, 完整的, 圆润的",
+    "sentence": "I learned the word \"rounded\" today."
+  },
+  "racing": {
+    "meaning": "赛马, 赛车；空转, 急转",
+    "sentence": "I learned the word \"racing\" today."
+  },
+  "cardboard": {
+    "meaning": "薄纸板；咭纸?特等纸板?卡纸板?卡片纸板",
+    "sentence": "I learned the word \"cardboard\" today."
+  },
+  "hairdresser": {
+    "meaning": "美发师, 理发师",
+    "sentence": "I learned the word \"hairdresser\" today."
+  },
+  "jelly": {
+    "meaning": "果冻, 果冻甜食, 胶状物；(使)结冻, (使)成胶状",
+    "sentence": "I learned the word \"jelly\" today."
+  },
+  "striped": {
+    "meaning": "有斑纹的",
+    "sentence": "I learned the word \"striped\" today."
+  },
+  "annoying": {
+    "meaning": "恼人的, 讨厌的",
+    "sentence": "I learned the word \"annoying\" today."
+  },
+  "skilful": {
+    "meaning": "灵巧的, 熟练的, 制作精巧的",
+    "sentence": "I learned the word \"skilful\" today."
+  },
+  "pointed": {
+    "meaning": "尖的, 有尖顶的, 锐利的, 率直的, 显然的",
+    "sentence": "I learned the word \"pointed\" today."
+  },
+  "shaped": {
+    "meaning": "成某种形状的, 制成一定形状的, 有某种形状的, 合适的, 计划好的, 有目标的；具形的, 形似的",
+    "sentence": "I learned the word \"shaped\" today."
+  },
+  "entertainer": {
+    "meaning": "表演娱乐节目的人, 演艺人员",
+    "sentence": "I learned the word \"entertainer\" today."
+  },
+  "disapproval": {
+    "meaning": "不赞成",
+    "sentence": "I learned the word \"disapproval\" today."
+  },
+  "underwater": {
+    "meaning": "在水中的；在水下",
+    "sentence": "I learned the word \"underwater\" today."
+  },
+  "covered": {
+    "meaning": "隐蔽着的, 掩藏着的, 有屋顶的；涂抹了的, 覆盖了的, 掩盖了的",
+    "sentence": "I learned the word \"covered\" today."
+  },
+  "curly": {
+    "meaning": "拳曲的, 卷毛的, 弯曲的",
+    "sentence": "I learned the word \"curly\" today."
+  },
+  "drugstore": {
+    "meaning": "药房, 杂货店",
+    "sentence": "I learned the word \"drugstore\" today."
+  },
+  "cracked": {
+    "meaning": "破碎的, 破裂的, 声音嘶哑的；有裂缝的, 裂化的",
+    "sentence": "I learned the word \"cracked\" today."
+  },
+  "exaggerated": {
+    "meaning": "夸大的, 夸张的, 言过其实的",
+    "sentence": "I learned the word \"exaggerated\" today."
+  },
+  "swollen": {
+    "meaning": "肿大的, 涨水的, 夸张的, 骄傲的；swell的过去分词",
+    "sentence": "I learned the word \"swollen\" today."
+  },
+  "covering": {
+    "meaning": "覆盖物, 掩蔽物；掩护的, 掩盖的；覆盖",
+    "sentence": "I learned the word \"covering\" today."
+  },
+  "swelling": {
+    "meaning": "肿胀, 肿大, 隆起部, 身上的肿胀处, 膨胀, 增大；肿大的, 突起的",
+    "sentence": "I learned the word \"swelling\" today."
+  },
+  "immoral": {
+    "meaning": "不道德的, 邪恶的, 放荡的；不道德的, 道德败坏的, 邪恶的",
+    "sentence": "I learned the word \"immoral\" today."
+  },
+  "untidy": {
+    "meaning": "不整齐的, 懒散的, 混乱的",
+    "sentence": "I learned the word \"untidy\" today."
+  },
+  "faithfully": {
+    "meaning": "忠实地, 诚心诚意地, 深信着地",
+    "sentence": "I learned the word \"faithfully\" today."
+  },
+  "excluding": {
+    "meaning": "把...排除在外, 不包括..., 不计...",
+    "sentence": "I learned the word \"excluding\" today."
+  },
+  "dishonest": {
+    "meaning": "不诚实的；不忠实的, 不诚实的, 欺诈的",
+    "sentence": "I learned the word \"dishonest\" today."
+  },
+  "sewing": {
+    "meaning": "缝制品, 缝纫",
+    "sentence": "I learned the word \"sewing\" today."
+  },
+  "riding": {
+    "meaning": "骑, 乘车, 乘, 骑术, 骑马",
+    "sentence": "I learned the word \"riding\" today."
+  },
+  "engaged": {
+    "meaning": "忙碌的, 使用中的",
+    "sentence": "I learned the word \"engaged\" today."
+  },
+  "ruined": {
+    "meaning": "毁灭的, 没落的, 荒废的",
+    "sentence": "I learned the word \"ruined\" today."
+  },
+  "beak": {
+    "meaning": "鸟嘴, 喙；嘴, 喙",
+    "sentence": "I learned the word \"beak\" today."
+  },
+  "disgusted": {
+    "meaning": "厌恶的；厌烦的",
+    "sentence": "I learned the word \"disgusted\" today."
+  },
+  "threatening": {
+    "meaning": "胁迫的, 危险的；威胁的, 恐吓的, 危险的",
+    "sentence": "I learned the word \"threatening\" today."
+  },
+  "uncontrolled": {
+    "meaning": "不受抑制的, 不受控制的, 自由的",
+    "sentence": "I learned the word \"uncontrolled\" today."
+  },
+  "tiring": {
+    "meaning": "引起疲劳的, 累人的；轮箍术(髌骨骨折时)",
+    "sentence": "I learned the word \"tiring\" today."
+  },
+  "justified": {
+    "meaning": "有道理的, 合乎情理的；两端对齐的",
+    "sentence": "I learned the word \"justified\" today."
+  },
+  "attached": {
+    "meaning": "附加的；依恋的, 充满爱心的",
+    "sentence": "I learned the word \"attached\" today."
+  },
+  "pt": {
+    "meaning": "点, 处理时间, 可编程序终端；铂(78号元素)",
+    "sentence": "I learned the word \"pt\" today."
+  },
+  "gm": {
+    "meaning": "通用汽车公司, 总经理, 导弹；通用汽车公司",
+    "sentence": "I learned the word \"gm\" today."
+  },
+  "unfriendly": {
+    "meaning": "不友善地",
+    "sentence": "I learned the word \"unfriendly\" today."
+  },
+  "wrapping": {
+    "meaning": "用于包裹的材料；绕接",
+    "sentence": "I learned the word \"wrapping\" today."
+  },
+  "confined": {
+    "meaning": "被限制的, 狭窄的, 在分娩中的, 坐月子的；有限的, 狭窄的",
+    "sentence": "I learned the word \"confined\" today."
+  },
+  "photocopy": {
+    "meaning": "影印, 复印件；影印",
+    "sentence": "I learned the word \"photocopy\" today."
+  },
+  "stressed": {
+    "meaning": "感到有压力的；紧张的",
+    "sentence": "I learned the word \"stressed\" today."
+  },
+  "suited": {
+    "meaning": "适合的",
+    "sentence": "I learned the word \"suited\" today."
+  },
+  "mm": {
+    "meaning": "毫米；毫米",
+    "sentence": "I learned the word \"mm\" today."
+  },
+  "teacher": {
+    "meaning": "教师, 老师, 导师",
+    "sentence": "I learned the word \"teacher\" today."
+  },
+  "training": {
+    "meaning": "训练, 培养；训练",
+    "sentence": "I learned the word \"training\" today."
+  },
+  "clearly": {
+    "meaning": "清楚地",
+    "sentence": "I learned the word \"clearly\" today."
+  },
+  "per": {
+    "meaning": "每一, 通过, 经, 按照；每, 按照",
+    "sentence": "I learned the word \"per\" today."
+  },
+  "dr": {
+    "meaning": "博士, 医生；英钱",
+    "sentence": "I learned the word \"dr\" today."
+  },
+  "ok": {
+    "meaning": "好, 不错, 可以；好, 不错, 可以；批准, 认可；确定",
+    "sentence": "I learned the word \"ok\" today."
+  },
+  "writer": {
+    "meaning": "作家, 撰稿者, 抄写员；记录器",
+    "sentence": "I learned the word \"writer\" today."
+  },
+  "western": {
+    "meaning": "西方人, 西部片, 西部小说；向西方的, 来自西方的, 西方的, 西洋的, 西部的",
+    "sentence": "I learned the word \"western\" today."
+  },
+  "importance": {
+    "meaning": "重要, 重要性, 重要地位, 自大；重要, 重要性",
+    "sentence": "I learned the word \"importance\" today."
+  },
+  "senate": {
+    "meaning": "参议院, 立法机构, 评议会",
+    "sentence": "I learned the word \"senate\" today."
+  },
+  "completely": {
+    "meaning": "完全地, 十分地, 圆满地",
+    "sentence": "I learned the word \"completely\" today."
+  },
+  "investigation": {
+    "meaning": "调查, 审查；调查, 调查研究",
+    "sentence": "I learned the word \"investigation\" today."
+  },
+  "contribution": {
+    "meaning": "捐助, 捐助之物, 贡献；贡献, 捐款, 补助品",
+    "sentence": "I learned the word \"contribution\" today."
+  },
+  "slowly": {
+    "meaning": "慢慢地, 迟缓地",
+    "sentence": "I learned the word \"slowly\" today."
+  },
+  "driver": {
+    "meaning": "驾驶员, 驱动器, 驱动程序；驱动器",
+    "sentence": "I learned the word \"driver\" today."
+  },
+  "relatively": {
+    "meaning": "相对地, 比较地, 相当地, 相关地；相对地",
+    "sentence": "I learned the word \"relatively\" today."
+  },
+  "additional": {
+    "meaning": "附加的, 另外的, 额外的；加添的, 附加的",
+    "sentence": "I learned the word \"additional\" today."
+  },
+  "northern": {
+    "meaning": "北方人；北方的, 向北的, 自北方来的",
+    "sentence": "I learned the word \"northern\" today."
+  },
+  "existence": {
+    "meaning": "存在, 生存；存在, 存在状态, 实体",
+    "sentence": "I learned the word \"existence\" today."
+  },
+  "internet": {
+    "meaning": "因特网, 国际互连网, 网际网络, 互连网络, 广域网",
+    "sentence": "I learned the word \"internet\" today."
+  },
+  "totally": {
+    "meaning": "完全地",
+    "sentence": "I learned the word \"totally\" today."
+  },
+  "frequently": {
+    "meaning": "频繁, 经常地",
+    "sentence": "I learned the word \"frequently\" today."
+  },
+  "properly": {
+    "meaning": "适当地, 相当地",
+    "sentence": "I learned the word \"properly\" today."
+  },
+  "widely": {
+    "meaning": "广泛地",
+    "sentence": "I learned the word \"widely\" today."
+  },
+  "closely": {
+    "meaning": "接近地",
+    "sentence": "I learned the word \"closely\" today."
+  },
+  "gray": {
+    "meaning": "灰色, 暗淡；灰色的, 灰白的, 面色苍白的, 年老的, 老练的, 阴沉的；(使)变灰色",
+    "sentence": "I learned the word \"gray\" today."
+  },
+  "strongly": {
+    "meaning": "强有力地, 坚强地, 激烈地",
+    "sentence": "I learned the word \"strongly\" today."
+  },
+  "rapidly": {
+    "meaning": "飞快地, 迅速地, 赶紧地",
+    "sentence": "I learned the word \"rapidly\" today."
+  },
+  "independence": {
+    "meaning": "独立, 自立, 自主；自主性, 独立性",
+    "sentence": "I learned the word \"independence\" today."
+  },
+  "deeply": {
+    "meaning": "深刻地, 在深处, 深沉地",
+    "sentence": "I learned the word \"deeply\" today."
+  },
+  "heavily": {
+    "meaning": "很重地, 严重地, 难以忍受地",
+    "sentence": "I learned the word \"heavily\" today."
+  },
+  "saving": {
+    "meaning": "存款, 挽救, 节约；搭救的, 节约的, 保留的, 补偿的；除...之外",
+    "sentence": "I learned the word \"saving\" today."
+  },
+  "occasionally": {
+    "meaning": "有时候, 偶而",
+    "sentence": "I learned the word \"occasionally\" today."
+  },
+  "firmly": {
+    "meaning": "坚固, 坚定, 断然",
+    "sentence": "I learned the word \"firmly\" today."
+  },
+  "gently": {
+    "meaning": "温和地, 温柔地, 轻轻地, 逐渐地",
+    "sentence": "I learned the word \"gently\" today."
+  },
+  "restriction": {
+    "meaning": "限制, 限定, 约束；限定",
+    "sentence": "I learned the word \"restriction\" today."
+  },
+  "regularly": {
+    "meaning": "有规则地, 一丝不苟地, 正式地",
+    "sentence": "I learned the word \"regularly\" today."
+  },
+  "gradually": {
+    "meaning": "逐渐地",
+    "sentence": "I learned the word \"gradually\" today."
+  },
+  "approximately": {
+    "meaning": "大约, 大致, 近于；大约, 近似",
+    "sentence": "I learned the word \"approximately\" today."
+  },
+  "surprising": {
+    "meaning": "令人惊讶的",
+    "sentence": "I learned the word \"surprising\" today."
+  },
+  "enquiry": {
+    "meaning": "询问；询价, 询盘",
+    "sentence": "I learned the word \"enquiry\" today."
+  },
+  "judgement": {
+    "meaning": "审判, 判决, 判断；判定, 审定, 鉴定",
+    "sentence": "I learned the word \"judgement\" today."
+  },
+  "successfully": {
+    "meaning": "成功, 结果良好, 有成就",
+    "sentence": "I learned the word \"successfully\" today."
+  },
+  "greatly": {
+    "meaning": "很, 非常",
+    "sentence": "I learned the word \"greatly\" today."
+  },
+  "indication": {
+    "meaning": "指示, 象征, 暗示；指示, 指征, 适应征",
+    "sentence": "I learned the word \"indication\" today."
+  },
+  "roughly": {
+    "meaning": "概略地, 粗糙地, 粗暴地",
+    "sentence": "I learned the word \"roughly\" today."
+  },
+  "destruction": {
+    "meaning": "破坏, 毁灭；破坏",
+    "sentence": "I learned the word \"destruction\" today."
+  },
+  "deliberately": {
+    "meaning": "故意地",
+    "sentence": "I learned the word \"deliberately\" today."
+  },
+  "automatically": {
+    "meaning": "自动地, 机械地",
+    "sentence": "I learned the word \"automatically\" today."
+  },
+  "departure": {
+    "meaning": "离开, 出发, 违背, 偏离；启运",
+    "sentence": "I learned the word \"departure\" today."
+  },
+  "surprisingly": {
+    "meaning": "使人惊奇, 出人意外, 惊人, 令人惊讶",
+    "sentence": "I learned the word \"surprisingly\" today."
+  },
+  "sufficiently": {
+    "meaning": "足够, 充分",
+    "sentence": "I learned the word \"sufficiently\" today."
+  },
+  "commonly": {
+    "meaning": "一般, 普通, 通常",
+    "sentence": "I learned the word \"commonly\" today."
+  },
+  "publicly": {
+    "meaning": "公然地, 以公众名义",
+    "sentence": "I learned the word \"publicly\" today."
+  },
+  "sharply": {
+    "meaning": "锐利地, 严厉地, 厉害地；剧烈地",
+    "sentence": "I learned the word \"sharply\" today."
+  },
+  "softly": {
+    "meaning": "柔和地, 静静地, 温柔地",
+    "sentence": "I learned the word \"softly\" today."
+  },
+  "photographer": {
+    "meaning": "摄影师, 摄影者",
+    "sentence": "I learned the word \"photographer\" today."
+  },
+  "calculation": {
+    "meaning": "计算, 考虑, 计算的结果；计算",
+    "sentence": "I learned the word \"calculation\" today."
+  },
+  "repeatedly": {
+    "meaning": "重复地, 再三地",
+    "sentence": "I learned the word \"repeatedly\" today."
+  },
+  "grocery": {
+    "meaning": "食品杂货店, 食品杂货业",
+    "sentence": "I learned the word \"grocery\" today."
+  },
+  "lightly": {
+    "meaning": "轻轻地, 少许, 不费力地",
+    "sentence": "I learned the word \"lightly\" today."
+  },
+  "mentally": {
+    "meaning": "心理上, 精神上, 智力上；精神上, 智力上",
+    "sentence": "I learned the word \"mentally\" today."
+  },
+  "sadly": {
+    "meaning": "悲痛地, 悲惨地, 悲伤地, 说来遗憾",
+    "sentence": "I learned the word \"sadly\" today."
+  },
+  "separation": {
+    "meaning": "分离, 分居, 缺口, 退职；分离",
+    "sentence": "I learned the word \"separation\" today."
+  },
+  "separately": {
+    "meaning": "分开, 不相连, 分隔, 分离, 不同, 单独, 独立, 各自, 各别, 脱离肉体, 灵魂；分离地",
+    "sentence": "I learned the word \"separately\" today."
+  },
+  "severely": {
+    "meaning": "严格, 尖锐, 严肃, 严重, 严厉, 朴素",
+    "sentence": "I learned the word \"severely\" today."
+  },
+  "happiness": {
+    "meaning": "快乐, 幸运, 适当",
+    "sentence": "I learned the word \"happiness\" today."
+  },
+  "safely": {
+    "meaning": "安全地, 确实地",
+    "sentence": "I learned the word \"safely\" today."
+  },
+  "performer": {
+    "meaning": "表演者, 执行者, 完成者；执行者, 履行者, 实行者",
+    "sentence": "I learned the word \"performer\" today."
+  },
+  "surrounding": {
+    "meaning": "环境；周围的",
+    "sentence": "I learned the word \"surrounding\" today."
+  },
+  "steadily": {
+    "meaning": "稳定地, 无变化地, 有规则地",
+    "sentence": "I learned the word \"steadily\" today."
+  },
+  "downstairs": {
+    "meaning": "楼下；楼下的；在楼下",
+    "sentence": "I learned the word \"downstairs\" today."
+  },
+  "willingness": {
+    "meaning": "乐意, 心甘情愿, 愿意",
+    "sentence": "I learned the word \"willingness\" today."
+  },
+  "remains": {
+    "meaning": "剩余物, 废墟, 残余；遗体, 尸体, 遗骸",
+    "sentence": "I learned the word \"remains\" today."
+  },
+  "revision": {
+    "meaning": "校订, 修正, 修订本, 修订版；修订版",
+    "sentence": "I learned the word \"revision\" today."
+  },
+  "printing": {
+    "meaning": "印刷, 印刷术, 印花；打印?印刷",
+    "sentence": "I learned the word \"printing\" today."
+  },
+  "disturbing": {
+    "meaning": "引起烦恼的, 令人不安的",
+    "sentence": "I learned the word \"disturbing\" today."
+  },
+  "pence": {
+    "meaning": "(非正式)copper便士, (美)分, 分币",
+    "sentence": "I learned the word \"pence\" today."
+  },
+  "permanently": {
+    "meaning": "永久, 不变, 持久；永久性的",
+    "sentence": "I learned the word \"permanently\" today."
+  },
+  "website": {
+    "meaning": "网站（全球资讯网的主机站）",
+    "sentence": "I learned the word \"website\" today."
+  },
+  "smoking": {
+    "meaning": "抽烟, 冒烟；烟熏?吸烟",
+    "sentence": "I learned the word \"smoking\" today."
+  },
+  "bitterly": {
+    "meaning": "怨恨地, 悲痛地, 残酷地",
+    "sentence": "I learned the word \"bitterly\" today."
+  },
+  "wounded": {
+    "meaning": "受伤的；受伤者?受伤的, 受了损害的",
+    "sentence": "I learned the word \"wounded\" today."
+  },
+  "theirs": {
+    "meaning": "他们的",
+    "sentence": "I learned the word \"theirs\" today."
+  },
+  "loudly": {
+    "meaning": "高声地, 大声地, 吵闹地",
+    "sentence": "I learned the word \"loudly\" today."
+  },
+  "sadness": {
+    "meaning": "悲哀, 悲伤",
+    "sentence": "I learned the word \"sadness\" today."
+  },
+  "smoothly": {
+    "meaning": "平滑地, 流畅地, 流利地",
+    "sentence": "I learned the word \"smoothly\" today."
+  },
+  "upward": {
+    "meaning": "向上的；以上",
+    "sentence": "I learned the word \"upward\" today."
+  },
+  "thickness": {
+    "meaning": "厚度, 密度, 愚钝, 含混不清；厚度",
+    "sentence": "I learned the word \"thickness\" today."
+  },
+  "interruption": {
+    "meaning": "打扰, 中断, 障碍物；间断, 阻断, 中止",
+    "sentence": "I learned the word \"interruption\" today."
+  },
+  "milligram": {
+    "meaning": "毫克；毫克",
+    "sentence": "I learned the word \"milligram\" today."
+  },
+  "spoken": {
+    "meaning": "口头讲的, 口语的；speak的过去分词",
+    "sentence": "I learned the word \"spoken\" today."
+  },
+  "dishonestly": {
+    "meaning": "不诚实地, 不正直地",
+    "sentence": "I learned the word \"dishonestly\" today."
+  },
+  "mg": {
+    "meaning": "微粒剂；镁(12号元素)",
+    "sentence": "I learned the word \"mg\" today."
+  },
+  "downward": {
+    "meaning": "向下的",
+    "sentence": "I learned the word \"downward\" today."
+  },
+  "willingly": {
+    "meaning": "自动地, 欣然地",
+    "sentence": "I learned the word \"willingly\" today."
+  },
+  "farther": {
+    "meaning": "更远的, 进一步的；更远的, 此外, far的比较级",
+    "sentence": "I learned the word \"farther\" today."
+  },
+  "noisily": {
+    "meaning": "吵闹地",
+    "sentence": "I learned the word \"noisily\" today."
+  },
+  "yeah": {
+    "meaning": "(非正式)是, 是的",
+    "sentence": "I learned the word \"yeah\" today."
+  },
+  "quickly": {
+    "meaning": "很快地",
+    "sentence": "I learned the word \"quickly\" today."
+  },
+  "carefully": {
+    "meaning": "小心地, 谨慎地",
+    "sentence": "I learned the word \"carefully\" today."
+  },
+  "currently": {
+    "meaning": "现在, 当前, 一般, 普通；当前",
+    "sentence": "I learned the word \"currently\" today."
+  },
+  "thanks": {
+    "meaning": "感谢, 谢意, 谢忱；谢谢, 谢谢你",
+    "sentence": "I learned the word \"thanks\" today."
+  },
+  "significantly": {
+    "meaning": "值得注目地；意味深长地",
+    "sentence": "I learned the word \"significantly\" today."
+  },
+  "producer": {
+    "meaning": "生产者, 制作者, 制作人；发生器?(炉煤气)发生炉?制气炉?生产者",
+    "sentence": "I learned the word \"producer\" today."
+  },
+  "marketing": {
+    "meaning": "行销, 买卖；推销, 在市场买卖, 销售",
+    "sentence": "I learned the word \"marketing\" today."
+  },
+  "surprised": {
+    "meaning": "感到惊讶的",
+    "sentence": "I learned the word \"surprised\" today."
+  },
+  "buyer": {
+    "meaning": "买主, 买方；买主, 买方, 买手",
+    "sentence": "I learned the word \"buyer\" today."
+  },
+  "supporter": {
+    "meaning": "支持者, 后盾, 迫随者, 护身织物；支持者, 赡养者, 抚养者",
+    "sentence": "I learned the word \"supporter\" today."
+  },
+  "manufacturing": {
+    "meaning": "制造业；制造业的",
+    "sentence": "I learned the word \"manufacturing\" today."
+  },
+  "quietly": {
+    "meaning": "安静地, 沉着地, 秘密地",
+    "sentence": "I learned the word \"quietly\" today."
+  },
+  "advertising": {
+    "meaning": "广告业, 广告；广告的；发广告",
+    "sentence": "I learned the word \"advertising\" today."
+  },
+  "trading": {
+    "meaning": "交易",
+    "sentence": "I learned the word \"trading\" today."
+  },
+  "promotion": {
+    "meaning": "晋级, 创建, 增进；推广, 推销, 促进",
+    "sentence": "I learned the word \"promotion\" today."
+  },
+  "constantly": {
+    "meaning": "不变地, 不断地, 时常地",
+    "sentence": "I learned the word \"constantly\" today."
+  },
+  "reasonably": {
+    "meaning": "适度地, 相当地",
+    "sentence": "I learned the word \"reasonably\" today."
+  },
+  "inevitably": {
+    "meaning": "不可避免地",
+    "sentence": "I learned the word \"inevitably\" today."
+  },
+  "considerably": {
+    "meaning": "非常地, 很, 颇",
+    "sentence": "I learned the word \"considerably\" today."
+  },
+  "potentially": {
+    "meaning": "可能地, 潜在地",
+    "sentence": "I learned the word \"potentially\" today."
+  },
+  "politically": {
+    "meaning": "政治上",
+    "sentence": "I learned the word \"politically\" today."
+  },
+  "differently": {
+    "meaning": "差异, 不同, 各别, 各种",
+    "sentence": "I learned the word \"differently\" today."
+  },
+  "physically": {
+    "meaning": "按自然规律, 完全地, 实际上, 真正地, 身体上地",
+    "sentence": "I learned the word \"physically\" today."
+  },
+  "fighting": {
+    "meaning": "战斗的, 容易引起争斗的, 适于格斗的, 好斗的, 好战的, 斗争的, 搏斗的；战斗, 斗争, 搏斗",
+    "sentence": "I learned the word \"fighting\" today."
+  },
+  "formally": {
+    "meaning": "正式地, 形式上",
+    "sentence": "I learned the word \"formally\" today."
+  },
+  "cm": {
+    "meaning": "厘米, 中央存储器, 通信多路转换器, 控制标志, 磁心存储器；锔(96号元素)",
+    "sentence": "I learned the word \"cm\" today."
+  },
+  "dramatically": {
+    "meaning": "戏剧地, 引人注目地, 突然地",
+    "sentence": "I learned the word \"dramatically\" today."
+  },
+  "thoroughly": {
+    "meaning": "彻底地, 绝对地, 透彻地, 详尽地, 周到地, 完全地, 完善地, 全面地",
+    "sentence": "I learned the word \"thoroughly\" today."
+  },
+  "experienced": {
+    "meaning": "富有经验的, 老练的, 熟练的",
+    "sentence": "I learned the word \"experienced\" today."
+  },
+  "frightened": {
+    "meaning": "受惊吓的, 受惊的, (非正式)害怕...的",
+    "sentence": "I learned the word \"frightened\" today."
+  },
+  "expected": {
+    "meaning": "预期的；预料的",
+    "sentence": "I learned the word \"expected\" today."
+  },
+  "traditionally": {
+    "meaning": "传统上；传说上；习惯上",
+    "sentence": "I learned the word \"traditionally\" today."
+  },
+  "desperately": {
+    "meaning": "拼命地；绝望地；极度地",
+    "sentence": "I learned the word \"desperately\" today."
+  },
+  "correctly": {
+    "meaning": "对, 正确, 恰当, 符合一般性准则, 符合行为准则, 端正, 符合",
+    "sentence": "I learned the word \"correctly\" today."
+  },
+  "flying": {
+    "meaning": "飞的, 飘扬的, 飞速的；飞行, 飞花",
+    "sentence": "I learned the word \"flying\" today."
+  },
+  "officially": {
+    "meaning": "作为公务员, 职务上, 官方地",
+    "sentence": "I learned the word \"officially\" today."
+  },
+  "locally": {
+    "meaning": "地方性地, 局部性地, 在当地",
+    "sentence": "I learned the word \"locally\" today."
+  },
+  "tightly": {
+    "meaning": "紧紧地, 坚固地",
+    "sentence": "I learned the word \"tightly\" today."
+  },
+  "annually": {
+    "meaning": "一年一次, 每年；年度的, 每年的",
+    "sentence": "I learned the word \"annually\" today."
+  },
+  "sexually": {
+    "meaning": "性别地；两性之间地",
+    "sentence": "I learned the word \"sexually\" today."
+  },
+  "impressed": {
+    "meaning": "外加的；印象深刻的；了不起的；受感动的",
+    "sentence": "I learned the word \"impressed\" today."
+  },
+  "shocked": {
+    "meaning": "震撼的；震惊的",
+    "sentence": "I learned the word \"shocked\" today."
+  },
+  "rightly": {
+    "meaning": "合适地, 正当地, 正确地",
+    "sentence": "I learned the word \"rightly\" today."
+  },
+  "remarkably": {
+    "meaning": "显著地, 引人注目地, 非常地",
+    "sentence": "I learned the word \"remarkably\" today."
+  },
+  "actively": {
+    "meaning": "活跃地, 积极地",
+    "sentence": "I learned the word \"actively\" today."
+  },
+  "socially": {
+    "meaning": "在社会上, 在社交上, 以社会生活方式",
+    "sentence": "I learned the word \"socially\" today."
+  },
+  "genuinely": {
+    "meaning": "真诚地；诚实地",
+    "sentence": "I learned the word \"genuinely\" today."
+  },
+  "relaxed": {
+    "meaning": "松懈的, 不严密的, 不严格的, 放松的, 得到休息的, 随意的, 不拘束的, 自在的",
+    "sentence": "I learned the word \"relaxed\" today."
+  },
+  "accurately": {
+    "meaning": "正确地, 精确地",
+    "sentence": "I learned the word \"accurately\" today."
+  },
+  "breathing": {
+    "meaning": "呼吸, 瞬间, 微风；呼吸的, 逼真的",
+    "sentence": "I learned the word \"breathing\" today."
+  },
+  "legally": {
+    "meaning": "法律上, 合法地；法律上, 合法地, 法定地",
+    "sentence": "I learned the word \"legally\" today."
+  },
+  "independently": {
+    "meaning": "独立地, 自立地",
+    "sentence": "I learned the word \"independently\" today."
+  },
+  "emotionally": {
+    "meaning": "在情绪上",
+    "sentence": "I learned the word \"emotionally\" today."
+  },
+  "temporarily": {
+    "meaning": "暂时, 一时, 临时",
+    "sentence": "I learned the word \"temporarily\" today."
+  },
+  "importantly": {
+    "meaning": "重要地；大量地；有名望地；自命不凡地",
+    "sentence": "I learned the word \"importantly\" today."
+  },
+  "neatly": {
+    "meaning": "整洁地, 干净地, 匀称地",
+    "sentence": "I learned the word \"neatly\" today."
+  },
+  "dancing": {
+    "meaning": "舞蹈；跳动的",
+    "sentence": "I learned the word \"dancing\" today."
+  },
+  "terribly": {
+    "meaning": "可怕地, 甚为, 非常",
+    "sentence": "I learned the word \"terribly\" today."
+  },
+  "beautifully": {
+    "meaning": "美好地, 漂亮地",
+    "sentence": "I learned the word \"beautifully\" today."
+  },
+  "gambling": {
+    "meaning": "赌博",
+    "sentence": "I learned the word \"gambling\" today."
+  },
+  "embarrassing": {
+    "meaning": "令人为难的, 麻烦的",
+    "sentence": "I learned the word \"embarrassing\" today."
+  },
+  "adequately": {
+    "meaning": "足够地, 适当地",
+    "sentence": "I learned the word \"adequately\" today."
+  },
+  "efficiently": {
+    "meaning": "生效, 能胜任, 有能力, 效率高, 有效",
+    "sentence": "I learned the word \"efficiently\" today."
+  },
+  "freshly": {
+    "meaning": "新, 新近, 精神饱满",
+    "sentence": "I learned the word \"freshly\" today."
+  },
+  "jointly": {
+    "meaning": "共同地, 连带地",
+    "sentence": "I learned the word \"jointly\" today."
+  },
+  "angrily": {
+    "meaning": "愤怒地",
+    "sentence": "I learned the word \"angrily\" today."
+  },
+  "frightening": {
+    "meaning": "令人恐惧的；引起突然惊恐的",
+    "sentence": "I learned the word \"frightening\" today."
+  },
+  "controlled": {
+    "meaning": "受约束的, 克制的；受管制的, 受控制的, 受管辖的",
+    "sentence": "I learned the word \"controlled\" today."
+  },
+  "admiration": {
+    "meaning": "赞赏, 钦佩, 引人赞赏的对象",
+    "sentence": "I learned the word \"admiration\" today."
+  },
+  "indirectly": {
+    "meaning": "间接, 曲折, 迂回, 不直截了当, 不诚实, 不坦率；间接地",
+    "sentence": "I learned the word \"indirectly\" today."
+  },
+  "strangely": {
+    "meaning": "奇妙地, 奇怪地, 不可思议地",
+    "sentence": "I learned the word \"strangely\" today."
+  },
+  "continuously": {
+    "meaning": "不断地, 连续地；连续地",
+    "sentence": "I learned the word \"continuously\" today."
+  },
+  "entertaining": {
+    "meaning": "使人愉快的, 有趣的",
+    "sentence": "I learned the word \"entertaining\" today."
+  },
+  "finely": {
+    "meaning": "雅致地, 仔细地, 敏锐地, 微细地",
+    "sentence": "I learned the word \"finely\" today."
+  },
+  "amazed": {
+    "meaning": "吃惊的, 惊奇的",
+    "sentence": "I learned the word \"amazed\" today."
+  },
+  "unexpectedly": {
+    "meaning": "想不到的, 突然的, 意外的, 出乎意料的",
+    "sentence": "I learned the word \"unexpectedly\" today."
+  },
+  "curiously": {
+    "meaning": "好奇地",
+    "sentence": "I learned the word \"curiously\" today."
+  },
+  "secretly": {
+    "meaning": "秘密地, 背地里",
+    "sentence": "I learned the word \"secretly\" today."
+  },
+  "proudly": {
+    "meaning": "傲慢地, 自大地, 得意洋洋地",
+    "sentence": "I learned the word \"proudly\" today."
+  },
+  "morally": {
+    "meaning": "道德上, 德性上, 有道德地",
+    "sentence": "I learned the word \"morally\" today."
+  },
+  "violently": {
+    "meaning": "猛烈地, 激烈地, 极端地",
+    "sentence": "I learned the word \"violently\" today."
+  },
+  "politely": {
+    "meaning": "有礼貌地, 文雅地, 客气地",
+    "sentence": "I learned the word \"politely\" today."
+  },
+  "brightly": {
+    "meaning": "生辉地, 明亮地, 鲜明地",
+    "sentence": "I learned the word \"brightly\" today."
+  },
+  "illegally": {
+    "meaning": "非法地, 不合法地, 违法地",
+    "sentence": "I learned the word \"illegally\" today."
+  },
+  "loosely": {
+    "meaning": "松弛地, 宽松地, 不紧",
+    "sentence": "I learned the word \"loosely\" today."
+  },
+  "intended": {
+    "meaning": "有意的, 故意的；未婚夫(妻)",
+    "sentence": "I learned the word \"intended\" today."
+  },
+  "accidentally": {
+    "meaning": "偶然地, 意外地",
+    "sentence": "I learned the word \"accidentally\" today."
+  },
+  "nervously": {
+    "meaning": "焦急地；神经质地；提心吊胆地",
+    "sentence": "I learned the word \"nervously\" today."
+  },
+  "anxiously": {
+    "meaning": "忧虑地, 不安地",
+    "sentence": "I learned the word \"anxiously\" today."
+  },
+  "faintly": {
+    "meaning": "微弱地, 模糊地, 朦胧地",
+    "sentence": "I learned the word \"faintly\" today."
+  },
+  "camping": {
+    "meaning": "野营, 露营",
+    "sentence": "I learned the word \"camping\" today."
+  },
+  "wrongly": {
+    "meaning": "错误地, 不恰当地, 不正确地, 不正直地, 不公正地",
+    "sentence": "I learned the word \"wrongly\" today."
+  },
+  "alarming": {
+    "meaning": "使人惊恐的, 引起惊恐的",
+    "sentence": "I learned the word \"alarming\" today."
+  },
+  "deserted": {
+    "meaning": "被遗弃的, 废弃的；被遗弃的, 无人的, 放弃的",
+    "sentence": "I learned the word \"deserted\" today."
+  },
+  "occupied": {
+    "meaning": "已占用的；使用中的；无空闲的",
+    "sentence": "I learned the word \"occupied\" today."
+  },
+  "twisted": {
+    "meaning": "扭曲的",
+    "sentence": "I learned the word \"twisted\" today."
+  },
+  "cheerfully": {
+    "meaning": "高高兴兴地",
+    "sentence": "I learned the word \"cheerfully\" today."
+  },
+  "divorced": {
+    "meaning": "离婚的",
+    "sentence": "I learned the word \"divorced\" today."
+  },
+  "infected": {
+    "meaning": "被感染的；被感染的",
+    "sentence": "I learned the word \"infected\" today."
+  },
+  "cycling": {
+    "meaning": "骑脚踏车兜风, 骑脚踏车消遣；循环操作",
+    "sentence": "I learned the word \"cycling\" today."
+  },
+  "coldly": {
+    "meaning": "冷淡地",
+    "sentence": "I learned the word \"coldly\" today."
+  },
+  "euro": {
+    "meaning": "欧元（欧盟的统一货币单位）",
+    "sentence": "I learned the word \"euro\" today."
+  },
+  "impatiently": {
+    "meaning": "不耐烦, 忍受不了, 急躁, 急欲, 急切",
+    "sentence": "I learned the word \"impatiently\" today."
+  },
+  "confidently": {
+    "meaning": "自信地；安心地",
+    "sentence": "I learned the word \"confidently\" today."
+  },
+  "alarmed": {
+    "meaning": "受惊的；焦虑的；惊恐的",
+    "sentence": "I learned the word \"alarmed\" today."
+  },
+  "generously": {
+    "meaning": "宽大地；慷慨地；丰盛地",
+    "sentence": "I learned the word \"generously\" today."
+  },
+  "cheaply": {
+    "meaning": "便宜地",
+    "sentence": "I learned the word \"cheaply\" today."
+  },
+  "pleasantly": {
+    "meaning": "和蔼地, 亲切地；友好地；愉快地",
+    "sentence": "I learned the word \"pleasantly\" today."
+  },
+  "contrasting": {
+    "meaning": "（靠近或作比较时）显出明显的差异, 形成对比( contrast的现在分词 )?对比, 对照",
+    "sentence": "I learned the word \"contrasting\" today."
+  },
+  "stiffly": {
+    "meaning": "呆板地, 顽固地, 僵硬地",
+    "sentence": "I learned the word \"stiffly\" today."
+  },
+  "irritating": {
+    "meaning": "刺激的, 使愤怒的, 气人的",
+    "sentence": "I learned the word \"irritating\" today."
+  },
+  "rented": {
+    "meaning": "租用的",
+    "sentence": "I learned the word \"rented\" today."
+  },
+  "relaxing": {
+    "meaning": "令人轻松的",
+    "sentence": "I learned the word \"relaxing\" today."
+  },
+  "insulting": {
+    "meaning": "侮辱的, 损害人体的",
+    "sentence": "I learned the word \"insulting\" today."
+  },
+  "unfairly": {
+    "meaning": "不正当地；不公平地",
+    "sentence": "I learned the word \"unfairly\" today."
+  },
+  "folding": {
+    "meaning": "可折叠的；折叠?折叠效应",
+    "sentence": "I learned the word \"folding\" today."
+  },
+  "awkwardly": {
+    "meaning": "笨拙地；无技巧地",
+    "sentence": "I learned the word \"awkwardly\" today."
+  },
+  "thickly": {
+    "meaning": "厚地；浓地",
+    "sentence": "I learned the word \"thickly\" today."
+  },
+  "cellphone": {
+    "meaning": "蜂窝式便携无线电话；大哥大",
+    "sentence": "I learned the word \"cellphone\" today."
+  },
+  "faucet": {
+    "meaning": "龙头, 开关, 旋塞",
+    "sentence": "I learned the word \"faucet\" today."
+  },
+  "separated": {
+    "meaning": "分居；分开的；不在一起生活的",
+    "sentence": "I learned the word \"separated\" today."
+  },
+  "artificially": {
+    "meaning": "人工地, 人为地, 不自然地",
+    "sentence": "I learned the word \"artificially\" today."
+  },
+  "steeply": {
+    "meaning": "险峻地",
+    "sentence": "I learned the word \"steeply\" today."
+  },
+  "skilfully": {
+    "meaning": "熟练地（等于skillfully）",
+    "sentence": "I learned the word \"skilfully\" today."
+  },
+  "unhappiness": {
+    "meaning": "苦恼；忧愁",
+    "sentence": "I learned the word \"unhappiness\" today."
+  },
+  "burnt": {
+    "meaning": "burn的过去式和过去分词",
+    "sentence": "I learned the word \"burnt\" today."
+  },
+  "betting": {
+    "meaning": "打赌；打赌, 赌博",
+    "sentence": "I learned the word \"betting\" today."
+  },
+  "blankly": {
+    "meaning": "茫然地, 毫无表情地",
+    "sentence": "I learned the word \"blankly\" today."
+  },
+  "alphabetical": {
+    "meaning": "依字母顺序的, 字母的",
+    "sentence": "I learned the word \"alphabetical\" today."
+  },
+  "carelessly": {
+    "meaning": "不注意地, 粗心地",
+    "sentence": "I learned the word \"carelessly\" today."
+  },
+  "unsteady": {
+    "meaning": "不稳固的, 摇摆的, 不稳定的, 易变的, 不安定的, 不规则的, 古怪的, 无常的；使不稳定, 使不安定, 动摇",
+    "sentence": "I learned the word \"unsteady\" today."
+  },
+  "knitted": {
+    "meaning": "knit的过去式和过去分词",
+    "sentence": "I learned the word \"knitted\" today."
+  },
+  "irritated": {
+    "meaning": "被激怒的, 生了气的, 变粗的, 因刺激而发炎的, 发红的",
+    "sentence": "I learned the word \"irritated\" today."
+  },
+  "disapproving": {
+    "meaning": "不满的, 反对的；不赞成( disapprove的现在分词 )",
+    "sentence": "I learned the word \"disapproving\" today."
+  },
+  "upsetting": {
+    "meaning": "镦(粗)?镦锻",
+    "sentence": "I learned the word \"upsetting\" today."
+  },
+  "unwillingly": {
+    "meaning": "不情愿地, 勉强地?勉勉强强",
+    "sentence": "I learned the word \"unwillingly\" today."
+  },
+  "rudely": {
+    "meaning": "无礼地, 粗鲁地, 粗陋地",
+    "sentence": "I learned the word \"rudely\" today."
+  },
+  "swearing": {
+    "meaning": "发誓, 宣誓",
+    "sentence": "I learned the word \"swearing\" today."
+  },
+  "coughing": {
+    "meaning": "咳嗽( cough的现在分词 )?（从喉咙或肺中）咳出?（突然）发出刺耳的噪音",
+    "sentence": "I learned the word \"coughing\" today."
+  },
+  "dressed": {
+    "meaning": "穿好衣服的；打扮好的；去内脏及分割加工好的（特指动物, 如鱼, 禽类等）",
+    "sentence": "I learned the word \"dressed\" today."
+  },
+  "alphabetically": {
+    "meaning": "按字母顺序地",
+    "sentence": "I learned the word \"alphabetically\" today."
+  },
+  "ct": {
+    "meaning": "计算机断层扫描；通信终端, 计算机终端, 计算机断层造影, 计数器",
+    "sentence": "I learned the word \"ct\" today."
+  },
+  "arms": {
+    "meaning": "武器, 军事行动；武器, 军械, 枪械",
+    "sentence": "I learned the word \"arms\" today."
+  },
+  "approving": {
+    "meaning": "赞成的",
+    "sentence": "I learned the word \"approving\" today."
+  },
+  "lacking": {
+    "meaning": "缺乏的, 不足的",
+    "sentence": "I learned the word \"lacking\" today."
+  },
+  "located": {
+    "meaning": "处于, 位于；坐落的",
+    "sentence": "I learned the word \"located\" today."
+  },
+  "two": {
+    "meaning": "二, 二个",
+    "sentence": "I learned the word \"two\" today."
+  },
+  "these": {
+    "meaning": "这些",
+    "sentence": "I learned the word \"these\" today."
+  },
+  "those": {
+    "meaning": "那些",
+    "sentence": "I learned the word \"those\" today."
+  },
+  "three": {
+    "meaning": "三, 三个",
+    "sentence": "I learned the word \"three\" today."
+  },
+  "four": {
+    "meaning": "四, 四个；四冲程循环",
+    "sentence": "I learned the word \"four\" today."
+  },
+  "five": {
+    "meaning": "五, 五个",
+    "sentence": "I learned the word \"five\" today."
+  },
+  "million": {
+    "meaning": "百万, 无数；百万",
+    "sentence": "I learned the word \"million\" today."
+  },
+  "lot": {
+    "meaning": "运气, 签, 抽签, 份额, 许多, 一堆；划分；抽签, 抓阄",
+    "sentence": "I learned the word \"lot\" today."
+  },
+  "six": {
+    "meaning": "六, 六个",
+    "sentence": "I learned the word \"six\" today."
+  },
+  "hundred": {
+    "meaning": "百, 百个东西；百, 百个；一百的, 许多的",
+    "sentence": "I learned the word \"hundred\" today."
+  },
+  "someone": {
+    "meaning": "有人, 某人",
+    "sentence": "I learned the word \"someone\" today."
+  },
+  "third": {
+    "meaning": "第三, 三分之一；第三?第三的",
+    "sentence": "I learned the word \"third\" today."
+  },
+  "ten": {
+    "meaning": "十, 十个",
+    "sentence": "I learned the word \"ten\" today."
+  },
+  "seven": {
+    "meaning": "七, 七个",
+    "sentence": "I learned the word \"seven\" today."
+  },
+  "eight": {
+    "meaning": "八, 八个",
+    "sentence": "I learned the word \"eight\" today."
+  },
+  "republican": {
+    "meaning": "共和主义者, 共和党员；共和政体的, 共和国的, 共和主义的",
+    "sentence": "I learned the word \"republican\" today."
+  },
+  "twenty": {
+    "meaning": "二十, 二十个",
+    "sentence": "I learned the word \"twenty\" today."
+  },
+  "billion": {
+    "meaning": "十亿, 十亿个",
+    "sentence": "I learned the word \"billion\" today."
+  },
+  "thousand": {
+    "meaning": "千；成千的, 许多的；许许多多",
+    "sentence": "I learned the word \"thousand\" today."
+  },
+  "administration": {
+    "meaning": "行政, 管理, 政府机关；给药",
+    "sentence": "I learned the word \"administration\" today."
+  },
+  "refer": {
+    "meaning": "提交, 归诸于, 把...提交, 使求助于；提到, 涉及, 查阅, 查询, 咨询",
+    "sentence": "I learned the word \"refer\" today."
+  },
+  "nine": {
+    "meaning": "九, 九个",
+    "sentence": "I learned the word \"nine\" today."
+  },
+  "provision": {
+    "meaning": "(政府提供的)钱和设备, 准备, 供应品, 规定, 条款；供给...食物及必需品",
+    "sentence": "I learned the word \"provision\" today."
+  },
+  "everybody": {
+    "meaning": "每个人, 人人",
+    "sentence": "I learned the word \"everybody\" today."
+  },
+  "prime": {
+    "meaning": "最佳部分, 初期, 全盛期；主要的, 最初的, 根本的；加油启动, 灌注, 填装",
+    "sentence": "I learned the word \"prime\" today."
+  },
+  "democratic": {
+    "meaning": "民主的；民主的, 民主政体的, 平民的",
+    "sentence": "I learned the word \"democratic\" today."
+  },
+  "okay": {
+    "meaning": "好, 可以, 行, 对, 好吗, 很好；好, 可以, 行, 对, 好吗, 很好；同意, 签认, 批准, 认可；同意, 签认, 批准, 认可",
+    "sentence": "I learned the word \"okay\" today."
+  },
+  "thirty": {
+    "meaning": "三十, 三十个",
+    "sentence": "I learned the word \"thirty\" today."
+  },
+  "fifty": {
+    "meaning": "五十, 五十个",
+    "sentence": "I learned the word \"fifty\" today."
+  },
+  "species": {
+    "meaning": "种, 类, 外形；茶剂?种",
+    "sentence": "I learned the word \"species\" today."
+  },
+  "born": {
+    "meaning": "天生的；bear的过去分词",
+    "sentence": "I learned the word \"born\" today."
+  },
+  "mission": {
+    "meaning": "任务, 代表团, 使命, 传教团；派遣, 向...传教",
+    "sentence": "I learned the word \"mission\" today."
+  },
+  "participant": {
+    "meaning": "参加者, 参与者；有份的, 参加的, 参与的",
+    "sentence": "I learned the word \"participant\" today."
+  },
+  "troop": {
+    "meaning": "军队, 一群, 一队；群集, 结队, 成群而行",
+    "sentence": "I learned the word \"troop\" today."
+  },
+  "christmas": {
+    "meaning": "圣诞节",
+    "sentence": "I learned the word \"christmas\" today."
+  },
+  "christian": {
+    "meaning": "基督徒, 正派人；基督的, 基督教的",
+    "sentence": "I learned the word \"christian\" today."
+  },
+  "reporter": {
+    "meaning": "记者, 报告者；指示器",
+    "sentence": "I learned the word \"reporter\" today."
+  },
+  "leadership": {
+    "meaning": "领导能力, 领导阶层",
+    "sentence": "I learned the word \"leadership\" today."
+  },
+  "photo": {
+    "meaning": "相片, 照片, 逼真的描绘；照相；照相的, 摄影用的, 详细记录的, 逼真的, 酷似的",
+    "sentence": "I learned the word \"photo\" today."
+  },
+  "folk": {
+    "meaning": "人们, 家人, 亲属, 民族；民间的",
+    "sentence": "I learned the word \"folk\" today."
+  },
+  "forty": {
+    "meaning": "四十, 四十个",
+    "sentence": "I learned the word \"forty\" today."
+  },
+  "critic": {
+    "meaning": "批评家, 鉴定家",
+    "sentence": "I learned the word \"critic\" today."
+  },
+  "legislation": {
+    "meaning": "立法, 法律；立法, 法规",
+    "sentence": "I learned the word \"legislation\" today."
+  },
+  "baseball": {
+    "meaning": "棒球；棒球系统",
+    "sentence": "I learned the word \"baseball\" today."
+  },
+  "anybody": {
+    "meaning": "任何人；重要人物",
+    "sentence": "I learned the word \"anybody\" today."
+  },
+  "native": {
+    "meaning": "本地人, 土产, 当地人；本国的, 与生俱来的, 自然的",
+    "sentence": "I learned the word \"native\" today."
+  },
+  "perspective": {
+    "meaning": "远景, 透视感, (观察问题的)视角, 透视法, 看法, 透视图；透视的, 透视法的；透视",
+    "sentence": "I learned the word \"perspective\" today."
+  },
+  "hey": {
+    "meaning": "嗨",
+    "sentence": "I learned the word \"hey\" today."
+  },
+  "twelve": {
+    "meaning": "十二, 十二个",
+    "sentence": "I learned the word \"twelve\" today."
+  },
+  "finding": {
+    "meaning": "发现, 发现物, 决定, 裁决；调查结果, 对事实的认定, 判定的要素",
+    "sentence": "I learned the word \"finding\" today."
+  },
+  "participate": {
+    "meaning": "参加, 分享, 参与, 带有；分享, 分担",
+    "sentence": "I learned the word \"participate\" today."
+  },
+  "assess": {
+    "meaning": "估定, 对...征税, 评定；估计, 估价, 确定(税款罚款等)的金额",
+    "sentence": "I learned the word \"assess\" today."
+  },
+  "consist": {
+    "meaning": "组成, 存在于, 一致",
+    "sentence": "I learned the word \"consist\" today."
+  },
+  "asset": {
+    "meaning": "资产, 有益的东西",
+    "sentence": "I learned the word \"asset\" today."
+  },
+  "democracy": {
+    "meaning": "民主政治, 民主主义；民主, 民主政治, 民主政体",
+    "sentence": "I learned the word \"democracy\" today."
+  },
+  "fourth": {
+    "meaning": "第四, 四分之一",
+    "sentence": "I learned the word \"fourth\" today."
+  },
+  "ought": {
+    "meaning": "应该, 大概；责任",
+    "sentence": "I learned the word \"ought\" today."
+  },
+  "nod": {
+    "meaning": "点头, 打盹, 晃动；点头, 打盹；点头表示, 点(头)",
+    "sentence": "I learned the word \"nod\" today."
+  },
+  "enterprise": {
+    "meaning": "企业, 事业心, 进取心, 干事业；企业",
+    "sentence": "I learned the word \"enterprise\" today."
+  },
+  "assembly": {
+    "meaning": "与会者, 集会, 装配, 组件；装配",
+    "sentence": "I learned the word \"assembly\" today."
+  },
+  "athlete": {
+    "meaning": "运动员, 运动选手；运动员",
+    "sentence": "I learned the word \"athlete\" today."
+  },
+  "settlement": {
+    "meaning": "安顿, 解决, 处理, 结算, 殖民, 殖民地, 沉降；居住区?沉渣",
+    "sentence": "I learned the word \"settlement\" today."
+  },
+  "undertake": {
+    "meaning": "试图, 从事, 保证, 承担, 同意, 接受；承包?承担",
+    "sentence": "I learned the word \"undertake\" today."
+  },
+  "module": {
+    "meaning": "组件, 模数；模块",
+    "sentence": "I learned the word \"module\" today."
+  },
+  "supreme": {
+    "meaning": "至高, 霸权；至高的, 终极的, 极端的, 最大的",
+    "sentence": "I learned the word \"supreme\" today."
+  },
+  "poll": {
+    "meaning": "投票, 民意测验, 选举投票, 投票数, 一组人中的一个, 头颈和后脑部, 鹦鹉；对...进行民意测验, 获得...票, 剪树枝, 轮询；投票",
+    "sentence": "I learned the word \"poll\" today."
+  },
+  "component": {
+    "meaning": "元件, 组件, 成分；组成的, 构成的；组件",
+    "sentence": "I learned the word \"component\" today."
+  },
+  "republic": {
+    "meaning": "共和国, 共和政体, 团体, 界",
+    "sentence": "I learned the word \"republic\" today."
+  },
+  "trail": {
+    "meaning": "踪迹, 痕迹, 一串, 尾部, 小径, 持枪姿势；拖, 尾随, 追踪, 落后于, 开出路；拖曳, 垂下, 落后, 飘出, 蔓生",
+    "sentence": "I learned the word \"trail\" today."
+  },
+  "jury": {
+    "meaning": "陪审团, 评判委员会；应急的",
+    "sentence": "I learned the word \"jury\" today."
+  },
+  "sixty": {
+    "meaning": "六十, 六十个",
+    "sentence": "I learned the word \"sixty\" today."
+  },
+  "expenditure": {
+    "meaning": "开支, 费用, 用光, 消费额；支出, 费用, 消费",
+    "sentence": "I learned the word \"expenditure\" today."
+  },
+  "treaty": {
+    "meaning": "条约, 谈判；协议, 协定, 协商",
+    "sentence": "I learned the word \"treaty\" today."
+  },
+  "being": {
+    "meaning": "存在, 性质, 生命, 人, 生物, be的现在分词",
+    "sentence": "I learned the word \"being\" today."
+  },
+  "revenue": {
+    "meaning": "收入, 岁入, 税收, 税务局；岁入, 税收, 税务局",
+    "sentence": "I learned the word \"revenue\" today."
+  },
+  "sequence": {
+    "meaning": "序列, 续发事件, 顺序, 连续；按顺序排好；顺序",
+    "sentence": "I learned the word \"sequence\" today."
+  },
+  "assumption": {
+    "meaning": "假定, 自负, 担任, 假装；假定, 承担",
+    "sentence": "I learned the word \"assumption\" today."
+  },
+  "curriculum": {
+    "meaning": "课程；课程, 学程",
+    "sentence": "I learned the word \"curriculum\" today."
+  },
+  "crew": {
+    "meaning": "全体人员, 一群人, 全体队员；crow的过去式",
+    "sentence": "I learned the word \"crew\" today."
+  },
+  "notion": {
+    "meaning": "概念, 观念, 想法, 打算, 别致的小东西；概念, 打算, 想法",
+    "sentence": "I learned the word \"notion\" today."
+  },
+  "gallery": {
+    "meaning": "走廊, 最高楼座, 画廊, 收集, 图库；图库",
+    "sentence": "I learned the word \"gallery\" today."
+  },
+  "ethnic": {
+    "meaning": "人种的, 种族的；人种的",
+    "sentence": "I learned the word \"ethnic\" today."
+  },
+  "rely": {
+    "meaning": "信赖, 依赖, 信任",
+    "sentence": "I learned the word \"rely\" today."
+  },
+  "fifteen": {
+    "meaning": "十五, 十五个",
+    "sentence": "I learned the word \"fifteen\" today."
+  },
+  "liberal": {
+    "meaning": "自由主义者；慷慨的, 不拘泥的, 宽大的, 自由主义的",
+    "sentence": "I learned the word \"liberal\" today."
+  },
+  "setting": {
+    "meaning": "环境, 背景, 布景, 镶嵌, 调整, 沉落, 一副餐具；设置",
+    "sentence": "I learned the word \"setting\" today."
+  },
+  "outcome": {
+    "meaning": "结果, 出口",
+    "sentence": "I learned the word \"outcome\" today."
+  },
+  "catholic": {
+    "meaning": "天主教徒；天主教的, 普遍的, 广泛的, 宽宏大量的",
+    "sentence": "I learned the word \"catholic\" today."
+  },
+  "bloody": {
+    "meaning": "血腥的, 嗜杀的, 有血的",
+    "sentence": "I learned the word \"bloody\" today."
+  },
+  "percentage": {
+    "meaning": "百分比, 比率, 部分, 可能性；百分比",
+    "sentence": "I learned the word \"percentage\" today."
+  },
+  "aids": {
+    "meaning": "爱滋病(获得性免疫缺陷综合征)；高级综合数据系统, 先进交互调试系统, 自动图解文档编制系统；美国决策学学会, 信息自动显示系统, 自动综合调",
+    "sentence": "I learned the word \"aids\" today."
+  },
+  "surgery": {
+    "meaning": "外科, 手术, 手术室, 换球术",
+    "sentence": "I learned the word \"surgery\" today."
+  },
+  "basketball": {
+    "meaning": "篮球",
+    "sentence": "I learned the word \"basketball\" today."
+  },
+  "golf": {
+    "meaning": "高尔夫球；打高尔夫球",
+    "sentence": "I learned the word \"golf\" today."
+  },
+  "golden": {
+    "meaning": "金的, 含金的, 金色的, 贵重的, 繁盛的；金制的, 金色的, 兴隆的",
+    "sentence": "I learned the word \"golden\" today."
+  },
+  "gender": {
+    "meaning": "性；产生",
+    "sentence": "I learned the word \"gender\" today."
+  },
+  "deputy": {
+    "meaning": "副手，代理人",
+    "sentence": "I learned the word \"deputy\" today."
+  },
+  "forth": {
+    "meaning": "往前, 以后, 向外",
+    "sentence": "I learned the word \"forth\" today."
+  },
+  "eliminate": {
+    "meaning": "除去, 排除, 剔除, 消除",
+    "sentence": "I learned the word \"eliminate\" today."
+  },
+  "regime": {
+    "meaning": "政权, 当权期间, 政体, 社会制度, 体制, 情态；制度, 生活制度",
+    "sentence": "I learned the word \"regime\" today."
+  },
+  "variable": {
+    "meaning": "易变的事物, 变数, 可变物, 变量；可变的, 不定的, 易变的, 变量的；变量",
+    "sentence": "I learned the word \"variable\" today."
+  },
+  "distinction": {
+    "meaning": "区别",
+    "sentence": "I learned the word \"distinction\" today."
+  },
+  "perception": {
+    "meaning": "知觉, 感觉, 领悟力, 获取；知觉",
+    "sentence": "I learned the word \"perception\" today."
+  },
+  "mechanism": {
+    "meaning": "机械, 机构, 结构, 机理, 技巧；机理?历程?机构",
+    "sentence": "I learned the word \"mechanism\" today."
+  },
+  "external": {
+    "meaning": "外部, 外面；外部的, 客观的, 表面的",
+    "sentence": "I learned the word \"external\" today."
+  },
+  "clause": {
+    "meaning": "子句, 条款；子句",
+    "sentence": "I learned the word \"clause\" today."
+  },
+  "coverage": {
+    "meaning": "覆盖的范围, 保险总额, 新闻报导；可达范围?覆盖度",
+    "sentence": "I learned the word \"coverage\" today."
+  },
+  "bond": {
+    "meaning": "捆绑物, 结合, 债券, 契约, 粘合剂, 保证人, 键, 关栈保留；存入关栈, 使黏合；结合",
+    "sentence": "I learned the word \"bond\" today."
+  },
+  "welfare": {
+    "meaning": "福利, 安宁, 幸福, 福利事业；福利的",
+    "sentence": "I learned the word \"welfare\" today."
+  },
+  "era": {
+    "meaning": "时代, 纪元, 时期",
+    "sentence": "I learned the word \"era\" today."
+  },
+  "bind": {
+    "meaning": "绑, 约束, 装订, 包扎, 使结合；凝固, 有约束力；赋值, 绑定",
+    "sentence": "I learned the word \"bind\" today."
+  },
+  "establishment": {
+    "meaning": "确立, 制定, 设施；企业, 公司, 商店",
+    "sentence": "I learned the word \"establishment\" today."
+  },
+  "nineteen": {
+    "meaning": "十九, 十九个",
+    "sentence": "I learned the word \"nineteen\" today."
+  },
+  "liability": {
+    "meaning": "责任, 债务, 倾向；责任, 义务, 负债",
+    "sentence": "I learned the word \"liability\" today."
+  },
+  "significance": {
+    "meaning": "重要性, 意义, 意味；有效?有效性",
+    "sentence": "I learned the word \"significance\" today."
+  },
+  "cite": {
+    "meaning": "引用, 引证, 表彰；引证, 指引",
+    "sentence": "I learned the word \"cite\" today."
+  },
+  "champion": {
+    "meaning": "冠军, 拥护者, 战士；保卫, 拥护；优胜的",
+    "sentence": "I learned the word \"champion\" today."
+  },
+  "eighty": {
+    "meaning": "八十, 八十个",
+    "sentence": "I learned the word \"eighty\" today."
+  },
+  "christ": {
+    "meaning": "基督, 救世主",
+    "sentence": "I learned the word \"christ\" today."
+  },
+  "ninety": {
+    "meaning": "九十, 九十个",
+    "sentence": "I learned the word \"ninety\" today."
+  },
+  "multiple": {
+    "meaning": "倍数, 并联；多样的, 许多的, 多功能的",
+    "sentence": "I learned the word \"multiple\" today."
+  },
+  "resolution": {
+    "meaning": "解析, 决心, 坚定, 决定, 决议, 消除, 解答, 分解；图形分辨率；图形分辨率",
+    "sentence": "I learned the word \"resolution\" today."
+  },
+  "abortion": {
+    "meaning": "流产, 堕胎, 失败, 夭折, 中止；流产, 小产?顿挫",
+    "sentence": "I learned the word \"abortion\" today."
+  },
+  "china": {
+    "meaning": "中国, 瓷器；中国的",
+    "sentence": "I learned the word \"china\" today."
+  },
+  "barely": {
+    "meaning": "几乎不",
+    "sentence": "I learned the word \"barely\" today."
+  },
+  "faculty": {
+    "meaning": "才能, 能力, 全体教员, (大学的)系；能力, 院系",
+    "sentence": "I learned the word \"faculty\" today."
+  },
+  "amongst": {
+    "meaning": "在...当中, 在...之间, 在...之中",
+    "sentence": "I learned the word \"amongst\" today."
+  },
+  "territory": {
+    "meaning": "领土, 领地, 版图, 地区, 活动范围；(推销员等的)推销区域",
+    "sentence": "I learned the word \"territory\" today."
+  },
+  "corporation": {
+    "meaning": "公司, 合作, 法人团体；法人团体, 社团, 法人",
+    "sentence": "I learned the word \"corporation\" today."
+  },
+  "tenant": {
+    "meaning": "承租人, 房客, 居住者；租借；占据者",
+    "sentence": "I learned the word \"tenant\" today."
+  },
+  "talent": {
+    "meaning": "天才, 才能, 有才干的人, 天资",
+    "sentence": "I learned the word \"talent\" today."
+  },
+  "inflation": {
+    "meaning": "胀大, 夸张, 通货膨胀；充气吹胀?膨胀",
+    "sentence": "I learned the word \"inflation\" today."
+  },
+  "physician": {
+    "meaning": "医师, 内科医师, 解除痛苦者；主治医师",
+    "sentence": "I learned the word \"physician\" today."
+  },
+  "boundary": {
+    "meaning": "边界, 分界线；边界",
+    "sentence": "I learned the word \"boundary\" today."
+  },
+  "creative": {
+    "meaning": "有创造力的, 创作的, 产生的",
+    "sentence": "I learned the word \"creative\" today."
+  },
+  "lower": {
+    "meaning": "低的, 下级的, 下层的；降低, 跌落, 减弱；放下, 降下, 减弱, 贬低",
+    "sentence": "I learned the word \"lower\" today."
+  },
+  "gay": {
+    "meaning": "欢快的, 艳丽的, 快乐的, 放荡的",
+    "sentence": "I learned the word \"gay\" today."
+  },
+  "campus": {
+    "meaning": "校园, 大学生活",
+    "sentence": "I learned the word \"campus\" today."
+  },
+  "formation": {
+    "meaning": "形成, 构造, 编队；形成, 结构",
+    "sentence": "I learned the word \"formation\" today."
+  },
+  "dispute": {
+    "meaning": "争论；争论",
+    "sentence": "I learned the word \"dispute\" today."
+  },
+  "immigrant": {
+    "meaning": "移民；移入的, 移民的",
+    "sentence": "I learned the word \"immigrant\" today."
+  },
+  "kingdom": {
+    "meaning": "王国, 领域；界(动物,植物,矿物)",
+    "sentence": "I learned the word \"kingdom\" today."
+  },
+  "database": {
+    "meaning": "数据库；数据库",
+    "sentence": "I learned the word \"database\" today."
+  },
+  "lab": {
+    "meaning": "实验室, 研究室；凝乳酶",
+    "sentence": "I learned the word \"lab\" today."
+  },
+  "depression": {
+    "meaning": "不景气, 消沉, 沮丧, 洼地；抑郁, 阻抑, 压低, 凹, 窝, 衰退, 俯角",
+    "sentence": "I learned the word \"depression\" today."
+  },
+  "incorporate": {
+    "meaning": "合并的, 组成公司的, 一体化的；吸收, 合并, 使组成公司, 体现；合并, 混合, 组成公司",
+    "sentence": "I learned the word \"incorporate\" today."
+  },
+  "scholar": {
+    "meaning": "学者, 奖学金获得者, 有文化者, 学习者",
+    "sentence": "I learned the word \"scholar\" today."
+  },
+  "childhood": {
+    "meaning": "孩童时期；儿童期",
+    "sentence": "I learned the word \"childhood\" today."
+  },
+  "proceeding": {
+    "meaning": "进行, 程序, 行动, 诉讼程序, 事项；会议论文集",
+    "sentence": "I learned the word \"proceeding\" today."
+  },
+  "subsequent": {
+    "meaning": "后来的, 接下去的；后来的",
+    "sentence": "I learned the word \"subsequent\" today."
+  },
+  "currency": {
+    "meaning": "货币, 通货, 流通, 通用；货币, 货币型",
+    "sentence": "I learned the word \"currency\" today."
+  },
+  "graduate": {
+    "meaning": "毕业生, 量杯；已得学位的, 研究生的, 毕业的；毕业, 得学位, 逐渐变为；准予...毕业, 授予...学位, 分等级, 刻刻度",
+    "sentence": "I learned the word \"graduate\" today."
+  },
+  "prosecutor": {
+    "meaning": "实行者, 告发者, 公诉人；原告, 起诉人, 检举人",
+    "sentence": "I learned the word \"prosecutor\" today."
+  },
+  "mill": {
+    "meaning": "压榨机, 磨坊, 制造厂；碾磨, 磨细, 搅拌, 使乱转；乱转, 被碾磨",
+    "sentence": "I learned the word \"mill\" today."
+  },
+  "airline": {
+    "meaning": "航线, 航线的设备, 航空公司",
+    "sentence": "I learned the word \"airline\" today."
+  },
+  "agenda": {
+    "meaning": "议程, 日常工作事项；待议事件",
+    "sentence": "I learned the word \"agenda\" today."
+  },
+  "premise": {
+    "meaning": "前提, 房屋连地基, 上述各项；预先提出, 引出, 作为...的前提；作出前提",
+    "sentence": "I learned the word \"premise\" today."
+  },
+  "therapy": {
+    "meaning": "治疗；疗法, 治疗",
+    "sentence": "I learned the word \"therapy\" today."
+  },
+  "spokesman": {
+    "meaning": "发言人, 代言者",
+    "sentence": "I learned the word \"spokesman\" today."
+  },
+  "communist": {
+    "meaning": "共产主义者, 共产党员；共产主义的, 共产党的",
+    "sentence": "I learned the word \"communist\" today."
+  },
+  "constitution": {
+    "meaning": "构成, 宪法, 体格；体质?结构, 组织",
+    "sentence": "I learned the word \"constitution\" today."
+  },
+  "implement": {
+    "meaning": "工具, 器具, 手段；实现, 使生效, 执行",
+    "sentence": "I learned the word \"implement\" today."
+  },
+  "gene": {
+    "meaning": "基因；基因(遗传因子)",
+    "sentence": "I learned the word \"gene\" today."
+  },
+  "visual": {
+    "meaning": "视觉的；视觉的, 视力的, 视觉性记忆优势者",
+    "sentence": "I learned the word \"visual\" today."
+  },
+  "bike": {
+    "meaning": "自行车, 脚踏车",
+    "sentence": "I learned the word \"bike\" today."
+  },
+  "perceive": {
+    "meaning": "感觉, 认知, 理解, 意识到",
+    "sentence": "I learned the word \"perceive\" today."
+  },
+  "framework": {
+    "meaning": "结构, 骨架, 参照标准, 准则, 观点；构架组织",
+    "sentence": "I learned the word \"framework\" today."
+  },
+  "portion": {
+    "meaning": "部分, 一份, 命运, 嫁妆；分配, 给...嫁妆",
+    "sentence": "I learned the word \"portion\" today."
+  },
+  "rose": {
+    "meaning": "玫瑰, 蔷薇, 玫瑰色；玫瑰色的, 玫瑰花的；使成玫瑰色；rise的过去式",
+    "sentence": "I learned the word \"rose\" today."
+  },
+  "obligation": {
+    "meaning": "义务, 责任, 约束, 契约, 恩惠, 债务；待付款, 债务, 义务",
+    "sentence": "I learned the word \"obligation\" today."
+  },
+  "agricultural": {
+    "meaning": "农业的；农业的, 耕作的",
+    "sentence": "I learned the word \"agricultural\" today."
+  },
+  "glance": {
+    "meaning": "一瞥, 闪光, 掠过, 辉矿类；扫视, 闪光, 掠过, 提到, 略说；扫视, 反射, 使掠过",
+    "sentence": "I learned the word \"glance\" today."
+  },
+  "protein": {
+    "meaning": "蛋白质；蛋白质的",
+    "sentence": "I learned the word \"protein\" today."
+  }
 };

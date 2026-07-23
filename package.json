@@ -16,7 +16,9 @@
     "web-lite": "node scripts/serve-web-lite.js",
     "typecheck": "tsc --noEmit",
     "verify:course": "node scripts/verify-course.js",
-    "verify:web": "node scripts/verify-web-lite.js"
+    "verify:web": "node scripts/verify-web-lite.js",
+    "audit:words": "node scripts/audit-word-hints.js",
+    "clean:words": "node scripts/clean-word-hints.js"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.2.0",

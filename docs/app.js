@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-will-would-memory-1";
+const APP_VERSION = "2026.07.23-question-notebook-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -681,6 +681,130 @@ function phraseChunksForDay(day = state.currentDay) {
   return [0, 1, 2, 3, 4].map((offset) => all[(start + offset) % all.length]);
 }
 
+const questionNotebookSeed = [
+  {
+    id: "will-vs-would",
+    category: "语法",
+    title: "will / would 怎么记",
+    question: "would 是不是过去式？和 will 怎么区别？",
+    answer: "先这样记：will 是“我会做”；would 是“如果可以，我会做”。would 后面常藏着条件、礼貌或假设。",
+    examples: ["I will study tonight.", "I would study if I had time.", "I would like to make an appointment."],
+    review: "今天用 will 说一个确定会做的事；用 would 说一个有条件才会做的事。"
+  },
+  {
+    id: "might-modal",
+    category: "语法",
+    title: "might = 可能会",
+    question: "这里的 might 什么意思？",
+    answer: "might 在句子里最常用是“可能会；也许会”，后面直接接动词原形。不要优先记“力量、权力”。",
+    examples: ["I might say it this way.", "I might watch it again.", "I might go tomorrow."],
+    review: "用 might 说 2 个你今天可能会做的事。"
+  },
+  {
+    id: "gonna-be-going-to",
+    category: "连读",
+    title: "be going to = gonna",
+    question: "we're gonna use 是 be going to 吗？",
+    answer: "是。we're gonna use = we are going to use，意思是“我们将要/会使用”。听力里先把 gonna 当成 going to 识别。",
+    examples: ["I'm gonna study.", "We're gonna use hand gestures.", "I'm going to call Kia."],
+    review: "把 I am going to... 说成 I'm gonna...，练 3 句。"
+  },
+  {
+    id: "they-were-saying",
+    category: "语法",
+    title: "they were saying",
+    question: "为什么不是 they saying？",
+    answer: "saying 不能单独当谓语。过去正在说要用 were saying。they were saying = 他们当时正在说。",
+    examples: ["They were saying it again.", "What were they saying?", "I was saying the same thing."],
+    review: "用 was saying 和 were saying 各造一句。"
+  },
+  {
+    id: "way-longer",
+    category: "句块",
+    title: "way longer than...",
+    question: "way longer than I wished to admit 是常用词组吗？",
+    answer: "常用。way + 比较级 = much/far，表示“远远更……”。than I wished to admit = 比我愿意承认的还要……",
+    examples: ["This is way longer than I expected.", "English is way harder than I thought.", "It took way longer than I wished to admit."],
+    review: "用 way harder / way longer / way better 各说一句。"
+  },
+  {
+    id: "wish",
+    category: "词义",
+    title: "wish = 希望；愿望",
+    question: "wish 什么意思？",
+    answer: "wish 可以是“希望”，也可以是“愿望”。I wish... 常表示一种希望，很多时候是不太现实或现在还没做到的愿望。",
+    examples: ["I wish I had more time.", "I wish I could understand it faster.", "Best wishes."],
+    review: "用 I wish... 说 2 个愿望。"
+  },
+  {
+    id: "tell-story",
+    category: "词义",
+    title: "tell a story",
+    question: "说故事用 tell 吗？",
+    answer: "对。讲故事常说 tell a story。say 更偏“说某句话”。tell 强调把内容告诉别人。",
+    examples: ["Tell me a story.", "She told a story.", "What did he say?"],
+    review: "区分 tell a story 和 say a word，各说一句。"
+  },
+  {
+    id: "comprehensible-input",
+    category: "学习法",
+    title: "comprehensible input",
+    question: "comprehensible input 是什么？",
+    answer: "可理解输入：你能靠画面、动作、上下文理解大意的英语内容。不是每个词都查。",
+    examples: ["I need comprehensible input.", "This video is comprehensible.", "I understand the main idea."],
+    review: "看完视频只回答：大概讲什么？我懂 40%、60% 还是 80%？"
+  }
+];
+
+function getQuestionNotebookItems() {
+  const custom = Array.isArray(state.questionNotes) ? state.questionNotes : [];
+  return [...questionNotebookSeed, ...custom];
+}
+
+function getDailyQuestionNotes(day = state.currentDay, count = 3) {
+  const items = getQuestionNotebookItems();
+  if (!items.length) return [];
+  const start = ((Math.max(1, day) - 1) * count) % items.length;
+  return Array.from({ length: Math.min(count, items.length) }, (_, index) => items[(start + index) % items.length]);
+}
+
+function questionReviewKey(id) {
+  return `${localDayKey()}::${id}`;
+}
+
+function isQuestionReviewed(id) {
+  if (!state.questionReviews) state.questionReviews = {};
+  return Boolean(state.questionReviews[questionReviewKey(id)]);
+}
+
+function markQuestionReviewed(id) {
+  if (!state.questionReviews) state.questionReviews = {};
+  state.questionReviews[questionReviewKey(id)] = new Date().toISOString();
+  saveState();
+  render();
+}
+
+function saveQuestionNoteFromText(text) {
+  const raw = String(text || "").trim();
+  if (!raw) return false;
+  const lines = raw.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  const title = lines[0].replace(/^问题[:：]?/, "").slice(0, 36) || "我问过的问题";
+  const answer = lines.slice(1).join(" ") || "待补答案：先问 ChatGPT，再把解释粘到这里。";
+  if (!Array.isArray(state.questionNotes)) state.questionNotes = [];
+  state.questionNotes.unshift({
+    id: `custom-${Date.now()}`,
+    category: "我问过",
+    title,
+    question: title,
+    answer,
+    examples: [],
+    review: "用自己的话讲一遍，再造 1 句。",
+    createdAt: new Date().toISOString()
+  });
+  saveState();
+  return true;
+}
+
 function lookupWordHint(word) {
   const key = normalizeWord(String(word || ""));
   if (verifiedWordHints[key]) return [...verifiedWordHints[key], "验证核心"];
@@ -709,6 +833,8 @@ const defaultState = {
   customSentences: {},
   resourceLinks: {},
   aiAnswers: {},
+  questionNotes: [],
+  questionReviews: {},
   language: "zh",
   wordQuery: "",
   words: [],
@@ -966,6 +1092,7 @@ function getDailySupport(course) {
 function todayPortableText() {
   const course = getCourseDay(state.currentDay);
   const support = getDailySupport(course);
+  const questionNotes = getDailyQuestionNotes(course.day);
   return [
     `English1000 Life Day ${course.day}`,
     `阶段：${course.phase.level} / ${course.phase.phase}`,
@@ -984,6 +1111,9 @@ function todayPortableText() {
     "",
     "今日句子：",
     ...support.phrases.map((item) => `- ${item}`),
+    "",
+    "今日问题本复习：",
+    ...questionNotes.map((item) => `- ${item.title}：${item.answer}`),
     "",
     "AI老师提示：",
     support.aiPrompt
@@ -2131,6 +2261,64 @@ function renderChunks() {
   `;
 }
 
+function renderQuestionNotebook() {
+  const items = getQuestionNotebookItems();
+  const todayItems = getDailyQuestionNotes(state.currentDay, 3);
+  const reviewedCount = todayItems.filter((item) => isQuestionReviewed(item.id)).length;
+  const dailyPrompt = todayItems.map((item, index) => {
+    const examples = (item.examples || []).map((example) => `   例句：${example}`).join("\n");
+    return `${index + 1}. ${item.title}\n   问题：${item.question}\n   解释：${item.answer}\n${examples}\n   复习：${item.review}`;
+  }).join("\n\n");
+  return `
+    <section class="card">
+      <p class="kicker">我的问题本</p>
+      <h1>你问过的，就是该复习的</h1>
+      <p class="body">以后你问 ChatGPT、Codex、视频里卡住的点，都放这里。每天只复习3条，不贪多。</p>
+    </section>
+    <section class="card success">
+      <h2>今日问题复习：${reviewedCount}/${todayItems.length}</h2>
+      <p class="body">先看解释，再用自己的话说一遍。会说出来，才算真的懂。</p>
+      ${todayItems.map((item) => {
+        const done = isQuestionReviewed(item.id);
+        const prompt = `请当我的英语老师，带我复习这个问题。先用简单中文解释，再问我2个小问题，最后让我造句并纠正。\n标题：${item.title}\n我的问题：${item.question}\n解释：${item.answer}\n例句：${(item.examples || []).join(" / ")}\n复习任务：${item.review}`;
+        return `
+          <div class="connected-card ${done ? "done" : ""}">
+            <p class="kicker">${escapeHtml(item.category)} ${done ? "· 已复习" : ""}</p>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p class="small">我当时问：${escapeHtml(item.question)}</p>
+            <p class="body">${escapeHtml(item.answer)}</p>
+            ${(item.examples || []).map((example) => `<p class="small">例句：${escapeHtml(example)}</p>`).join("")}
+            <p class="body"><strong>今天练：</strong>${escapeHtml(item.review)}</p>
+            <div class="button-row">
+              <button class="primary" data-question-reviewed="${escapeHtml(item.id)}">${done ? "已复习" : "今天复习过了"}</button>
+              <button class="secondary" data-copy-ai="${escapeHtml(prompt)}">AI带我练</button>
+            </div>
+          </div>
+        `;
+      }).join("")}
+      <button class="secondary full" data-copy-ai="${escapeHtml(`请带我复习今天的问题本。每次只问一条，等我回答后再纠正。\n${dailyPrompt}`)}">复制今天3条给AI</button>
+    </section>
+    <section class="card">
+      <h2>保存新问题</h2>
+      <p class="body">白天问 GPT 的解释，晚上复制到这里。第一行写问题，后面粘答案。</p>
+      <textarea id="questionNoteInput" placeholder="例如：\nwould 和 will 怎么区别？\nwill 是确定会做；would 是如果可以，我会做，后面常藏条件。"></textarea>
+      <button class="primary full" id="saveQuestionNote">保存到问题本</button>
+    </section>
+    <section class="card">
+      <h2>全部问题库：${items.length}</h2>
+      ${items.map((item) => `
+        <details class="connected-group">
+          <summary>${escapeHtml(item.title)} · ${escapeHtml(item.category)}</summary>
+          <p class="small">问题：${escapeHtml(item.question)}</p>
+          <p class="body">${escapeHtml(item.answer)}</p>
+          ${(item.examples || []).map((example) => `<p class="small">例句：${escapeHtml(example)}</p>`).join("")}
+          <p class="body"><strong>复习：</strong>${escapeHtml(item.review)}</p>
+        </details>
+      `).join("")}
+    </section>
+  `;
+}
+
 function renderAiTeacher() {
   const course = getCourseDay(state.currentDay);
   const support = getDailySupport(course);
@@ -2473,6 +2661,7 @@ function render() {
     ["player", ui("精听", "Listen")],
     ["words", ui("单词", "Words")],
     ["chunks", ui("句块", "Chunks")],
+    ["notebook", ui("问题", "Q&A")],
     ["life", ui("生活", "Life")],
     ["ai", "AI"],
     ["roadmap", ui("路线", "Plan")]
@@ -2486,7 +2675,7 @@ function render() {
         </div>
         <button class="secondary" data-tab="settings">${ui("设置", "Settings")}</button>
       </div>
-      ${state.tab === "today" ? renderToday() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "chunks" ? renderChunks() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "roadmap" ? renderRoadmap() : state.tab === "settings" ? renderSettings() : renderHome()}
+      ${state.tab === "today" ? renderToday() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "chunks" ? renderChunks() : state.tab === "notebook" ? renderQuestionNotebook() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "roadmap" ? renderRoadmap() : state.tab === "settings" ? renderSettings() : renderHome()}
     </main>
     <nav class="tabs">
       ${navItems.map(([tab, label]) => `<button class="tab ${state.tab === tab ? "active" : ""}" data-tab="${tab}">${label}</button>`).join("")}
@@ -2694,6 +2883,17 @@ function bindEvents() {
   const copyAiPromptPage = document.querySelector("#copyAiPromptPage");
   if (copyAiPromptPage) copyAiPromptPage.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
   document.querySelectorAll("[data-copy-ai]").forEach((el) => el.addEventListener("click", () => copyText(el.dataset.copyAi, "训练提示已复制")));
+  document.querySelectorAll("[data-question-reviewed]").forEach((el) => el.addEventListener("click", () => markQuestionReviewed(el.dataset.questionReviewed)));
+  const saveQuestionNote = document.querySelector("#saveQuestionNote");
+  if (saveQuestionNote) saveQuestionNote.addEventListener("click", () => {
+    const input = document.querySelector("#questionNoteInput");
+    if (!saveQuestionNoteFromText(input?.value || "")) {
+      alert("先粘贴一个问题或解释。");
+      return;
+    }
+    alert("已保存到问题本，以后每天会轮流复习。");
+    render();
+  });
   document.querySelectorAll("[data-ai-answer]").forEach((el) => el.addEventListener("input", () => {
     getAiAnswers()[el.dataset.aiAnswer] = el.value;
     saveState();

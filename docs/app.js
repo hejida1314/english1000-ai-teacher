@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-modal-words-1";
+const APP_VERSION = "2026.07.23-will-would-memory-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -16,7 +16,7 @@ const grammarLessons = [
   { title: "一般现在时：每天、经常发生", pattern: "I work / She works", examples: ["I work today.", "She watches English.", "He likes this video."], task: "说3句你平时会做的事。" },
   { title: "一般过去时：已经发生", pattern: "I worked / I watched / I went", examples: ["I watched a video.", "I went home.", "I studied English."], task: "用过去式说昨天发生的3件事。" },
   { title: "现在进行时：正在发生", pattern: "I am watching / She is talking", examples: ["I am watching YouTube.", "She is talking slowly.", "They are eating."], task: "描述你现在正在做什么。" },
-  { title: "一般将来：准备、将要", pattern: "I will / I am going to", examples: ["I will study tonight.", "I am going to call Kia.", "I will do squats."], task: "说3句你明天要做的事。" },
+  { title: "一般将来：准备、将要", pattern: "I will / I am going to", memory: "will 是“我会做”；would 是“如果可以，我会做”。", examples: ["I will study tonight.", "I am going to call Kia.", "I will do squats."], task: "说3句你明天要做的事。" },
   { title: "have / has：有、吃、经历", pattern: "I have / He has", examples: ["I have a question.", "She has time.", "I had lunch."], task: "用 have 说3句生活句。" },
   { title: "want to：想做某事", pattern: "I want to + 动词", examples: ["I want to learn English.", "I want to sleep.", "I want to tell a story."], task: "说3句你想做的事。" },
   { title: "need to：需要做某事", pattern: "I need to + 动词", examples: ["I need to make an appointment.", "I need to practice.", "I need to pay."], task: "说3句你今天需要做的事。" },
@@ -32,7 +32,7 @@ const grammarLessons = [
   { title: "疑问句：Do you...?", pattern: "Do you want...? / Does he...?", examples: ["Do you understand?", "Do you want coffee?", "Does she speak English?"], task: "问自己3个 Do you 问题。" },
   { title: "疑问词：what / where / when", pattern: "What is...? / Where is...?", examples: ["What does it mean?", "Where can I find it?", "When do you open?"], task: "写3个你在美国会问的问题。" },
   { title: "how long：多久", pattern: "How long have you...?", examples: ["How long have you studied English?", "How long does it take?", "How long is the video?"], task: "用 how long 问3句。" },
-  { title: "would like：礼貌想要", pattern: "I'd like to...", examples: ["I'd like to schedule an appointment.", "I'd like some water.", "I'd like to ask a question."], task: "练3句去店里能用的话。" },
+  { title: "would like：礼貌想要", pattern: "I'd like to...", memory: "will 是“我会做”；would 是“如果可以，我会做”。would 后面常藏着条件。", examples: ["I'd like to schedule an appointment.", "I'd like some water.", "I'd like to ask a question."], task: "练3句去店里能用的话。" },
   { title: "could you：礼貌请求", pattern: "Could you + 动词?", examples: ["Could you repeat that?", "Could you say it slowly?", "Could you help me?"], task: "练3句听不懂时能用的话。" },
   { title: "have to：不得不、必须", pattern: "I have to + 动词", examples: ["I have to work.", "I have to pay.", "I have to leave now."], task: "说3句今天必须做的事。" },
   { title: "before / after：之前之后", pattern: "before work / after dinner", examples: ["I study before work.", "I walk after dinner.", "I watched it before bed."], task: "用 before / after 各说两句。" },
@@ -978,6 +978,7 @@ function todayPortableText() {
     "",
     `今日语法：${support.grammar.title}`,
     `结构：${support.grammar.pattern}`,
+    ...(support.grammar.memory ? [`记住：${support.grammar.memory}`] : []),
     `例句：${support.grammar.examples.join(" / ")}`,
     `任务：${support.grammar.task}`,
     "",
@@ -1853,6 +1854,7 @@ function renderToday() {
       <p class="kicker">语法 15 分钟</p>
       <h2>${support.grammar.title}</h2>
       <p class="body"><strong>结构：</strong>${support.grammar.pattern}</p>
+      ${support.grammar.memory ? `<p class="install-tip"><strong>记住：</strong>${escapeHtml(support.grammar.memory)}</p>` : ""}
       <div class="phrase-list">
         ${support.grammar.examples.map((example) => `
           <div class="phrase-card">

@@ -1232,7 +1232,7 @@ window.BASIC_WORD_HINTS = {
   "protection": { meaning: "保护, 防卫, 贸易保护制度； 保护", sentence: "I learned the word \"protection\" today." },
   "collect": { meaning: "收集, 聚集, 集中, 搜集；由收到者付款的；由收到者付款地", sentence: "I learned the word \"collect\" today." },
   "queen": { meaning: "王后, 女王；立为女王；做女王", sentence: "I learned the word \"queen\" today." },
-  "master": { meaning: "主人, 硕士, 大师, 母机；主人的, 主要的；征服, 控制, 精通", sentence: "I learned the word \"master\" today." },
+  "master": { meaning: "掌握, 精通, 大师；主人的, 主要的", sentence: "I want to master English." },
   "meaning": { meaning: "意义, 含义, 目的, 意图；意味深长的", sentence: "I learned the word \"meaning\" today." },
   "spot": { meaning: "污点, 地点, 斑点, 点, 娱乐场所, 处境, 少量；当场的, 现场的, 现货买卖的, 现金交易的, 抽样的；点缀, 玷污, 认出, 准确定.", sentence: "I learned the word \"spot\" today." },
   "ice": { meaning: "冰, 冰淇淋, 糖衣, 冷若冰霜, 矜持, 贿赂；使结冰, 冰镇, 覆以糖衣；结冰", sentence: "I learned the word \"ice\" today." },

@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.22-connected-speech-1";
+const APP_VERSION = "2026.07.22-meaning-overrides-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -137,6 +137,30 @@ const verifiedWordHints = {
   up: ["向上；起来；完成", "I wake up early."],
   time: ["时间；次数", "I need more time."],
   take: ["拿；花费；乘坐", "It takes ten minutes."],
+  master: ["掌握；精通；大师", "I want to master English."],
+  program: ["节目；程序；计划；安排", "This program helps me study."],
+  present: ["现在的；出席；展示；礼物", "Please present your idea clearly."],
+  kind: ["种类；友善的；有点儿", "What kind of video is this?"],
+  patient: ["病人；有耐心的", "I need to be patient with English."],
+  order: ["点餐；订单；顺序；命令", "I want to order beef."],
+  mean: ["意思是；意味着；刻薄的", "What does this word mean?"],
+  mind: ["介意；头脑；想法", "Do you mind repeating that?"],
+  matter: ["事情；问题；重要", "It does not matter."],
+  sound: ["听起来；声音", "That sounds good."],
+  issue: ["问题；议题", "There is an issue with my car."],
+  deal: ["处理；交易；事情", "I can deal with it."],
+  figure: ["弄明白；数字；人物", "I need to figure it out."],
+  check: ["检查；账单；确认", "Can I get the check?"],
+  charge: ["收费；充电；负责", "How much do you charge?"],
+  fine: ["好的；罚款；细微的", "I am fine."],
+  right: ["对的；右边；权利", "You are right."],
+  left: ["左边；剩下；离开了", "Turn left here."],
+  light: ["光；轻的；浅色的", "This bag is light."],
+  plain: ["简单清楚的；朴素的", "Please explain it in plain English."],
+  stand: ["站；忍受", "I can't stand it."],
+  catch: ["抓住；听懂；赶上；碰到", "I am glad I caught you."],
+  thought: ["想法；think 的过去式", "That is what I thought."],
+  excuse: ["借口；原谅", "What is your excuse?"],
   some: ["一些", "I need some water."],
   when: ["什么时候；当...时", "When can I come in?"],
   year: ["年", "This is my English year."],
@@ -2700,9 +2724,9 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./sw.js").catch(() => {});
 }
 
-if (state.vocabAuditVersion !== "2026.07.19-vocab-audit-1") {
+if (state.vocabAuditVersion !== "2026.07.22-meaning-overrides-1") {
   repairLocalData();
-  state.vocabAuditVersion = "2026.07.19-vocab-audit-1";
+  state.vocabAuditVersion = "2026.07.22-meaning-overrides-1";
   saveState({ autoSync: false });
 }
 

@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.22-daily-auto-sync-1";
+const APP_VERSION = "2026.07.22-connected-speech-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -346,6 +346,133 @@ const phraseMeanings = {
   "I'm here for my driver's license.": "我是来办驾照的。",
   "What documents do I need?": "我需要什么文件？"
 };
+
+const connectedSpeechGroups = [
+  {
+    title: "to 弱读：gonna / wanna / gotta",
+    note: "听力先认出来，不要求正式场合也这么说。",
+    items: [
+      ["I am going to call you.", "I'm gonna call ya.", "我要给你打电话。"],
+      ["Do you want to come?", "D'you wanna come?", "你想来吗？"],
+      ["I have to go.", "I hafta go.", "我得走了。"],
+      ["I got to leave.", "I gotta leave.", "我得离开。"],
+      ["I need to do it.", "I needa do it.", "我需要做这个。"],
+      ["I used to live there.", "I useta live there.", "我以前住在那里。"],
+      ["I ought to check it.", "I oughta check it.", "我应该检查一下。"],
+      ["I want to tell you.", "I wanna tell ya.", "我想告诉你。"]
+    ]
+  },
+  {
+    title: "of 弱读：kinda / sorta / outta / lotta",
+    note: "of 常常变成很轻的 /ə/，v 几乎没了。",
+    items: [
+      ["It is kind of hard.", "It's kinda hard.", "这有点难。"],
+      ["It is sort of strange.", "It's sorta strange.", "这有点奇怪。"],
+      ["I am out of time.", "I'm outta time.", "我没时间了。"],
+      ["A lot of people do that.", "A lotta people do that.", "很多人那么做。"],
+      ["Give me a cup of water.", "Gimme a cuppa water.", "给我一杯水。"],
+      ["All of them are here.", "All of 'em are here.", "他们都在这。"],
+      ["Most of it is easy.", "Most of it is easy.", "大部分都简单。"],
+      ["One of them called me.", "One of 'em called me.", "其中一个人给我打电话了。"]
+    ]
+  },
+  {
+    title: "have 弱读：shoulda / coulda / woulda",
+    note: "这些是听力高频，意思还是 should have / could have / would have。",
+    items: [
+      ["I should have called.", "I shoulda called.", "我本应该打电话。"],
+      ["I could have done it.", "I coulda done it.", "我本可以做到。"],
+      ["I would have helped.", "I woulda helped.", "我本来会帮忙。"],
+      ["I might have missed it.", "I mighta missed it.", "我可能错过了。"],
+      ["You must have known.", "You musta known.", "你肯定早知道。"],
+      ["I should have asked.", "I shoulda asked.", "我本应该问一下。"]
+    ]
+  },
+  {
+    title: "you 连读：ya / d'ya / didja / wouldja",
+    note: "you 在句子里经常弱成 ya / jə。",
+    items: [
+      ["How are you doing?", "How ya doin'?", "你最近怎么样？"],
+      ["What are you doing?", "Whatcha doin'?", "你在干嘛？"],
+      ["Did you see it?", "Didja see it?", "你看到了吗？"],
+      ["Would you help me?", "Wouldja help me?", "你能帮我吗？"],
+      ["Could you repeat that?", "Couldja repeat that?", "你能再说一遍吗？"],
+      ["Don't you know?", "Doncha know?", "你不知道吗？"],
+      ["What do you mean?", "Whaddaya mean?", "你什么意思？"],
+      ["Where did you go?", "Where'd ya go?", "你去哪了？"]
+    ]
+  },
+  {
+    title: "him / them 弱读：'im / 'em",
+    note: "h 和 th 常被吞掉，听起来像 um / em。",
+    items: [
+      ["Let me ask him.", "Lemme ask 'im.", "让我问问他。"],
+      ["Go get him.", "Go get 'im.", "去把他叫来。"],
+      ["I saw him yesterday.", "I saw 'im yesterday.", "我昨天见到他了。"],
+      ["Put them here.", "Put 'em here.", "把它们放这。"],
+      ["Give them to me.", "Give 'em to me.", "把它们给我。"],
+      ["I can hear them.", "I can hear 'em.", "我能听见他们。"],
+      ["Grab them out of there.", "Grab 'em outta there.", "把它们从那拿出来。"]
+    ]
+  },
+  {
+    title: "超常用反应句",
+    note: "这些在电影、YouTube、美国生活里非常常见。",
+    items: [
+      ["I do not know.", "I dunno.", "我不知道。"],
+      ["Let me see.", "Lemme see.", "让我看看。"],
+      ["Give me a second.", "Gimme a second.", "给我一秒。"],
+      ["Tell me about it.", "Tell me about it.", "可不是嘛 / 你说得太对了。"],
+      ["I am glad I caught you.", "I'm glad I caught ya.", "幸好碰到你了。"],
+      ["That is what I thought.", "That's what I thought.", "我就知道 / 我也是这么想的。"],
+      ["I cannot stand it.", "I can't stand it.", "我受不了了。"],
+      ["What is your excuse?", "What's yer excuse?", "你有什么借口？"]
+    ]
+  },
+  {
+    title: "工作/办事高频",
+    note: "你在美国生活，先听懂这些最实用。",
+    items: [
+      ["Can I get a receipt?", "Can I gedda receipt?", "可以给我收据吗？"],
+      ["Can I have a bag?", "Can I hava bag?", "可以给我一个袋子吗？"],
+      ["Do you have an appointment?", "D'ya have an appointment?", "你有预约吗？"],
+      ["What time do you close?", "What time d'ya close?", "你们几点关门？"],
+      ["I would like to make an appointment.", "I'd like ta make an appointment.", "我想预约。"],
+      ["Can you hold on?", "Can ya hold on?", "你能等一下吗？"],
+      ["I will be right back.", "I'll be right back.", "我马上回来。"],
+      ["I have got a question.", "I've gotta question.", "我有个问题。"]
+    ]
+  },
+  {
+    title: "情绪和判断",
+    note: "听懂这些，聊天会顺很多。",
+    items: [
+      ["It makes sense.", "It makes sense.", "这说得通。"],
+      ["That makes sense.", "That makes sense.", "那有道理。"],
+      ["It does not matter.", "It doesn't matter.", "没关系 / 不重要。"],
+      ["I am not sure.", "I'm not sure.", "我不确定。"],
+      ["I guess so.", "I guess so.", "我想是吧。"],
+      ["I do not think so.", "I don't think so.", "我不这么认为。"],
+      ["You might as well do it.", "Ya mize well do it.", "反正也没更好办法，你就做吧。"],
+      ["It is not a big deal.", "It's not a big deal.", "没什么大不了。"]
+    ]
+  }
+];
+
+function flatConnectedSpeech() {
+  return connectedSpeechGroups.flatMap((group) => group.items.map(([standard, spoken, meaning]) => ({
+    group: group.title,
+    standard,
+    spoken,
+    meaning
+  })));
+}
+
+function connectedSpeechForDay(day = state.currentDay) {
+  const all = flatConnectedSpeech();
+  const start = ((day - 1) * 4) % all.length;
+  return [0, 1, 2, 3].map((offset) => all[(start + offset) % all.length]);
+}
 
 function lookupWordHint(word) {
   const key = normalizeWord(String(word || ""));
@@ -1620,6 +1747,7 @@ function renderPlayer() {
   const keyWords = extractWords(sentence.english).slice(0, 6);
   const customCount = getPlayerSentences().length;
   const usingCustom = Boolean(state.customSentences?.[customSentenceKey()]?.length);
+  const todayConnected = connectedSpeechForDay(course.day);
   return `
     <section class="card">
       <p class="kicker">精听播放器</p>
@@ -1680,6 +1808,44 @@ function renderPlayer() {
         <button class="secondary" id="copySentenceAi">复制这句给AI解释</button>
       </div>
     </section>
+    <section class="card success">
+      <h2>今天连读口语</h2>
+      <p class="body">词都认识但听不出来，就练这里。先听真实声音，再看标准句。</p>
+      <div class="connected-list">
+        ${todayConnected.map((item) => `
+          <div class="connected-card">
+            <p class="kicker">${escapeHtml(item.group)}</p>
+            <h3>${escapeHtml(item.spoken)}</h3>
+            <p class="small">标准：${escapeHtml(item.standard)}</p>
+            <p class="body">${escapeHtml(item.meaning)}</p>
+            <div class="button-row">
+              <button class="primary" data-say="${escapeHtml(item.spoken)}">听真实声音</button>
+              <button class="secondary" data-say="${escapeHtml(item.standard)}">听标准句</button>
+              <button class="secondary" data-copy-ai="请带我练这句英语连读。标准句：${escapeHtml(item.standard)}。真实口语声音：${escapeHtml(item.spoken)}。请解释为什么会这样连读，并让我跟读3轮。">AI纠正</button>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    </section>
+    <section class="card">
+      <h2>完整连读库</h2>
+      <p class="body">不用一次背完。每天挑4句，听懂比会拼更重要。</p>
+      ${connectedSpeechGroups.map((group) => `
+        <details class="connected-group">
+          <summary>${escapeHtml(group.title)}</summary>
+          <p class="small">${escapeHtml(group.note)}</p>
+          ${group.items.map(([standard, spoken, meaning]) => `
+            <div class="connected-row">
+              <button class="ghost" data-say="${escapeHtml(spoken)}">听</button>
+              <div>
+                <strong>${escapeHtml(spoken)}</strong>
+                <p class="small">${escapeHtml(standard)} · ${escapeHtml(meaning)}</p>
+              </div>
+            </div>
+          `).join("")}
+        </details>
+      `).join("")}
+    </section>
   `;
 }
 
@@ -1690,6 +1856,8 @@ function renderAiTeacher() {
   const prompt = support.aiPrompt;
   const answers = getAiAnswers(course.day);
   const questions = getAiQuestions(course, support);
+  const connected = connectedSpeechForDay(course.day);
+  const connectedPrompt = connected.map((item, index) => `${index + 1}. 标准句：${item.standard}\n   真实口语：${item.spoken}\n   中文：${item.meaning}`).join("\n");
   return `
     <section class="card">
       <p class="kicker">AI老师</p>
@@ -1722,8 +1890,22 @@ function renderAiTeacher() {
         <button class="secondary" data-copy-ai="请用简单英语问我5个关于 Day ${course.day} 视频大意的问题。每次只问一个，等我回答后再纠正。">视频大意问答</button>
         <button class="secondary" data-copy-ai="请用这10个词给我做口语训练：${support.words.join(", ")}。每次给我一个中文场景，让我用英文回答。">10词口语训练</button>
         <button class="secondary" data-copy-ai="请带我跟读这几句英语，先一句一句读，再纠正我的自然表达：\n${phrases}">今日句子跟读</button>
+        <button class="secondary" data-copy-ai="请带我做英语连读听力训练。先一句一句解释为什么会变音，再让我跟读。每次只练一句，等我回复后再纠正。\n${connectedPrompt}">连读口语训练</button>
         <button class="secondary" data-copy-ai="我会写5句英文日记，请你用中文指出错误，再给我一个更自然但简单的英文版本。">日记纠错</button>
       </div>
+    </section>
+    <section class="card success">
+      <h2>今天4句连读</h2>
+      <p class="body">专门练“单词认识，但一连读听不懂”的东西。</p>
+      ${connected.map((item) => `
+        <div class="connected-row">
+          <button class="ghost" data-say="${escapeHtml(item.spoken)}">听</button>
+          <div>
+            <strong>${escapeHtml(item.spoken)}</strong>
+            <p class="small">${escapeHtml(item.standard)} · ${escapeHtml(item.meaning)}</p>
+          </div>
+        </div>
+      `).join("")}
     </section>
     <section class="card notice">
       <h2>今天提前完成怎么办</h2>

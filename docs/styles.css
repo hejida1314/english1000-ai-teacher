@@ -522,6 +522,48 @@ textarea {
   margin-top: 10px;
 }
 
+.connected-list {
+  display: grid;
+  gap: 10px;
+}
+
+.connected-card,
+.connected-group,
+.connected-row {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.connected-card {
+  padding: 12px;
+}
+
+.connected-card h3 {
+  margin: 4px 0 8px;
+  font-size: 24px;
+}
+
+.connected-group {
+  padding: 10px 12px;
+  margin-top: 10px;
+}
+
+.connected-group summary {
+  cursor: pointer;
+  font-weight: 900;
+  color: var(--primary-dark);
+}
+
+.connected-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  margin-top: 8px;
+}
+
 .compare-group {
   margin-top: 10px;
 }

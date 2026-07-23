@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.22-meaning-overrides-1";
+const APP_VERSION = "2026.07.23-phrase-chunks-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -496,6 +496,145 @@ function connectedSpeechForDay(day = state.currentDay) {
   const all = flatConnectedSpeech();
   const start = ((day - 1) * 4) % all.length;
   return [0, 1, 2, 3].map((offset) => all[(start + offset) % all.length]);
+}
+
+const phraseChunkGroups = [
+  {
+    title: "能力：can / be able to",
+    note: "can 最常用；be able to 更适合过去、将来、正式一点的表达。",
+    items: [
+      ["be able to", "能够做某事", "I will be able to speak English better.", "I'll be able ta speak English better."],
+      ["was able to", "当时成功做到了", "I was able to finish it.", "I wuz able ta finish it."],
+      ["can handle", "能处理", "I can handle this.", "I can handle this."],
+      ["can't figure out", "弄不明白", "I can't figure it out.", "I can't figyer it out."],
+      ["be good at", "擅长", "I am good at cooking.", "I'm good at cooking."],
+      ["get better at", "在...方面变好", "I am getting better at listening.", "I'm getting bedder at listening."]
+    ]
+  },
+  {
+    title: "计划：going to / about to",
+    note: "going to 在口语里常听成 gonna，先能听出来。",
+    items: [
+      ["be going to", "将要；打算", "I am going to watch one video.", "I'm gonna watch one video."],
+      ["be about to", "马上就要", "I am about to leave.", "I'm about ta leave."],
+      ["plan to", "计划做", "I plan to study after work.", "I plan ta study after work."],
+      ["try to", "尝试做", "I try to understand the main idea.", "I try ta understand the main idea."],
+      ["start to", "开始做", "I started to understand more.", "I started ta understand more."],
+      ["keep going", "继续坚持", "I can keep going.", "I can keep going."]
+    ]
+  },
+  {
+    title: "必须：have to / need to / got to",
+    note: "have to 常听成 hafta；got to 常听成 gotta。",
+    items: [
+      ["have to", "必须；不得不", "I have to work today.", "I hafta work today."],
+      ["need to", "需要做", "I need to practice every day.", "I needa practice every day."],
+      ["got to", "得做；必须", "I got to go.", "I gotta go."],
+      ["make sure to", "确保要做", "Make sure to upload the data.", "Make sure ta upload the data."],
+      ["be supposed to", "应该；按理说", "I am supposed to call them.", "I'm supposed ta call 'em."],
+      ["don't have to", "不必", "You don't have to rush.", "You don't hafta rush."]
+    ]
+  },
+  {
+    title: "想要：want to / would like to / feel like",
+    note: "want to 是生活口语核心，常弱读成 wanna。",
+    items: [
+      ["want to", "想要做", "I want to master English.", "I wanna master English."],
+      ["would like to", "想要，礼貌", "I would like to make an appointment.", "I'd like ta make an appointment."],
+      ["feel like", "想；感觉像", "I feel like eating beef.", "I feel like eating beef."],
+      ["would rather", "宁愿", "I would rather stay home.", "I'd rather stay home."],
+      ["be willing to", "愿意做", "I am willing to practice.", "I'm willing ta practice."],
+      ["look forward to", "期待", "I look forward to speaking better.", "I look forward ta speaking better."]
+    ]
+  },
+  {
+    title: "习惯：used to / get used to",
+    note: "used to 是过去常常；get used to 是逐渐习惯，意思完全不同。",
+    items: [
+      ["used to", "过去常常", "I used to study with many apps.", "I useta study with many apps."],
+      ["be used to", "已经习惯", "I am used to this schedule.", "I'm used ta this schedule."],
+      ["get used to", "逐渐习惯", "I am getting used to English.", "I'm getting used ta English."],
+      ["be tired of", "厌烦", "I am tired of switching methods.", "I'm tired of switching methods."],
+      ["be afraid to", "不敢做", "I am afraid to speak English.", "I'm afraid ta speak English."],
+      ["be ready to", "准备好做", "I am ready to start.", "I'm ready ta start."]
+    ]
+  },
+  {
+    title: "理解判断：make sense / sound like",
+    note: "聊天里天天出现，听懂这些比背难词实用。",
+    items: [
+      ["make sense", "说得通；有道理", "That makes sense.", "That makes sense."],
+      ["sound like", "听起来像", "It sounds like a good idea.", "It sounds like a good idea."],
+      ["seem to", "似乎", "It seems to work.", "It seems ta work."],
+      ["turn out to", "结果是", "It turned out to be useful.", "It turned out ta be useful."],
+      ["be likely to", "很可能", "I am likely to forget it.", "I'm likely ta forget it."],
+      ["be hard to", "很难做", "It is hard to hear.", "It's hard ta hear."]
+    ]
+  },
+  {
+    title: "礼貌请求：could you / can I",
+    note: "美国生活高频，办事时直接用。",
+    items: [
+      ["could you", "你能不能，礼貌请求", "Could you repeat that?", "Couldja repeat that?"],
+      ["can I", "我可以吗", "Can I get a receipt?", "Can I gedda receipt?"],
+      ["do you mind if", "你介意我...吗", "Do you mind if I sit here?", "D'ya mind if I sit here?"],
+      ["would you mind", "你介意...吗", "Would you mind helping me?", "Wouldja mind helping me?"],
+      ["let me", "让我", "Let me check.", "Lemme check."],
+      ["give me", "给我", "Give me a second.", "Gimme a second."]
+    ]
+  },
+  {
+    title: "听不懂自救",
+    note: "这组必须会，现实生活里比语法题重要。",
+    items: [
+      ["could you say that again", "你能再说一遍吗", "Could you say that again?", "Couldja say that again?"],
+      ["a little more slowly", "再慢一点", "Could you say it a little more slowly?", "Couldja say it a little more slowly?"],
+      ["what does ... mean", "...是什么意思", "What does this word mean?", "Whaddus this word mean?"],
+      ["how do you say", "...怎么说", "How do you say this in English?", "How d'ya say this in English?"],
+      ["I didn't catch that", "我没听清", "Sorry, I didn't catch that.", "Sorry, I didn catch that."],
+      ["let me write it down", "让我写下来", "Let me write it down.", "Lemme write it down."]
+    ]
+  },
+  {
+    title: "生活办事",
+    note: "车、银行、餐馆、工作都能用。",
+    items: [
+      ["be here to", "来这里是为了", "I am here to make an appointment.", "I'm here ta make an appointment."],
+      ["need help with", "需要...方面的帮助", "I need help with this form.", "I need help with this form."],
+      ["pay for", "为...付款", "I need to pay for gas.", "I needa pay fer gas."],
+      ["ask about", "询问关于", "I want to ask about maintenance.", "I wanna ask about maintenance."],
+      ["check on", "查看；确认", "Can you check on my order?", "Can ya check on my order?"],
+      ["take care of", "处理；照顾", "I will take care of it.", "I'll take care of it."]
+    ]
+  },
+  {
+    title: "输出万能句",
+    note: "不会说复杂句时，先用这些撑住表达。",
+    items: [
+      ["I think...", "我认为", "I think this is useful.", "I think this is useful."],
+      ["I guess...", "我猜；我想", "I guess I need more practice.", "I guess I need more practice."],
+      ["I mean...", "我的意思是", "I mean, I need a simple way.", "I mean, I needa simple way."],
+      ["the problem is...", "问题是", "The problem is I forget words.", "The problem is I forget words."],
+      ["the best way is to", "最好的办法是", "The best way is to keep going.", "The best way is ta keep going."],
+      ["it depends on", "取决于", "It depends on my schedule.", "It depends on my schedule."]
+    ]
+  }
+];
+
+function flatPhraseChunks() {
+  return phraseChunkGroups.flatMap((group) => group.items.map(([chunk, meaning, example, spoken]) => ({
+    group: group.title,
+    chunk,
+    meaning,
+    example,
+    spoken
+  })));
+}
+
+function phraseChunksForDay(day = state.currentDay) {
+  const all = flatPhraseChunks();
+  const start = ((day - 1) * 5) % all.length;
+  return [0, 1, 2, 3, 4].map((offset) => all[(start + offset) % all.length]);
 }
 
 function lookupWordHint(word) {
@@ -1873,6 +2012,59 @@ function renderPlayer() {
   `;
 }
 
+function renderChunks() {
+  const course = getCourseDay(state.currentDay);
+  const todayChunks = phraseChunksForDay(course.day);
+  const prompt = todayChunks.map((item, index) => `${index + 1}. 句块：${item.chunk}\n   意思：${item.meaning}\n   标准句：${item.example}\n   口语声音：${item.spoken}`).join("\n");
+  return `
+    <section class="card">
+      <p class="kicker">高频句块</p>
+      <h1>不是背单词，是掌握句子骨架</h1>
+      <p class="body">像 be able to / going to / have to 这种，放在单词本里没用。每天练5个，直接变成你能开口的模板。</p>
+    </section>
+    <section class="card success">
+      <h2>今天5个必练句块</h2>
+      <div class="connected-list">
+        ${todayChunks.map((item) => `
+          <div class="connected-card">
+            <p class="kicker">${escapeHtml(item.group)}</p>
+            <h3>${escapeHtml(item.chunk)}</h3>
+            <p class="body">${escapeHtml(item.meaning)}</p>
+            <p class="small">标准句：${escapeHtml(item.example)}</p>
+            <p class="small">真实口语：${escapeHtml(item.spoken)}</p>
+            <div class="button-row">
+              <button class="primary" data-say="${escapeHtml(item.spoken)}">听口语</button>
+              <button class="secondary" data-say="${escapeHtml(item.example)}">听标准</button>
+              <button class="secondary" data-copy-ai="请带我练这个英语句块：${escapeHtml(item.chunk)}。意思：${escapeHtml(item.meaning)}。标准句：${escapeHtml(item.example)}。口语声音：${escapeHtml(item.spoken)}。请先用中文解释，再让我用这个句块造3句美国生活句。">AI带练</button>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+      <button class="secondary full" data-copy-ai="请带我做今天的英语高频句块训练。每次只练一个句块：先解释，给我2个例句，然后让我造句，你再纠正。\n${prompt}">复制今天5个给AI</button>
+    </section>
+    <section class="card">
+      <h2>完整句块库</h2>
+      <p class="body">不用一次学完。你看视频遇到类似结构，就回来查这一页。</p>
+      ${phraseChunkGroups.map((group) => `
+        <details class="connected-group">
+          <summary>${escapeHtml(group.title)}</summary>
+          <p class="small">${escapeHtml(group.note)}</p>
+          ${group.items.map(([chunk, meaning, example, spoken]) => `
+            <div class="connected-row">
+              <button class="ghost" data-say="${escapeHtml(spoken)}">听</button>
+              <div>
+                <strong>${escapeHtml(chunk)}</strong>
+                <p class="small">${escapeHtml(meaning)}</p>
+                <p class="small">${escapeHtml(example)} · ${escapeHtml(spoken)}</p>
+              </div>
+            </div>
+          `).join("")}
+        </details>
+      `).join("")}
+    </section>
+  `;
+}
+
 function renderAiTeacher() {
   const course = getCourseDay(state.currentDay);
   const support = getDailySupport(course);
@@ -1882,6 +2074,8 @@ function renderAiTeacher() {
   const questions = getAiQuestions(course, support);
   const connected = connectedSpeechForDay(course.day);
   const connectedPrompt = connected.map((item, index) => `${index + 1}. 标准句：${item.standard}\n   真实口语：${item.spoken}\n   中文：${item.meaning}`).join("\n");
+  const chunks = phraseChunksForDay(course.day);
+  const chunkPrompt = chunks.map((item, index) => `${index + 1}. 句块：${item.chunk}\n   意思：${item.meaning}\n   标准句：${item.example}\n   口语声音：${item.spoken}`).join("\n");
   return `
     <section class="card">
       <p class="kicker">AI老师</p>
@@ -1914,6 +2108,7 @@ function renderAiTeacher() {
         <button class="secondary" data-copy-ai="请用简单英语问我5个关于 Day ${course.day} 视频大意的问题。每次只问一个，等我回答后再纠正。">视频大意问答</button>
         <button class="secondary" data-copy-ai="请用这10个词给我做口语训练：${support.words.join(", ")}。每次给我一个中文场景，让我用英文回答。">10词口语训练</button>
         <button class="secondary" data-copy-ai="请带我跟读这几句英语，先一句一句读，再纠正我的自然表达：\n${phrases}">今日句子跟读</button>
+        <button class="secondary" data-copy-ai="请带我做英语高频句块训练。每次只练一个句块：先解释意思，再给2个美国生活例句，然后让我造句，你纠正。\n${chunkPrompt}">高频句块训练</button>
         <button class="secondary" data-copy-ai="请带我做英语连读听力训练。先一句一句解释为什么会变音，再让我跟读。每次只练一句，等我回复后再纠正。\n${connectedPrompt}">连读口语训练</button>
         <button class="secondary" data-copy-ai="我会写5句英文日记，请你用中文指出错误，再给我一个更自然但简单的英文版本。">日记纠错</button>
       </div>
@@ -1930,6 +2125,19 @@ function renderAiTeacher() {
           </div>
         </div>
       `).join("")}
+    </section>
+    <section class="card">
+      <h2>今天5个句块</h2>
+      ${chunks.map((item) => `
+        <div class="connected-row">
+          <button class="ghost" data-say="${escapeHtml(item.spoken)}">听</button>
+          <div>
+            <strong>${escapeHtml(item.chunk)}</strong>
+            <p class="small">${escapeHtml(item.meaning)} · ${escapeHtml(item.example)}</p>
+          </div>
+        </div>
+      `).join("")}
+      <button class="secondary full" data-tab="chunks">去句块库练</button>
     </section>
     <section class="card notice">
       <h2>今天提前完成怎么办</h2>
@@ -2198,6 +2406,7 @@ function render() {
     ["today", ui("今日", "Today")],
     ["player", ui("精听", "Listen")],
     ["words", ui("单词", "Words")],
+    ["chunks", ui("句块", "Chunks")],
     ["life", ui("生活", "Life")],
     ["ai", "AI"],
     ["roadmap", ui("路线", "Plan")]
@@ -2211,7 +2420,7 @@ function render() {
         </div>
         <button class="secondary" data-tab="settings">${ui("设置", "Settings")}</button>
       </div>
-      ${state.tab === "today" ? renderToday() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "roadmap" ? renderRoadmap() : state.tab === "settings" ? renderSettings() : renderHome()}
+      ${state.tab === "today" ? renderToday() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "chunks" ? renderChunks() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "roadmap" ? renderRoadmap() : state.tab === "settings" ? renderSettings() : renderHome()}
     </main>
     <nav class="tabs">
       ${navItems.map(([tab, label]) => `<button class="tab ${state.tab === tab ? "active" : ""}" data-tab="${tab}">${label}</button>`).join("")}

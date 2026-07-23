@@ -124,8 +124,8 @@ window.BASIC_WORD_HINTS = {
     "sentence": "I learned the word \"what\" today."
   },
   "would": {
-    "meaning": "将, 愿意",
-    "sentence": "I learned the word \"would\" today."
+    "meaning": "会；想要；用于礼貌表达",
+    "sentence": "I would like some water."
   },
   "go": {
     "meaning": "去, 走, 达到, 运转, 查阅, 消失, 结束, 放弃, 花费, 流传, 趋于, 打算, 剩下；以...打赌, 对付, 忍受, 出产, 为被捕",
@@ -216,8 +216,8 @@ window.BASIC_WORD_HINTS = {
     "sentence": "I learned the word \"year\" today."
   },
   "could": {
-    "meaning": "可以, 能",
-    "sentence": "I learned the word \"could\" today."
+    "meaning": "可以；能够；用于礼貌请求",
+    "sentence": "Could you repeat that?"
   },
   "think": {
     "meaning": "想, 考虑, 想起, 想像, 打算, 认为；思考, 料想；想法；思想的",
@@ -336,8 +336,8 @@ window.BASIC_WORD_HINTS = {
     "sentence": "I learned the word \"look\" today."
   },
   "may": {
-    "meaning": "五月；愿能, 可以, 愿意",
-    "sentence": "I learned the word \"may\" today."
+    "meaning": "可能；可以",
+    "sentence": "May I ask a question?"
   },
   "want": {
     "meaning": "需要的东西, 缺乏, 贫困, 需要；要, 希望, 应该, 缺少；生活困苦, 需要, 缺少",
@@ -352,8 +352,8 @@ window.BASIC_WORD_HINTS = {
     "sentence": "I learned the word \"well\" today."
   },
   "should": {
-    "meaning": "应该, 将要",
-    "sentence": "I learned the word \"should\" today."
+    "meaning": "应该",
+    "sentence": "I should review today."
   },
   "use": {
     "meaning": "使用, 习惯, 使用价值, 用法, 使用权；使用, 利用, 运用, 耗费；惯常",
@@ -424,8 +424,8 @@ window.BASIC_WORD_HINTS = {
     "sentence": "I learned the word \"over\" today."
   },
   "must": {
-    "meaning": "必须, 未发酵葡萄汁, 绝对必要的事物；必须",
-    "sentence": "I learned the word \"must\" today."
+    "meaning": "必须；一定是",
+    "sentence": "I must practice today."
   },
   "woman": {
     "meaning": "女人, 妇女, 女仆；女用的, 女性的, 妇女的；贬称...为女人, 使成女人腔",
@@ -544,8 +544,8 @@ window.BASIC_WORD_HINTS = {
     "sentence": "I learned the word \"state\" today."
   },
   "might": {
-    "meaning": "力量, 权力；可能, 也许",
-    "sentence": "I learned the word \"might\" today."
+    "meaning": "可能会；也许会",
+    "sentence": "I might say it this way."
   },
   "never": {
     "meaning": "从不, 决不, 不曾；永不, 决不, 从来没有",

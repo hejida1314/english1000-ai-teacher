@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = "english1000-life-v20260723-04";
+﻿const CACHE_NAME = "english1000-life-v20260723-05";
 const ASSETS = [
   "./",
   "./index.html",
@@ -46,4 +46,3 @@ self.addEventListener("message", (event) => {
     self.skipWaiting();
   }
 });
-

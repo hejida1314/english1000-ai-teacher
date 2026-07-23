@@ -30,7 +30,13 @@ const expectedMeanings = {
   stand: [/站|忍受/],
   catch: [/抓住|听懂|赶上|碰到/],
   wish: [/希望|愿望/],
-  tell: [/告诉|讲/]
+  tell: [/告诉|讲/],
+  might: [/可能|也许/],
+  could: [/可以|能够|礼貌/],
+  would: [/会|想要|礼貌/],
+  should: [/应该/],
+  may: [/可能|可以/],
+  must: [/必须|一定/]
 };
 
 for (const [word, entry] of entries) {

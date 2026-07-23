@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-beginner-core-words-1";
+const APP_VERSION = "2026.07.23-modal-words-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -172,6 +172,8 @@ const verifiedWordHints = {
   year: ["年", "This is my English year."],
   could: ["可以；能够；用于礼貌请求", "Could you repeat that?"],
   think: ["想；认为", "I think this is useful."],
+  might: ["可能会；也许会", "I might say it this way."],
+  must: ["必须；一定是", "I must practice today."],
   into: ["进入；变成", "Put it into the bag."],
   its: ["它的", "The app saves its data."],
   them: ["他们；它们", "I can understand them."],

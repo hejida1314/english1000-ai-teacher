@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-voice-coach-1";
+const APP_VERSION = "2026.07.23-day-wrap-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -86,6 +86,17 @@ const starterHints = {
 };
 
 const verifiedWordHints = {
+  confusion: ["困惑；迷糊；搞不清楚", "My confusion goes down after more listening."],
+  measure: ["衡量；测量；用某单位计算", "I measure my English learning in hours."],
+  decade: ["十年", "Over the past few decades, technology changed a lot."],
+  decades: ["几十年；多个十年", "Over the past few decades, English became more important."],
+  mostly: ["主要地；大部分", "The earth is made up mostly of water."],
+  abundant: ["丰富的；大量的", "Oxygen is an abundant element on Earth."],
+  element: ["元素；要素", "What is the most abundant element on Earth?"],
+  oxygen: ["氧；氧气", "People need oxygen to live."],
+  judge: ["评价；判断；批评", "Please don't judge me for saying that."],
+  grab: ["随手拿；去拿；买一份", "I'm gonna grab some coffee."],
+  research: ["研究；查资料", "I'm gonna research this method."],
   the: ["这个；那个；特指某个东西", "The car is ready."],
   be: ["是；成为；存在", "I want to be better."],
   of: ["...的；属于", "This is a cup of water."],
@@ -405,6 +416,20 @@ const phraseMeanings = {
 
 const connectedSpeechGroups = [
   {
+    title: "今天抓到的真实连读",
+    note: "这些不是高级词，但母语者一连起来就很难听出来。每天听一小组，比硬背单词更有用。",
+    items: [
+      ["I am going to use it.", "I'm gonna use it.", "我要用它。"],
+      ["I want to tell you.", "I wanna tell ya.", "我想告诉你。"],
+      ["I have to do it.", "I hafta do it.", "我必须做这个。"],
+      ["I need to understand it.", "I needa understand it.", "我需要理解它。"],
+      ["one hundred hours", "one hunnerd-hours", "一百小时。"],
+      ["a hundred hours", "a hunnerd-hours", "一百个小时。"],
+      ["hundreds of hours", "hunnerds-of-hours", "几百个小时。"],
+      ["made up of", "made-up-of", "由……组成。"]
+    ]
+  },
+  {
     title: "to 弱读：gonna / wanna / gotta",
     note: "听力先认出来，不要求正式场合也这么说。",
     items: [
@@ -531,6 +556,25 @@ function connectedSpeechForDay(day = state.currentDay) {
 }
 
 const phraseChunkGroups = [
+  {
+    title: "今天视频句块",
+    note: "这些来自你今天看 Dreaming English 时真正卡住的句子，优先复习。",
+    items: [
+      ["in a fun natural way", "用一种有趣、自然的方式", "I want to learn English in a fun natural way.", "in a fun natural way"],
+      ["measure something in + 单位", "用某个单位衡量某物", "If I measure my English learning in years, I have studied for two years.", "measure it in years"],
+      ["over the past few decades", "在过去几十年里", "Over the past few decades, people learned more from videos.", "over the past few decades"],
+      ["go up / go down", "上升 / 下降", "My ability goes up and my confusion goes down.", "ability goes up, confusion goes down"],
+      ["this method is called...", "这种方法叫做……", "This method is called comprehensible input.", "this method is called"],
+      ["comprehensible input method", "可理解输入法", "I use the comprehensible input method.", "comprehensible input method"],
+      ["welcome to + 名字", "欢迎来到……", "Welcome to Brain Quest Part 2.", "welcome to Brain Quest Part 2"],
+      ["Please don't judge me for + doing", "请别因为我做某事而评价/笑我", "Please don't judge me for saying that.", "Please don't judge me fer saying that."],
+      ["I'm gonna + 动词", "我要/我打算做某事", "I'm gonna research this method.", "I'm gonna research this method."],
+      ["research something", "研究/查某物资料", "I need to research this before I buy it.", "research this"],
+      ["after + 名词", "在……之后", "I study English after work.", "after work"],
+      ["the most + 形容词 + 名词", "最……的某物", "What is the most abundant element on Earth?", "the most abundant element"],
+      ["be made up mostly of", "主要由……组成", "The earth is made up mostly of water.", "made up mostly of water"]
+    ]
+  },
   {
     title: "能力：can / be able to",
     note: "can 最常用；be able to 更适合过去、将来、正式一点的表达。",
@@ -682,6 +726,87 @@ function phraseChunksForDay(day = state.currentDay) {
 }
 
 const questionNotebookSeed = [
+  {
+    id: "day-wrap-20260723-summary",
+    category: "今日总结",
+    title: "今天学习总结",
+    question: "今天这样边看视频边问问题，会不会浪费？",
+    answer: "不浪费。你今天抓到的是高频句块、真实连读和语法结构，这正是成年人从“知道单词”走向“听懂句子”的关键。",
+    examples: ["I am learning English in a natural way.", "My ability goes up and my confusion goes down.", "This method is called comprehensible input."],
+    review: "明天先复习这三句，再继续看 Dreaming English。"
+  },
+  {
+    id: "measure-in-units",
+    category: "语法",
+    title: "measure something in + 单位",
+    question: "为什么是 measure it in years，不是 by years？",
+    answer: "measure something in + 单位 = 用某个单位衡量某物。这里的 in 表示“用……作为计量单位”。",
+    examples: ["If I measure my English learning in years, I have studied for two years.", "Measure your progress in hours, not in feelings.", "We measure distance in miles."],
+    review: "用 in hours / in years 各造一句。"
+  },
+  {
+    id: "hundred-hours-linking",
+    category: "连读",
+    title: "hundred hours 像一团",
+    question: "100 hours 我好像听成一团，是不是连读？",
+    answer: "对。hundred + hours 连起来时，d 和 h 会弱化，听起来像 hunnerd-hours，不像两个清楚的单词。",
+    examples: ["one hundred hours", "a hundred hours", "hundreds of hours"],
+    review: "把 hundred hours 慢读三遍，再连起来读三遍。"
+  },
+  {
+    id: "over-the-past-few-decades",
+    category: "句块",
+    title: "over the past few decades",
+    question: "over the past few decades 什么意思？",
+    answer: "意思是“在过去几十年里”。over the past + 时间段 = 在过去这段时间以来。",
+    examples: ["Over the past few years, I tried many apps.", "Over the past few decades, technology changed a lot.", "Over the past few days, I studied every day."],
+    review: "用 over the past few years 说一句你自己的经历。"
+  },
+  {
+    id: "go-up-confusion-down",
+    category: "听力",
+    title: "go up / go down",
+    question: "我听到 low up，其实是什么？",
+    answer: "很可能是 go up。go up = 上升/提高；go down = 下降/减少。学习里常说 ability goes up, confusion goes down。",
+    examples: ["My listening ability goes up.", "My confusion goes down.", "The price went up."],
+    review: "读三遍：My ability goes up, and my confusion goes down."
+  },
+  {
+    id: "called-method",
+    category: "句块",
+    title: "this method is called...",
+    question: "this method is called... 怎么用？",
+    answer: "意思是“这种方法叫做……”。called 后面直接接名称。",
+    examples: ["This method is called comprehensible input.", "This exercise is called shadowing.", "This app is called English1000 Life."],
+    review: "用 This method is called... 介绍一个学习方法。"
+  },
+  {
+    id: "dont-judge-me",
+    category: "口语",
+    title: "Please don't judge me for...",
+    question: "Please don't judge me for saying that 值得记吗？",
+    answer: "值得。它是很自然的口语，意思是“我这么说你别笑我/别评价我”。",
+    examples: ["Please don't judge me for saying that.", "Don't judge me for asking this.", "Please don't judge me for my English."],
+    review: "用 Don't judge me for... 说两句。"
+  },
+  {
+    id: "made-up-mostly-of",
+    category: "句块",
+    title: "be made up mostly of",
+    question: "is made up mostly of water 什么意思？",
+    answer: "be made up of = 由……组成；mostly = 主要地、大部分。所以 be made up mostly of = 主要由……组成。",
+    examples: ["The earth is made up mostly of water.", "The human body is made up mostly of water.", "This team is made up mostly of young players."],
+    review: "用 A is made up mostly of B 造一句。"
+  },
+  {
+    id: "the-most-pattern",
+    category: "语法",
+    title: "the most + 形容词 + 名词",
+    question: "the most abundant element 里的 the most 怎么用？",
+    answer: "the most + 形容词 + 名词 = 最……的某物。它和 most people 的“大多数”不是一个用法。",
+    examples: ["the most important thing", "the most common word", "the most abundant element on Earth"],
+    review: "说三句：the most useful..., the most common..., the most important..."
+  },
   {
     id: "will-vs-would",
     category: "语法",

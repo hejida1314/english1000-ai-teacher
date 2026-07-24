@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.24-learning-hub-1";
+const APP_VERSION = "2026.07.24-learning-hub-2";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -2865,7 +2865,7 @@ function renderRoadmap() {
 function renderLearningHub() {
   const due = dueWords().length;
   const phrases = todaysSupport().phrases.items.length;
-  const notebookDue = dueNotebookItems().length;
+  const notebookDue = getDailyQuestionNotes(state.currentDay, 3).filter((item) => !isQuestionReviewed(item.id)).length;
   const totalWords = state.words.length;
   const tools = [
     ["player", "精听播放器", `今日 ${phrases} 句，可粘贴字幕逐句练。`, "练真实声音。"],

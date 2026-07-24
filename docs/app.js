@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-auto-day-1";
+const APP_VERSION = "2026.07.24-music-words-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -97,6 +97,11 @@ const verifiedWordHints = {
   judge: ["评价；判断；批评", "Please don't judge me for saying that."],
   grab: ["随手拿；去拿；买一份", "I'm gonna grab some coffee."],
   research: ["研究；查资料", "I'm gonna research this method."],
+  staff: ["员工；全体人员；五线谱", "A music staff has five lines."],
+  sheet: ["一张纸；表格；床单；乐谱页", "The question is on a sheet."],
+  attempt: ["尝试；试着做", "This is my first attempt."],
+  lines: ["线；行；台词；排队", "A music staff has five lines."],
+  line: ["线；行；台词；排队", "Write it on the next line."],
   the: ["这个；那个；特指某个东西", "The car is ready."],
   be: ["是；成为；存在", "I want to be better."],
   of: ["...的；属于", "This is a cup of water."],
@@ -573,6 +578,8 @@ const phraseChunkGroups = [
       ["after + 名词", "在……之后", "I study English after work.", "after work"],
       ["the most + 形容词 + 名词", "最……的某物", "What is the most abundant element on Earth?", "the most abundant element"],
       ["be made up mostly of", "主要由……组成", "The earth is made up mostly of water.", "made up mostly of water"]
+      ,["A music staff has five lines.", "五线谱有五条线", "A music staff has five lines.", "music staff has five lines"]
+      ,["on a sheet", "在一张纸/一页纸上", "The question is on a sheet.", "on a sheet"]
     ]
   },
   {
@@ -806,6 +813,24 @@ const questionNotebookSeed = [
     answer: "the most + 形容词 + 名词 = 最……的某物。它和 most people 的“大多数”不是一个用法。",
     examples: ["the most important thing", "the most common word", "the most abundant element on Earth"],
     review: "说三句：the most useful..., the most common..., the most important..."
+  },
+  {
+    id: "music-staff-five-lines",
+    category: "词义",
+    title: "staff = 员工；五线谱",
+    question: "staff 为什么这里不是员工？",
+    answer: "staff 最常见是“员工/全体人员”，但在音乐里 staff 是“五线谱”。所以 A music staff has five lines = 五线谱有五条线。",
+    examples: ["The staff are friendly.", "A music staff has five lines.", "Does each staff have five lines?"],
+    review: "记住两个语境：公司 staff = 员工；music staff = 五线谱。"
+  },
+  {
+    id: "on-a-sheet",
+    category: "句块",
+    title: "on a sheet",
+    question: "The question is on a sheet 什么意思？",
+    answer: "on a sheet = 在一张纸/一页纸上。sheet 可以是一张纸、表格、床单，也可以是乐谱页。",
+    examples: ["The question is on a sheet.", "Write it on a sheet of paper.", "The music is on the sheet."],
+    review: "用 on a sheet 说一句。"
   },
   {
     id: "will-vs-would",

@@ -4,7 +4,9 @@ const vm = require("vm");
 
 const root = path.join(__dirname, "..");
 const hintsFile = path.join(root, "web-lite", "basic-word-hints.js");
+const appFile = path.join(root, "web-lite", "app.js");
 const code = fs.readFileSync(hintsFile, "utf8");
+const appCode = fs.readFileSync(appFile, "utf8");
 const sandbox = { window: {} };
 
 vm.createContext(sandbox);
@@ -39,6 +41,25 @@ const expectedMeanings = {
   must: [/必须|一定/]
 };
 
+const appCoreExpectations = [
+  ["instrument", "乐器"],
+  ["staff", "五线谱"],
+  ["note", "音符"],
+  ["line", "五线谱上的线"],
+  ["space", "五线谱两条线之间的间"],
+  ["sheet", "乐谱页"],
+  ["score", "乐谱"],
+  ["scale", "音阶"],
+  ["key", "音调"],
+  ["beat", "节拍"],
+  ["rest", "休止符"],
+  ["measure", "音乐小节"],
+  ["program", "节目"],
+  ["master", "掌握"],
+  ["natural", "自然的"],
+  ["might", "可能会"]
+];
+
 for (const [word, entry] of entries) {
   const meaning = String(entry?.meaning || "").trim();
   const sentence = String(entry?.sentence || "").trim();
@@ -61,6 +82,13 @@ Object.entries(expectedMeanings).forEach(([word, patterns]) => {
   patterns.forEach((pattern) => {
     if (!pattern.test(meaning)) failures.push(`${word}: weak meaning "${meaning}"`);
   });
+});
+
+appCoreExpectations.forEach(([word, required]) => {
+  const wordPattern = new RegExp(`${word}:\\s*\\[[^\\]]*${required}`);
+  if (!wordPattern.test(appCode)) {
+    failures.push(`verified core missing ${word}: ${required}`);
+  }
 });
 
 if (entries.length < 3000) failures.push(`Expected at least 3000 hints, found ${entries.length}`);

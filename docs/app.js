@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.24-context-words-1";
+const APP_VERSION = "2026.07.24-context-words-2";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1193,6 +1193,11 @@ function mergeSyncedState(remoteState) {
     tab: state.tab || "home"
   };
   autoAdvanceDayIfNeeded();
+  const audit = repairLocalData({ silent: true });
+  if (audit.fixedMeaning || audit.fixedSentence || audit.missingMeaning) {
+    state.lastWordAudit = { ...audit, at: new Date().toISOString() };
+    state.vocabAuditVersion = APP_VERSION;
+  }
   saveState({ markDirty: false, autoSync: false });
 }
 

@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.24-space-phrases-1";
+const APP_VERSION = "2026.07.24-learning-hub-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -2862,6 +2862,42 @@ function renderRoadmap() {
   `;
 }
 
+function renderLearningHub() {
+  const due = dueWords().length;
+  const phrases = todaysSupport().phrases.items.length;
+  const notebookDue = dueNotebookItems().length;
+  const totalWords = state.words.length;
+  const tools = [
+    ["player", "精听播放器", `今日 ${phrases} 句，可粘贴字幕逐句练。`, "练真实声音。"],
+    ["words", "生词本", `${due} 个到期复习 / 已有 ${totalWords} 词。`, "先复习，再加新词。"],
+    ["chunks", "句块库", "going to / want to / point A at B 这种放这里。", "解决认识单词但听不懂句子。"],
+    ["notebook", "问题本", `${notebookDue} 条到期复习。`, "你问过我的，才是真不会的。"],
+    ["ai", "AI 老师", "复制今日测试、跟读、句块训练提示。", "把输入变成输出。"],
+    ["roadmap", "路线图", "Dreaming -> Bluey -> Peppa -> TED-Ed -> Modern Family。", "防止乱换教材。"]
+  ];
+
+  return `
+    <section class="card">
+      <p class="kicker">Learning Hub</p>
+      <h1>学习库</h1>
+      <p class="body">英语相关工具都放这里。底部只保留四个入口，少选择，少乱点。</p>
+      <div class="hub-grid">
+        ${tools.map(([tab, title, detail, hint]) => `
+          <button class="tool-card" data-tab="${tab}">
+            <span class="tool-title">${title}</span>
+            <span class="tool-detail">${detail}</span>
+            <span class="tool-hint">${hint}</span>
+          </button>
+        `).join("")}
+      </div>
+    </section>
+    <section class="card notice">
+      <h2>懒人规则</h2>
+      <p class="body">每天正常只进“今日”。卡住了再进“学习库”：查单词、练精听、看问题本、复制给 AI 老师。</p>
+    </section>
+  `;
+}
+
 function renderLife() {
   const log = getTodayLog();
   const todaySpending = log.expenses.reduce((sum, item) => sum + Number(item.amount || 0), 0);
@@ -3090,14 +3126,11 @@ function render() {
   const navItems = [
     ["home", ui("首页", "Home")],
     ["today", ui("今日", "Today")],
-    ["player", ui("精听", "Listen")],
-    ["words", ui("单词", "Words")],
-    ["chunks", ui("句块", "Chunks")],
-    ["notebook", ui("问题", "Q&A")],
-    ["life", ui("生活", "Life")],
-    ["ai", "AI"],
-    ["roadmap", ui("路线", "Plan")]
+    ["learn", ui("学习库", "Learn")],
+    ["life", ui("生活", "Life")]
   ];
+  const learnTabs = ["learn", "player", "words", "chunks", "notebook", "ai", "roadmap"];
+  const isNavActive = (tab) => tab === "learn" ? learnTabs.includes(state.tab) : state.tab === tab;
   app.innerHTML = `
     <main class="app">
       <div class="topbar">
@@ -3107,10 +3140,10 @@ function render() {
         </div>
         <button class="secondary" data-tab="settings">${ui("设置", "Settings")}</button>
       </div>
-      ${state.tab === "today" ? renderToday() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "chunks" ? renderChunks() : state.tab === "notebook" ? renderQuestionNotebook() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "roadmap" ? renderRoadmap() : state.tab === "settings" ? renderSettings() : renderHome()}
+      ${state.tab === "today" ? renderToday() : state.tab === "learn" ? renderLearningHub() : state.tab === "player" ? renderPlayer() : state.tab === "words" ? renderWords() : state.tab === "chunks" ? renderChunks() : state.tab === "notebook" ? renderQuestionNotebook() : state.tab === "life" ? renderLife() : state.tab === "ai" ? renderAiTeacher() : state.tab === "roadmap" ? renderRoadmap() : state.tab === "settings" ? renderSettings() : renderHome()}
     </main>
     <nav class="tabs">
-      ${navItems.map(([tab, label]) => `<button class="tab ${state.tab === tab ? "active" : ""}" data-tab="${tab}">${label}</button>`).join("")}
+      ${navItems.map(([tab, label]) => `<button class="tab ${isNavActive(tab) ? "active" : ""}" data-tab="${tab}">${label}</button>`).join("")}
     </nav>
   `;
   bindEvents();

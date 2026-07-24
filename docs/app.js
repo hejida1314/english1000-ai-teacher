@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.24-learning-hub-3";
+const APP_VERSION = "2026.07.24-daily-notes-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -94,6 +94,29 @@ const verifiedWordHints = {
   abundant: ["丰富的；大量的", "Oxygen is an abundant element on Earth."],
   element: ["元素；要素", "What is the most abundant element on Earth?"],
   oxygen: ["氧；氧气", "People need oxygen to live."],
+  ancient: ["古代的；古老的", "Ancient Egyptian symbols are called hieroglyphics."],
+  egyptian: ["埃及的；埃及人；埃及语", "Ancient Egyptian writing used symbols."],
+  symbol: ["符号；象征", "A symbol can stand for an idea."],
+  symbols: ["符号；象征", "These ancient symbols are hard to read."],
+  hieroglyphics: ["古埃及象形文字", "They were called hieroglyphics."],
+  channel: ["频道；渠道", "Check out the channel in the description."],
+  link: ["链接；联系", "Check the link in the description below."],
+  below: ["在下面；下面的", "The link is below the video."],
+  description: ["描述；视频简介", "The link is in the description."],
+  subscribe: ["订阅", "Please like and subscribe."],
+  punch: ["猛按；猛击；加速启动", "Punch it means go fast or start it now."],
+  hug: ["拥抱", "She gave her son a big hug."],
+  big: ["大的；程度强的；热情的", "Let's give a big thank you to our teacher."],
+  thank: ["感谢；谢谢", "Give a big thank you to our teacher."],
+  famous: ["著名的", "That is a famous line from Hamlet."],
+  hamlet: ["哈姆雷特；莎士比亚戏剧/人物", "To be or not to be is from Hamlet."],
+  arthur: ["亚瑟王", "King Arthur is a famous British legend."],
+  shakespeare: ["莎士比亚", "Hamlet is a play by Shakespeare."],
+  detroit: ["底特律；美国密歇根州城市", "Detroit is known as the Motor City."],
+  chicago: ["芝加哥；美国城市", "The Sears Tower is in Chicago."],
+  tower: ["塔；高楼", "The Sears Tower is a tall building."],
+  top: ["顶部；最高处", "He is standing at the top of the tower."],
+  pull: ["拉；拽；拿出", "Pull out your phone."],
   judge: ["评价；判断；批评", "Please don't judge me for saying that."],
   grab: ["随手拿；去拿；买一份", "I'm gonna grab some coffee."],
   research: ["研究；查资料", "I'm gonna research this method."],
@@ -674,6 +697,20 @@ const phraseChunkGroups = [
       ,["keep + doing", "一直/继续做某事", "A spacecraft keeps moving on its own in deep space.", "keeps moving"]
       ,["on its own", "靠它自己；独自", "It keeps moving on its own.", "on its own"]
       ,["in deep space", "在深空中", "A spacecraft keeps moving in deep space.", "in deep space"]
+      ,["point A at B", "把 A 对准 B", "Point your phone at the QR code.", "point your phone at the QR code"]
+      ,["pull out", "拿出来；拉出来；车开出去", "Pull out your phone and scan the QR code.", "pull out your phone"]
+      ,["at the top of", "在……顶部", "If you're standing at the top of the Sears Tower, are you in Chicago?", "at the top of the Sears Tower"]
+      ,["Is it A or is it B?", "是 A 还是 B？", "Is it Hamlet or is it King Arthur?", "is it Hamlet or is it King Arthur"]
+      ,["a famous line", "一句著名台词/名句", "To be or not to be is a famous line.", "a famous line"]
+      ,["once said", "曾经说过", "A famous line once said: to be or not to be.", "once said"]
+      ,["To be or not to be", "生存还是毁灭", "To be or not to be is from Hamlet.", "to be or not to be"]
+      ,["ancient Egyptian", "古埃及的/古埃及语", "Ancient Egyptian writing used symbols.", "ancient Egyptian"]
+      ,["They were called...", "它们被叫做……", "They were called hieroglyphics.", "they were called hieroglyphics"]
+      ,["Check the link in the description below.", "看下面视频简介里的链接", "Check the link in the description below.", "check the link in the description below"]
+      ,["like and subscribe", "点赞并订阅", "Please like and subscribe.", "like and subscribe"]
+      ,["Give a big thank you to...", "向……表示特别感谢", "Let's give a big thank you to our teacher.", "give a big thank you to our teacher"]
+      ,["a big hug", "一个大大的/热情的拥抱", "She gave her son a big hug.", "a big hug"]
+      ,["Punch it!", "快加速！冲！启动！", "Punch it! We're running out of time.", "punch it"]
     ]
   },
   {
@@ -827,6 +864,60 @@ function phraseChunksForDay(day = state.currentDay) {
 }
 
 const questionNotebookSeed = [
+  {
+    id: "today-video-ancient-egyptian",
+    category: "视频词汇",
+    title: "ancient Egyptian / hieroglyphics",
+    question: "古埃及这些词都不会，字幕还把 hieroglyphics 识别乱了，怎么记？",
+    answer: "ancient = 古代的；Egyptian = 埃及的；symbol = 符号；hieroglyphics = 古埃及象形文字。They were called hieroglyphics. = 它们被叫做象形文字。",
+    examples: ["Ancient Egyptian symbols are called hieroglyphics.", "They were called hieroglyphics.", "This symbol means something."],
+    review: "今天把 ancient / Egyptian / symbol / hieroglyphics 各读 3 遍。"
+  },
+  {
+    id: "today-video-youtube-phrases",
+    category: "YouTube句块",
+    title: "link below / description / like and subscribe",
+    question: "channel in the link below in the description and like subscribe 是什么意思？",
+    answer: "这是 YouTube 高频话术。更自然是：Check the link in the description below, and like and subscribe. = 看下面简介里的链接，并点赞订阅。",
+    examples: ["Check the link in the description below.", "Please like and subscribe.", "Check out the channel."],
+    review: "用 check the link / like and subscribe 造 2 句。"
+  },
+  {
+    id: "today-video-big-thank-you",
+    category: "自然表达",
+    title: "big thank you / big hug",
+    question: "谢谢也有大的吗？a big hug 呢？",
+    answer: "big 在这里不是体积大，而是程度强、热情、隆重。a big thank you = 特别感谢；a big hug = 大大的/热情的拥抱。",
+    examples: ["Let's give a big thank you to our teacher.", "She gave her son a big hug.", "Give me a big hug."],
+    review: "记住 big + 情绪/感谢/拥抱 = 感情足、程度强。"
+  },
+  {
+    id: "today-video-action-commands",
+    category: "动作指令",
+    title: "point A at B / pull out / punch it",
+    question: "point your faces at the screen / pull out / Punch it! 这些怎么记？",
+    answer: "point A at B = 把A对准B；pull out = 拿出来/拉出来；Punch it! = 快加速、冲、启动。它们都是视频和生活里常见动作指令。",
+    examples: ["Point your phone at the QR code.", "Pull out your phone.", "Punch it! We're running out of time."],
+    review: "今天用 point / pull out / punch it 各说一句。"
+  },
+  {
+    id: "today-video-culture-hamlet-arthur",
+    category: "文化常识",
+    title: "Hamlet / King Arthur / famous line",
+    question: "Hamlet 和 King Arthur 我都不知道，视频里的 To be or not to be 怎么记？",
+    answer: "Hamlet = 哈姆雷特，莎士比亚戏剧/人物；King Arthur = 亚瑟王，英国传说国王；a famous line = 一句著名台词；To be or not to be = 生存还是毁灭。",
+    examples: ["To be or not to be is from Hamlet.", "Is it Hamlet or King Arthur?", "That is a famous line."],
+    review: "把 Hamlet = 哈姆雷特，King Arthur = 亚瑟王，To be or not to be = 生存还是毁灭 记牢。"
+  },
+  {
+    id: "today-video-location-chicago-detroit",
+    category: "地名句块",
+    title: "at the top of / Chicago / Detroit",
+    question: "If you're standing at the top of the Sears Tower... 这句怎么抓重点？",
+    answer: "at the top of = 在……顶部；Chicago = 芝加哥；Detroit = 底特律。句型 If you're standing at..., are you in...? 可以用来问地点判断。",
+    examples: ["If you're standing at the top of the Sears Tower, are you in Chicago?", "Detroit is in Michigan.", "Chicago is in Illinois."],
+    review: "用 at the top of 说 2 句。"
+  },
   {
     id: "spacecraft-keep-moving",
     category: "句块",

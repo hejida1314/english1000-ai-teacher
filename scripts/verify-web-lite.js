@@ -13,6 +13,10 @@ const requiredMarkers = [
   "今天先复习",
   "3500高频候选词"
 ];
+const forbiddenRuntimeCalls = [
+  "todaysSupport(",
+  "dueNotebookItems("
+];
 
 function read(file) {
   return fs.readFileSync(file, "utf8");
@@ -32,6 +36,9 @@ for (const file of pairs) {
 const app = read(path.join(root, "web-lite", "app.js"));
 for (const marker of requiredMarkers) {
   if (!app.includes(marker)) fail(`Missing web marker: ${marker}`);
+}
+for (const call of forbiddenRuntimeCalls) {
+  if (app.includes(call)) fail(`Forbidden stale runtime call found: ${call}`);
 }
 
 const index = read(path.join(root, "web-lite", "index.html"));

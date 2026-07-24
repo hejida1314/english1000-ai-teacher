@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-day-wrap-1";
+const APP_VERSION = "2026.07.23-gist-raw-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1806,6 +1806,32 @@ async function githubRequest(path, options = {}) {
   return response.status === 204 ? null : response.json();
 }
 
+async function readGistJsonFile(file) {
+  if (!file) throw new Error("missing_file");
+  let content = file.content || "";
+  if ((file.truncated || !content) && file.raw_url) {
+    const response = await fetch(file.raw_url, { cache: "no-store" });
+    if (!response.ok) throw new Error(`raw_download_${response.status}`);
+    content = await response.text();
+  }
+  try {
+    return JSON.parse(content);
+  } catch (error) {
+    if (file.raw_url && !file.triedRawAfterParse) {
+      const response = await fetch(file.raw_url, { cache: "no-store" });
+      if (response.ok) {
+        const raw = await response.text();
+        try {
+          return JSON.parse(raw);
+        } catch (_) {
+          // Fall through to the clearer message below.
+        }
+      }
+    }
+    throw new Error("cloud_json_incomplete_try_upload_local");
+  }
+}
+
 function syncPayload() {
   return JSON.stringify({
     app: "English1000 Life",
@@ -1825,6 +1851,17 @@ function rememberUploadSuccess(label) {
   sync.lastAutoUploadAt = now;
   sync.lastAutoUploadError = "";
   if (label.includes("daily")) sync.lastDailyUploadDate = localDayKey();
+}
+
+function friendlySyncError(error) {
+  const message = String(error?.message || error || "");
+  if (message.includes("missing_token")) return "还没有填 GitHub Token。Token 只要 gist 权限，自己填在设置里，不要发给我。";
+  if (message.includes("missing_gist")) return "还没有 Gist ID。第一次先点“创建云同步”。";
+  if (message.includes("cloud_json_incomplete")) return "云端数据下载不完整。已改为读取完整原始文件；刷新后再试。如果还失败，就点“上传本机数据”覆盖云端。";
+  if (message.includes("bad_cloud_data")) return "云端文件格式不对。建议先复制本机备份，再点“上传本机数据”修复云端。";
+  if (message.includes("github_401")) return "GitHub Token 不对或过期了，请重新生成一个只带 gist 权限的 Token。";
+  if (message.includes("github_404")) return "找不到这个 Gist。检查 Gist ID，或者重新点“创建云同步”。";
+  return message || "同步失败，请稍后再试。";
 }
 
 async function createCloudSync(label = "uploaded") {
@@ -1870,8 +1907,7 @@ async function downloadCloudSync() {
   if (!sync.gistId.trim()) throw new Error("missing_gist");
   const gist = await githubRequest(`/gists/${sync.gistId.trim()}`);
   const file = gist.files && gist.files["english1000-life.json"];
-  if (!file) throw new Error("missing_file");
-  const data = JSON.parse(file.content);
+  const data = await readGistJsonFile(file);
   if (!data.state) throw new Error("bad_cloud_data");
   mergeSyncedState(data.state);
   getSyncState().lastSyncAt = new Date().toISOString();
@@ -1895,7 +1931,7 @@ function scheduleAutoUpload(delay = 3000, label = "auto uploaded") {
       await uploadCloudSync(label);
       updateSyncBadge("已自动同步");
     } catch (error) {
-      getSyncState().lastAutoUploadError = error.message || "auto upload failed";
+      getSyncState().lastAutoUploadError = friendlySyncError(error);
       saveState({ markDirty: false, autoSync: false });
       updateSyncBadge("自动同步失败，稍后再试");
     } finally {
@@ -1912,7 +1948,7 @@ async function autoSyncOnStart() {
     const gist = await githubRequest(`/gists/${sync.gistId.trim()}`);
     const file = gist.files && gist.files["english1000-life.json"];
     if (!file) return;
-    const data = JSON.parse(file.content);
+    const data = await readGistJsonFile(file);
     const remoteAt = data.updatedAt || "";
     const localAt = state.localUpdatedAt || "";
     if (remoteAt && (!localAt || remoteAt > localAt)) {
@@ -1933,7 +1969,7 @@ async function autoSyncOnStart() {
       updateSyncBadge("本机和云端已经一致");
     }
   } catch (error) {
-    getSyncState().lastAutoUploadError = error.message || "auto sync failed";
+    getSyncState().lastAutoUploadError = friendlySyncError(error);
     saveState({ markDirty: false, autoSync: false });
     updateSyncBadge("自动同步暂时失败");
   } finally {
@@ -3323,7 +3359,7 @@ function bindEvents() {
       render();
       alert(`云同步已创建，Gist ID 已复制：${id}`);
     } catch (error) {
-      setSyncStatus(`创建失败：${error.message}`);
+      setSyncStatus(`创建失败：${friendlySyncError(error)}`);
     }
   });
   const uploadSync = document.querySelector("#uploadSync");
@@ -3334,7 +3370,7 @@ function bindEvents() {
       render();
       alert(`已上传到云端。Gist ID: ${id}`);
     } catch (error) {
-      setSyncStatus(`上传失败：${error.message}`);
+      setSyncStatus(`上传失败：${friendlySyncError(error)}`);
     }
   });
   const downloadSync = document.querySelector("#downloadSync");
@@ -3346,7 +3382,7 @@ function bindEvents() {
       render();
       alert("已下载云端数据。");
     } catch (error) {
-      setSyncStatus(`下载失败：${error.message}`);
+      setSyncStatus(`下载失败：${friendlySyncError(error)}`);
     }
   });
   const testAutoSync = document.querySelector("#testAutoSync");
@@ -3357,7 +3393,7 @@ function bindEvents() {
       render();
       alert("自动同步测试完成。以后打开、切回前台、修改数据后都会自动尝试同步。");
     } catch (error) {
-      setSyncStatus(`自动同步测试失败：${error.message}`);
+      setSyncStatus(`自动同步测试失败：${friendlySyncError(error)}`);
     }
   });
 }

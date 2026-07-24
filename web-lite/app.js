@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.24-context-words-2";
+const APP_VERSION = "2026.07.24-space-phrases-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -667,6 +667,13 @@ const phraseChunkGroups = [
       ["be made up mostly of", "主要由……组成", "The earth is made up mostly of water.", "made up mostly of water"]
       ,["A music staff has five lines.", "五线谱有五条线", "A music staff has five lines.", "music staff has five lines"]
       ,["on a sheet", "在一张纸/一页纸上", "The question is on a sheet.", "on a sheet"]
+      ,["get ... ready", "把……准备好", "Get your bag ready before work.", "get your bag ready"]
+      ,["stand still", "站着别动", "Stand still for a second.", "stand still"]
+      ,["in progress", "正在进行中", "The upload is in progress.", "in progress"]
+      ,["transport in progress", "正在传送中", "Transport in progress.", "transport in progress"]
+      ,["keep + doing", "一直/继续做某事", "A spacecraft keeps moving on its own in deep space.", "keeps moving"]
+      ,["on its own", "靠它自己；独自", "It keeps moving on its own.", "on its own"]
+      ,["in deep space", "在深空中", "A spacecraft keeps moving in deep space.", "in deep space"]
     ]
   },
   {
@@ -820,6 +827,24 @@ function phraseChunksForDay(day = state.currentDay) {
 }
 
 const questionNotebookSeed = [
+  {
+    id: "spacecraft-keep-moving",
+    category: "句块",
+    title: "keep + doing / on its own",
+    question: "Why does a spacecraft keep moving on its own in deep space? 怎么记？",
+    answer: "重点记三个块：keep + doing = 一直/继续做；on its own = 靠自己；in deep space = 在深空中。整句是：为什么宇宙飞船在深空中会靠自己继续移动？",
+    examples: ["A spacecraft keeps moving on its own in deep space.", "Keep studying.", "I keep watching the video."],
+    review: "用 keep + doing 说 2 句你自己的事。"
+  },
+  {
+    id: "stand-still-in-progress",
+    category: "句块",
+    title: "stand still / in progress",
+    question: "Get your phaser ready. Stand still. Transport in progress. 怎么记？",
+    answer: "get ... ready = 把……准备好；stand still = 站着别动；in progress = 正在进行。phaser 是科幻里的相位枪/激光枪。",
+    examples: ["Get your bag ready.", "Stand still for a second.", "The upload is in progress."],
+    review: "今天重点复习 stand still 和 in progress。"
+  },
   {
     id: "context-first-word-meaning",
     category: "词义",

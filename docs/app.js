@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.23-gist-raw-1";
+const APP_VERSION = "2026.07.23-auto-day-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -950,6 +950,9 @@ function getDailyPhrases(day = state.currentDay) {
 const defaultState = {
   currentDay: 1,
   completedTasks: {},
+  dayCompletionDates: {},
+  lastAutoAdvanceDate: "",
+  lastAutoAdvancedFrom: 0,
   studyMinutes: {},
   studySeconds: {},
   understanding: {},
@@ -1050,6 +1053,7 @@ function mergeSyncedState(remoteState) {
     sync: localSync,
     tab: state.tab || "home"
   };
+  autoAdvanceDayIfNeeded();
   saveState({ markDirty: false, autoSync: false });
 }
 
@@ -1126,6 +1130,69 @@ function lifeTotals(days = 7) {
 function completedForDay(day) {
   const ids = new Set(state.completedTasks[day] || []);
   return getCourseDay(day).tasks.filter((task) => ids.has(task.id));
+}
+
+function isCourseDayComplete(day = state.currentDay) {
+  const course = getCourseDay(day);
+  return course.tasks.length > 0 && completedForDay(day).length >= course.tasks.length;
+}
+
+function ensureDayCompletionState() {
+  if (!state.dayCompletionDates || typeof state.dayCompletionDates !== "object") state.dayCompletionDates = {};
+}
+
+function rememberDayCompletionIfComplete(day = state.currentDay) {
+  ensureDayCompletionState();
+  if (isCourseDayComplete(day)) {
+    if (!state.dayCompletionDates[day]) state.dayCompletionDates[day] = localDayKey();
+  } else {
+    delete state.dayCompletionDates[day];
+  }
+}
+
+function datePart(value) {
+  if (!value) return "";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(String(value))) return String(value);
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return "";
+  return localDayKey(parsed);
+}
+
+function latestStudyDateBeforeToday() {
+  const today = localDayKey();
+  const secondsMap = state.studySeconds || {};
+  const minuteMap = state.studyMinutes || {};
+  const keys = new Set([...Object.keys(secondsMap), ...Object.keys(minuteMap)]);
+  return Array.from(keys)
+    .filter((key) => /^\d{4}-\d{2}-\d{2}$/.test(key) && key < today)
+    .filter((key) => Number(secondsMap[key] || 0) > 0 || Number(minuteMap[key] || 0) > 0)
+    .sort()
+    .pop() || "";
+}
+
+function inferCompletionDate(day = state.currentDay) {
+  ensureDayCompletionState();
+  return state.dayCompletionDates[day] || latestStudyDateBeforeToday() || datePart(state.savedAt) || datePart(state.localUpdatedAt) || "";
+}
+
+function autoAdvanceDayIfNeeded() {
+  ensureDayCompletionState();
+  const today = localDayKey();
+  let advanced = false;
+  let guard = 0;
+  while (state.currentDay < 334 && isCourseDayComplete(state.currentDay) && guard < 7) {
+    const completionDate = inferCompletionDate(state.currentDay);
+    if (!completionDate || completionDate === today) break;
+    const from = state.currentDay;
+    state.currentDay += 1;
+    state.lastAutoAdvanceDate = today;
+    state.lastAutoAdvancedFrom = from;
+    state.tab = "home";
+    advanced = true;
+    guard += 1;
+  }
+  if (advanced) saveState({ markDirty: true, autoSync: true });
+  return advanced;
 }
 
 function totalStudyToday() {
@@ -1673,6 +1740,7 @@ function toggleTask(taskId) {
   const ids = new Set(state.completedTasks[day] || []);
   ids.has(taskId) ? ids.delete(taskId) : ids.add(taskId);
   state.completedTasks[day] = Array.from(ids);
+  rememberDayCompletionIfComplete(day);
   saveState();
   render();
 }
@@ -1757,6 +1825,7 @@ function finishTimer() {
     const ids = new Set(state.completedTasks[day] || []);
     ids.add(taskId);
     state.completedTasks[day] = Array.from(ids);
+    rememberDayCompletionIfComplete(day);
   }
   state.timer = { running: false, startedAt: "", taskId: "", taskTitle: "", bankedSeconds: 0 };
   saveState();
@@ -3414,6 +3483,7 @@ if (state.reviewSpreadVersion !== "2026.07.19-review-spread-1") {
   saveState({ autoSync: false });
 }
 
+autoAdvanceDayIfNeeded();
 render();
 setTimeout(autoSyncOnStart, 800);
 

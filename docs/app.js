@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.24-music-words-1";
+const APP_VERSION = "2026.07.24-context-words-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -259,6 +259,79 @@ const verifiedWordHints = {
   card: ["卡", "Can I pay by card?"],
   cash: ["现金", "I paid in cash."]
 };
+
+const contextSafeWordHints = {
+  staff: ["员工；全体人员；五线谱", "A music staff has five lines."],
+  sheet: ["一张纸；表格；床单；乐谱页", "The question is on a sheet."],
+  line: ["线；行；台词；五线谱上的线", "A music staff has five lines."],
+  lines: ["线；行；台词；五线谱上的线", "Does each staff have four, five, or six lines?"],
+  space: ["空间；空格；五线谱两条线之间的间", "A note can be on a line or in a space."],
+  note: ["笔记；便条；音符；注意到", "This note is on the staff."],
+  notes: ["笔记；音符", "The notes are on the music staff."],
+  scale: ["音阶；规模；秤；比例", "A music scale has different notes."],
+  key: ["钥匙；关键；按键；音调", "This song is in a different key."],
+  sharp: ["锋利的；尖锐的；升音", "A sharp note is a little higher."],
+  flat: ["平的；公寓；降音", "A flat note is a little lower."],
+  beat: ["节拍；打败；敲打", "Clap the beat with your hands."],
+  rest: ["休息；剩余部分；休止符", "A rest means you do not play for a moment."],
+  bar: ["条；酒吧；小节；栏", "There are four beats in this bar."],
+  measure: ["衡量；测量；用某单位计算；音乐小节", "I measure my English learning in hours."],
+  pitch: ["音高；投掷；球场", "Pitch means how high or low a sound is."],
+  clef: ["谱号", "The treble clef is at the beginning of the staff."],
+  treble: ["高音的；高音部", "The treble clef is common in music."],
+  bass: ["低音；低音部；鲈鱼", "The bass notes are lower."],
+  rhythm: ["节奏", "English has rhythm, not just words."],
+  melody: ["旋律", "The melody is easy to remember."],
+  instrument: ["乐器；工具；仪器", "A piano is a musical instrument."],
+  string: ["弦；绳子；字符串", "A guitar has strings."],
+  score: ["分数；得分；乐谱", "The music score is on the sheet."],
+  part: ["部分；角色；声部；第几部分", "Welcome to Brain Quest Part 2."],
+  paper: ["纸；论文；文件", "Write the answer on the paper."],
+  question: ["问题；题目", "The question is on a sheet."],
+  answer: ["答案；回答", "I know the answer."],
+  attempt: ["尝试；试着做", "This is my first attempt."],
+  program: ["节目；程序；计划安排", "This is a good English program."],
+  figure: ["弄明白；数字；图形；人物", "I can't figure it out."],
+  natural: ["自然的；天然的；天生的", "English in a natural way is easier to remember."],
+  naturally: ["自然地；天然地", "English naturally has rhythm."],
+  master: ["掌握；精通；大师；主人", "I want to master English."],
+  present: ["现在的；出席的；展示；礼物", "Please present your idea slowly."],
+  kind: ["种类；友善的；有点儿", "What kind of video is this?"],
+  patient: ["病人；有耐心的", "Be patient with your English."],
+  order: ["点餐；订单；顺序；命令", "I would like to order lunch."],
+  mean: ["意思是；意味着；刻薄的", "What does this word mean?"],
+  mind: ["介意；头脑；想法", "Do you mind saying that again?"],
+  matter: ["事情；问题；重要", "It does not matter if you make mistakes."],
+  sound: ["声音；听起来", "This sentence sounds natural."],
+  light: ["光；轻的；浅色的", "This bag is light."],
+  right: ["对的；右边；权利", "You are right."],
+  left: ["左边；剩下；离开了", "I have ten minutes left."],
+  date: ["日期；约会；枣", "What date works for you?"],
+  state: ["州；状态；陈述", "I live in this state."],
+  subject: ["主题；学科；主语", "What is the subject of this video?"],
+  object: ["物体；目标；宾语；反对", "The object is on the table."],
+  sentence: ["句子；判刑", "This sentence is useful."],
+  capital: ["首都；大写字母；资本", "Use a capital letter at the beginning."],
+  period: ["时期；一段时间；句号", "Put a period at the end."],
+  point: ["点；重点；分数；指向", "What is the main point?"],
+  close: ["关闭；近的；亲近的", "Close the app after you finish."],
+  minute: ["分钟；微小的", "Practice for five minutes."],
+  second: ["第二；秒", "Watch it a second time."],
+  form: ["表格；形式；形成", "Fill out this form."],
+  file: ["文件；归档；提交", "Save this file."],
+  record: ["记录；录音；录像；唱片", "Record your voice."],
+  live: ["居住；直播；现场的", "I live in the United States."],
+  read: ["阅读；读", "Read the sentence out loud."],
+  tear: ["眼泪；撕裂", "Do not tear the paper."],
+  row: ["一排；一行；划船；争吵", "Write the word in the first row."],
+  bow: ["鞠躬；弓；蝴蝶结", "The violin bow touches the strings."],
+  lead: ["带领；铅", "This plan can lead to progress."],
+  wound: ["伤口；缠绕/上发条的过去式", "Clean the wound carefully."],
+  content: ["内容；满意的", "This content is useful for beginners."],
+  produce: ["生产；农产品", "This farm produces fresh food."]
+};
+
+Object.assign(verifiedWordHints, contextSafeWordHints);
 
 const badMeaningMarkers = [
   "DOS", "批处理", "信息论", "输入终端", "智能终端", "内捕获", "地址转换器", "异常传输",
@@ -562,6 +635,20 @@ function connectedSpeechForDay(day = state.currentDay) {
 
 const phraseChunkGroups = [
   {
+    title: "多义词防坑：视频课语境",
+    note: "同一个英文词在不同场景意思完全不同。先按视频画面和上下文判断，不要只背词典第一个中文。",
+    items: [
+      ["music staff", "五线谱，不是员工", "A music staff has five lines.", "music staff"],
+      ["line or space", "五线谱上的线或间", "A note can be on a line or in a space.", "line or space"],
+      ["a note on the staff", "五线谱上的一个音符", "There is a note on the staff.", "note on the staff"],
+      ["the question is on a sheet", "题目在一张纸/一页纸上", "The question is on a sheet.", "question is on a sheet"],
+      ["a music score", "一份乐谱", "The music score is on the sheet.", "music score"],
+      ["four, five, or six lines", "四条、五条或六条线", "Does each staff have four, five, or six lines?", "four five or six lines"],
+      ["the key point", "关键点", "The key point is to understand the story.", "key point"],
+      ["in this context", "在这个语境里", "In this context, staff means music staff.", "in this context"]
+    ]
+  },
+  {
     title: "今天视频句块",
     note: "这些来自你今天看 Dreaming English 时真正卡住的句子，优先复习。",
     items: [
@@ -733,6 +820,33 @@ function phraseChunksForDay(day = state.currentDay) {
 }
 
 const questionNotebookSeed = [
+  {
+    id: "context-first-word-meaning",
+    category: "词义",
+    title: "先看语境，再看中文",
+    question: "为什么基础词也会看不懂？",
+    answer: "因为很多基础词是多义词。不要只看词典第一个中文，要先看画面、主题和句子功能。比如 staff 在公司是员工，在音乐里是五线谱。",
+    examples: ["A music staff has five lines.", "The staff are friendly.", "The question is on a sheet."],
+    review: "今天找 3 个多义词，说出它在当前视频里的意思。"
+  },
+  {
+    id: "music-word-family",
+    category: "词义",
+    title: "音乐语境高频词",
+    question: "staff / note / line / space 在音乐里是什么意思？",
+    answer: "music staff = 五线谱；note = 音符；line = 五线谱上的线；space = 五线谱两条线之间的间。不要按员工、笔记、排队、空间硬翻译。",
+    examples: ["A music staff has five lines.", "A note can be on a line or in a space.", "The music score is on the sheet."],
+    review: "看到音乐画面时，先把 staff/note/line/space 切到音乐意思。"
+  },
+  {
+    id: "education-word-family",
+    category: "词义",
+    title: "课堂/题目语境高频词",
+    question: "sheet / question / attempt / answer 怎么放一起理解？",
+    answer: "sheet 是一张题纸或练习纸；question 是题目；attempt 是一次尝试作答；answer 是答案。这一组经常在教学视频里一起出现。",
+    examples: ["The question is on a sheet.", "This is my first attempt.", "I know the answer."],
+    review: "用 question / attempt / answer 说一个课堂场景。"
+  },
   {
     id: "day-wrap-20260723-summary",
     category: "今日总结",

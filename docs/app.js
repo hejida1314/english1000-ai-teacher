@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.24-daily-notes-1";
+const APP_VERSION = "2026.07.24-money-ledger-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1243,7 +1243,7 @@ let syncBusy = false;
 let timerTicker = null;
 
 function todayKey() {
-  return new Date().toISOString().slice(0, 10);
+  return localDayKey(new Date());
 }
 
 function localDayKey(date = new Date()) {
@@ -1366,25 +1366,107 @@ function getTodayLog() {
   if (!state.lifeLogs[key]) {
     state.lifeLogs[key] = { expenses: [], workout: [], journal: "", mood: "" };
   }
+  normalizeLifeLog(state.lifeLogs[key]);
   return state.lifeLogs[key];
+}
+
+function inferMoneyType(item = {}) {
+  const note = String(item.note || item.memo || "").toLowerCase();
+  const amount = Number(item.amount || 0);
+  if (item.type === "income" || item.type === "expense") return item.type;
+  if (amount < 0) return "expense";
+  if (/收入|工资|进账|入账|到账|卖出|退款|返现|报销|income|salary|paid|paycheck|refund|reimbursement|sold|deposit/.test(note)) {
+    return "income";
+  }
+  return "expense";
+}
+
+function normalizeMoneyEntry(item = {}) {
+  const type = inferMoneyType(item);
+  return {
+    id: String(item.id || `${Date.now()}-${Math.random().toString(16).slice(2)}`),
+    amount: Math.abs(Number(item.amount || 0)),
+    note: String(item.note || item.memo || (type === "income" ? "income" : "spending")).trim(),
+    type,
+    createdAt: item.createdAt || new Date().toISOString()
+  };
+}
+
+function normalizeLifeLog(log) {
+  if (!log || typeof log !== "object") return;
+  if (!Array.isArray(log.expenses)) log.expenses = [];
+  if (!Array.isArray(log.workout)) log.workout = [];
+  if (typeof log.journal !== "string") log.journal = String(log.journal || "");
+  if (typeof log.mood !== "string") log.mood = String(log.mood || "");
+  log.expenses = log.expenses.map(normalizeMoneyEntry).filter((item) => Number(item.amount || 0) > 0);
+}
+
+function addMoneyEntry({ amount, note, type = "expense" }) {
+  const value = Math.abs(Number(amount || 0));
+  if (!value) return null;
+  const entry = normalizeMoneyEntry({
+    amount: value,
+    note: note || (type === "income" ? "income" : "spending"),
+    type,
+    createdAt: new Date().toISOString()
+  });
+  getTodayLog().expenses.unshift(entry);
+  saveState();
+  return entry;
+}
+
+function moneyTotalsForKeys(keys = []) {
+  return keys.reduce((totals, key) => {
+    const log = state.lifeLogs?.[key];
+    (log?.expenses || []).forEach((raw) => {
+      const item = normalizeMoneyEntry(raw);
+      if (item.type === "income") totals.income += item.amount;
+      else totals.expense += item.amount;
+    });
+    totals.net = totals.income - totals.expense;
+    return totals;
+  }, { income: 0, expense: 0, net: 0 });
+}
+
+function dateKeysBetween(start, end) {
+  const keys = [];
+  const cursor = new Date(start);
+  while (cursor <= end) {
+    keys.push(localDayKey(cursor));
+    cursor.setDate(cursor.getDate() + 1);
+  }
+  return keys;
+}
+
+function getMoneyPeriods() {
+  const now = new Date();
+  const today = moneyTotalsForKeys([todayKey(), localDayKey(now)].filter((key, index, arr) => arr.indexOf(key) === index));
+  const weekStart = new Date(now);
+  const day = weekStart.getDay() || 7;
+  weekStart.setDate(weekStart.getDate() - day + 1);
+  weekStart.setHours(0, 0, 0, 0);
+  const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+  return {
+    today,
+    week: moneyTotalsForKeys(dateKeysBetween(weekStart, now)),
+    month: moneyTotalsForKeys(dateKeysBetween(monthStart, now))
+  };
 }
 
 function lifeTotals(days = 7) {
   const cursor = new Date();
-  let spending = 0;
   let workouts = 0;
   let journals = 0;
   for (let i = 0; i < days; i += 1) {
-    const key = cursor.toISOString().slice(0, 10);
+    const key = localDayKey(cursor);
     const log = state.lifeLogs?.[key];
     if (log) {
-      spending += (log.expenses || []).reduce((sum, item) => sum + Number(item.amount || 0), 0);
       workouts += (log.workout || []).length;
       if (String(log.journal || "").trim()) journals += 1;
     }
     cursor.setDate(cursor.getDate() - 1);
   }
-  return { spending, workouts, journals };
+  return { workouts, journals };
 }
 
 function completedForDay(day) {
@@ -1719,6 +1801,7 @@ function repairLocalData(options = {}) {
   });
   if (!state.completedTasks || typeof state.completedTasks !== "object") state.completedTasks = {};
   if (!state.lifeLogs || typeof state.lifeLogs !== "object") state.lifeLogs = {};
+  Object.values(state.lifeLogs).forEach(normalizeLifeLog);
   if (!state.studySeconds || typeof state.studySeconds !== "object") state.studySeconds = {};
   if (!state.resourceLinks || typeof state.resourceLinks !== "object") state.resourceLinks = {};
   if (!state.aiAnswers || typeof state.aiAnswers !== "object") state.aiAnswers = {};
@@ -1944,6 +2027,20 @@ function looksLikeExpense(text) {
   return /(\$|usd|花了|花费|消费|spent|spend|lunch|coffee|gas|grocery|parking|receipt|meal|food|beef|cost)/i.test(raw);
 }
 
+function looksLikeIncome(text) {
+  const raw = String(text || "").toLowerCase();
+  return /(收入|工资|进账|入账|到账|卖出|退款|返现|报销|income|salary|paycheck|refund|reimbursement|sold|deposit)/i.test(raw);
+}
+
+function parseMoneyInput(text) {
+  const raw = String(text || "").trim();
+  const amount = raw.match(/(?:\$|usd\s*)?\s*(\d+(?:\.\d{1,2})?)/i);
+  if (!amount) return null;
+  const type = looksLikeIncome(raw) ? "income" : "expense";
+  const note = raw.replace(amount[0], "").trim() || (type === "income" ? "income" : "spending");
+  return { amount: Number(amount[1]), note, type };
+}
+
 function looksLikeWorkout(text) {
   return /(深蹲|俯卧撑|拉伸|走路|步行|训练|健身|平板|卷腹|弓步|squat|pushup|push-up|stretch|walk|plank|workout)/i.test(text);
 }
@@ -1967,18 +2064,13 @@ function smartSave(text) {
     addWorkoutNote(trimmed);
     return "已记录到健康训练。";
   }
-  const amount = looksLikeExpense(trimmed) ? trimmed.match(/(?:\$|usd\s*)?\s*(\d+(?:\.\d{1,2})?)/i) : null;
+  const money = (looksLikeExpense(trimmed) || looksLikeIncome(trimmed)) ? parseMoneyInput(trimmed) : null;
   const hasChinese = /[\u3400-\u9fff]/.test(trimmed);
-  if (amount) {
-    const log = getTodayLog();
-    log.expenses.unshift({
-      id: `${Date.now()}`,
-      amount: Number(amount[1]),
-      note: trimmed.replace(amount[0], "").trim() || "spending",
-      createdAt: new Date().toISOString()
-    });
-    saveState();
-    return `已记账 $${Number(amount[1]).toFixed(2)}`;
+  if (money) {
+    addMoneyEntry(money);
+    return money.type === "income"
+      ? `已记收入 $${money.amount.toFixed(2)}`
+      : `已记支出 $${money.amount.toFixed(2)}`;
   }
   if (!hasChinese && extractWords(trimmed).length) {
     return `已加入 ${addWordsFromText(trimmed)} 个生词`;
@@ -2993,11 +3085,11 @@ function renderLearningHub() {
 
 function renderLife() {
   const log = getTodayLog();
-  const todaySpending = log.expenses.reduce((sum, item) => sum + Number(item.amount || 0), 0);
+  const money = getMoneyPeriods();
   const week = lifeTotals(7);
   const lifeChecks = [
     ["训练", log.workout.length > 0, "做了就算，不追求练爆。"],
-    ["记账", log.expenses.length > 0, "今天有消费就随手记一笔。"],
+    ["记账", log.expenses.length > 0, "收入和支出都随手记，别月底靠猜。"],
     ["日记", !!log.journal.trim(), "5句也可以，重点是不断。"]
   ];
   const lifeScore = Math.round((lifeChecks.filter((item) => item[1]).length / lifeChecks.length) * 100);
@@ -3025,9 +3117,13 @@ function renderLife() {
       `).join("")}
     </section>
     <section class="grid">
-      <div class="metric"><div class="metric-value">$${todaySpending.toFixed(0)}</div><div class="metric-label">今日花费</div></div>
+      <div class="metric ${money.today.net >= 0 ? "money-income" : "money-expense"}"><div class="metric-value">$${money.today.net.toFixed(0)}</div><div class="metric-label">今日净额</div></div>
+      <div class="metric money-income"><div class="metric-value">$${money.week.income.toFixed(0)}</div><div class="metric-label">本周收入</div></div>
+      <div class="metric money-expense"><div class="metric-value">$${money.week.expense.toFixed(0)}</div><div class="metric-label">本周支出</div></div>
       <div class="metric"><div class="metric-value">${log.workout.length}</div><div class="metric-label">今日训练</div></div>
-      <div class="metric"><div class="metric-value">$${week.spending.toFixed(0)}</div><div class="metric-label">7天花费</div></div>
+      <div class="metric money-income"><div class="metric-value">$${money.month.income.toFixed(0)}</div><div class="metric-label">本月收入</div></div>
+      <div class="metric money-expense"><div class="metric-value">$${money.month.expense.toFixed(0)}</div><div class="metric-label">本月支出</div></div>
+      <div class="metric ${money.month.net >= 0 ? "money-income" : "money-expense"}"><div class="metric-value">$${money.month.net.toFixed(0)}</div><div class="metric-label">本月净额</div></div>
       <div class="metric"><div class="metric-value">${week.journals}/7</div><div class="metric-label">7天日记</div></div>
     </section>
     <section class="card">
@@ -3071,20 +3167,30 @@ function renderLife() {
     </section>
     <section class="card">
       <h2>记账</h2>
+      <p class="body">默认记支出；工资、退款、卖东西这种切到收入。周/月统计会自动更新。</p>
+      <div class="button-row">
+        <button class="primary" data-money-type="expense">支出</button>
+        <button class="secondary" data-money-type="income">收入</button>
+      </div>
       <div class="pill-row">
         ${[[12, "lunch"], [5, "coffee"], [40, "gas"], [35, "grocery"], [8, "parking"], [15, "car wash"], [20, "medicine"], [60, "restaurant"]].map(([amount, note]) => `
-          <button class="pill" data-expense="${amount}" data-note="${escapeHtml(note)}">$${amount} ${escapeHtml(note)}</button>
+          <button class="pill" data-expense="${amount}" data-note="${escapeHtml(note)}">-$${amount} ${escapeHtml(note)}</button>
         `).join("")}
       </div>
       <div class="money-form">
         <input id="expenseAmount" type="number" inputmode="decimal" placeholder="金额，例如 12.5" />
-        <input id="expenseNote" placeholder="类别/备注，例如 lunch" />
+        <input id="expenseNote" placeholder="类别/备注，例如 lunch、工资、refund" />
+        <select id="expenseType">
+          <option value="expense">支出</option>
+          <option value="income">收入</option>
+        </select>
         <button class="primary" id="addExpense">记一笔</button>
       </div>
       <div class="money-list">
         ${log.expenses.map((item) => `
-          <div class="entry">
-            <strong>$${Number(item.amount || 0).toFixed(2)}</strong> ${escapeHtml(item.note)}
+          <div class="entry money-entry ${item.type === "income" ? "money-income" : "money-expense"}">
+            <strong>${item.type === "income" ? "+" : "-"}$${Number(item.amount || 0).toFixed(2)}</strong> ${escapeHtml(item.note)}
+            <span class="money-tag">${item.type === "income" ? "收入" : "支出"}</span>
             <button class="ghost mini-action" data-delete-expense="${escapeHtml(item.id)}">删除</button>
             <br><span class="small">${new Date(item.createdAt).toLocaleTimeString()}</span>
           </div>
@@ -3590,7 +3696,7 @@ function bindEvents() {
     }
     if (el.dataset.lifeTemplate === "rest") {
       addWorkout("10分钟保底：深蹲 20个 / 俯卧撑 10个 / 拉伸 3分钟");
-      log.expenses.unshift({ id: `${Date.now()}`, amount: 35, note: "grocery", createdAt: new Date().toISOString() });
+      log.expenses.unshift(normalizeMoneyEntry({ id: `${Date.now()}`, amount: 35, note: "grocery", type: "expense", createdAt: new Date().toISOString() }));
       addJournal("明天最重要一件事：");
     }
     if (el.dataset.lifeTemplate === "tired") {
@@ -3605,10 +3711,13 @@ function bindEvents() {
     render();
   }));
   document.querySelectorAll("[data-expense]").forEach((el) => el.addEventListener("click", () => {
-    const log = getTodayLog();
-    log.expenses.unshift({ id: `${Date.now()}`, amount: Number(el.dataset.expense), note: el.dataset.note, createdAt: new Date().toISOString() });
-    saveState();
+    addMoneyEntry({ amount: Number(el.dataset.expense), note: el.dataset.note, type: "expense" });
     render();
+  }));
+  document.querySelectorAll("[data-money-type]").forEach((el) => el.addEventListener("click", () => {
+    const select = document.querySelector("#expenseType");
+    if (select) select.value = el.dataset.moneyType || "expense";
+    document.querySelector("#expenseAmount")?.focus();
   }));
   document.querySelectorAll("[data-delete-expense]").forEach((el) => el.addEventListener("click", () => {
     const log = getTodayLog();
@@ -3625,12 +3734,12 @@ function bindEvents() {
   if (addExpense) addExpense.addEventListener("click", () => {
     const amount = Number(document.querySelector("#expenseAmount").value || 0);
     const note = document.querySelector("#expenseNote").value.trim() || "spending";
+    const type = document.querySelector("#expenseType")?.value || inferMoneyType({ note, amount });
     if (!amount) {
       alert("先输入金额");
       return;
     }
-    getTodayLog().expenses.unshift({ id: `${Date.now()}`, amount, note, createdAt: new Date().toISOString() });
-    saveState();
+    addMoneyEntry({ amount, note, type });
     render();
   });
   document.querySelectorAll("[data-journal-line]").forEach((el) => el.addEventListener("click", () => {

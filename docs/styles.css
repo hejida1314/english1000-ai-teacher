@@ -310,6 +310,28 @@ h3 {
   min-height: 78px;
 }
 
+.metric.money-income,
+.entry.money-income {
+  border-color: #a9d4c8;
+  background: #eef8f4;
+}
+
+.metric.money-expense,
+.entry.money-expense {
+  border-color: #e3c19c;
+  background: #fff6ea;
+}
+
+.money-income .metric-value,
+.entry.money-income strong {
+  color: var(--primary-dark);
+}
+
+.money-expense .metric-value,
+.entry.money-expense strong {
+  color: var(--warm);
+}
+
 .metric-value {
   font-size: 24px;
   font-weight: 900;
@@ -849,7 +871,7 @@ textarea {
 
 .money-form {
   display: grid;
-  grid-template-columns: 0.9fr 1.2fr auto;
+  grid-template-columns: 0.75fr 1.15fr 0.7fr auto;
   gap: 8px;
   margin: 10px 0;
 }
@@ -865,6 +887,23 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 10px;
+}
+
+.money-entry {
+  position: relative;
+}
+
+.money-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: 6px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
 }
 
 .install-tip {

@@ -876,6 +876,19 @@ textarea {
   margin: 10px 0;
 }
 
+.money-date-row {
+  display: grid;
+  grid-template-columns: auto minmax(150px, 1fr) auto auto;
+  gap: 8px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.money-date-row label {
+  color: var(--muted);
+  font-weight: 900;
+}
+
 .money-list,
 .journal-list {
   display: grid;
@@ -945,6 +958,7 @@ textarea {
 
   .system-grid,
   .plan-grid,
+  .money-date-row,
   .money-form {
     grid-template-columns: 1fr;
   }

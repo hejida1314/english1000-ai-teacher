@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.24-money-ledger-1";
+const APP_VERSION = "2026.07.24-money-date-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1222,6 +1222,7 @@ const defaultState = {
   wordQuery: "",
   words: [],
   lifeLogs: {},
+  moneyDate: "",
   quick: "",
   sync: {
     token: "",
@@ -1362,7 +1363,10 @@ function getCourseDay(day) {
 }
 
 function getTodayLog() {
-  const key = todayKey();
+  return getLifeLogForDate(todayKey());
+}
+
+function getLifeLogForDate(key = todayKey()) {
   if (!state.lifeLogs[key]) {
     state.lifeLogs[key] = { expenses: [], workout: [], journal: "", mood: "" };
   }
@@ -1401,7 +1405,7 @@ function normalizeLifeLog(log) {
   log.expenses = log.expenses.map(normalizeMoneyEntry).filter((item) => Number(item.amount || 0) > 0);
 }
 
-function addMoneyEntry({ amount, note, type = "expense" }) {
+function addMoneyEntry({ amount, note, type = "expense", dateKey = todayKey() }) {
   const value = Math.abs(Number(amount || 0));
   if (!value) return null;
   const entry = normalizeMoneyEntry({
@@ -1410,7 +1414,7 @@ function addMoneyEntry({ amount, note, type = "expense" }) {
     type,
     createdAt: new Date().toISOString()
   });
-  getTodayLog().expenses.unshift(entry);
+  getLifeLogForDate(dateKey).expenses.unshift(entry);
   saveState();
   return entry;
 }
@@ -3085,6 +3089,11 @@ function renderLearningHub() {
 
 function renderLife() {
   const log = getTodayLog();
+  const selectedMoneyDate = /^\d{4}-\d{2}-\d{2}$/.test(String(state.moneyDate || "")) ? state.moneyDate : todayKey();
+  const selectedMoneyLog = getLifeLogForDate(selectedMoneyDate);
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const yesterdayKey = localDayKey(yesterday);
   const money = getMoneyPeriods();
   const week = lifeTotals(7);
   const lifeChecks = [
@@ -3168,6 +3177,12 @@ function renderLife() {
     <section class="card">
       <h2>记账</h2>
       <p class="body">默认记支出；工资、退款、卖东西这种切到收入。周/月统计会自动更新。</p>
+      <div class="money-date-row">
+        <label for="expenseDate">记账日期</label>
+        <input id="expenseDate" type="date" value="${escapeHtml(selectedMoneyDate)}" />
+        <button class="pill" data-money-date="${todayKey()}">今天</button>
+        <button class="pill" data-money-date="${yesterdayKey}">昨天</button>
+      </div>
       <div class="button-row">
         <button class="primary" data-money-type="expense">支出</button>
         <button class="secondary" data-money-type="income">收入</button>
@@ -3187,14 +3202,14 @@ function renderLife() {
         <button class="primary" id="addExpense">记一笔</button>
       </div>
       <div class="money-list">
-        ${log.expenses.map((item) => `
+        ${selectedMoneyLog.expenses.map((item) => `
           <div class="entry money-entry ${item.type === "income" ? "money-income" : "money-expense"}">
             <strong>${item.type === "income" ? "+" : "-"}$${Number(item.amount || 0).toFixed(2)}</strong> ${escapeHtml(item.note)}
             <span class="money-tag">${item.type === "income" ? "收入" : "支出"}</span>
             <button class="ghost mini-action" data-delete-expense="${escapeHtml(item.id)}">删除</button>
-            <br><span class="small">${new Date(item.createdAt).toLocaleTimeString()}</span>
+            <br><span class="small">${selectedMoneyDate} ${new Date(item.createdAt).toLocaleTimeString()}</span>
           </div>
-        `).join("")}
+        `).join("") || `<p class="install-tip">${selectedMoneyDate} 还没有记账。</p>`}
       </div>
     </section>
     <section class="card">
@@ -3711,7 +3726,20 @@ function bindEvents() {
     render();
   }));
   document.querySelectorAll("[data-expense]").forEach((el) => el.addEventListener("click", () => {
-    addMoneyEntry({ amount: Number(el.dataset.expense), note: el.dataset.note, type: "expense" });
+    const dateKey = document.querySelector("#expenseDate")?.value || todayKey();
+    state.moneyDate = dateKey;
+    addMoneyEntry({ amount: Number(el.dataset.expense), note: el.dataset.note, type: "expense", dateKey });
+    render();
+  }));
+  const expenseDate = document.querySelector("#expenseDate");
+  if (expenseDate) expenseDate.addEventListener("change", () => {
+    state.moneyDate = expenseDate.value || todayKey();
+    saveState();
+    render();
+  });
+  document.querySelectorAll("[data-money-date]").forEach((el) => el.addEventListener("click", () => {
+    state.moneyDate = el.dataset.moneyDate || todayKey();
+    saveState();
     render();
   }));
   document.querySelectorAll("[data-money-type]").forEach((el) => el.addEventListener("click", () => {
@@ -3720,7 +3748,7 @@ function bindEvents() {
     document.querySelector("#expenseAmount")?.focus();
   }));
   document.querySelectorAll("[data-delete-expense]").forEach((el) => el.addEventListener("click", () => {
-    const log = getTodayLog();
+    const log = getLifeLogForDate(document.querySelector("#expenseDate")?.value || state.moneyDate || todayKey());
     log.expenses = log.expenses.filter((item) => item.id !== el.dataset.deleteExpense);
     saveState();
     render();
@@ -3735,11 +3763,13 @@ function bindEvents() {
     const amount = Number(document.querySelector("#expenseAmount").value || 0);
     const note = document.querySelector("#expenseNote").value.trim() || "spending";
     const type = document.querySelector("#expenseType")?.value || inferMoneyType({ note, amount });
+    const dateKey = document.querySelector("#expenseDate")?.value || todayKey();
     if (!amount) {
       alert("先输入金额");
       return;
     }
-    addMoneyEntry({ amount, note, type });
+    state.moneyDate = dateKey;
+    addMoneyEntry({ amount, note, type, dateKey });
     render();
   });
   document.querySelectorAll("[data-journal-line]").forEach((el) => el.addEventListener("click", () => {

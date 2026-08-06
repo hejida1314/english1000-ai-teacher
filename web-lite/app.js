@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.07.24-money-date-1";
+const APP_VERSION = "2026.08.06-airport-story-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -351,7 +351,45 @@ const contextSafeWordHints = {
   lead: ["带领；铅", "This plan can lead to progress."],
   wound: ["伤口；缠绕/上发条的过去式", "Clean the wound carefully."],
   content: ["内容；满意的", "This content is useful for beginners."],
-  produce: ["生产；农产品", "This farm produces fresh food."]
+  produce: ["生产；农产品", "This farm produces fresh food."],
+  bonus: ["额外的；附加的", "This is a bonus story."],
+  giant: ["巨大的", "The clouds are like giant balloons."],
+  balloon: ["气球", "The balloon filled up with air."],
+  burst: ["爆开；突然爆发", "The balloon burst."],
+  horrible: ["可怕的；糟糕的", "There was a horrible storm."],
+  storm: ["暴风雨；风暴", "The storm raged all night."],
+  rage: ["肆虐；发怒", "The storm raged all night."],
+  thunder: ["雷声", "I heard thunder."],
+  lightning: ["闪电", "I saw lightning."],
+  homeless: ["无家可归的", "A homeless person needs help."],
+  instance: ["例子；情况", "For instance, I can review this sentence."],
+  bowling: ["保龄球", "We are going bowling."],
+  expect: ["期待；认为会发生；要求", "Do you really expect me to believe that?"],
+  pin: ["别针；图钉；固定；置顶", "Pin this note for review."],
+  skinny: ["瘦的；瘦巴巴的（说人可能不礼貌）", "The cat is skinny."],
+  basically: ["基本上；大体上", "Basically, I understood the story."],
+  flight: ["航班；飞行", "I almost missed my flight."],
+  conference: ["会议；大会", "I was at a conference."],
+  scheduled: ["被安排好的；预定的", "My flight was scheduled for 2:20."],
+  trolley: ["手推车；有轨电车；机场行李车", "I could not take the trolley."],
+  shuttle: ["班车；接驳车", "I took the airport shuttle."],
+  traffic: ["交通；车流", "There was no traffic."],
+  delayed: ["延误的；推迟的", "My flight was delayed."],
+  massachusetts: ["马萨诸塞州", "There were thunderstorms over Massachusetts."],
+  security: ["安检；安全；保安", "I had to go through security."],
+  bin: ["箱子；托盘；垃圾箱", "Put your phone in the bin."],
+  seat: ["座位", "They had seats here."],
+  sit: ["坐", "I sat down."],
+  landed: ["降落了；落地了", "The plane landed at 3:30."],
+  baggage: ["行李", "I walked over to baggage claim."],
+  claim: ["领取处；声称；索赔", "Baggage claim is over there."],
+  cop: ["警察（口语）", "A cop helped me."],
+  cot: ["简易床；折叠床；临时床", "There was an empty cot."],
+  equipment: ["设备；器材（不可数）", "Thank you for lending the equipment."],
+  inspire: ["激励；启发", "Pablo inspired us to make this channel."],
+  inspiring: ["激励人的；启发人的", "Thank you for inspiring us."],
+  thumbs: ["拇指；点赞", "Give it a thumbs up."],
+  until: ["直到；到……为止", "Until next time."]
 };
 
 Object.assign(verifiedWordHints, contextSafeWordHints);
@@ -844,6 +882,59 @@ const phraseChunkGroups = [
       ["the best way is to", "最好的办法是", "The best way is to keep going.", "The best way is ta keep going."],
       ["it depends on", "取决于", "It depends on my schedule.", "It depends on my schedule."]
     ]
+  },
+  {
+    title: "机场故事与旅行表达",
+    note: "来自今天 Dreaming English 机场故事。以后看旅行、天气、航班视频会反复遇到。",
+    items: [
+      ["one time when I was little", "有一次我小时候", "One time when I was little, I missed a flight.", "one time when I was little"],
+      ["a bonus story", "额外的小故事", "This is a bonus story.", "a bonus story"],
+      ["I'm gonna tell you a story about...", "我要给你讲一个关于……的故事", "I'm gonna tell you a story about how I got stuck.", "I'm gonna tell you a story about"],
+      ["get stuck in + 地点", "被困在某地；卡在某地", "I got stuck in San Francisco.", "got stuck in San Francisco"],
+      ["fly back from A to B", "从 A 飞回 B", "I was gonna fly back from San Francisco to Boston.", "fly back from San Francisco to Boston"],
+      ["all the way back to + 地点", "一路回到某地", "I flew all the way back to Boston.", "all the way back to Boston"],
+      ["in the last episode", "在上一集里", "In the last episode, I almost missed my flight.", "in the last episode"],
+      ["almost missed my flight", "差点误机", "I almost missed my flight.", "almost missed my flight"],
+      ["be scheduled for + 时间", "被安排在某个时间", "My flight was scheduled for 2:20.", "scheduled for two twenty"],
+      ["go through security", "过安检", "I had to go through security.", "go through security"],
+      ["take off your shoes", "脱鞋；take off 也可以是飞机起飞", "I had to take off my shoes at security.", "take off your shoes"],
+      ["put A in the bin", "把 A 放进托盘/箱子里", "Put your phone in the bin.", "put it in the bin"],
+      ["stand in line", "排队", "I stood in line for 20 minutes.", "stood in line"],
+      ["there were long lines", "有很长的队", "There were long lines at security.", "there were long lines"],
+      ["take the airport shuttle", "坐机场接驳车", "I took the airport shuttle to the airport.", "took the airport shuttle"],
+      ["there was no traffic", "没有堵车", "There was no traffic.", "there was no traffic"],
+      ["get to + 地点", "到达某地", "We got to the airport in time.", "got to the airport"],
+      ["on time / in time", "on time 准时；in time 及时赶上", "The flight left on time, and I got there in time.", "on time, in time"],
+      ["over + 地点", "在某地上空/覆盖某地", "There were thunderstorms over Massachusetts.", "over Massachusetts"],
+      ["find out", "查明；弄清楚；发现", "I found out the flight was delayed.", "found out"],
+      ["clear up", "天气放晴；事情澄清", "The weather cleared up later.", "cleared up"],
+      ["walk over to + 地点", "走过去到某地", "I walked over to baggage claim.", "walked over to baggage claim"],
+      ["baggage claim", "行李领取处", "I waited at baggage claim.", "baggage claim"],
+      ["work for + 公司", "在某公司工作", "She works for JetBlue.", "works for JetBlue"],
+      ["fly/take + 航空公司", "坐某航空公司的飞机", "I was flying JetBlue.", "flying JetBlue"],
+      ["finally + 动词", "终于做某事", "The plane finally landed at 3:30.", "finally landed"],
+      ["give it a thumbs up", "给它点赞", "If you liked the video, give it a thumbs up.", "give it a thumbs up"],
+      ["Thank you to A for doing B", "感谢 A 做了 B", "Thank you to LTV for lending the equipment.", "thank you to LTV for lending"],
+      ["inspire someone to do something", "激励/启发某人做某事", "Pablo inspired us to make this channel.", "inspired us to make this channel"],
+      ["until next time", "下次见；下期再见", "Thanks for watching. Until next time.", "until next time"]
+    ]
+  },
+  {
+    title: "天气与故事表达",
+    note: "今天小姑娘说天气故事时出现的自然表达，难但很值钱。",
+    items: [
+      ["A is like B", "A 像 B", "The clouds are like giant balloons.", "clouds are like giant balloons"],
+      ["fill up with + 东西", "被某东西填满；装满某东西", "The balloons fill up with rain.", "fill up with rain"],
+      ["be full of + 东西", "充满某东西", "The clouds are full of rain.", "full of rain"],
+      ["burst like...", "像……一样爆开", "They burst like little holes.", "burst like little holes"],
+      ["a horrible storm", "一场可怕的暴风雨", "There was a horrible storm.", "a horrible storm"],
+      ["The storm raged all night.", "暴风雨肆虐了一整夜", "The storm raged all night.", "storm raged all night"],
+      ["How come...?", "为什么会……？", "How come we get thunder and lightning?", "how come we get thunder"],
+      ["go bowling", "去打保龄球", "We are going bowling tonight.", "going bowling"],
+      ["Do you really expect me to believe that?", "你真指望我相信那个？", "Do you really expect me to believe that?", "expect me to believe that"],
+      ["for instance", "例如；比如", "For instance, I can review two examples.", "for instance"],
+      ["skinny / slim / thin", "skinny 可能带瘦巴巴；slim/thin 更礼貌", "He is slim. The cat is skinny.", "skinny, slim, thin"]
+    ]
   }
 ];
 
@@ -864,6 +955,132 @@ function phraseChunksForDay(day = state.currentDay) {
 }
 
 const questionNotebookSeed = [
+  {
+    id: "airport-story-20260806-summary",
+    category: "今日收口",
+    title: "机场故事总复盘",
+    question: "今天 Dreaming English 机场故事到底抓哪些重点？",
+    answer: "今天重点不是背单词，而是抓旅行故事的骨架：get stuck in San Francisco、fly back to Boston、almost missed my flight、be scheduled for 2:20、go through security、take the airport shuttle、get to the airport、the plane landed、baggage claim。",
+    examples: ["I got stuck in San Francisco.", "My flight was scheduled for 2:20.", "I walked over to baggage claim."],
+    review: "明天先用中文复述这个机场故事，再用 5 个英文句块说一遍。"
+  },
+  {
+    id: "airport-story-on-time-in-time",
+    category: "易混",
+    title: "on time / in time",
+    question: "on time 和 in time 怎么区分才不会错？",
+    answer: "诀窍：on time 看“表”，意思是准时；in time 看“结果”，意思是及时赶上、没错过。航班按计划起飞是 on time；你赶上飞机是 in time。",
+    examples: ["The flight left on time.", "I got to the airport in time.", "I arrived in time for the meeting."],
+    review: "今天造两句：一个航班 on time，一个自己 in time。"
+  },
+  {
+    id: "airport-story-seat-sit",
+    category: "易混",
+    title: "seat / sit / sat down",
+    question: "seat 和 sit 经常记错，怎么分？",
+    answer: "seat 是名词，意思是座位；sit 是动词，意思是坐；sat 是 sit 的过去式。They had seats here, so I sat down. = 这里有座位，所以我坐下了。",
+    examples: ["This seat is empty.", "Please sit here.", "I sat down and waited."],
+    review: "记一句：seat 是座位，sit 是坐，sat down 是坐下。"
+  },
+  {
+    id: "airport-story-security-bin",
+    category: "机场英语",
+    title: "go through security / take off / bin",
+    question: "安检那段该记什么？",
+    answer: "go through security = 过安检；take off your shoes = 脱鞋；put your phone in the bin = 把手机放进托盘。take off 还可以表示飞机起飞，要看语境。",
+    examples: ["I had to go through security.", "Take off your shoes.", "Put your phone in the bin."],
+    review: "把这三句当成机场任务句，读 3 遍。"
+  },
+  {
+    id: "airport-story-weather-over",
+    category: "天气英语",
+    title: "over + 地点 / weather alert / clear up",
+    question: "天气预报里 over、alert、clear up 怎么记？",
+    answer: "over + 地点 = 在某地上空/覆盖某地；weather alert = 天气警报；clear up = 天气放晴，也可以表示事情澄清。",
+    examples: ["There were thunderstorms over Massachusetts.", "I got a weather alert.", "The weather cleared up later."],
+    review: "用 over Alabama / over Massachusetts 各说一句。"
+  },
+  {
+    id: "airport-story-find-out-delayed",
+    category: "旅行英语",
+    title: "find out / be delayed",
+    question: "find out 和 delayed 怎么用？",
+    answer: "find out = 查明、弄清楚、发现；be delayed = 被延误、被推迟。maybe they were going to be able to find out the weather = 也许他们能弄清楚天气情况。",
+    examples: ["I found out the flight was delayed.", "The flight was delayed because of thunderstorms.", "Let me find out what happened."],
+    review: "造一句：I found out..."
+  },
+  {
+    id: "airport-story-baggage-claim",
+    category: "机场英语",
+    title: "baggage claim / walk over to",
+    question: "baggage claim 那段怎么记？",
+    answer: "baggage claim = 行李领取处；walk over to + 地点 = 走过去到某地。I got up and walked over to baggage claim. = 我起身走到行李领取处。",
+    examples: ["Where is baggage claim?", "I walked over to baggage claim.", "Meet me at baggage claim."],
+    review: "下次机场看到 Baggage Claim，马上反应：行李领取处。"
+  },
+  {
+    id: "airport-story-cop-cot",
+    category: "易混",
+    title: "cop / cot",
+    question: "cop 和 cot 是什么？",
+    answer: "cop = 警察，口语；cot = 简易床、折叠床、临时床。字幕里 There was an empty cot = 有一张空的临时床，不是 cop。",
+    examples: ["A cop helped me.", "There was an empty cot.", "I slept on a cot at the airport."],
+    review: "记住：cop 有 p，是 police；cot 有 t，是临时床。"
+  },
+  {
+    id: "airport-story-thanks-ending",
+    category: "YouTube口语",
+    title: "thank you to... / thumbs up / until next time",
+    question: "视频结尾那些自然说法怎么记？",
+    answer: "Thank you to A for doing B = 感谢 A 做了 B；give it a thumbs up = 点赞；until next time = 下次见/下期再见。equipment 是不可数名词，不说 equipments。",
+    examples: ["Thank you to LTV for lending the equipment.", "Give it a thumbs up.", "Until next time."],
+    review: "用这三句模拟一个 YouTube 视频结尾。"
+  },
+  {
+    id: "airport-story-inspire-equipment",
+    category: "YouTube口语",
+    title: "lend equipment / inspire someone to do",
+    question: "lending the equipment 和 inspiring us to make this channel 怎么记？",
+    answer: "lend equipment = 借出设备/器材；inspire someone to do something = 激励、启发某人做某事。Thank you to Pablo for inspiring us to make this channel = 感谢 Pablo 启发我们做这个频道。",
+    examples: ["Thanks for lending the equipment.", "Pablo inspired us to make this channel.", "This teacher inspired me to study English."],
+    review: "记住结构：inspire + 人 + to do。"
+  },
+  {
+    id: "weather-story-fill-up-burst",
+    category: "故事表达",
+    title: "fill up with / burst / giant balloons",
+    question: "小姑娘说云像气球那段为什么难？",
+    answer: "因为它是比喻故事。A is like B = A 像 B；giant balloons = 巨大的气球；fill up with rain = 被雨水填满；burst = 爆开。",
+    examples: ["The clouds are like giant balloons.", "They fill up with rain.", "The balloon burst."],
+    review: "用 A is like B 说 2 个简单比喻。"
+  },
+  {
+    id: "weather-story-horrible-raged",
+    category: "天气英语",
+    title: "a horrible storm / rage",
+    question: "a horrible storm rages upon them 该记什么？",
+    answer: "a horrible storm = 一场可怕的暴风雨；rage = 肆虐。The storm raged all night. = 暴风雨肆虐了一整夜。",
+    examples: ["There was a horrible storm.", "The storm raged all night.", "Thunderstorms raged over the city."],
+    review: "记住 rage 在天气里不是“生气”，是“肆虐”。"
+  },
+  {
+    id: "weather-story-homeless-instance-bowling",
+    category: "生活词块",
+    title: "homeless / for instance / go bowling",
+    question: "homeless、instance、going bowling 怎么用？",
+    answer: "homeless 是形容词：无家可归的；for instance = 例如；go bowling = 去打保龄球，go + 活动-ing 很常见。",
+    examples: ["A homeless person needs help.", "For instance, I can review this sentence.", "We are going bowling tonight."],
+    review: "造一句 go shopping / go bowling / go fishing。"
+  },
+  {
+    id: "weather-story-expect-skinny",
+    category: "用词注意",
+    title: "expect / skinny / slim",
+    question: "expect、skinny、basically 这些今天怎么记？",
+    answer: "expect = 期待、认为会发生、要求。Do you really expect me to believe that? = 你真指望我相信那个？skinny 有时候带“瘦巴巴、太瘦”的感觉，说人要谨慎；礼貌一点用 thin 或 slim。",
+    examples: ["Do you expect me to believe that?", "The cat is skinny.", "She is slim."],
+    review: "记住：skinny 不随便夸人，slim 更礼貌。"
+  },
   {
     id: "today-video-ancient-egyptian",
     category: "视频词汇",

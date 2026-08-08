@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.08.06-airport-story-1";
+const APP_VERSION = "2026.08.07-money-detail-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1440,6 +1440,8 @@ const defaultState = {
   words: [],
   lifeLogs: {},
   moneyDate: "",
+  moneyDefaultType: "expense",
+  moneyDetailPanel: "",
   quick: "",
   sync: {
     token: "",
@@ -1660,18 +1662,71 @@ function dateKeysBetween(start, end) {
 }
 
 function getMoneyPeriods() {
+  return {
+    today: moneyTotalsForKeys(getMoneyPeriodKeys("today")),
+    week: moneyTotalsForKeys(getMoneyPeriodKeys("week")),
+    month: moneyTotalsForKeys(getMoneyPeriodKeys("month"))
+  };
+}
+
+function getMoneyPeriodKeys(period = "week") {
   const now = new Date();
-  const today = moneyTotalsForKeys([todayKey(), localDayKey(now)].filter((key, index, arr) => arr.indexOf(key) === index));
+  if (period === "today") {
+    return [todayKey(), localDayKey(now)].filter((key, index, arr) => arr.indexOf(key) === index);
+  }
   const weekStart = new Date(now);
   const day = weekStart.getDay() || 7;
   weekStart.setDate(weekStart.getDate() - day + 1);
   weekStart.setHours(0, 0, 0, 0);
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
-  return {
-    today,
-    week: moneyTotalsForKeys(dateKeysBetween(weekStart, now)),
-    month: moneyTotalsForKeys(dateKeysBetween(monthStart, now))
-  };
+  return dateKeysBetween(period === "month" ? monthStart : weekStart, now);
+}
+
+function moneyDailyBreakdown(period = "week", type = "expense") {
+  return getMoneyPeriodKeys(period)
+    .map((key) => {
+      const items = (state.lifeLogs?.[key]?.expenses || [])
+        .map((raw) => normalizeMoneyEntry(raw))
+        .filter((item) => item.type === type);
+      return {
+        key,
+        items,
+        total: items.reduce((sum, item) => sum + Number(item.amount || 0), 0)
+      };
+    })
+    .filter((day) => day.items.length > 0)
+    .reverse();
+}
+
+function renderMoneyDetailPanel() {
+  const panel = String(state.moneyDetailPanel || "");
+  const [period, type] = panel.split("-");
+  if (!["week", "month"].includes(period) || !["income", "expense"].includes(type)) return "";
+  const days = moneyDailyBreakdown(period, type);
+  const periodLabel = period === "week" ? "本周" : "本月";
+  const typeLabel = type === "income" ? "收入" : "支出";
+  return `
+    <section class="card money-detail-panel">
+      <div class="section-head">
+        <div>
+          <h2>${periodLabel}${typeLabel}日明细</h2>
+          <p class="body">点周/月统计就展开这里，能看到每天和每一笔。</p>
+        </div>
+        <button class="ghost" data-money-detail="">收起</button>
+      </div>
+      ${days.length ? days.map((day) => `
+        <div class="money-day-row">
+          <div class="money-day-total">
+            <strong>${day.key}</strong>
+            <span>${type === "income" ? "+" : "-"}$${day.total.toFixed(2)}</span>
+          </div>
+          <div class="money-detail-items">
+            ${day.items.map((item) => `<span>${escapeHtml(item.note)} · $${Number(item.amount || 0).toFixed(2)}</span>`).join("")}
+          </div>
+        </div>
+      `).join("") : `<p class="install-tip">${periodLabel}还没有${typeLabel}记录。</p>`}
+    </section>
+  `;
 }
 
 function lifeTotals(days = 7) {
@@ -3308,6 +3363,9 @@ function renderLife() {
   const log = getTodayLog();
   const selectedMoneyDate = /^\d{4}-\d{2}-\d{2}$/.test(String(state.moneyDate || "")) ? state.moneyDate : todayKey();
   const selectedMoneyLog = getLifeLogForDate(selectedMoneyDate);
+  const moneyDefaultType = state.moneyDefaultType === "income" ? "income" : "expense";
+  const moneyQuickSign = moneyDefaultType === "income" ? "+" : "-";
+  const moneyQuickLabel = moneyDefaultType === "income" ? "收入" : "支出";
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
   const yesterdayKey = localDayKey(yesterday);
@@ -3344,14 +3402,15 @@ function renderLife() {
     </section>
     <section class="grid">
       <div class="metric ${money.today.net >= 0 ? "money-income" : "money-expense"}"><div class="metric-value">$${money.today.net.toFixed(0)}</div><div class="metric-label">今日净额</div></div>
-      <div class="metric money-income"><div class="metric-value">$${money.week.income.toFixed(0)}</div><div class="metric-label">本周收入</div></div>
-      <div class="metric money-expense"><div class="metric-value">$${money.week.expense.toFixed(0)}</div><div class="metric-label">本周支出</div></div>
+      <button class="metric metric-button money-income ${state.moneyDetailPanel === "week-income" ? "active" : ""}" data-money-detail="week-income"><div class="metric-value">$${money.week.income.toFixed(0)}</div><div class="metric-label">本周收入 · 点开看日明细</div></button>
+      <button class="metric metric-button money-expense ${state.moneyDetailPanel === "week-expense" ? "active" : ""}" data-money-detail="week-expense"><div class="metric-value">$${money.week.expense.toFixed(0)}</div><div class="metric-label">本周支出 · 点开看日明细</div></button>
       <div class="metric"><div class="metric-value">${log.workout.length}</div><div class="metric-label">今日训练</div></div>
-      <div class="metric money-income"><div class="metric-value">$${money.month.income.toFixed(0)}</div><div class="metric-label">本月收入</div></div>
-      <div class="metric money-expense"><div class="metric-value">$${money.month.expense.toFixed(0)}</div><div class="metric-label">本月支出</div></div>
+      <button class="metric metric-button money-income ${state.moneyDetailPanel === "month-income" ? "active" : ""}" data-money-detail="month-income"><div class="metric-value">$${money.month.income.toFixed(0)}</div><div class="metric-label">本月收入 · 点开看日明细</div></button>
+      <button class="metric metric-button money-expense ${state.moneyDetailPanel === "month-expense" ? "active" : ""}" data-money-detail="month-expense"><div class="metric-value">$${money.month.expense.toFixed(0)}</div><div class="metric-label">本月支出 · 点开看日明细</div></button>
       <div class="metric ${money.month.net >= 0 ? "money-income" : "money-expense"}"><div class="metric-value">$${money.month.net.toFixed(0)}</div><div class="metric-label">本月净额</div></div>
       <div class="metric"><div class="metric-value">${week.journals}/7</div><div class="metric-label">7天日记</div></div>
     </section>
+    ${renderMoneyDetailPanel()}
     <section class="card">
       <h2>懒人模板</h2>
       <p class="body">忙的时候点一个模板，先把基本盘保住。</p>
@@ -3393,7 +3452,7 @@ function renderLife() {
     </section>
     <section class="card">
       <h2>记账</h2>
-      <p class="body">默认记支出；工资、退款、卖东西这种切到收入。周/月统计会自动更新。</p>
+      <p class="body">先选默认类型，之后快捷金额和手动记账都会跟着走。工资、退款、卖东西切到收入；日常消费保持支出。</p>
       <div class="money-date-row">
         <label for="expenseDate">记账日期</label>
         <input id="expenseDate" type="date" value="${escapeHtml(selectedMoneyDate)}" />
@@ -3401,20 +3460,21 @@ function renderLife() {
         <button class="pill" data-money-date="${yesterdayKey}">昨天</button>
       </div>
       <div class="button-row">
-        <button class="primary" data-money-type="expense">支出</button>
-        <button class="secondary" data-money-type="income">收入</button>
+        <button class="${moneyDefaultType === "expense" ? "primary" : "secondary"}" data-money-default="expense">默认支出</button>
+        <button class="${moneyDefaultType === "income" ? "primary" : "secondary"}" data-money-default="income">默认收入</button>
       </div>
+      <p class="small">当前默认：${moneyQuickLabel}。下面快捷金额会按这个类型保存。</p>
       <div class="pill-row">
         ${[[12, "lunch"], [5, "coffee"], [40, "gas"], [35, "grocery"], [8, "parking"], [15, "car wash"], [20, "medicine"], [60, "restaurant"]].map(([amount, note]) => `
-          <button class="pill" data-expense="${amount}" data-note="${escapeHtml(note)}">-$${amount} ${escapeHtml(note)}</button>
+          <button class="pill" data-expense="${amount}" data-note="${escapeHtml(note)}">${moneyQuickSign}$${amount} ${escapeHtml(note)}</button>
         `).join("")}
       </div>
       <div class="money-form">
         <input id="expenseAmount" type="number" inputmode="decimal" placeholder="金额，例如 12.5" />
         <input id="expenseNote" placeholder="类别/备注，例如 lunch、工资、refund" />
         <select id="expenseType">
-          <option value="expense">支出</option>
-          <option value="income">收入</option>
+          <option value="expense" ${moneyDefaultType === "expense" ? "selected" : ""}>支出</option>
+          <option value="income" ${moneyDefaultType === "income" ? "selected" : ""}>收入</option>
         </select>
         <button class="primary" id="addExpense">记一笔</button>
       </div>
@@ -3945,7 +4005,7 @@ function bindEvents() {
   document.querySelectorAll("[data-expense]").forEach((el) => el.addEventListener("click", () => {
     const dateKey = document.querySelector("#expenseDate")?.value || todayKey();
     state.moneyDate = dateKey;
-    addMoneyEntry({ amount: Number(el.dataset.expense), note: el.dataset.note, type: "expense", dateKey });
+    addMoneyEntry({ amount: Number(el.dataset.expense), note: el.dataset.note, type: state.moneyDefaultType === "income" ? "income" : "expense", dateKey });
     render();
   }));
   const expenseDate = document.querySelector("#expenseDate");
@@ -3962,7 +4022,20 @@ function bindEvents() {
   document.querySelectorAll("[data-money-type]").forEach((el) => el.addEventListener("click", () => {
     const select = document.querySelector("#expenseType");
     if (select) select.value = el.dataset.moneyType || "expense";
+    state.moneyDefaultType = el.dataset.moneyType || "expense";
+    saveState();
     document.querySelector("#expenseAmount")?.focus();
+  }));
+  document.querySelectorAll("[data-money-default]").forEach((el) => el.addEventListener("click", () => {
+    state.moneyDefaultType = el.dataset.moneyDefault === "income" ? "income" : "expense";
+    saveState();
+    render();
+  }));
+  document.querySelectorAll("[data-money-detail]").forEach((el) => el.addEventListener("click", () => {
+    const target = el.dataset.moneyDetail || "";
+    state.moneyDetailPanel = state.moneyDetailPanel === target ? "" : target;
+    saveState({ autoSync: false });
+    render();
   }));
   document.querySelectorAll("[data-delete-expense]").forEach((el) => el.addEventListener("click", () => {
     const log = getLifeLogForDate(document.querySelector("#expenseDate")?.value || state.moneyDate || todayKey());
@@ -3979,13 +4052,14 @@ function bindEvents() {
   if (addExpense) addExpense.addEventListener("click", () => {
     const amount = Number(document.querySelector("#expenseAmount").value || 0);
     const note = document.querySelector("#expenseNote").value.trim() || "spending";
-    const type = document.querySelector("#expenseType")?.value || inferMoneyType({ note, amount });
+    const type = document.querySelector("#expenseType")?.value || state.moneyDefaultType || inferMoneyType({ note, amount });
     const dateKey = document.querySelector("#expenseDate")?.value || todayKey();
     if (!amount) {
       alert("先输入金额");
       return;
     }
     state.moneyDate = dateKey;
+    state.moneyDefaultType = type === "income" ? "income" : "expense";
     addMoneyEntry({ amount, note, type, dateKey });
     render();
   });

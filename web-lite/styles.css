@@ -310,6 +310,18 @@ h3 {
   min-height: 78px;
 }
 
+.metric-button {
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.metric-button.active {
+  outline: 3px solid rgba(37, 109, 99, 0.18);
+}
+
 .metric.money-income,
 .entry.money-income {
   border-color: #a9d4c8;
@@ -341,6 +353,44 @@ h3 {
   color: var(--muted);
   font-weight: 800;
   margin-top: 4px;
+}
+
+.money-detail-panel {
+  margin-top: -8px;
+}
+
+.money-day-row {
+  border-top: 1px solid var(--line);
+  padding: 12px 0;
+}
+
+.money-day-row:first-of-type {
+  border-top: 0;
+}
+
+.money-day-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 900;
+  color: var(--primary-dark);
+}
+
+.money-detail-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.money-detail-items span {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 6px 10px;
 }
 
 .row {

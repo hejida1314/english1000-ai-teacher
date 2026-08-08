@@ -192,6 +192,24 @@ h3 {
   flex-basis: 100%;
 }
 
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.voice-grid label {
+  display: grid;
+  gap: 8px;
+  font-weight: 900;
+  color: var(--muted);
+}
+
+.voice-grid input[type="range"] {
+  width: 100%;
+}
+
 .score-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1022,6 +1040,7 @@ textarea {
 
   .system-grid,
   .plan-grid,
+  .voice-grid,
   .money-date-row,
   .money-form {
     grid-template-columns: 1fr;

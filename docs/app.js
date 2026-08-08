@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.08.07-money-weekday-1";
+const APP_VERSION = "2026.08.08-better-voice-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1430,6 +1430,9 @@ const defaultState = {
   understanding: {},
   timer: { running: false, startedAt: "", taskId: "", taskTitle: "", bankedSeconds: 0 },
   player: { index: 0, hideEnglish: false, hideChinese: false, rate: 0.82, dictation: "" },
+  voiceName: "",
+  voiceRate: 0.82,
+  voicePitch: 1,
   customSentences: {},
   resourceLinks: {},
   aiAnswers: {},
@@ -1500,7 +1503,13 @@ function escapeHtml(value) {
 
 function loadState() {
   try {
-    return { ...defaultState, ...JSON.parse(localStorage.getItem(KEY) || "{}") };
+    const loaded = { ...defaultState, ...JSON.parse(localStorage.getItem(KEY) || "{}") };
+    if (typeof loaded.voiceName !== "string") loaded.voiceName = "";
+    if (!Number.isFinite(Number(loaded.voiceRate))) loaded.voiceRate = 0.82;
+    if (!Number.isFinite(Number(loaded.voicePitch))) loaded.voicePitch = 1;
+    loaded.voiceRate = Math.min(1.15, Math.max(0.55, Number(loaded.voiceRate)));
+    loaded.voicePitch = Math.min(1.3, Math.max(0.7, Number(loaded.voicePitch)));
+    return loaded;
   } catch {
     return { ...defaultState };
   }
@@ -3528,6 +3537,8 @@ function renderLife() {
 
 function renderSettings() {
   const sync = getSyncState();
+  const voiceOptions = availableEnglishVoices();
+  const selectedVoice = pickEnglishVoice();
   const localAt = state.localUpdatedAt || state.savedAt || "";
   const cloudAt = sync.lastCloudUpdatedAt || "";
   const todayUploaded = sync.lastDailyUploadDate === localDayKey();
@@ -3603,9 +3614,29 @@ function renderSettings() {
       <p class="small">Token 权限只需要 gist。不要给我看 Token，自己填到这里就行。</p>
     </section>
     <section class="card">
-      <h2>声音测试</h2>
-      <p class="body">如果单词发音没声音，先点这里。手机要确认没有静音，浏览器允许播放声音。</p>
-      <button class="primary full" id="testVoice">测试发音：I can keep going.</button>
+      <h2>发音设置</h2>
+      <p class="body">优先选择更自然的英文声音。不同手机和电脑能用的声音不一样，机器音通常是系统没有更好的英文语音。</p>
+      <label class="field-label" for="voiceSelect">英文声音</label>
+      <select id="voiceSelect">
+        <option value="">自动选择：${selectedVoice ? escapeHtml(`${selectedVoice.name} / ${selectedVoice.lang}`) : "系统默认英文"}</option>
+        ${voiceOptions.map((voice) => {
+          const key = voiceKey(voice);
+          return `<option value="${escapeHtml(key)}" ${state.voiceName === key ? "selected" : ""}>${escapeHtml(voice.name)} / ${escapeHtml(voice.lang)}</option>`;
+        }).join("")}
+      </select>
+      <div class="voice-grid">
+        <label>语速
+          <input id="voiceRate" type="range" min="0.65" max="1.05" step="0.01" value="${Number(state.voiceRate || 0.82)}" />
+        </label>
+        <label>音调
+          <input id="voicePitch" type="range" min="0.85" max="1.15" step="0.01" value="${Number(state.voicePitch || 1)}" />
+        </label>
+      </div>
+      <div class="button-row">
+        <button class="primary" id="testVoice">测试发音</button>
+        <button class="secondary" id="resetVoice">恢复默认</button>
+      </div>
+      <p class="small">想更像真人：手机优先用 Safari；Windows 优先用 Edge/Chrome，并在系统里安装更好的英语语音包。</p>
     </section>
     <section class="card">
       <h2>数据备份</h2>
@@ -3673,14 +3704,41 @@ function refreshTimerTicker() {
   if (state.timer?.running) timerTicker = setInterval(update, 1000);
 }
 
-function pickEnglishVoice() {
-  const voices = window.speechSynthesis.getVoices();
-  return voices.find((voice) => /^en[-_]/i.test(voice.lang))
-    || voices.find((voice) => /English/i.test(voice.name))
-    || null;
+function availableEnglishVoices() {
+  if (!("speechSynthesis" in window)) return [];
+  return window.speechSynthesis.getVoices()
+    .filter((voice) => /^en[-_]/i.test(voice.lang) || /English/i.test(voice.name));
 }
 
-function speakEnglish(text, rate = 0.82, retry = true) {
+function voiceKey(voice) {
+  return voice ? `${voice.name}__${voice.lang}` : "";
+}
+
+function voiceScore(voice) {
+  const name = voice?.name || "";
+  const lang = voice?.lang || "";
+  let score = 0;
+  if (/^en-US/i.test(lang)) score += 40;
+  else if (/^en-(GB|AU|CA)/i.test(lang)) score += 25;
+  else if (/^en/i.test(lang)) score += 15;
+  if (/Samantha|Ava|Susan|Allison|Zoe|Karen|Daniel|Moira|Tessa/i.test(name)) score += 35;
+  if (/Natural|Premium|Enhanced|Neural/i.test(name)) score += 30;
+  if (/Google US English|Microsoft Aria|Microsoft Jenny|Microsoft Guy/i.test(name)) score += 25;
+  if (/Microsoft David|Microsoft Mark|Microsoft Zira/i.test(name)) score += 8;
+  if (voice?.localService) score += 5;
+  return score;
+}
+
+function pickEnglishVoice() {
+  const voices = availableEnglishVoices();
+  const selected = state.voiceName
+    ? voices.find((voice) => voiceKey(voice) === state.voiceName || voice.name === state.voiceName)
+    : null;
+  if (selected) return selected;
+  return voices.slice().sort((a, b) => voiceScore(b) - voiceScore(a))[0] || null;
+}
+
+function speakEnglish(text, rate = null, retry = true) {
   const clean = String(text || "").trim();
   if (!clean) return;
   if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
@@ -3695,9 +3753,11 @@ function speakEnglish(text, rate = 0.82, retry = true) {
     return;
   }
   const utterance = new SpeechSynthesisUtterance(clean);
-  utterance.lang = "en-US";
-  utterance.rate = rate;
-  utterance.pitch = 1;
+  const finalRate = Math.min(1.15, Math.max(0.55, Number(rate == null ? state.voiceRate : rate) || 0.82));
+  const finalPitch = Math.min(1.3, Math.max(0.7, Number(state.voicePitch) || 1));
+  utterance.lang = voice?.lang || "en-US";
+  utterance.rate = finalRate;
+  utterance.pitch = finalPitch;
   utterance.volume = 1;
   if (voice) utterance.voice = voice;
   utterance.onerror = () => updateSyncBadge("发音失败：请确认手机没有静音，或换 Safari/Chrome 打开");
@@ -3853,8 +3913,31 @@ function bindEvents() {
   if (forceRefresh) forceRefresh.addEventListener("click", forceRefreshApp);
   const copyVersion = document.querySelector("#copyVersion");
   if (copyVersion) copyVersion.addEventListener("click", () => copyText(`English1000 Life ${APP_VERSION}\n${location.href}`, "版本信息已复制"));
+  const voiceSelect = document.querySelector("#voiceSelect");
+  if (voiceSelect) voiceSelect.addEventListener("change", () => {
+    state.voiceName = voiceSelect.value;
+    saveState({ autoSync: false });
+  });
+  const voiceRate = document.querySelector("#voiceRate");
+  if (voiceRate) voiceRate.addEventListener("input", () => {
+    state.voiceRate = Number(voiceRate.value);
+    saveState({ autoSync: false });
+  });
+  const voicePitch = document.querySelector("#voicePitch");
+  if (voicePitch) voicePitch.addEventListener("input", () => {
+    state.voicePitch = Number(voicePitch.value);
+    saveState({ autoSync: false });
+  });
+  const resetVoice = document.querySelector("#resetVoice");
+  if (resetVoice) resetVoice.addEventListener("click", () => {
+    state.voiceName = "";
+    state.voiceRate = 0.82;
+    state.voicePitch = 1;
+    saveState({ autoSync: false });
+    render();
+  });
   const testVoice = document.querySelector("#testVoice");
-  if (testVoice) testVoice.addEventListener("click", () => speakEnglish("I can keep going.", 0.82));
+  if (testVoice) testVoice.addEventListener("click", () => speakEnglish("I am going to keep learning English in a natural way."));
   const copyAiPromptPage = document.querySelector("#copyAiPromptPage");
   if (copyAiPromptPage) copyAiPromptPage.addEventListener("click", () => copyText(getDailySupport(getCourseDay(state.currentDay)).aiPrompt, "AI测试提示已复制"));
   const copyVoiceCoachPage = document.querySelector("#copyVoiceCoachPage");
@@ -4226,6 +4309,11 @@ if (state.reviewSpreadVersion !== "2026.07.19-review-spread-1") {
 }
 
 autoAdvanceDayIfNeeded();
+if ("speechSynthesis" in window && typeof window.speechSynthesis.addEventListener === "function") {
+  window.speechSynthesis.addEventListener("voiceschanged", () => {
+    if (state.tab === "settings") render();
+  });
+}
 render();
 setTimeout(autoSyncOnStart, 800);
 

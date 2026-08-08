@@ -1,6 +1,6 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.08.07-money-detail-1";
+const APP_VERSION = "2026.08.07-money-weekday-1";
 
 const phases = [
   { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
@@ -1473,6 +1473,22 @@ function localDayKey(date = new Date()) {
   return `${year}-${month}-${day}`;
 }
 
+function dateFromKey(dateKey) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dateKey || ""));
+  if (!match) return null;
+  return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+}
+
+function formatMoneyDateWithWeek(dateKey, { short = false } = {}) {
+  const date = dateFromKey(dateKey);
+  if (!date || Number.isNaN(date.getTime())) return String(dateKey || "");
+  const weekdays = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+  const label = short
+    ? `${date.getMonth() + 1}月${date.getDate()}日`
+    : `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+  return `${label} ${weekdays[date.getDay()]}`;
+}
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -1717,7 +1733,7 @@ function renderMoneyDetailPanel() {
       ${days.length ? days.map((day) => `
         <div class="money-day-row">
           <div class="money-day-total">
-            <strong>${day.key}</strong>
+            <strong>${formatMoneyDateWithWeek(day.key, { short: true })}</strong>
             <span>${type === "income" ? "+" : "-"}$${day.total.toFixed(2)}</span>
           </div>
           <div class="money-detail-items">
@@ -3456,6 +3472,7 @@ function renderLife() {
       <div class="money-date-row">
         <label for="expenseDate">记账日期</label>
         <input id="expenseDate" type="date" value="${escapeHtml(selectedMoneyDate)}" />
+        <span class="money-date-week">${formatMoneyDateWithWeek(selectedMoneyDate, { short: true })}</span>
         <button class="pill" data-money-date="${todayKey()}">今天</button>
         <button class="pill" data-money-date="${yesterdayKey}">昨天</button>
       </div>
@@ -3484,7 +3501,7 @@ function renderLife() {
             <strong>${item.type === "income" ? "+" : "-"}$${Number(item.amount || 0).toFixed(2)}</strong> ${escapeHtml(item.note)}
             <span class="money-tag">${item.type === "income" ? "收入" : "支出"}</span>
             <button class="ghost mini-action" data-delete-expense="${escapeHtml(item.id)}">删除</button>
-            <br><span class="small">${selectedMoneyDate} ${new Date(item.createdAt).toLocaleTimeString()}</span>
+            <br><span class="small">${formatMoneyDateWithWeek(selectedMoneyDate)} ${new Date(item.createdAt).toLocaleTimeString()}</span>
           </div>
         `).join("") || `<p class="install-tip">${selectedMoneyDate} 还没有记账。</p>`}
       </div>

@@ -939,6 +939,20 @@ textarea {
   font-weight: 900;
 }
 
+.money-date-week {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid #cfe6df;
+  border-radius: 999px;
+  background: #eef7f4;
+  color: #0f5f55;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
 .money-list,
 .journal-list {
   display: grid;

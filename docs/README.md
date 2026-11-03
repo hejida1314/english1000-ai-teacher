@@ -6,7 +6,7 @@ It is designed for early daily use before the native mobile app is ready.
 
 ## What works
 
-- 334-day English route
+- 200-day / 1000-core-hour Modern Family route
 - Daily task checklist
 - Study minute logging
 - Quick capture for words, expenses, and journal notes

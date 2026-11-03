@@ -1,14 +1,13 @@
 const KEY = "english1000.life.web.v1";
 
-const APP_VERSION = "2026.08.08-better-voice-1";
+const APP_VERSION = "2026.11.02-modern-family-1";
 
 const phases = [
-  { start: 1, end: 34, level: "Level 1 / A1", phase: "Dreaming English Beginner", resource: "Dreaming English Beginner", url: "https://www.youtube.com/results?search_query=Dreaming+English+Beginner" },
-  { start: 35, end: 84, level: "Level 2 / A1+", phase: "Dreaming English Intermediate", resource: "Dreaming English Intermediate", url: "https://www.youtube.com/results?search_query=Dreaming+English+Intermediate" },
-  { start: 85, end: 150, level: "Level 3 / A2", phase: "Bluey Season 1", resource: "Bluey Season 1", url: "https://www.disneyplus.com/search?q=Bluey" },
-  { start: 151, end: 205, level: "Level 4 / A2+", phase: "Peppa Pig", resource: "Peppa Pig", url: "https://www.youtube.com/results?search_query=Peppa+Pig+English" },
-  { start: 206, end: 275, level: "Level 5 / B1", phase: "TED-Ed", resource: "TED-Ed easy topics", url: "https://ed.ted.com/lessons" },
-  { start: 276, end: 334, level: "Level 6 / B1+", phase: "Modern Family", resource: "Modern Family selected episodes", url: "https://www.hulu.com/search?q=Modern+Family" }
+  { start: 1, end: 30, level: "A2激活", phase: "声音激活：1分钟场景", resource: "把认识的词接到真实声音上", url: "https://www.hulu.com/search?q=Modern+Family" },
+  { start: 31, end: 80, level: "A2+", phase: "场景流利：3分钟片段", resource: "按句块听，开始角色互换", url: "https://www.hulu.com/search?q=Modern+Family" },
+  { start: 81, end: 120, level: "B1-", phase: "连续理解：5分钟片段", resource: "拉长连续理解，减少字幕", url: "https://www.hulu.com/search?q=Modern+Family" },
+  { start: 121, end: 160, level: "B1", phase: "整集听力：即时回应", resource: "整集听主线，对台词作回应", url: "https://www.hulu.com/search?q=Modern+Family" },
+  { start: 161, end: 200, level: "B1+", phase: "生活迁移：独立表达", resource: "迁移到工作、购物、就医、电话和社交", url: "https://www.hulu.com/search?q=Modern+Family" }
 ];
 
 const grammarLessons = [
@@ -1572,36 +1571,29 @@ function getGrammarLesson(day = state.currentDay) {
 
 function getCourseDay(day) {
   const phase = getPhase(day);
-  const isReview = day % 7 === 0;
-  const grammar = getGrammarLesson(day);
-  const episode = phase.phase.includes("Beginner")
-    ? ((day - 1) % 80) + 1
-    : phase.phase.includes("Intermediate")
-      ? ((day - 35) % 80) + 1
-      : phase.phase.includes("Bluey")
-        ? ((day - 85) % 52) + 1
-        : phase.phase.includes("Peppa")
-          ? ((day - 151) % 52) + 1
-          : phase.phase.includes("TED")
-            ? ((day - 206) % 70) + 1
-            : ((day - 276) % 24) + 1;
-
-  const mainTitle = isReview ? "本周复习，不学新材料" : `${phase.resource} 第 ${episode} 集`;
+  const isReview = day % 10 === 0;
+  const unit = Math.floor((day - 1) / 5) + 1;
+  const season = unit <= 24 ? 1 : 2;
+  const episode = unit <= 24 ? unit : unit - 24;
+  const cycleDay = ((day - 1) % 5) + 1;
+  const cycleFocus = ["画面理解与选核心片段", "英文字幕拆音与句块", "跟读模仿与角色互换", "关字幕复听与即时回应", "整集纯听与复述验收"];
+  const mainTitle = isReview ? "两集复盘与生活口语验收" : `Modern Family S${season}E${episode} · 第${cycleDay}练：${cycleFocus[cycleDay - 1]}`;
   const tasks = isReview
     ? [
-        ["review", "复习本周输入", 50, "重看最简单和最难的片段。"],
-        ["words", "复习生词本", 30, "先复习到期词，不加太多新词。"],
-        ["speak", "本周口语复盘", 35, "用英语说 2 分钟本周做了什么。"],
-        ["journal", "本周英文日记", 25, "写 5 到 10 句，短句就行。"],
-        ["ai", "AI 老师小测", 40, "复制复盘提示给 AI，让它测你。"]
+        ["work-current", "上班听：最近两集复习", 90, "循环最近两集核心片段，听见一句就接下一句。"],
+        ["work-spaced", "上班听：旧片段间隔复习", 90, "复听两周前的片段，检查能否直接听懂。"],
+        ["video-hard", "晚上看：难点场景复盘", 45, "先关字幕，再用英文字幕核对。"],
+        ["shadow", "晚上练：跟读校准", 30, "模仿10句的重音、连读、停顿和情绪。"],
+        ["test", "晚上测：生活角色扮演", 45, "完成情景对话和3分钟录音复述。"]
       ]
     : [
-        ["input", mainTitle, 45, "第一遍不暂停、不查词，只靠画面理解大意。"],
-        ["intensive", "第二遍精听", 35, "开英文字幕重看，挑一小段反复听。"],
-        ["shadow", "跟读模仿", 20, "挑 3 到 5 句，模仿节奏和语气。"],
-        ["words", "今日 10 词", 20, "只记录高频、生活里真会用的词。"],
-        ["grammar", `语法：${grammar.title}`, 15, `${grammar.pattern}。${grammar.task}`],
-        ["output", "输出和日记", 45, "口语 20 分钟，日记 5 到 10 句。"]
+        ["video-first", `晚上看：${mainTitle}`, 25, "先抓人物、目的、冲突和结果，不暂停。"],
+        ["video-subtitle", "英文字幕精听", 35, "定位连读和弱读，禁止中文字幕。"],
+        ["video-shadow", "跟读与角色模仿", 25, "暂停跟读，再关字幕替一个角色说。"],
+        ["video-output", "句块迁移与口语录音", 35, "只收5个高频句块，换成自己的生活。"],
+        ["work-core", "上班听：今日核心片段", 60, "不看屏幕循环已看片段，先听懂再跟说。"],
+        ["work-spaced", "上班听：旧片段间隔复习", 60, "复听前1天、前3天、前7天的片段。"],
+        ["work-episode", "上班听：整集音频与口头复述", 60, "每段结束用简单英语说人物、问题和结果。"]
       ];
   return { day, phase, mainTitle, tasks: tasks.map(([id, title, minutes, detail]) => ({ id: `d${day}-${id}`, title, minutes, detail })) };
 }
@@ -1823,7 +1815,7 @@ function autoAdvanceDayIfNeeded() {
   const today = localDayKey();
   let advanced = false;
   let guard = 0;
-  while (state.currentDay < 334 && isCourseDayComplete(state.currentDay) && guard < 7) {
+  while (state.currentDay < 200 && isCourseDayComplete(state.currentDay) && guard < 7) {
     const completionDate = inferCompletionDate(state.currentDay);
     if (!completionDate || completionDate === today) break;
     const from = state.currentDay;
@@ -1900,7 +1892,7 @@ function setUnderstanding(value) {
 
 function understandingAdvice(value) {
   if (value >= 80) return "可以升级：下次少看字幕，更多靠耳朵和画面理解。";
-  if (value >= 60) return "正合适：继续当前难度，不急着换美剧。";
+  if (value >= 60) return "正合适：继续当前片段长度，下一轮减少字幕。";
   if (value >= 40) return "能继续：先保留画面理解，不要停下来查太多词。";
   return "还没评分：看完第一遍后，按真实感觉选 40%、60% 或 80%。";
 }
@@ -1909,18 +1901,20 @@ function getDailySupport(course) {
   const dailyPhrases = getDailyPhrases(course.day);
   const words = getDailyWords(course.day);
   const grammar = getGrammarLesson(course.day);
-  const subtitleRule = course.day < 85
-    ? "第一遍不看字幕，第二遍英文字幕。不要开中文字幕。"
-    : course.day < 206
-      ? "英文字幕为主，听懂的片段关字幕复听。"
-      : "先英文字幕，再挑 5 分钟无字幕复听。";
+  const subtitleRule = course.day <= 30
+    ? "第一遍靠画面，第二遍英文字幕，最后关字幕复听；禁止中文字幕。"
+    : course.day <= 80
+      ? "只在核对声音时开英文字幕；3分钟核心片段必须关字幕复听。"
+      : course.day <= 120
+        ? "先无字幕听5分钟，英文字幕只用来核对漏听；禁止中文字幕。"
+        : "整集先纯听抓主线，只回看真正影响理解的场景。";
   return {
     subtitleRule,
-    earlyFinish: "今天提前完成，不直接冲下一天。先复习到期词、跟读今日句子、补一段英文日记。连续性比贪多重要。",
+    earlyFinish: "今天提前完成，不冲下一集。复听前1天、前3天、前7天片段；额外工作听力可以做，但不虚增核心进度。",
     grammar,
     words,
     phrases: dailyPhrases.items,
-    aiPrompt: `我是 Jacob，正在执行 English1000 Life。今天是 Day ${course.day}，阶段是 ${course.phase.phase}，材料是 ${course.mainTitle}。今日语法是：${grammar.title}（${grammar.pattern}）。请用简单英语测试我：1）问我今天视频大意；2）抽查这10个词：${words.join(", ")}；3）让我跟读这几句：${dailyPhrases.items.join(" / ")}；4）用今日语法让我造3句；5）最后用中文告诉我明天是否该升级、保持、还是降难度。`
+    aiPrompt: `我是 Jacob，约2000词汇量，有高中语法基础，目标是在美国用英语生活。今天是 English1000 Day ${course.day}，材料是 ${course.mainTitle}。请做20分钟生活口语训练：1）让我用英语复述剧情；2）扮演剧中人物和我对话；3）把场景换成工作、购物、就医、电话或社交；4）只纠正影响理解或很不自然的错误；5）最后留下5个我能直接使用的句块。`
   };
 }
 
@@ -2718,7 +2712,7 @@ function nextBestAction(course, log) {
   if (wordsDue > 0) return ["复习20个到期词", "词很多没关系，今天最多20个。", "words"];
   if (!log.workout.length) return ["做10分钟保底训练", "深蹲、俯卧撑、拉伸，完成就算赢。", "life"];
   if (!log.journal.trim()) return ["写5句日记", "用短句记录今天，不追求文采。", "life"];
-  if (minutes < 180) return ["补一点精听", "提前完成不冲下一天，回精听复习句子。", "player"];
+  if (minutes < 300) return ["补足核心训练", "先完成晚上120分钟和上班结构化听力180分钟。", "player"];
   return ["今天可以收工", "英语、单词、训练、日记都稳了。", "home"];
 }
 
@@ -2735,7 +2729,7 @@ function renderHome() {
   const remainingHours = Math.max(0, 1000 - totalHours);
   const streak = studyStreakDays();
   const todayMinutes = totalStudyToday();
-  const remainingToday = Math.max(0, 180 - todayMinutes);
+  const remainingToday = Math.max(0, 300 - todayMinutes);
   const todaySpending = log.expenses.reduce((sum, item) => sum + Number(item.amount || 0), 0);
   const closeout = [
     ["英语主线", percent >= 100, "today"],
@@ -3323,7 +3317,7 @@ function renderRoadmap() {
     <section class="card">
       <p class="kicker">1000小时路线</p>
       <h1>只按一条主线走</h1>
-      <p class="body">不要再来回换教材。每个阶段都有进入、退出和复习标准。</p>
+      <p class="body">唯一主教材是 Modern Family。200天，每天5个核心小时；难度靠片段长度、字幕和输出要求递增。</p>
     </section>
     ${phases.map((phase, index) => {
       const active = phase.phase === current.phase;
@@ -3334,7 +3328,7 @@ function renderRoadmap() {
           <h2>${phase.phase}</h2>
           <p class="body">${phase.resource}</p>
           <ul class="clean-list">
-            <li>${index === 0 ? "建立耳朵，不查词，不急着说。" : index === 1 ? "继续可理解输入，开始增加生活句子。" : index === 2 ? "进入真实家庭生活英语，英文字幕为主。" : index === 3 ? "用儿童生活场景补词汇，不要死磕每一句。" : index === 4 ? "接触成人兴趣内容，训练说明类英语。" : "进入真人语速，为YouTube和美国生活做准备。"}</li>
+            <li>${phase.resource}</li>
             <li>状态：${done ? "已完成" : active ? "当前阶段" : "后面再做，不提前跳。"}</li>
           </ul>
           <div class="button-row">
@@ -3359,7 +3353,7 @@ function renderLearningHub() {
     ["chunks", "句块库", "going to / want to / point A at B 这种放这里。", "解决认识单词但听不懂句子。"],
     ["notebook", "问题本", `${notebookDue} 条到期复习。`, "你问过我的，才是真不会的。"],
     ["ai", "AI 老师", "复制今日测试、跟读、句块训练提示。", "把输入变成输出。"],
-    ["roadmap", "路线图", "Dreaming -> Bluey -> Peppa -> TED-Ed -> Modern Family。", "防止乱换教材。"]
+    ["roadmap", "路线图", "Modern Family 单一主线，片段到整集，再迁移到生活。", "防止乱换教材。"]
   ];
 
   return `
@@ -3651,7 +3645,7 @@ function renderSettings() {
     </section>
     <section class="card">
       <h2>跳转 Day</h2>
-      <input id="jumpDay" type="number" min="1" max="334" value="${state.currentDay}" />
+      <input id="jumpDay" type="number" min="1" max="200" value="${state.currentDay}" />
       <div class="button-row">
         <button class="primary" id="jumpButton">跳转</button>
         <button class="danger" id="clearLocal">清空本网页数据</button>
@@ -4183,7 +4177,7 @@ function bindEvents() {
   const prevDay = document.querySelector("#prevDay");
   if (prevDay) prevDay.addEventListener("click", () => { state.currentDay = Math.max(1, state.currentDay - 1); saveState(); render(); });
   const nextDay = document.querySelector("#nextDay");
-  if (nextDay) nextDay.addEventListener("click", () => { state.currentDay = Math.min(334, state.currentDay + 1); saveState(); render(); });
+  if (nextDay) nextDay.addEventListener("click", () => { state.currentDay = Math.min(200, state.currentDay + 1); saveState(); render(); });
   const copyBackup = document.querySelector("#copyBackup");
   if (copyBackup) copyBackup.addEventListener("click", () => { exportBackup(); alert("备份已复制"); });
   const restoreBackup = document.querySelector("#restoreBackup");
@@ -4204,7 +4198,7 @@ function bindEvents() {
   });
   const jumpButton = document.querySelector("#jumpButton");
   if (jumpButton) jumpButton.addEventListener("click", () => {
-    state.currentDay = Math.max(1, Math.min(334, Number(document.querySelector("#jumpDay").value) || 1));
+    state.currentDay = Math.max(1, Math.min(200, Number(document.querySelector("#jumpDay").value) || 1));
     saveState();
     render();
   });
